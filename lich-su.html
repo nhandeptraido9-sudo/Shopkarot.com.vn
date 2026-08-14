@@ -1,10 +1,1 @@
-<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lịch sử mua - SHOPKAROT</title><link rel="stylesheet" href="assets/style.css"></head>
-<body><header class="header"><a class="logo" href="index.html">SHOP<span>KAROT</span></a><nav><a href="index.html">🏠 Trang chủ</a><a href="acc-game.html">🎮 Acc Game</a><a href="tui-mu.html">🎁 Túi Mù</a><a class="active" href="lich-su.html">🧾 Lịch sử mua</a><a href="nap-tien.html">💰 Nạp tiền</a></nav><div class="userbox"><span id="welcome"></span><a id="loginLink" href="login.html">Đăng nhập</a></div></header>
-<main class="container"><h1>🧾 Lịch sử mua</h1><div id="orders"></div></main><footer>© 2026 SHOPKAROT</footer>
-<script>
-if(!localStorage.getItem('shopkarot_user')) location.href='login.html';
-const orders=JSON.parse(localStorage.getItem('shopkarot_orders')||'[]');
-const box=document.getElementById('orders');
-box.innerHTML=orders.length?orders.map(o=>`<div class="order"><div><b>${o.name}</b><p>Mã đơn: ${o.id} • ${o.date}</p><strong>${o.price}</strong></div><div class="credentials"><span>Tài khoản: <b>${o.account}</b></span><span>Mật khẩu: <b>${o.password}</b></span></div></div>`).join(''):'<div class="card">Chưa có đơn hàng.</div>';
-</script><script src="assets/shop.js"></script></body></html>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lịch sử - SHOPKAROT</title><link rel="stylesheet" href="assets/style.css"></head><body><main class="wrap"><h1>🧾 LỊCH SỬ MUA</h1><div class="notice"><p>Đơn hàng demo sẽ hiển thị tại đây khi hệ thống mua hàng thật được kết nối.</p><a href="index.html">← Về trang chủ</a></div></main></body></html>
