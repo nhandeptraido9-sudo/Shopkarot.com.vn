@@ -14,7 +14,7 @@
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f1f5f9;
+    background:#f3f6fa;
     color:#172033;
 }
 
@@ -22,47 +22,46 @@ a{
     text-decoration:none;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .header{
-    background:white;
-    border-bottom:1px solid #e5e7eb;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-    padding:15px 20px;
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
     position:sticky;
     top:0;
     z-index:1000;
-}
-
-.header-inner{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    gap:15px;
 }
 
 .logo{
     display:flex;
     align-items:center;
     gap:10px;
+    min-width:275px;
     color:#111;
 }
 
 .logo-icon{
-    width:48px;
-    height:48px;
+    width:55px;
+    height:55px;
     border-radius:50%;
     background:linear-gradient(135deg,#111,#e21b23);
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
+    font-size:18px;
     font-weight:900;
 }
 
 .logo-text b{
-    font-size:24px;
+    display:block;
+    font-size:29px;
     font-style:italic;
 }
 
@@ -72,17 +71,142 @@ a{
 
 .logo-text small{
     display:block;
-    font-size:9px;
+    font-size:10px;
     font-weight:bold;
     margin-top:3px;
 }
 
-.search{
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:white;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* ================= USER ================= */
+
+.user{
     margin-left:auto;
-    width:300px;
-    max-width:40%;
-    padding:12px 15px;
-    border:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:white;
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
+}
+
+/* ================= PAGE TOP ================= */
+
+.page-top{
+    background:white;
+    padding:22px;
+    border-radius:17px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    margin-bottom:15px;
+}
+
+.page-top h1{
+    margin:0;
+    font-size:26px;
+}
+
+.page-top p{
+    margin:8px 0 0;
+    color:#64748b;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 4px 18px rgba(0,0,0,.07);
+    margin-bottom:15px;
+}
+
+.search{
+    width:100%;
+    padding:13px 15px;
+    border:1px solid #dfe3e8;
     border-radius:10px;
     outline:none;
     font-size:14px;
@@ -92,101 +216,70 @@ a{
     border-color:#e21b23;
 }
 
-/* CONTAINER */
+/* ================= CATEGORY ================= */
 
-.container{
-    width:95%;
-    max-width:1200px;
-    margin:25px auto;
-}
-
-/* TITLE */
-
-.page-title{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
-}
-
-.page-title h1{
-    margin:0;
-    font-size:25px;
-}
-
-.page-title p{
-    margin:8px 0 0;
-    color:#64748b;
-}
-
-/* FILTER */
-
-.filter{
-    background:white;
-    padding:15px;
-    border-radius:15px;
-    margin-bottom:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
+.category{
     display:flex;
-    gap:10px;
     flex-wrap:wrap;
+    gap:10px;
+    margin-top:12px;
 }
 
-.filter button{
+.category button{
     border:1px solid #ddd;
     background:white;
-    padding:10px 16px;
+    padding:9px 15px;
     border-radius:9px;
     cursor:pointer;
     font-weight:bold;
 }
 
-.filter button:hover,
-.filter button.active{
-    background:#e21b23;
+.category button:hover,
+.category button.active{
+    background:#d01018;
     color:white;
-    border-color:#e21b23;
+    border-color:#d01018;
 }
 
-/* GRID */
+/* ================= ACC GRID ================= */
 
 .acc-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:16px;
+    gap:15px;
 }
 
-/* CARD */
+/* ================= ACC CARD ================= */
 
 .acc-card{
     background:white;
-    border-radius:14px;
+    border-radius:15px;
     overflow:hidden;
-    border:1px solid #e5e7eb;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
+    border:1px solid #e4e7eb;
+    box-shadow:0 4px 18px rgba(0,0,0,.07);
     transition:.2s;
 }
 
 .acc-card:hover{
     transform:translateY(-4px);
-    box-shadow:0 8px 22px rgba(0,0,0,.12);
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
 .acc-image{
-    height:150px;
+    width:100%;
+    height:155px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    color:white;
-    font-size:25px;
-    font-weight:900;
+    align-items:center;
     text-align:center;
+    color:white;
+    font-size:22px;
+    font-weight:1000;
     text-shadow:2px 2px 5px #000;
 }
 
 .blox{
-    background:linear-gradient(135deg,#26005f,#8b3dff);
+    background:linear-gradient(135deg,#27006e,#913bff);
 }
 
 .king{
@@ -194,23 +287,23 @@ a{
 }
 
 .anime{
-    background:linear-gradient(135deg,#08733a,#63d52b);
+    background:linear-gradient(135deg,#08733a,#62d52b);
 }
 
 .mm2{
-    background:linear-gradient(135deg,#4d0000,#ed2222);
-}
-
-.grow{
-    background:linear-gradient(135deg,#166534,#84cc16);
+    background:linear-gradient(135deg,#560000,#ec2424);
 }
 
 .grow2{
     background:linear-gradient(135deg,#14532d,#a3e635);
 }
 
+.request{
+    background:linear-gradient(135deg,#111827,#dc2626);
+}
+
 .acc-info{
-    padding:14px;
+    padding:15px;
 }
 
 .acc-name{
@@ -222,48 +315,54 @@ a{
 .acc-desc{
     color:#64748b;
     font-size:13px;
-    margin-bottom:10px;
+    line-height:1.4;
 }
 
-.price{
+.acc-price{
+    margin-top:10px;
     color:#e21b23;
     font-size:18px;
     font-weight:bold;
 }
 
-.stock{
+.acc-status{
+    display:inline-block;
+    margin-top:7px;
+    padding:5px 10px;
+    border-radius:20px;
+    background:#ecfdf5;
     color:#16a34a;
-    font-size:12px;
+    font-size:11px;
     font-weight:bold;
-    margin-top:5px;
 }
 
-.buy-button{
+.acc-button{
     display:block;
-    text-align:center;
-    background:#b30f15;
-    color:white;
-    padding:11px;
-    border-radius:8px;
     margin-top:12px;
+    padding:11px;
+    border-radius:9px;
+    background:#a80e12;
+    color:white;
+    text-align:center;
+    font-size:13px;
     font-weight:bold;
 }
 
-.buy-button:hover{
-    background:#e21b23;
+.acc-button:hover{
+    background:#d0161d;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
+    padding:35px 20px;
     text-align:center;
-    padding:35px 15px;
-    color:#64748b;
+    color:#687386;
 }
 
-/* MOBILE */
+/* ================= RESPONSIVE ================= */
 
-@media(max-width:1000px){
+@media(max-width:1200px){
 
     .acc-grid{
         grid-template-columns:repeat(3,1fr);
@@ -271,17 +370,7 @@ footer{
 
 }
 
-@media(max-width:750px){
-
-    .header-inner{
-        flex-wrap:wrap;
-    }
-
-    .search{
-        order:3;
-        max-width:100%;
-        width:100%;
-    }
+@media(max-width:900px){
 
     .acc-grid{
         grid-template-columns:repeat(2,1fr);
@@ -289,7 +378,32 @@ footer{
 
 }
 
-@media(max-width:450px){
+@media(max-width:650px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        display:none;
+    }
+
+    .container{
+        width:94%;
+    }
 
     .acc-grid{
         grid-template-columns:1fr;
@@ -301,104 +415,173 @@ footer{
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-    <div class="header-inner">
+    <a href="index.html" class="logo">
 
-        <a href="index.html" class="logo">
+        <div class="logo-icon">
+            SK
+        </div>
 
-            <div class="logo-icon">
-                SK
-            </div>
+        <div class="logo-text">
+            <b>SHOP<span>KAROT</span></b>
+            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+        </div>
 
-            <div class="logo-text">
-                <b>SHOP<span>KAROT</span></b>
-                <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
-            </div>
+    </a>
 
-        </a>
 
-        <input
-            type="text"
-            id="search"
-            class="search"
-            placeholder="🔎 Tìm kiếm acc..."
-            onkeyup="searchAcc()"
-        >
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu.html">
+                🎁 TÚI MÙ
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="user">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Khách
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
 
     </div>
 
 </header>
 
 
-<!-- MAIN -->
+<!-- ================= MAIN ================= -->
 
 <main class="container">
 
-    <section class="page-title">
+
+    <section class="page-top">
 
         <h1>
             🎮 ACC GAME
         </h1>
 
         <p>
-            Danh sách tài khoản game đang bán tại SHOPKAROT
+            Danh sách acc game tại SHOPKAROT
         </p>
 
     </section>
 
 
-    <!-- FILTER -->
+    <!-- ================= SEARCH ================= -->
 
-    <div class="filter">
+    <section class="search-box">
 
-        <button
-            class="active"
-            onclick="filterGame('all',this)">
-            Tất cả
-        </button>
-
-        <button
-            onclick="filterGame('blox',this)">
-            Blox Fruits
-        </button>
-
-        <button
-            onclick="filterGame('king',this)">
-            King Legacy
-        </button>
-
-        <button
-            onclick="filterGame('anime',this)">
-            Anime Fighters
-        </button>
-
-        <button
-            onclick="filterGame('mm2',this)">
-            Murder Mystery 2
-        </button>
-
-        <button
-            onclick="filterGame('grow2',this)">
-            Grow A Garden 2
-        </button>
-
-    </div>
+        <input
+            type="text"
+            id="search"
+            class="search"
+            placeholder="🔎 Tìm kiếm acc game..."
+            onkeyup="searchAcc()"
+        >
 
 
-    <!-- ACC LIST -->
+        <div class="category">
 
-    <div class="acc-grid" id="accGrid">
+            <button
+                class="active"
+                onclick="filterGame('all',this)">
+                Tất cả
+            </button>
+
+            <button
+                onclick="filterGame('blox',this)">
+                Blox Fruits
+            </button>
+
+            <button
+                onclick="filterGame('king',this)">
+                King Legacy
+            </button>
+
+            <button
+                onclick="filterGame('anime',this)">
+                Anime Fighters
+            </button>
+
+            <button
+                onclick="filterGame('mm2',this)">
+                Murder Mystery 2
+            </button>
+
+            <button
+                onclick="filterGame('grow2',this)">
+                Grow A Garden 2
+            </button>
+
+            <button
+                onclick="filterGame('request',this)">
+                ACC BLOX FRUITS YÊU CẦU
+            </button>
+
+        </div>
+
+    </section>
 
 
-        <!-- ACC 001 -->
+    <!-- ================= ACC ================= -->
+
+    <section class="acc-grid" id="accGrid">
+
+
+        <!-- BLOX FRUITS -->
 
         <article
             class="acc-card"
             data-game="blox"
-            data-name="Blox Fruits">
+            data-name="blox fruits">
 
             <div class="acc-image blox">
                 BLOX<br>FRUITS
@@ -407,26 +590,26 @@ footer{
             <div class="acc-info">
 
                 <div class="acc-name">
-                    Blox Fruits #001
+                    Blox Fruits
                 </div>
 
                 <div class="acc-desc">
-                    👤 Tài khoản Blox Fruits
+                    👥 Acc game Blox Fruits
                 </div>
 
-                <div class="price">
-                    20.000đ
+                <div class="acc-price">
+                    Nhiều mức giá
                 </div>
 
-                <div class="stock">
-                    ● Còn hàng
-                </div>
+                <span class="acc-status">
+                    ● Sẵn sàng
+                </span>
 
                 <a
                     href="#"
-                    class="buy-button"
-                    onclick="buyAcc(event,'Blox Fruits #001')">
-                    MUA NGAY
+                    class="acc-button"
+                    onclick="openGame(event,'Blox Fruits')">
+                    XEM ACC →
                 </a>
 
             </div>
@@ -434,53 +617,12 @@ footer{
         </article>
 
 
-        <!-- ACC 002 -->
-
-        <article
-            class="acc-card"
-            data-game="blox"
-            data-name="Blox Fruits">
-
-            <div class="acc-image blox">
-                BLOX<br>FRUITS
-            </div>
-
-            <div class="acc-info">
-
-                <div class="acc-name">
-                    Blox Fruits #002
-                </div>
-
-                <div class="acc-desc">
-                    👤 Tài khoản Blox Fruits
-                </div>
-
-                <div class="price">
-                    30.000đ
-                </div>
-
-                <div class="stock">
-                    ● Còn hàng
-                </div>
-
-                <a
-                    href="#"
-                    class="buy-button"
-                    onclick="buyAcc(event,'Blox Fruits #002')">
-                    MUA NGAY
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <!-- ACC 003 -->
+        <!-- KING LEGACY -->
 
         <article
             class="acc-card"
             data-game="king"
-            data-name="King Legacy">
+            data-name="king legacy">
 
             <div class="acc-image king">
                 KING<br>LEGACY
@@ -489,26 +631,26 @@ footer{
             <div class="acc-info">
 
                 <div class="acc-name">
-                    King Legacy #001
+                    King Legacy
                 </div>
 
                 <div class="acc-desc">
-                    👤 Tài khoản King Legacy
+                    👥 Acc game King Legacy
                 </div>
 
-                <div class="price">
-                    25.000đ
+                <div class="acc-price">
+                    Nhiều mức giá
                 </div>
 
-                <div class="stock">
-                    ● Còn hàng
-                </div>
+                <span class="acc-status">
+                    ● Sẵn sàng
+                </span>
 
                 <a
                     href="#"
-                    class="buy-button"
-                    onclick="buyAcc(event,'King Legacy #001')">
-                    MUA NGAY
+                    class="acc-button"
+                    onclick="openGame(event,'King Legacy')">
+                    XEM ACC →
                 </a>
 
             </div>
@@ -516,12 +658,12 @@ footer{
         </article>
 
 
-        <!-- ACC 004 -->
+        <!-- ANIME FIGHTERS -->
 
         <article
             class="acc-card"
             data-game="anime"
-            data-name="Anime Fighters">
+            data-name="anime fighters">
 
             <div class="acc-image anime">
                 ANIME<br>FIGHTERS
@@ -530,26 +672,26 @@ footer{
             <div class="acc-info">
 
                 <div class="acc-name">
-                    Anime Fighters #001
+                    Anime Fighters
                 </div>
 
                 <div class="acc-desc">
-                    👤 Tài khoản Anime Fighters
+                    👥 Acc game Anime Fighters
                 </div>
 
-                <div class="price">
-                    20.000đ
+                <div class="acc-price">
+                    Nhiều mức giá
                 </div>
 
-                <div class="stock">
-                    ● Còn hàng
-                </div>
+                <span class="acc-status">
+                    ● Sẵn sàng
+                </span>
 
                 <a
                     href="#"
-                    class="buy-button"
-                    onclick="buyAcc(event,'Anime Fighters #001')">
-                    MUA NGAY
+                    class="acc-button"
+                    onclick="openGame(event,'Anime Fighters')">
+                    XEM ACC →
                 </a>
 
             </div>
@@ -557,12 +699,12 @@ footer{
         </article>
 
 
-        <!-- ACC 005 -->
+        <!-- MURDER MYSTERY 2 -->
 
         <article
             class="acc-card"
             data-game="mm2"
-            data-name="Murder Mystery 2">
+            data-name="murder mystery 2">
 
             <div class="acc-image mm2">
                 MURDER<br>MYSTERY 2
@@ -571,26 +713,26 @@ footer{
             <div class="acc-info">
 
                 <div class="acc-name">
-                    MM2 #001
+                    Murder Mystery 2
                 </div>
 
                 <div class="acc-desc">
-                    👤 Tài khoản Murder Mystery 2
+                    👥 Acc game MM2
                 </div>
 
-                <div class="price">
-                    25.000đ
+                <div class="acc-price">
+                    Nhiều mức giá
                 </div>
 
-                <div class="stock">
-                    ● Còn hàng
-                </div>
+                <span class="acc-status">
+                    ● Sẵn sàng
+                </span>
 
                 <a
                     href="#"
-                    class="buy-button"
-                    onclick="buyAcc(event,'Murder Mystery 2 #001')">
-                    MUA NGAY
+                    class="acc-button"
+                    onclick="openGame(event,'Murder Mystery 2')">
+                    XEM ACC →
                 </a>
 
             </div>
@@ -598,12 +740,12 @@ footer{
         </article>
 
 
-        <!-- ACC 006 -->
+        <!-- GROW A GARDEN 2 -->
 
         <article
             class="acc-card"
             data-game="grow2"
-            data-name="Grow A Garden 2">
+            data-name="grow a garden 2">
 
             <div class="acc-image grow2">
                 GROW A<br>GARDEN 2
@@ -612,26 +754,25 @@ footer{
             <div class="acc-info">
 
                 <div class="acc-name">
-                    Grow A Garden 2 #001
+                    Grow A Garden 2
                 </div>
 
                 <div class="acc-desc">
-                    👤 Tài khoản Grow A Garden 2
+                    👥 Acc game Grow A Garden 2
                 </div>
 
-                <div class="price">
-                    20.000đ
+                <div class="acc-price">
+                    Nhiều mức giá
                 </div>
 
-                <div class="stock">
-                    ● Còn hàng
-                </div>
+                <span class="acc-status">
+                    ● Sẵn sàng
+                </span>
 
                 <a
-                    href="#"
-                    class="buy-button"
-                    onclick="buyAcc(event,'Grow A Garden 2 #001')">
-                    MUA NGAY
+                    href="grow-a-garden-2.html"
+                    class="acc-button">
+                    XEM ACC →
                 </a>
 
             </div>
@@ -639,7 +780,47 @@ footer{
         </article>
 
 
-    </div>
+        <!-- ACC BLOX FRUITS YÊU CẦU -->
+
+        <article
+            class="acc-card"
+            data-game="request"
+            data-name="acc blox fruits yeu cau">
+
+            <div class="acc-image request">
+                ACC BLOX<br>FRUITS<br>YÊU CẦU
+            </div>
+
+            <div class="acc-info">
+
+                <div class="acc-name">
+                    ACC BLOX FRUITS YÊU CẦU
+                </div>
+
+                <div class="acc-desc">
+                    📝 Yêu cầu acc Blox Fruits theo nhu cầu
+                </div>
+
+                <div class="acc-price">
+                    Liên hệ
+                </div>
+
+                <span class="acc-status">
+                    ● Đang nhận yêu cầu
+                </span>
+
+                <a
+                    href="acc-blox-fruits-yeu-cau.html"
+                    class="acc-button">
+                    XEM YÊU CẦU →
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </section>
 
 </main>
 
@@ -651,7 +832,64 @@ footer{
 
 <script>
 
-/* ================= TÌM KIẾM ================= */
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener("click",function(event){
+
+    const menu =
+        document.querySelector(".menu");
+
+    if(!menu.contains(event.target)){
+
+        document
+            .getElementById("menuBox")
+            .classList.remove("show");
+
+    }
+
+});
+
+
+/* ================= USER ================= */
+
+const savedUser =
+    localStorage.getItem("shopkarot_user");
+
+if(savedUser){
+
+    document
+        .getElementById("username")
+        .textContent = savedUser;
+
+}
+
+
+/* ================= BALANCE ================= */
+
+const savedBalance =
+    localStorage.getItem("shopkarot_balance");
+
+if(savedBalance){
+
+    document
+        .getElementById("userBalance")
+        .textContent =
+        Number(savedBalance)
+        .toLocaleString("vi-VN") + "đ";
+
+}
+
+
+/* ================= SEARCH ================= */
 
 function searchAcc(){
 
@@ -673,9 +911,13 @@ function searchAcc(){
             .toLowerCase();
 
         if(name.includes(keyword)){
+
             card.style.display = "";
+
         }else{
+
             card.style.display = "none";
+
         }
 
     });
@@ -683,22 +925,29 @@ function searchAcc(){
 }
 
 
-/* ================= LỌC GAME ================= */
+/* ================= FILTER ================= */
 
 function filterGame(game,button){
 
-    const buttons =
-        document.querySelectorAll(".filter button");
+    document
+        .querySelectorAll(".category button")
+        .forEach(function(btn){
 
-    buttons.forEach(function(btn){
-        btn.classList.remove("active");
-    });
+            btn.classList.remove("active");
+
+        });
 
     button.classList.add("active");
 
 
+    document
+        .getElementById("search")
+        .value = "";
+
+
     const cards =
         document.querySelectorAll(".acc-card");
+
 
     cards.forEach(function(card){
 
@@ -721,15 +970,16 @@ function filterGame(game,button){
 }
 
 
-/* ================= MUA ACC ================= */
+/* ================= GAME ================= */
 
-function buyAcc(event,name){
+function openGame(event,name){
 
     event.preventDefault();
 
     alert(
-        "Bạn đã chọn mua: " + name +
-        "\n\nVui lòng đăng nhập và nạp tiền trước khi mua."
+        "Danh mục " +
+        name +
+        " đang được cập nhật."
     );
 
 }
