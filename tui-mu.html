@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Túi Mù - SHOPKAROT</title><link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<header class="header"><a class="logo" href="index.html">SHOP<span>KAROT</span></a><nav><a href="index.html">🏠 Trang chủ</a><a href="acc-game.html">🎮 Acc Game</a><a class="active" href="tui-mu.html">🎁 Túi Mù</a><a href="lich-su.html">🧾 Lịch sử mua</a><a href="nap-tien.html">💰 Nạp tiền</a></nav><div class="userbox"><span id="welcome"></span><a id="loginLink" href="login.html">Đăng nhập</a></div></header>
+<main class="container"><div class="section-head"><h1>🎁 Túi Mù</h1></div><div class="products">
+<script>
+const bags=[['Túi Mù 10K','10.000đ'],['Túi Mù 20K','20.000đ'],['Túi Mù 30K','30.000đ'],['Túi Mù 50K','50.000đ'],['Túi Mù 100K','100.000đ'],['Túi Mù 200K','200.000đ']];
+document.write(bags.map(p=>`<article class="product"><div class="emoji">🎁</div><h3>${p[0]}</h3><p>Nhận một phần thưởng ngẫu nhiên.</p><strong>${p[1]}</strong><button class="btn small" onclick="openBag('${p[0]}','${p[1]}')">Mở túi</button></article>`).join(''));
+function openBag(name,price){
+ if(!localStorage.getItem('shopkarot_user')){location.href='login.html';return;}
+ const rewards=['Acc Roblox Basic','Acc Roblox Premium','Acc Game Random'];
+ const reward=rewards[Math.floor(Math.random()*rewards.length)];
+ const id='SK'+Date.now(); let orders=JSON.parse(localStorage.getItem('shopkarot_orders')||'[]');
+ orders.unshift({id,name,price,reward,date:new Date().toLocaleString('vi-VN'),account:'gift_'+Math.floor(Math.random()*9000+1000),password:'gift_'+Math.floor(Math.random()*900000+100000)});
+ localStorage.setItem('shopkarot_orders',JSON.stringify(orders));
+ alert('Bạn nhận được: '+reward+'\\nMã đơn: '+id);
+ location.href='lich-su.html';
+}
+</script>
+</div></main><footer>© 2026 SHOPKAROT</footer><script src="assets/shop.js"></script></body></html>

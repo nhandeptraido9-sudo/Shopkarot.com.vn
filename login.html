@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Đăng nhập - SHOPKAROT</title><link rel="stylesheet" href="assets/style.css"></head>
+<body class="center">
+<div class="login">
+  <a class="logo centerlogo" href="index.html">SHOP<span>KAROT</span></a>
+  <h1>Đăng nhập</h1>
+  <p class="muted">Đăng nhập để sử dụng shop.</p>
+  <input id="username" placeholder="Tên đăng nhập">
+  <input id="password" type="password" placeholder="Mật khẩu">
+  <button class="btn full" onclick="login()">Đăng nhập</button>
+  <p id="msg" class="error"></p>
+  <p class="muted">Demo: nhập tên và mật khẩu bất kỳ (tối thiểu 3 ký tự).</p>
+</div>
+<script>
+function login(){
+ const u=document.getElementById('username').value.trim(), p=document.getElementById('password').value;
+ const msg=document.getElementById('msg');
+ if(u.length<3 || p.length<3){msg.textContent='Tên đăng nhập và mật khẩu phải từ 3 ký tự.';return;}
+ localStorage.setItem('shopkarot_user',u);
+ location.href='index.html';
+}
+</script>
+</body></html>

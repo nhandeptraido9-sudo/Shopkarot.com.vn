@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Acc Game - SHOPKAROT</title><link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<header class="header"><a class="logo" href="index.html">SHOP<span>KAROT</span></a><nav><a href="index.html">🏠 Trang chủ</a><a class="active" href="acc-game.html">🎮 Acc Game</a><a href="tui-mu.html">🎁 Túi Mù</a><a href="lich-su.html">🧾 Lịch sử mua</a><a href="nap-tien.html">💰 Nạp tiền</a></nav><div class="userbox"><span id="welcome"></span><a id="loginLink" href="login.html">Đăng nhập</a></div></header>
+<main class="container"><div class="section-head"><h1>🎮 Acc Game</h1></div><div class="products">
+<script>
+const products=[
+['ACC ROBLOX #001','20.000đ','Tài khoản Roblox ngẫu nhiên'],
+['ACC ROBLOX #002','30.000đ','Tài khoản Roblox ngẫu nhiên'],
+['ACC ROBLOX #003','50.000đ','Tài khoản Roblox ngẫu nhiên'],
+['ACC PREMIUM #001','100.000đ','Acc premium'],
+['ACC PREMIUM #002','150.000đ','Acc premium'],
+['ACC PREMIUM #003','200.000đ','Acc premium']
+];
+document.write(products.map((p,i)=>`<article class="product"><div class="emoji">🎮</div><h3>${p[0]}</h3><p>${p[2]}</p><strong>${p[1]}</strong><button class="btn small" onclick="buy('${p[0]}','${p[1]}')">Mua ngay</button></article>`).join(''));
+function buy(name,price){
+ if(!localStorage.getItem('shopkarot_user')){location.href='login.html';return;}
+ const id='SK'+Date.now(); let orders=JSON.parse(localStorage.getItem('shopkarot_orders')||'[]');
+ orders.unshift({id,name,price,date:new Date().toLocaleString('vi-VN'),account:'acc_demo_'+Math.floor(Math.random()*9000+1000),password:'pass_'+Math.floor(Math.random()*900000+100000)});
+ localStorage.setItem('shopkarot_orders',JSON.stringify(orders)); location.href='lich-su.html';
+}
+</script>
+</div></main><footer>© 2026 SHOPKAROT</footer><script src="assets/shop.js"></script></body></html>
