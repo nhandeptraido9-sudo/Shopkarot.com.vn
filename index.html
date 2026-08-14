@@ -269,7 +269,7 @@ a{
     font-weight:bold;
 }
 
-/* ================= TOP NAP ================= */
+/* ================= TOP NẠP ================= */
 
 .top-nap{
     background:#fff;
@@ -355,7 +355,7 @@ a{
     box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
 
-/* ================= NOTICE ================= */
+/* ================= THÔNG BÁO ================= */
 
 .notice{
     padding:22px;
@@ -367,9 +367,15 @@ a{
 }
 
 .notice p{
-    margin:14px 0;
+    margin:13px 0;
     font-size:15px;
     line-height:1.5;
+}
+
+.notice .thank{
+    text-align:center;
+    font-weight:bold;
+    margin-top:20px;
 }
 
 /* ================= FEATURED ================= */
@@ -598,7 +604,7 @@ footer{
 
     </a>
 
-    <!-- 3 GẠCH -->
+    <!-- NÚT 3 GẠCH -->
 
     <div class="menu">
 
@@ -609,9 +615,7 @@ footer{
             ☰
         </button>
 
-        <div
-            class="menu-box"
-            id="menuBox">
+        <div class="menu-box" id="menuBox">
 
             <a href="acc-game.html">
                 🎮
@@ -671,11 +675,9 @@ footer{
 
 <main class="container">
 
-
     <!-- ================= TOP ================= -->
 
     <section class="top">
-
 
         <!-- BANNER -->
 
@@ -694,7 +696,6 @@ footer{
                 <h2>
                     GIÁ RẺ - TỰ ĐỘNG - AN TOÀN
                 </h2>
-
 
                 <div class="badges">
 
@@ -724,7 +725,6 @@ footer{
 
                 </div>
 
-
                 <div class="social">
                     ♪ @shopkarot
                     &nbsp;&nbsp;
@@ -745,13 +745,6 @@ footer{
             <div class="top-nap-title">
                 🏆 TOP NẠP THÁNG 08/2026
             </div>
-
-            <!--
-                Ban đầu không hiện khách nào.
-                Khi có dữ liệu trong localStorage:
-                shopkarot_topnap
-                thì JavaScript sẽ tự hiện.
-            -->
 
             <div id="topNapList">
 
@@ -785,16 +778,24 @@ footer{
     <section class="content">
 
 
-        <!-- THÔNG BÁO -->
+        <!-- THÔNG TIN SHOPKAROT -->
 
         <aside class="card notice">
 
             <h2>
-                📣 THÔNG BÁO
+                📣 Thông tin Shopkarot
             </h2>
 
             <p>
-                🎁 Khuyến mãi tất cả đơn hàng tại SHOPKAROT.
+                Hiện tại đây shop chính thức của Karot các shop khác là giả mạo
+            </p>
+
+            <p>
+                Shop mình có bán nick và cày thuê Blox Fruits
+            </p>
+
+            <p>
+                <b>Mình có:</b>
             </p>
 
             <p>
@@ -806,11 +807,23 @@ footer{
             </p>
 
             <p>
-                💬 Mọi thắc mắc vui lòng liên hệ SHOPKAROT.
+                💬 Mọi thắc mắc vui lòng liên hệ Admin Shopkarot
             </p>
 
             <p>
-                ❤️ Cảm ơn bạn đã ủng hộ SHOPKAROT!
+                ShopKarot uy tín giá rẻ an toàn nạp tiền nhanh chóng
+            </p>
+
+            <p>
+                Thời hoạt động shop: 10h sáng – 8h tối
+            </p>
+
+            <p>
+                ⚠️ Lưu ý quan trọng nên nạp tiền khi admin on
+            </p>
+
+            <p class="thank">
+                🖤 Cảm ơn bạn đã ủng hộ SHOPKAROT!
             </p>
 
         </aside>
@@ -950,7 +963,6 @@ footer{
 
                 </article>
 
-
             </div>
 
         </section>
@@ -1004,9 +1016,7 @@ footer{
 
 <script>
 
-/* =====================================================
-   MENU 3 GẠCH
-===================================================== */
+/* ================= MENU ================= */
 
 function toggleMenu(){
 
@@ -1017,8 +1027,6 @@ function toggleMenu(){
 
 }
 
-
-/* Đóng menu khi click ra ngoài */
 
 document.addEventListener("click",function(event){
 
@@ -1036,9 +1044,7 @@ document.addEventListener("click",function(event){
 });
 
 
-/* =====================================================
-   ĐỌC TÊN ĐĂNG NHẬP
-===================================================== */
+/* ================= TÊN ĐĂNG NHẬP ================= */
 
 const savedUser =
     localStorage.getItem("shopkarot_user");
@@ -1052,9 +1058,7 @@ if(savedUser){
 }
 
 
-/* =====================================================
-   ĐỌC SỐ DƯ
-===================================================== */
+/* ================= SỐ DƯ ================= */
 
 const savedBalance =
     localStorage.getItem("shopkarot_balance");
@@ -1069,23 +1073,7 @@ if(savedBalance){
 }
 
 
-/* =====================================================
-   TOP NẠP
-
-   Dữ liệu được đọc từ:
-   localStorage key: shopkarot_topnap
-
-   Ví dụ dữ liệu:
-
-   [
-      {
-         "name":"abc******",
-         "money":520000
-      }
-   ]
-
-   Khi chưa có dữ liệu thì không hiện khách.
-===================================================== */
+/* ================= TOP NẠP ================= */
 
 function loadTopNap(){
 
@@ -1100,9 +1088,7 @@ function loadTopNap(){
             localStorage.getItem("shopkarot_topnap");
 
         if(saved){
-
             data = JSON.parse(saved);
-
         }
 
     }catch(error){
@@ -1111,8 +1097,6 @@ function loadTopNap(){
 
     }
 
-
-    /* Không có khách */
 
     if(!Array.isArray(data) || data.length === 0){
 
@@ -1131,11 +1115,8 @@ function loadTopNap(){
         `;
 
         return;
-
     }
 
-
-    /* Sắp xếp tiền từ cao xuống thấp */
 
     data.sort(function(a,b){
 
@@ -1144,8 +1125,6 @@ function loadTopNap(){
 
     });
 
-
-    /* Chỉ lấy TOP 5 */
 
     data = data.slice(0,5);
 
@@ -1200,9 +1179,7 @@ function loadTopNap(){
 }
 
 
-/* =====================================================
-   CHỐNG HTML TRONG TÊN KHÁCH
-===================================================== */
+/* ================= BẢO VỆ TÊN ================= */
 
 function escapeHTML(text){
 
@@ -1216,20 +1193,19 @@ function escapeHTML(text){
 }
 
 
-/* Chạy khi mở trang */
+/* ================= CHẠY TOP NẠP ================= */
 
 loadTopNap();
 
 
-/* Cập nhật nếu tab khác thay đổi dữ liệu */
+/* ================= ĐỒNG BỘ DỮ LIỆU ================= */
 
 window.addEventListener("storage",function(event){
 
     if(event.key === "shopkarot_topnap"){
-
         loadTopNap();
-
     }
+
 
     if(event.key === "shopkarot_user"){
 
@@ -1242,6 +1218,7 @@ window.addEventListener("storage",function(event){
             user || "Khách";
 
     }
+
 
     if(event.key === "shopkarot_balance"){
 
