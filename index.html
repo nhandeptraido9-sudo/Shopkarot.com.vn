@@ -125,10 +125,30 @@ a{text-decoration:none}
     color:#e21b23;
 }
 
+/* ================= QUAY LẠI SHOP CŨ ================= */
+
+.old-shop-btn{
+    margin-left:auto;
+    padding:12px 18px;
+    border:1px solid #e21b23;
+    border-radius:10px;
+    background:#fff;
+    color:#d01018;
+    font-size:13px;
+    font-weight:bold;
+    white-space:nowrap;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.old-shop-btn:hover{
+    background:#d01018;
+    color:#fff;
+}
+
 /* ================= USER ================= */
 
 .user{
-    margin-left:auto;
     display:flex;
     align-items:center;
     gap:9px;
@@ -534,7 +554,13 @@ footer{
         display:none;
     }
 
+    /* Ẩn nút quay lại trên điện thoại */
+    .old-shop-btn{
+        display:none;
+    }
+
     .user{
+        margin-left:auto;
         padding:6px 8px;
     }
 
@@ -651,6 +677,15 @@ footer{
         </div>
 
     </div>
+
+
+    <!-- QUAY LẠI SHOP CŨ -->
+
+    <a
+        href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html"
+        class="old-shop-btn">
+        ↩️ QUAY LẠI SHOP CŨ
+    </a>
 
 
     <!-- USER -->
