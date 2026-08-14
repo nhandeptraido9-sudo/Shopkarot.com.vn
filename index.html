@@ -1,8 +1,999 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHOPKAROT</title><link rel="stylesheet" href="style.css"></head><body>
-<header><a class="logo" href="index.html"><b>SHOP<span>KAROT</span></b><small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small></a><nav><a class="active" href="index.html">🏠 TRANG CHỦ</a><a href="acc-game.html">🎮 ACC GAME</a><a href="tui-mu.html">🎁 TÚI MÙ</a><a href="lich-su.html">🧾 LỊCH SỬ MUA</a><a href="nap-tien.html">💰 NẠP TIỀN</a><a href="ho-so.html">👤 HỒ SƠ</a></nav><div class="user">👤 <span id="user">Khách</span></div></header>
-<main>
-<section class="top"><div class="hero"><div class="heroText"><div class="brandBig">SHOP<span>KAROT</span></div><h1>SHOP ACC GAME UY TÍN</h1><h2>GIÁ RẺ - TỰ ĐỘNG - AN TOÀN</h2><div class="badges"><div>🛡️ <b>UY TÍN</b><small>Đặt uy tín lên hàng đầu</small></div><div>⚡ <b>TỰ ĐỘNG</b><small>Giao acc nhanh chóng</small></div><div>🏅 <b>AN TOÀN</b><small>Bảo hành đầy đủ</small></div></div><div class="social">♪ @shopkarot　 ▶ ShopKarot　 f /shopkarot.vn</div></div></div>
-<aside class="topup"><h2>🏆 TOP NẠP THÁNG 08/2026</h2><p>🥇 hun******** <b>+520.000đ</b></p><p>🥈 pho****** <b>+500.000đ</b></p><p>🥉 bin******** <b>+450.000đ</b></p><p>4️⃣ quy******** <b>+350.000đ</b></p><p>5️⃣ kha******* <b>+300.000đ</b></p><a href="nap-tien.html">💰 NẠP TIỀN NGAY ›</a></aside></section>
-<section class="middle"><aside class="notice"><h2>📣 THÔNG BÁO</h2><p>🎁 Khuyến mãi 10-30% tất cả đơn hàng khi mua ACC và Túi Mù!</p><p>🔥 Giao acc nhanh, kiểm tra thông tin ngay sau khi mua.</p><p>🛡️ Bảo hành theo chính sách từng sản phẩm.</p><p>💬 Mọi thắc mắc vui lòng liên hệ SHOPKAROT.</p><p>❤️ Cảm ơn bạn đã ủng hộ SHOPKAROT!</p></aside>
-<section class="featured"><div class="title"><h2>⭐ DANH MỤC NỔI BẬT</h2><a href="acc-game.html">Xem tất cả ›</a></div><div class="games"><article><div class="pic p1">BLOX<br>FRUITS</div><h3>Blox Fruits</h3><small>👥 1,234 acc</small><a href="acc-game.html">XEM NGAY</a></article><article><div class="pic p2">KING<br>LEGACY</div><h3>King Legacy</h3><small>👥 856 acc</small><a href="acc-game.html">XEM NGAY</a></article><article><div class="pic p3">ANIME<br>FIGHTERS</div><h3>Anime Fighters</h3><small>👥 642 acc</small><a href="acc-game.html">XEM NGAY</a></article><article><div class="pic p4">ALL STAR<br>TOWER</div><h3>All Star Tower</h3><small>👥 512 acc</small><a href="acc-game.html">XEM NGAY</a></article><article><div class="pic p5">MM2</div><h3>Murder Mystery 2</h3><small>👥 423 acc</small><a href="acc-game.html">XEM NGAY</a></article></div></section></section>
-<section class="stats"><div>🛒 <b>12,458+</b><small>Đơn hàng đã bán</small></div><div>👥 <b>8,652+</b><small>Khách hàng tin tưởng</small></div><div>🛡️ <b>100%</b><small>Bảo hành đầy đủ</small></div><div>◷ <b>10-30s</b><small>Giao acc tự động</small></div><div>🎧 <b>24/7</b><small>Hỗ trợ nhiệt tình</small></div></section></main><footer>© 2026 SHOPKAROT</footer><script>user.textContent=localStorage.getItem("shopkarot_user")||"Khách"</script></body></html>
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHOPKAROT - Shop Acc Game</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f5f8;
+    color:#18202d;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:20px;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    text-decoration:none;
+    color:#111;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:280px;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e71920);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e51c23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* MENU */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    border:0;
+    background:#fff;
+    cursor:pointer;
+    font-size:30px;
+    width:48px;
+    height:48px;
+    border-radius:10px;
+}
+
+.menu-button:hover{
+    background:#f1f1f1;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:245px;
+    background:white;
+    border-radius:14px;
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
+    padding:8px;
+    border:1px solid #eee;
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    text-decoration:none;
+    color:#202631;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* USER */
+
+.user{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 14px;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    background:white;
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#eee;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+.user-info b{
+    display:block;
+}
+
+.user-info small{
+    display:block;
+    color:#149447;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
+}
+
+/* ================= TOP ================= */
+
+.top{
+    display:grid;
+    grid-template-columns:2.15fr 1fr;
+    gap:15px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:445px;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    color:white;
+    background:
+        radial-gradient(circle at 75% 30%,#7e1010 0%,#260707 35%,#030303 75%);
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+}
+
+.hero:after{
+    content:"☠";
+    position:absolute;
+    right:8%;
+    bottom:-40px;
+    font-size:230px;
+    color:#ff2020;
+    opacity:.12;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:60px 50px;
+}
+
+.shop-big{
+    font-size:65px;
+    font-weight:1000;
+    font-style:italic;
+    letter-spacing:-3px;
+}
+
+.shop-big span{
+    color:#ed1c24;
+}
+
+.hero h1{
+    font-size:38px;
+    margin:8px 0;
+}
+
+.hero h2{
+    color:#ffd21a;
+    font-size:28px;
+    margin:15px 0 28px;
+}
+
+.badges{
+    display:flex;
+    gap:12px;
+}
+
+.badge{
+    min-width:175px;
+    padding:12px;
+    border:1px solid #ef2525;
+    border-radius:12px;
+    background:rgba(0,0,0,.65);
+    font-size:22px;
+}
+
+.badge b{
+    font-size:15px;
+}
+
+.badge small{
+    display:block;
+    font-size:11px;
+    margin:5px 0 0 30px;
+    color:#ddd;
+}
+
+.social{
+    display:inline-block;
+    margin-top:25px;
+    background:rgba(0,0,0,.7);
+    border:1px solid #555;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* ================= TOP NAP ================= */
+
+.top-nap{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 22px rgba(0,0,0,.1);
+}
+
+.top-nap-title{
+    background:#d01018;
+    color:#fff;
+    padding:19px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.rank{
+    padding:15px 22px;
+    border-bottom:1px solid #eee;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.rank b{
+    flex:1;
+}
+
+.rank strong{
+    color:#e11;
+}
+
+.rank:first-of-type{
+    background:#fff8dd;
+}
+
+.nap-button{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:#d01018;
+    color:white;
+    margin:20px;
+    padding:16px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    display:grid;
+    grid-template-columns:365px 1fr;
+    gap:15px;
+    margin-top:15px;
+}
+
+.card{
+    background:#fff;
+    border-radius:17px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+/* NOTICE */
+
+.notice{
+    padding:22px;
+}
+
+.notice h2{
+    margin-top:0;
+}
+
+.notice p{
+    line-height:1.5;
+    font-size:16px;
+}
+
+/* FEATURED */
+
+.featured{
+    padding:18px;
+}
+
+.title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.title h2{
+    margin:0 0 15px;
+}
+
+.title a{
+    color:#333;
+    text-decoration:none;
+}
+
+.games{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.game{
+    text-align:center;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.game-image{
+    height:135px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:25px;
+    font-weight:1000;
+    text-align:center;
+    text-shadow:2px 2px 4px #000;
+}
+
+.blox{
+    background:linear-gradient(135deg,#24006d,#963aff);
+}
+
+.king{
+    background:linear-gradient(135deg,#06325e,#1784dd);
+}
+
+.anime{
+    background:linear-gradient(135deg,#08743a,#62d42b);
+}
+
+.tower{
+    background:linear-gradient(135deg,#9b3d00,#ff9817);
+}
+
+.mm2{
+    background:linear-gradient(135deg,#560000,#ed2222);
+}
+
+.game h3{
+    font-size:15px;
+    margin:10px 4px 5px;
+}
+
+.game small{
+    color:#687386;
+}
+
+.game-button{
+    display:block;
+    margin:10px 16px;
+    padding:9px;
+    color:white;
+    background:#e21b23;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    margin-top:15px;
+    padding:22px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.stat{
+    display:grid;
+    grid-template-columns:45px 1fr;
+    align-items:center;
+    color:#e21b23;
+    font-size:25px;
+}
+
+.stat b{
+    font-size:20px;
+}
+
+.stat small{
+    grid-column:2;
+    color:#596577;
+    font-size:12px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#687386;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1100px){
+
+    .top{
+        grid-template-columns:1fr;
+    }
+
+    .content{
+        grid-template-columns:1fr;
+    }
+
+    .games{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        display:none;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .hero-content{
+        padding:40px 22px;
+    }
+
+    .shop-big{
+        font-size:45px;
+    }
+
+    .hero h1{
+        font-size:26px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .badges{
+        flex-direction:column;
+    }
+
+    .badge{
+        width:100%;
+    }
+
+    .games{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+            <b>SHOP<span>KAROT</span></b>
+            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+        </div>
+
+    </a>
+
+
+    <!-- NÚT 3 GẠCH -->
+
+    <div class="menu">
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div class="menu-box" id="menuBox">
+
+            <a href="acc-game.html">
+                🎮
+                <span>ACC GAME</span>
+            </a>
+
+            <a href="tui-mu.html">
+                🎁
+                <span>TÚI MÙ</span>
+            </a>
+
+            <a href="lich-su.html">
+                🧾
+                <span>LỊCH SỬ MUA</span>
+            </a>
+
+            <a href="nap-tien.html">
+                💰
+                <span>NẠP TIỀN</span>
+            </a>
+
+            <a href="ho-so.html">
+                👤
+                <span>HỒ SƠ</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="user">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+            <b id="username">Khách</b>
+            <small>0đ</small>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- TOP -->
+
+    <section class="top">
+
+
+        <!-- BANNER -->
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <div class="shop-big">
+                    SHOP<span>KAROT</span>
+                </div>
+
+                <h1>
+                    SHOP ACC GAME UY TÍN
+                </h1>
+
+                <h2>
+                    GIÁ RẺ - TỰ ĐỘNG - AN TOÀN
+                </h2>
+
+
+                <div class="badges">
+
+                    <div class="badge">
+                        🛡️
+                        <b>UY TÍN</b>
+                        <small>
+                            Đặt uy tín lên hàng đầu
+                        </small>
+                    </div>
+
+                    <div class="badge">
+                        ⚡
+                        <b>TỰ ĐỘNG</b>
+                        <small>
+                            Giao acc nhanh chóng
+                        </small>
+                    </div>
+
+                    <div class="badge">
+                        🏅
+                        <b>AN TOÀN</b>
+                        <small>
+                            Bảo hành đầy đủ
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="social">
+                    ♪ @shopkarot
+                    &nbsp;&nbsp; ▶ ShopKarot
+                    &nbsp;&nbsp; f /shopkarot.vn
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOP NẠP -->
+
+        <aside class="top-nap">
+
+            <div class="top-nap-title">
+                🏆 TOP NẠP THÁNG 08/2026
+            </div>
+
+            <div class="rank">
+                🥇
+                <b>hun********</b>
+                <strong>+520.000đ</strong>
+            </div>
+
+            <div class="rank">
+                🥈
+                <b>pho******</b>
+                <strong>+500.000đ</strong>
+            </div>
+
+            <div class="rank">
+                🥉
+                <b>bin********</b>
+                <strong>+450.000đ</strong>
+            </div>
+
+            <div class="rank">
+                4️⃣
+                <b>quy********</b>
+                <strong>+350.000đ</strong>
+            </div>
+
+            <div class="rank">
+                5️⃣
+                <b>kha*******</b>
+                <strong>+300.000đ</strong>
+            </div>
+
+            <a href="nap-tien.html" class="nap-button">
+                💰 NẠP TIỀN NGAY ›
+            </a>
+
+        </aside>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section class="content">
+
+
+        <!-- THÔNG BÁO -->
+
+        <aside class="card notice">
+
+            <h2>
+                📣 THÔNG BÁO
+            </h2>
+
+            <p>
+                🎁 Khuyến mãi 10-30% tất cả đơn hàng khi mua ACC và Túi Mù!
+            </p>
+
+            <p>
+                🔥 Giao acc nhanh, kiểm tra thông tin ngay sau khi mua.
+            </p>
+
+            <p>
+                🛡️ Bảo hành theo chính sách từng sản phẩm.
+            </p>
+
+            <p>
+                💬 Mọi thắc mắc vui lòng liên hệ SHOPKAROT.
+            </p>
+
+            <p>
+                ❤️ Cảm ơn bạn đã ủng hộ SHOPKAROT!
+            </p>
+
+        </aside>
+
+
+        <!-- GAME -->
+
+        <section class="card featured">
+
+            <div class="title">
+
+                <h2>
+                    ⭐ DANH MỤC NỔI BẬT
+                </h2>
+
+                <a href="acc-game.html">
+                    Xem tất cả ›
+                </a>
+
+            </div>
+
+
+            <div class="games">
+
+
+                <article class="game">
+
+                    <div class="game-image blox">
+                        BLOX<br>FRUITS
+                    </div>
+
+                    <h3>
+                        Blox Fruits
+                    </h3>
+
+                    <small>
+                        👥 1,234 acc
+                    </small>
+
+                    <a href="acc-game.html" class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <article class="game">
+
+                    <div class="game-image king">
+                        KING<br>LEGACY
+                    </div>
+
+                    <h3>
+                        King Legacy
+                    </h3>
+
+                    <small>
+                        👥 856 acc
+                    </small>
+
+                    <a href="acc-game.html" class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <article class="game">
+
+                    <div class="game-image anime">
+                        ANIME<br>FIGHTERS
+                    </div>
+
+                    <h3>
+                        Anime Fighters
+                    </h3>
+
+                    <small>
+                        👥 642 acc
+                    </small>
+
+                    <a href="acc-game.html" class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <article class="game">
+
+                    <div class="game-image tower">
+                        ALL STAR<br>TOWER
+                    </div>
+
+                    <h3>
+                        All Star Tower
+                    </h3>
+
+                    <small>
+                        👥 512 acc
+                    </small>
+
+                    <a href="acc-game.html" class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <article class="game">
+
+                    <div class="game-image mm2">
+                        MM2
+                    </div>
+
+                    <h3>
+                        Murder Mystery 2
+                    </h3>
+
+                    <small>
+                        👥 423 acc
+                    </small>
+
+                    <a href="acc-game.html" class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="card stats">
+
+        <div class="stat">
+            🛒
+            <b>12,458+</b>
+            <small>Đơn hàng đã bán</small>
+        </div>
+
+        <div class="stat">
+            👥
+            <b>8,652+</b>
+            <small>Khách hàng tin tưởng</small>
+        </div>
+
+        <div class="stat">
+            🛡️
+            <b>100%</b>
+            <small>Bảo hành đầy đủ</small>
+        </div>
+
+        <div class="stat">
+            ◷
+            <b>10-30s</b>
+            <small>Giao acc tự động</small>
+        </div>
+
+        <div class="stat">
+            🎧
+            <b>24/7</b>
+            <small>Hỗ trợ nhiệt tình</small>
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 SHOPKAROT • SHOP ACC GAME UY TÍN - GIÁ RẺ
+</footer>
+
+
+<script>
+
+/* ================= MENU 3 GẠCH ================= */
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById("menuBox");
+
+    menu.classList.toggle("show");
+
+}
+
+
+/* Đóng menu khi click ra ngoài */
+
+document.addEventListener("click",function(event){
+
+    const menu =
+        document.querySelector(".menu");
+
+    if(!menu.contains(event.target)){
+
+        document
+        .getElementById("menuBox")
+        .classList.remove("show");
+
+    }
+
+});
+
+
+/* ================= TÊN ĐĂNG NHẬP ================= */
+
+const savedUser =
+    localStorage.getItem("shopkarot_user");
+
+if(savedUser){
+
+    document.getElementById("username")
+    .textContent = savedUser;
+
+}
+
+</script>
+
+</body>
+</html>
