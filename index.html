@@ -11,11 +11,10 @@
     box-sizing:border-box;
 }
 
-html,body{
+body{
     margin:0;
-    padding:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f3f5f8;
+    background:#f3f6fa;
     color:#172033;
 }
 
@@ -51,11 +50,11 @@ a{
     width:55px;
     height:55px;
     border-radius:50%;
-    background:linear-gradient(135deg,#111,#ed1c24);
-    color:#fff;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:white;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     font-size:18px;
     font-weight:900;
 }
@@ -64,11 +63,10 @@ a{
     display:block;
     font-size:29px;
     font-style:italic;
-    letter-spacing:-1px;
 }
 
 .logo-text b span{
-    color:#ed1c24;
+    color:#e21b23;
 }
 
 .logo-text small{
@@ -105,9 +103,9 @@ a{
     left:0;
     width:250px;
     padding:8px;
-    background:#fff;
-    border:1px solid #eee;
+    background:white;
     border-radius:14px;
+    border:1px solid #eee;
     box-shadow:0 12px 35px rgba(0,0,0,.18);
 }
 
@@ -141,7 +139,7 @@ a{
     padding:8px 14px;
     border:1px solid #e4e7eb;
     border-radius:15px;
-    background:#fff;
+    background:white;
 }
 
 .user-icon{
@@ -150,9 +148,9 @@ a{
     border-radius:50%;
     background:#f1f1f1;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:21px;
+    justify-content:center;
+    font-size:20px;
 }
 
 .user-info b{
@@ -162,9 +160,9 @@ a{
 
 .user-info small{
     display:block;
-    margin-top:3px;
     color:#168b42;
     font-weight:bold;
+    margin-top:3px;
 }
 
 /* ================= CONTAINER ================= */
@@ -183,7 +181,7 @@ a{
     gap:15px;
 }
 
-/* ================= HERO ================= */
+/* ================= BANNER ================= */
 
 .hero{
     min-height:445px;
@@ -192,23 +190,11 @@ a{
     border-radius:18px;
     background:
         radial-gradient(circle at 75% 25%,#9d1111 0%,#390707 35%,#050505 75%);
-    color:#fff;
+    color:white;
     box-shadow:0 5px 22px rgba(0,0,0,.15);
 }
 
-.hero:after{
-    content:"☠";
-    position:absolute;
-    right:5%;
-    bottom:-45px;
-    font-size:260px;
-    color:#ff1e25;
-    opacity:.12;
-}
-
 .hero-content{
-    position:relative;
-    z-index:2;
     padding:60px 50px;
 }
 
@@ -272,7 +258,7 @@ a{
 /* ================= TOP NẠP ================= */
 
 .top-nap{
-    background:#fff;
+    background:white;
     border-radius:18px;
     overflow:hidden;
     box-shadow:0 5px 22px rgba(0,0,0,.1);
@@ -281,25 +267,10 @@ a{
 .top-nap-title{
     padding:19px;
     background:#d01018;
-    color:#fff;
+    color:white;
     text-align:center;
     font-size:20px;
     font-weight:bold;
-}
-
-.top-empty{
-    padding:55px 20px;
-    text-align:center;
-    color:#777;
-}
-
-.top-empty-icon{
-    font-size:42px;
-    margin-bottom:12px;
-}
-
-.top-empty-text{
-    font-size:15px;
 }
 
 .rank{
@@ -331,13 +302,9 @@ a{
     padding:16px;
     border-radius:9px;
     background:#d01018;
-    color:#fff;
+    color:white;
     text-align:center;
     font-weight:bold;
-}
-
-.nap-button:hover{
-    background:#b90d14;
 }
 
 /* ================= CONTENT ================= */
@@ -350,7 +317,7 @@ a{
 }
 
 .card{
-    background:#fff;
+    background:white;
     border-radius:17px;
     box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
@@ -378,7 +345,7 @@ a{
     margin-top:20px;
 }
 
-/* ================= FEATURED ================= */
+/* ================= DANH MỤC ================= */
 
 .featured{
     padding:18px;
@@ -402,28 +369,38 @@ a{
 
 .games{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
+/* ================= GAME CARD ================= */
+
 .game{
     overflow:hidden;
-    background:#fff;
+    background:white;
     border:1px solid #e4e7eb;
     border-radius:12px;
     text-align:center;
 }
 
 .game-image{
-    height:135px;
+    width:100%;
+    height:145px;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#fff;
-    font-size:24px;
+    color:white;
+    font-size:22px;
     font-weight:1000;
     text-align:center;
     text-shadow:2px 2px 5px #000;
+}
+
+.game-photo{
+    width:100%;
+    height:145px;
+    object-fit:cover;
+    display:block;
 }
 
 .blox{
@@ -438,12 +415,20 @@ a{
     background:linear-gradient(135deg,#08733a,#62d52b);
 }
 
-.tower{
-    background:linear-gradient(135deg,#963b00,#ff9817);
+.grow{
+    background:linear-gradient(135deg,#166534,#84cc16);
+}
+
+.grow2{
+    background:linear-gradient(135deg,#14532d,#a3e635);
 }
 
 .mm2{
     background:linear-gradient(135deg,#560000,#ec2424);
+}
+
+.caythue{
+    background:linear-gradient(135deg,#160000,#d10b0b);
 }
 
 .game h3{
@@ -455,19 +440,31 @@ a{
     color:#6b7280;
 }
 
+.status{
+    display:inline-block;
+    margin:5px 0;
+    padding:6px 13px;
+    border-radius:20px;
+    background:#f6e7e7;
+    border:1px solid #e5c7c7;
+    color:#00a86b;
+    font-size:12px;
+    font-weight:bold;
+}
+
 .game-button{
     display:block;
     margin:10px 16px;
-    padding:9px;
+    padding:10px;
     border-radius:8px;
-    background:#e21b23;
-    color:#fff;
+    background:#a80e12;
+    color:white;
     font-size:12px;
     font-weight:bold;
 }
 
 .game-button:hover{
-    background:#c9151c;
+    background:#d0161d;
 }
 
 /* ================= STATS ================= */
@@ -489,7 +486,7 @@ a{
 }
 
 .stat b{
-    font-size:20px;
+    font-size:18px;
 }
 
 .stat small{
@@ -508,7 +505,15 @@ footer{
 
 /* ================= MOBILE ================= */
 
-@media(max-width:1100px){
+@media(max-width:1200px){
+
+    .games{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:1000px){
 
     .top{
         grid-template-columns:1fr;
@@ -518,9 +523,6 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .games{
-        grid-template-columns:repeat(3,1fr);
-    }
 }
 
 @media(max-width:700px){
@@ -581,6 +583,15 @@ footer{
     .stats{
         grid-template-columns:1fr 1fr;
     }
+
+}
+
+@media(max-width:450px){
+
+    .games{
+        grid-template-columns:1fr;
+    }
+
 }
 </style>
 </head>
@@ -604,47 +615,45 @@ footer{
 
     </a>
 
-    <!-- NÚT 3 GẠCH -->
+
+    <!-- 3 GẠCH -->
 
     <div class="menu">
 
         <button
             class="menu-button"
-            onclick="toggleMenu()"
-            aria-label="Mở menu">
+            onclick="toggleMenu()">
             ☰
         </button>
 
-        <div class="menu-box" id="menuBox">
+        <div
+            class="menu-box"
+            id="menuBox">
 
             <a href="acc-game.html">
-                🎮
-                <span>ACC GAME</span>
+                🎮 ACC GAME
             </a>
 
             <a href="tui-mu.html">
-                🎁
-                <span>TÚI MÙ</span>
+                🎁 TÚI MÙ
             </a>
 
             <a href="lich-su.html">
-                🧾
-                <span>LỊCH SỬ MUA</span>
+                🧾 LỊCH SỬ MUA
             </a>
 
             <a href="nap-tien.html">
-                💰
-                <span>NẠP TIỀN</span>
+                💰 NẠP TIỀN
             </a>
 
             <a href="ho-so.html">
-                👤
-                <span>HỒ SƠ</span>
+                👤 HỒ SƠ
             </a>
 
         </div>
 
     </div>
+
 
     <!-- USER -->
 
@@ -675,11 +684,10 @@ footer{
 
 <main class="container">
 
-    <!-- ================= TOP ================= -->
+
+    <!-- ================= BANNER ================= -->
 
     <section class="top">
-
-        <!-- BANNER -->
 
         <div class="hero">
 
@@ -697,33 +705,32 @@ footer{
                     GIÁ RẺ - TỰ ĐỘNG - AN TOÀN
                 </h2>
 
+
                 <div class="badges">
 
                     <div class="badge">
-                        🛡️
-                        <b> UY TÍN</b>
+                        🛡️ <b>UY TÍN</b>
                         <small>
                             Đặt uy tín lên hàng đầu
                         </small>
                     </div>
 
                     <div class="badge">
-                        ⚡
-                        <b> TỰ ĐỘNG</b>
+                        ⚡ <b>TỰ ĐỘNG</b>
                         <small>
                             Giao acc nhanh chóng
                         </small>
                     </div>
 
                     <div class="badge">
-                        🏅
-                        <b> AN TOÀN</b>
+                        🏅 <b>AN TOÀN</b>
                         <small>
                             Bảo hành đầy đủ
                         </small>
                     </div>
 
                 </div>
+
 
                 <div class="social">
                     ♪ @shopkarot
@@ -738,7 +745,7 @@ footer{
         </div>
 
 
-        <!-- TOP NẠP -->
+        <!-- ================= TOP NẠP ================= -->
 
         <aside class="top-nap">
 
@@ -746,26 +753,12 @@ footer{
                 🏆 TOP NẠP THÁNG 08/2026
             </div>
 
-            <div id="topNapList">
-
-                <div class="top-empty">
-
-                    <div class="top-empty-icon">
-                        💰
-                    </div>
-
-                    <div class="top-empty-text">
-                        Chưa có khách nạp tiền
-                    </div>
-
-                </div>
-
-            </div>
+            <div id="topNapList"></div>
 
             <a
                 href="nap-tien.html"
                 class="nap-button">
-                💰 NẠP TIỀN NGAY ›
+                💰 NẠP TIỀN NGAY →
             </a>
 
         </aside>
@@ -773,12 +766,9 @@ footer{
     </section>
 
 
-    <!-- ================= CONTENT ================= -->
+    <!-- ================= THÔNG BÁO ================= -->
 
     <section class="content">
-
-
-        <!-- THÔNG TIN SHOPKAROT -->
 
         <aside class="card notice">
 
@@ -787,11 +777,12 @@ footer{
             </h2>
 
             <p>
-                Hiện tại đây shop chính thức của Karot các shop khác là giả mạo
+                Hiện tại đây shop chính thức của Karot,
+                các shop khác là giả mạo.
             </p>
 
             <p>
-                Shop mình có bán nick và cày thuê Blox Fruits
+                Shop mình có bán nick và cày thuê Blox Fruits.
             </p>
 
             <p>
@@ -807,19 +798,22 @@ footer{
             </p>
 
             <p>
-                💬 Mọi thắc mắc vui lòng liên hệ Admin Shopkarot
+                💬 Mọi thắc mắc vui lòng liên hệ Admin Shopkarot.
             </p>
 
             <p>
-                ShopKarot uy tín giá rẻ an toàn nạp tiền nhanh chóng
+                ShopKarot uy tín, giá rẻ, an toàn,
+                nạp tiền nhanh chóng.
             </p>
 
             <p>
-                Thời hoạt động shop: 10h sáng – 8h tối
+                Thời hoạt động shop:
+                10h sáng – 8h tối.
             </p>
 
             <p>
-                ⚠️ Lưu ý quan trọng nên nạp tiền khi admin on
+                ⚠️ Lưu ý quan trọng:
+                nên nạp tiền khi admin on.
             </p>
 
             <p class="thank">
@@ -829,7 +823,7 @@ footer{
         </aside>
 
 
-        <!-- DANH MỤC -->
+        <!-- ================= DANH MỤC ================= -->
 
         <section class="card featured">
 
@@ -840,7 +834,7 @@ footer{
                 </h2>
 
                 <a href="acc-game.html">
-                    Xem tất cả ›
+                    Xem tất cả →
                 </a>
 
             </div>
@@ -848,6 +842,8 @@ footer{
 
             <div class="games">
 
+
+                <!-- 1. BLOX FRUITS -->
 
                 <article class="game">
 
@@ -872,6 +868,8 @@ footer{
                 </article>
 
 
+                <!-- 2. KING LEGACY -->
+
                 <article class="game">
 
                     <div class="game-image king">
@@ -894,6 +892,8 @@ footer{
 
                 </article>
 
+
+                <!-- 3. ANIME FIGHTERS -->
 
                 <article class="game">
 
@@ -918,28 +918,82 @@ footer{
                 </article>
 
 
+                <!-- 4. GROW A GARDEN 2 -->
+
                 <article class="game">
 
-                    <div class="game-image tower">
-                        ALL STAR<br>TOWER
+                    <div class="game-image grow2">
+                        GROW A<br>GARDEN 2
                     </div>
 
                     <h3>
-                        All Star Tower
+                        Grow A Garden 2
                     </h3>
 
-                    <small>
-                        👥 Acc game
-                    </small>
+                    <span class="status">
+                        Sẵn Sàng
+                    </span>
 
                     <a
-                        href="acc-game.html"
+                        href="grow-a-garden-2.html"
                         class="game-button">
-                        XEM NGAY
+                        XEM TẤT CẢ →
                     </a>
 
                 </article>
 
+
+                <!-- 5. GROW A GARDEN -->
+
+                <article class="game">
+
+                    <div class="game-image grow">
+                        GROW A<br>GARDEN
+                    </div>
+
+                    <h3>
+                        Grow A Garden
+                    </h3>
+
+                    <span class="status">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="grow-a-garden.html"
+                        class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
+
+                </article>
+
+
+                <!-- 6. CÀY THUÊ BLOX FRUITS -->
+
+                <article class="game">
+
+                    <div class="game-image caythue">
+                        CÀY THUÊ<br>BLOX FRUITS
+                    </div>
+
+                    <h3>
+                        Cày Thuê
+                    </h3>
+
+                    <span class="status">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="cay-thue.html"
+                        class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
+
+                </article>
+
+
+                <!-- 7. MURDER MYSTERY 2 -->
 
                 <article class="game">
 
@@ -963,6 +1017,7 @@ footer{
 
                 </article>
 
+
             </div>
 
         </section>
@@ -970,7 +1025,7 @@ footer{
     </section>
 
 
-    <!-- ================= STATS ================= -->
+    <!-- ================= THỐNG KÊ ================= -->
 
     <section class="card stats">
 
@@ -1020,10 +1075,9 @@ footer{
 
 function toggleMenu(){
 
-    const box =
-        document.getElementById("menuBox");
-
-    box.classList.toggle("show");
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
 
 }
 
@@ -1044,7 +1098,7 @@ document.addEventListener("click",function(event){
 });
 
 
-/* ================= TÊN ĐĂNG NHẬP ================= */
+/* ================= USER ================= */
 
 const savedUser =
     localStorage.getItem("shopkarot_user");
@@ -1058,7 +1112,7 @@ if(savedUser){
 }
 
 
-/* ================= SỐ DƯ ================= */
+/* ================= BALANCE ================= */
 
 const savedBalance =
     localStorage.getItem("shopkarot_balance");
@@ -1068,7 +1122,8 @@ if(savedBalance){
     document
         .getElementById("userBalance")
         .textContent =
-        Number(savedBalance).toLocaleString("vi-VN") + "đ";
+        Number(savedBalance)
+        .toLocaleString("vi-VN") + "đ";
 
 }
 
@@ -1085,10 +1140,14 @@ function loadTopNap(){
     try{
 
         const saved =
-            localStorage.getItem("shopkarot_topnap");
+            localStorage.getItem(
+                "shopkarot_topnap"
+            );
 
         if(saved){
+
             data = JSON.parse(saved);
+
         }
 
     }catch(error){
@@ -1098,35 +1157,30 @@ function loadTopNap(){
     }
 
 
-    if(!Array.isArray(data) || data.length === 0){
+    if(
+        !Array.isArray(data)
+        ||
+        data.length === 0
+    ){
 
-        box.innerHTML = `
-            <div class="top-empty">
-
-                <div class="top-empty-icon">
-                    💰
-                </div>
-
-                <div class="top-empty-text">
-                    Chưa có khách nạp tiền
-                </div>
-
-            </div>
-        `;
+        box.innerHTML = "";
 
         return;
+
     }
 
 
     data.sort(function(a,b){
 
         return Number(b.money || 0)
-             - Number(a.money || 0);
+             -
+               Number(a.money || 0);
 
     });
 
 
-    data = data.slice(0,5);
+    data =
+        data.slice(0,5);
 
 
     const medals = [
@@ -1143,18 +1197,20 @@ function loadTopNap(){
 
     data.forEach(function(item,index){
 
-        const name =
-            item.name || "Khách hàng";
-
-        const money =
-            Number(item.money || 0)
-            .toLocaleString("vi-VN") + "đ";
-
-
         const row =
             document.createElement("div");
 
         row.className = "rank";
+
+
+        const name =
+            item.name || "Khách hàng";
+
+
+        const money =
+            Number(item.money || 0)
+            .toLocaleString("vi-VN");
+
 
         row.innerHTML = `
 
@@ -1167,10 +1223,11 @@ function loadTopNap(){
             </div>
 
             <div class="rank-money">
-                +${money}
+                +${money}đ
             </div>
 
         `;
+
 
         box.appendChild(row);
 
@@ -1179,7 +1236,7 @@ function loadTopNap(){
 }
 
 
-/* ================= BẢO VỆ TÊN ================= */
+/* ================= CHỐNG HTML ================= */
 
 function escapeHTML(text){
 
@@ -1193,48 +1250,70 @@ function escapeHTML(text){
 }
 
 
-/* ================= CHẠY TOP NẠP ================= */
+/* ================= LOAD ================= */
 
 loadTopNap();
 
 
-/* ================= ĐỒNG BỘ DỮ LIỆU ================= */
+/* ================= AUTO UPDATE ================= */
 
-window.addEventListener("storage",function(event){
+window.addEventListener(
+    "storage",
+    function(event){
 
-    if(event.key === "shopkarot_topnap"){
-        loadTopNap();
+        if(
+            event.key ===
+            "shopkarot_topnap"
+        ){
+
+            loadTopNap();
+
+        }
+
+
+        if(
+            event.key ===
+            "shopkarot_user"
+        ){
+
+            const user =
+                localStorage.getItem(
+                    "shopkarot_user"
+                );
+
+            document
+                .getElementById("username")
+                .textContent =
+                user || "Khách";
+
+        }
+
+
+        if(
+            event.key ===
+            "shopkarot_balance"
+        ){
+
+            const balance =
+                localStorage.getItem(
+                    "shopkarot_balance"
+                );
+
+            document
+                .getElementById("userBalance")
+                .textContent =
+                balance
+                ?
+                Number(balance)
+                    .toLocaleString("vi-VN")
+                    + "đ"
+                :
+                "0đ";
+
+        }
+
     }
-
-
-    if(event.key === "shopkarot_user"){
-
-        const user =
-            localStorage.getItem("shopkarot_user");
-
-        document
-            .getElementById("username")
-            .textContent =
-            user || "Khách";
-
-    }
-
-
-    if(event.key === "shopkarot_balance"){
-
-        const balance =
-            localStorage.getItem("shopkarot_balance");
-
-        document
-            .getElementById("userBalance")
-            .textContent =
-            balance
-            ? Number(balance).toLocaleString("vi-VN") + "đ"
-            : "0đ";
-
-    }
-
-});
+);
 
 </script>
 
