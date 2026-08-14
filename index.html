@@ -7,9 +7,7 @@
 <title>SHOPKAROT - Shop Acc Game</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
@@ -18,9 +16,7 @@ body{
     color:#172033;
 }
 
-a{
-    text-decoration:none;
-}
+a{text-decoration:none}
 
 /* ================= HEADER ================= */
 
@@ -76,7 +72,7 @@ a{
     margin-top:3px;
 }
 
-/* ================= MENU 3 GẠCH ================= */
+/* ================= MENU ================= */
 
 .menu{
     position:relative;
@@ -140,6 +136,13 @@ a{
     border:1px solid #e4e7eb;
     border-radius:15px;
     background:white;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
 }
 
 .user-icon{
@@ -181,7 +184,7 @@ a{
     gap:15px;
 }
 
-/* ================= BANNER ================= */
+/* ================= HERO ================= */
 
 .hero{
     min-height:445px;
@@ -322,7 +325,7 @@ a{
     box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
 
-/* ================= THÔNG BÁO ================= */
+/* ================= NOTICE ================= */
 
 .notice{
     padding:22px;
@@ -345,7 +348,7 @@ a{
     margin-top:20px;
 }
 
-/* ================= DANH MỤC ================= */
+/* ================= FEATURED ================= */
 
 .featured{
     padding:18px;
@@ -367,7 +370,7 @@ a{
     gap:12px;
 }
 
-/* ================= GAME CARD ================= */
+/* ================= GAME ================= */
 
 .game{
     overflow:hidden;
@@ -388,13 +391,6 @@ a{
     font-weight:1000;
     text-align:center;
     text-shadow:2px 2px 5px #000;
-}
-
-.game-photo{
-    width:100%;
-    height:145px;
-    object-fit:cover;
-    display:block;
 }
 
 .blox{
@@ -539,7 +535,11 @@ footer{
     }
 
     .user{
-        display:none;
+        padding:6px 8px;
+    }
+
+    .user-info small{
+        font-size:11px;
     }
 
     .container{
@@ -609,7 +609,8 @@ footer{
 
     </a>
 
-    <!-- 3 GẠCH -->
+
+    <!-- MENU -->
 
     <div class="menu">
 
@@ -627,7 +628,7 @@ footer{
                 🎮 ACC GAME
             </a>
 
-            <a href="tui-mu.html">
+            <a href="tui-mu.html?price=0">
                 🎁 TÚI MÙ
             </a>
 
@@ -643,13 +644,20 @@ footer{
                 👤 HỒ SƠ
             </a>
 
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
         </div>
 
     </div>
 
+
     <!-- USER -->
 
-    <div class="user">
+    <div
+        class="user"
+        id="userBox">
 
         <div class="user-icon">
             👤
@@ -658,7 +666,7 @@ footer{
         <div class="user-info">
 
             <b id="username">
-                Khách
+                Đăng nhập
             </b>
 
             <small id="userBalance">
@@ -675,6 +683,7 @@ footer{
 <!-- ================= MAIN ================= -->
 
 <main class="container">
+
 
     <!-- ================= BANNER ================= -->
 
@@ -733,6 +742,7 @@ footer{
 
         </div>
 
+
         <!-- ================= TOP NẠP ================= -->
 
         <aside class="top-nap">
@@ -754,9 +764,12 @@ footer{
     </section>
 
 
-    <!-- ================= THÔNG BÁO ================= -->
+    <!-- ================= CONTENT ================= -->
 
     <section class="content">
+
+
+        <!-- ================= NOTICE ================= -->
 
         <aside class="card notice">
 
@@ -823,9 +836,11 @@ footer{
 
             </div>
 
+
             <div class="games">
 
-                <!-- 1. BLOX FRUITS -->
+
+                <!-- 1 BLOX FRUITS -->
 
                 <article class="game">
 
@@ -841,10 +856,8 @@ footer{
                         👥 Acc game
                     </small>
 
-                    <!-- ĐÃ ĐỔI LINK BLOX FRUITS -->
-
                     <a
-                        href="https://nhandeptraido9-sudo.github.io/Shopkarot.com.vn/tui-mu.html"
+                        href="tui-mu.html?price=0"
                         class="game-button">
                         XEM NGAY
                     </a>
@@ -852,7 +865,7 @@ footer{
                 </article>
 
 
-                <!-- 2. KING LEGACY -->
+                <!-- 2 KING LEGACY -->
 
                 <article class="game">
 
@@ -877,7 +890,7 @@ footer{
                 </article>
 
 
-                <!-- 3. ANIME FIGHTERS -->
+                <!-- 3 ANIME FIGHTERS -->
 
                 <article class="game">
 
@@ -902,7 +915,7 @@ footer{
                 </article>
 
 
-                <!-- 4. GROW A GARDEN 2 -->
+                <!-- 4 GROW A GARDEN 2 -->
 
                 <article class="game">
 
@@ -927,7 +940,7 @@ footer{
                 </article>
 
 
-                <!-- 5. GROW A GARDEN -->
+                <!-- 5 GROW A GARDEN -->
 
                 <article class="game">
 
@@ -952,7 +965,7 @@ footer{
                 </article>
 
 
-                <!-- 6. CÀY THUÊ BLOX FRUITS -->
+                <!-- 6 CÀY THUÊ -->
 
                 <article class="game">
 
@@ -977,7 +990,7 @@ footer{
                 </article>
 
 
-                <!-- 7. MURDER MYSTERY 2 -->
+                <!-- 7 MM2 -->
 
                 <article class="game">
 
@@ -1001,6 +1014,7 @@ footer{
 
                 </article>
 
+
             </div>
 
         </section>
@@ -1008,7 +1022,7 @@ footer{
     </section>
 
 
-    <!-- ================= THỐNG KÊ ================= -->
+    <!-- ================= STATS ================= -->
 
     <section class="card stats">
 
@@ -1065,50 +1079,117 @@ function toggleMenu(){
 }
 
 
-document.addEventListener("click",function(event){
+document.addEventListener(
+    "click",
+    function(event){
 
-    const menu =
-        document.querySelector(".menu");
+        const menu =
+            document.querySelector(".menu");
 
-    if(!menu.contains(event.target)){
+        if(!menu.contains(event.target)){
 
-        document
-            .getElementById("menuBox")
-            .classList.remove("show");
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
 
     }
-
-});
+);
 
 
 /* ================= USER ================= */
 
-const savedUser =
-    localStorage.getItem("shopkarot_user");
+function updateUser(){
 
-if(savedUser){
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
 
-    document
-        .getElementById("username")
-        .textContent = savedUser;
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true"
+        &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
 
 }
 
 
-/* ================= BALANCE ================= */
+/* ================= CLICK USER ================= */
 
-const savedBalance =
-    localStorage.getItem("shopkarot_balance");
+document
+    .getElementById("userBox")
+    .addEventListener(
+        "click",
+        function(){
 
-if(savedBalance){
+            const login =
+                localStorage.getItem(
+                    "shopkarot_login"
+                );
 
-    document
-        .getElementById("userBalance")
-        .textContent =
-        Number(savedBalance)
-        .toLocaleString("vi-VN") + "đ";
+            if(
+                login === "true"
+            ){
 
-}
+                window.location.href =
+                    "ho-so.html";
+
+            }
+
+            else{
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+    );
 
 
 /* ================= TOP NẠP ================= */
@@ -1116,9 +1197,12 @@ if(savedBalance){
 function loadTopNap(){
 
     const box =
-        document.getElementById("topNapList");
+        document.getElementById(
+            "topNapList"
+        );
 
     let data = [];
+
 
     try{
 
@@ -1129,11 +1213,14 @@ function loadTopNap(){
 
         if(saved){
 
-            data = JSON.parse(saved);
+            data =
+                JSON.parse(saved);
 
         }
 
-    }catch(error){
+    }
+
+    catch(error){
 
         data = [];
 
@@ -1153,13 +1240,19 @@ function loadTopNap(){
     }
 
 
-    data.sort(function(a,b){
+    data.sort(
+        function(a,b){
 
-        return Number(b.money || 0)
-             -
-               Number(a.money || 0);
+            return Number(
+                b.money || 0
+            )
+            -
+            Number(
+                a.money || 0
+            );
 
-    });
+        }
+    );
 
 
     data =
@@ -1178,43 +1271,53 @@ function loadTopNap(){
     box.innerHTML = "";
 
 
-    data.forEach(function(item,index){
+    data.forEach(
+        function(item,index){
 
-        const row =
-            document.createElement("div");
+            const row =
+                document.createElement(
+                    "div"
+                );
 
-        row.className = "rank";
-
-
-        const name =
-            item.name || "Khách hàng";
-
-
-        const money =
-            Number(item.money || 0)
-            .toLocaleString("vi-VN");
+            row.className =
+                "rank";
 
 
-        row.innerHTML = `
-
-            <div class="rank-medal">
-                ${medals[index]}
-            </div>
-
-            <div class="rank-name">
-                ${escapeHTML(name)}
-            </div>
-
-            <div class="rank-money">
-                +${money}đ
-            </div>
-
-        `;
+            const name =
+                item.name ||
+                "Khách hàng";
 
 
-        box.appendChild(row);
+            const money =
+                Number(
+                    item.money || 0
+                )
+                .toLocaleString(
+                    "vi-VN"
+                );
 
-    });
+
+            row.innerHTML = `
+
+                <div class="rank-medal">
+                    ${medals[index]}
+                </div>
+
+                <div class="rank-name">
+                    ${escapeHTML(name)}
+                </div>
+
+                <div class="rank-money">
+                    +${money}đ
+                </div>
+
+            `;
+
+
+            box.appendChild(row);
+
+        }
+    );
 
 }
 
@@ -1234,6 +1337,8 @@ function escapeHTML(text){
 
 
 /* ================= LOAD ================= */
+
+updateUser();
 
 loadTopNap();
 
@@ -1257,41 +1362,15 @@ window.addEventListener(
         if(
             event.key ===
             "shopkarot_user"
-        ){
-
-            const user =
-                localStorage.getItem(
-                    "shopkarot_user"
-                );
-
-            document
-                .getElementById("username")
-                .textContent =
-                user || "Khách";
-
-        }
-
-
-        if(
+            ||
+            event.key ===
+            "shopkarot_login"
+            ||
             event.key ===
             "shopkarot_balance"
         ){
 
-            const balance =
-                localStorage.getItem(
-                    "shopkarot_balance"
-                );
-
-            document
-                .getElementById("userBalance")
-                .textContent =
-                balance
-                ?
-                Number(balance)
-                    .toLocaleString("vi-VN")
-                    + "đ"
-                :
-                "0đ";
+            updateUser();
 
         }
 
