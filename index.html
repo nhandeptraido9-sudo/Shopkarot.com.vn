@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -11,11 +11,16 @@
     box-sizing:border-box;
 }
 
-body{
+html,body{
     margin:0;
+    padding:0;
     font-family:Arial,Helvetica,sans-serif;
     background:#f3f5f8;
-    color:#18202d;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
 }
 
 /* ================= HEADER ================= */
@@ -26,28 +31,28 @@ body{
     display:flex;
     align-items:center;
     padding:0 25px;
-    gap:20px;
-    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
     position:sticky;
     top:0;
     z-index:1000;
 }
 
 .logo{
-    text-decoration:none;
-    color:#111;
     display:flex;
     align-items:center;
     gap:10px;
-    min-width:280px;
+    min-width:275px;
+    color:#111;
 }
 
 .logo-icon{
     width:55px;
     height:55px;
     border-radius:50%;
-    background:linear-gradient(135deg,#111,#e71920);
-    color:white;
+    background:linear-gradient(135deg,#111,#ed1c24);
+    color:#fff;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -59,10 +64,11 @@ body{
     display:block;
     font-size:29px;
     font-style:italic;
+    letter-spacing:-1px;
 }
 
 .logo-text b span{
-    color:#e51c23;
+    color:#ed1c24;
 }
 
 .logo-text small{
@@ -72,24 +78,24 @@ body{
     margin-top:3px;
 }
 
-/* MENU */
+/* ================= MENU 3 GẠCH ================= */
 
 .menu{
     position:relative;
 }
 
 .menu-button{
-    border:0;
-    background:#fff;
-    cursor:pointer;
-    font-size:30px;
     width:48px;
     height:48px;
+    border:0;
+    background:#fff;
     border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
 }
 
 .menu-button:hover{
-    background:#f1f1f1;
+    background:#f1f2f4;
 }
 
 .menu-box{
@@ -97,12 +103,12 @@ body{
     position:absolute;
     top:57px;
     left:0;
-    width:245px;
-    background:white;
-    border-radius:14px;
-    box-shadow:0 10px 35px rgba(0,0,0,.18);
+    width:250px;
     padding:8px;
+    background:#fff;
     border:1px solid #eee;
+    border-radius:14px;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
 }
 
 .menu-box.show{
@@ -114,8 +120,8 @@ body{
     align-items:center;
     gap:12px;
     padding:14px;
-    text-decoration:none;
-    color:#202631;
+    color:#172033;
+    font-size:15px;
     font-weight:bold;
     border-radius:10px;
 }
@@ -125,42 +131,43 @@ body{
     color:#e21b23;
 }
 
-/* USER */
+/* ================= USER ================= */
 
 .user{
     margin-left:auto;
     display:flex;
     align-items:center;
     gap:9px;
-    padding:9px 14px;
-    border:1px solid #e5e7eb;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
     border-radius:15px;
-    background:white;
+    background:#fff;
 }
 
 .user-icon{
     width:40px;
     height:40px;
     border-radius:50%;
-    background:#eee;
+    background:#f1f1f1;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:22px;
+    font-size:21px;
 }
 
 .user-info b{
     display:block;
+    font-size:14px;
 }
 
 .user-info small{
     display:block;
-    color:#149447;
-    font-weight:bold;
     margin-top:3px;
+    color:#168b42;
+    font-weight:bold;
 }
 
-/* ================= MAIN ================= */
+/* ================= CONTAINER ================= */
 
 .container{
     width:96%;
@@ -176,26 +183,26 @@ body{
     gap:15px;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
     min-height:445px;
-    border-radius:18px;
-    overflow:hidden;
     position:relative;
-    color:white;
+    overflow:hidden;
+    border-radius:18px;
     background:
-        radial-gradient(circle at 75% 30%,#7e1010 0%,#260707 35%,#030303 75%);
+        radial-gradient(circle at 75% 25%,#9d1111 0%,#390707 35%,#050505 75%);
+    color:#fff;
     box-shadow:0 5px 22px rgba(0,0,0,.15);
 }
 
 .hero:after{
     content:"☠";
     position:absolute;
-    right:8%;
-    bottom:-40px;
-    font-size:230px;
-    color:#ff2020;
+    right:5%;
+    bottom:-45px;
+    font-size:260px;
+    color:#ff1e25;
     opacity:.12;
 }
 
@@ -217,14 +224,14 @@ body{
 }
 
 .hero h1{
-    font-size:38px;
     margin:8px 0;
+    font-size:38px;
 }
 
 .hero h2{
-    color:#ffd21a;
-    font-size:28px;
     margin:15px 0 28px;
+    color:#ffd21b;
+    font-size:28px;
 }
 
 .badges{
@@ -235,9 +242,9 @@ body{
 .badge{
     min-width:175px;
     padding:12px;
-    border:1px solid #ef2525;
+    border:1px solid #ed2424;
     border-radius:12px;
-    background:rgba(0,0,0,.65);
+    background:rgba(0,0,0,.62);
     font-size:22px;
 }
 
@@ -247,18 +254,18 @@ body{
 
 .badge small{
     display:block;
-    font-size:11px;
     margin:5px 0 0 30px;
     color:#ddd;
+    font-size:11px;
 }
 
 .social{
     display:inline-block;
     margin-top:25px;
-    background:rgba(0,0,0,.7);
-    border:1px solid #555;
     padding:12px 18px;
+    border:1px solid #555;
     border-radius:10px;
+    background:rgba(0,0,0,.7);
     font-weight:bold;
 }
 
@@ -272,44 +279,65 @@ body{
 }
 
 .top-nap-title{
+    padding:19px;
     background:#d01018;
     color:#fff;
-    padding:19px;
     text-align:center;
     font-size:20px;
     font-weight:bold;
 }
 
+.top-empty{
+    padding:55px 20px;
+    text-align:center;
+    color:#777;
+}
+
+.top-empty-icon{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.top-empty-text{
+    font-size:15px;
+}
+
 .rank{
-    padding:15px 22px;
-    border-bottom:1px solid #eee;
     display:flex;
     align-items:center;
     gap:10px;
+    padding:15px 20px;
+    border-bottom:1px solid #eee;
 }
 
-.rank b{
+.rank-medal{
+    width:30px;
+    font-size:20px;
+}
+
+.rank-name{
     flex:1;
+    font-weight:bold;
 }
 
-.rank strong{
-    color:#e11;
-}
-
-.rank:first-of-type{
-    background:#fff8dd;
+.rank-money{
+    color:#e21b23;
+    font-weight:bold;
 }
 
 .nap-button{
     display:block;
-    text-align:center;
-    text-decoration:none;
-    background:#d01018;
-    color:white;
     margin:20px;
     padding:16px;
     border-radius:9px;
+    background:#d01018;
+    color:#fff;
+    text-align:center;
     font-weight:bold;
+}
+
+.nap-button:hover{
+    background:#b90d14;
 }
 
 /* ================= CONTENT ================= */
@@ -327,22 +355,24 @@ body{
     box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
 
-/* NOTICE */
+/* ================= NOTICE ================= */
 
 .notice{
     padding:22px;
 }
 
 .notice h2{
-    margin-top:0;
+    margin:0 0 20px;
+    font-size:21px;
 }
 
 .notice p{
+    margin:14px 0;
+    font-size:15px;
     line-height:1.5;
-    font-size:16px;
 }
 
-/* FEATURED */
+/* ================= FEATURED ================= */
 
 .featured{
     padding:18px;
@@ -356,11 +386,12 @@ body{
 
 .title h2{
     margin:0 0 15px;
+    font-size:21px;
 }
 
 .title a{
-    color:#333;
-    text-decoration:none;
+    color:#555;
+    font-size:14px;
 }
 
 .games{
@@ -370,74 +401,77 @@ body{
 }
 
 .game{
-    text-align:center;
-    border:1px solid #e5e7eb;
-    border-radius:12px;
     overflow:hidden;
     background:#fff;
+    border:1px solid #e4e7eb;
+    border-radius:12px;
+    text-align:center;
 }
 
 .game-image{
     height:135px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    color:white;
-    font-size:25px;
+    align-items:center;
+    color:#fff;
+    font-size:24px;
     font-weight:1000;
     text-align:center;
-    text-shadow:2px 2px 4px #000;
+    text-shadow:2px 2px 5px #000;
 }
 
 .blox{
-    background:linear-gradient(135deg,#24006d,#963aff);
+    background:linear-gradient(135deg,#27006e,#913bff);
 }
 
 .king{
-    background:linear-gradient(135deg,#06325e,#1784dd);
+    background:linear-gradient(135deg,#06345d,#1689df);
 }
 
 .anime{
-    background:linear-gradient(135deg,#08743a,#62d42b);
+    background:linear-gradient(135deg,#08733a,#62d52b);
 }
 
 .tower{
-    background:linear-gradient(135deg,#9b3d00,#ff9817);
+    background:linear-gradient(135deg,#963b00,#ff9817);
 }
 
 .mm2{
-    background:linear-gradient(135deg,#560000,#ed2222);
+    background:linear-gradient(135deg,#560000,#ec2424);
 }
 
 .game h3{
-    font-size:15px;
     margin:10px 4px 5px;
+    font-size:15px;
 }
 
 .game small{
-    color:#687386;
+    color:#6b7280;
 }
 
 .game-button{
     display:block;
     margin:10px 16px;
     padding:9px;
-    color:white;
-    background:#e21b23;
     border-radius:8px;
-    text-decoration:none;
+    background:#e21b23;
+    color:#fff;
     font-size:12px;
     font-weight:bold;
+}
+
+.game-button:hover{
+    background:#c9151c;
 }
 
 /* ================= STATS ================= */
 
 .stats{
-    margin-top:15px;
-    padding:22px;
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:15px;
+    margin-top:15px;
+    padding:22px;
 }
 
 .stat{
@@ -461,9 +495,9 @@ body{
 /* ================= FOOTER ================= */
 
 footer{
-    text-align:center;
-    padding:35px;
+    padding:35px 20px;
     color:#687386;
+    text-align:center;
 }
 
 /* ================= MOBILE ================= */
@@ -564,16 +598,20 @@ footer{
 
     </a>
 
-
-    <!-- NÚT 3 GẠCH -->
+    <!-- 3 GẠCH -->
 
     <div class="menu">
 
-        <button class="menu-button" onclick="toggleMenu()">
+        <button
+            class="menu-button"
+            onclick="toggleMenu()"
+            aria-label="Mở menu">
             ☰
         </button>
 
-        <div class="menu-box" id="menuBox">
+        <div
+            class="menu-box"
+            id="menuBox">
 
             <a href="acc-game.html">
                 🎮
@@ -604,6 +642,7 @@ footer{
 
     </div>
 
+    <!-- USER -->
 
     <div class="user">
 
@@ -612,8 +651,15 @@ footer{
         </div>
 
         <div class="user-info">
-            <b id="username">Khách</b>
-            <small>0đ</small>
+
+            <b id="username">
+                Khách
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
         </div>
 
     </div>
@@ -626,7 +672,7 @@ footer{
 <main class="container">
 
 
-    <!-- TOP -->
+    <!-- ================= TOP ================= -->
 
     <section class="top">
 
@@ -654,7 +700,7 @@ footer{
 
                     <div class="badge">
                         🛡️
-                        <b>UY TÍN</b>
+                        <b> UY TÍN</b>
                         <small>
                             Đặt uy tín lên hàng đầu
                         </small>
@@ -662,7 +708,7 @@ footer{
 
                     <div class="badge">
                         ⚡
-                        <b>TỰ ĐỘNG</b>
+                        <b> TỰ ĐỘNG</b>
                         <small>
                             Giao acc nhanh chóng
                         </small>
@@ -670,7 +716,7 @@ footer{
 
                     <div class="badge">
                         🏅
-                        <b>AN TOÀN</b>
+                        <b> AN TOÀN</b>
                         <small>
                             Bảo hành đầy đủ
                         </small>
@@ -681,8 +727,10 @@ footer{
 
                 <div class="social">
                     ♪ @shopkarot
-                    &nbsp;&nbsp; ▶ ShopKarot
-                    &nbsp;&nbsp; f /shopkarot.vn
+                    &nbsp;&nbsp;
+                    ▶ ShopKarot
+                    &nbsp;&nbsp;
+                    f /shopkarot.vn
                 </div>
 
             </div>
@@ -698,37 +746,32 @@ footer{
                 🏆 TOP NẠP THÁNG 08/2026
             </div>
 
-            <div class="rank">
-                🥇
-                <b>hun********</b>
-                <strong>+520.000đ</strong>
+            <!--
+                Ban đầu không hiện khách nào.
+                Khi có dữ liệu trong localStorage:
+                shopkarot_topnap
+                thì JavaScript sẽ tự hiện.
+            -->
+
+            <div id="topNapList">
+
+                <div class="top-empty">
+
+                    <div class="top-empty-icon">
+                        💰
+                    </div>
+
+                    <div class="top-empty-text">
+                        Chưa có khách nạp tiền
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="rank">
-                🥈
-                <b>pho******</b>
-                <strong>+500.000đ</strong>
-            </div>
-
-            <div class="rank">
-                🥉
-                <b>bin********</b>
-                <strong>+450.000đ</strong>
-            </div>
-
-            <div class="rank">
-                4️⃣
-                <b>quy********</b>
-                <strong>+350.000đ</strong>
-            </div>
-
-            <div class="rank">
-                5️⃣
-                <b>kha*******</b>
-                <strong>+300.000đ</strong>
-            </div>
-
-            <a href="nap-tien.html" class="nap-button">
+            <a
+                href="nap-tien.html"
+                class="nap-button">
                 💰 NẠP TIỀN NGAY ›
             </a>
 
@@ -737,7 +780,7 @@ footer{
     </section>
 
 
-    <!-- CONTENT -->
+    <!-- ================= CONTENT ================= -->
 
     <section class="content">
 
@@ -751,15 +794,15 @@ footer{
             </h2>
 
             <p>
-                🎁 Khuyến mãi 10-30% tất cả đơn hàng khi mua ACC và Túi Mù!
+                🎁 Khuyến mãi tất cả đơn hàng tại SHOPKAROT.
             </p>
 
             <p>
-                🔥 Giao acc nhanh, kiểm tra thông tin ngay sau khi mua.
+                🔥 Giao acc nhanh sau khi hoàn tất đơn hàng.
             </p>
 
             <p>
-                🛡️ Bảo hành theo chính sách từng sản phẩm.
+                🛡️ Bảo hành theo chính sách của từng sản phẩm.
             </p>
 
             <p>
@@ -773,7 +816,7 @@ footer{
         </aside>
 
 
-        <!-- GAME -->
+        <!-- DANH MỤC -->
 
         <section class="card featured">
 
@@ -804,10 +847,12 @@ footer{
                     </h3>
 
                     <small>
-                        👥 1,234 acc
+                        👥 Acc game
                     </small>
 
-                    <a href="acc-game.html" class="game-button">
+                    <a
+                        href="acc-game.html"
+                        class="game-button">
                         XEM NGAY
                     </a>
 
@@ -825,10 +870,12 @@ footer{
                     </h3>
 
                     <small>
-                        👥 856 acc
+                        👥 Acc game
                     </small>
 
-                    <a href="acc-game.html" class="game-button">
+                    <a
+                        href="acc-game.html"
+                        class="game-button">
                         XEM NGAY
                     </a>
 
@@ -846,10 +893,12 @@ footer{
                     </h3>
 
                     <small>
-                        👥 642 acc
+                        👥 Acc game
                     </small>
 
-                    <a href="acc-game.html" class="game-button">
+                    <a
+                        href="acc-game.html"
+                        class="game-button">
                         XEM NGAY
                     </a>
 
@@ -867,10 +916,12 @@ footer{
                     </h3>
 
                     <small>
-                        👥 512 acc
+                        👥 Acc game
                     </small>
 
-                    <a href="acc-game.html" class="game-button">
+                    <a
+                        href="acc-game.html"
+                        class="game-button">
                         XEM NGAY
                     </a>
 
@@ -880,7 +931,7 @@ footer{
                 <article class="game">
 
                     <div class="game-image mm2">
-                        MM2
+                        MURDER<br>MYSTERY 2
                     </div>
 
                     <h3>
@@ -888,10 +939,12 @@ footer{
                     </h3>
 
                     <small>
-                        👥 423 acc
+                        👥 Acc game
                     </small>
 
-                    <a href="acc-game.html" class="game-button">
+                    <a
+                        href="acc-game.html"
+                        class="game-button">
                         XEM NGAY
                     </a>
 
@@ -905,38 +958,38 @@ footer{
     </section>
 
 
-    <!-- STATS -->
+    <!-- ================= STATS ================= -->
 
     <section class="card stats">
 
         <div class="stat">
             🛒
-            <b>12,458+</b>
-            <small>Đơn hàng đã bán</small>
+            <b>Đơn hàng</b>
+            <small>Đã bán</small>
         </div>
 
         <div class="stat">
             👥
-            <b>8,652+</b>
-            <small>Khách hàng tin tưởng</small>
+            <b>Khách hàng</b>
+            <small>Tin tưởng SHOPKAROT</small>
         </div>
 
         <div class="stat">
             🛡️
             <b>100%</b>
-            <small>Bảo hành đầy đủ</small>
+            <small>Bảo hành</small>
         </div>
 
         <div class="stat">
-            ◷
-            <b>10-30s</b>
-            <small>Giao acc tự động</small>
+            ⚡
+            <b>Tự động</b>
+            <small>Giao acc nhanh</small>
         </div>
 
         <div class="stat">
             🎧
             <b>24/7</b>
-            <small>Hỗ trợ nhiệt tình</small>
+            <small>Hỗ trợ</small>
         </div>
 
     </section>
@@ -945,20 +998,22 @@ footer{
 
 
 <footer>
-    © 2026 SHOPKAROT • SHOP ACC GAME UY TÍN - GIÁ RẺ
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
 </footer>
 
 
 <script>
 
-/* ================= MENU 3 GẠCH ================= */
+/* =====================================================
+   MENU 3 GẠCH
+===================================================== */
 
 function toggleMenu(){
 
-    const menu =
+    const box =
         document.getElementById("menuBox");
 
-    menu.classList.toggle("show");
+    box.classList.toggle("show");
 
 }
 
@@ -973,25 +1028,236 @@ document.addEventListener("click",function(event){
     if(!menu.contains(event.target)){
 
         document
-        .getElementById("menuBox")
-        .classList.remove("show");
+            .getElementById("menuBox")
+            .classList.remove("show");
 
     }
 
 });
 
 
-/* ================= TÊN ĐĂNG NHẬP ================= */
+/* =====================================================
+   ĐỌC TÊN ĐĂNG NHẬP
+===================================================== */
 
 const savedUser =
     localStorage.getItem("shopkarot_user");
 
 if(savedUser){
 
-    document.getElementById("username")
-    .textContent = savedUser;
+    document
+        .getElementById("username")
+        .textContent = savedUser;
 
 }
+
+
+/* =====================================================
+   ĐỌC SỐ DƯ
+===================================================== */
+
+const savedBalance =
+    localStorage.getItem("shopkarot_balance");
+
+if(savedBalance){
+
+    document
+        .getElementById("userBalance")
+        .textContent =
+        Number(savedBalance).toLocaleString("vi-VN") + "đ";
+
+}
+
+
+/* =====================================================
+   TOP NẠP
+
+   Dữ liệu được đọc từ:
+   localStorage key: shopkarot_topnap
+
+   Ví dụ dữ liệu:
+
+   [
+      {
+         "name":"abc******",
+         "money":520000
+      }
+   ]
+
+   Khi chưa có dữ liệu thì không hiện khách.
+===================================================== */
+
+function loadTopNap(){
+
+    const box =
+        document.getElementById("topNapList");
+
+    let data = [];
+
+    try{
+
+        const saved =
+            localStorage.getItem("shopkarot_topnap");
+
+        if(saved){
+
+            data = JSON.parse(saved);
+
+        }
+
+    }catch(error){
+
+        data = [];
+
+    }
+
+
+    /* Không có khách */
+
+    if(!Array.isArray(data) || data.length === 0){
+
+        box.innerHTML = `
+            <div class="top-empty">
+
+                <div class="top-empty-icon">
+                    💰
+                </div>
+
+                <div class="top-empty-text">
+                    Chưa có khách nạp tiền
+                </div>
+
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /* Sắp xếp tiền từ cao xuống thấp */
+
+    data.sort(function(a,b){
+
+        return Number(b.money || 0)
+             - Number(a.money || 0);
+
+    });
+
+
+    /* Chỉ lấy TOP 5 */
+
+    data = data.slice(0,5);
+
+
+    const medals = [
+        "🥇",
+        "🥈",
+        "🥉",
+        "4️⃣",
+        "5️⃣"
+    ];
+
+
+    box.innerHTML = "";
+
+
+    data.forEach(function(item,index){
+
+        const name =
+            item.name || "Khách hàng";
+
+        const money =
+            Number(item.money || 0)
+            .toLocaleString("vi-VN") + "đ";
+
+
+        const row =
+            document.createElement("div");
+
+        row.className = "rank";
+
+        row.innerHTML = `
+
+            <div class="rank-medal">
+                ${medals[index]}
+            </div>
+
+            <div class="rank-name">
+                ${escapeHTML(name)}
+            </div>
+
+            <div class="rank-money">
+                +${money}
+            </div>
+
+        `;
+
+        box.appendChild(row);
+
+    });
+
+}
+
+
+/* =====================================================
+   CHỐNG HTML TRONG TÊN KHÁCH
+===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* Chạy khi mở trang */
+
+loadTopNap();
+
+
+/* Cập nhật nếu tab khác thay đổi dữ liệu */
+
+window.addEventListener("storage",function(event){
+
+    if(event.key === "shopkarot_topnap"){
+
+        loadTopNap();
+
+    }
+
+    if(event.key === "shopkarot_user"){
+
+        const user =
+            localStorage.getItem("shopkarot_user");
+
+        document
+            .getElementById("username")
+            .textContent =
+            user || "Khách";
+
+    }
+
+    if(event.key === "shopkarot_balance"){
+
+        const balance =
+            localStorage.getItem("shopkarot_balance");
+
+        document
+            .getElementById("userBalance")
+            .textContent =
+            balance
+            ? Number(balance).toLocaleString("vi-VN") + "đ"
+            : "0đ";
+
+    }
+
+});
 
 </script>
 
