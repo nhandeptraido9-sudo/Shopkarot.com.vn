@@ -7,6 +7,7 @@
 <title>SHOPKAROT - Shop Acc Game</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -382,13 +383,120 @@ a{
     font-size:21px;
 }
 
+/* ================= EVENT ================= */
+
+.event-title{
+    margin:0 0 12px;
+    padding:11px 14px;
+    border-radius:10px;
+    background:#fff1f1;
+    border:1px solid #ffd0d0;
+    color:#d01018;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.events{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.event-card{
+    display:flex;
+    overflow:hidden;
+    min-height:155px;
+    background:white;
+    border:1px solid #e4e7eb;
+    border-radius:13px;
+    transition:.2s;
+}
+
+.event-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 18px rgba(0,0,0,.12);
+}
+
+.event-image{
+    width:125px;
+    min-width:125px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:48px;
+}
+
+.event-blox{
+    background:linear-gradient(135deg,#27006e,#913bff);
+}
+
+.event-grow2{
+    background:linear-gradient(135deg,#14532d,#a3e635);
+}
+
+.event-info{
+    padding:13px;
+    flex:1;
+}
+
+.event-info h3{
+    margin:0 0 7px;
+    font-size:16px;
+}
+
+.event-info p{
+    margin:5px 0 9px;
+    color:#687386;
+    font-size:12px;
+}
+
+.event-status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:15px;
+    background:#e7f8ef;
+    border:1px solid #b7e8ca;
+    color:#00a86b;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.event-button{
+    display:block;
+    margin-top:9px;
+    padding:8px 10px;
+    border-radius:7px;
+    background:#a80e12;
+    color:white;
+    text-align:center;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.event-button:hover{
+    background:#d0161d;
+}
+
+.game-title{
+    margin:5px 0 12px;
+    padding:11px 14px;
+    border-radius:10px;
+    background:#f5f6f8;
+    border:1px solid #e4e7eb;
+    color:#172033;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* ================= GAME ================= */
+
 .games{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
-
-/* ================= GAME ================= */
 
 .game{
     overflow:hidden;
@@ -663,6 +771,20 @@ footer{
         width:100%;
     }
 
+    .events{
+        grid-template-columns:1fr;
+    }
+
+    .event-card{
+        min-height:140px;
+    }
+
+    .event-image{
+        width:105px;
+        min-width:105px;
+        font-size:40px;
+    }
+
     .games{
         grid-template-columns:repeat(2,1fr);
     }
@@ -683,7 +805,18 @@ footer{
         display:none;
     }
 
+    .event-image{
+        width:85px;
+        min-width:85px;
+        font-size:34px;
+    }
+
+    .event-info h3{
+        font-size:14px;
+    }
+
 }
+
 </style>
 </head>
 
@@ -706,6 +839,7 @@ footer{
 
     </a>
 
+
     <div class="menu">
 
         <button
@@ -714,7 +848,9 @@ footer{
             ☰
         </button>
 
-        <div class="menu-box" id="menuBox">
+        <div
+            class="menu-box"
+            id="menuBox">
 
             <a href="acc-game.html">
                 🎮 ACC GAME
@@ -749,7 +885,10 @@ footer{
 
     </div>
 
-    <div class="user" id="userBox">
+
+    <div
+        class="user"
+        id="userBox">
 
         <div class="user-icon">
             👤
@@ -777,13 +916,16 @@ footer{
 <div
     id="apiStatus"
     class="api-status">
+
     🔄 Đang kết nối...
+
 </div>
 
 
 <!-- ================= MAIN ================= -->
 
 <main class="container">
+
 
     <!-- SHOP STATUS -->
 
@@ -796,6 +938,7 @@ footer{
     <!-- ================= BANNER ================= -->
 
     <section class="top">
+
 
         <div class="hero">
 
@@ -813,30 +956,37 @@ footer{
                     GIÁ RẺ - TỰ ĐỘNG - AN TOÀN
                 </h2>
 
+
                 <div class="badges">
 
                     <div class="badge">
                         🛡️ <b>UY TÍN</b>
+
                         <small>
                             Đặt uy tín lên hàng đầu
                         </small>
                     </div>
 
+
                     <div class="badge">
                         ⚡ <b>TỰ ĐỘNG</b>
+
                         <small>
                             Giao acc nhanh chóng
                         </small>
                     </div>
 
+
                     <div class="badge">
                         🏅 <b>AN TOÀN</b>
+
                         <small>
                             Bảo hành đầy đủ
                         </small>
                     </div>
 
                 </div>
+
 
                 <div class="social">
                     ♪ @shopkarot
@@ -865,15 +1015,20 @@ footer{
                     padding:25px;
                     text-align:center;
                     color:#888">
+
                     Đang tải...
+
                 </div>
 
             </div>
 
+
             <a
                 href="nap-tien.html"
                 class="nap-button">
+
                 💰 NẠP TIỀN NGAY →
+
             </a>
 
         </aside>
@@ -884,6 +1039,9 @@ footer{
     <!-- ================= CONTENT ================= -->
 
     <section class="content">
+
+
+        <!-- ================= NOTICE ================= -->
 
         <aside class="card notice">
 
@@ -942,12 +1100,102 @@ footer{
 
         <section class="card featured">
 
+
             <div class="title">
 
                 <h2>
                     ⭐ DANH MỤC NỔI BẬT
                 </h2>
 
+            </div>
+
+
+            <!-- ================= EVENT ================= -->
+
+            <div class="event-title">
+                🎉 EVENT
+            </div>
+
+
+            <div class="events">
+
+
+                <!-- EVENT BLOX FRUITS -->
+
+                <article class="event-card">
+
+                    <div class="event-image event-blox">
+                        🎉
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>
+                            EVENT BLOX FRUITS
+                        </h3>
+
+                        <p>
+                            🔥 Sự kiện Blox Fruits mới
+                        </p>
+
+                        <span class="event-status">
+                            🟢 Đang diễn ra
+                        </span>
+
+                        <a
+                            href="event-blox-fruit.html"
+                            class="event-button">
+
+                            XEM EVENT →
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- EVENT GROW A GARDEN 2 -->
+
+                <article class="event-card">
+
+                    <div class="event-image event-grow2">
+                        🌱
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>
+                            EVENT GROW A GARDEN 2
+                        </h3>
+
+                        <p>
+                            🌿 Sự kiện Grow A Garden 2
+                        </p>
+
+                        <span class="event-status">
+                            🟢 Đang diễn ra
+                        </span>
+
+                        <a
+                            href="event-grow-a-garden-2.html"
+                            class="event-button">
+
+                            XEM EVENT →
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- ================= GAME ================= -->
+
+            <div class="game-title">
+                🎮 GAME
             </div>
 
 
@@ -975,13 +1223,17 @@ footer{
                     <span
                         class="status"
                         id="status-blox">
+
                         Đang tải...
+
                     </span>
 
                     <a
                         href="acc-blox-fruit.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
@@ -1008,13 +1260,17 @@ footer{
                     <span
                         class="status"
                         id="status-king">
+
                         Đang tải...
+
                     </span>
 
                     <a
                         href="king-legacy.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
@@ -1041,13 +1297,17 @@ footer{
                     <span
                         class="status"
                         id="status-anime">
+
                         Đang tải...
+
                     </span>
 
                     <a
                         href="anime-fighters.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
@@ -1068,13 +1328,17 @@ footer{
                     <span
                         class="status"
                         id="status-grow2">
+
                         Đang tải...
+
                     </span>
 
                     <a
                         href="grow-a-garden-2.html"
                         class="game-button">
+
                         XEM TẤT CẢ →
+
                     </a>
 
                 </article>
@@ -1095,13 +1359,17 @@ footer{
                     <span
                         class="status"
                         id="status-grow">
+
                         Đang tải...
+
                     </span>
 
                     <a
                         href="grow-a-garden.html"
                         class="game-button">
+
                         XEM TẤT CẢ →
+
                     </a>
 
                 </article>
@@ -1122,13 +1390,17 @@ footer{
                     <span
                         class="status"
                         id="status-caythue">
+
                         Đang tải...
+
                     </span>
 
                     <a
                         href="cay-thue.html"
                         class="game-button">
+
                         XEM TẤT CẢ →
+
                     </a>
 
                 </article>
@@ -1155,13 +1427,17 @@ footer{
                     <span
                         class="status"
                         id="status-mm2">
+
                         Đang tải...
+
                     </span>
 
                     <a
                         href="murder-mystery-2.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
@@ -1244,7 +1520,6 @@ function setAPIStatus(type,text){
 
     box.textContent =
         text;
-
 }
 
 
@@ -1403,9 +1678,7 @@ function loadTopNap(){
             "topNapList"
         );
 
-
     let data = [];
-
 
     try{
 
@@ -1446,7 +1719,9 @@ function loadTopNap(){
             padding:25px;
             text-align:center;
             color:#888">
+
             Chưa có dữ liệu
+
         </div>
         `;
 
