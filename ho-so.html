@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hồ sơ - SHOPKAROT</title>
+<title>Hồ sơ khách hàng - SHOPKAROT</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -21,135 +22,101 @@ body{
 /* ================= HEADER ================= */
 
 .header{
-    height:75px;
+    min-height:80px;
     background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+
     display:flex;
     align-items:center;
-    padding:0 22px;
-    border-bottom:1px solid #eee;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
+
+    padding:12px 25px;
+    gap:15px;
+
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:1000;
 }
 
 .logo{
     display:flex;
     align-items:center;
     gap:10px;
+
     text-decoration:none;
     color:#111;
 }
 
 .logo-icon{
-    width:48px;
-    height:48px;
+    width:52px;
+    height:52px;
+
     border-radius:50%;
-    background:linear-gradient(135deg,#111,#e21b23);
-    color:#fff;
+
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #111,
+        #e21b23
+    );
+
+    color:#fff;
+    font-size:18px;
     font-weight:900;
 }
 
 .logo-text b{
-    font-size:25px;
+    display:block;
+
+    font-size:27px;
     font-style:italic;
 }
 
-.logo-text span{
+.logo-text b span{
     color:#e21b23;
 }
 
 .logo-text small{
     display:block;
-    font-size:9px;
+
     margin-top:3px;
+
+    font-size:10px;
     font-weight:bold;
 }
 
-/* ================= MENU ================= */
+/* ================= HEADER BUTTON ================= */
 
-.menu{
-    position:relative;
-    margin-left:20px;
-}
-
-.menu-btn{
-    width:45px;
-    height:45px;
-    border:0;
-    background:#fff;
-    border-radius:10px;
-    font-size:27px;
-    cursor:pointer;
-}
-
-.menu-btn:hover{
-    background:#f1f2f4;
-}
-
-.menu-box{
-    display:none;
-    position:absolute;
-    top:53px;
-    left:0;
-    width:245px;
-    background:#fff;
-    border:1px solid #eee;
-    border-radius:14px;
-    padding:8px;
-    box-shadow:0 15px 35px rgba(0,0,0,.18);
-}
-
-.menu-box.show{
-    display:block;
-}
-
-.menu-box a{
-    display:block;
-    padding:13px 14px;
-    border-radius:9px;
-    text-decoration:none;
-    color:#172033;
-    font-weight:bold;
-}
-
-.menu-box a:hover{
-    background:#f4f5f7;
-    color:#d01018;
-}
-
-/* ================= USER HEADER ================= */
-
-.header-user{
+.header-right{
     margin-left:auto;
+
     display:flex;
     align-items:center;
-    gap:9px;
+    gap:10px;
 }
 
-.header-avatar{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#f1f1f1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-}
+.home-button{
+    display:inline-block;
 
-.header-name{
+    padding:11px 16px;
+
+    border-radius:10px;
+
+    background:#f3f4f6;
+
+    color:#172033;
+
     font-weight:bold;
+    font-size:14px;
+
+    text-decoration:none;
 }
 
-.header-online{
-    display:block;
-    color:#078542;
-    font-size:11px;
-    margin-top:2px;
+.home-button:hover{
+    background:#e5e7eb;
 }
 
 /* ================= CONTAINER ================= */
@@ -157,6 +124,7 @@ body{
 .container{
     width:94%;
     max-width:1100px;
+
     margin:30px auto;
 }
 
@@ -168,322 +136,310 @@ body{
 
 .page-title h1{
     margin:0;
+
     font-size:30px;
 }
 
 .page-title p{
     margin:7px 0 0;
-    color:#687386;
-}
 
-/* ================= LOADING ================= */
-
-.loading{
-    background:#fff;
-    border-radius:16px;
-    padding:40px 20px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
-}
-
-.spinner{
-    width:42px;
-    height:42px;
-    border:4px solid #eee;
-    border-top-color:#d01018;
-    border-radius:50%;
-    animation:spin .8s linear infinite;
-    margin:0 auto 15px;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
+    color:#6b7280;
 }
 
 /* ================= ERROR ================= */
 
 .error-box{
     display:none;
-    background:#fff;
-    border:1px solid #f1bebe;
-    color:#c00;
-    border-radius:14px;
-    padding:18px;
+
+    padding:16px 18px;
+
     margin-bottom:20px;
+
+    border-radius:12px;
+
+    background:#fff1f1;
+
+    border:1px solid #efb5b5;
+
+    color:#c20f18;
+
+    font-weight:bold;
 }
 
 .error-box.show{
     display:block;
 }
 
+/* ================= LOADING ================= */
+
+.loading{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:180px;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+
+    color:#666;
+
+    font-weight:bold;
+}
+
+.spinner{
+    width:24px;
+    height:24px;
+
+    border:3px solid #ddd;
+    border-top-color:#d01018;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+    margin-right:10px;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
 /* ================= PROFILE ================= */
 
 .profile-card{
     background:#fff;
+
     border-radius:18px;
-    box-shadow:0 5px 22px rgba(0,0,0,.08);
+
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+
     overflow:hidden;
+
     margin-bottom:20px;
 }
 
-.profile-head{
-    padding:25px;
-    background:linear-gradient(135deg,#111,#3b0505,#d01018);
+.profile-title{
+    padding:18px 22px;
+
+    background:#d01018;
+
     color:#fff;
-    display:flex;
-    align-items:center;
-    gap:18px;
+
+    font-size:20px;
+    font-weight:bold;
 }
 
-.big-avatar{
-    width:75px;
-    height:75px;
-    border-radius:50%;
-    background:#fff;
-    color:#d01018;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:34px;
-}
-
-.profile-head h2{
-    margin:0;
-    font-size:24px;
-}
-
-.profile-head small{
-    display:block;
-    margin-top:5px;
-    opacity:.85;
-}
-
-.profile-body{
-    padding:20px;
-}
-
-.info-grid{
+.profile-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
+
+    grid-template-columns:
+        repeat(2,1fr);
 }
 
-.info-item{
-    border:1px solid #e6e9ed;
-    border-radius:13px;
-    padding:16px;
-    background:#fafbfc;
+.profile-item{
+    padding:20px 22px;
+
+    border-bottom:1px solid #eee;
 }
 
-.info-label{
-    color:#687386;
+.profile-item:nth-child(odd){
+    border-right:1px solid #eee;
+}
+
+.profile-label{
+    color:#6b7280;
+
     font-size:13px;
+
     margin-bottom:7px;
 }
 
-.info-value{
+.profile-value{
+    font-size:18px;
+
     font-weight:bold;
-    font-size:17px;
+
     word-break:break-word;
 }
 
 .balance{
     color:#d01018;
-    font-size:21px;
 }
 
-/* ================= PASSWORD ================= */
-
-.password-row{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.password-value{
-    flex:1;
-}
-
-.eye-btn{
-    border:1px solid #ddd;
-    background:#fff;
-    border-radius:8px;
-    padding:7px 10px;
-    cursor:pointer;
-}
-
-.eye-btn:hover{
-    background:#f3f4f6;
+.password{
+    letter-spacing:1px;
 }
 
 /* ================= ORDERS ================= */
 
 .orders-card{
     background:#fff;
+
     border-radius:18px;
-    box-shadow:0 5px 22px rgba(0,0,0,.08);
+
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+
     overflow:hidden;
 }
 
-.orders-head{
-    padding:20px;
+.orders-title{
+    padding:18px 22px;
+
     border-bottom:1px solid #eee;
-}
 
-.orders-head h2{
-    margin:0;
-}
-
-.orders-head p{
-    color:#687386;
-    margin:6px 0 0;
-}
-
-.orders-list{
-    padding:15px;
-}
-
-.order{
-    border:1px solid #e3e6ea;
-    border-radius:13px;
-    padding:16px;
-    margin-bottom:12px;
-    background:#fff;
-}
-
-.order:last-child{
-    margin-bottom:0;
-}
-
-.order-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-}
-
-.order-product{
+    font-size:20px;
     font-weight:bold;
-    font-size:16px;
 }
 
-.order-price{
+.orders-count{
     color:#d01018;
-    font-weight:bold;
 }
 
-.order-info{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:12px;
+/* ================= ORDER EMPTY ================= */
+
+.empty-orders{
+    padding:45px 20px;
+
+    text-align:center;
+
+    color:#777;
 }
 
-.order-info div{
-    background:#f6f7f8;
-    padding:10px;
-    border-radius:9px;
+/* ================= TABLE ================= */
+
+.table-wrap{
+    width:100%;
+
+    overflow-x:auto;
 }
 
-.order-info small{
-    display:block;
-    color:#687386;
-    margin-bottom:4px;
+table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:700px;
 }
 
-.order-info b{
+th{
+    padding:14px 15px;
+
+    background:#f8fafc;
+
+    text-align:left;
+
     font-size:13px;
+
+    color:#596577;
+
+    border-bottom:1px solid #e5e7eb;
+}
+
+td{
+    padding:15px;
+
+    border-bottom:1px solid #eee;
+
+    font-size:14px;
+}
+
+td.price{
+    color:#d01018;
+
+    font-weight:bold;
 }
 
 .status{
     display:inline-block;
-    padding:5px 10px;
+
+    padding:6px 11px;
+
     border-radius:20px;
-    font-size:11px;
+
+    font-size:12px;
+
     font-weight:bold;
 }
 
-.status-pending{
-    background:#fff5d8;
-    color:#a66b00;
+.status.pending{
+    background:#fff7df;
+
+    color:#a36a00;
 }
 
-.status-approved,
-.status-success,
-.status-completed{
-    background:#e8f8ef;
+.status.approved,
+.status.completed,
+.status.success{
+    background:#e7f8ef;
+
     color:#078542;
 }
 
-.status-rejected,
-.status-cancelled{
+.status.rejected,
+.status.cancelled,
+.status.failed{
     background:#fff0f0;
+
     color:#d01018;
 }
 
-.status-default{
-    background:#edf1f5;
+.status.other{
+    background:#f1f3f5;
+
     color:#596577;
 }
 
-/* ================= EMPTY ================= */
+/* ================= LOGOUT ================= */
 
-.empty{
-    text-align:center;
-    padding:40px 20px;
-    color:#687386;
-}
-
-.empty-icon{
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-/* ================= BUTTONS ================= */
-
-.actions{
-    display:flex;
-    gap:10px;
+.logout-area{
     margin-top:20px;
+
+    display:flex;
+
+    justify-content:flex-end;
 }
 
-.btn{
-    flex:1;
+.logout-button{
     border:0;
-    padding:13px 16px;
+
+    padding:13px 22px;
+
     border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:14px;
-}
 
-.btn-home{
-    background:#f0f2f4;
-    color:#172033;
-}
-
-.btn-refresh{
     background:#d01018;
+
     color:#fff;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    cursor:pointer;
 }
 
-.btn-logout{
-    background:#111;
-    color:#fff;
-}
-
-.btn:hover{
-    opacity:.9;
+.logout-button:hover{
+    background:#b90d14;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-    text-align:center;
     padding:30px 20px;
-    color:#687386;
+
+    text-align:center;
+
+    color:#6b7280;
+
+    font-size:13px;
 }
 
 /* ================= MOBILE ================= */
@@ -491,147 +447,127 @@ footer{
 @media(max-width:700px){
 
     .header{
-        padding:0 12px;
+        padding:10px 12px;
     }
 
     .logo-text b{
-        font-size:21px;
+        font-size:22px;
     }
 
     .logo-text small{
         display:none;
     }
 
-    .menu{
-        margin-left:10px;
-    }
+    .home-button{
+        padding:9px 11px;
 
-    .header-user{
-        max-width:130px;
-    }
-
-    .header-name{
-        max-width:80px;
-        overflow:hidden;
-        text-overflow:ellipsis;
-        white-space:nowrap;
+        font-size:12px;
     }
 
     .container{
         width:94%;
-        margin:20px auto;
+
+        margin-top:20px;
     }
 
     .page-title h1{
         font-size:25px;
     }
 
-    .info-grid{
+    .profile-grid{
         grid-template-columns:1fr;
     }
 
-    .order-top{
-        flex-direction:column;
-        align-items:flex-start;
+    .profile-item:nth-child(odd){
+        border-right:0;
     }
 
-    .order-info{
-        grid-template-columns:1fr;
+    .profile-item{
+        padding:17px;
     }
 
-    .actions{
-        flex-direction:column;
+    .profile-value{
+        font-size:16px;
     }
 
-    .profile-head{
-        padding:20px;
+    .orders-title{
+        font-size:18px;
     }
 
 }
+
+/* ================= VERY SMALL ================= */
+
+@media(max-width:420px){
+
+    .logo-icon{
+        width:44px;
+        height:44px;
+    }
+
+    .logo-text b{
+        font-size:19px;
+    }
+
+    .home-button{
+        font-size:11px;
+        padding:8px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="header">
 
-    <a href="index.html" class="logo">
+    <a
+        href="index.html"
+        class="logo">
 
         <div class="logo-icon">
             SK
         </div>
 
         <div class="logo-text">
-            <b>SHOP<span>KAROT</span></b>
-            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
         </div>
 
     </a>
 
 
-    <div class="menu">
+    <div class="header-right">
 
-        <button
-            class="menu-btn"
-            onclick="toggleMenu()">
-            ☰
-        </button>
+        <a
+            href="index.html"
+            class="home-button">
 
-        <div
-            class="menu-box"
-            id="menuBox">
+            🏠 Trang chủ
 
-            <a href="index.html">
-                🏠 Trang chủ
-            </a>
-
-            <a href="acc-game.html">
-                🎮 Acc Game
-            </a>
-
-            <a href="tui-mu.html?price=0">
-                🎁 Túi Mù
-            </a>
-
-            <a href="lich-su.html">
-                🧾 Lịch sử mua
-            </a>
-
-            <a href="nap-tien.html">
-                💰 Nạp tiền
-            </a>
-
-            <a href="ho-so.html">
-                👤 Hồ sơ
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="header-user">
-
-        <div class="header-avatar">
-            👤
-        </div>
-
-        <div>
-            <div
-                class="header-name"
-                id="headerUsername">
-                Đang tải...
-            </div>
-
-            <small class="header-online">
-                ● Đang đăng nhập
-            </small>
-        </div>
+        </a>
 
     </div>
 
 </header>
 
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="container">
 
@@ -648,11 +584,15 @@ footer{
     </div>
 
 
+    <!-- ERROR -->
+
     <div
         id="errorBox"
         class="error-box">
     </div>
 
+
+    <!-- LOADING -->
 
     <div
         id="loading"
@@ -660,181 +600,146 @@ footer{
 
         <div class="spinner"></div>
 
-        <b>
-            Đang tải thông tin tài khoản...
-        </b>
-
-        <p>
-            Đang kết nối Google Sheets
-        </p>
+        Đang tải thông tin tài khoản...
 
     </div>
 
 
-    <div
-        id="profileContent"
+    <!-- PROFILE -->
+
+    <section
+        id="profileCard"
+        class="profile-card"
         style="display:none;">
 
-        <!-- ================= PROFILE ================= -->
+        <div class="profile-title">
 
-        <section class="profile-card">
+            👤 Thông tin tài khoản
 
-            <div class="profile-head">
+        </div>
 
-                <div class="big-avatar">
-                    👤
+
+        <div class="profile-grid">
+
+
+            <!-- USERNAME -->
+
+            <div class="profile-item">
+
+                <div class="profile-label">
+                    👤 Username
                 </div>
 
-                <div>
-
-                    <h2 id="profileUsername">
-                        -
-                    </h2>
-
-                    <small>
-                        Tài khoản SHOPKAROT
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="profile-body">
-
-                <div class="info-grid">
-
-                    <!-- USERNAME -->
-
-                    <div class="info-item">
-
-                        <div class="info-label">
-                            👤 Username
-                        </div>
-
-                        <div
-                            class="info-value"
-                            id="usernameValue">
-                            -
-                        </div>
-
-                    </div>
-
-
-                    <!-- PASSWORD -->
-
-                    <div class="info-item">
-
-                        <div class="info-label">
-                            🔐 Mật khẩu
-                        </div>
-
-                        <div class="password-row">
-
-                            <div
-                                class="info-value password-value"
-                                id="passwordValue">
-                                -
-                            </div>
-
-                            <button
-                                class="eye-btn"
-                                onclick="togglePassword()">
-                                👁️
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- BALANCE -->
-
-                    <div class="info-item">
-
-                        <div class="info-label">
-                            💰 Số dư
-                        </div>
-
-                        <div
-                            class="info-value balance"
-                            id="balanceValue">
-                            0đ
-                        </div>
-
-                    </div>
-
-
-                    <!-- CREATED -->
-
-                    <div class="info-item">
-
-                        <div class="info-label">
-                            📅 Ngày tạo tài khoản
-                        </div>
-
-                        <div
-                            class="info-value"
-                            id="createdValue">
-                            -
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="actions">
-
-                    <button
-                        class="btn btn-home"
-                        onclick="location.href='index.html'">
-                        🏠 Trang chủ
-                    </button>
-
-                    <button
-                        class="btn btn-refresh"
-                        onclick="loadProfile()">
-                        🔄 Cập nhật dữ liệu
-                    </button>
-
-                    <button
-                        class="btn btn-logout"
-                        onclick="logout()">
-                        🚪 Đăng xuất
-                    </button>
-
+                <div
+                    id="username"
+                    class="profile-value">
+                    --
                 </div>
 
             </div>
 
-        </section>
 
+            <!-- PASSWORD -->
 
-        <!-- ================= ORDERS ================= -->
+            <div class="profile-item">
 
-        <section class="orders-card">
+                <div class="profile-label">
+                    🔐 Mật khẩu
+                </div>
 
-            <div class="orders-head">
-
-                <h2>
-                    🧾 Toàn bộ đơn hàng
-                </h2>
-
-                <p id="orderCount">
-                    Đang tải...
-                </p>
+                <div
+                    id="password"
+                    class="profile-value password">
+                    --
+                </div>
 
             </div>
 
 
-            <div
-                class="orders-list"
-                id="ordersList">
+            <!-- BALANCE -->
+
+            <div class="profile-item">
+
+                <div class="profile-label">
+                    💰 Số dư
+                </div>
+
+                <div
+                    id="balance"
+                    class="profile-value balance">
+                    0đ
+                </div>
 
             </div>
 
-        </section>
+
+            <!-- CREATED -->
+
+            <div class="profile-item">
+
+                <div class="profile-label">
+                    📅 Ngày tạo tài khoản
+                </div>
+
+                <div
+                    id="createdAt"
+                    class="profile-value">
+                    --
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         ORDERS
+    ================================================= -->
+
+    <section
+        id="ordersCard"
+        class="orders-card"
+        style="display:none;">
+
+        <div class="orders-title">
+
+            🧾 Toàn bộ đơn hàng
+
+            <span
+                id="ordersCount"
+                class="orders-count">
+                (0)
+            </span>
+
+        </div>
+
+
+        <div id="ordersContent">
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         LOGOUT
+    ================================================= -->
+
+    <div
+        id="logoutArea"
+        class="logout-area"
+        style="display:none;">
+
+        <button
+            class="logout-button"
+            onclick="logout()">
+
+            🚪 Đăng xuất
+
+        </button>
 
     </div>
 
@@ -851,7 +756,7 @@ footer{
 <script>
 
 /* =====================================================
-   API
+   SHOPKAROT API v4.0
 ===================================================== */
 
 const API_URL =
@@ -859,130 +764,84 @@ const API_URL =
 
 
 /* =====================================================
-   MENU
+   ELEMENTS
 ===================================================== */
 
-function toggleMenu(){
+const loading =
+    document.getElementById(
+        "loading"
+    );
 
-    document
-        .getElementById("menuBox")
-        .classList.toggle("show");
+const errorBox =
+    document.getElementById(
+        "errorBox"
+    );
 
-}
+const profileCard =
+    document.getElementById(
+        "profileCard"
+    );
 
+const ordersCard =
+    document.getElementById(
+        "ordersCard"
+    );
 
-document.addEventListener(
-    "click",
-    function(e){
-
-        const menu =
-            document.querySelector(".menu");
-
-        if(
-            menu &&
-            !menu.contains(e.target)
-        ){
-
-            document
-                .getElementById("menuBox")
-                .classList.remove("show");
-
-        }
-
-    }
-);
+const logoutArea =
+    document.getElementById(
+        "logoutArea"
+    );
 
 
 /* =====================================================
-   LẤY USERNAME ĐANG ĐĂNG NHẬP
+   ERROR
 ===================================================== */
 
-function getLoggedUsername(){
+function showError(message){
 
-    /*
-     * localStorage CHỈ lưu trạng thái đăng nhập /
-     * username để xác định tài khoản.
-     *
-     * Không lấy password,
-     * không lấy balance,
-     * không lấy ngày tạo,
-     * không lấy đơn hàng.
-     *
-     * Các dữ liệu đó đều lấy trực tiếp từ API.
-     */
+    loading.style.display =
+        "none";
 
-    const login =
-        localStorage.getItem(
-            "shopkarot_login"
-        );
+    profileCard.style.display =
+        "none";
 
-    const username =
-        localStorage.getItem(
-            "shopkarot_user"
-        );
+    ordersCard.style.display =
+        "none";
 
+    logoutArea.style.display =
+        "none";
 
-    if(
-        login !== "true" ||
-        !username
-    ){
+    errorBox.textContent =
+        "❌ " + message;
 
-        return null;
-
-    }
-
-
-    return username.trim();
+    errorBox.classList.add(
+        "show"
+    );
 
 }
 
 
 /* =====================================================
-   FORMAT TIỀN
-===================================================== */
-
-function formatMoney(value){
-
-    const number =
-        Number(value || 0);
-
-    return number.toLocaleString(
-        "vi-VN"
-    ) + "đ";
-
-}
-
-
-/* =====================================================
-   FORMAT NGÀY
+   DATE
 ===================================================== */
 
 function formatDate(value){
 
-    if(!value){
-        return "-";
+    if(
+        value === null ||
+        value === undefined ||
+        value === ""
+    ){
+
+        return "--";
+
     }
 
 
     try{
 
-        let date;
-
-
-        if(
-            value instanceof Date
-        ){
-
-            date = value;
-
-        }
-
-        else{
-
-            date =
-                new Date(value);
-
-        }
+        const date =
+            new Date(value);
 
 
         if(
@@ -1019,117 +878,379 @@ function formatDate(value){
 
 
 /* =====================================================
+   MONEY
+===================================================== */
+
+function formatMoney(value){
+
+    const number =
+        Number(value || 0);
+
+
+    return number.toLocaleString(
+        "vi-VN"
+    ) + "đ";
+
+}
+
+
+/* =====================================================
    ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(value){
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(
+        value ?? ""
+    )
 
-}
+    .replace(
+        /&/g,
+        "&amp;"
+    )
 
+    .replace(
+        /</g,
+        "&lt;"
+    )
 
-/* =====================================================
-   HIỂN THỊ LỖI
-===================================================== */
+    .replace(
+        />/g,
+        "&gt;"
+    )
 
-function showError(message){
+    .replace(
+        /"/g,
+        "&quot;"
+    )
 
-    const box =
-        document.getElementById(
-            "errorBox"
-        );
-
-
-    box.innerHTML =
-        "❌ " +
-        escapeHTML(message);
-
-
-    box.classList.add(
-        "show"
+    .replace(
+        /'/g,
+        "&#039;"
     );
 
 }
 
 
-function hideError(){
+/* =====================================================
+   ORDER STATUS
+===================================================== */
 
-    document
-        .getElementById(
-            "errorBox"
+function getStatusClass(status){
+
+    const text =
+        String(
+            status || ""
         )
-        .classList.remove(
-            "show"
-        );
+        .trim()
+        .toLowerCase();
+
+
+    if(
+        text === "pending" ||
+        text.includes("chờ")
+    ){
+
+        return "pending";
+
+    }
+
+
+    if(
+        text === "approved" ||
+        text === "completed" ||
+        text === "success" ||
+        text.includes("hoàn thành") ||
+        text.includes("đã duyệt")
+    ){
+
+        return "approved";
+
+    }
+
+
+    if(
+        text === "rejected" ||
+        text === "cancelled" ||
+        text === "failed" ||
+        text.includes("từ chối") ||
+        text.includes("hủy")
+    ){
+
+        return "rejected";
+
+    }
+
+
+    return "other";
 
 }
 
 
 /* =====================================================
-   POST API
+   RENDER PROFILE
 ===================================================== */
 
-async function apiPost(data){
+function renderProfile(profile){
 
-    const response =
-        await fetch(
-            API_URL,
-            {
-                method:"POST",
+    document.getElementById(
+        "username"
+    ).textContent =
+        profile.username || "--";
 
-                headers:{
-                    "Content-Type":
-                        "text/plain;charset=utf-8"
-                },
 
-                body:
-                    JSON.stringify(data),
+    document.getElementById(
+        "password"
+    ).textContent =
+        profile.password || "--";
 
-                cache:"no-store"
-            }
+
+    document.getElementById(
+        "balance"
+    ).textContent =
+        formatMoney(
+            profile.balance
         );
 
 
-    if(!response.ok){
-
-        throw new Error(
-            "HTTP " +
-            response.status
+    document.getElementById(
+        "createdAt"
+    ).textContent =
+        formatDate(
+            profile.createdAt
         );
+
+
+    profileCard.style.display =
+        "block";
+
+}
+
+
+/* =====================================================
+   RENDER ORDERS
+===================================================== */
+
+function renderOrders(orders){
+
+    if(
+        !Array.isArray(orders)
+    ){
+
+        orders = [];
 
     }
 
 
-    const text =
-        await response.text();
+    document.getElementById(
+        "ordersCount"
+    ).textContent =
+        "(" +
+        orders.length +
+        ")";
 
 
-    let result;
+    ordersCard.style.display =
+        "block";
 
 
-    try{
-
-        result =
-            JSON.parse(text);
-
-    }
-
-    catch(error){
-
-        throw new Error(
-            "API không trả về JSON hợp lệ"
+    const content =
+        document.getElementById(
+            "ordersContent"
         );
 
+
+    if(
+        orders.length === 0
+    ){
+
+        content.innerHTML = `
+
+            <div class="empty-orders">
+
+                🧾 Bạn chưa có đơn hàng nào.
+
+            </div>
+
+        `;
+
+        return;
+
     }
 
 
-    return result;
+    let html = `
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Mã đơn
+                        </th>
+
+                        <th>
+                            Sản phẩm
+                        </th>
+
+                        <th>
+                            Giá
+                        </th>
+
+                        <th>
+                            Ngày mua
+                        </th>
+
+                        <th>
+                            Trạng thái
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+    `;
+
+
+    orders.forEach(
+        function(order){
+
+            const status =
+                String(
+                    order.status || ""
+                );
+
+
+            const statusClass =
+                getStatusClass(
+                    status
+                );
+
+
+            html += `
+
+                <tr>
+
+                    <td>
+                        ${escapeHTML(
+                            order.id || "--"
+                        )}
+                    </td>
+
+                    <td>
+                        <b>
+                            ${escapeHTML(
+                                order.product ||
+                                "--"
+                            )}
+                        </b>
+                    </td>
+
+                    <td class="price">
+
+                        ${formatMoney(
+                            order.price
+                        )}
+
+                    </td>
+
+                    <td>
+
+                        ${formatDate(
+                            order.createdAt
+                        )}
+
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="status ${statusClass}">
+
+                            ${escapeHTML(
+                                status ||
+                                "Không rõ"
+                            )}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+    content.innerHTML =
+        html;
+
+}
+
+
+/* =====================================================
+   GET LOGGED USER
+===================================================== */
+
+function getLoggedUsername(){
+
+    /*
+     * Chỉ lấy username để xác định
+     * tài khoản đang đăng nhập.
+     *
+     * KHÔNG lấy:
+     * - password
+     * - balance
+     * - orders
+     * - createdAt
+     *
+     * từ localStorage.
+     */
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+
+    if(
+        login !== "true" ||
+        !username
+    ){
+
+        return null;
+
+    }
+
+
+    return String(
+        username
+    ).trim();
 
 }
 
@@ -1140,7 +1261,9 @@ async function apiPost(data){
 
 async function loadProfile(){
 
-    hideError();
+    errorBox.classList.remove(
+        "show"
+    );
 
 
     const username =
@@ -1148,150 +1271,130 @@ async function loadProfile(){
 
 
     /*
-     * Không cho người chưa đăng nhập
-     * vào trang hồ sơ.
+     * Không đăng nhập
      */
 
     if(!username){
 
-        window.location.href =
-            "login.html";
+        showError(
+            "Bạn chưa đăng nhập. Vui lòng đăng nhập trước."
+        );
+
+        setTimeout(
+            function(){
+
+                window.location.href =
+                    "login.html";
+
+            },
+            1200
+        );
 
         return;
 
     }
 
 
-    document
-        .getElementById(
-            "loading"
-        )
-        .style.display =
-            "block";
-
-
-    document
-        .getElementById(
-            "profileContent"
-        )
-        .style.display =
-            "none";
-
-
-    document
-        .getElementById(
-            "headerUsername"
-        )
-        .textContent =
-            username;
-
-
     try{
 
-        /*
-         * API v4.0 cần có action getProfile.
-         *
-         * Username chỉ dùng để yêu cầu dữ liệu.
-         * Dữ liệu thực tế được đọc từ Google Sheets.
-         */
+        loading.style.display =
+            "flex";
 
-        const result =
-            await apiPost({
 
-                action:
-                    "getProfile",
+        const url =
+            API_URL +
+            "?action=getProfile&username=" +
+            encodeURIComponent(
+                username
+            ) +
+            "&_=" +
+            Date.now();
 
-                username:
-                    username
 
-            });
+        const response =
+            await fetch(
+                url,
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
 
 
         console.log(
             "SHOPKAROT PROFILE API:",
-            result
+            data
         );
 
 
         if(
-            !result ||
-            result.ok !== true
+            !data ||
+            data.ok !== true
         ){
 
             throw new Error(
-                result &&
-                result.message
-                    ? result.message
-                    : "Không lấy được hồ sơ"
+                data &&
+                data.message
+                ?
+                data.message
+                :
+                "API không trả về dữ liệu hồ sơ"
+            );
+
+        }
+
+
+        if(
+            !data.profile
+        ){
+
+            throw new Error(
+                "API không trả về profile"
             );
 
         }
 
 
         /*
-         * Hỗ trợ cả:
-         *
-         * result.profile
-         * result.user
-         * hoặc dữ liệu trực tiếp
+         * Dữ liệu hồ sơ lấy trực tiếp
+         * từ Google Sheets
          */
 
-        const profile =
-            result.profile ||
-            result.user ||
-            result;
-
-
-        displayProfile(
-            profile
+        renderProfile(
+            data.profile
         );
 
 
         /*
-         * Lấy đơn hàng.
-         *
-         * Nếu API trả orders ngay trong profile
-         * thì dùng luôn.
-         *
-         * Nếu không thì gọi getOrders.
+         * Toàn bộ đơn hàng
          */
 
-        if(
-            Array.isArray(
-                result.orders
-            )
-        ){
-
-            displayOrders(
-                result.orders,
-                username
-            );
-
-        }
-
-        else{
-
-            await loadOrders(
-                username
-            );
-
-        }
+        renderOrders(
+            data.orders || []
+        );
 
 
-        document
-            .getElementById(
-                "loading"
-            )
-            .style.display =
-                "none";
+        loading.style.display =
+            "none";
 
 
-        document
-            .getElementById(
-                "profileContent"
-            )
-            .style.display =
-                "block";
+        logoutArea.style.display =
+            "flex";
+
 
     }
 
@@ -1301,14 +1404,6 @@ async function loadProfile(){
             "PROFILE ERROR:",
             error
         );
-
-
-        document
-            .getElementById(
-                "loading"
-            )
-            .style.display =
-                "none";
 
 
         showError(
@@ -1322,563 +1417,15 @@ async function loadProfile(){
 
 
 /* =====================================================
-   HIỂN THỊ PROFILE
-===================================================== */
-
-function displayProfile(profile){
-
-    const username =
-        profile.username ||
-        profile.Username ||
-        "";
-
-
-    const password =
-        profile.password ||
-        profile.Password ||
-        "";
-
-
-    const balance =
-        profile.balance ??
-        profile.Balance ??
-        0;
-
-
-    const createdAt =
-        profile.createdAt ||
-        profile.created ||
-        profile.ngayTao ||
-        profile["Ngày tạo"] ||
-        "";
-
-
-    document
-        .getElementById(
-            "profileUsername"
-        )
-        .textContent =
-            username;
-
-
-    document
-        .getElementById(
-            "headerUsername"
-        )
-        .textContent =
-            username;
-
-
-    document
-        .getElementById(
-            "usernameValue"
-        )
-        .textContent =
-            username;
-
-
-    /*
-     * Mật khẩu được che mặc định.
-     */
-
-    document
-        .getElementById(
-            "passwordValue"
-        )
-        .textContent =
-            password || "Không có dữ liệu";
-
-
-    document
-        .getElementById(
-            "passwordValue"
-        )
-        .dataset.realPassword =
-            password;
-
-
-    document
-        .getElementById(
-            "passwordValue"
-        )
-        .dataset.hidden =
-            "true";
-
-
-    document
-        .getElementById(
-            "balanceValue"
-        )
-        .textContent =
-            formatMoney(balance);
-
-
-    document
-        .getElementById(
-            "createdValue"
-        )
-        .textContent =
-            formatDate(createdAt);
-
-}
-
-
-/* =====================================================
-   LOAD ORDERS
-===================================================== */
-
-async function loadOrders(username){
-
-    try{
-
-        const result =
-            await apiPost({
-
-                action:
-                    "getOrders",
-
-                username:
-                    username
-
-            });
-
-
-        console.log(
-            "SHOPKAROT ORDERS API:",
-            result
-        );
-
-
-        if(
-            !result ||
-            result.ok !== true
-        ){
-
-            throw new Error(
-                result &&
-                result.message
-                    ? result.message
-                    : "Không lấy được đơn hàng"
-            );
-
-        }
-
-
-        const orders =
-            result.orders ||
-            result.data ||
-            [];
-
-
-        displayOrders(
-            orders,
-            username
-        );
-
-    }
-
-    catch(error){
-
-        console.error(
-            "ORDERS ERROR:",
-            error
-        );
-
-
-        document
-            .getElementById(
-                "orderCount"
-            )
-            .textContent =
-                "Không tải được đơn hàng";
-
-
-        document
-            .getElementById(
-                "ordersList"
-            )
-            .innerHTML = `
-
-                <div class="empty">
-
-                    <div class="empty-icon">
-                        ⚠️
-                    </div>
-
-                    Không thể tải danh sách đơn hàng.
-
-                </div>
-
-            `;
-
-    }
-
-}
-
-
-/* =====================================================
-   HIỂN THỊ ORDERS
-===================================================== */
-
-function displayOrders(
-    orders,
-    username
-){
-
-    if(
-        !Array.isArray(orders)
-    ){
-
-        orders = [];
-
-    }
-
-
-    /*
-     * Lọc lần nữa ở phía client.
-     *
-     * Nhưng việc bảo mật thực sự phải được
-     * thực hiện trong Code.gs.
-     */
-
-    const myOrders =
-        orders.filter(
-            function(order){
-
-                const orderUser =
-                    String(
-                        order.username ||
-                        order.Username ||
-                        ""
-                    )
-                    .trim()
-                    .toLowerCase();
-
-
-                return (
-                    orderUser ===
-                    String(username)
-                        .trim()
-                        .toLowerCase()
-                );
-
-            }
-        );
-
-
-    document
-        .getElementById(
-            "orderCount"
-        )
-        .textContent =
-            myOrders.length +
-            " đơn hàng";
-
-
-    const box =
-        document.getElementById(
-            "ordersList"
-        );
-
-
-    if(
-        myOrders.length === 0
-    ){
-
-        box.innerHTML = `
-
-            <div class="empty">
-
-                <div class="empty-icon">
-                    🧾
-                </div>
-
-                Bạn chưa có đơn hàng nào.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    box.innerHTML = "";
-
-
-    /*
-     * Mới nhất lên trước.
-     */
-
-    myOrders.sort(
-        function(a,b){
-
-            const da =
-                new Date(
-                    a.createdAt ||
-                    a.date ||
-                    a.ngayMua ||
-                    a["Ngày mua"] ||
-                    0
-                ).getTime();
-
-
-            const db =
-                new Date(
-                    b.createdAt ||
-                    b.date ||
-                    b.ngayMua ||
-                    b["Ngày mua"] ||
-                    0
-                ).getTime();
-
-
-            return db - da;
-
-        }
-    );
-
-
-    myOrders.forEach(
-        function(order,index){
-
-            const id =
-                order.id ||
-                order.ID ||
-                ("DON-" + (index + 1));
-
-
-            const product =
-                order.product ||
-                order.Product ||
-                order.sanPham ||
-                "Sản phẩm";
-
-
-            const price =
-                order.price ||
-                order.Price ||
-                order.amount ||
-                0;
-
-
-            const status =
-                order.status ||
-                order.Status ||
-                "pending";
-
-
-            const createdAt =
-                order.createdAt ||
-                order.date ||
-                order.ngayMua ||
-                order["Ngày mua"] ||
-                "";
-
-
-            const row =
-                document.createElement(
-                    "div"
-                );
-
-
-            row.className =
-                "order";
-
-
-            row.innerHTML = `
-
-                <div class="order-top">
-
-                    <div class="order-product">
-                        🎮 ${escapeHTML(product)}
-                    </div>
-
-                    <div class="order-price">
-                        ${formatMoney(price)}
-                    </div>
-
-                </div>
-
-
-                <div class="order-info">
-
-                    <div>
-
-                        <small>
-                            🧾 Mã đơn
-                        </small>
-
-                        <b>
-                            ${escapeHTML(id)}
-                        </b>
-
-                    </div>
-
-
-                    <div>
-
-                        <small>
-                            📅 Ngày mua
-                        </small>
-
-                        <b>
-                            ${escapeHTML(
-                                formatDate(createdAt)
-                            )}
-                        </b>
-
-                    </div>
-
-
-                    <div>
-
-                        <small>
-                            📌 Trạng thái
-                        </small>
-
-                        <b>
-                            ${getStatusHTML(status)}
-                        </b>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            box.appendChild(row);
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-function getStatusHTML(status){
-
-    const text =
-        String(
-            status || ""
-        ).trim();
-
-
-    const lower =
-        text.toLowerCase();
-
-
-    let cls =
-        "status-default";
-
-
-    if(
-        lower === "pending" ||
-        lower.includes("chờ")
-    ){
-
-        cls =
-            "status-pending";
-
-    }
-
-    else if(
-        lower === "approved" ||
-        lower === "success" ||
-        lower === "completed" ||
-        lower.includes("hoàn thành") ||
-        lower.includes("thành công")
-    ){
-
-        cls =
-            "status-approved";
-
-    }
-
-    else if(
-        lower === "rejected" ||
-        lower === "cancelled" ||
-        lower.includes("từ chối") ||
-        lower.includes("hủy")
-    ){
-
-        cls =
-            "status-rejected";
-
-    }
-
-
-    return `
-        <span class="status ${cls}">
-            ${escapeHTML(text)}
-        </span>
-    `;
-
-}
-
-
-/* =====================================================
-   HIỆN / ẨN PASSWORD
-===================================================== */
-
-function togglePassword(){
-
-    const box =
-        document.getElementById(
-            "passwordValue"
-        );
-
-
-    const real =
-        box.dataset.realPassword ||
-        "";
-
-
-    const hidden =
-        box.dataset.hidden === "true";
-
-
-    if(hidden){
-
-        box.textContent =
-            real || "Không có dữ liệu";
-
-        box.dataset.hidden =
-            "false";
-
-    }
-
-    else{
-
-        box.textContent =
-            real
-                ? "••••••••"
-                : "Không có dữ liệu";
-
-        box.dataset.hidden =
-            "true";
-
-    }
-
-}
-
-
-/* =====================================================
    LOGOUT
 ===================================================== */
 
 function logout(){
 
     /*
-     * Xóa trạng thái đăng nhập.
+     * Xóa phiên đăng nhập.
      *
-     * Không lưu/xóa dữ liệu hồ sơ vì hồ sơ
-     * không được lưu ở localStorage.
+     * Không xóa dữ liệu trên Google Sheets.
      */
 
     localStorage.removeItem(
@@ -1889,19 +1436,13 @@ function logout(){
         "shopkarot_user"
     );
 
-
     /*
-     * Xóa các key cũ nếu trước đây shop
-     * từng lưu dữ liệu hồ sơ.
+     * Xóa balance cũ nếu hệ thống
+     * trước đây có lưu.
      */
 
     localStorage.removeItem(
         "shopkarot_balance"
-    );
-
-
-    alert(
-        "Bạn đã đăng xuất."
     );
 
 
@@ -1912,7 +1453,7 @@ function logout(){
 
 
 /* =====================================================
-   KHỞI ĐỘNG
+   PAGE LOAD
 ===================================================== */
 
 document.addEventListener(
@@ -1926,24 +1467,26 @@ document.addEventListener(
 
 
 /* =====================================================
-   TỰ ĐỒNG BỘ
+   BACK/FORWARD
 ===================================================== */
 
-setInterval(
+window.addEventListener(
+    "pageshow",
     function(){
 
         const username =
             getLoggedUsername();
 
 
-        if(username){
+        if(!username){
 
-            loadProfile();
+            showError(
+                "Bạn chưa đăng nhập."
+            );
 
         }
 
-    },
-    30000
+    }
 );
 
 </script>
