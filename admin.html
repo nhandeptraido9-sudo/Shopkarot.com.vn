@@ -1,3 +1,5 @@
+# admin-panel.html
+
 ```html
 <!DOCTYPE html>
 <html lang="vi">
@@ -924,6 +926,7 @@ async function apiPost(action,data={}){
   });
 
   return await response.json();
+
 }
 
 
@@ -934,6 +937,7 @@ async function apiGet(action){
   );
 
   return await response.json();
+
 }
 
 
@@ -956,6 +960,7 @@ async function adminLogin(){
     );
 
     return;
+
   }
 
   showLoginMessage(
@@ -978,6 +983,7 @@ async function adminLogin(){
       );
 
       return;
+
     }
 
     ADMIN_KEY=key;
@@ -998,6 +1004,8 @@ async function adminLogin(){
     loadAll();
 
   }catch(err){
+
+    console.error(err);
 
     showLoginMessage(
       "❌ Không kết nối được Apps Script.",
@@ -1067,7 +1075,11 @@ window.addEventListener("load",async function(){
 
     }
 
-  }catch(e){}
+  }catch(e){
+
+    console.error(e);
+
+  }
 
 });
 
@@ -1166,11 +1178,17 @@ async function loadShopStatus(){
     );
 
     if(status==="Shop đang hoạt động"){
+
       dot.style.background="#22c55e";
+
     }else if(status==="Shop đang bảo trì"){
+
       dot.style.background="#f59e0b";
+
     }else{
+
       dot.style.background="#ef4444";
+
     }
 
   }catch(err){
@@ -1192,7 +1210,10 @@ async function setShopStatus(){
 
     const result=await apiPost(
       "setShopStatus",
-      {status:status}
+      {
+        key:ADMIN_KEY,
+        status:status
+      }
     );
 
     if(!result.ok){
@@ -1203,13 +1224,14 @@ async function setShopStatus(){
       );
 
       return;
+
     }
 
     alert(
       "✅ Đã cập nhật trạng thái Shop."
     );
 
-    loadShopStatus();
+    await loadShopStatus();
 
   }catch(err){
 
@@ -1224,7 +1246,7 @@ async function setShopStatus(){
 
 /* =========================================================
    GAME → FOLDER
-   GIỮ NGUYÊN 9 GAME
+   GIỮ NGUYÊN CẤU TRÚC BẠN ĐÃ ĐƯA
 ========================================================= */
 
 const folderData={
@@ -1312,7 +1334,9 @@ function gameChanged(){
   if(!game){
 
     updatePackages();
+
     return;
+
   }
 
   const list=folderData[game]||[];
@@ -1334,17 +1358,22 @@ function gameChanged(){
 
 
 function folderChanged(){
+
   updatePackages();
+
 }
 
 
 function priceChanged(){
+
   updatePackages();
+
 }
 
 
 /* =========================================================
    PACKAGE
+   GIỮ GÓI 1 → 8
 ========================================================= */
 
 function updatePackages(){
@@ -1370,6 +1399,7 @@ function updatePackages(){
     const option=document.createElement("option");
 
     option.value="Gói "+i;
+
     option.textContent="Gói "+i;
 
     packageSelect.appendChild(option);
@@ -1429,6 +1459,7 @@ async function addAccount(){
     );
 
     return;
+
   }
 
   showAccountMessage(
@@ -1462,6 +1493,7 @@ async function addAccount(){
       );
 
       return;
+
     }
 
     showAccountMessage(
@@ -1475,6 +1507,8 @@ async function addAccount(){
     await loadDashboard();
 
   }catch(err){
+
+    console.error(err);
 
     showAccountMessage(
       "❌ Lỗi kết nối API.",
@@ -1639,12 +1673,14 @@ function renderAccounts(){
         </td>
 
         <td>
+
           <button
             class="btn btn-danger"
             onclick="deleteAccount('${escapeJs(acc.id||"")}')"
           >
             Xóa
           </button>
+
         </td>
 
       `;
@@ -1686,6 +1722,7 @@ async function deleteAccount(id){
       );
 
       return;
+
     }
 
     alert("✅ Đã xóa tài khoản.");
@@ -1694,6 +1731,8 @@ async function deleteAccount(id){
     await loadDashboard();
 
   }catch(err){
+
+    console.error(err);
 
     alert("❌ Lỗi kết nối API.");
 
@@ -1922,6 +1961,8 @@ async function approveTopup(id){
 
   }catch(err){
 
+    console.error(err);
+
     alert("❌ Lỗi API.");
 
   }
@@ -1961,6 +2002,8 @@ async function rejectTopup(id){
     }
 
   }catch(err){
+
+    console.error(err);
 
     alert("❌ Lỗi API.");
 
@@ -2048,7 +2091,7 @@ function renderOrders(){
 
 /* =========================================================
    PRODUCTS
-   GIỮ 9 GAME + THÊM CÀY THUÊ BLOX FRUITS
+   GIỮ NGUYÊN DANH SÁCH
 ========================================================= */
 
 const products=[
@@ -2219,6 +2262,8 @@ async function saveProductStatus(product){
     }
 
   }catch(err){
+
+    console.error(err);
 
     alert(
       "❌ Lỗi kết nối API."
