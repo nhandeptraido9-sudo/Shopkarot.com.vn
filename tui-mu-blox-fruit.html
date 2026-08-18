@@ -3,513 +3,487 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SHOPKAROT - ADMIN v5.0</title>
+<title>Túi Mù Blox Fruits - SHOPKAROT</title>
 
 <style>
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
+    margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f1f5f9;
-    color:#0f172a;
+    background:#f3f6fa;
+    color:#172033;
 }
 
-/* =========================
-   LOGIN
-========================= */
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-#loginPage{
-    min-height:100vh;
+/* ================= HEADER ================= */
+
+.header{
+    height:82px;
+    background:#fff;
     display:flex;
     align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:
-        linear-gradient(135deg,#0f172a,#1e293b,#334155);
-}
-
-.login-box{
-    width:100%;
-    max-width:430px;
-    background:#fff;
-    border-radius:22px;
-    padding:32px;
-    box-shadow:0 25px 70px rgba(0,0,0,.35);
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-    text-align:center;
-    font-size:34px;
-    font-weight:900;
-    color:#2563eb;
-    margin-bottom:5px;
-}
-
-.logo-sub{
-    text-align:center;
-    color:#64748b;
-    margin-bottom:28px;
-}
-
-.login-box h2{
-    text-align:center;
-    margin-bottom:22px;
-}
-
-.input-group{
-    margin-bottom:15px;
-}
-
-.input-group label{
-    display:block;
-    font-weight:700;
-    margin-bottom:7px;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:12px 14px;
-    border:1px solid #cbd5e1;
-    border-radius:10px;
-    outline:none;
-    font-size:15px;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#2563eb;
-    box-shadow:0 0 0 3px rgba(37,99,235,.1);
-}
-
-.btn{
-    border:0;
-    padding:11px 16px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:700;
-    font-size:14px;
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-1px);
-    opacity:.92;
-}
-
-.btn-primary{
-    background:#2563eb;
-    color:#fff;
-}
-
-.btn-success{
-    background:#16a34a;
-    color:#fff;
-}
-
-.btn-danger{
-    background:#dc2626;
-    color:#fff;
-}
-
-.btn-warning{
-    background:#f59e0b;
-    color:#fff;
-}
-
-.btn-dark{
-    background:#0f172a;
-    color:#fff;
-}
-
-.btn-gray{
-    background:#64748b;
-    color:#fff;
-}
-
-.login-btn{
-    width:100%;
-    padding:14px;
-    margin-top:5px;
-    font-size:16px;
-}
-
-.error{
-    margin-top:14px;
-    padding:11px;
-    border-radius:9px;
-    background:#fee2e2;
-    color:#991b1b;
-    display:none;
-    font-weight:700;
-}
-
-.success{
-    margin-top:14px;
-    padding:11px;
-    border-radius:9px;
-    background:#dcfce7;
-    color:#166534;
-    display:none;
-    font-weight:700;
-}
-
-/* =========================
-   ADMIN
-========================= */
-
-#adminPage{
-    display:none;
-    min-height:100vh;
-}
-
-.topbar{
-    height:70px;
-    background:#0f172a;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 22px;
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-
-.topbar-left{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.topbar-logo{
-    font-size:25px;
-    font-weight:900;
-    color:#60a5fa;
-}
-
-.version{
-    font-size:12px;
-    background:#1e293b;
-    padding:5px 9px;
-    border-radius:20px;
-    color:#cbd5e1;
-}
-
-.topbar-right{
     display:flex;
     align-items:center;
     gap:10px;
+    min-width:275px;
+    color:#111;
 }
 
-.admin-name{
-    color:#cbd5e1;
-    font-size:14px;
-}
-
-/* =========================
-   LAYOUT
-========================= */
-
-.layout{
-    display:flex;
-    min-height:calc(100vh - 70px);
-}
-
-.sidebar{
-    width:245px;
-    background:#fff;
-    border-right:1px solid #e2e8f0;
-    padding:18px 12px;
-    position:sticky;
-    top:70px;
-    height:calc(100vh - 70px);
-    overflow-y:auto;
-}
-
-.menu-title{
-    font-size:12px;
-    color:#94a3b8;
-    font-weight:800;
-    padding:12px 12px 7px;
-    text-transform:uppercase;
-}
-
-.menu-btn{
-    width:100%;
-    text-align:left;
-    border:0;
-    background:transparent;
-    padding:12px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:700;
-    color:#334155;
-    margin-bottom:3px;
-}
-
-.menu-btn:hover,
-.menu-btn.active{
-    background:#eff6ff;
-    color:#2563eb;
-}
-
-.content{
-    flex:1;
-    padding:25px;
-    min-width:0;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section{
-    display:none;
-}
-
-.section.active{
-    display:block;
-}
-
-.page-title{
-    font-size:27px;
-    font-weight:900;
-    margin-bottom:6px;
-}
-
-.page-desc{
-    color:#64748b;
-    margin-bottom:22px;
-}
-
-/* =========================
-   DASHBOARD
-========================= */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-    margin-bottom:20px;
-}
-
-.stat{
-    background:#fff;
-    border:1px solid #e2e8f0;
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 5px 20px rgba(15,23,42,.04);
-}
-
-.stat-label{
-    color:#64748b;
-    font-weight:700;
-    font-size:14px;
-}
-
-.stat-value{
-    font-size:30px;
-    font-weight:900;
-    margin-top:8px;
-}
-
-/* =========================
-   CARD
-========================= */
-
-.card{
-    background:#fff;
-    border:1px solid #e2e8f0;
-    border-radius:16px;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 5px 20px rgba(15,23,42,.04);
-}
-
-.card-title{
-    font-size:19px;
-    font-weight:900;
-    margin-bottom:15px;
-}
-
-.row{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-.row > *{
-    flex:1;
-    min-width:160px;
-}
-
-/* =========================
-   SHOP STATUS
-========================= */
-
-.shop-status-box{
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:#fff;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    padding:18px;
-    border-radius:14px;
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-}
-
-.status-current{
+    justify-content:center;
     font-size:18px;
     font-weight:900;
 }
 
-.status-dot{
-    width:12px;
-    height:12px;
-    display:inline-block;
-    border-radius:50%;
-    margin-right:7px;
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
 }
 
-/* =========================
-   PRODUCT STATUS
-========================= */
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+.logo-text b span{
+    color:#e21b23;
 }
 
-.product-card{
-    border:1px solid #e2e8f0;
-    border-radius:15px;
-    padding:18px;
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
     background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
 }
 
-.product-name{
-    font-size:17px;
-    font-weight:900;
-    margin-bottom:12px;
+.menu-button:hover{
+    background:#f1f2f4;
 }
 
-.product-status{
-    display:inline-flex;
-    align-items:center;
-    padding:6px 10px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:800;
-    margin-bottom:14px;
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:255px;
+    padding:8px;
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
 }
 
-.ready{
-    background:#dcfce7;
-    color:#166534;
+.menu-box.show{
+    display:block;
 }
 
-.not-ready{
-    background:#fee2e2;
-    color:#991b1b;
-}
-
-.product-buttons{
+.menu-box a{
     display:flex;
-    gap:8px;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
 }
 
-.product-buttons button{
-    flex:1;
-    padding:9px 5px;
-    font-size:12px;
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
 }
 
-/* =========================
-   TABLE
-========================= */
+/* ================= USER ================= */
 
-.table-wrap{
-    overflow-x:auto;
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:650px;
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
 }
 
-th,
-td{
-    padding:12px;
-    border-bottom:1px solid #e2e8f0;
-    text-align:left;
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
     font-size:14px;
 }
 
-th{
-    background:#f8fafc;
-    font-weight:900;
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
 }
 
-td{
-    vertical-align:middle;
+/* ================= CONTAINER ================= */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
 }
 
-.badge{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:20px;
+/* ================= BREADCRUMB ================= */
+
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+    font-size:14px;
+    color:#687386;
+}
+
+.breadcrumb a{
+    color:#d01018;
+    font-weight:bold;
+}
+
+.breadcrumb span{
+    color:#999;
+}
+
+/* ================= TITLE ================= */
+
+.page-title{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #7c1010 0%,
+            #320606 38%,
+            #080808 78%
+        );
+    color:#fff;
+    border-radius:18px;
+    padding:35px 40px;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+    margin-bottom:18px;
+    position:relative;
+    overflow:hidden;
+}
+
+.page-title::after{
+    content:"🎁";
+    position:absolute;
+    right:55px;
+    top:20px;
+    font-size:100px;
+    opacity:.13;
+}
+
+.page-title h1{
+    margin:0;
+    font-size:38px;
+    font-weight:1000;
+}
+
+.page-title h1 span{
+    color:#ed1c24;
+}
+
+.page-title p{
+    margin:10px 0 0;
+    color:#ddd;
+    font-size:15px;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin-bottom:20px;
+    padding:18px 20px;
+    background:#fff8e8;
+    border:1px solid #f1d58b;
+    border-radius:14px;
+    color:#694d00;
+    line-height:1.6;
+}
+
+.notice b{
+    color:#a80e12;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 15px;
+    padding:15px 17px;
+    background:#fff;
+    border-radius:12px;
+    border:1px solid #e4e7eb;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.category-title h2{
+    margin:0;
+    font-size:21px;
+}
+
+/* ================= PACKAGE GRID ================= */
+
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+/* ================= PACKAGE ================= */
+
+.package{
+    background:#fff;
+    border:1px solid #e1e5ea;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.package:hover{
+    transform:translateY(-6px);
+    border-color:#d01018;
+    box-shadow:0 12px 28px rgba(0,0,0,.14);
+}
+
+.package-top{
+    padding:28px 20px;
+    text-align:center;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #9d1419,
+            #480609 60%,
+            #130000
+        );
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+}
+
+.package-top::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(255,255,255,.06);
+    left:-45px;
+    top:-45px;
+}
+
+.package-icon{
+    font-size:55px;
+    position:relative;
+}
+
+.package-top h3{
+    margin:10px 0 4px;
+    font-size:22px;
+    position:relative;
+}
+
+.package-top p{
+    margin:0;
+    color:#ddd;
     font-size:12px;
-    font-weight:800;
+    position:relative;
 }
 
-.badge-pending{
-    background:#fef3c7;
-    color:#92400e;
+.package-body{
+    padding:18px;
 }
 
-.badge-approved{
-    background:#dcfce7;
-    color:#166534;
+.package-price{
+    text-align:center;
+    margin-bottom:15px;
 }
 
-.badge-rejected{
-    background:#fee2e2;
-    color:#991b1b;
+.package-price strong{
+    display:block;
+    font-size:27px;
+    color:#d01018;
 }
 
-.badge-active{
-    background:#dcfce7;
-    color:#166534;
+.package-price span{
+    color:#777;
+    font-size:12px;
 }
 
-.badge-blocked{
-    background:#fee2e2;
-    color:#991b1b;
+.package-list{
+    margin:0 0 17px;
+    padding:0;
+    list-style:none;
 }
 
-/* =========================
-   MODAL
-========================= */
+.package-list li{
+    padding:7px 0;
+    border-bottom:1px dashed #e5e5e5;
+    font-size:13px;
+    color:#4f596b;
+}
+
+.package-list li:last-child{
+    border-bottom:0;
+}
+
+.buy-button{
+    width:100%;
+    padding:12px;
+    border:0;
+    border-radius:10px;
+    background:#a80e12;
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.buy-button:hover{
+    background:#d0161d;
+}
+
+.buy-button:disabled{
+    background:#999;
+    cursor:not-allowed;
+}
+
+/* ================= STATUS ================= */
+
+.package-status{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+    background:#e7f8ef;
+    color:#078542;
+    border:1px solid #bde7cd;
+    margin-bottom:12px;
+}
+
+/* ================= BACK ================= */
+
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#fff;
+    border:1px solid #ddd;
+    color:#172033;
+    font-weight:bold;
+}
+
+.back-button:hover{
+    color:#d01018;
+    border-color:#d01018;
+}
+
+/* ================= API ================= */
+
+.api-status{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    padding:9px 13px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.api-status.ok{
+    color:#078542;
+    border-color:#bde7cd;
+}
+
+.api-status.error{
+    color:#d01018;
+    border-color:#f1bebe;
+}
+
+/* ================= MODAL ================= */
 
 .modal{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(15,23,42,.65);
+    background:rgba(0,0,0,.6);
+    z-index:5000;
     align-items:center;
     justify-content:center;
-    z-index:500;
     padding:20px;
 }
 
@@ -519,71 +493,98 @@ td{
 
 .modal-box{
     width:100%;
-    max-width:500px;
+    max-width:430px;
     background:#fff;
     border-radius:18px;
-    padding:24px;
+    padding:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    text-align:center;
 }
 
-.modal-head{
+.modal-icon{
+    font-size:55px;
+    margin-bottom:8px;
+}
+
+.modal-box h2{
+    margin:0 0 8px;
+}
+
+.modal-box p{
+    color:#687386;
+    line-height:1.5;
+}
+
+.modal-buttons{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:18px;
+    gap:10px;
+    margin-top:20px;
 }
 
-.close{
+.modal-buttons button{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
     border:0;
-    background:#f1f5f9;
-    width:35px;
-    height:35px;
-    border-radius:50%;
+    font-weight:bold;
     cursor:pointer;
-    font-size:18px;
 }
 
-/* =========================
-   TOAST
-========================= */
+.btn-confirm{
+    background:#a80e12;
+    color:#fff;
+}
 
-#toast{
+.btn-cancel{
+    background:#eee;
+    color:#333;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
     position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:9999;
-    display:none;
-    min-width:250px;
-    max-width:380px;
-    padding:14px 17px;
+    left:50%;
+    bottom:70px;
+    transform:translateX(-50%) translateY(20px);
+    background:#171717;
+    color:#fff;
+    padding:13px 20px;
     border-radius:12px;
-    color:white;
-    font-weight:700;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+    z-index:9000;
+    font-size:14px;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
-#toast.success-toast{
-    background:#16a34a;
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
 }
 
-#toast.error-toast{
-    background:#dc2626;
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* ================= RESPONSIVE ================= */
 
-.mobile-menu{
-    display:none;
-}
+@media(max-width:1150px){
 
-@media(max-width:1000px){
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
+    .package-grid{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    .product-grid{
+}
+
+@media(max-width:850px){
+
+    .package-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -591,679 +592,628 @@ td{
 
 @media(max-width:700px){
 
-    .topbar{
+    .header{
         height:auto;
-        min-height:65px;
-        padding:12px;
+        padding:10px 12px;
     }
 
-    .admin-name{
-        display:none;
+    .logo{
+        min-width:auto;
     }
 
-    .layout{
-        display:block;
-    }
-
-    .sidebar{
-        position:fixed;
-        left:-270px;
-        top:0;
-        bottom:0;
-        height:100vh;
-        z-index:1000;
-        transition:.25s;
-        box-shadow:10px 0 30px rgba(0,0,0,.15);
-    }
-
-    .sidebar.open{
-        left:0;
-    }
-
-    .mobile-menu{
-        display:block;
-        border:0;
-        background:#1e293b;
-        color:white;
-        width:40px;
-        height:40px;
-        border-radius:10px;
-        cursor:pointer;
-        font-size:20px;
-    }
-
-    .content{
-        padding:16px;
-    }
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .stat{
-        padding:15px;
-    }
-
-    .stat-value{
+    .logo-text b{
         font-size:23px;
     }
 
-    .product-grid{
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        margin-left:auto;
+        padding:6px 8px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .page-title{
+        padding:28px 22px;
+    }
+
+    .page-title h1{
+        font-size:29px;
+    }
+
+    .page-title::after{
+        right:15px;
+        font-size:70px;
+    }
+
+}
+
+@media(max-width:520px){
+
+    .package-grid{
         grid-template-columns:1fr;
     }
 
-    .shop-status-box{
-        align-items:flex-start;
+    .user-info{
+        display:none;
+    }
+
+    .modal-buttons{
         flex-direction:column;
     }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<!-- ================= HEADER ================= -->
 
-<div id="loginPage">
+<header class="header">
 
-    <div class="login-box">
+    <a href="index.html" class="logo">
 
-        <div class="logo">SHOPKAROT</div>
-        <div class="logo-sub">ADMIN PANEL v5.0</div>
-
-        <h2>🔐 Đăng nhập quản trị</h2>
-
-        <div class="input-group">
-            <label>Admin Key</label>
-            <input
-                id="adminKey"
-                type="password"
-                placeholder="Nhập Admin Key"
-                autocomplete="off"
-            >
+        <div class="logo-icon">
+            SK
         </div>
+
+        <div class="logo-text">
+            <b>SHOP<span>KAROT</span></b>
+            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+        </div>
+
+    </a>
+
+    <div class="menu">
 
         <button
-            class="btn btn-primary login-btn"
-            onclick="loginAdmin()"
-        >
-            Đăng nhập Admin
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
         </button>
 
-        <div id="loginError" class="error"></div>
+        <div
+            class="menu-box"
+            id="menuBox">
 
-    </div>
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
 
-</div>
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
 
+            <a href="acc-blox-fruit.html">
+                🍎 ACC BLOX FRUITS
+            </a>
 
-<!-- =====================================================
-     ADMIN PAGE
-===================================================== -->
+            <a href="tui-mu-blox-fruit.html">
+                🎁 TÚI MÙ BLOX FRUITS
+            </a>
 
-<div id="adminPage">
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
 
-    <header class="topbar">
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
 
-        <div class="topbar-left">
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
 
-            <button
-                class="mobile-menu"
-                onclick="toggleSidebar()"
-            >
-                ☰
-            </button>
-
-            <div class="topbar-logo">
-                SHOPKAROT
-            </div>
-
-            <div class="version">
-                ADMIN v5.0
-            </div>
-
-        </div>
-
-        <div class="topbar-right">
-
-            <span class="admin-name">
-                👑 Admin
-            </span>
-
-            <button
-                class="btn btn-danger"
-                onclick="logoutAdmin()"
-            >
-                Đăng xuất
-            </button>
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
 
         </div>
 
-    </header>
+    </div>
 
+    <div
+        class="user"
+        id="userBox">
 
-    <div class="layout">
+        <div class="user-icon">
+            👤
+        </div>
 
-        <!-- SIDEBAR -->
+        <div class="user-info">
 
-        <aside id="sidebar" class="sidebar">
+            <b id="username">
+                Đăng nhập
+            </b>
 
-            <div class="menu-title">
-                Tổng quan
-            </div>
+            <small id="userBalance">
+                0đ
+            </small>
 
-            <button
-                class="menu-btn active"
-                onclick="showSection('dashboard',this)"
-            >
-                📊 Dashboard
-            </button>
-
-            <div class="menu-title">
-                Shop
-            </div>
-
-            <button
-                class="menu-btn"
-                onclick="showSection('shopStatus',this)"
-            >
-                🏪 Trạng thái Shop
-            </button>
-
-            <button
-                class="menu-btn"
-                onclick="showSection('products',this)"
-            >
-                📦 Trạng thái sản phẩm
-            </button>
-
-            <div class="menu-title">
-                Quản lý
-            </div>
-
-            <button
-                class="menu-btn"
-                onclick="showSection('accounts',this)"
-            >
-                🎮 Kho Acc
-            </button>
-
-            <button
-                class="menu-btn"
-                onclick="showSection('customers',this)"
-            >
-                👥 Khách hàng
-            </button>
-
-            <button
-                class="menu-btn"
-                onclick="showSection('topups',this)"
-            >
-                💰 Nạp tiền
-            </button>
-
-            <button
-                class="menu-btn"
-                onclick="showSection('orders',this)"
-            >
-                🧾 Đơn hàng
-            </button>
-
-            <div class="menu-title">
-                Hệ thống
-            </div>
-
-            <button
-                class="menu-btn"
-                onclick="setupShop()"
-            >
-                ⚙️ Setup Shop
-            </button>
-
-            <button
-                class="menu-btn"
-                onclick="loadAll()"
-            >
-                🔄 Làm mới dữ liệu
-            </button>
-
-        </aside>
-
-
-        <!-- CONTENT -->
-
-        <main class="content">
-
-            <!-- ================= DASHBOARD ================= -->
-
-            <section
-                id="dashboard"
-                class="section active"
-            >
-
-                <div class="page-title">
-                    📊 Dashboard
-                </div>
-
-                <div class="page-desc">
-                    Quản lý SHOPKAROT v5.0
-                </div>
-
-                <div class="stats">
-
-                    <div class="stat">
-                        <div class="stat-label">
-                            👥 Khách hàng
-                        </div>
-                        <div
-                            id="statCustomers"
-                            class="stat-value"
-                        >
-                            0
-                        </div>
-                    </div>
-
-                    <div class="stat">
-                        <div class="stat-label">
-                            🎮 Kho acc
-                        </div>
-                        <div
-                            id="statAccounts"
-                            class="stat-value"
-                        >
-                            0
-                        </div>
-                    </div>
-
-                    <div class="stat">
-                        <div class="stat-label">
-                            💰 Yêu cầu nạp
-                        </div>
-                        <div
-                            id="statTopups"
-                            class="stat-value"
-                        >
-                            0
-                        </div>
-                    </div>
-
-                    <div class="stat">
-                        <div class="stat-label">
-                            🧾 Đơn hàng
-                        </div>
-                        <div
-                            id="statOrders"
-                            class="stat-value"
-                        >
-                            0
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="card-title">
-                        🏪 Trạng thái Shop
-                    </div>
-
-                    <div
-                        id="dashboardShopStatus"
-                        class="shop-status-box"
-                    >
-                        Đang tải...
-                    </div>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="card-title">
-                        📦 Trạng thái sản phẩm
-                    </div>
-
-                    <div
-                        id="dashboardProducts"
-                        class="product-grid"
-                    >
-                        Đang tải...
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= SHOP STATUS ================= -->
-
-            <section
-                id="shopStatus"
-                class="section"
-            >
-
-                <div class="page-title">
-                    🏪 Trạng thái Shop
-                </div>
-
-                <div class="page-desc">
-                    Thay đổi trạng thái hoạt động của SHOPKAROT.
-                </div>
-
-                <div class="card">
-
-                    <div class="shop-status-box">
-
-                        <div>
-
-                            <div style="color:#64748b;font-size:13px;margin-bottom:5px">
-                                Trạng thái hiện tại
-                            </div>
-
-                            <div
-                                id="currentShopStatus"
-                                class="status-current"
-                            >
-                                Đang tải...
-                            </div>
-
-                        </div>
-
-                        <div class="row" style="max-width:600px">
-
-                            <button
-                                class="btn btn-success"
-                                onclick="setShopStatus('Shop đang hoạt động')"
-                            >
-                                🟢 Đang hoạt động
-                            </button>
-
-                            <button
-                                class="btn btn-warning"
-                                onclick="setShopStatus('Shop đang bảo trì')"
-                            >
-                                🟡 Đang bảo trì
-                            </button>
-
-                            <button
-                                class="btn btn-danger"
-                                onclick="setShopStatus('Shop tạm đóng')"
-                            >
-                                🔴 Tạm đóng
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= PRODUCTS ================= -->
-
-            <section
-                id="products"
-                class="section"
-            >
-
-                <div class="page-title">
-                    📦 Trạng thái sản phẩm
-                </div>
-
-                <div class="page-desc">
-                    Chọn sản phẩm đang bán hoặc tạm thời chưa sẵn sàng.
-                </div>
-
-                <div class="card">
-
-                    <div class="row">
-
-                        <button
-                            class="btn btn-success"
-                            onclick="setAllProducts('Sẵn Sàng')"
-                        >
-                            🟢 Cho tất cả Sẵn Sàng
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="setAllProducts('Chưa Sẵn Sàng')"
-                        >
-                            🔴 Cho tất cả Chưa Sẵn Sàng
-                        </button>
-
-                        <button
-                            class="btn btn-primary"
-                            onclick="loadProductStatuses()"
-                        >
-                            🔄 Làm mới
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <div
-                    id="productGrid"
-                    class="product-grid"
-                >
-                    Đang tải...
-                </div>
-
-            </section>
-
-
-            <!-- ================= ACCOUNTS ================= -->
-
-            <section
-                id="accounts"
-                class="section"
-            >
-
-                <div class="page-title">
-                    🎮 Kho Acc
-                </div>
-
-                <div class="page-desc">
-                    Thêm và quản lý tài khoản game.
-                </div>
-
-                <div class="card">
-
-                    <div class="card-title">
-                        ➕ Thêm Acc
-                    </div>
-
-                    <div class="row">
-
-                        <input
-                            id="accGame"
-                            placeholder="Game"
-                        >
-
-                        <input
-                            id="accUsername"
-                            placeholder="Tên đăng nhập"
-                        >
-
-                        <input
-                            id="accPassword"
-                            placeholder="Mật khẩu"
-                        >
-
-                        <button
-                            class="btn btn-primary"
-                            onclick="addAccount()"
-                        >
-                            Thêm Acc
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-title">
-                        Kho Acc
-                    </div>
-
-                    <div
-                        id="accountsTable"
-                        class="table-wrap"
-                    >
-                        Đang tải...
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= CUSTOMERS ================= -->
-
-            <section
-                id="customers"
-                class="section"
-            >
-
-                <div class="page-title">
-                    👥 Khách hàng
-                </div>
-
-                <div class="page-desc">
-                    Danh sách tài khoản khách hàng.
-                </div>
-
-                <div class="card">
-
-                    <div
-                        id="customersTable"
-                        class="table-wrap"
-                    >
-                        Đang tải...
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= TOPUPS ================= -->
-
-            <section
-                id="topups"
-                class="section"
-            >
-
-                <div class="page-title">
-                    💰 Nạp tiền
-                </div>
-
-                <div class="page-desc">
-                    Duyệt hoặc từ chối yêu cầu nạp tiền của khách hàng.
-                </div>
-
-                <div class="card">
-
-                    <div
-                        id="topupsTable"
-                        class="table-wrap"
-                    >
-                        Đang tải...
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================= ORDERS ================= -->
-
-            <section
-                id="orders"
-                class="section"
-            >
-
-                <div class="page-title">
-                    🧾 Đơn hàng
-                </div>
-
-                <div class="page-desc">
-                    Danh sách đơn hàng của khách hàng.
-                </div>
-
-                <div class="card">
-
-                    <div
-                        id="ordersTable"
-                        class="table-wrap"
-                    >
-                        Đang tải...
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
+        </div>
 
     </div>
 
-</div>
+</header>
 
 
-<!-- =====================================================
-     MODAL
-===================================================== -->
+<!-- ================= API STATUS ================= -->
 
 <div
-    id="confirmModal"
+    id="apiStatus"
+    class="api-status">
+
+    🔄 Đang tải...
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            🏠 Trang chủ
+        </a>
+
+        <span>›</span>
+
+        <a href="acc-blox-fruit.html">
+            🍎 Blox Fruits
+        </a>
+
+        <span>›</span>
+
+        <b>
+            Túi Mù Blox Fruits
+        </b>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <section class="page-title">
+
+        <h1>
+            🎁 <span>TÚI MÙ BLOX FRUITS</span>
+        </h1>
+
+        <p>
+            Chọn gói Túi Mù Blox Fruits phù hợp với bạn
+        </p>
+
+    </section>
+
+
+    <!-- NOTICE -->
+
+    <div class="notice">
+
+        ⚠️
+        <b>Lưu ý:</b>
+        Vui lòng đăng nhập trước khi mua.
+        Sau khi đặt mua, đơn hàng sẽ được ghi nhận trên hệ thống SHOPKAROT.
+
+        <br>
+
+        💰
+        <b>Số dư hiện tại của bạn:</b>
+        <span id="noticeBalance">0đ</span>
+
+    </div>
+
+
+    <!-- CATEGORY -->
+
+    <div class="category-title">
+
+        <h2>
+            🎁 CÁC GÓI TÚI MÙ BLOX FRUITS
+        </h2>
+
+    </div>
+
+
+    <!-- ================= PACKAGES ================= -->
+
+    <section class="package-grid">
+
+
+        <!-- 0K -->
+
+        <div class="package">
+
+            <div class="package-top">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Túi Mù 0K
+                </h3>
+
+                <p>
+                    Gói miễn phí
+                </p>
+
+            </div>
+
+            <div class="package-body">
+
+                <div class="package-price">
+                    <strong>0đ</strong>
+                    <span>MIỄN PHÍ</span>
+                </div>
+
+                <span class="package-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <ul class="package-list">
+                    <li>🎁 Túi mù Blox Fruits</li>
+                    <li>🎲 Phần thưởng ngẫu nhiên</li>
+                    <li>👤 Theo tài khoản</li>
+                </ul>
+
+                <button
+                    class="buy-button"
+                    onclick="buyPackage('Túi Mù Blox Fruits 0K',0)">
+                    NHẬN NGAY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 20K -->
+
+        <div class="package">
+
+            <div class="package-top">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Túi Mù 20K
+                </h3>
+
+                <p>
+                    Gói cơ bản
+                </p>
+
+            </div>
+
+            <div class="package-body">
+
+                <div class="package-price">
+                    <strong>20.000đ</strong>
+                    <span>20K</span>
+                </div>
+
+                <span class="package-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <ul class="package-list">
+                    <li>🎁 Túi mù Blox Fruits</li>
+                    <li>🎲 Phần thưởng ngẫu nhiên</li>
+                    <li>🔥 Giá trị theo gói</li>
+                </ul>
+
+                <button
+                    class="buy-button"
+                    onclick="buyPackage('Túi Mù Blox Fruits 20K',20000)">
+                    MUA NGAY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 50K -->
+
+        <div class="package">
+
+            <div class="package-top">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Túi Mù 50K
+                </h3>
+
+                <p>
+                    Gói nâng cao
+                </p>
+
+            </div>
+
+            <div class="package-body">
+
+                <div class="package-price">
+                    <strong>50.000đ</strong>
+                    <span>50K</span>
+                </div>
+
+                <span class="package-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <ul class="package-list">
+                    <li>🎁 Túi mù Blox Fruits</li>
+                    <li>🎲 Phần thưởng ngẫu nhiên</li>
+                    <li>🔥 Phần thưởng tốt hơn</li>
+                </ul>
+
+                <button
+                    class="buy-button"
+                    onclick="buyPackage('Túi Mù Blox Fruits 50K',50000)">
+                    MUA NGAY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 80K -->
+
+        <div class="package">
+
+            <div class="package-top">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Túi Mù 80K
+                </h3>
+
+                <p>
+                    Gói đặc biệt
+                </p>
+
+            </div>
+
+            <div class="package-body">
+
+                <div class="package-price">
+                    <strong>80.000đ</strong>
+                    <span>80K</span>
+                </div>
+
+                <span class="package-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <ul class="package-list">
+                    <li>🎁 Túi mù Blox Fruits</li>
+                    <li>🎲 Phần thưởng ngẫu nhiên</li>
+                    <li>⭐ Giá trị cao hơn</li>
+                </ul>
+
+                <button
+                    class="buy-button"
+                    onclick="buyPackage('Túi Mù Blox Fruits 80K',80000)">
+                    MUA NGAY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 100K -->
+
+        <div class="package">
+
+            <div class="package-top">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Túi Mù 100K
+                </h3>
+
+                <p>
+                    Gói cao cấp
+                </p>
+
+            </div>
+
+            <div class="package-body">
+
+                <div class="package-price">
+                    <strong>100.000đ</strong>
+                    <span>100K</span>
+                </div>
+
+                <span class="package-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <ul class="package-list">
+                    <li>🎁 Túi mù Blox Fruits</li>
+                    <li>🎲 Phần thưởng ngẫu nhiên</li>
+                    <li>💎 Phần thưởng cao cấp</li>
+                </ul>
+
+                <button
+                    class="buy-button"
+                    onclick="buyPackage('Túi Mù Blox Fruits 100K',100000)">
+                    MUA NGAY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 150K -->
+
+        <div class="package">
+
+            <div class="package-top">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Túi Mù 150K
+                </h3>
+
+                <p>
+                    Gói VIP
+                </p>
+
+            </div>
+
+            <div class="package-body">
+
+                <div class="package-price">
+                    <strong>150.000đ</strong>
+                    <span>150K</span>
+                </div>
+
+                <span class="package-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <ul class="package-list">
+                    <li>🎁 Túi mù Blox Fruits</li>
+                    <li>🎲 Phần thưởng ngẫu nhiên</li>
+                    <li>💎 Phần thưởng VIP</li>
+                </ul>
+
+                <button
+                    class="buy-button"
+                    onclick="buyPackage('Túi Mù Blox Fruits 150K',150000)">
+                    MUA NGAY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 200K -->
+
+        <div class="package">
+
+            <div class="package-top">
+
+                <div class="package-icon">
+                    👑
+                </div>
+
+                <h3>
+                    Túi Mù 200K
+                </h3>
+
+                <p>
+                    Gói cao cấp nhất
+                </p>
+
+            </div>
+
+            <div class="package-body">
+
+                <div class="package-price">
+                    <strong>200.000đ</strong>
+                    <span>200K</span>
+                </div>
+
+                <span class="package-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <ul class="package-list">
+                    <li>🎁 Túi mù Blox Fruits</li>
+                    <li>🎲 Phần thưởng ngẫu nhiên</li>
+                    <li>👑 Gói cao cấp nhất</li>
+                </ul>
+
+                <button
+                    class="buy-button"
+                    onclick="buyPackage('Túi Mù Blox Fruits 200K',200000)">
+                    MUA NGAY
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <a
+        href="acc-blox-fruit.html"
+        class="back-button">
+
+        ← Quay lại Blox Fruits
+
+    </a>
+
+</main>
+
+
+<!-- ================= MODAL ================= -->
+
+<div
     class="modal"
->
+    id="confirmModal">
 
     <div class="modal-box">
 
-        <div class="modal-head">
-
-            <strong id="modalTitle">
-                Xác nhận
-            </strong>
-
-            <button
-                class="close"
-                onclick="closeModal()"
-            >
-                ×
-            </button>
-
+        <div class="modal-icon">
+            🎁
         </div>
 
-        <div
-            id="modalContent"
-            style="margin-bottom:20px"
-        ></div>
+        <h2>
+            Xác nhận mua
+        </h2>
 
-        <div class="row">
+        <p id="confirmText">
+            Bạn có chắc muốn mua gói này?
+        </p>
+
+        <div class="modal-buttons">
 
             <button
-                class="btn btn-gray"
-                onclick="closeModal()"
-            >
-                Hủy
+                class="btn-cancel"
+                onclick="closeModal()">
+                HỦY
             </button>
 
             <button
-                id="modalConfirm"
-                class="btn btn-primary"
-            >
-                Xác nhận
+                class="btn-confirm"
+                onclick="confirmPurchase()">
+                XÁC NHẬN MUA
             </button>
 
         </div>
@@ -1273,1120 +1223,261 @@ td{
 </div>
 
 
-<div id="toast"></div>
+<!-- ================= TOAST ================= -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+
+</footer>
 
 
 <script>
 
 /* =====================================================
-   CONFIG
+   SHOPKAROT API v5.0
 ===================================================== */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbzIlHsKj50m8z9yfhc_BmOvC6dPCG_TPpT4W8CDG2EdS_0dbCRMNJQzzcfAeOPHk5wW9g/exec";
 
-const ADMIN_KEY =
-"Admin123";
-
 
 /* =====================================================
-   PRODUCTS - 9 MỤC
+   MENU
 ===================================================== */
 
-const PRODUCTS = [
+function toggleMenu(){
 
-    {
-        key:"bloxFruit",
-        name:"Blox Fruits",
-        icon:"🍎"
-    },
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
 
-    {
-        key:"kingLegacy",
-        name:"King Legacy",
-        icon:"👑"
-    },
-
-    {
-        key:"animeFighters",
-        name:"Anime Fighters",
-        icon:"⚔️"
-    },
-
-    {
-        key:"growAGarden2",
-        name:"Grow A Garden 2",
-        icon:"🌻"
-    },
-
-    {
-        key:"growAGarden",
-        name:"Grow A Garden",
-        icon:"🌱"
-    },
-
-    {
-        key:"murderMystery2",
-        name:"Murder Mystery 2",
-        icon:"🔪"
-    },
-
-    {
-        key:"tuiMu",
-        name:"Túi Mù",
-        icon:"🎁"
-    },
-
-    {
-        key:"event",
-        name:"Event",
-        icon:"🎉"
-    },
-
-    {
-        key:"greedyGrowers",
-        name:"Greedy Growers 🌱",
-        icon:"🌱"
-    }
-
-];
+}
 
 
-/* =====================================================
-   LOGIN
-===================================================== */
+document.addEventListener(
+    "click",
+    function(event){
 
-async function loginAdmin(){
+        const menu =
+            document.querySelector(".menu");
 
-    const key =
-        document
-        .getElementById("adminKey")
-        .value
-        .trim();
+        if(!menu.contains(event.target)){
 
-    const error =
-        document.getElementById("loginError");
-
-    error.style.display="none";
-
-    if(!key){
-
-        error.textContent =
-            "Vui lòng nhập Admin Key.";
-
-        error.style.display="block";
-
-        return;
-    }
-
-    try{
-
-        const result =
-            await apiPost({
-                action:"adminLogin",
-                key:key
-            });
-
-        if(
-            result &&
-            result.ok
-        ){
-
-            localStorage.setItem(
-                "shopkarot_admin_key",
-                key
-            );
-
-            showAdmin();
-
-        }else{
-
-            error.textContent =
-                result.message ||
-                "Admin Key không đúng.";
-
-            error.style.display="block";
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
 
         }
 
-    }catch(err){
-
-        error.textContent =
-            "Không kết nối được Apps Script.";
-
-        error.style.display="block";
-
     }
+);
+
+
+/* =====================================================
+   USER
+===================================================== */
+
+function getUsername(){
+
+    return localStorage.getItem(
+        "shopkarot_user"
+    ) || "";
 
 }
 
 
-/* =====================================================
-   AUTO LOGIN
-===================================================== */
+function isLoggedIn(){
 
-function checkLogin(){
-
-    const key =
+    return (
         localStorage.getItem(
-            "shopkarot_admin_key"
-        );
-
-    if(key){
-
-        document
-        .getElementById("adminKey")
-        .value=key;
-
-        apiPost({
-            action:"adminLogin",
-            key:key
-        })
-        .then(result=>{
-
-            if(result && result.ok){
-
-                showAdmin();
-
-            }else{
-
-                localStorage.removeItem(
-                    "shopkarot_admin_key"
-                );
-
-            }
-
-        })
-        .catch(()=>{});
-
-    }
-
-}
-
-
-/* =====================================================
-   SHOW ADMIN
-===================================================== */
-
-function showAdmin(){
-
-    document
-    .getElementById("loginPage")
-    .style.display="none";
-
-    document
-    .getElementById("adminPage")
-    .style.display="block";
-
-    loadAll();
-
-}
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-function logoutAdmin(){
-
-    localStorage.removeItem(
-        "shopkarot_admin_key"
+            "shopkarot_login"
+        ) === "true"
+        &&
+        !!getUsername()
     );
 
-    location.reload();
+}
+
+
+function getBalance(){
+
+    return Number(
+        localStorage.getItem(
+            "shopkarot_balance"
+        ) || 0
+    );
 
 }
 
 
-/* =====================================================
-   API POST
-===================================================== */
-
-async function apiPost(data){
-
-    const response =
-        await fetch(
-            API_URL,
-            {
-                method:"POST",
-                headers:{
-                    "Content-Type":
-                        "text/plain;charset=utf-8"
-                },
-                body:JSON.stringify(data)
-            }
-        );
-
-    const text =
-        await response.text();
-
-    try{
-
-        return JSON.parse(text);
-
-    }catch(e){
-
-        throw new Error(
-            "API không trả JSON hợp lệ"
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   API GET
-===================================================== */
-
-async function apiGet(action){
-
-    const response =
-        await fetch(
-            API_URL +
-            "?action=" +
-            encodeURIComponent(action)
-        );
-
-    return await response.json();
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function showSection(
-    id,
-    button
-){
-
-    document
-    .querySelectorAll(".section")
-    .forEach(section=>{
-        section.classList.remove("active");
-    });
-
-    const target =
-        document.getElementById(id);
-
-    if(target){
-        target.classList.add("active");
-    }
-
-    document
-    .querySelectorAll(".menu-btn")
-    .forEach(btn=>{
-        btn.classList.remove("active");
-    });
-
-    if(button){
-        button.classList.add("active");
-    }
-
-    if(window.innerWidth<=700){
-
-        document
-        .getElementById("sidebar")
-        .classList.remove("open");
-
-    }
-
-}
-
-
-/* =====================================================
-   SIDEBAR MOBILE
-===================================================== */
-
-function toggleSidebar(){
-
-    document
-    .getElementById("sidebar")
-    .classList.toggle("open");
-
-}
-
-
-/* =====================================================
-   LOAD ALL
-===================================================== */
-
-async function loadAll(){
-
-    loadDashboard();
-    loadShopStatus();
-    loadProductStatuses();
-    loadAccounts();
-    loadCustomers();
-    loadTopups();
-    loadOrders();
-
-}
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-async function loadDashboard(){
-
-    try{
-
-        const result =
-            await apiGet(
-                "getDashboard"
-            );
-
-        if(
-            !result ||
-            !result.ok
-        ) return;
-
-        document
-        .getElementById("statCustomers")
-        .textContent =
-            result.customers || 0;
-
-        document
-        .getElementById("statAccounts")
-        .textContent =
-            result.accounts || 0;
-
-        document
-        .getElementById("statTopups")
-        .textContent =
-            result.topups || 0;
-
-        document
-        .getElementById("statOrders")
-        .textContent =
-            result.orders || 0;
-
-        renderDashboardShopStatus(
-            result.shopStatus
-        );
-
-        renderDashboardProducts(
-            result.productStatuses || {}
-        );
-
-    }catch(err){
-
-        console.error(err);
-
-    }
-
-}
-
-
-/* =====================================================
-   DASHBOARD SHOP
-===================================================== */
-
-function renderDashboardShopStatus(
-    status
-){
-
-    const el =
-        document.getElementById(
-            "dashboardShopStatus"
-        );
-
-    if(!el) return;
-
-    let dot="🟢";
-
-    if(
-        status ===
-        "Shop đang bảo trì"
-    ){
-        dot="🟡";
-    }
-
-    if(
-        status ===
-        "Shop tạm đóng"
-    ){
-        dot="🔴";
-    }
-
-    el.innerHTML =
-        `
-        <div>
-            <div style="font-size:13px;color:#64748b">
-                Trạng thái hiện tại
-            </div>
-
-            <div class="status-current">
-                ${dot} ${escapeHtml(status || "Chưa xác định")}
-            </div>
-        </div>
-        `;
-
-}
-
-
-/* =====================================================
-   SHOP STATUS
-===================================================== */
-
-async function loadShopStatus(){
-
-    try{
-
-        const result =
-            await apiGet(
-                "getShopStatus"
-            );
-
-        const el =
-            document.getElementById(
-                "currentShopStatus"
-            );
-
-        if(el){
-
-            let dot="🟢";
-
-            if(
-                result.status ===
-                "Shop đang bảo trì"
-            ){
-                dot="🟡";
-            }
-
-            if(
-                result.status ===
-                "Shop tạm đóng"
-            ){
-                dot="🔴";
-            }
-
-            el.innerHTML =
-                `${dot} ${escapeHtml(result.status || "")}`;
-
-        }
-
-    }catch(err){
-
-        console.error(err);
-
-    }
-
-}
-
-
-/* =====================================================
-   SET SHOP STATUS
-===================================================== */
-
-async function setShopStatus(
-    status
-){
-
-    try{
-
-        const result =
-            await apiPost({
-                action:"setShopStatus",
-                key:ADMIN_KEY,
-                status:status
-            });
-
-        if(result.ok){
-
-            toast(
-                "Đã đổi trạng thái Shop.",
-                "success"
-            );
-
-            loadShopStatus();
-            loadDashboard();
-
-        }else{
-
-            toast(
-                result.message ||
-                "Không thể đổi trạng thái.",
-                "error"
-            );
-
-        }
-
-    }catch(err){
-
-        toast(
-            "Không kết nối được API.",
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   PRODUCT STATUS
-===================================================== */
-
-async function loadProductStatuses(){
-
-    try{
-
-        const result =
-            await apiGet(
-                "getProductStatuses"
-            );
-
-        const statuses =
-            result.statuses || {};
-
-        renderProducts(
-            statuses
-        );
-
-        renderDashboardProducts(
-            statuses
-        );
-
-    }catch(err){
-
-        console.error(err);
-
-        document
-        .getElementById("productGrid")
-        .innerHTML =
-            `
-            <div class="card">
-                Không tải được trạng thái sản phẩm.
-            </div>
-            `;
-
-    }
-
-}
-
-
-/* =====================================================
-   RENDER PRODUCTS
-===================================================== */
-
-function renderProducts(
-    statuses
-){
-
-    const grid =
-        document.getElementById(
-            "productGrid"
-        );
-
-    if(!grid) return;
-
-    grid.innerHTML =
-        PRODUCTS.map(product=>{
-
-            const status =
-                statuses[product.key] ||
-                "Sẵn Sàng";
-
-            const ready =
-                status === "Sẵn Sàng";
-
-            return `
-                <div class="product-card">
-
-                    <div class="product-name">
-                        ${product.icon}
-                        ${escapeHtml(product.name)}
-                    </div>
-
-                    <div class="
-                        product-status
-                        ${ready ? "ready" : "not-ready"}
-                    ">
-                        ${ready ? "🟢" : "🔴"}
-                        ${escapeHtml(status)}
-                    </div>
-
-                    <div class="product-buttons">
-
-                        <button
-                            class="btn btn-success"
-                            onclick="setProductStatus(
-                                '${product.key}',
-                                'Sẵn Sàng'
-                            )"
-                        >
-                            🟢 Sẵn Sàng
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="setProductStatus(
-                                '${product.key}',
-                                'Chưa Sẵn Sàng'
-                            )"
-                        >
-                            🔴 Chưa Sẵn Sàng
-                        </button>
-
-                    </div>
-
-                </div>
-            `;
-
-        }).join("");
-
-}
-
-
-/* =====================================================
-   DASHBOARD PRODUCTS
-===================================================== */
-
-function renderDashboardProducts(
-    statuses
-){
-
-    const grid =
-        document.getElementById(
-            "dashboardProducts"
-        );
-
-    if(!grid) return;
-
-    grid.innerHTML =
-        PRODUCTS.map(product=>{
-
-            const status =
-                statuses[product.key] ||
-                "Sẵn Sàng";
-
-            const ready =
-                status === "Sẵn Sàng";
-
-            return `
-                <div class="product-card">
-
-                    <div class="product-name">
-                        ${product.icon}
-                        ${escapeHtml(product.name)}
-                    </div>
-
-                    <div class="
-                        product-status
-                        ${ready ? "ready" : "not-ready"}
-                    ">
-                        ${ready ? "🟢" : "🔴"}
-                        ${escapeHtml(status)}
-                    </div>
-
-                </div>
-            `;
-
-        }).join("");
-
-}
-
-
-/* =====================================================
-   SET PRODUCT STATUS
-===================================================== */
-
-async function setProductStatus(
-    product,
-    status
-){
-
-    try{
-
-        const result =
-            await apiPost({
-
-                action:
-                    "setProductStatus",
-
-                key:
-                    ADMIN_KEY,
-
-                product:
-                    product,
-
-                status:
-                    status
-
-            });
-
-        if(result.ok){
-
-            toast(
-                "Đã cập nhật trạng thái sản phẩm.",
-                "success"
-            );
-
-            loadProductStatuses();
-            loadDashboard();
-
-        }else{
-
-            toast(
-                result.message ||
-                "Không thể cập nhật.",
-                "error"
-            );
-
-        }
-
-    }catch(err){
-
-        toast(
-            "Không kết nối được API.",
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   SET ALL PRODUCTS
-===================================================== */
-
-async function setAllProducts(
-    status
-){
-
-    if(
-        !confirm(
-            "Bạn có chắc muốn đổi trạng thái tất cả 9 sản phẩm thành " +
-            status +
-            "?"
-        )
-    ){
-
-        return;
-
-    }
-
-    const statuses={};
-
-    PRODUCTS.forEach(product=>{
-
-        statuses[product.key]=status;
-
-    });
-
-    try{
-
-        const result =
-            await apiPost({
-
-                action:
-                    "setAllProductStatuses",
-
-                key:
-                    ADMIN_KEY,
-
-                statuses:
-                    statuses
-
-            });
-
-        if(result.ok){
-
-            toast(
-                "Đã đồng bộ 9 sản phẩm.",
-                "success"
-            );
-
-            loadProductStatuses();
-            loadDashboard();
-
-        }else{
-
-            toast(
-                result.message ||
-                "Không thể đồng bộ.",
-                "error"
-            );
-
-        }
-
-    }catch(err){
-
-        toast(
-            "Không kết nối được API.",
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   ADD ACCOUNT
-===================================================== */
-
-async function addAccount(){
-
-    const game =
-        document
-        .getElementById("accGame")
-        .value
-        .trim();
+function updateUser(){
 
     const username =
-        document
-        .getElementById("accUsername")
-        .value
-        .trim();
-
-    const password =
-        document
-        .getElementById("accPassword")
-        .value;
-
-    if(
-        !game ||
-        !username ||
-        !password
-    ){
-
-        toast(
-            "Vui lòng nhập đủ thông tin acc.",
-            "error"
+        document.getElementById(
+            "username"
         );
 
-        return;
+    const balance =
+        document.getElementById(
+            "userBalance"
+        );
+
+    const noticeBalance =
+        document.getElementById(
+            "noticeBalance"
+        );
+
+
+    if(isLoggedIn()){
+
+        username.textContent =
+            getUsername();
+
+        balance.textContent =
+            getBalance().toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+        noticeBalance.textContent =
+            getBalance().toLocaleString(
+                "vi-VN"
+            ) + "đ";
 
     }
 
-    try{
+    else{
 
-        const result =
-            await apiPost({
+        username.textContent =
+            "Đăng nhập";
 
-                action:
-                    "addAccount",
+        balance.textContent =
+            "0đ";
 
-                key:
-                    ADMIN_KEY,
+        noticeBalance.textContent =
+            "0đ";
 
-                game:
-                    game,
+    }
 
-                username:
-                    username,
+}
 
-                password:
-                    password
 
-            });
+/* =====================================================
+   USER CLICK
+===================================================== */
 
-        if(result.ok){
+document
+.getElementById("userBox")
+.addEventListener(
+    "click",
+    function(){
 
-            toast(
-                "Đã thêm acc thành công.",
-                "success"
-            );
+        if(isLoggedIn()){
 
-            document
-            .getElementById("accGame")
-            .value="";
-
-            document
-            .getElementById("accUsername")
-            .value="";
-
-            document
-            .getElementById("accPassword")
-            .value="";
-
-            loadAccounts();
-            loadDashboard();
-
-        }else{
-
-            toast(
-                result.message ||
-                "Không thể thêm acc.",
-                "error"
-            );
+            window.location.href =
+                "ho-so.html";
 
         }
 
-    }catch(err){
+        else{
 
-        toast(
-            "Không kết nối được API.",
-            "error"
-        );
+            window.location.href =
+                "login.html";
+
+        }
 
     }
-
-}
+);
 
 
 /* =====================================================
-   LOAD ACCOUNTS
+   API STATUS
 ===================================================== */
 
-async function loadAccounts(){
-
-    try{
-
-        const result =
-            await apiPost({
-                action:"getAccounts"
-            });
-
-        const accounts =
-            result.accounts || [];
-
-        let html =
-            `
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Game</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Status</th>
-                        <th>Thao tác</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-            `;
-
-        accounts.forEach(acc=>{
-
-            html += `
-                <tr>
-
-                    <td>
-                        ${escapeHtml(acc.id || "")}
-                    </td>
-
-                    <td>
-                        ${escapeHtml(acc.game || "")}
-                    </td>
-
-                    <td>
-                        ${escapeHtml(acc.username || "")}
-                    </td>
-
-                    <td>
-                        ${escapeHtml(acc.password || "")}
-                    </td>
-
-                    <td>
-                        ${escapeHtml(acc.status || "")}
-                    </td>
-
-                    <td>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteAccount('${escapeAttr(acc.id || "")}')"
-                        >
-                            Xóa
-                        </button>
-
-                    </td>
-
-                </tr>
-            `;
-
-        });
-
-        html +=
-            `
-                </tbody>
-            </table>
-            `;
-
-        document
-        .getElementById("accountsTable")
-        .innerHTML =
-            accounts.length
-            ? html
-            : "<p>Chưa có acc.</p>";
-
-    }catch(err){
-
-        console.error(err);
-
-    }
-
-}
-
-
-/* =====================================================
-   DELETE ACCOUNT
-===================================================== */
-
-async function deleteAccount(
-    id
+function setAPIStatus(
+    type,
+    text
 ){
 
-    if(
-        !confirm(
-            "Bạn có chắc muốn xóa acc này?"
-        )
-    ){
+    const box =
+        document.getElementById(
+            "apiStatus"
+        );
 
-        return;
+    box.className =
+        "api-status " + type;
 
-    }
+    box.textContent =
+        text;
+
+}
+
+
+async function checkAPI(){
 
     try{
 
-        const result =
-            await apiPost({
-
-                action:
-                    "deleteAccount",
-
-                key:
-                    ADMIN_KEY,
-
-                id:
-                    id
-
-            });
-
-        if(result.ok){
-
-            toast(
-                "Đã xóa acc.",
-                "success"
+        const response =
+            await fetch(
+                API_URL +
+                "?action=getShopStatus&_=" +
+                Date.now(),
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
             );
 
-            loadAccounts();
-            loadDashboard();
+        if(!response.ok){
 
-        }else{
-
-            toast(
-                result.message ||
-                "Không thể xóa.",
-                "error"
+            throw new Error(
+                "HTTP " +
+                response.status
             );
 
         }
 
-    }catch(err){
+        const data =
+            await response.json();
 
-        toast(
-            "Không kết nối được API.",
-            "error"
+        if(
+            data &&
+            data.ok === true
+        ){
+
+            setAPIStatus(
+                "ok",
+                "🟢 Đã kết nối API v5.0"
+            );
+
+        }
+
+        else{
+
+            setAPIStatus(
+                "error",
+                "🔴 API không phản hồi"
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        setAPIStatus(
+            "error",
+            "🔴 Không kết nối được API"
         );
 
     }
@@ -2395,550 +1486,221 @@ async function deleteAccount(
 
 
 /* =====================================================
-   CUSTOMERS
+   PURCHASE
 ===================================================== */
 
-async function loadCustomers(){
+let selectedProduct = "";
+let selectedPrice = 0;
 
-    try{
 
-        const result =
-            await apiPost({
-                action:"getCustomers"
-            });
-
-        const customers =
-            result.customers || [];
-
-        let html =
-            `
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Số dư</th>
-                        <th>Ngày tạo</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-            `;
-
-        customers.forEach(user=>{
-
-            const status =
-                String(
-                    user.status || ""
-                ).toLowerCase();
-
-            html += `
-                <tr>
-
-                    <td>
-                        <b>
-                            ${escapeHtml(user.username || "")}
-                        </b>
-                    </td>
-
-                    <td>
-                        ${escapeHtml(user.password || "")}
-                    </td>
-
-                    <td>
-                        <b>
-                            ${formatMoney(user.balance)}
-                        </b>
-                    </td>
-
-                    <td>
-                        ${escapeHtml(user.createdAt || "")}
-                    </td>
-
-                    <td>
-                        <span class="
-                            badge
-                            ${
-                                status === "blocked"
-                                ? "badge-rejected"
-                                : "badge-active"
-                            }
-                        ">
-                            ${escapeHtml(user.status || "")}
-                        </span>
-                    </td>
-
-                </tr>
-            `;
-
-        });
-
-        html +=
-            `
-                </tbody>
-            </table>
-            `;
-
-        document
-        .getElementById("customersTable")
-        .innerHTML =
-            customers.length
-            ? html
-            : "<p>Chưa có khách hàng.</p>";
-
-    }catch(err){
-
-        console.error(err);
-
-    }
-
-}
-
-
-/* =====================================================
-   TOPUPS
-===================================================== */
-
-async function loadTopups(){
-
-    try{
-
-        const result =
-            await apiPost({
-                action:"getTopups"
-            });
-
-        const topups =
-            result.topups || [];
-
-        let html =
-            `
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Số tiền</th>
-                        <th>Phương thức</th>
-                        <th>Trạng thái</th>
-                        <th>Thời gian</th>
-                        <th>Thao tác</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-            `;
-
-        topups.slice().reverse().forEach(topup=>{
-
-            const status =
-                String(
-                    topup.status || ""
-                ).toLowerCase();
-
-            let badge =
-                "badge-pending";
-
-            if(status==="approved"){
-                badge="badge-approved";
-            }
-
-            if(status==="rejected"){
-                badge="badge-rejected";
-            }
-
-            let actions="";
-
-            if(status==="pending"){
-
-                actions =
-                    `
-                    <div style="display:flex;gap:6px">
-
-                        <button
-                            class="btn btn-success"
-                            onclick="approveTopup('${escapeAttr(topup.id || "")}')"
-                        >
-                            ✓ Duyệt
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="rejectTopup('${escapeAttr(topup.id || "")}')"
-                        >
-                            ✕ Từ chối
-                        </button>
-
-                    </div>
-                    `;
-
-            }else{
-
-                actions =
-                    `<span style="color:#64748b">Đã xử lý</span>`;
-
-            }
-
-            html += `
-                <tr>
-
-                    <td>
-                        ${escapeHtml(topup.id || "")}
-                    </td>
-
-                    <td>
-                        <b>
-                            ${escapeHtml(topup.username || "")}
-                        </b>
-                    </td>
-
-                    <td>
-                        <b>
-                            ${formatMoney(topup.amount)}
-                        </b>
-                    </td>
-
-                    <td>
-                        ${escapeHtml(topup.method || "")}
-                    </td>
-
-                    <td>
-                        <span class="badge ${badge}">
-                            ${escapeHtml(topup.status || "")}
-                        </span>
-                    </td>
-
-                    <td>
-                        ${escapeHtml(topup.createdAt || "")}
-                    </td>
-
-                    <td>
-                        ${actions}
-                    </td>
-
-                </tr>
-            `;
-
-        });
-
-        html +=
-            `
-                </tbody>
-            </table>
-            `;
-
-        document
-        .getElementById("topupsTable")
-        .innerHTML =
-            topups.length
-            ? html
-            : "<p>Chưa có yêu cầu nạp tiền.</p>";
-
-    }catch(err){
-
-        console.error(err);
-
-    }
-
-}
-
-
-/* =====================================================
-   APPROVE TOPUP
-===================================================== */
-
-async function approveTopup(
-    id
+function buyPackage(
+    product,
+    price
 ){
 
-    if(
-        !confirm(
-            "Xác nhận DUYỆT yêu cầu nạp tiền này?"
-        )
-    ){
+    if(!isLoggedIn()){
+
+        showToast(
+            "⚠️ Vui lòng đăng nhập trước khi mua!"
+        );
+
+        setTimeout(
+            function(){
+
+                window.location.href =
+                    "login.html";
+
+            },
+            1200
+        );
 
         return;
 
     }
 
-    try{
 
-        const result =
-            await apiPost({
+    selectedProduct =
+        product;
 
-                action:
-                    "approveTopup",
+    selectedPrice =
+        price;
 
-                key:
-                    ADMIN_KEY,
-
-                id:
-                    id
-
-            });
-
-        if(result.ok){
-
-            toast(
-                "Đã duyệt nạp tiền và cộng tiền cho khách.",
-                "success"
-            );
-
-            loadTopups();
-            loadCustomers();
-            loadDashboard();
-
-        }else{
-
-            toast(
-                result.message ||
-                "Không thể duyệt.",
-                "error"
-            );
-
-        }
-
-    }catch(err){
-
-        toast(
-            "Không kết nối được API.",
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   REJECT TOPUP
-===================================================== */
-
-async function rejectTopup(
-    id
-){
 
     if(
-        !confirm(
-            "Xác nhận TỪ CHỐI yêu cầu nạp tiền này?"
-        )
+        price > 0 &&
+        getBalance() < price
     ){
+
+        showToast(
+            "❌ Số dư không đủ. Vui lòng nạp tiền!"
+        );
+
+        setTimeout(
+            function(){
+
+                window.location.href =
+                    "nap-tien.html";
+
+            },
+            1300
+        );
 
         return;
 
     }
 
-    try{
 
-        const result =
-            await apiPost({
-
-                action:
-                    "rejectTopup",
-
-                key:
-                    ADMIN_KEY,
-
-                id:
-                    id
-
-            });
-
-        if(result.ok){
-
-            toast(
-                "Đã từ chối yêu cầu nạp tiền.",
-                "success"
-            );
-
-            loadTopups();
-            loadDashboard();
-
-        }else{
-
-            toast(
-                result.message ||
-                "Không thể từ chối.",
-                "error"
-            );
-
-        }
-
-    }catch(err){
-
-        toast(
-            "Không kết nối được API.",
-            "error"
+    const text =
+        document.getElementById(
+            "confirmText"
         );
 
-    }
 
-}
-
-
-/* =====================================================
-   ORDERS
-===================================================== */
-
-async function loadOrders(){
-
-    try{
-
-        const result =
-            await apiPost({
-                action:"getOrders"
-            });
-
-        const orders =
-            result.orders || [];
-
-        let html =
-            `
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Status</th>
-                        <th>Thời gian</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-            `;
-
-        orders.slice().reverse().forEach(order=>{
-
-            const status =
-                String(
-                    order.status || ""
-                ).toLowerCase();
-
-            let badge =
-                "badge-pending";
-
-            if(status==="approved"){
-                badge="badge-approved";
-            }
-
-            if(status==="rejected"){
-                badge="badge-rejected";
-            }
-
-            html += `
-                <tr>
-
-                    <td>
-                        ${escapeHtml(order.id || "")}
-                    </td>
-
-                    <td>
-                        <b>
-                            ${escapeHtml(order.username || "")}
-                        </b>
-                    </td>
-
-                    <td>
-                        ${escapeHtml(order.product || "")}
-                    </td>
-
-                    <td>
-                        <b>
-                            ${formatMoney(order.price)}
-                        </b>
-                    </td>
-
-                    <td>
-                        <span class="badge ${badge}">
-                            ${escapeHtml(order.status || "")}
-                        </span>
-                    </td>
-
-                    <td>
-                        ${escapeHtml(order.createdAt || "")}
-                    </td>
-
-                </tr>
-            `;
-
-        });
-
-        html +=
-            `
-                </tbody>
-            </table>
-            `;
-
-        document
-        .getElementById("ordersTable")
-        .innerHTML =
-            orders.length
-            ? html
-            : "<p>Chưa có đơn hàng.</p>";
-
-    }catch(err){
-
-        console.error(err);
-
-    }
-
-}
+    text.innerHTML =
+        "Bạn muốn mua <b>" +
+        escapeHtml(product) +
+        "</b> với giá <b>" +
+        price.toLocaleString("vi-VN") +
+        "đ</b>?";
 
 
-/* =====================================================
-   SETUP SHOP
-===================================================== */
-
-async function setupShop(){
-
-    if(
-        !confirm(
-            "Setup sẽ tạo các Sheet còn thiếu và các trạng thái sản phẩm. Tiếp tục?"
+    document
+        .getElementById(
+            "confirmModal"
         )
-    ){
+        .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById(
+            "confirmModal"
+        )
+        .classList.remove("show");
+
+}
+
+
+async function confirmPurchase(){
+
+    if(!isLoggedIn()){
+
+        closeModal();
+
+        window.location.href =
+            "login.html";
 
         return;
 
     }
 
+
+    const username =
+        getUsername();
+
+
+    const button =
+        document.querySelector(
+            ".btn-confirm"
+        );
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "ĐANG XỬ LÝ...";
+
+
     try{
 
-        const result =
-            await apiPost({
-                action:"setupShop"
-            });
+        /*
+         * Gửi đơn hàng lên Apps Script.
+         *
+         * Lưu ý:
+         * API createOrder hiện tại của bạn
+         * tạo đơn hàng nhưng chưa tự trừ số dư.
+         */
 
-        if(result.ok){
+        const response =
+            await fetch(
+                API_URL,
+                {
+                    method:"POST",
+                    headers:{
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+                    body:JSON.stringify({
 
-            toast(
-                "Setup SHOPKAROT thành công.",
-                "success"
+                        action:
+                            "createOrder",
+
+                        username:
+                            username,
+
+                        product:
+                            selectedProduct,
+
+                        price:
+                            selectedPrice
+
+                    })
+                }
             );
 
-            loadAll();
 
-        }else{
+        const data =
+            await response.json();
 
-            toast(
-                result.message ||
-                "Setup thất bại.",
-                "error"
+
+        if(
+            data &&
+            data.ok === true
+        ){
+
+            closeModal();
+
+            showToast(
+                "✅ Đặt mua thành công! Mã đơn: " +
+                (data.id || "")
             );
 
         }
 
-    }catch(err){
+        else{
 
-        toast(
-            "Không kết nối được API.",
-            "error"
+            showToast(
+                "❌ " +
+                (
+                    data.message ||
+                    "Không thể tạo đơn hàng"
+                )
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        showToast(
+            "❌ Không kết nối được API"
         );
+
+    }
+
+    finally{
+
+        button.disabled =
+            false;
+
+        button.textContent =
+            "XÁC NHẬN MUA";
 
     }
 
@@ -2949,91 +1711,40 @@ async function setupShop(){
    TOAST
 ===================================================== */
 
-function toast(
-    message,
-    type="success"
-){
+let toastTimer;
 
-    const el =
+
+function showToast(message){
+
+    const toast =
         document.getElementById(
             "toast"
         );
 
-    el.textContent=message;
+    toast.textContent =
+        message;
 
-    el.className =
-        type === "error"
-        ? "error-toast"
-        : "success-toast";
-
-    el.style.display="block";
-
-    clearTimeout(
-        window.__toastTimer
+    toast.classList.add(
+        "show"
     );
 
-    window.__toastTimer =
-        setTimeout(()=>{
 
-            el.style.display="none";
-
-        },3500);
-
-}
+    clearTimeout(
+        toastTimer
+    );
 
 
-/* =====================================================
-   MODAL
-===================================================== */
+    toastTimer =
+        setTimeout(
+            function(){
 
-function openModal(
-    title,
-    content,
-    callback
-){
+                toast.classList.remove(
+                    "show"
+                );
 
-    document
-    .getElementById("modalTitle")
-    .textContent=title;
-
-    document
-    .getElementById("modalContent")
-    .innerHTML=content;
-
-    document
-    .getElementById("confirmModal")
-    .classList.add("show");
-
-    document
-    .getElementById("modalConfirm")
-    .onclick=callback;
-
-}
-
-
-function closeModal(){
-
-    document
-    .getElementById("confirmModal")
-    .classList.remove("show");
-
-}
-
-
-/* =====================================================
-   FORMAT MONEY
-===================================================== */
-
-function formatMoney(
-    value
-){
-
-    const number =
-        Number(value || 0);
-
-    return number.toLocaleString(
-        "vi-VN"
-    ) + "đ";
+            },
+            3000
+        );
 
 }
 
@@ -3042,43 +1753,113 @@ function formatMoney(
    ESCAPE HTML
 ===================================================== */
 
-function escapeHtml(
-    value
-){
+function escapeHtml(value){
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-function escapeAttr(
-    value
-){
+/* =====================================================
+   CLOSE MODAL WHEN CLICK OUTSIDE
+===================================================== */
 
-    return String(value ?? "")
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'");
+document
+.getElementById(
+    "confirmModal"
+)
+.addEventListener(
+    "click",
+    function(event){
 
-}
+        if(
+            event.target ===
+            this
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   STORAGE UPDATE
+===================================================== */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key ===
+                "shopkarot_login"
+            ||
+            event.key ===
+                "shopkarot_user"
+            ||
+            event.key ===
+                "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PAGE FOCUS
+===================================================== */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
 
 
 /* =====================================================
    START
 ===================================================== */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+updateUser();
 
-        checkLogin();
-
-    }
-);
+checkAPI();
 
 </script>
 
