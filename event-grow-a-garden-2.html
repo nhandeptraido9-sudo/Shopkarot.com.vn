@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Event Grow A Garden 2 - SHOPKAROT</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    min-height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:10px 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e21b23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:255px;
+    padding:8px;
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* ================= USER ================= */
+
+.user{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:94%;
+    max-width:1250px;
+    margin:25px auto;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:340px;
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    background:
+        radial-gradient(
+            circle at 78% 20%,
+            #b7ef45 0%,
+            #398b20 34%,
+            #082d0b 75%
+        );
+    color:white;
+    box-shadow:0 7px 28px rgba(0,0,0,.16);
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:330px;
+    height:330px;
+    right:-100px;
+    bottom:-180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:55px;
+}
+
+.event-label{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:20px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.25);
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    margin:0;
+    font-size:47px;
+    font-style:italic;
+    letter-spacing:-1px;
+}
+
+.hero h1 span{
+    color:#d7ff68;
+}
+
+.hero h2{
+    margin:15px 0;
+    font-size:26px;
+    color:#ffe44c;
+}
+
+.hero p{
+    max-width:720px;
+    color:#eee;
+    font-size:16px;
+    line-height:1.7;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin-top:18px;
+    padding:22px;
+    border-radius:16px;
+    background:#fff8e6;
+    border:1px solid #f2d38a;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+.notice-title{
+    font-size:20px;
+    font-weight:900;
+    color:#9a6500;
+    margin-bottom:8px;
+}
+
+.notice p{
+    margin:6px 0;
+    line-height:1.6;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:18px;
+}
+
+.card{
+    background:white;
+    border-radius:17px;
+    padding:24px;
+    border:1px solid #edf0f3;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.card h2{
+    margin:0 0 15px;
+    font-size:21px;
+}
+
+.feature{
+    display:flex;
+    gap:15px;
+    padding:15px;
+    margin-top:12px;
+    background:#f7f8fa;
+    border-radius:12px;
+}
+
+.feature-icon{
+    width:45px;
+    height:45px;
+    flex-shrink:0;
+    border-radius:12px;
+    background:#e9f7df;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.feature b{
+    display:block;
+    margin-bottom:5px;
+}
+
+.feature small{
+    color:#697386;
+    line-height:1.5;
+}
+
+/* ================= UPDATE ================= */
+
+.update{
+    text-align:center;
+}
+
+.update-icon{
+    font-size:55px;
+    margin-bottom:8px;
+}
+
+.update h2{
+    color:#e21b23;
+}
+
+.update p{
+    color:#596577;
+    line-height:1.7;
+}
+
+.time-box{
+    margin-top:18px;
+    padding:18px;
+    border-radius:13px;
+    background:#fff4f4;
+    border:1px solid #f0c1c1;
+    color:#b20f15;
+    font-weight:bold;
+}
+
+/* ================= BUTTON ================= */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.button{
+    display:inline-block;
+    padding:13px 22px;
+    border-radius:10px;
+    background:#b20e14;
+    color:white;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.button:hover{
+    background:#e21b23;
+    transform:translateY(-1px);
+}
+
+/* ================= STATUS ================= */
+
+.api-status{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    padding:9px 13px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    font-size:12px;
+    font-weight:bold;
+    color:#078542;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .header{
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .content{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content{
+        padding:40px 25px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .hero h2{
+        font-size:21px;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .user-info{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu.html?price=0">
+                🎁 TÚI MÙ
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="balance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<div class="api-status">
+    🟢 SHOPKAROT
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="event-label">
+                🌱 EVENT ĐẶC BIỆT
+            </div>
+
+            <h1>
+                GROW A <span>GARDEN 2</span>
+            </h1>
+
+            <h2>
+                🌱 EVENT GROW A GARDEN 2
+            </h2>
+
+            <p>
+                Đây là khu vực thông báo Event Grow A Garden 2
+                của SHOPKAROT. Shop sẽ cập nhật thêm nội dung
+                trong thời gian tới.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- THÔNG BÁO -->
+
+    <section class="notice">
+
+        <div class="notice-title">
+            📢 THÔNG BÁO SHOP
+        </div>
+
+        <p>
+            Shop sẽ cập nhật thêm nội dung cho
+            <b>Event Grow A Garden 2 vào tuần sau hoặc có thể nhanh hơn.</b>
+        </p>
+
+        <p>
+            Vui lòng quay lại SHOPKAROT để xem thông báo
+            và nội dung mới nhất.
+        </p>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section class="content">
+
+
+        <div class="card">
+
+            <h2>
+                ⭐ Thông tin Event
+            </h2>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🌱
+                </div>
+
+                <div>
+
+                    <b>
+                        Event Grow A Garden 2
+                    </b>
+
+                    <small>
+                        Shop đang chuẩn bị thêm nội dung
+                        cho Event Grow A Garden 2.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🎁
+                </div>
+
+                <div>
+
+                    <b>
+                        Nội dung mới
+                    </b>
+
+                    <small>
+                        Các nội dung mới sẽ được cập nhật
+                        khi hoàn tất.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                <div>
+
+                    <b>
+                        Có thể cập nhật sớm
+                    </b>
+
+                    <small>
+                        Nếu hoàn thành trước kế hoạch,
+                        Event có thể được cập nhật sớm hơn.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card update">
+
+            <div class="update-icon">
+                🚧
+            </div>
+
+            <h2>
+                ĐANG CHUẨN BỊ
+            </h2>
+
+            <p>
+                Event Grow A Garden 2 hiện đang được SHOPKAROT
+                chuẩn bị thêm nội dung.
+            </p>
+
+            <div class="time-box">
+
+                📅 Dự kiến:
+                <b> TUẦN SAU</b>
+
+                <br><br>
+
+                ⚡ Có thể nhanh hơn
+
+            </div>
+
+
+            <!-- CHỈ CÒN NÚT VỀ TRANG CHỦ -->
+
+            <div class="buttons">
+
+                <a
+                    href="index.html"
+                    class="button">
+
+                    🏠 VỀ TRANG CHỦ
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+</footer>
+
+
+<script>
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList
+        .toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(
+            !menu.contains(event.target)
+        ){
+
+            document
+                .getElementById("menuBox")
+                .classList
+                .remove("show");
+
+        }
+
+    }
+);
+
+
+/* ================= USER ================= */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const user =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    if(
+        login === "true" &&
+        user
+    ){
+
+        document
+            .getElementById("username")
+            .textContent =
+            user;
+
+        document
+            .getElementById("balance")
+            .textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+}
+
+
+/* ================= USER CLICK ================= */
+
+document
+    .getElementById("userBox")
+    .addEventListener(
+        "click",
+        function(){
+
+            const login =
+                localStorage.getItem(
+                    "shopkarot_login"
+                );
+
+            if(
+                login === "true"
+            ){
+
+                location.href =
+                    "ho-so.html";
+
+            }
+
+            else{
+
+                location.href =
+                    "login.html";
+
+            }
+
+        }
+    );
+
+
+updateUser();
+
+</script>
+
+</body>
+</html>
