@@ -125,27 +125,6 @@ a{text-decoration:none}
     color:#e21b23;
 }
 
-/* ================= QUAY LẠI SHOP CŨ ================= */
-
-.old-shop-btn{
-    margin-left:auto;
-    padding:12px 18px;
-    border:1px solid #e21b23;
-    border-radius:10px;
-    background:#fff;
-    color:#d01018;
-    font-size:13px;
-    font-weight:bold;
-    white-space:nowrap;
-    text-decoration:none;
-    transition:.2s;
-}
-
-.old-shop-btn:hover{
-    background:#d01018;
-    color:#fff;
-}
-
 /* ================= USER ================= */
 
 .user{
@@ -158,6 +137,7 @@ a{text-decoration:none}
     background:white;
     cursor:pointer;
     transition:.2s;
+    margin-left:auto;
 }
 
 .user:hover{
@@ -554,11 +534,6 @@ footer{
         display:none;
     }
 
-    /* Ẩn nút quay lại trên điện thoại */
-    .old-shop-btn{
-        display:none;
-    }
-
     .user{
         margin-left:auto;
         padding:6px 8px;
@@ -635,56 +610,53 @@ footer{
 
     </a>
 
-
     <!-- MENU -->
 
-<div class="menu">
+    <div class="menu">
 
-    <button
-        class="menu-button"
-        onclick="toggleMenu()">
-        ☰
-    </button>
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
 
-    <div
-        class="menu-box"
-        id="menuBox">
+        <div
+            class="menu-box"
+            id="menuBox">
 
-        <a href="acc-game.html">
-            🎮 ACC GAME
-        </a>
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
 
-        <a href="tui-mu.html?price=0">
-            🎁 TÚI MÙ
-        </a>
+            <a href="tui-mu.html?price=0">
+                🎁 TÚI MÙ
+            </a>
 
-        <a href="lich-su.html">
-            🧾 LỊCH SỬ MUA
-        </a>
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
 
-        <a href="nap-tien.html">
-            💰 NẠP TIỀN
-        </a>
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
 
-        <a href="ho-so.html">
-            👤 HỒ SƠ
-        </a>
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
 
-        <a href="login.html">
-            🔐 ĐĂNG NHẬP
-        </a>
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
 
-        <!-- QUAY LẠI SHOP CŨ -->
+            <a
+                href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html"
+                class="back-old-shop">
+                ↩️ QUAY LẠI SHOP CŨ
+            </a>
 
-        <a
-            href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html"
-            class="back-old-shop">
-            ↩️ QUAY LẠI SHOP CŨ
-        </a>
+        </div>
 
     </div>
-
-</div>    
 
     <!-- USER -->
 
@@ -716,7 +688,6 @@ footer{
 <!-- ================= MAIN ================= -->
 
 <main class="container">
-
 
     <!-- ================= BANNER ================= -->
 
@@ -800,7 +771,6 @@ footer{
     <!-- ================= CONTENT ================= -->
 
     <section class="content">
-
 
         <!-- ================= NOTICE ================= -->
 
@@ -888,9 +858,14 @@ footer{
                     <small>
                         👥 Acc game
                     </small>
-<a href="blox-fruits.html" class="game-button">
-    XEM NGAY
-</a>
+
+                    <!-- ĐÃ SỬA: FILE ĐANG CÓ TRONG REPO -->
+
+                    <a
+                        href="acc-blox-fruit.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
 
                 </article>
 
