@@ -7,7 +7,9 @@
 <title>ShopKarot - Admin Panel</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -16,18 +18,25 @@ body{
   color:#111827;
 }
 
-button,input,select{font:inherit}
+button,
+input,
+select{
+  font:inherit;
+}
 
 .login-box{
   width:min(420px,92%);
   margin:80px auto;
-  background:#fff;
+  background:white;
   padding:30px;
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-.login-box h1{text-align:center;margin-top:0}
+.login-box h1{
+  text-align:center;
+  margin-top:0;
+}
 
 .input{
   width:100%;
@@ -38,7 +47,9 @@ button,input,select{font:inherit}
   outline:none;
 }
 
-.input:focus{border-color:#2563eb}
+.input:focus{
+  border-color:#2563eb;
+}
 
 .btn{
   border:0;
@@ -48,14 +59,38 @@ button,input,select{font:inherit}
   font-weight:bold;
 }
 
-.btn-primary{background:#2563eb;color:white}
-.btn-success{background:#16a34a;color:white}
-.btn-danger{background:#dc2626;color:white}
-.btn-warning{background:#f59e0b;color:white}
-.btn-gray{background:#6b7280;color:white}
-.btn:hover{opacity:.88}
+.btn-primary{
+  background:#2563eb;
+  color:white;
+}
 
-.hidden{display:none!important}
+.btn-success{
+  background:#16a34a;
+  color:white;
+}
+
+.btn-danger{
+  background:#dc2626;
+  color:white;
+}
+
+.btn-warning{
+  background:#f59e0b;
+  color:white;
+}
+
+.btn-gray{
+  background:#6b7280;
+  color:white;
+}
+
+.btn:hover{
+  opacity:.88;
+}
+
+.hidden{
+  display:none!important;
+}
 
 header{
   background:#111827;
@@ -68,7 +103,9 @@ header{
   flex-wrap:wrap;
 }
 
-header h2{margin:0}
+header h2{
+  margin:0;
+}
 
 .container{
   width:min(1400px,96%);
@@ -116,8 +153,13 @@ header h2{margin:0}
   color:white;
 }
 
-.panel{display:none}
-.panel.active{display:block}
+.panel{
+  display:none;
+}
+
+.panel.active{
+  display:block;
+}
 
 .form-grid{
   display:grid;
@@ -135,7 +177,9 @@ header h2{margin:0}
   margin-bottom:6px;
 }
 
-.full{grid-column:1/-1}
+.full{
+  grid-column:1/-1;
+}
 
 .actions{
   display:flex;
@@ -156,7 +200,8 @@ table{
   background:white;
 }
 
-th,td{
+th,
+td{
   padding:10px;
   border-bottom:1px solid #e5e7eb;
   text-align:left;
@@ -178,10 +223,25 @@ th{
   font-weight:bold;
 }
 
-.available{background:#dcfce7;color:#166534}
-.sold{background:#fee2e2;color:#991b1b}
-.pending{background:#fef3c7;color:#92400e}
-.completed{background:#dcfce7;color:#166534}
+.available{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.sold{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.pending{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.completed{
+  background:#dcfce7;
+  color:#166534;
+}
 
 .notice{
   padding:14px;
@@ -225,7 +285,9 @@ th{
   padding:25px;
 }
 
-.modal-content h2{margin-top:0}
+.modal-content h2{
+  margin-top:0;
+}
 
 .account-result{
   background:#111827;
@@ -235,7 +297,9 @@ th{
   margin-top:15px;
 }
 
-.account-result div{margin:7px 0}
+.account-result div{
+  margin:7px 0;
+}
 
 .small{
   font-size:13px;
@@ -248,15 +312,20 @@ th{
 }
 
 @media(max-width:700px){
-  .form-grid{grid-template-columns:1fr}
-  .full{grid-column:auto}
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOGIN ================= -->
+<!-- ========================= LOGIN ========================= -->
 
 <div id="loginPage" class="login-box">
 
@@ -283,12 +352,15 @@ th{
     🔐 Đăng nhập
   </button>
 
-  <div id="loginMessage" style="margin-top:15px"></div>
+  <div
+    id="loginMessage"
+    style="margin-top:15px"
+  ></div>
 
 </div>
 
 
-<!-- ================= ADMIN ================= -->
+<!-- ========================= ADMIN ========================= -->
 
 <div id="adminPage" class="hidden">
 
@@ -296,7 +368,6 @@ th{
 
   <div>
     <h2>🛒 SHOPKAROT ADMIN</h2>
-
     <div class="small" style="color:#d1d5db">
       Quản lý kho acc, khách hàng, đơn hàng, nạp tiền
     </div>
@@ -435,7 +506,9 @@ th{
 </div>
 
 
-<!-- ================= KHO ACC ================= -->
+<!-- ========================================================
+     KHO ACC
+======================================================== -->
 
 <section id="panel-accounts" class="panel active">
 
@@ -448,6 +521,8 @@ th{
   </div>
 
   <div class="form-grid">
+
+    <!-- GAME -->
 
     <div class="form-group">
 
@@ -504,6 +579,8 @@ th{
     </div>
 
 
+    <!-- THƯ MỤC -->
+
     <div class="form-group">
 
       <label>📁 Thư mục</label>
@@ -522,6 +599,8 @@ th{
 
     </div>
 
+
+    <!-- GIÁ -->
 
     <div class="form-group">
 
@@ -557,6 +636,8 @@ th{
     </div>
 
 
+    <!-- GÓI -->
+
     <div class="form-group">
 
       <label>📦 Gói</label>
@@ -575,6 +656,8 @@ th{
     </div>
 
 
+    <!-- USERNAME -->
+
     <div class="form-group">
 
       <label>👤 Tên đăng nhập</label>
@@ -589,6 +672,8 @@ th{
     </div>
 
 
+    <!-- PASSWORD -->
+
     <div class="form-group">
 
       <label>🔑 Mật khẩu</label>
@@ -601,6 +686,7 @@ th{
       >
 
     </div>
+
 
   </div>
 
@@ -652,6 +738,7 @@ th{
       <thead>
 
         <tr>
+
           <th>ID</th>
           <th>Game</th>
           <th>Thư mục</th>
@@ -661,6 +748,7 @@ th{
           <th>Password</th>
           <th>Status</th>
           <th>Thao tác</th>
+
         </tr>
 
       </thead>
@@ -676,7 +764,9 @@ th{
 </section>
 
 
-<!-- ================= KHÁCH HÀNG ================= -->
+<!-- ========================================================
+     KHÁCH HÀNG
+======================================================== -->
 
 <section id="panel-customers" class="panel">
 
@@ -717,7 +807,9 @@ th{
 </section>
 
 
-<!-- ================= NẠP TIỀN ================= -->
+<!-- ========================================================
+     NẠP TIỀN
+======================================================== -->
 
 <section id="panel-topups" class="panel">
 
@@ -757,7 +849,9 @@ th{
 </section>
 
 
-<!-- ================= ĐƠN HÀNG ================= -->
+<!-- ========================================================
+     ĐƠN HÀNG
+======================================================== -->
 
 <section id="panel-orders" class="panel">
 
@@ -772,6 +866,7 @@ th{
       <thead>
 
         <tr>
+
           <th>ID</th>
           <th>Khách</th>
           <th>Sản phẩm</th>
@@ -779,6 +874,7 @@ th{
           <th>Trạng thái</th>
           <th>Thời gian</th>
           <th>Acc</th>
+
         </tr>
 
       </thead>
@@ -794,7 +890,9 @@ th{
 </section>
 
 
-<!-- ================= SẢN PHẨM ================= -->
+<!-- ========================================================
+     PRODUCT STATUS
+======================================================== -->
 
 <section id="panel-products" class="panel">
 
@@ -817,9 +915,12 @@ th{
 </div>
 
 
-<!-- ================= MODAL ================= -->
+<!-- ========================= MODAL ========================= -->
 
-<div id="accountModal" class="modal hidden">
+<div
+  id="accountModal"
+  class="modal hidden"
+>
 
 <div class="modal-content">
 
@@ -846,11 +947,11 @@ th{
 <script>
 
 /* =========================================================
-   API - GIỮ NGUYÊN
+   CONFIG
 ========================================================= */
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbzPjQAv86f_fpVx8_ecLR-X-qP1B-YlUPYx7-eSsc0FbBFo693aGMaSc2cWK4WOCgVnHw/exec";
+"https://script.google.com/macros/s/AKfycbwbiRIuLj1Uz2UtxbaSezHZtqOyjOqfM1jNqwsqkVvtlxaqHGjK4VAMjmE7q_PiH0Mm4w/exec";
 
 let ADMIN_KEY = "";
 
@@ -862,7 +963,7 @@ let productStatuses = {};
 
 
 /* =========================================================
-   API POST
+   API
 ========================================================= */
 
 async function apiPost(action,data={}){
@@ -872,25 +973,18 @@ async function apiPost(action,data={}){
     ...data
   };
 
-  const response = await fetch(
-    API_URL,
-    {
+  const response =
+    await fetch(API_URL,{
       method:"POST",
       headers:{
         "Content-Type":"text/plain;charset=utf-8"
       },
       body:JSON.stringify(body)
-    }
-  );
+    });
 
   return await response.json();
-
 }
 
-
-/* =========================================================
-   API GET
-========================================================= */
 
 async function apiGet(action){
 
@@ -903,7 +997,6 @@ async function apiGet(action){
     await fetch(url);
 
   return await response.json();
-
 }
 
 
@@ -914,8 +1007,10 @@ async function apiGet(action){
 async function adminLogin(){
 
   const key =
-    document.getElementById("adminKey")
-    .value.trim();
+    document
+      .getElementById("adminKey")
+      .value
+      .trim();
 
   if(!key){
 
@@ -925,7 +1020,6 @@ async function adminLogin(){
     );
 
     return;
-
   }
 
   showLoginMessage(
@@ -950,7 +1044,6 @@ async function adminLogin(){
       );
 
       return;
-
     }
 
     ADMIN_KEY = key;
@@ -971,8 +1064,6 @@ async function adminLogin(){
     loadAll();
 
   }catch(err){
-
-    console.error(err);
 
     showLoginMessage(
       "❌ Không kết nối được Apps Script.",
@@ -1051,11 +1142,7 @@ window.addEventListener(
 
       }
 
-    }catch(e){
-
-      console.error(e);
-
-    }
+    }catch(e){}
 
   }
 );
@@ -1091,36 +1178,48 @@ async function loadDashboard(){
   try{
 
     const result =
-      await apiGet("getDashboard");
+      await apiGet(
+        "getDashboard"
+      );
 
     if(!result.ok){
       return;
     }
 
     document
-      .getElementById("dashCustomers")
+      .getElementById(
+        "dashCustomers"
+      )
       .textContent =
       result.customers || 0;
 
     document
-      .getElementById("dashAccounts")
+      .getElementById(
+        "dashAccounts"
+      )
       .textContent =
       result.accounts || 0;
 
     document
-      .getElementById("dashOrders")
+      .getElementById(
+        "dashOrders"
+      )
       .textContent =
       result.orders || 0;
 
     document
-      .getElementById("dashTopup")
+      .getElementById(
+        "dashTopup"
+      )
       .textContent =
       formatMoney(
         result.approvedTopupMoney || 0
       );
 
     document
-      .getElementById("dashPending")
+      .getElementById(
+        "dashPending"
+      )
       .textContent =
       result.pendingTopups || 0;
 
@@ -1142,7 +1241,9 @@ async function loadShopStatus(){
   try{
 
     const result =
-      await apiGet("getShopStatus");
+      await apiGet(
+        "getShopStatus"
+      );
 
     if(!result.ok){
       return;
@@ -1153,29 +1254,41 @@ async function loadShopStatus(){
       "Shop đang hoạt động";
 
     document
-      .getElementById("shopStatusText")
-      .textContent = status;
+      .getElementById(
+        "shopStatusText"
+      )
+      .textContent =
+      status;
 
     document
-      .getElementById("shopStatusSelect")
-      .value = status;
+      .getElementById(
+        "shopStatusSelect"
+      )
+      .value =
+      status;
 
     const dot =
-      document.getElementById(
-        "shopStatusDot"
-      );
+      document
+        .getElementById(
+          "shopStatusDot"
+        );
 
     if(status === "Shop đang hoạt động"){
 
-      dot.style.background = "#22c55e";
+      dot.style.background =
+        "#22c55e";
 
-    }else if(status === "Shop đang bảo trì"){
+    }else if(
+      status === "Shop đang bảo trì"
+    ){
 
-      dot.style.background = "#f59e0b";
+      dot.style.background =
+        "#f59e0b";
 
     }else{
 
-      dot.style.background = "#ef4444";
+      dot.style.background =
+        "#ef4444";
 
     }
 
@@ -1192,7 +1305,9 @@ async function setShopStatus(){
 
   const status =
     document
-      .getElementById("shopStatusSelect")
+      .getElementById(
+        "shopStatusSelect"
+      )
       .value;
 
   try{
@@ -1201,7 +1316,6 @@ async function setShopStatus(){
       await apiPost(
         "setShopStatus",
         {
-          key:ADMIN_KEY,
           status:status
         }
       );
@@ -1214,7 +1328,6 @@ async function setShopStatus(){
       );
 
       return;
-
     }
 
     alert(
@@ -1236,27 +1349,17 @@ async function setShopStatus(){
 
 /* =========================================================
    GAME → FOLDER
-
-   CHỈ SỬA BLOX FRUITS
 ========================================================= */
 
 const folderData = {
 
-  /* =========================
-     BLOX FRUITS
-  ========================= */
-
   "Blox Fruits":[
-    "Túi Mù Blox Fruits",
-    "Acc Blox Fruits tùy chọn Item",
-    "Acc Blox Fruits xem hình acc tùy chọn",
-    "Acc Blox Fruits Race V4"
+    "Blox Fruits",
+    "Blox Fruits Túi Mù",
+    "Blox Fruits Acc Thường",
+    "Blox Fruits Acc VIP",
+    "Blox Fruits Acc Random"
   ],
-
-
-  /* =========================
-     CÁC GAME CŨ - GIỮ NGUYÊN
-  ========================= */
 
   "King Legacy":[
     "King Legacy",
@@ -1322,22 +1425,23 @@ function gameChanged(){
 
   const game =
     document
-      .getElementById("accountGame")
+      .getElementById(
+        "accountGame"
+      )
       .value;
 
   const folder =
     document
-      .getElementById("accountFolder");
+      .getElementById(
+        "accountFolder"
+      );
 
   folder.innerHTML =
     '<option value="">-- Chọn thư mục --</option>';
 
   if(!game){
-
     updatePackages();
-
     return;
-
   }
 
   const list =
@@ -1346,12 +1450,16 @@ function gameChanged(){
   list.forEach(function(name){
 
     const option =
-      document.createElement("option");
+      document.createElement(
+        "option"
+      );
 
     option.value = name;
     option.textContent = name;
 
-    folder.appendChild(option);
+    folder.appendChild(
+      option
+    );
 
   });
 
@@ -1384,25 +1492,36 @@ function priceChanged(){
 
 /* =========================================================
    PACKAGE
-
-   BLOX FRUITS CÓ GÓI RIÊNG
 ========================================================= */
 
 function updatePackages(){
 
   const game =
     document
-      .getElementById("accountGame")
+      .getElementById(
+        "accountGame"
+      )
       .value;
 
   const folder =
     document
-      .getElementById("accountFolder")
+      .getElementById(
+        "accountFolder"
+      )
+      .value;
+
+  const price =
+    document
+      .getElementById(
+        "accountPrice"
+      )
       .value;
 
   const packageSelect =
     document
-      .getElementById("accountPackage");
+      .getElementById(
+        "accountPackage"
+      );
 
   packageSelect.innerHTML =
     '<option value="">-- Chọn gói --</option>';
@@ -1411,107 +1530,28 @@ function updatePackages(){
     return;
   }
 
+  /*
+   * Túi Mù mặc định có 8 gói.
+   */
 
-  let packages = [];
-
-
-  /* =========================
-     BLOX FRUITS
-  ========================= */
-
-  if(game === "Blox Fruits"){
-
-    if(folder === "Túi Mù Blox Fruits"){
-
-      packages = [
-        "Gói 1",
-        "Gói 2",
-        "Gói 3",
-        "Gói 4",
-        "Gói 5",
-        "Gói 6",
-        "Gói 7",
-        "Gói 8"
-      ];
-
-    }
-
-    else if(
-      folder ===
-      "Acc Blox Fruits tùy chọn Item"
-    ){
-
-      packages = [
-        "Tùy chọn Item 1",
-        "Tùy chọn Item 2",
-        "Tùy chọn Item 3",
-        "Tùy chọn Item 4",
-        "Tùy chọn Item 5"
-      ];
-
-    }
-
-    else if(
-      folder ===
-      "Acc Blox Fruits xem hình acc tùy chọn"
-    ){
-
-      packages = [
-        "Acc 1",
-        "Acc 2",
-        "Acc 3",
-        "Acc 4",
-        "Acc 5"
-      ];
-
-    }
-
-    else if(
-      folder ===
-      "Acc Blox Fruits Race V4"
-    ){
-
-      packages = [
-        "Race V4 1",
-        "Race V4 2",
-        "Race V4 3",
-        "Race V4 4",
-        "Race V4 5"
-      ];
-
-    }
-
-  }
-
-
-  /* =========================
-     GAME CŨ
-  ========================= */
-
-  else{
-
-    for(let i=1;i<=8;i++){
-
-      packages.push(
-        "Gói " + i
-      );
-
-    }
-
-  }
-
-
-  packages.forEach(function(name){
+  for(let i=1;i<=8;i++){
 
     const option =
-      document.createElement("option");
+      document.createElement(
+        "option"
+      );
 
-    option.value = name;
-    option.textContent = name;
+    option.value =
+      "Gói " + i;
 
-    packageSelect.appendChild(option);
+    option.textContent =
+      "Gói " + i;
 
-  });
+    packageSelect.appendChild(
+      option
+    );
+
+  }
 
 }
 
@@ -1524,36 +1564,48 @@ async function addAccount(){
 
   const game =
     document
-      .getElementById("accountGame")
+      .getElementById(
+        "accountGame"
+      )
       .value
       .trim();
 
   const folder =
     document
-      .getElementById("accountFolder")
+      .getElementById(
+        "accountFolder"
+      )
       .value
       .trim();
 
   const price =
     document
-      .getElementById("accountPrice")
+      .getElementById(
+        "accountPrice"
+      )
       .value;
 
   const packageName =
     document
-      .getElementById("accountPackage")
+      .getElementById(
+        "accountPackage"
+      )
       .value
       .trim();
 
   const username =
     document
-      .getElementById("accountUsername")
+      .getElementById(
+        "accountUsername"
+      )
       .value
       .trim();
 
   const password =
     document
-      .getElementById("accountPassword")
+      .getElementById(
+        "accountPassword"
+      )
       .value
       .trim();
 
@@ -1589,13 +1641,28 @@ async function addAccount(){
       await apiPost(
         "addAccount",
         {
-          key:ADMIN_KEY,
-          game:game,
-          folder:folder,
-          price:Number(price),
-          package:packageName,
-          username:username,
-          password:password
+
+          key:
+            ADMIN_KEY,
+
+          game:
+            game,
+
+          folder:
+            folder,
+
+          price:
+            Number(price),
+
+          package:
+            packageName,
+
+          username:
+            username,
+
+          password:
+            password
+
         }
       );
 
@@ -1630,8 +1697,6 @@ async function addAccount(){
 
   }catch(err){
 
-    console.error(err);
-
     showAccountMessage(
       "❌ Lỗi kết nối API.",
       "red"
@@ -1642,48 +1707,68 @@ async function addAccount(){
 }
 
 
-function showAccountMessage(text,color){
+function showAccountMessage(
+  text,
+  color
+){
 
   const el =
     document
-      .getElementById("accountMessage");
+      .getElementById(
+        "accountMessage"
+      );
 
-  el.textContent = text;
-  el.style.color = color;
+  el.textContent =
+    text;
+
+  el.style.color =
+    color;
 
 }
 
 
 /* =========================================================
-   CLEAR FORM
+   CLEAR ACCOUNT FORM
 ========================================================= */
 
 function clearAccountForm(){
 
   document
-    .getElementById("accountGame")
+    .getElementById(
+      "accountGame"
+    )
     .value = "";
 
   document
-    .getElementById("accountFolder")
+    .getElementById(
+      "accountFolder"
+    )
     .innerHTML =
     '<option value="">-- Chọn thư mục --</option>';
 
   document
-    .getElementById("accountPrice")
+    .getElementById(
+      "accountPrice"
+    )
     .value = "";
 
   document
-    .getElementById("accountPackage")
+    .getElementById(
+      "accountPackage"
+    )
     .innerHTML =
     '<option value="">-- Chọn gói --</option>';
 
   document
-    .getElementById("accountUsername")
+    .getElementById(
+      "accountUsername"
+    )
     .value = "";
 
   document
-    .getElementById("accountPassword")
+    .getElementById(
+      "accountPassword"
+    )
     .value = "";
 
 }
@@ -1698,7 +1783,9 @@ async function loadAccounts(){
   try{
 
     const result =
-      await apiGet("getAccounts");
+      await apiGet(
+        "getAccounts"
+      );
 
     if(result.ok){
 
@@ -1722,110 +1809,114 @@ function renderAccounts(){
 
   const body =
     document
-      .getElementById("accountsBody");
+      .getElementById(
+        "accountsBody"
+      );
 
   const search =
     document
-      .getElementById("accountSearch")
+      .getElementById(
+        "accountSearch"
+      )
       .value
       .toLowerCase()
       .trim();
+
 
   body.innerHTML = "";
 
 
   const filtered =
-    accounts.filter(function(acc){
+    accounts.filter(
+      function(acc){
 
-      const text = [
+        const text = [
 
-        acc.game,
-        acc.folder,
-        acc.price,
-        acc.package,
-        acc.username,
-        acc.password,
-        acc.status
+          acc.game,
+          acc.folder,
+          acc.price,
+          acc.package,
+          acc.username,
+          acc.password,
+          acc.status
 
-      ]
-      .join(" ")
-      .toLowerCase();
+        ]
+        .join(" ")
+        .toLowerCase();
 
-      return text.includes(search);
+        return text.includes(
+          search
+        );
 
-    });
+      }
+    );
 
 
-  filtered.forEach(function(acc){
+  filtered.forEach(
+    function(acc){
 
-    const tr =
-      document.createElement("tr");
+      const tr =
+        document.createElement(
+          "tr"
+        );
 
-    const status =
-      String(acc.status || "")
-      .toLowerCase();
 
-    let badgeClass = "";
+      const status =
+        String(
+          acc.status || ""
+        ).toLowerCase();
 
-    if(status === "available"){
-      badgeClass = "available";
+
+      let badgeClass =
+        "";
+
+      if(status === "available"){
+        badgeClass = "available";
+      }else if(status === "sold"){
+        badgeClass = "sold";
+      }
+
+
+      tr.innerHTML = `
+
+        <td>${escapeHtml(acc.id || "")}</td>
+
+        <td>${escapeHtml(acc.game || "")}</td>
+
+        <td>${escapeHtml(acc.folder || "-")}</td>
+
+        <td>${formatPrice(acc.price)}</td>
+
+        <td>${escapeHtml(acc.package || "-")}</td>
+
+        <td>${escapeHtml(acc.username || acc.accUsername || "")}</td>
+
+        <td>${escapeHtml(acc.password || acc.accPassword || "")}</td>
+
+        <td>
+          <span class="badge ${badgeClass}">
+            ${escapeHtml(acc.status || "")}
+          </span>
+        </td>
+
+        <td>
+          <button
+            class="btn btn-danger"
+            onclick="deleteAccount('${escapeJs(acc.id || "")}')"
+          >
+            Xóa
+          </button>
+        </td>
+
+      `;
+
+
+      body.appendChild(
+        tr
+      );
+
     }
-
-    else if(status === "sold"){
-      badgeClass = "sold";
-    }
-
-
-    tr.innerHTML = `
-
-      <td>${escapeHtml(acc.id || "")}</td>
-
-      <td>${escapeHtml(acc.game || "")}</td>
-
-      <td>${escapeHtml(acc.folder || "-")}</td>
-
-      <td>${formatPrice(acc.price)}</td>
-
-      <td>${escapeHtml(acc.package || "-")}</td>
-
-      <td>
-        ${escapeHtml(
-          acc.username ||
-          acc.accUsername ||
-          ""
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          acc.password ||
-          acc.accPassword ||
-          ""
-        )}
-      </td>
-
-      <td>
-        <span class="badge ${badgeClass}">
-          ${escapeHtml(acc.status || "")}
-        </span>
-      </td>
-
-      <td>
-
-        <button
-          class="btn btn-danger"
-          onclick="deleteAccount('${escapeJs(acc.id || "")}')"
-        >
-          Xóa
-        </button>
-
-      </td>
-
-    `;
-
-    body.appendChild(tr);
-
-  });
+  );
 
 }
 
@@ -1840,10 +1931,14 @@ async function deleteAccount(id){
     return;
   }
 
-  if(!confirm(
-    "Bạn có chắc muốn xóa tài khoản này?"
-  )){
+  if(
+    !confirm(
+      "Bạn có chắc muốn xóa tài khoản này?"
+    )
+  ){
+
     return;
+
   }
 
 
@@ -1853,8 +1948,13 @@ async function deleteAccount(id){
       await apiPost(
         "deleteAccount",
         {
-          key:ADMIN_KEY,
-          id:id
+
+          key:
+            ADMIN_KEY,
+
+          id:
+            id
+
         }
       );
 
@@ -1900,7 +2000,9 @@ async function loadCustomers(){
   try{
 
     const result =
-      await apiGet("getCustomers");
+      await apiGet(
+        "getCustomers"
+      );
 
     if(result.ok){
 
@@ -1924,58 +2026,63 @@ function renderCustomers(){
 
   const body =
     document
-      .getElementById("customersBody");
+      .getElementById(
+        "customersBody"
+      );
 
   const search =
     document
-      .getElementById("customerSearch")
+      .getElementById(
+        "customerSearch"
+      )
       .value
       .toLowerCase()
       .trim();
+
 
   body.innerHTML = "";
 
 
   customers
-    .filter(function(user){
+    .filter(
+      function(user){
 
-      return String(
-        user.username || ""
-      )
-      .toLowerCase()
-      .includes(search);
+        return String(
+          user.username || ""
+        )
+        .toLowerCase()
+        .includes(
+          search
+        );
 
-    })
-    .forEach(function(user){
+      }
+    )
+    .forEach(
+      function(user){
 
-      const tr =
-        document.createElement("tr");
+        const tr =
+          document.createElement(
+            "tr"
+          );
 
-      tr.innerHTML = `
+        tr.innerHTML = `
 
-        <td>
-          ${escapeHtml(user.username || "")}
-        </td>
+          <td>${escapeHtml(user.username || "")}</td>
 
-        <td>
-          ${formatMoney(user.balance || 0)}
-        </td>
+          <td>${formatMoney(user.balance || 0)}</td>
 
-        <td>
-          ${escapeHtml(
-            formatDate(user.createdAt)
-          )}
-        </td>
+          <td>${escapeHtml(formatDate(user.createdAt))}</td>
 
-        <td>
-          ${escapeHtml(user.status || "")}
-        </td>
+          <td>${escapeHtml(user.status || "")}</td>
 
-      `;
+        `;
 
-      body.appendChild(tr);
+        body.appendChild(
+          tr
+        );
 
-    });
+      }
+    );
 
 }
 
@@ -1989,7 +2096,9 @@ async function loadTopups(){
   try{
 
     const result =
-      await apiGet("getTopups");
+      await apiGet(
+        "getTopups"
+      );
 
     if(result.ok){
 
@@ -2013,7 +2122,9 @@ function renderTopups(){
 
   const body =
     document
-      .getElementById("topupsBody");
+      .getElementById(
+        "topupsBody"
+      );
 
   body.innerHTML = "";
 
@@ -2021,72 +2132,82 @@ function renderTopups(){
   topups
     .slice()
     .reverse()
-    .forEach(function(item){
+    .forEach(
+      function(item){
 
-      const tr =
-        document.createElement("tr");
-
-      const status =
-        String(item.status || "")
-        .toLowerCase();
-
-      let buttons = "";
+        const tr =
+          document.createElement(
+            "tr"
+          );
 
 
-      if(status === "pending"){
+        const status =
+          String(
+            item.status || ""
+          ).toLowerCase();
 
-        buttons = `
 
-          <button
-            class="btn btn-success"
-            onclick="approveTopup('${escapeJs(item.id || "")}')"
-          >
-            Duyệt
-          </button>
+        let buttons = "";
 
-          <button
-            class="btn btn-danger"
-            onclick="rejectTopup('${escapeJs(item.id || "")}')"
-          >
-            Từ chối
-          </button>
+
+        if(status === "pending"){
+
+          buttons = `
+
+            <button
+              class="btn btn-success"
+              onclick="approveTopup('${escapeJs(item.id || "")}')"
+            >
+              Duyệt
+            </button>
+
+            <button
+              class="btn btn-danger"
+              onclick="rejectTopup('${escapeJs(item.id || "")}')"
+            >
+              Từ chối
+            </button>
+
+          `;
+
+        }
+
+
+        tr.innerHTML = `
+
+          <td>${escapeHtml(item.id || "")}</td>
+
+          <td>${escapeHtml(item.username || "")}</td>
+
+          <td>${formatMoney(item.amount || 0)}</td>
+
+          <td>${escapeHtml(item.method || "")}</td>
+
+          <td>${escapeHtml(item.cardType || "")}</td>
+
+          <td>${escapeHtml(item.cardSerial || "")}</td>
+
+          <td>${escapeHtml(item.cardCode || "")}</td>
+
+          <td>${escapeHtml(item.bankName || "")}</td>
+
+          <td>
+            <span class="badge ${status}">
+              ${escapeHtml(item.status || "")}
+            </span>
+          </td>
+
+          <td>${buttons}</td>
 
         `;
 
+
+        body.appendChild(
+          tr
+        );
+
       }
-
-
-      tr.innerHTML = `
-
-        <td>${escapeHtml(item.id || "")}</td>
-
-        <td>${escapeHtml(item.username || "")}</td>
-
-        <td>${formatMoney(item.amount || 0)}</td>
-
-        <td>${escapeHtml(item.method || "")}</td>
-
-        <td>${escapeHtml(item.cardType || "")}</td>
-
-        <td>${escapeHtml(item.cardSerial || "")}</td>
-
-        <td>${escapeHtml(item.cardCode || "")}</td>
-
-        <td>${escapeHtml(item.bankName || "")}</td>
-
-        <td>
-          <span class="badge ${status}">
-            ${escapeHtml(item.status || "")}
-          </span>
-        </td>
-
-        <td>${buttons}</td>
-
-      `;
-
-      body.appendChild(tr);
-
-    });
+    );
 
 }
 
@@ -2097,9 +2218,11 @@ function renderTopups(){
 
 async function approveTopup(id){
 
-  if(!confirm(
-    "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
-  )){
+  if(
+    !confirm(
+      "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
+    )
+  ){
     return;
   }
 
@@ -2110,8 +2233,13 @@ async function approveTopup(id){
       await apiPost(
         "approveTopup",
         {
-          key:ADMIN_KEY,
-          id:id
+
+          key:
+            ADMIN_KEY,
+
+          id:
+            id
+
         }
       );
 
@@ -2136,7 +2264,9 @@ async function approveTopup(id){
 
   }catch(err){
 
-    alert("❌ Lỗi API.");
+    alert(
+      "❌ Lỗi API."
+    );
 
   }
 
@@ -2149,9 +2279,11 @@ async function approveTopup(id){
 
 async function rejectTopup(id){
 
-  if(!confirm(
-    "Bạn có chắc muốn từ chối yêu cầu này?"
-  )){
+  if(
+    !confirm(
+      "Bạn có chắc muốn từ chối yêu cầu này?"
+    )
+  ){
     return;
   }
 
@@ -2162,8 +2294,13 @@ async function rejectTopup(id){
       await apiPost(
         "rejectTopup",
         {
-          key:ADMIN_KEY,
-          id:id
+
+          key:
+            ADMIN_KEY,
+
+          id:
+            id
+
         }
       );
 
@@ -2183,7 +2320,9 @@ async function rejectTopup(id){
 
   }catch(err){
 
-    alert("❌ Lỗi API.");
+    alert(
+      "❌ Lỗi API."
+    );
 
   }
 
@@ -2199,7 +2338,9 @@ async function loadOrders(){
   try{
 
     const result =
-      await apiGet("getOrders");
+      await apiGet(
+        "getOrders"
+      );
 
     if(result.ok){
 
@@ -2223,7 +2364,9 @@ function renderOrders(){
 
   const body =
     document
-      .getElementById("ordersBody");
+      .getElementById(
+        "ordersBody"
+      );
 
   body.innerHTML = "";
 
@@ -2231,40 +2374,46 @@ function renderOrders(){
   orders
     .slice()
     .reverse()
-    .forEach(function(order){
+    .forEach(
+      function(order){
 
-      const tr =
-        document.createElement("tr");
-
-
-      tr.innerHTML = `
-
-        <td>${escapeHtml(order.id || "")}</td>
-
-        <td>${escapeHtml(order.username || "")}</td>
-
-        <td>${escapeHtml(order.product || "")}</td>
-
-        <td>${formatMoney(order.price || 0)}</td>
-
-        <td>${escapeHtml(order.status || "")}</td>
-
-        <td>${escapeHtml(formatDate(order.createdAt))}</td>
-
-        <td>
-          ${
-            order.accUsername
-              ? escapeHtml(order.accUsername)
-              : "-"
-          }
-        </td>
-
-      `;
+        const tr =
+          document.createElement(
+            "tr"
+          );
 
 
-      body.appendChild(tr);
+        tr.innerHTML = `
 
-    });
+          <td>${escapeHtml(order.id || "")}</td>
+
+          <td>${escapeHtml(order.username || "")}</td>
+
+          <td>${escapeHtml(order.product || "")}</td>
+
+          <td>${formatMoney(order.price || 0)}</td>
+
+          <td>${escapeHtml(order.status || "")}</td>
+
+          <td>${escapeHtml(formatDate(order.createdAt))}</td>
+
+          <td>
+            ${
+              order.accUsername
+                ? escapeHtml(order.accUsername)
+                : "-"
+            }
+          </td>
+
+        `;
+
+
+        body.appendChild(
+          tr
+        );
+
+      }
+    );
 
 }
 
@@ -2278,7 +2427,9 @@ async function loadProducts(){
   try{
 
     const result =
-      await apiGet("getProductStatuses");
+      await apiGet(
+        "getProductStatuses"
+      );
 
     if(result.ok){
 
@@ -2325,77 +2476,92 @@ function renderProducts(){
 
   const container =
     document
-      .getElementById("productsContainer");
+      .getElementById(
+        "productsContainer"
+      );
 
   container.innerHTML = "";
 
 
-  products.forEach(function(item){
+  products.forEach(
+    function(item){
 
-    const key = item[0];
-    const name = item[1];
+      const key =
+        item[0];
 
-    const status =
-      productStatuses[key] ||
-      "Sẵn Sàng";
+      const name =
+        item[1];
 
-
-    const div =
-      document.createElement("div");
-
-    div.className = "card";
-    div.style.marginBottom = "12px";
+      const status =
+        productStatuses[key] ||
+        "Sẵn Sàng";
 
 
-    div.innerHTML = `
+      const div =
+        document.createElement(
+          "div"
+        );
 
-      <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:15px;
-        flex-wrap:wrap;
-      ">
+      div.className =
+        "card";
 
-        <b>${escapeHtml(name)}</b>
+      div.style.marginBottom =
+        "12px";
 
-        <select
-          id="status_${escapeHtml(key)}"
-          class="input"
-          style="width:auto;margin:0"
-        >
+      div.innerHTML = `
 
-          <option
-            value="Sẵn Sàng"
-            ${status === "Sẵn Sàng" ? "selected" : ""}
+        <div style="
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          gap:15px;
+          flex-wrap:wrap;
+        ">
+
+          <b>
+            ${escapeHtml(name)}
+          </b>
+
+          <select
+            id="status_${escapeHtml(key)}"
+            class="input"
+            style="width:auto;margin:0"
           >
-            Sẵn Sàng
-          </option>
 
-          <option
-            value="Chưa Sẵn Sàng"
-            ${status === "Chưa Sẵn Sàng" ? "selected" : ""}
+            <option
+              value="Sẵn Sàng"
+              ${status === "Sẵn Sàng" ? "selected" : ""}
+            >
+              Sẵn Sàng
+            </option>
+
+            <option
+              value="Chưa Sẵn Sàng"
+              ${status === "Chưa Sẵn Sàng" ? "selected" : ""}
+            >
+              Chưa Sẵn Sàng
+            </option>
+
+          </select>
+
+          <button
+            class="btn btn-primary"
+            onclick="saveProductStatus('${escapeJs(key)}')"
           >
-            Chưa Sẵn Sàng
-          </option>
+            Lưu
+          </button>
 
-        </select>
+        </div>
 
-        <button
-          class="btn btn-primary"
-          onclick="saveProductStatus('${escapeJs(key)}')"
-        >
-          Lưu
-        </button>
-
-      </div>
-
-    `;
+      `;
 
 
-    container.appendChild(div);
+      container.appendChild(
+        div
+      );
 
-  });
+    }
+  );
 
 }
 
@@ -2404,12 +2570,15 @@ function renderProducts(){
    SAVE PRODUCT STATUS
 ========================================================= */
 
-async function saveProductStatus(product){
+async function saveProductStatus(
+  product
+){
 
   const select =
-    document.getElementById(
-      "status_" + product
-    );
+    document
+      .getElementById(
+        "status_" + product
+      );
 
   const status =
     select.value;
@@ -2421,9 +2590,16 @@ async function saveProductStatus(product){
       await apiPost(
         "setProductStatus",
         {
-          key:ADMIN_KEY,
-          product:product,
-          status:status
+
+          key:
+            ADMIN_KEY,
+
+          product:
+            product,
+
+          status:
+            status
+
         }
       );
 
@@ -2459,32 +2635,53 @@ async function saveProductStatus(product){
    TABS
 ========================================================= */
 
-function showTab(name,button){
+function showTab(
+  name,
+  button
+){
 
   document
-    .querySelectorAll(".panel")
-    .forEach(function(panel){
+    .querySelectorAll(
+      ".panel"
+    )
+    .forEach(
+      function(panel){
 
-      panel.classList.remove("active");
+        panel.classList.remove(
+          "active"
+        );
 
-    });
-
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(function(tab){
-
-      tab.classList.remove("active");
-
-    });
+      }
+    );
 
 
   document
-    .getElementById("panel-" + name)
-    .classList.add("active");
+    .querySelectorAll(
+      ".tab"
+    )
+    .forEach(
+      function(tab){
+
+        tab.classList.remove(
+          "active"
+        );
+
+      }
+    );
 
 
-  button.classList.add("active");
+  document
+    .getElementById(
+      "panel-" + name
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  button.classList.add(
+    "active"
+  );
 
 }
 
@@ -2493,12 +2690,15 @@ function showTab(name,button){
    MODAL
 ========================================================= */
 
-function showAccountModal(account){
+function showAccountModal(
+  account
+){
 
   const content =
-    document.getElementById(
-      "accountModalContent"
-    );
+    document
+      .getElementById(
+        "accountModalContent"
+      );
 
 
   content.innerHTML = `
@@ -2541,8 +2741,12 @@ function showAccountModal(account){
 
 
   document
-    .getElementById("accountModal")
-    .classList.remove("hidden");
+    .getElementById(
+      "accountModal"
+    )
+    .classList.remove(
+      "hidden"
+    );
 
 }
 
@@ -2550,37 +2754,47 @@ function showAccountModal(account){
 function closeAccountModal(){
 
   document
-    .getElementById("accountModal")
-    .classList.add("hidden");
+    .getElementById(
+      "accountModal"
+    )
+    .classList.add(
+      "hidden"
+    );
 
 }
 
 
 /* =========================================================
-   FORMAT MONEY
+   FORMAT
 ========================================================= */
 
-function formatMoney(value){
+function formatMoney(
+  value
+){
 
   const n =
     Number(value || 0);
 
-  if(n >= 1000){
+  if(
+    n >= 1000
+  ){
 
-    return n.toLocaleString("vi-VN") + "đ";
+    return n.toLocaleString(
+      "vi-VN"
+    ) + "đ";
 
   }
 
-  return n.toLocaleString("vi-VN") + "K";
+  return n.toLocaleString(
+    "vi-VN"
+  ) + "K";
 
 }
 
 
-/* =========================================================
-   FORMAT PRICE
-========================================================= */
-
-function formatPrice(value){
+function formatPrice(
+  value
+){
 
   if(
     value === "" ||
@@ -2601,11 +2815,9 @@ function formatPrice(value){
 }
 
 
-/* =========================================================
-   FORMAT DATE
-========================================================= */
-
-function formatDate(value){
+function formatDate(
+  value
+){
 
   if(!value){
     return "";
@@ -2616,13 +2828,19 @@ function formatDate(value){
     const date =
       new Date(value);
 
-    if(isNaN(date.getTime())){
+    if(
+      isNaN(
+        date.getTime()
+      )
+    ){
 
       return String(value);
 
     }
 
-    return date.toLocaleString("vi-VN");
+    return date.toLocaleString(
+      "vi-VN"
+    );
 
   }catch(e){
 
@@ -2634,32 +2852,36 @@ function formatDate(value){
 
 
 /* =========================================================
-   ESCAPE HTML
+   ESCAPE
 ========================================================= */
 
-function escapeHtml(value){
+function escapeHtml(
+  value
+){
 
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+  return String(
+    value ?? ""
+  )
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
 
 }
 
 
-/* =========================================================
-   ESCAPE JS
-========================================================= */
+function escapeJs(
+  value
+){
 
-function escapeJs(value){
-
-  return String(value ?? "")
-    .replaceAll("\\","\\\\")
-    .replaceAll("'","\\'")
-    .replaceAll("\n","\\n")
-    .replaceAll("\r","\\r");
+  return String(
+    value ?? ""
+  )
+  .replaceAll("\\","\\\\")
+  .replaceAll("'","\\'")
+  .replaceAll("\n","\\n")
+  .replaceAll("\r","\\r");
 
 }
 
