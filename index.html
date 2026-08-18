@@ -7,7 +7,13 @@
 <title>SHOPKAROT - Shop Acc Game</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
@@ -16,7 +22,10 @@ body{
     color:#172033;
 }
 
-a{text-decoration:none}
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
 /* ================= HEADER ================= */
 
@@ -192,7 +201,12 @@ a{text-decoration:none}
     overflow:hidden;
     border-radius:18px;
     background:
-        radial-gradient(circle at 75% 25%,#9d1111 0%,#390707 35%,#050505 75%);
+        radial-gradient(
+            circle at 75% 25%,
+            #9d1111 0%,
+            #390707 35%,
+            #050505 75%
+        );
     color:white;
     box-shadow:0 5px 22px rgba(0,0,0,.15);
 }
@@ -310,6 +324,10 @@ a{text-decoration:none}
     font-weight:bold;
 }
 
+.nap-button:hover{
+    background:#b80d14;
+}
+
 /* ================= CONTENT ================= */
 
 .content{
@@ -378,6 +396,12 @@ a{text-decoration:none}
     border:1px solid #e4e7eb;
     border-radius:12px;
     text-align:center;
+    transition:.2s;
+}
+
+.game:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 18px rgba(0,0,0,.12);
 }
 
 .game-image{
@@ -434,7 +458,7 @@ a{text-decoration:none}
 
 .status{
     display:inline-block;
-    margin:5px 0;
+    margin:8px 0 5px;
     padding:6px 13px;
     border-radius:20px;
     font-size:12px;
@@ -497,6 +521,32 @@ a{text-decoration:none}
     color:#d01018;
     border-color:#f1bebe;
     background:#fff5f5;
+}
+
+/* ================= CONNECTION ================= */
+
+.api-status{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    padding:9px 13px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.api-status.ok{
+    color:#078542;
+    border-color:#bde7cd;
+}
+
+.api-status.error{
+    color:#d01018;
+    border-color:#f1bebe;
 }
 
 /* ================= STATS ================= */
@@ -629,6 +679,10 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .user-info{
+        display:none;
+    }
+
 }
 </style>
 </head>
@@ -687,8 +741,7 @@ footer{
             </a>
 
             <a
-                href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html"
-                class="back-old-shop">
+                href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html">
                 ↩️ QUAY LẠI SHOP CŨ
             </a>
 
@@ -717,6 +770,15 @@ footer{
     </div>
 
 </header>
+
+
+<!-- ================= API STATUS ================= -->
+
+<div
+    id="apiStatus"
+    class="api-status">
+    🔄 Đang kết nối...
+</div>
 
 
 <!-- ================= MAIN ================= -->
@@ -797,7 +859,16 @@ footer{
                 🏆 TOP NẠP THÁNG 08/2026
             </div>
 
-            <div id="topNapList"></div>
+            <div id="topNapList">
+
+                <div style="
+                    padding:25px;
+                    text-align:center;
+                    color:#888">
+                    Đang tải...
+                </div>
+
+            </div>
 
             <a
                 href="nap-tien.html"
@@ -883,7 +954,7 @@ footer{
             <div class="games">
 
 
-                <!-- 1 BLOX FRUITS -->
+                <!-- BLOX FRUITS -->
 
                 <article class="game">
 
@@ -916,7 +987,7 @@ footer{
                 </article>
 
 
-                <!-- 2 KING LEGACY -->
+                <!-- KING LEGACY -->
 
                 <article class="game">
 
@@ -949,7 +1020,7 @@ footer{
                 </article>
 
 
-                <!-- 3 ANIME FIGHTERS -->
+                <!-- ANIME FIGHTERS -->
 
                 <article class="game">
 
@@ -982,7 +1053,7 @@ footer{
                 </article>
 
 
-                <!-- 4 GROW A GARDEN 2 -->
+                <!-- GROW A GARDEN 2 -->
 
                 <article class="game">
 
@@ -1009,7 +1080,7 @@ footer{
                 </article>
 
 
-                <!-- 5 GROW A GARDEN -->
+                <!-- GROW A GARDEN -->
 
                 <article class="game">
 
@@ -1036,7 +1107,7 @@ footer{
                 </article>
 
 
-                <!-- 6 CÀY THUÊ -->
+                <!-- CÀY THUÊ -->
 
                 <article class="game">
 
@@ -1063,7 +1134,7 @@ footer{
                 </article>
 
 
-                <!-- 7 MM2 -->
+                <!-- MM2 -->
 
                 <article class="game">
 
@@ -1153,8 +1224,28 @@ footer{
    SHOPKAROT API
    ===================================================== */
 
-    const API_URL = 
-    "https://script.google.com/macros/s/AKfycbzIY3AP2NaJrpdYIMlGayNrIPido2nf5Crmgz8jWWwDXUqBlmgH6lchhRxQVuQJTrGSmQ/exec";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzIY3AP2NaJrpdYIMlGayNrIPido2nf5Crmgz8jWWwDXUqBlmgH6lchhRxQVuQJTrGSmQ/exec";
+
+
+/* =====================================================
+   API STATUS
+   ===================================================== */
+
+function setAPIStatus(type,text){
+
+    const box =
+        document.getElementById("apiStatus");
+
+    if(!box) return;
+
+    box.className =
+        "api-status " + type;
+
+    box.textContent =
+        text;
+
+}
 
 
 /* =====================================================
@@ -1212,6 +1303,7 @@ function updateUser(){
             ) || 0
         );
 
+
     const usernameBox =
         document.getElementById(
             "username"
@@ -1224,8 +1316,7 @@ function updateUser(){
 
 
     if(
-        login === "true"
-        &&
+        login === "true" &&
         username
     ){
 
@@ -1253,36 +1344,52 @@ function updateUser(){
 
 
 /* =====================================================
-   CLICK USER
+   USER CLICK
    ===================================================== */
 
 document
-    .getElementById("userBox")
-    .addEventListener(
-        "click",
-        function(){
+.getElementById("userBox")
+.addEventListener(
+    "click",
+    function(){
 
-            const login =
-                localStorage.getItem(
-                    "shopkarot_login"
-                );
+        const login =
+            localStorage.getItem(
+                "shopkarot_login"
+            );
 
-            if(login === "true"){
+        if(login === "true"){
 
-                window.location.href =
-                    "ho-so.html";
-
-            }
-
-            else{
-
-                window.location.href =
-                    "login.html";
-
-            }
+            window.location.href =
+                "ho-so.html";
 
         }
-    );
+
+        else{
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ESCAPE HTML
+   ===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
 
 
 /* =====================================================
@@ -1295,6 +1402,7 @@ function loadTopNap(){
         document.getElementById(
             "topNapList"
         );
+
 
     let data = [];
 
@@ -1317,19 +1425,30 @@ function loadTopNap(){
 
     catch(error){
 
+        console.error(
+            "TOP NẠP:",
+            error
+        );
+
         data = [];
 
     }
 
 
     if(
-        !Array.isArray(data)
-        ||
+        !Array.isArray(data) ||
         data.length === 0
     ){
 
         box.innerHTML =
-            "<div style='padding:25px;text-align:center;color:#888'>Chưa có dữ liệu</div>";
+        `
+        <div style="
+            padding:25px;
+            text-align:center;
+            color:#888">
+            Chưa có dữ liệu
+        </div>
+        `;
 
         return;
 
@@ -1419,23 +1538,7 @@ function loadTopNap(){
 
 
 /* =====================================================
-   ESCAPE HTML
-   ===================================================== */
-
-function escapeHTML(text){
-
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =====================================================
-   CHUẨN HÓA TRẠNG THÁI
+   STATUS VALUE
    ===================================================== */
 
 function isReady(value){
@@ -1444,25 +1547,30 @@ function isReady(value){
         return value;
     }
 
+
     const text =
         String(value || "")
         .trim()
         .toLowerCase();
 
+
     return (
         text === "sẵn sàng" ||
         text === "san sang" ||
+        text === "sẵn sàng." ||
         text === "ready" ||
         text === "available" ||
         text === "true" ||
-        text === "1"
+        text === "1" ||
+        text === "on" ||
+        text === "open"
     );
 
 }
 
 
 /* =====================================================
-   HIỂN THỊ TRẠNG THÁI
+   GAME STATUS
    ===================================================== */
 
 function setGameStatus(id,value){
@@ -1473,6 +1581,7 @@ function setGameStatus(id,value){
     if(!element){
         return;
     }
+
 
     const ready =
         isReady(value);
@@ -1510,7 +1619,7 @@ function setGameStatus(id,value){
 
 
 /* =====================================================
-   TRẠNG THÁI MẶC ĐỊNH
+   DEFAULT
    ===================================================== */
 
 function setDefaultStatuses(){
@@ -1554,17 +1663,160 @@ function setDefaultStatuses(){
 
 
 /* =====================================================
-   LẤY 7 TRẠNG THÁI TỪ API
+   LẤY GIÁ TRỊ GAME
+   ===================================================== */
+
+function getGameValue(
+    statuses,
+    data,
+    keys
+){
+
+    for(
+        const key of keys
+    ){
+
+        if(
+            statuses &&
+            Object.prototype.hasOwnProperty.call(
+                statuses,
+                key
+            )
+        ){
+
+            return statuses[key];
+
+        }
+
+
+        if(
+            data &&
+            Object.prototype.hasOwnProperty.call(
+                data,
+                key
+            )
+        ){
+
+            return data[key];
+
+        }
+
+    }
+
+
+    return false;
+
+}
+
+
+/* =====================================================
+   SHOP STATUS
+   ===================================================== */
+
+function showShopStatus(status){
+
+    const box =
+        document.getElementById(
+            "shopStatusBox"
+        );
+
+
+    if(!box){
+        return;
+    }
+
+
+    const text =
+        String(status || "")
+        .trim();
+
+
+    if(!text){
+
+        box.classList.remove(
+            "show",
+            "ready",
+            "not-ready"
+        );
+
+        box.innerHTML = "";
+
+        return;
+
+    }
+
+
+    box.classList.remove(
+        "ready",
+        "not-ready"
+    );
+
+
+    box.classList.add(
+        "show"
+    );
+
+
+    const lower =
+        text.toLowerCase();
+
+
+    if(
+        lower.includes("hoạt động") ||
+        lower.includes("dang hoat dong") ||
+        lower.includes("đang hoạt động") ||
+        lower.includes("active") ||
+        lower.includes("open")
+    ){
+
+        box.classList.add(
+            "ready"
+        );
+
+        box.innerHTML =
+            "🟢 " +
+            escapeHTML(text);
+
+    }
+
+    else{
+
+        box.classList.add(
+            "not-ready"
+        );
+
+        box.innerHTML =
+            "🔴 " +
+            escapeHTML(text);
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD SHOP STATUS
    ===================================================== */
 
 async function loadGameStatuses(){
 
+    setAPIStatus(
+        "",
+        "🔄 Đang kết nối..."
+    );
+
+
     try{
+
+        const url =
+            API_URL +
+            "?action=getShopStatus&_=" +
+            Date.now();
+
 
         const response =
             await fetch(
-                API_URL +
-                "?action=getShopStatus",
+                url,
                 {
                     method:"GET",
                     cache:"no-store"
@@ -1587,113 +1839,154 @@ async function loadGameStatuses(){
 
 
         console.log(
-            "SHOPKAROT STATUS API:",
+            "SHOPKAROT API:",
             data
         );
 
 
-        if(!data.ok){
+        if(!data || data.ok !== true){
 
-            console.warn(
-                "API trả về lỗi:",
+            throw new Error(
+                data &&
                 data.message
+                    ? data.message
+                    : "API trả về lỗi"
             );
-
-            setDefaultStatuses();
-
-            return;
 
         }
 
 
-        /*
-         * Hỗ trợ nhiều dạng dữ liệu
-         *
-         * games
-         * statuses
-         * gameStatuses
-         */
+        setAPIStatus(
+            "ok",
+            "🟢 Đã kết nối API"
+        );
+
 
         const statuses =
             data.games ||
             data.statuses ||
             data.gameStatuses ||
+            data.data ||
             {};
 
 
+        /* BLOX FRUITS */
+
         setGameStatus(
             "status-blox",
-            statuses.blox ||
-            statuses.bloxFruits ||
-            statuses["Blox Fruits"] ||
-            data.blox ||
-            data.bloxFruits
+            getGameValue(
+                statuses,
+                data,
+                [
+                    "blox",
+                    "bloxFruits",
+                    "Blox Fruits"
+                ]
+            )
         );
 
+
+        /* KING LEGACY */
 
         setGameStatus(
             "status-king",
-            statuses.king ||
-            statuses.kingLegacy ||
-            statuses["King Legacy"] ||
-            data.king ||
-            data.kingLegacy
+            getGameValue(
+                statuses,
+                data,
+                [
+                    "king",
+                    "kingLegacy",
+                    "King Legacy"
+                ]
+            )
         );
 
+
+        /* ANIME */
 
         setGameStatus(
             "status-anime",
-            statuses.anime ||
-            statuses.animeFighters ||
-            statuses["Anime Fighters"] ||
-            data.anime ||
-            data.animeFighters
+            getGameValue(
+                statuses,
+                data,
+                [
+                    "anime",
+                    "animeFighters",
+                    "Anime Fighters"
+                ]
+            )
         );
 
+
+        /* GROW 2 */
 
         setGameStatus(
             "status-grow2",
-            statuses.grow2 ||
-            statuses.growAGarden2 ||
-            statuses["Grow A Garden 2"] ||
-            data.grow2 ||
-            data.growAGarden2
+            getGameValue(
+                statuses,
+                data,
+                [
+                    "grow2",
+                    "growAGarden2",
+                    "Grow A Garden 2"
+                ]
+            )
         );
 
+
+        /* GROW */
 
         setGameStatus(
             "status-grow",
-            statuses.grow ||
-            statuses.growAGarden ||
-            statuses["Grow A Garden"] ||
-            data.grow ||
-            data.growAGarden
+            getGameValue(
+                statuses,
+                data,
+                [
+                    "grow",
+                    "growAGarden",
+                    "Grow A Garden"
+                ]
+            )
         );
 
+
+        /* CÀY THUÊ */
 
         setGameStatus(
             "status-caythue",
-            statuses.caythue ||
-            statuses.cayThue ||
-            statuses["Cày Thuê"] ||
-            data.caythue ||
-            data.cayThue
+            getGameValue(
+                statuses,
+                data,
+                [
+                    "caythue",
+                    "cayThue",
+                    "Cày Thuê"
+                ]
+            )
         );
 
 
+        /* MM2 */
+
         setGameStatus(
             "status-mm2",
-            statuses.mm2 ||
-            statuses.murderMystery2 ||
-            statuses["Murder Mystery 2"] ||
-            data.mm2 ||
-            data.murderMystery2
+            getGameValue(
+                statuses,
+                data,
+                [
+                    "mm2",
+                    "murderMystery2",
+                    "Murder Mystery 2"
+                ]
+            )
         );
 
 
         /* SHOP STATUS */
 
-        if(data.shopStatus){
+        if(
+            data.shopStatus !== undefined
+        ){
 
             showShopStatus(
                 data.shopStatus
@@ -1702,24 +1995,22 @@ async function loadGameStatuses(){
         }
 
         else if(
-            data.status &&
+            data.status !== undefined &&
             typeof data.status === "string"
         ){
 
-            /*
-             * Chỉ hiển thị banner shop nếu
-             * status không phải trạng thái game.
-             */
+            const statusText =
+                data.status.trim();
+
 
             if(
-                data.status !==
-                    "Sẵn Sàng" &&
-                data.status !==
-                    "Chưa Sẵn Sàng"
+                statusText &&
+                statusText !== "Sẵn Sàng" &&
+                statusText !== "Chưa Sẵn Sàng"
             ){
 
                 showShopStatus(
-                    data.status
+                    statusText
                 );
 
             }
@@ -1731,9 +2022,16 @@ async function loadGameStatuses(){
     catch(error){
 
         console.error(
-            "Không thể tải trạng thái:",
+            "SHOPKAROT API ERROR:",
             error
         );
+
+
+        setAPIStatus(
+            "error",
+            "🔴 Không kết nối được Apps Script"
+        );
+
 
         setDefaultStatuses();
 
@@ -1743,61 +2041,7 @@ async function loadGameStatuses(){
 
 
 /* =====================================================
-   HIỂN THỊ SHOP STATUS
-   ===================================================== */
-
-function showShopStatus(status){
-
-    const box =
-        document.getElementById(
-            "shopStatusBox"
-        );
-
-    if(!box){
-        return;
-    }
-
-
-    const text =
-        String(status || "")
-        .trim();
-
-
-    if(!text){
-        return;
-    }
-
-
-    box.classList.add("show");
-
-
-    if(
-        text.includes("hoạt động")
-    ){
-
-        box.classList.add("ready");
-
-        box.innerHTML =
-            "🟢 " +
-            escapeHTML(text);
-
-    }
-
-    else{
-
-        box.classList.add("not-ready");
-
-        box.innerHTML =
-            "🔴 " +
-            escapeHTML(text);
-
-    }
-
-}
-
-
-/* =====================================================
-   LOAD
+   KHỞI ĐỘNG
    ===================================================== */
 
 updateUser();
@@ -1808,7 +2052,7 @@ loadGameStatuses();
 
 
 /* =====================================================
-   TỰ ĐỘNG CẬP NHẬT TRẠNG THÁI
+   TỰ ĐỘNG CẬP NHẬT
    ===================================================== */
 
 setInterval(
@@ -1841,16 +2085,39 @@ window.addEventListener(
 
         if(
             event.key ===
-            "shopkarot_user"
-            ||
+            "shopkarot_user" ||
             event.key ===
-            "shopkarot_login"
-            ||
+            "shopkarot_login" ||
             event.key ===
             "shopkarot_balance"
         ){
 
             updateUser();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PAGE FOCUS
+   ===================================================== */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            updateUser();
+
+            loadTopNap();
+
+            loadGameStatuses();
 
         }
 
