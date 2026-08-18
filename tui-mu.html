@@ -1,1 +1,1602 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TÚI MÙ - SHOPKAROT</title><link rel="stylesheet" href="assets/style.css"><style>.items{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.item{background:#fff;border-radius:16px;padding:25px;text-align:center;border:1px solid #e5e7eb}.item>div{font-size:60px}.item button{background:#e21b23;color:#fff;border:0;border-radius:9px;padding:11px 18px;font-weight:bold;margin-top:12px}@media(max-width:700px){.items{grid-template-columns:1fr}}</style></head><body><header><a class="logo" href="index.html"><b>SHOP<span>KAROT</span></b><small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small></a><nav><a href="index.html">🏠 TRANG CHỦ</a><a class="active" href="tui-mu.html">🎁 TÚI MÙ</a><a href="tui-mu.html">🎁 TÚI MÙ</a><a href="lich-su.html">🧾 LỊCH SỬ MUA</a><a href="nap-tien.html">💰 NẠP TIỀN</a></nav></header><main class="wrap"><h1>🎁 TÚI MÙ</h1><div class="items"><article class="item"><div>🎁</div><h2>TÚI MÙ #01</h2><p>Sản phẩm SHOPKAROT</p><b>20,000đ</b><button onclick="buy()">MUA NGAY</button></article><article class="item"><div>🎁</div><h2>TÚI MÙ #02</h2><p>Sản phẩm SHOPKAROT</p><b>40,000đ</b><button onclick="buy()">MUA NGAY</button></article><article class="item"><div>🎁</div><h2>TÚI MÙ #03</h2><p>Sản phẩm SHOPKAROT</p><b>60,000đ</b><button onclick="buy()">MUA NGAY</button></article><article class="item"><div>🎁</div><h2>TÚI MÙ #04</h2><p>Sản phẩm SHOPKAROT</p><b>80,000đ</b><button onclick="buy()">MUA NGAY</button></article><article class="item"><div>🎁</div><h2>TÚI MÙ #05</h2><p>Sản phẩm SHOPKAROT</p><b>100,000đ</b><button onclick="buy()">MUA NGAY</button></article><article class="item"><div>🎁</div><h2>TÚI MÙ #06</h2><p>Sản phẩm SHOPKAROT</p><b>120,000đ</b><button onclick="buy()">MUA NGAY</button></article></div></main><script>function buy(){if(!localStorage.getItem("shopkarot_user"))location.href="login.html";else alert("Demo: sản phẩm đã được chọn.")}</script></body></html>
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0">
+
+<title>Túi Mù 0K - SHOPKAROT</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        linear-gradient(
+            135deg,
+            #fff5f5,
+            #f5f7ff
+        );
+    color:#222;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.header{
+    background:#d01018;
+    color:white;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    font-style:italic;
+}
+
+.logo span{
+    color:#ffd5d5;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.user{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.login-btn{
+    background:white;
+    color:#d01018;
+    border:0;
+    padding:9px 14px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =========================
+MAIN
+========================= */
+
+.container{
+    max-width:1050px;
+    margin:auto;
+    padding:30px 15px 50px;
+}
+
+/* =========================
+BREADCRUMB
+========================= */
+
+.back{
+    display:inline-block;
+    text-decoration:none;
+    color:#666;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.back:hover{
+    color:#d01018;
+}
+
+/* =========================
+TITLE
+========================= */
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title .icon{
+    font-size:60px;
+}
+
+.title h1{
+    margin:8px 0;
+    font-size:32px;
+    color:#d01018;
+}
+
+.title p{
+    margin:0;
+    color:#777;
+}
+
+/* =========================
+BAG
+========================= */
+
+.bag-area{
+    display:flex;
+    justify-content:center;
+    margin:25px 0;
+}
+
+.bag{
+    width:230px;
+    height:270px;
+    border-radius:25px;
+    background:
+        linear-gradient(
+            145deg,
+            #ff3139,
+            #b40009
+        );
+    box-shadow:
+        0 18px 40px rgba(208,16,24,.35);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:white;
+    border:5px solid #fff;
+    outline:3px solid #d01018;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+.bag::before{
+    content:"";
+    position:absolute;
+    top:-22px;
+    width:115px;
+    height:42px;
+    border-radius:50%;
+    background:#b40009;
+    border:5px solid white;
+}
+
+.bag-icon{
+    font-size:75px;
+    z-index:2;
+}
+
+.bag-text{
+    font-size:28px;
+    font-weight:900;
+    z-index:2;
+}
+
+.bag-price{
+    margin-top:8px;
+    font-size:20px;
+    font-weight:bold;
+    z-index:2;
+}
+
+/* =========================
+INFO
+========================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+    gap:15px;
+    margin-top:30px;
+}
+
+.info{
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    text-align:center;
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.07);
+}
+
+.info-icon{
+    font-size:32px;
+}
+
+.info-title{
+    font-weight:bold;
+    margin-top:7px;
+}
+
+.info-text{
+    color:#777;
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* =========================
+ACTION BOX
+========================= */
+
+.action-box{
+    max-width:600px;
+    margin:30px auto 0;
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.09);
+    text-align:center;
+}
+
+.price{
+    font-size:34px;
+    color:#d01018;
+    font-weight:900;
+}
+
+.price small{
+    font-size:15px;
+    color:#777;
+}
+
+.receive-btn{
+    width:100%;
+    margin-top:18px;
+    padding:15px;
+    border:0;
+    border-radius:11px;
+    background:#d01018;
+    color:white;
+    font-size:17px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.receive-btn:hover{
+    background:#b30d14;
+}
+
+.receive-btn:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+/* =========================
+COUNTDOWN
+========================= */
+
+.cooldown{
+    display:none;
+    margin-top:15px;
+    background:#fff4d6;
+    color:#986600;
+    padding:13px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.cooldown.show{
+    display:block;
+}
+
+/* =========================
+MESSAGE
+========================= */
+
+.message{
+    display:none;
+    margin-top:15px;
+    padding:13px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.message.show{
+    display:block;
+}
+
+.message.success{
+    background:#e8f8ee;
+    color:#168b42;
+}
+
+.message.error{
+    background:#ffe5e5;
+    color:#d01018;
+}
+
+.message.info{
+    background:#e8f1ff;
+    color:#2161b5;
+}
+
+/* =========================
+RESULT
+========================= */
+
+.result{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    background:#fff8df;
+    border:2px dashed #e2b600;
+    border-radius:14px;
+}
+
+.result.show{
+    display:block;
+}
+
+.result-title{
+    font-size:20px;
+    font-weight:900;
+    color:#a06b00;
+    margin-bottom:10px;
+}
+
+.result-item{
+    padding:9px 0;
+    border-bottom:1px solid #eee;
+}
+
+.result-item:last-child{
+    border-bottom:0;
+}
+
+.result-label{
+    color:#777;
+    font-size:13px;
+}
+
+.result-value{
+    font-weight:bold;
+    word-break:break-word;
+}
+
+/* =========================
+HISTORY
+========================= */
+
+.history{
+    margin-top:30px;
+}
+
+.history-title{
+    font-size:20px;
+    font-weight:900;
+    margin-bottom:12px;
+}
+
+.history-list{
+    background:white;
+    border-radius:14px;
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
+    overflow:hidden;
+}
+
+.history-item{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.history-item:last-child{
+    border-bottom:0;
+}
+
+.history-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.history-icon{
+    font-size:25px;
+}
+
+.history-name{
+    font-weight:bold;
+}
+
+.history-date{
+    color:#888;
+    font-size:12px;
+}
+
+.history-price{
+    color:#168b42;
+    font-weight:900;
+}
+
+.empty{
+    padding:25px;
+    text-align:center;
+    color:#888;
+}
+
+/* =========================
+NOTE
+========================= */
+
+.notice{
+    margin-top:25px;
+    padding:18px;
+    border-radius:13px;
+    background:#fff;
+    border-left:5px solid #d01018;
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+}
+
+.notice h3{
+    margin-top:0;
+}
+
+.notice p{
+    color:#666;
+    line-height:1.6;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .header{
+        padding:12px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .user{
+        display:none;
+    }
+
+    .container{
+        padding:20px 12px 40px;
+    }
+
+    .title h1{
+        font-size:27px;
+    }
+
+    .bag{
+        width:200px;
+        height:240px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .history-item{
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+        SHOP<span>KAROT</span>
+    </div>
+
+    <div class="header-right">
+
+        <span
+            id="userText"
+            class="user">
+            Chưa đăng nhập
+        </span>
+
+        <button
+            id="loginButton"
+            class="login-btn"
+            onclick="goLogin()">
+
+            🔐 Đăng nhập
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+MAIN
+========================= -->
+
+<main class="container">
+
+
+<a
+    href="index.html"
+    class="back">
+
+    ← Về trang chủ
+
+</a>
+
+
+<!-- TITLE -->
+
+<div class="title">
+
+    <div class="icon">
+        🎁
+    </div>
+
+    <h1>
+        TÚI MÙ 0K
+    </h1>
+
+    <p>
+        Nhận quà miễn phí mỗi 24 giờ
+    </p>
+
+</div>
+
+
+<!-- BAG -->
+
+<div class="bag-area">
+
+    <div class="bag">
+
+        <div class="bag-icon">
+            🎁
+        </div>
+
+        <div class="bag-text">
+            TÚI MÙ
+        </div>
+
+        <div class="bag-price">
+            0K
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- INFO -->
+
+<div class="info-grid">
+
+    <div class="info">
+
+        <div class="info-icon">
+            💰
+        </div>
+
+        <div class="info-title">
+            Giá
+        </div>
+
+        <div class="info-text">
+            Hoàn toàn miễn phí
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <div class="info-icon">
+            ⏰
+        </div>
+
+        <div class="info-title">
+            Thời gian
+        </div>
+
+        <div class="info-text">
+            1 lần mỗi 24 giờ
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <div class="info-icon">
+            🎁
+        </div>
+
+        <div class="info-title">
+            Phần thưởng
+        </div>
+
+        <div class="info-text">
+            Nhận quà ngẫu nhiên
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ACTION -->
+
+<div class="action-box">
+
+    <div class="price">
+
+        0đ
+
+        <small>
+            / Túi Mù
+        </small>
+
+    </div>
+
+
+    <button
+        id="receiveButton"
+        class="receive-btn"
+        onclick="receiveBag()">
+
+        🎁 NHẬN TÚI MÙ 0K
+
+    </button>
+
+
+    <div
+        id="cooldown"
+        class="cooldown">
+
+        ⏰ Bạn đã nhận Túi Mù.
+
+        <br>
+
+        Có thể nhận lại sau:
+
+        <span id="countdown">
+            24:00:00
+        </span>
+
+    </div>
+
+
+    <div
+        id="message"
+        class="message">
+    </div>
+
+
+    <div
+        id="result"
+        class="result">
+
+        <div class="result-title">
+            🎉 CHÚC MỪNG!
+        </div>
+
+        <div class="result-item">
+
+            <div class="result-label">
+                Phần thưởng
+            </div>
+
+            <div
+                id="reward"
+                class="result-value">
+            </div>
+
+        </div>
+
+        <div class="result-item">
+
+            <div class="result-label">
+                Thời gian nhận
+            </div>
+
+            <div
+                id="rewardTime"
+                class="result-value">
+            </div>
+
+        </div>
+
+        <div class="result-item">
+
+            <div class="result-label">
+                Giá
+            </div>
+
+            <div class="result-value">
+                0đ
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HISTORY -->
+
+<div class="history">
+
+    <div class="history-title">
+        🧾 Lịch sử nhận Túi Mù
+    </div>
+
+    <div
+        id="historyList"
+        class="history-list">
+
+        <div class="empty">
+            Chưa có lịch sử nhận.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NOTICE -->
+
+<div class="notice">
+
+    <h3>
+        📣 Lưu ý
+    </h3>
+
+    <p>
+        • Túi Mù 0K chỉ có thể nhận
+        <b>1 lần trong 24 giờ</b>.
+    </p>
+
+    <p>
+        • Bạn cần đăng nhập tài khoản
+        SHOPKAROT trước khi nhận.
+    </p>
+
+    <p>
+        • Túi Mù 0K hoàn toàn miễn phí,
+        không trừ tiền trong tài khoản.
+    </p>
+
+    <p>
+        • Phần thưởng được chọn ngẫu nhiên.
+    </p>
+
+</div>
+
+
+</main>
+
+
+<script>
+
+/* =========================================
+   APPS SCRIPT API
+========================================= */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbw_7sA0tI5omojIDGLfd4tmD4_tgjhAlX1UPnT0x92NdEqZcODTmXPRxJh3GBmW2cQX3Q/exec";
+
+
+/* =========================================
+   ĐĂNG NHẬP
+========================================= */
+
+const username =
+    localStorage.getItem(
+        "shopkarot_user"
+    );
+
+
+const isLogin =
+    localStorage.getItem(
+        "shopkarot_login"
+    ) === "true";
+
+
+/* =========================================
+   PHẦN THƯỞNG
+========================================= */
+
+const rewards = [
+
+    "🎁 Túi quà đặc biệt",
+
+    "💰 1.000đ",
+
+    "💰 2.000đ",
+
+    "💰 5.000đ",
+
+    "🎟️ Voucher ShopKarot",
+
+    "🎁 Quà ngẫu nhiên",
+
+    "⭐ Phần thưởng may mắn"
+
+];
+
+
+/* =========================================
+   HIỂN THỊ USER
+========================================= */
+
+function updateUser(){
+
+    const userText =
+        document.getElementById(
+            "userText"
+        );
+
+    const loginButton =
+        document.getElementById(
+            "loginButton"
+        );
+
+
+    if(
+        isLogin &&
+        username
+    ){
+
+        userText.textContent =
+            "👤 " + username;
+
+        loginButton.textContent =
+            "👤 Tài khoản";
+
+        loginButton.onclick =
+            function(){
+
+                window.location.href =
+                    "ho-so.html";
+
+            };
+
+    }
+
+    else{
+
+        userText.textContent =
+            "Chưa đăng nhập";
+
+        loginButton.textContent =
+            "🔐 Đăng nhập";
+
+        loginButton.onclick =
+            goLogin;
+
+    }
+
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+function goLogin(){
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* =========================================
+   STORAGE KEY
+========================================= */
+
+function cooldownKey(){
+
+    if(!username){
+        return null;
+    }
+
+    return (
+        "shopkarot_tui_mu_0k_" +
+        username.toLowerCase()
+    );
+
+}
+
+
+/* =========================================
+   KIỂM TRA COOLDOWN
+========================================= */
+
+function checkCooldown(){
+
+    if(!username){
+
+        return;
+
+    }
+
+
+    const key =
+        cooldownKey();
+
+    const last =
+        Number(
+            localStorage.getItem(
+                key
+            ) || 0
+        );
+
+
+    if(!last){
+
+        enableReceive();
+
+        return;
+
+    }
+
+
+    const now =
+        Date.now();
+
+    const duration =
+        24 * 60 * 60 * 1000;
+
+    const remaining =
+        duration -
+        (now - last);
+
+
+    if(remaining <= 0){
+
+        localStorage.removeItem(
+            key
+        );
+
+        enableReceive();
+
+        return;
+
+    }
+
+
+    disableReceive(
+        remaining
+    );
+
+}
+
+
+/* =========================================
+   DISABLE
+========================================= */
+
+function disableReceive(
+    remaining
+){
+
+    const button =
+        document.getElementById(
+            "receiveButton"
+        );
+
+    const cooldown =
+        document.getElementById(
+            "cooldown"
+        );
+
+
+    button.disabled =
+        true;
+
+    button.textContent =
+        "⏰ CHƯA THỂ NHẬN LẠI";
+
+
+    cooldown.classList.add(
+        "show"
+    );
+
+
+    updateCountdown(
+        remaining
+    );
+
+}
+
+
+/* =========================================
+   ENABLE
+========================================= */
+
+function enableReceive(){
+
+    const button =
+        document.getElementById(
+            "receiveButton"
+        );
+
+    const cooldown =
+        document.getElementById(
+            "cooldown"
+        );
+
+
+    button.disabled =
+        false;
+
+    button.textContent =
+        "🎁 NHẬN TÚI MÙ 0K";
+
+
+    cooldown.classList.remove(
+        "show"
+    );
+
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+let countdownTimer = null;
+
+
+function updateCountdown(
+    remaining
+){
+
+    if(countdownTimer){
+
+        clearInterval(
+            countdownTimer
+        );
+
+    }
+
+
+    const countdown =
+        document.getElementById(
+            "countdown"
+        );
+
+
+    function tick(){
+
+        if(remaining <= 0){
+
+            clearInterval(
+                countdownTimer
+            );
+
+            enableReceive();
+
+            return;
+
+        }
+
+
+        const totalSeconds =
+            Math.floor(
+                remaining / 1000
+            );
+
+
+        const hours =
+            Math.floor(
+                totalSeconds / 3600
+            );
+
+
+        const minutes =
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            );
+
+
+        const seconds =
+            totalSeconds % 60;
+
+
+        countdown.textContent =
+            String(hours).padStart(2,"0")
+            + ":" +
+            String(minutes).padStart(2,"0")
+            + ":" +
+            String(seconds).padStart(2,"0");
+
+
+        remaining -= 1000;
+
+    }
+
+
+    tick();
+
+
+    countdownTimer =
+        setInterval(
+            tick,
+            1000
+        );
+
+}
+
+
+/* =========================================
+   NHẬN TÚI
+========================================= */
+
+function receiveBag(){
+
+    if(
+        !isLogin ||
+        !username
+    ){
+
+        showMessage(
+            "Bạn cần đăng nhập trước khi nhận Túi Mù.",
+            "error"
+        );
+
+        setTimeout(
+            goLogin,
+            900
+        );
+
+        return;
+
+    }
+
+
+    const key =
+        cooldownKey();
+
+
+    const last =
+        Number(
+            localStorage.getItem(
+                key
+            ) || 0
+        );
+
+
+    const duration =
+        24 * 60 * 60 * 1000;
+
+
+    if(
+        last &&
+        Date.now() - last <
+            duration
+    ){
+
+        checkCooldown();
+
+        showMessage(
+            "Bạn chưa thể nhận lại Túi Mù.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "receiveButton"
+        );
+
+
+    button.disabled =
+        true;
+
+    button.textContent =
+        "⏳ ĐANG MỞ TÚI...";
+
+
+    setTimeout(
+        function(){
+
+            openBag();
+
+        },
+        800
+    );
+
+}
+
+
+/* =========================================
+   MỞ TÚI
+========================================= */
+
+function openBag(){
+
+    const reward =
+        rewards[
+            Math.floor(
+                Math.random() *
+                rewards.length
+            )
+        ];
+
+
+    const now =
+        new Date();
+
+
+    const time =
+        now.toLocaleString(
+            "vi-VN"
+        );
+
+
+    localStorage.setItem(
+        cooldownKey(),
+        String(
+            Date.now()
+        )
+    );
+
+
+    saveHistory(
+        reward,
+        time
+    );
+
+
+    document.getElementById(
+        "reward"
+    ).textContent =
+        reward;
+
+
+    document.getElementById(
+        "rewardTime"
+    ).textContent =
+        time;
+
+
+    document.getElementById(
+        "result"
+    ).classList.add(
+        "show"
+    );
+
+
+    showMessage(
+        "Nhận Túi Mù thành công!",
+        "success"
+    );
+
+
+    checkCooldown();
+
+    loadHistory();
+
+}
+
+
+/* =========================================
+   LƯU LỊCH SỬ
+========================================= */
+
+function saveHistory(
+    reward,
+    time
+){
+
+    if(!username){
+        return;
+    }
+
+
+    const key =
+        "shopkarot_tui_mu_history_" +
+        username.toLowerCase();
+
+
+    let history = [];
+
+
+    try{
+
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    key
+                ) || "[]"
+            );
+
+    }
+
+    catch(e){
+
+        history=[];
+
+    }
+
+
+    history.unshift({
+
+        reward:reward,
+
+        time:time,
+
+        price:0
+
+    });
+
+
+    history =
+        history.slice(
+            0,
+            20
+        );
+
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(
+            history
+        )
+    );
+
+}
+
+
+/* =========================================
+   LOAD HISTORY
+========================================= */
+
+function loadHistory(){
+
+    const box =
+        document.getElementById(
+            "historyList"
+        );
+
+
+    if(!username){
+
+        box.innerHTML = `
+
+            <div class="empty">
+
+                🔐 Đăng nhập để xem
+                lịch sử nhận Túi Mù.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const key =
+        "shopkarot_tui_mu_history_" +
+        username.toLowerCase();
+
+
+    let history=[];
+
+
+    try{
+
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    key
+                ) || "[]"
+            );
+
+    }
+
+    catch(e){
+
+        history=[];
+
+    }
+
+
+    if(
+        !history ||
+        history.length===0
+    ){
+
+        box.innerHTML = `
+
+            <div class="empty">
+
+                Chưa có lịch sử nhận Túi Mù.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    let html="";
+
+
+    history.forEach(
+        function(item){
+
+            html += `
+
+            <div class="history-item">
+
+                <div class="history-left">
+
+                    <div class="history-icon">
+                        🎁
+                    </div>
+
+                    <div>
+
+                        <div class="history-name">
+                            ${escapeHtml(item.reward)}
+                        </div>
+
+                        <div class="history-date">
+                            ${escapeHtml(item.time)}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="history-price">
+                    0đ
+                </div>
+
+            </div>
+
+            `;
+
+        }
+    );
+
+
+    box.innerHTML =
+        html;
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    const box =
+        document.getElementById(
+            "message"
+        );
+
+
+    box.className =
+        "message show " +
+        type;
+
+
+    box.textContent =
+        text;
+
+
+    setTimeout(
+        function(){
+
+            box.className =
+                "message";
+
+        },
+        3500
+    );
+
+}
+
+
+/* =========================================
+   ESCAPE
+========================================= */
+
+function escapeHtml(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+updateUser();
+
+loadHistory();
+
+checkCooldown();
+
+</script>
+
+</body>
+
+</html>
