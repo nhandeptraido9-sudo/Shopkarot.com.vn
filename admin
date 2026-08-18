@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Admin chính - SHOPKAROT</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+}
+
+.box{
+    width:420px;
+    max-width:92%;
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 35px rgba(0,0,0,.15);
+}
+
+.logo{
+    text-align:center;
+    font-size:30px;
+    font-weight:900;
+    font-style:italic;
+    margin-bottom:5px;
+}
+
+.logo span{
+    color:#e21b23;
+}
+
+h2{
+    text-align:center;
+    margin:10px 0 8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#777;
+    margin-bottom:22px;
+}
+
+.badge{
+    text-align:center;
+    background:#fff0f0;
+    color:#d01018;
+    padding:11px;
+    border-radius:10px;
+    margin-bottom:18px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-bottom:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#d01018;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:10px;
+    background:#d01018;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#b30d14;
+}
+
+.message{
+    text-align:center;
+    margin-top:15px;
+    min-height:20px;
+    font-weight:bold;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    color:#666;
+    text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <div class="logo">
+        SHOP<span>KAROT</span>
+    </div>
+
+    <h2>🛠️ ADMIN CHÍNH</h2>
+
+    <div class="subtitle">
+        Khu vực quản trị ShopKarot
+    </div>
+
+    <div class="badge">
+        🔒 ĐĂNG NHẬP ADMIN CHÍNH
+    </div>
+
+    <input
+        id="adminKey"
+        type="password"
+        placeholder="Nhập Admin Key"
+        autocomplete="off">
+
+    <button onclick="loginAdmin()">
+        🛠️ ĐĂNG NHẬP ADMIN
+    </button>
+
+    <div
+        id="message"
+        class="message">
+    </div>
+
+    <a
+        class="back"
+        href="login.html">
+        ← Quay lại đăng nhập
+    </a>
+
+</div>
+
+<script>
+
+/*
+================================================
+ADMIN KEY
+================================================
+
+ĐỔI DÒNG NÀY thành Admin Key thật của bạn.
+
+Ví dụ:
+
+const ADMIN_KEY="KarotAdmin2026";
+
+================================================
+*/
+
+const ADMIN_KEY="THAY_KEY_ADMIN_CUA_BAN";
+
+
+function loginAdmin(){
+
+    const key=
+        document.getElementById("adminKey")
+        .value;
+
+    const message=
+        document.getElementById("message");
+
+    if(!key){
+
+        message.style.color="red";
+
+        message.textContent=
+            "Vui lòng nhập Admin Key.";
+
+        return;
+    }
+
+    if(key!==ADMIN_KEY){
+
+        message.style.color="red";
+
+        message.textContent=
+            "Admin Key không đúng.";
+
+        return;
+    }
+
+    /*
+    Lưu trạng thái đăng nhập
+    */
+
+    localStorage.setItem(
+        "shopkarot_admin_login",
+        "true"
+    );
+
+    localStorage.setItem(
+        "shopkarot_admin_type",
+        "main"
+    );
+
+    message.style.color="#168b42";
+
+    message.textContent=
+        "Đăng nhập Admin chính thành công!";
+
+    setTimeout(function(){
+
+        /*
+        Nếu bạn có trang quản trị riêng,
+        đổi thành tên file đó.
+
+        Ví dụ:
+        admin-panel.html
+        */
+
+        window.location.href="index.html";
+
+    },700);
+}
+
+
+/* Enter để đăng nhập */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key==="Enter"){
+            loginAdmin();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
