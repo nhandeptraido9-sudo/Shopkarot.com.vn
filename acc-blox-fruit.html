@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -18,377 +17,536 @@ html{
 
 body{
     margin:0;
-    background:#f1f5f9;
     font-family:Arial,Helvetica,sans-serif;
-    color:#111827;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
 /* ================= HEADER ================= */
 
 .header{
+    height:82px;
     background:#fff;
-    border-bottom:1px solid #e5e7eb;
-    padding:14px 22px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
     position:sticky;
     top:0;
     z-index:1000;
 }
 
 .logo{
-    font-size:28px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+    color:#111;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
     font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
     font-style:italic;
-    letter-spacing:-1px;
 }
 
-.logo span{
+.logo-text b span{
     color:#e21b23;
 }
 
-.back{
-    text-decoration:none;
-    color:#555;
-    font-weight:700;
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
     font-size:15px;
-    transition:.2s;
+    font-weight:bold;
+    border-radius:10px;
 }
 
-.back:hover{
+.menu-box a:hover{
+    background:#f3f4f6;
     color:#e21b23;
+}
+
+/* ================= USER ================= */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
 }
 
 /* ================= CONTAINER ================= */
 
 .container{
-    width:100%;
-    max-width:1300px;
-    margin:auto;
-    padding:28px 15px 60px;
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
 }
 
-/* ================= TITLE ================= */
+/* ================= BREADCRUMB ================= */
 
-.title{
-    text-align:center;
-    margin-bottom:28px;
-}
-
-.title h1{
-    margin:0 0 8px;
-    font-size:32px;
-    font-weight:900;
-}
-
-.title p{
-    margin:0;
-    color:#6b7280;
-    font-size:15px;
-}
-
-/* ================= BANNER ================= */
-
-.banner{
-    width:100%;
-    height:230px;
-    border-radius:18px;
-    overflow:hidden;
-    margin-bottom:30px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,0,0,.25),
-            rgba(0,0,0,.05)
-        ),
-        url("images/blox-fruits.jpg") center/cover no-repeat;
-
+.breadcrumb{
     display:flex;
     align-items:center;
-    justify-content:center;
-    position:relative;
-}
-
-.banner-content{
-    text-align:center;
-    color:#fff;
-    text-shadow:0 2px 8px rgba(0,0,0,.6);
-}
-
-.banner-content h2{
-    margin:0;
-    font-size:36px;
-    font-weight:900;
-}
-
-.banner-content p{
-    margin:8px 0 0;
-    font-size:17px;
-    font-weight:700;
-}
-
-/* ================= SECTION ================= */
-
-.section-title{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:18px;
-}
-
-.section-title h2{
-    margin:0;
-    font-size:24px;
-    font-weight:900;
-}
-
-.section-title span{
-    color:#e21b23;
-    font-size:14px;
-    font-weight:700;
-}
-
-/* ================= PRODUCT GRID ================= */
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-/* ================= PRODUCT CARD ================= */
-
-.product{
-    background:#fff;
-    border-radius:16px;
-    overflow:hidden;
-    border:1px solid #e5e7eb;
-    box-shadow:0 3px 10px rgba(0,0,0,.06);
-    transition:.25s;
-    display:flex;
-    flex-direction:column;
-}
-
-.product:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-}
-
-.product-image{
-    width:100%;
-    height:190px;
-    background:#e5e7eb;
-    overflow:hidden;
-}
-
-.product-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.3s;
-}
-
-.product:hover .product-image img{
-    transform:scale(1.05);
-}
-
-/* ================= PRODUCT INFO ================= */
-
-.product-info{
-    padding:16px;
-    display:flex;
-    flex-direction:column;
-    flex:1;
-}
-
-.product-name{
-    font-size:18px;
-    font-weight:900;
-    margin:0 0 9px;
-    line-height:1.35;
-}
-
-.product-price{
-    color:#e21b23;
-    font-size:15px;
-    font-weight:800;
+    gap:8px;
+    flex-wrap:wrap;
     margin-bottom:15px;
-}
-
-.product-price span{
-    color:#6b7280;
-    font-weight:600;
-}
-
-/* ================= BUTTON ================= */
-
-.view-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    min-height:42px;
-    background:#e21b23;
-    color:#fff;
-    text-decoration:none;
-    border-radius:9px;
     font-size:14px;
-    font-weight:900;
-    transition:.2s;
-    margin-top:auto;
+    color:#687386;
 }
 
-.view-btn:hover{
-    background:#c9151c;
-    transform:scale(1.02);
+.breadcrumb a{
+    color:#d01018;
+    font-weight:bold;
+}
+
+.breadcrumb span{
+    color:#999;
+}
+
+/* ================= PAGE TITLE ================= */
+
+.page-title{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #7c1010 0%,
+            #320606 38%,
+            #080808 78%
+        );
+    color:#fff;
+    border-radius:18px;
+    padding:35px 40px;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+    margin-bottom:18px;
+    position:relative;
+    overflow:hidden;
+}
+
+.page-title::after{
+    content:"🍎";
+    position:absolute;
+    right:55px;
+    top:20px;
+    font-size:100px;
+    opacity:.12;
+}
+
+.page-title h1{
+    margin:0;
+    font-size:38px;
+    font-weight:1000;
+}
+
+.page-title h1 span{
+    color:#ed1c24;
+}
+
+.page-title p{
+    margin:10px 0 0;
+    color:#ddd;
+    font-size:15px;
 }
 
 /* ================= NOTICE ================= */
 
 .notice{
-    margin-top:30px;
+    margin-bottom:18px;
+    padding:18px 20px;
+    background:#fff8e8;
+    border:1px solid #f1d58b;
+    border-radius:14px;
+    color:#694d00;
+}
+
+.notice b{
+    color:#a80e12;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 15px;
+    padding:13px 16px;
     background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:15px;
-    padding:20px;
+    border-radius:12px;
+    border:1px solid #e4e7eb;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
 }
 
-.notice h3{
+.category-title h2{
+    margin:0;
+    font-size:21px;
+}
+
+/* ================= FOLDER GRID ================= */
+
+.folder-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+/* ================= FOLDER ================= */
+
+.folder{
+    display:flex;
+    min-height:190px;
+    background:#fff;
+    border:1px solid #e2e5e9;
+    border-radius:17px;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,.07);
+    transition:.25s;
+    cursor:pointer;
+}
+
+.folder:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.14);
+    border-color:#d01018;
+}
+
+.folder-icon{
+    width:190px;
+    min-width:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+}
+
+.folder-icon::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-50px;
+    bottom:-50px;
+}
+
+.folder-mu{
+    background:linear-gradient(135deg,#4c006e,#a52cff);
+}
+
+.folder-item{
+    background:linear-gradient(135deg,#003d68,#168ee8);
+}
+
+.folder-race{
+    background:linear-gradient(135deg,#550000,#ec2424);
+}
+
+.folder-image{
+    background:linear-gradient(135deg,#164e63,#06b6d4);
+}
+
+.folder-info{
+    flex:1;
+    padding:22px;
+}
+
+.folder-info h3{
     margin:0 0 10px;
-    font-size:18px;
+    font-size:20px;
+    color:#172033;
 }
 
-.notice p{
-    margin:6px 0;
-    color:#555;
-    font-size:14px;
-    line-height:1.6;
+.folder-info p{
+    margin:0 0 15px;
+    color:#687386;
+    line-height:1.5;
+    font-size:13px;
+}
+
+.folder-status{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#e7f8ef;
+    border:1px solid #b7e8ca;
+    color:#00a86b;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.folder-button{
+    display:block;
+    width:100%;
+    padding:11px;
+    background:#a80e12;
+    color:#fff;
+    border-radius:9px;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.folder-button:hover{
+    background:#d0161d;
+}
+
+/* ================= BACK ================= */
+
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:20px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#fff;
+    border:1px solid #ddd;
+    color:#172033;
+    font-weight:bold;
+}
+
+.back-button:hover{
+    color:#d01018;
+    border-color:#d01018;
+}
+
+/* ================= API ================= */
+
+.api-status{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    padding:9px 13px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.api-status.ok{
+    color:#078542;
+    border-color:#bde7cd;
+}
+
+.api-status.error{
+    color:#d01018;
+    border-color:#f1bebe;
 }
 
 /* ================= FOOTER ================= */
 
-.footer{
+footer{
+    padding:35px 20px;
+    color:#687386;
     text-align:center;
-    padding:25px 15px;
-    background:#fff;
-    border-top:1px solid #e5e7eb;
-    color:#777;
-    font-size:13px;
-}
-
-/* ================= TABLET ================= */
-
-@media(max-width:1000px){
-
-    .products{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .product-image{
-        height:175px;
-    }
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:700px){
+@media(max-width:900px){
 
-    .header{
-        padding:12px 15px;
-    }
-
-    .logo{
-        font-size:23px;
-    }
-
-    .back{
-        font-size:13px;
-    }
-
-    .container{
-        padding:20px 10px 45px;
-    }
-
-    .title h1{
-        font-size:26px;
-    }
-
-    .title p{
-        font-size:14px;
-    }
-
-    .banner{
-        height:175px;
-        border-radius:14px;
-        margin-bottom:24px;
-    }
-
-    .banner-content h2{
-        font-size:27px;
-    }
-
-    .banner-content p{
-        font-size:14px;
-    }
-
-    .section-title h2{
-        font-size:20px;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
-
-    .product{
-        border-radius:13px;
-    }
-
-    .product-image{
-        height:145px;
-    }
-
-    .product-info{
-        padding:12px;
-    }
-
-    .product-name{
-        font-size:15px;
-    }
-
-    .product-price{
-        font-size:13px;
-        margin-bottom:11px;
-    }
-
-    .view-btn{
-        min-height:38px;
-        font-size:12px;
-    }
-}
-
-/* ================= SMALL PHONE ================= */
-
-@media(max-width:400px){
-
-    .products{
+    .folder-grid{
         grid-template-columns:1fr;
     }
 
-    .product-image{
-        height:190px;
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
     }
 
-    .product-name{
-        font-size:17px;
+    .logo{
+        min-width:auto;
     }
 
-    .view-btn{
-        min-height:42px;
-        font-size:13px;
+    .logo-text b{
+        font-size:23px;
     }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        margin-left:auto;
+        padding:6px 8px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .page-title{
+        padding:28px 22px;
+    }
+
+    .page-title h1{
+        font-size:29px;
+    }
+
+    .page-title::after{
+        right:15px;
+        font-size:70px;
+    }
+
+    .folder{
+        min-height:160px;
+    }
+
+    .folder-icon{
+        width:110px;
+        min-width:110px;
+        font-size:48px;
+    }
+
+    .folder-info{
+        padding:15px;
+    }
+
+    .folder-info h3{
+        font-size:16px;
+    }
+
+    .folder-info p{
+        font-size:12px;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .user-info{
+        display:none;
+    }
+
+    .folder{
+        display:block;
+    }
+
+    .folder-icon{
+        width:100%;
+        height:105px;
+        min-width:0;
+    }
+
+    .folder-info{
+        padding:16px;
+    }
+
 }
 </style>
 </head>
@@ -399,346 +557,590 @@ body{
 
 <header class="header">
 
-    <div class="logo">
-        SHOP<span>KAROT</span>
-    </div>
+    <a href="index.html" class="logo">
 
-    <a href="index.html" class="back">
-        ← Quay lại Shop
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+            <b>SHOP<span>KAROT</span></b>
+            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+        </div>
+
     </a>
 
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu.html?price=0">
+                🎁 TÚI MÙ
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+        </div>
+
+    </div>
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
 </header>
+
+
+<!-- ================= API STATUS ================= -->
+
+<div
+    id="apiStatus"
+    class="api-status">
+
+    🔄 Đang tải...
+
+</div>
 
 
 <!-- ================= MAIN ================= -->
 
 <main class="container">
 
-    <div class="title">
-        <h1>🎁 Túi Mù Blox Fruits</h1>
-        <p>Chọn mức Túi Mù Blox Fruits bạn muốn</p>
-    </div>
+    <!-- BREADCRUMB -->
 
+    <div class="breadcrumb">
 
-    <!-- ================= BANNER ================= -->
+        <a href="index.html">
+            🏠 Trang chủ
+        </a>
 
-    <div class="banner">
+        <span>›</span>
 
-        <div class="banner-content">
+        <a href="acc-game.html">
+            🎮 Acc Game
+        </a>
 
-            <h2>🍎 BLOX FRUITS</h2>
+        <span>›</span>
 
-            <p>
-                Túi Mù Blox Fruits - Nhiều phần quà hấp dẫn
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= PRODUCTS ================= -->
-
-    <div class="section-title">
-
-        <h2>🎁 Túi Mù Blox Fruits</h2>
-
-        <span>7 sản phẩm</span>
+        <b>
+            Blox Fruits
+        </b>
 
     </div>
 
 
-    <div class="products">
+    <!-- TITLE -->
 
+    <section class="page-title">
 
-        <!-- 0K -->
+        <h1>
+            🍎 <span>BLOX FRUITS</span>
+        </h1>
 
-        <div class="product">
+        <p>
+            Lựa chọn danh mục Blox Fruits bạn muốn mua
+        </p>
 
-            <div class="product-image">
+    </section>
 
-                <img
-                    src="images/blox-fruits-0k.jpg"
-                    alt="Túi Mù Blox Fruits 0K"
-                    onerror="this.src='images/blox-fruits.jpg'"
-                >
 
-            </div>
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    🎁 Túi Mù Blox Fruits 0K
-                </h3>
-
-                <div class="product-price">
-                    Giá chỉ từ 0K
-                </div>
-
-                <a
-                    href="tui-mu-blox-fruits.html?price=0"
-                    class="view-btn"
-                >
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- 20K -->
-
-        <div class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="images/blox-fruits-20k.jpg"
-                    alt="Túi Mù Blox Fruits 20K"
-                    onerror="this.src='images/blox-fruits.jpg'"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    🎁 Túi Mù Blox Fruits 20K
-                </h3>
-
-                <div class="product-price">
-                    Giá chỉ từ 20K
-                </div>
-
-                <a
-                    href="tui-mu-blox-fruits.html?price=20"
-                    class="view-btn"
-                >
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- 50K -->
-
-        <div class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="images/blox-fruits-50k.jpg"
-                    alt="Túi Mù Blox Fruits 50K"
-                    onerror="this.src='images/blox-fruits.jpg'"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    🎁 Túi Mù Blox Fruits 50K
-                </h3>
-
-                <div class="product-price">
-                    Giá chỉ từ 50K
-                </div>
-
-                <a
-                    href="tui-mu-blox-fruits.html?price=50"
-                    class="view-btn"
-                >
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- 80K -->
-
-        <div class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="images/blox-fruits-80k.jpg"
-                    alt="Túi Mù Blox Fruits 80K"
-                    onerror="this.src='images/blox-fruits.jpg'"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    🎁 Túi Mù Blox Fruits 80K
-                </h3>
-
-                <div class="product-price">
-                    Giá chỉ từ 80K
-                </div>
-
-                <a
-                    href="tui-mu-blox-fruits.html?price=80"
-                    class="view-btn"
-                >
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- 100K -->
-
-        <div class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="images/blox-fruits-100k.jpg"
-                    alt="Túi Mù Blox Fruits 100K"
-                    onerror="this.src='images/blox-fruits.jpg'"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    🎁 Túi Mù Blox Fruits 100K
-                </h3>
-
-                <div class="product-price">
-                    Giá chỉ từ 100K
-                </div>
-
-                <a
-                    href="tui-mu-blox-fruits.html?price=100"
-                    class="view-btn"
-                >
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- 150K -->
-
-        <div class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="images/blox-fruits-150k.jpg"
-                    alt="Túi Mù Blox Fruits 150K"
-                    onerror="this.src='images/blox-fruits.jpg'"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    🎁 Túi Mù Blox Fruits 150K
-                </h3>
-
-                <div class="product-price">
-                    Giá chỉ từ 150K
-                </div>
-
-                <a
-                    href="tui-mu-blox-fruits.html?price=150"
-                    class="view-btn"
-                >
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- 200K -->
-
-        <div class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="images/blox-fruits-200k.jpg"
-                    alt="Túi Mù Blox Fruits 200K"
-                    onerror="this.src='images/blox-fruits.jpg'"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    🎁 Túi Mù Blox Fruits 200K
-                </h3>
-
-                <div class="product-price">
-                    Giá chỉ từ 200K
-                </div>
-
-                <a
-                    href="tui-mu-blox-fruits.html?price=200"
-                    class="view-btn"
-                >
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- ================= NOTICE ================= -->
+    <!-- NOTICE -->
 
     <div class="notice">
 
-        <h3>📌 Thông tin Túi Mù Blox Fruits</h3>
-
-        <p>
-            🎁 Mỗi mức giá sẽ có những phần quà Blox Fruits khác nhau.
-        </p>
-
-        <p>
-            ⚠️ Vui lòng kiểm tra kỹ thông tin sản phẩm trước khi mua.
-        </p>
-
-        <p>
-            💰 Các mức giá: <b>0K - 20K - 50K - 80K - 100K - 150K - 200K</b>
-        </p>
+        ⚠️
+        <b>Thông báo:</b>
+        Shop đang cập nhật thêm sản phẩm Blox Fruits.
+        Một số danh mục có thể chưa sẵn sàng và sẽ được cập nhật thêm
+        trong tuần sau hoặc có thể nhanh hơn.
 
     </div>
+
+
+    <!-- CATEGORY -->
+
+    <div class="category-title">
+
+        <h2>
+            🎮 DANH MỤC BLOX FRUITS
+        </h2>
+
+    </div>
+
+
+    <!-- ================= 4 FOLDERS ================= -->
+
+    <section class="folder-grid">
+
+
+        <!-- 1. TÚI MÙ -->
+
+        <a
+            href="tui-mu-blox-fruit.html"
+            class="folder">
+
+            <div class="folder-icon folder-mu">
+                🎁
+            </div>
+
+            <div class="folder-info">
+
+                <h3>
+                    Túi Mù Blox Fruits
+                </h3>
+
+                <p>
+                    🎁 Túi mù Blox Fruits với nhiều
+                    lựa chọn và phần thưởng khác nhau.
+                </p>
+
+                <span class="folder-status">
+                    🟢 Sẵn sàng
+                </span>
+
+                <div class="folder-button">
+                    XEM TÚI MÙ →
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- 2. ITEM -->
+
+        <a
+            href="acc-blox-fruit-item.html"
+            class="folder">
+
+            <div class="folder-icon folder-item">
+                🎮
+            </div>
+
+            <div class="folder-info">
+
+                <h3>
+                    Acc Blox Fruits Tùy Chọn Item
+                </h3>
+
+                <p>
+                    🔥 Chọn acc theo Item hoặc những
+                    vật phẩm Blox Fruits mà bạn mong muốn.
+                </p>
+
+                <span class="folder-status">
+                    🔴 Chưa sẵn sàng
+                </span>
+
+                <div class="folder-button">
+                    XEM DANH MỤC →
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- 3. RACE V4 -->
+
+        <a
+            href="acc-blox-fruit-race-v4.html"
+            class="folder">
+
+            <div class="folder-icon folder-race">
+                ⚔️
+            </div>
+
+            <div class="folder-info">
+
+                <h3>
+                    Acc Blox Fruits Race V4
+                </h3>
+
+                <p>
+                    ⚔️ Acc Blox Fruits có Race V4
+                    và các tính năng nổi bật.
+                </p>
+
+                <span class="folder-status">
+                    🔴 Chưa sẵn sàng
+                </span>
+
+                <div class="folder-button">
+                    XEM DANH MỤC →
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- 4. XEM HÌNH -->
+
+        <a
+            href="acc-blox-fruit-xem-hinh.html"
+            class="folder">
+
+            <div class="folder-icon folder-image">
+                🖼️
+            </div>
+
+            <div class="folder-info">
+
+                <h3>
+                    Acc Blox Fruits Xem Hình Acc Tùy Chọn
+                </h3>
+
+                <p>
+                    🖼️ Xem hình ảnh chi tiết từng acc
+                    trước khi lựa chọn sản phẩm.
+                </p>
+
+                <span class="folder-status">
+                    🔴 Chưa sẵn sàng
+                </span>
+
+                <div class="folder-button">
+                    XEM DANH MỤC →
+                </div>
+
+            </div>
+
+        </a>
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <a
+        href="index.html"
+        class="back-button">
+
+        ← Quay lại trang chủ
+
+    </a>
 
 </main>
 
 
 <!-- ================= FOOTER ================= -->
 
-<footer class="footer">
+<footer>
 
-    © 2026 SHOPKAROT - Blox Fruits
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
 
 </footer>
 
 
+<script>
+
+/* ================= API ================= */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwoSypOKpE8NJu_lhWpVOWyu6FrUhiXxnXTlvu01DoGxH-__pG3r-LJp3zMT_UMrzXMZA/exec";
+
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(!menu.contains(event.target)){
+
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* ================= USER ================= */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true" &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* ================= USER CLICK ================= */
+
+document
+.getElementById("userBox")
+.addEventListener(
+    "click",
+    function(){
+
+        const login =
+            localStorage.getItem(
+                "shopkarot_login"
+            );
+
+        if(login === "true"){
+
+            window.location.href =
+                "ho-so.html";
+
+        }
+
+        else{
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    }
+);
+
+
+/* ================= API STATUS ================= */
+
+function setAPIStatus(type,text){
+
+    const box =
+        document.getElementById(
+            "apiStatus"
+        );
+
+    box.className =
+        "api-status " + type;
+
+    box.textContent =
+        text;
+
+}
+
+
+/* ================= TEST API ================= */
+
+async function checkAPI(){
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=getShopStatus&_=" +
+                Date.now(),
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+        const data =
+            await response.json();
+
+        if(
+            data &&
+            data.ok === true
+        ){
+
+            setAPIStatus(
+                "ok",
+                "🟢 Đã kết nối API"
+            );
+
+        }
+
+        else{
+
+            setAPIStatus(
+                "error",
+                "🔴 API không phản hồi"
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        setAPIStatus(
+            "error",
+            "🔴 Không kết nối được API"
+        );
+
+    }
+
+}
+
+
+/* ================= START ================= */
+
+updateUser();
+
+checkAPI();
+
+
+/* ================= UPDATE USER ================= */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+
+/* ================= PAGE FOCUS ================= */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+</script>
+
 </body>
 </html>
-```
-
