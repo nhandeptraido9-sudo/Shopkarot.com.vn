@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Admin chính - SHOPKAROT</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0">
+
+<title>Admin Panel - SHOPKAROT</title>
 
 <style>
+
+/* =========================================
+   RESET
+========================================= */
 
 *{
     box-sizing:border-box;
@@ -14,240 +23,2274 @@
 
 body{
     margin:0;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     font-family:Arial,Helvetica,sans-serif;
     background:#f3f6fa;
+    color:#222;
 }
 
-.box{
-    width:420px;
-    max-width:92%;
-    background:#fff;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 10px 35px rgba(0,0,0,.15);
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+    background:#d01018;
+    color:white;
+    padding:16px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
-    text-align:center;
-    font-size:30px;
+    font-size:25px;
     font-weight:900;
     font-style:italic;
-    margin-bottom:5px;
 }
 
 .logo span{
-    color:#e21b23;
+    color:#ffd9d9;
 }
 
-h2{
-    text-align:center;
-    margin:10px 0 8px;
+.admin-info{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
 }
 
-.subtitle{
-    text-align:center;
-    color:#777;
-    margin-bottom:22px;
-}
-
-.badge{
-    text-align:center;
-    background:#fff0f0;
-    color:#d01018;
-    padding:11px;
-    border-radius:10px;
-    margin-bottom:18px;
-    font-weight:bold;
-}
-
-input{
-    width:100%;
-    padding:14px;
-    margin-bottom:14px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    font-size:15px;
-    outline:none;
-}
-
-input:focus{
-    border-color:#d01018;
-}
-
-button{
-    width:100%;
-    padding:14px;
+.logout{
     border:0;
-    border-radius:10px;
-    background:#d01018;
-    color:white;
-    font-size:16px;
+    background:white;
+    color:#d01018;
+    padding:9px 13px;
+    border-radius:8px;
     font-weight:bold;
     cursor:pointer;
 }
 
-button:hover{
+.logout:hover{
+    background:#eee;
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.layout{
+    display:flex;
+    min-height:calc(100vh - 65px);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar{
+    width:230px;
+    background:#fff;
+    border-right:1px solid #ddd;
+    padding:15px 10px;
+    flex-shrink:0;
+}
+
+.menu-title{
+    font-size:12px;
+    color:#888;
+    font-weight:bold;
+    margin:8px 10px 10px;
+}
+
+.menu-btn{
+    width:100%;
+    border:0;
+    background:transparent;
+    text-align:left;
+    padding:13px 12px;
+    border-radius:9px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:4px;
+}
+
+.menu-btn:hover{
+    background:#f5f5f5;
+}
+
+.menu-btn.active{
+    background:#ffe7e7;
+    color:#d01018;
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main{
+    flex:1;
+    padding:22px;
+    min-width:0;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.page-title{
+    margin:0 0 5px;
+    font-size:25px;
+}
+
+.page-subtitle{
+    color:#777;
+    margin-bottom:20px;
+}
+
+/* =========================================
+   DASHBOARD CARDS
+========================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap:15px;
+}
+
+.card{
+    background:white;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.card-icon{
+    font-size:28px;
+}
+
+.card-title{
+    color:#777;
+    font-size:14px;
+    margin-top:8px;
+}
+
+.card-value{
+    font-size:25px;
+    font-weight:900;
+    margin-top:5px;
+}
+
+/* =========================================
+   BOX
+========================================= */
+
+.box{
+    background:white;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+    margin-bottom:20px;
+}
+
+.box-title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:12px;
+}
+
+input,
+select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    font-size:14px;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#d01018;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.primary-btn{
+    border:0;
+    background:#d01018;
+    color:white;
+    padding:12px 18px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.primary-btn:hover{
     background:#b30d14;
 }
 
-.message{
-    text-align:center;
-    margin-top:15px;
-    min-height:20px;
+.secondary-btn{
+    border:0;
+    background:#222;
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.danger-btn{
+    border:0;
+    background:#e53935;
+    color:white;
+    padding:8px 12px;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.success-btn{
+    border:0;
+    background:#168b42;
+    color:white;
+    padding:8px 12px;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th,
+td{
+    padding:12px 10px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+    font-size:13px;
+}
+
+th{
+    background:#fafafa;
     font-weight:bold;
 }
 
-.back{
+tr:hover td{
+    background:#fcfcfc;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.status.available,
+.status.approved,
+.status.active{
+    background:#e7f7ed;
+    color:#168b42;
+}
+
+.status.pending{
+    background:#fff4d6;
+    color:#a56a00;
+}
+
+.status.rejected,
+.status.blocked{
+    background:#ffe5e5;
+    color:#d01018;
+}
+
+/* =========================================
+   SHOP STATUS
+========================================= */
+
+.shop-status{
+    padding:18px;
+    border-radius:12px;
+    background:#f7f7f7;
+    margin-bottom:15px;
+}
+
+.current-status{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message{
+    padding:11px 14px;
+    border-radius:8px;
+    margin-bottom:15px;
+    display:none;
+    font-weight:bold;
+}
+
+.message.show{
     display:block;
+}
+
+.message.success{
+    background:#e7f7ed;
+    color:#168b42;
+}
+
+.message.error{
+    background:#ffe5e5;
+    color:#d01018;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading{
     text-align:center;
-    margin-top:18px;
-    color:#666;
-    text-decoration:none;
+    padding:30px;
+    color:#777;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+.mobile-menu{
+    display:none;
+}
+
+@media(max-width:900px){
+
+    .cards{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        padding:13px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .admin-info span{
+        display:none;
+    }
+
+    .layout{
+        display:block;
+    }
+
+    .sidebar{
+        width:100%;
+        border-right:0;
+        border-bottom:1px solid #ddd;
+        overflow-x:auto;
+        white-space:nowrap;
+        padding:8px;
+    }
+
+    .menu-title{
+        display:none;
+    }
+
+    .menu-btn{
+        width:auto;
+        display:inline-block;
+        margin-right:4px;
+    }
+
+    .main{
+        padding:14px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="box">
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
 
     <div class="logo">
         SHOP<span>KAROT</span>
     </div>
 
-    <h2>🛠️ ADMIN CHÍNH</h2>
+    <div class="admin-info">
 
-    <div class="subtitle">
-        Khu vực quản trị ShopKarot
+        <span id="adminType">
+            Admin
+        </span>
+
+        <button
+            class="logout"
+            onclick="logout()">
+
+            🚪 Đăng xuất
+
+        </button>
+
     </div>
 
-    <div class="badge">
-        🔒 ĐĂNG NHẬP ADMIN CHÍNH
+</header>
+
+
+<div class="layout">
+
+
+<!-- =========================================
+     SIDEBAR
+========================================= -->
+
+<aside class="sidebar">
+
+    <div class="menu-title">
+        QUẢN LÝ
     </div>
 
-    <input
-        id="adminKey"
-        type="password"
-        placeholder="Nhập Admin Key"
-        autocomplete="off">
+    <button
+        class="menu-btn active"
+        onclick="showPage('dashboard',this)">
 
-    <button onclick="loginAdmin()">
-        🛠️ ĐĂNG NHẬP ADMIN
+        📊 Dashboard
+
     </button>
 
-    <div
-        id="message"
-        class="message">
+    <button
+        class="menu-btn"
+        onclick="showPage('add-account',this)">
+
+        📦 Thêm acc
+
+    </button>
+
+    <button
+        class="menu-btn"
+        onclick="showPage('accounts',this)">
+
+        🗃️ Kho acc
+
+    </button>
+
+    <button
+        class="menu-btn"
+        onclick="showPage('customers',this)">
+
+        👥 Khách hàng
+
+    </button>
+
+    <button
+        class="menu-btn"
+        onclick="showPage('topups',this)">
+
+        💳 Nạp tiền
+
+    </button>
+
+    <button
+        class="menu-btn"
+        onclick="showPage('orders',this)">
+
+        🧾 Đơn hàng
+
+    </button>
+
+    <button
+        class="menu-btn"
+        onclick="showPage('shop-status',this)">
+
+        🏪 Trạng thái Shop
+
+    </button>
+
+</aside>
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="main">
+
+
+<!-- =========================================
+     MESSAGE
+========================================= -->
+
+<div
+    id="message"
+    class="message">
+</div>
+
+
+<!-- =========================================
+     DASHBOARD
+========================================= -->
+
+<section
+    id="page-dashboard"
+    class="page active">
+
+    <h1 class="page-title">
+        📊 Dashboard
+    </h1>
+
+    <div class="page-subtitle">
+        Tổng quan ShopKarot
     </div>
 
-    <a
-        class="back"
-        href="login.html">
-        ← Quay lại đăng nhập
-    </a>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                👥
+            </div>
+
+            <div class="card-title">
+                Khách hàng
+            </div>
+
+            <div
+                id="totalCustomers"
+                class="card-value">
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                📦
+            </div>
+
+            <div class="card-title">
+                Acc trong kho
+            </div>
+
+            <div
+                id="totalAccounts"
+                class="card-value">
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                💳
+            </div>
+
+            <div class="card-title">
+                Nạp đang chờ
+            </div>
+
+            <div
+                id="pendingTopups"
+                class="card-value">
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🧾
+            </div>
+
+            <div class="card-title">
+                Đơn hàng
+            </div>
+
+            <div
+                id="totalOrders"
+                class="card-value">
+
+                0
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    <div class="box">
+
+        <div class="box-title">
+            💰 Tổng số dư khách hàng
+        </div>
+
+        <div
+            id="totalBalance"
+            style="
+                font-size:30px;
+                font-weight:900;
+                color:#d01018;
+            ">
+
+            0đ
+
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <div class="box-title">
+            🏪 Trạng thái Shop
+        </div>
+
+        <div
+            id="dashboardShopStatus">
+
+            Đang tải...
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ADD ACCOUNT
+========================================= -->
+
+<section
+    id="page-add-account"
+    class="page">
+
+    <h1 class="page-title">
+        📦 Thêm acc
+    </h1>
+
+    <div class="page-subtitle">
+        Thêm tài khoản vào kho
+    </div>
+
+
+    <div class="box">
+
+        <div class="box-title">
+            Thông tin acc
+        </div>
+
+        <div class="form-grid">
+
+            <input
+                id="accountGame"
+                placeholder="Tên game">
+
+            <input
+                id="accountUsername"
+                placeholder="Tên đăng nhập acc">
+
+            <input
+                id="accountPassword"
+                type="text"
+                placeholder="Mật khẩu acc">
+
+            <button
+                class="primary-btn"
+                onclick="addAccount()">
+
+                ➕ THÊM ACC
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ACCOUNTS
+========================================= -->
+
+<section
+    id="page-accounts"
+    class="page">
+
+    <h1 class="page-title">
+        🗃️ Kho acc
+    </h1>
+
+    <div class="page-subtitle">
+        Danh sách tài khoản trong kho
+    </div>
+
+
+    <div class="box">
+
+        <button
+            class="secondary-btn"
+            onclick="loadAccounts()">
+
+            🔄 Làm mới
+
+        </button>
+
+        <br><br>
+
+        <div
+            id="accountsTable"
+            class="table-wrap">
+
+            <div class="loading">
+                Đang tải...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CUSTOMERS
+========================================= -->
+
+<section
+    id="page-customers"
+    class="page">
+
+    <h1 class="page-title">
+        👥 Khách hàng
+    </h1>
+
+    <div class="page-subtitle">
+        Danh sách khách hàng
+    </div>
+
+
+    <div class="box">
+
+        <button
+            class="secondary-btn"
+            onclick="loadCustomers()">
+
+            🔄 Làm mới
+
+        </button>
+
+        <br><br>
+
+        <div
+            id="customersTable"
+            class="table-wrap">
+
+            <div class="loading">
+                Đang tải...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     TOPUPS
+========================================= -->
+
+<section
+    id="page-topups"
+    class="page">
+
+    <h1 class="page-title">
+        💳 Nạp tiền
+    </h1>
+
+    <div class="page-subtitle">
+        Quản lý yêu cầu nạp tiền
+    </div>
+
+
+    <div class="box">
+
+        <button
+            class="secondary-btn"
+            onclick="loadTopups()">
+
+            🔄 Làm mới
+
+        </button>
+
+        <br><br>
+
+        <div
+            id="topupsTable"
+            class="table-wrap">
+
+            <div class="loading">
+                Đang tải...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ORDERS
+========================================= -->
+
+<section
+    id="page-orders"
+    class="page">
+
+    <h1 class="page-title">
+        🧾 Đơn hàng
+    </h1>
+
+    <div class="page-subtitle">
+        Danh sách đơn hàng
+    </div>
+
+
+    <div class="box">
+
+        <button
+            class="secondary-btn"
+            onclick="loadOrders()">
+
+            🔄 Làm mới
+
+        </button>
+
+        <br><br>
+
+        <div
+            id="ordersTable"
+            class="table-wrap">
+
+            <div class="loading">
+                Đang tải...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SHOP STATUS
+========================================= -->
+
+<section
+    id="page-shop-status"
+    class="page">
+
+    <h1 class="page-title">
+        🏪 Trạng thái Shop
+    </h1>
+
+    <div class="page-subtitle">
+        Thay đổi trạng thái hoạt động của ShopKarot
+    </div>
+
+
+    <div class="box">
+
+        <div class="shop-status">
+
+            <div>
+                Trạng thái hiện tại:
+            </div>
+
+            <div
+                id="currentShopStatus"
+                class="current-status">
+
+                Đang tải...
+
+            </div>
+
+        </div>
+
+
+        <select id="shopStatusSelect">
+
+            <option>
+                Shop đang hoạt động
+            </option>
+
+            <option>
+                Shop đang bảo trì
+            </option>
+
+            <option>
+                Shop tạm đóng
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button
+            class="primary-btn"
+            onclick="setShopStatus()">
+
+            💾 LƯU TRẠNG THÁI
+
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
 
 </div>
 
+
 <script>
 
-/*
-================================================
-ADMIN KEY
-================================================
+/* =========================================
+   API SHOPKAROT
+========================================= */
 
-ĐỔI DÒNG NÀY thành Admin Key thật của bạn.
-
-Ví dụ:
-
-const ADMIN_KEY="Admin123";
-
-================================================
-*/
-
-const ADMIN_KEY="Admin123";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbw_7sA0tI5omojIDGLfd4tmD4_tgjhAlX1UPnT0x92NdEqZcODTmXPRxJh3GBmW2cQX3Q/exec";
 
 
-function loginAdmin(){
+/* =========================================
+   KIỂM TRA ĐĂNG NHẬP
+========================================= */
 
-    const key=
-        document.getElementById("adminKey")
-        .value;
-
-    const message=
-        document.getElementById("message");
-
-    if(!key){
-
-        message.style.color="red";
-
-        message.textContent=
-            "Vui lòng nhập Admin Key.";
-
-        return;
-    }
-
-    if(key!==ADMIN_KEY){
-
-        message.style.color="red";
-
-        message.textContent=
-            "Admin Key không đúng.";
-
-        return;
-    }
-
-    /*
-    Lưu trạng thái đăng nhập
-    */
-
-    localStorage.setItem(
-        "shopkarot_admin_login",
-        "true"
+const adminLogin =
+    localStorage.getItem(
+        "shopkarot_admin_login"
     );
 
-    localStorage.setItem(
-        "shopkarot_admin_type",
-        "main"
-    );
+if(adminLogin !== "true"){
 
-    message.style.color="#168b42";
+    window.location.href =
+        "admin.html";
 
-    message.textContent=
-        "Đăng nhập Admin chính thành công!";
-
-    setTimeout(function(){
-
-        /*
-        Nếu bạn có trang quản trị riêng,
-        đổi thành tên file đó.
-
-        Ví dụ:
-        admin-panel.html
-        */
-
-        window.location.href="index.html";
-
-    },700);
 }
 
 
-/* Enter để đăng nhập */
+/* =========================================
+   ADMIN TYPE
+========================================= */
 
-document.addEventListener(
-    "keydown",
-    function(e){
+const adminType =
+    localStorage.getItem(
+        "shopkarot_admin_type"
+    );
 
-        if(e.key==="Enter"){
-            loginAdmin();
-        }
+
+if(adminType === "sub"){
+
+    document.getElementById(
+        "adminType"
+    ).textContent =
+        "👤 Admin phụ";
+
+}else{
+
+    document.getElementById(
+        "adminType"
+    ).textContent =
+        "🛠️ Admin chính";
+
+}
+
+
+/* =========================================
+   API CALL
+========================================= */
+
+async function api(action,data={}){
+
+    const body={
+        action:action,
+        ...data
+    };
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+                    method:"POST",
+                    headers:{
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+                    body:JSON.stringify(body)
+                }
+            );
+
+        const result =
+            await response.json();
+
+        return result;
 
     }
-);
+
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Không kết nối được Apps Script.",
+            "error"
+        );
+
+        return {
+            ok:false,
+            message:
+                "Không kết nối được Apps Script"
+        };
+
+    }
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    const box =
+        document.getElementById(
+            "message"
+        );
+
+    box.className =
+        "message show " + type;
+
+    box.textContent =
+        text;
+
+    setTimeout(
+        function(){
+
+            box.className =
+                "message";
+
+        },
+        3500
+    );
+
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+function showPage(
+    page,
+    button
+){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(
+            function(item){
+
+                item.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    const target =
+        document.getElementById(
+            "page-" + page
+        );
+
+    if(target){
+
+        target.classList.add(
+            "active"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(".menu-btn")
+        .forEach(
+            function(item){
+
+                item.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    if(button){
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if(page==="dashboard")
+        loadDashboard();
+
+    if(page==="accounts")
+        loadAccounts();
+
+    if(page==="customers")
+        loadCustomers();
+
+    if(page==="topups")
+        loadTopups();
+
+    if(page==="orders")
+        loadOrders();
+
+    if(page==="shop-status")
+        loadShopStatus();
+
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+async function loadDashboard(){
+
+    const result =
+        await api(
+            "getDashboard"
+        );
+
+    if(!result.ok){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "totalCustomers"
+    ).textContent =
+        result.customers || 0;
+
+
+    document.getElementById(
+        "totalAccounts"
+    ).textContent =
+        result.accounts || 0;
+
+
+    document.getElementById(
+        "pendingTopups"
+    ).textContent =
+        result.pendingTopups || 0;
+
+
+    document.getElementById(
+        "totalOrders"
+    ).textContent =
+        result.orders || 0;
+
+
+    document.getElementById(
+        "totalBalance"
+    ).textContent =
+        money(
+            result.totalBalance || 0
+        ) + "đ";
+
+
+    const status =
+        await api(
+            "getShopStatus"
+        );
+
+
+    if(status.ok){
+
+        document.getElementById(
+            "dashboardShopStatus"
+        ).textContent =
+            status.status;
+
+    }
+
+}
+
+
+/* =========================================
+   ADD ACCOUNT
+========================================= */
+
+async function addAccount(){
+
+    const game =
+        document.getElementById(
+            "accountGame"
+        ).value.trim();
+
+    const username =
+        document.getElementById(
+            "accountUsername"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "accountPassword"
+        ).value;
+
+
+    if(
+        !game ||
+        !username ||
+        !password
+    ){
+
+        showMessage(
+            "Vui lòng nhập đầy đủ thông tin acc.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const result =
+        await api(
+            "addAccount",
+            {
+                game:game,
+                username:username,
+                password:password
+            }
+        );
+
+
+    if(result.ok){
+
+        showMessage(
+            "Đã thêm acc thành công.",
+            "success"
+        );
+
+
+        document.getElementById(
+            "accountGame"
+        ).value="";
+
+
+        document.getElementById(
+            "accountUsername"
+        ).value="";
+
+
+        document.getElementById(
+            "accountPassword"
+        ).value="";
+
+    }
+
+    else{
+
+        showMessage(
+            result.message ||
+            "Không thể thêm acc.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   ACCOUNTS
+========================================= */
+
+async function loadAccounts(){
+
+    const box =
+        document.getElementById(
+            "accountsTable"
+        );
+
+    box.innerHTML =
+        '<div class="loading">Đang tải...</div>';
+
+
+    const result =
+        await api(
+            "getAccounts"
+        );
+
+
+    if(!result.ok){
+
+        box.innerHTML =
+            "Không thể tải kho acc.";
+
+        return;
+
+    }
+
+
+    const accounts =
+        result.accounts || [];
+
+
+    if(accounts.length===0){
+
+        box.innerHTML =
+            "<p>Kho acc đang trống.</p>";
+
+        return;
+
+    }
+
+
+    let html = `
+    <table>
+
+    <thead>
+
+    <tr>
+        <th>ID</th>
+        <th>Game</th>
+        <th>Tài khoản</th>
+        <th>Mật khẩu</th>
+        <th>Trạng thái</th>
+        <th>Thao tác</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    `;
+
+
+    accounts.forEach(
+        function(acc){
+
+            html += `
+
+            <tr>
+
+                <td>${esc(acc.id)}</td>
+
+                <td>${esc(acc.game)}</td>
+
+                <td>${esc(acc.username)}</td>
+
+                <td>${esc(acc.password)}</td>
+
+                <td>
+                    <span class="status ${esc(acc.status)}">
+                        ${esc(acc.status)}
+                    </span>
+                </td>
+
+                <td>
+
+                    <button
+                        class="danger-btn"
+                        onclick="deleteAccount('${escAttr(acc.id)}')">
+
+                        🗑️ Xóa
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+    </tbody>
+    </table>
+    `;
+
+
+    box.innerHTML =
+        html;
+
+}
+
+
+/* =========================================
+   DELETE ACCOUNT
+========================================= */
+
+async function deleteAccount(id){
+
+    if(
+        !confirm(
+            "Bạn có chắc muốn xóa acc này?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    const result =
+        await api(
+            "deleteAccount",
+            {
+                id:id
+            }
+        );
+
+
+    if(result.ok){
+
+        showMessage(
+            "Đã xóa acc.",
+            "success"
+        );
+
+        loadAccounts();
+
+    }
+
+    else{
+
+        showMessage(
+            result.message ||
+            "Không thể xóa acc.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   CUSTOMERS
+========================================= */
+
+async function loadCustomers(){
+
+    const box =
+        document.getElementById(
+            "customersTable"
+        );
+
+    box.innerHTML =
+        '<div class="loading">Đang tải...</div>';
+
+
+    const result =
+        await api(
+            "getCustomers"
+        );
+
+
+    if(!result.ok){
+
+        box.innerHTML =
+            "Không thể tải khách hàng.";
+
+        return;
+
+    }
+
+
+    const users =
+        result.customers || [];
+
+
+    if(users.length===0){
+
+        box.innerHTML =
+            "<p>Chưa có khách hàng.</p>";
+
+        return;
+
+    }
+
+
+    let html=`
+
+    <table>
+
+    <thead>
+
+    <tr>
+        <th>Username</th>
+        <th>Số dư</th>
+        <th>Ngày đăng ký</th>
+        <th>Trạng thái</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    `;
+
+
+    users.forEach(
+        function(user){
+
+            html += `
+
+            <tr>
+
+                <td>
+                    ${esc(user.username)}
+                </td>
+
+                <td>
+                    <b>
+                        ${money(user.balance)}đ
+                    </b>
+                </td>
+
+                <td>
+                    ${formatDate(user.createdAt)}
+                </td>
+
+                <td>
+
+                    <span class="status ${esc(user.status)}">
+
+                        ${esc(user.status)}
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            `;
+
+        }
+    );
+
+
+    html+=`
+
+    </tbody>
+    </table>
+    `;
+
+
+    box.innerHTML =
+        html;
+
+}
+
+
+/* =========================================
+   TOPUPS
+========================================= */
+
+async function loadTopups(){
+
+    const box =
+        document.getElementById(
+            "topupsTable"
+        );
+
+    box.innerHTML =
+        '<div class="loading">Đang tải...</div>';
+
+
+    const result =
+        await api(
+            "getTopups"
+        );
+
+
+    if(!result.ok){
+
+        box.innerHTML =
+            "Không thể tải nạp tiền.";
+
+        return;
+
+    }
+
+
+    const topups =
+        result.topups || [];
+
+
+    if(topups.length===0){
+
+        box.innerHTML =
+            "<p>Chưa có yêu cầu nạp.</p>";
+
+        return;
+
+    }
+
+
+    let html=`
+
+    <table>
+
+    <thead>
+
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Số tiền</th>
+        <th>Phương thức</th>
+        <th>Trạng thái</th>
+        <th>Thời gian</th>
+        <th>Thao tác</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    `;
+
+
+    topups.forEach(
+        function(item){
+
+            const status =
+                String(
+                    item.status || ""
+                );
+
+
+            let actions="";
+
+
+            if(status==="pending"){
+
+                actions=`
+
+                <button
+                    class="success-btn"
+                    onclick="approveTopup('${escAttr(item.id)}')">
+
+                    ✓ Duyệt
+
+                </button>
+
+                <button
+                    class="danger-btn"
+                    onclick="rejectTopup('${escAttr(item.id)}')">
+
+                    ✕ Từ chối
+
+                </button>
+
+                `;
+
+            }
+
+
+            html+=`
+
+            <tr>
+
+                <td>${esc(item.id)}</td>
+
+                <td>${esc(item.username)}</td>
+
+                <td>
+                    <b>
+                        ${money(item.amount)}đ
+                    </b>
+                </td>
+
+                <td>${esc(item.method)}</td>
+
+                <td>
+                    <span class="status ${esc(status)}">
+                        ${esc(status)}
+                    </span>
+                </td>
+
+                <td>
+                    ${formatDate(item.createdAt)}
+                </td>
+
+                <td>
+                    ${actions}
+                </td>
+
+            </tr>
+
+            `;
+
+        }
+    );
+
+
+    html+=`
+
+    </tbody>
+    </table>
+    `;
+
+
+    box.innerHTML =
+        html;
+
+}
+
+
+/* =========================================
+   APPROVE TOPUP
+========================================= */
+
+async function approveTopup(id){
+
+    if(
+        !confirm(
+            "Duyệt yêu cầu nạp tiền này?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    const result =
+        await api(
+            "approveTopup",
+            {
+                id:id
+            }
+        );
+
+
+    if(result.ok){
+
+        showMessage(
+            "Đã duyệt nạp tiền.",
+            "success"
+        );
+
+        loadTopups();
+
+    }
+
+    else{
+
+        showMessage(
+            result.message ||
+            "Không thể duyệt.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   REJECT TOPUP
+========================================= */
+
+async function rejectTopup(id){
+
+    if(
+        !confirm(
+            "Từ chối yêu cầu nạp tiền này?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    const result =
+        await api(
+            "rejectTopup",
+            {
+                id:id
+            }
+        );
+
+
+    if(result.ok){
+
+        showMessage(
+            "Đã từ chối nạp tiền.",
+            "success"
+        );
+
+        loadTopups();
+
+    }
+
+    else{
+
+        showMessage(
+            result.message ||
+            "Không thể từ chối.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   ORDERS
+========================================= */
+
+async function loadOrders(){
+
+    const box =
+        document.getElementById(
+            "ordersTable"
+        );
+
+    box.innerHTML =
+        '<div class="loading">Đang tải...</div>';
+
+
+    const result =
+        await api(
+            "getOrders"
+        );
+
+
+    if(!result.ok){
+
+        box.innerHTML =
+            "Không thể tải đơn hàng.";
+
+        return;
+
+    }
+
+
+    const orders =
+        result.orders || [];
+
+
+    if(orders.length===0){
+
+        box.innerHTML =
+            "<p>Chưa có đơn hàng.</p>";
+
+        return;
+
+    }
+
+
+    let html=`
+
+    <table>
+
+    <thead>
+
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Sản phẩm</th>
+        <th>Giá</th>
+        <th>Trạng thái</th>
+        <th>Thời gian</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    `;
+
+
+    orders.forEach(
+        function(order){
+
+            html+=`
+
+            <tr>
+
+                <td>${esc(order.id)}</td>
+
+                <td>${esc(order.username)}</td>
+
+                <td>${esc(order.product)}</td>
+
+                <td>
+                    <b>
+                        ${money(order.price)}đ
+                    </b>
+                </td>
+
+                <td>
+
+                    <span class="status ${esc(order.status)}">
+
+                        ${esc(order.status)}
+
+                    </span>
+
+                </td>
+
+                <td>
+                    ${formatDate(order.createdAt)}
+                </td>
+
+            </tr>
+
+            `;
+
+        }
+    );
+
+
+    html+=`
+
+    </tbody>
+    </table>
+    `;
+
+
+    box.innerHTML =
+        html;
+
+}
+
+
+/* =========================================
+   SHOP STATUS
+========================================= */
+
+async function loadShopStatus(){
+
+    const result =
+        await api(
+            "getShopStatus"
+        );
+
+
+    if(!result.ok){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "currentShopStatus"
+    ).textContent =
+        result.status;
+
+
+    document.getElementById(
+        "shopStatusSelect"
+    ).value =
+        result.status;
+
+}
+
+
+/* =========================================
+   SET SHOP STATUS
+========================================= */
+
+async function setShopStatus(){
+
+    const status =
+        document.getElementById(
+            "shopStatusSelect"
+        ).value;
+
+
+    const result =
+        await api(
+            "setShopStatus",
+            {
+                status:status
+            }
+        );
+
+
+    if(result.ok){
+
+        document.getElementById(
+            "currentShopStatus"
+        ).textContent =
+            result.status;
+
+
+        showMessage(
+            "Đã cập nhật trạng thái Shop.",
+            "success"
+        );
+
+    }
+
+    else{
+
+        showMessage(
+            result.message ||
+            "Không thể cập nhật trạng thái.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logout(){
+
+    localStorage.removeItem(
+        "shopkarot_admin_login"
+    );
+
+    localStorage.removeItem(
+        "shopkarot_admin_type"
+    );
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* =========================================
+   FORMAT MONEY
+========================================= */
+
+function money(value){
+
+    const number =
+        Number(value || 0);
+
+    return number.toLocaleString(
+        "vi-VN"
+    );
+
+}
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(value){
+
+    if(!value){
+        return "";
+    }
+
+    try{
+
+        const date =
+            new Date(value);
+
+        if(
+            isNaN(
+                date.getTime()
+            )
+        ){
+
+            return String(value);
+
+        }
+
+        return date.toLocaleString(
+            "vi-VN"
+        );
+
+    }
+
+    catch(e){
+
+        return String(value);
+
+    }
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function esc(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function escAttr(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /'/g,
+        "\\'"
+    );
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+loadDashboard();
 
 </script>
 
