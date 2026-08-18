@@ -4,1070 +4,1579 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SHOPKAROT - Shop Game</title>
+<title>SHOPKAROT - Shop Acc Game</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f7fb;
-    color: #222;
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-/* =========================
-   HEADER
-========================= */
-
-header {
-    background: linear-gradient(135deg, #111827, #2563eb);
-    color: white;
-    padding: 18px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+    color:#111;
 }
 
-.header-inner {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
 }
 
-.logo-box {
-    width: 45px;
-    height: 45px;
-    border-radius: 12px;
-    background: white;
-    color: #2563eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: bold;
+.logo-text b span{
+    color:#e21b23;
 }
 
-.logo-text h1 {
-    font-size: 21px;
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
 }
 
-.logo-text p {
-    font-size: 12px;
-    opacity: .85;
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
 }
 
-/* =========================
-   MENU
-========================= */
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 9px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: .2s;
+.menu-button:hover{
+    background:#f1f2f4;
 }
 
-nav a:hover {
-    background: rgba(255,255,255,.15);
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:white;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
 }
 
-.login-btn {
-    background: white;
-    color: #2563eb !important;
-    font-weight: bold;
+.menu-box.show{
+    display:block;
 }
 
-.login-btn:hover {
-    background: #eaf0ff !important;
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
 }
 
-/* =========================
-   SHOP STATUS
-========================= */
-
-.status-wrapper {
-    max-width: 1200px;
-    margin: 18px auto 0;
-    padding: 0 15px;
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
 }
 
-.shop-status {
-    background: white;
-    border-radius: 14px;
-    padding: 15px 18px;
-    box-shadow: 0 3px 15px rgba(0,0,0,.07);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+/* ================= USER ================= */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:white;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
 }
 
-.status-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
 }
 
-.status-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
 }
 
-.status-ready {
-    background: #dcfce7;
+.user-info b{
+    display:block;
+    font-size:14px;
 }
 
-.status-not-ready {
-    background: #fee2e2;
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
 }
 
-.status-loading {
-    background: #fef3c7;
+/* ================= CONTAINER ================= */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
 }
 
-.status-info strong {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 4px;
+/* ================= TOP ================= */
+
+.top{
+    display:grid;
+    grid-template-columns:2.15fr 1fr;
+    gap:15px;
 }
 
-.status-info span {
-    font-size: 13px;
-    color: #666;
+/* ================= HERO ================= */
+
+.hero{
+    min-height:445px;
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:
+        radial-gradient(circle at 75% 25%,#9d1111 0%,#390707 35%,#050505 75%);
+    color:white;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
 }
 
-.status-badge {
-    padding: 8px 13px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-    white-space: nowrap;
+.hero-content{
+    padding:60px 50px;
 }
 
-.badge-ready {
-    background: #dcfce7;
-    color: #15803d;
+.shop-big{
+    font-size:65px;
+    font-weight:1000;
+    font-style:italic;
+    letter-spacing:-3px;
 }
 
-.badge-not-ready {
-    background: #fee2e2;
-    color: #dc2626;
+.shop-big span{
+    color:#ed1c24;
 }
 
-.badge-loading {
-    background: #fef3c7;
-    color: #a16207;
+.hero h1{
+    margin:8px 0;
+    font-size:38px;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 15px;
+.hero h2{
+    margin:15px 0 28px;
+    color:#ffd21b;
+    font-size:28px;
 }
 
-.hero-box {
-    background: linear-gradient(135deg, #1d4ed8, #7c3aed);
-    color: white;
-    border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 10px 30px rgba(37,99,235,.2);
+.badges{
+    display:flex;
+    gap:12px;
 }
 
-.hero-box h2 {
-    font-size: 34px;
-    margin-bottom: 12px;
+.badge{
+    min-width:175px;
+    padding:12px;
+    border:1px solid #ed2424;
+    border-radius:12px;
+    background:rgba(0,0,0,.62);
+    font-size:22px;
 }
 
-.hero-box p {
-    max-width: 700px;
-    line-height: 1.6;
-    opacity: .95;
+.badge b{
+    font-size:15px;
 }
 
-.hero-buttons {
-    margin-top: 22px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.badge small{
+    display:block;
+    margin:5px 0 0 30px;
+    color:#ddd;
+    font-size:11px;
 }
 
-.hero-btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 12px 18px;
-    border-radius: 10px;
-    font-weight: bold;
-    background: white;
-    color: #1d4ed8;
+.social{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 18px;
+    border:1px solid #555;
+    border-radius:10px;
+    background:rgba(0,0,0,.7);
+    font-weight:bold;
 }
 
-.hero-btn.secondary {
-    background: rgba(255,255,255,.15);
-    color: white;
-    border: 1px solid rgba(255,255,255,.3);
+/* ================= TOP NẠP ================= */
+
+.top-nap{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 22px rgba(0,0,0,.1);
 }
 
-/* =========================
-   CONTENT
-========================= */
-
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 15px 40px;
+.top-nap-title{
+    padding:19px;
+    background:#d01018;
+    color:white;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
 }
 
-.section-title {
-    text-align: center;
-    margin: 35px 0 20px;
+.rank{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 20px;
+    border-bottom:1px solid #eee;
 }
 
-.section-title h2 {
-    font-size: 27px;
-    margin-bottom: 7px;
+.rank-medal{
+    width:30px;
+    font-size:20px;
 }
 
-.section-title p {
-    color: #666;
-    font-size: 14px;
+.rank-name{
+    flex:1;
+    font-weight:bold;
 }
 
-/* =========================
-   GAME CARDS
-========================= */
-
-.games {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+.rank-money{
+    color:#e21b23;
+    font-weight:bold;
 }
 
-.game-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0,0,0,.07);
-    transition: .25s;
-    border: 1px solid #edf0f5;
+.nap-button{
+    display:block;
+    margin:20px;
+    padding:16px;
+    border-radius:9px;
+    background:#d01018;
+    color:white;
+    text-align:center;
+    font-weight:bold;
 }
 
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+/* ================= CONTENT ================= */
+
+.content{
+    display:grid;
+    grid-template-columns:365px 1fr;
+    gap:15px;
+    margin-top:15px;
 }
 
-.game-image {
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 55px;
-    background: linear-gradient(135deg, #dbeafe, #ede9fe);
+.card{
+    background:white;
+    border-radius:17px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
 
-.game-content {
-    padding: 18px;
+/* ================= NOTICE ================= */
+
+.notice{
+    padding:22px;
 }
 
-.game-content h3 {
-    font-size: 19px;
-    margin-bottom: 7px;
+.notice h2{
+    margin:0 0 20px;
+    font-size:21px;
 }
 
-.game-content p {
-    color: #666;
-    font-size: 13px;
-    line-height: 1.5;
-    min-height: 40px;
+.notice p{
+    margin:13px 0;
+    font-size:15px;
+    line-height:1.5;
 }
 
-.game-btn {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 15px;
-    padding: 11px;
-    border-radius: 9px;
-    background: #2563eb;
-    color: white;
-    font-weight: bold;
-    transition: .2s;
+.notice .thank{
+    text-align:center;
+    font-weight:bold;
+    margin-top:20px;
 }
 
-.game-btn:hover {
-    background: #1d4ed8;
+/* ================= FEATURED ================= */
+
+.featured{
+    padding:18px;
 }
 
-/* =========================
-   NOTICE
-========================= */
-
-.notice {
-    margin-top: 25px;
-    background: white;
-    border-left: 5px solid #2563eb;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 3px 15px rgba(0,0,0,.06);
+.title{
+    display:flex;
+    align-items:center;
 }
 
-.notice h3 {
-    margin-bottom: 10px;
+.title h2{
+    margin:0 0 15px;
+    font-size:21px;
 }
 
-.notice p {
-    color: #555;
-    line-height: 1.6;
-    margin: 5px 0;
+.games{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= GAME ================= */
 
-footer {
-    background: #111827;
-    color: white;
-    padding: 30px 15px;
-    margin-top: 30px;
+.game{
+    overflow:hidden;
+    background:white;
+    border:1px solid #e4e7eb;
+    border-radius:12px;
+    text-align:center;
 }
 
-.footer-inner {
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
+.game-image{
+    width:100%;
+    height:145px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:22px;
+    font-weight:1000;
+    text-align:center;
+    text-shadow:2px 2px 5px #000;
 }
 
-.footer-inner h3 {
-    margin-bottom: 8px;
+.blox{
+    background:linear-gradient(135deg,#27006e,#913bff);
 }
 
-.footer-inner p {
-    font-size: 13px;
-    color: #cbd5e1;
-    margin: 5px 0;
+.king{
+    background:linear-gradient(135deg,#06345d,#1689df);
 }
 
-/* =========================
-   LOGIN INFO
-========================= */
-
-.user-box {
-    display: none;
-    background: rgba(255,255,255,.12);
-    padding: 8px 12px;
-    border-radius: 9px;
-    font-size: 13px;
+.anime{
+    background:linear-gradient(135deg,#08733a,#62d52b);
 }
 
-.logout-btn {
-    border: 0;
-    cursor: pointer;
-    background: #ef4444;
-    color: white;
-    padding: 8px 11px;
-    border-radius: 8px;
-    font-weight: bold;
+.grow{
+    background:linear-gradient(135deg,#166534,#84cc16);
 }
 
-/* =========================
-   MOBILE
-========================= */
+.grow2{
+    background:linear-gradient(135deg,#14532d,#a3e635);
+}
 
-@media (max-width: 850px) {
+.mm2{
+    background:linear-gradient(135deg,#560000,#ec2424);
+}
 
-    .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
+.caythue{
+    background:linear-gradient(135deg,#160000,#d10b0b);
+}
+
+.game h3{
+    margin:10px 4px 5px;
+    font-size:15px;
+}
+
+.game small{
+    color:#6b7280;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+    display:inline-block;
+    margin:5px 0;
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.status.ready{
+    background:#e7f8ef;
+    border:1px solid #b7e8ca;
+    color:#00a86b;
+}
+
+.status.not-ready{
+    background:#fff0f0;
+    border:1px solid #f0bcbc;
+    color:#d01018;
+}
+
+/* ================= BUTTON ================= */
+
+.game-button{
+    display:block;
+    margin:10px 16px;
+    padding:10px;
+    border-radius:8px;
+    background:#a80e12;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.game-button:hover{
+    background:#d0161d;
+}
+
+/* ================= SHOP STATUS ================= */
+
+.shop-status{
+    display:none;
+    margin-bottom:15px;
+    padding:15px 18px;
+    border-radius:13px;
+    background:white;
+    border:1px solid #eee;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+    font-weight:bold;
+}
+
+.shop-status.show{
+    display:block;
+}
+
+.shop-status.ready{
+    color:#078542;
+    border-color:#bde7cd;
+    background:#f0fff6;
+}
+
+.shop-status.not-ready{
+    color:#d01018;
+    border-color:#f1bebe;
+    background:#fff5f5;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+    margin-top:15px;
+    padding:22px;
+}
+
+.stat{
+    display:grid;
+    grid-template-columns:45px 1fr;
+    align-items:center;
+    color:#e21b23;
+    font-size:25px;
+}
+
+.stat b{
+    font-size:18px;
+}
+
+.stat small{
+    grid-column:2;
+    color:#596577;
+    font-size:12px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1200px){
+
+    .games{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    nav {
-        width: 100%;
-        justify-content: flex-start;
-    }
-
-    .games {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero-box h2 {
-        font-size: 27px;
-    }
 }
 
-@media (max-width: 550px) {
+@media(max-width:1000px){
 
-    nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
+    .top{
+        grid-template-columns:1fr;
     }
 
-    nav a {
-        text-align: center;
+    .content{
+        grid-template-columns:1fr;
     }
 
-    .games {
-        grid-template-columns: 1fr;
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
     }
 
-    .shop-status {
-        align-items: flex-start;
-        flex-direction: column;
+    .logo{
+        min-width:auto;
     }
 
-    .status-badge {
-        align-self: flex-start;
+    .logo-text b{
+        font-size:23px;
     }
 
-    .hero-box {
-        padding: 28px 20px;
+    .logo-text small{
+        display:none;
     }
 
-    .hero-box h2 {
-        font-size: 24px;
+    .user{
+        margin-left:auto;
+        padding:6px 8px;
     }
+
+    .user-info small{
+        font-size:11px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .hero-content{
+        padding:40px 22px;
+    }
+
+    .shop-big{
+        font-size:45px;
+    }
+
+    .hero h1{
+        font-size:26px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .badges{
+        flex-direction:column;
+    }
+
+    .badge{
+        width:100%;
+    }
+
+    .games{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .games{
+        grid-template-columns:1fr;
+    }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
-<header>
+<header class="header">
 
-    <div class="header-inner">
+    <a href="index.html" class="logo">
 
-        <div class="logo">
-
-            <div class="logo-box">
-                SK
-            </div>
-
-            <div class="logo-text">
-                <h1>SHOPKAROT</h1>
-                <p>Shop Game Uy Tín</p>
-            </div>
-
+        <div class="logo-icon">
+            SK
         </div>
 
-        <nav>
+        <div class="logo-text">
+            <b>SHOP<span>KAROT</span></b>
+            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+        </div>
 
-            <a href="index.html">
-                Trang chủ
-            </a>
+    </a>
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div class="menu-box" id="menuBox">
 
             <a href="acc-game.html">
-                Acc Game
+                🎮 ACC GAME
             </a>
 
             <a href="tui-mu.html?price=0">
-                Túi Mù
-            </a>
-
-            <a href="nap-tien.html">
-                Nạp tiền
+                🎁 TÚI MÙ
             </a>
 
             <a href="lich-su.html">
-                Lịch sử
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
             </a>
 
             <a href="ho-so.html">
-                Hồ sơ
+                👤 HỒ SƠ
             </a>
 
-            <a href="login.html" class="login-btn">
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+            <a
+                href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html"
+                class="back-old-shop">
+                ↩️ QUAY LẠI SHOP CŨ
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="user" id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
                 Đăng nhập
-            </a>
+            </b>
 
-        </nav>
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
 
     </div>
 
 </header>
 
 
-<!-- =========================
-     SHOP STATUS
-========================= -->
-
-<div class="status-wrapper">
-
-    <div class="shop-status">
-
-        <div class="status-left">
-
-            <div
-                id="statusIcon"
-                class="status-icon status-loading"
-            >
-                ⏳
-            </div>
-
-            <div class="status-info">
-
-                <strong id="statusTitle">
-                    Đang kiểm tra trạng thái Shop...
-                </strong>
-
-                <span id="statusDescription">
-                    Vui lòng chờ trong giây lát.
-                </span>
-
-            </div>
-
-        </div>
-
-        <div
-            id="statusBadge"
-            class="status-badge badge-loading"
-        >
-            Đang kiểm tra
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-    <div class="hero-box">
-
-        <h2>
-            🎮 SHOPKAROT
-        </h2>
-
-        <p>
-            Chào mừng bạn đến với ShopKarot.
-            Tại đây bạn có thể mua tài khoản game,
-            Túi Mù và các sản phẩm game khác.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="acc-game.html"
-                class="hero-btn"
-            >
-                🛒 Xem Acc Game
-            </a>
-
-            <a
-                href="tui-mu.html?price=0"
-                class="hero-btn secondary"
-            >
-                🎁 Xem Túi Mù
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     GAME
-========================= -->
+<!-- ================= MAIN ================= -->
 
 <main class="container">
 
-    <div class="section-title">
+    <!-- SHOP STATUS -->
 
-        <h2>
-            🎮 Danh Mục Game
-        </h2>
-
-        <p>
-            Lựa chọn game bạn muốn mua tài khoản
-        </p>
-
+    <div
+        id="shopStatusBox"
+        class="shop-status">
     </div>
 
 
-    <div class="games">
+    <!-- ================= BANNER ================= -->
 
+    <section class="top">
 
-        <!-- BLOX FRUITS -->
+        <div class="hero">
 
-        <div class="game-card">
+            <div class="hero-content">
 
-            <div class="game-image">
-                🍎
-            </div>
+                <div class="shop-big">
+                    SHOP<span>KAROT</span>
+                </div>
 
-            <div class="game-content">
+                <h1>
+                    SHOP ACC GAME UY TÍN
+                </h1>
 
-                <h3>
-                    Blox Fruits
-                </h3>
+                <h2>
+                    GIÁ RẺ - TỰ ĐỘNG - AN TOÀN
+                </h2>
 
-                <p>
-                    Tài khoản Blox Fruits
-                    nhiều cấp độ và nhiều lựa chọn.
-                </p>
+                <div class="badges">
 
-                <a
-                    href="acc-blox-fruit.html"
-                    class="game-btn"
-                >
-                    Xem Blox Fruits
-                </a>
+                    <div class="badge">
+                        🛡️ <b>UY TÍN</b>
+                        <small>
+                            Đặt uy tín lên hàng đầu
+                        </small>
+                    </div>
 
-            </div>
+                    <div class="badge">
+                        ⚡ <b>TỰ ĐỘNG</b>
+                        <small>
+                            Giao acc nhanh chóng
+                        </small>
+                    </div>
 
-        </div>
+                    <div class="badge">
+                        🏅 <b>AN TOÀN</b>
+                        <small>
+                            Bảo hành đầy đủ
+                        </small>
+                    </div>
 
+                </div>
 
-        <!-- KING LEGACY -->
-
-        <div class="game-card">
-
-            <div class="game-image">
-                👑
-            </div>
-
-            <div class="game-content">
-
-                <h3>
-                    King Legacy
-                </h3>
-
-                <p>
-                    Tài khoản King Legacy
-                    với nhiều lựa chọn.
-                </p>
-
-                <a
-                    href="acc-king-legacy.html"
-                    class="game-btn"
-                >
-                    Xem sản phẩm
-                </a>
+                <div class="social">
+                    ♪ @shopkarot
+                    &nbsp;&nbsp;
+                    ▶ ShopKarot
+                    &nbsp;&nbsp;
+                    f /shopkarot.vn
+                </div>
 
             </div>
 
         </div>
 
 
-        <!-- ANIME FIGHTERS -->
+        <!-- ================= TOP NẠP ================= -->
 
-        <div class="game-card">
+        <aside class="top-nap">
 
-            <div class="game-image">
-                ⚔️
+            <div class="top-nap-title">
+                🏆 TOP NẠP THÁNG 08/2026
             </div>
 
-            <div class="game-content">
+            <div id="topNapList"></div>
 
-                <h3>
-                    Anime Fighters
-                </h3>
+            <a
+                href="nap-tien.html"
+                class="nap-button">
+                💰 NẠP TIỀN NGAY →
+            </a>
 
-                <p>
-                    Tài khoản Anime Fighters
-                    dành cho người chơi.
-                </p>
+        </aside>
 
-                <a
-                    href="acc-anime-fighters.html"
-                    class="game-btn"
-                >
-                    Xem sản phẩm
-                </a>
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="content">
+
+        <aside class="card notice">
+
+            <h2>
+                📣 Thông tin Shopkarot
+            </h2>
+
+            <p>
+                Hiện tại đây shop chính thức của Karot,
+                các shop khác là giả mạo.
+            </p>
+
+            <p>
+                Shop mình có bán nick và cày thuê Blox Fruits.
+            </p>
+
+            <p>
+                <b>Mình có:</b>
+            </p>
+
+            <p>
+                🔥 Giao acc nhanh sau khi hoàn tất đơn hàng.
+            </p>
+
+            <p>
+                🛡️ Bảo hành theo chính sách của từng sản phẩm.
+            </p>
+
+            <p>
+                💬 Mọi thắc mắc vui lòng liên hệ Admin Shopkarot.
+            </p>
+
+            <p>
+                ShopKarot uy tín, giá rẻ, an toàn,
+                nạp tiền nhanh chóng.
+            </p>
+
+            <p>
+                Thời hoạt động shop:
+                10h sáng – 8h tối.
+            </p>
+
+            <p>
+                ⚠️ Lưu ý quan trọng:
+                nên nạp tiền khi admin on.
+            </p>
+
+            <p class="thank">
+                🖤 Cảm ơn bạn đã ủng hộ SHOPKAROT!
+            </p>
+
+        </aside>
+
+
+        <!-- ================= DANH MỤC ================= -->
+
+        <section class="card featured">
+
+            <div class="title">
+
+                <h2>
+                    ⭐ DANH MỤC NỔI BẬT
+                </h2>
 
             </div>
 
+
+            <div class="games">
+
+
+                <!-- 1 BLOX FRUITS -->
+
+                <article class="game">
+
+                    <div class="game-image blox">
+                        BLOX<br>FRUITS
+                    </div>
+
+                    <h3>
+                        Blox Fruits
+                    </h3>
+
+                    <small>
+                        👥 Acc game
+                    </small>
+
+                    <br>
+
+                    <span
+                        class="status"
+                        id="status-blox">
+                        Đang tải...
+                    </span>
+
+                    <a
+                        href="acc-blox-fruit.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- 2 KING LEGACY -->
+
+                <article class="game">
+
+                    <div class="game-image king">
+                        KING<br>LEGACY
+                    </div>
+
+                    <h3>
+                        King Legacy
+                    </h3>
+
+                    <small>
+                        👥 Acc game
+                    </small>
+
+                    <br>
+
+                    <span
+                        class="status"
+                        id="status-king">
+                        Đang tải...
+                    </span>
+
+                    <a
+                        href="king-legacy.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- 3 ANIME FIGHTERS -->
+
+                <article class="game">
+
+                    <div class="game-image anime">
+                        ANIME<br>FIGHTERS
+                    </div>
+
+                    <h3>
+                        Anime Fighters
+                    </h3>
+
+                    <small>
+                        👥 Acc game
+                    </small>
+
+                    <br>
+
+                    <span
+                        class="status"
+                        id="status-anime">
+                        Đang tải...
+                    </span>
+
+                    <a
+                        href="anime-fighters.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- 4 GROW A GARDEN 2 -->
+
+                <article class="game">
+
+                    <div class="game-image grow2">
+                        GROW A<br>GARDEN 2
+                    </div>
+
+                    <h3>
+                        Grow A Garden 2
+                    </h3>
+
+                    <span
+                        class="status"
+                        id="status-grow2">
+                        Đang tải...
+                    </span>
+
+                    <a
+                        href="grow-a-garden-2.html"
+                        class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
+
+                </article>
+
+
+                <!-- 5 GROW A GARDEN -->
+
+                <article class="game">
+
+                    <div class="game-image grow">
+                        GROW A<br>GARDEN
+                    </div>
+
+                    <h3>
+                        Grow A Garden
+                    </h3>
+
+                    <span
+                        class="status"
+                        id="status-grow">
+                        Đang tải...
+                    </span>
+
+                    <a
+                        href="grow-a-garden.html"
+                        class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
+
+                </article>
+
+
+                <!-- 6 CÀY THUÊ -->
+
+                <article class="game">
+
+                    <div class="game-image caythue">
+                        CÀY THUÊ<br>BLOX FRUITS
+                    </div>
+
+                    <h3>
+                        Cày Thuê
+                    </h3>
+
+                    <span
+                        class="status"
+                        id="status-caythue">
+                        Đang tải...
+                    </span>
+
+                    <a
+                        href="cay-thue.html"
+                        class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
+
+                </article>
+
+
+                <!-- 7 MM2 -->
+
+                <article class="game">
+
+                    <div class="game-image mm2">
+                        MURDER<br>MYSTERY 2
+                    </div>
+
+                    <h3>
+                        Murder Mystery 2
+                    </h3>
+
+                    <small>
+                        👥 Acc game
+                    </small>
+
+                    <br>
+
+                    <span
+                        class="status"
+                        id="status-mm2">
+                        Đang tải...
+                    </span>
+
+                    <a
+                        href="murder-mystery-2.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="card stats">
+
+        <div class="stat">
+            🛒
+            <b>Đơn hàng</b>
+            <small>Đã bán</small>
         </div>
 
-
-        <!-- GROW A GARDEN 2 -->
-
-        <div class="game-card">
-
-            <div class="game-image">
-                🌱
-            </div>
-
-            <div class="game-content">
-
-                <h3>
-                    Grow A Garden 2
-                </h3>
-
-                <p>
-                    Tài khoản Grow A Garden 2
-                    với nhiều lựa chọn.
-                </p>
-
-                <a
-                    href="acc-grow-a-garden-2.html"
-                    class="game-btn"
-                >
-                    Xem sản phẩm
-                </a>
-
-            </div>
-
+        <div class="stat">
+            👥
+            <b>Khách hàng</b>
+            <small>Tin tưởng SHOPKAROT</small>
         </div>
 
-
-        <!-- GROW A GARDEN -->
-
-        <div class="game-card">
-
-            <div class="game-image">
-                🌻
-            </div>
-
-            <div class="game-content">
-
-                <h3>
-                    Grow A Garden
-                </h3>
-
-                <p>
-                    Tài khoản Grow A Garden
-                    đang được cập nhật.
-                </p>
-
-                <a
-                    href="acc-grow-a-garden.html"
-                    class="game-btn"
-                >
-                    Xem sản phẩm
-                </a>
-
-            </div>
-
+        <div class="stat">
+            🛡️
+            <b>100%</b>
+            <small>Bảo hành</small>
         </div>
 
-
-        <!-- MURDER MYSTERY -->
-
-        <div class="game-card">
-
-            <div class="game-image">
-                🔪
-            </div>
-
-            <div class="game-content">
-
-                <h3>
-                    Murder Mystery 2
-                </h3>
-
-                <p>
-                    Tài khoản Murder Mystery 2
-                    với nhiều lựa chọn.
-                </p>
-
-                <a
-                    href="acc-murder-mystery-2.html"
-                    class="game-btn"
-                >
-                    Xem sản phẩm
-                </a>
-
-            </div>
-
+        <div class="stat">
+            ⚡
+            <b>Tự động</b>
+            <small>Giao acc nhanh</small>
         </div>
 
+        <div class="stat">
+            🎧
+            <b>24/7</b>
+            <small>Hỗ trợ</small>
+        </div>
 
-    </div>
-
-
-    <!-- =========================
-         NOTICE
-    ========================= -->
-
-    <div class="notice">
-
-        <h3>
-            📣 Thông tin ShopKarot
-        </h3>
-
-        <p>
-            ⚠️ Vui lòng kiểm tra trạng thái Shop
-            ở phía trên trước khi mua hàng.
-        </p>
-
-        <p>
-            🔐 Bạn nên đăng nhập tài khoản trước
-            khi thực hiện mua sản phẩm.
-        </p>
-
-        <p>
-            💰 Hãy kiểm tra số dư trước khi đặt hàng.
-        </p>
-
-    </div>
+    </section>
 
 </main>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
-    <div class="footer-inner">
-
-        <h3>
-            SHOPKAROT
-        </h3>
-
-        <p>
-            Shop game online
-        </p>
-
-        <p>
-            © 2026 ShopKarot. All rights reserved.
-        </p>
-
-    </div>
-
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
 </footer>
 
 
 <script>
 
-/****************************************************
- * SHOPKAROT - API
- ****************************************************/
-
-/*
- * API Google Apps Script của ShopKarot
- *
- * QUAN TRỌNG:
- * Nên dùng URL /exec của Web App.
- */
+/* =====================================================
+   SHOPKAROT API
+   ===================================================== */
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbxIwDmq5IkOx8D-5K6AcxP4aL7OhMEspf-Odt3o7kKimNd6hlxs3pM6xtQTuvCOuDT2CQ/exec";
+"https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnRgD-BuqdD7GSQgluRTT0f6w-YS9PvD1Kx8racQBhr2t_bmbJ2i-QYavn6AjIBGK4BQnpCsYkz6fU0fVpOAUaniVoC2wcWI42qC0xNbkMhDp_vEFA3g-Kg9U1rnOnXV61CkYDclHN3AzeqKJ2B3ck0RVWC-5q0cu4cUEJO_AHAW_V1QlLX6oDZ_3ZlEje-8RXCi3R2J20KQ15PdKtaMAPJpWQS8OKwPKJoEk6cdrc2qy3RmI0HUQihnnxhmV-IsigWH4amSO5rG5xQh4gmL36SQiOnzWA&lib=MpsO-kXxXRbTROngTIh-fFNtg9oZl93DK";
 
 
-/****************************************************
- * HIỂN THỊ TRẠNG THÁI
- ****************************************************/
+/* =====================================================
+   MENU
+   ===================================================== */
 
-function showShopStatus(status) {
+function toggleMenu(){
 
-    const icon =
-        document.getElementById("statusIcon");
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
 
-    const title =
-        document.getElementById("statusTitle");
-
-    const description =
-        document.getElementById("statusDescription");
-
-    const badge =
-        document.getElementById("statusBadge");
+}
 
 
-    /*
-     * Trạng thái SẴN SÀNG
-     */
+document.addEventListener(
+    "click",
+    function(event){
 
-    if (
-        status === "Sẵn Sàng"
-        ||
-        status === "Shop đang hoạt động"
-        ||
-        status === "active"
-        ||
-        status === "ready"
-    ) {
+        const menu =
+            document.querySelector(".menu");
 
-        icon.className =
-            "status-icon status-ready";
+        if(!menu.contains(event.target)){
 
-        icon.textContent = "🟢";
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
 
-        title.textContent =
-            "Shop đang Sẵn Sàng";
+        }
 
-        description.textContent =
-            "Bạn có thể mua sản phẩm bình thường.";
+    }
+);
 
-        badge.className =
-            "status-badge badge-ready";
 
-        badge.textContent =
-            "🟢 Sẵn Sàng";
+/* =====================================================
+   USER
+   ===================================================== */
 
-        return;
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true"
+        &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* =====================================================
+   CLICK USER
+   ===================================================== */
+
+document
+    .getElementById("userBox")
+    .addEventListener(
+        "click",
+        function(){
+
+            const login =
+                localStorage.getItem(
+                    "shopkarot_login"
+                );
+
+            if(login === "true"){
+
+                window.location.href =
+                    "ho-so.html";
+
+            }
+
+            else{
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   TOP NẠP
+   ===================================================== */
+
+function loadTopNap(){
+
+    const box =
+        document.getElementById(
+            "topNapList"
+        );
+
+    let data = [];
+
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                "shopkarot_topnap"
+            );
+
+        if(saved){
+
+            data =
+                JSON.parse(saved);
+
+        }
+
+    }
+
+    catch(error){
+
+        data = [];
+
     }
 
 
-    /*
-     * Trạng thái CHƯA SẴN SÀNG
-     */
+    if(
+        !Array.isArray(data)
+        ||
+        data.length === 0
+    ){
 
-    icon.className =
-        "status-icon status-not-ready";
+        box.innerHTML =
+            "<div style='padding:25px;text-align:center;color:#888'>Chưa có dữ liệu</div>";
 
-    icon.textContent = "🔴";
+        return;
 
-    title.textContent =
-        "Shop Chưa Sẵn Sàng";
-
-    description.textContent =
-        "Một số chức năng có thể tạm thời không hoạt động.";
-
-    badge.className =
-        "status-badge badge-not-ready";
-
-    badge.textContent =
-        "🔴 Chưa Sẵn Sàng";
-
-}
+    }
 
 
-/****************************************************
- * ĐANG TẢI
- ****************************************************/
+    data.sort(
+        function(a,b){
 
-function showLoadingStatus() {
+            return Number(
+                b.money || 0
+            )
+            -
+            Number(
+                a.money || 0
+            );
 
-    const icon =
-        document.getElementById("statusIcon");
-
-    const title =
-        document.getElementById("statusTitle");
-
-    const description =
-        document.getElementById("statusDescription");
-
-    const badge =
-        document.getElementById("statusBadge");
+        }
+    );
 
 
-    icon.className =
-        "status-icon status-loading";
-
-    icon.textContent = "⏳";
-
-    title.textContent =
-        "Đang kiểm tra trạng thái Shop...";
-
-    description.textContent =
-        "Đang kết nối đến hệ thống.";
-
-    badge.className =
-        "status-badge badge-loading";
-
-    badge.textContent =
-        "Đang kiểm tra";
-
-}
+    data =
+        data.slice(0,5);
 
 
-/****************************************************
- * LỖI API
- ****************************************************/
-
-function showApiError() {
-
-    const icon =
-        document.getElementById("statusIcon");
-
-    const title =
-        document.getElementById("statusTitle");
-
-    const description =
-        document.getElementById("statusDescription");
-
-    const badge =
-        document.getElementById("statusBadge");
+    const medals = [
+        "🥇",
+        "🥈",
+        "🥉",
+        "4️⃣",
+        "5️⃣"
+    ];
 
 
-    icon.className =
-        "status-icon status-not-ready";
+    box.innerHTML = "";
 
-    icon.textContent = "⚠️";
 
-    title.textContent =
-        "Không thể kiểm tra trạng thái";
+    data.forEach(
+        function(item,index){
 
-    description.textContent =
-        "Không kết nối được API ShopKarot.";
+            const row =
+                document.createElement(
+                    "div"
+                );
 
-    badge.className =
-        "status-badge badge-not-ready";
+            row.className =
+                "rank";
 
-    badge.textContent =
-        "Lỗi kết nối";
+
+            const name =
+                item.name ||
+                "Khách hàng";
+
+
+            const money =
+                Number(
+                    item.money || 0
+                )
+                .toLocaleString(
+                    "vi-VN"
+                );
+
+
+            row.innerHTML = `
+
+                <div class="rank-medal">
+                    ${medals[index]}
+                </div>
+
+                <div class="rank-name">
+                    ${escapeHTML(name)}
+                </div>
+
+                <div class="rank-money">
+                    +${money}đ
+                </div>
+
+            `;
+
+
+            box.appendChild(row);
+
+        }
+    );
 
 }
 
 
-/****************************************************
- * LẤY TRẠNG THÁI SHOP
- ****************************************************/
+/* =====================================================
+   ESCAPE HTML
+   ===================================================== */
 
-async function getShopStatus() {
+function escapeHTML(text){
 
-    try {
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
-        showLoadingStatus();
+}
 
+
+/* =====================================================
+   CHUẨN HÓA TRẠNG THÁI
+   ===================================================== */
+
+function isReady(value){
+
+    if(typeof value === "boolean"){
+        return value;
+    }
+
+    const text =
+        String(value || "")
+        .trim()
+        .toLowerCase();
+
+    return (
+        text === "sẵn sàng" ||
+        text === "san sang" ||
+        text === "ready" ||
+        text === "available" ||
+        text === "true" ||
+        text === "1"
+    );
+
+}
+
+
+/* =====================================================
+   HIỂN THỊ TRẠNG THÁI
+   ===================================================== */
+
+function setGameStatus(id,value){
+
+    const element =
+        document.getElementById(id);
+
+    if(!element){
+        return;
+    }
+
+    const ready =
+        isReady(value);
+
+
+    element.classList.remove(
+        "ready",
+        "not-ready"
+    );
+
+
+    if(ready){
+
+        element.textContent =
+            "Sẵn Sàng";
+
+        element.classList.add(
+            "ready"
+        );
+
+    }
+
+    else{
+
+        element.textContent =
+            "Chưa Sẵn Sàng";
+
+        element.classList.add(
+            "not-ready"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   TRẠNG THÁI MẶC ĐỊNH
+   ===================================================== */
+
+function setDefaultStatuses(){
+
+    setGameStatus(
+        "status-blox",
+        false
+    );
+
+    setGameStatus(
+        "status-king",
+        false
+    );
+
+    setGameStatus(
+        "status-anime",
+        false
+    );
+
+    setGameStatus(
+        "status-grow2",
+        false
+    );
+
+    setGameStatus(
+        "status-grow",
+        false
+    );
+
+    setGameStatus(
+        "status-caythue",
+        false
+    );
+
+    setGameStatus(
+        "status-mm2",
+        false
+    );
+
+}
+
+
+/* =====================================================
+   LẤY 7 TRẠNG THÁI TỪ API
+   ===================================================== */
+
+async function loadGameStatuses(){
+
+    try{
 
         const response =
             await fetch(
                 API_URL +
-                "?action=getShopStatus"
+                "?action=getShopStatus",
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
             );
 
 
-        if (!response.ok) {
+        if(!response.ok){
 
             throw new Error(
-                "HTTP " + response.status
+                "HTTP " +
+                response.status
             );
 
         }
@@ -1078,184 +1587,274 @@ async function getShopStatus() {
 
 
         console.log(
-            "Shop status:",
+            "SHOPKAROT STATUS API:",
             data
         );
 
 
-        if (!data.ok) {
+        if(!data.ok){
 
-            throw new Error(
-                data.message ||
-                "API trả về lỗi"
+            console.warn(
+                "API trả về lỗi:",
+                data.message
             );
+
+            setDefaultStatuses();
+
+            return;
 
         }
 
 
-        showShopStatus(
-            data.status
+        /*
+         * Hỗ trợ nhiều dạng dữ liệu
+         *
+         * games
+         * statuses
+         * gameStatuses
+         */
+
+        const statuses =
+            data.games ||
+            data.statuses ||
+            data.gameStatuses ||
+            {};
+
+
+        setGameStatus(
+            "status-blox",
+            statuses.blox ||
+            statuses.bloxFruits ||
+            statuses["Blox Fruits"] ||
+            data.blox ||
+            data.bloxFruits
         );
 
 
+        setGameStatus(
+            "status-king",
+            statuses.king ||
+            statuses.kingLegacy ||
+            statuses["King Legacy"] ||
+            data.king ||
+            data.kingLegacy
+        );
+
+
+        setGameStatus(
+            "status-anime",
+            statuses.anime ||
+            statuses.animeFighters ||
+            statuses["Anime Fighters"] ||
+            data.anime ||
+            data.animeFighters
+        );
+
+
+        setGameStatus(
+            "status-grow2",
+            statuses.grow2 ||
+            statuses.growAGarden2 ||
+            statuses["Grow A Garden 2"] ||
+            data.grow2 ||
+            data.growAGarden2
+        );
+
+
+        setGameStatus(
+            "status-grow",
+            statuses.grow ||
+            statuses.growAGarden ||
+            statuses["Grow A Garden"] ||
+            data.grow ||
+            data.growAGarden
+        );
+
+
+        setGameStatus(
+            "status-caythue",
+            statuses.caythue ||
+            statuses.cayThue ||
+            statuses["Cày Thuê"] ||
+            data.caythue ||
+            data.cayThue
+        );
+
+
+        setGameStatus(
+            "status-mm2",
+            statuses.mm2 ||
+            statuses.murderMystery2 ||
+            statuses["Murder Mystery 2"] ||
+            data.mm2 ||
+            data.murderMystery2
+        );
+
+
+        /* SHOP STATUS */
+
+        if(data.shopStatus){
+
+            showShopStatus(
+                data.shopStatus
+            );
+
+        }
+
+        else if(
+            data.status &&
+            typeof data.status === "string"
+        ){
+
+            /*
+             * Chỉ hiển thị banner shop nếu
+             * status không phải trạng thái game.
+             */
+
+            if(
+                data.status !==
+                    "Sẵn Sàng" &&
+                data.status !==
+                    "Chưa Sẵn Sàng"
+            ){
+
+                showShopStatus(
+                    data.status
+                );
+
+            }
+
+        }
+
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(
-            "Lỗi lấy trạng thái:",
+            "Không thể tải trạng thái:",
             error
         );
 
-        showApiError();
+        setDefaultStatuses();
 
     }
 
 }
 
 
-/****************************************************
- * KIỂM TRA ĐĂNG NHẬP
- ****************************************************/
+/* =====================================================
+   HIỂN THỊ SHOP STATUS
+   ===================================================== */
 
-function checkLogin() {
+function showShopStatus(status){
 
-    const username =
-        localStorage.getItem(
-            "shopkarot_username"
+    const box =
+        document.getElementById(
+            "shopStatusBox"
         );
 
-
-    if (!username) {
-
+    if(!box){
         return;
-
     }
 
 
-    const loginButton =
-        document.querySelector(
-            ".login-btn"
-        );
+    const text =
+        String(status || "")
+        .trim();
 
 
-    if (!loginButton) {
-
+    if(!text){
         return;
-
     }
 
 
-    loginButton.style.display =
-        "none";
+    box.classList.add("show");
 
 
-    const nav =
-        document.querySelector("nav");
+    if(
+        text.includes("hoạt động")
+    ){
 
+        box.classList.add("ready");
 
-    const userBox =
-        document.createElement("div");
-
-
-    userBox.className =
-        "user-box";
-
-
-    userBox.style.display =
-        "flex";
-
-    userBox.style.alignItems =
-        "center";
-
-    userBox.style.gap =
-        "8px";
-
-
-    userBox.innerHTML =
-        `
-        👤 ${escapeHtml(username)}
-        <button
-            class="logout-btn"
-            onclick="logout()"
-        >
-            Đăng xuất
-        </button>
-        `;
-
-
-    nav.appendChild(
-        userBox
-    );
-
-}
-
-
-/****************************************************
- * ĐĂNG XUẤT
- ****************************************************/
-
-function logout() {
-
-    localStorage.removeItem(
-        "shopkarot_username"
-    );
-
-    localStorage.removeItem(
-        "username"
-    );
-
-    localStorage.removeItem(
-        "shopkarot_user"
-    );
-
-    location.reload();
-
-}
-
-
-/****************************************************
- * CHỐNG HTML INJECTION
- ****************************************************/
-
-function escapeHtml(text) {
-
-    const div =
-        document.createElement("div");
-
-    div.textContent =
-        String(text);
-
-    return div.innerHTML;
-
-}
-
-
-/****************************************************
- * KHỞI ĐỘNG
- ****************************************************/
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        getShopStatus();
-
-        checkLogin();
+        box.innerHTML =
+            "🟢 " +
+            escapeHTML(text);
 
     }
+
+    else{
+
+        box.classList.add("not-ready");
+
+        box.innerHTML =
+            "🔴 " +
+            escapeHTML(text);
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD
+   ===================================================== */
+
+updateUser();
+
+loadTopNap();
+
+loadGameStatuses();
+
+
+/* =====================================================
+   TỰ ĐỘNG CẬP NHẬT TRẠNG THÁI
+   ===================================================== */
+
+setInterval(
+    function(){
+
+        loadGameStatuses();
+
+    },
+    30000
 );
 
 
-/****************************************************
- * TỰ ĐỘNG CẬP NHẬT
- *
- * 30 giây kiểm tra API một lần
- ****************************************************/
+/* =====================================================
+   STORAGE
+   ===================================================== */
 
-setInterval(
-    getShopStatus,
-    30000
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key ===
+            "shopkarot_topnap"
+        ){
+
+            loadTopNap();
+
+        }
+
+
+        if(
+            event.key ===
+            "shopkarot_user"
+            ||
+            event.key ===
+            "shopkarot_login"
+            ||
+            event.key ===
+            "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
 );
 
 </script>
