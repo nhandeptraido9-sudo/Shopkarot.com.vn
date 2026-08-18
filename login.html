@@ -7,6 +7,7 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
     margin:0;
     min-height:100vh;
@@ -16,6 +17,7 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#f3f6fa;
 }
+
 .box{
     width:400px;
     max-width:92%;
@@ -24,6 +26,7 @@ body{
     border-radius:18px;
     box-shadow:0 10px 35px rgba(0,0,0,.15);
 }
+
 .logo{
     text-align:center;
     font-size:32px;
@@ -31,8 +34,16 @@ body{
     font-style:italic;
     margin-bottom:10px;
 }
-.logo span{color:#e21b23}
-h2{text-align:center;margin:10px 0 25px}
+
+.logo span{
+    color:#e21b23;
+}
+
+h2{
+    text-align:center;
+    margin:10px 0 25px;
+}
+
 input{
     width:100%;
     padding:14px;
@@ -41,6 +52,7 @@ input{
     border-radius:10px;
     font-size:15px;
 }
+
 button{
     width:100%;
     padding:14px;
@@ -52,21 +64,50 @@ button{
     font-weight:bold;
     cursor:pointer;
 }
-button:hover{background:#b30d14}
+
+button:hover{
+    background:#b30d14;
+}
+
+/* ADMIN PHỤ */
+
+.admin-phu-btn{
+    display:block;
+    width:100%;
+    margin-top:10px;
+    padding:14px;
+    border-radius:10px;
+    background:#222;
+    color:#fff;
+    text-align:center;
+    font-size:15px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.admin-phu-btn:hover{
+    background:#444;
+    transform:translateY(-1px);
+}
+
 .message{
     text-align:center;
     margin-top:15px;
     font-weight:bold;
 }
+
 .links{
     text-align:center;
     margin-top:20px;
 }
+
 .links a{
     color:#d01018;
     text-decoration:none;
     font-weight:bold;
 }
+
 .home{
     display:block;
     text-align:center;
@@ -74,6 +115,7 @@ button:hover{background:#b30d14}
     color:#666;
     text-decoration:none;
 }
+
 </style>
 </head>
 
@@ -100,6 +142,14 @@ button:hover{background:#b30d14}
     <button onclick="login()">
         ĐĂNG NHẬP
     </button>
+
+    <!-- ADMIN PHỤ -->
+
+    <a
+        href="admin-phu.html"
+        class="admin-phu-btn">
+        👤 ĐĂNG NHẬP ADMIN PHỤ
+    </a>
 
     <div id="message" class="message"></div>
 
