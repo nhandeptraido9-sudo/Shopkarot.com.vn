@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -107,7 +106,7 @@ a{
     position:absolute;
     top:57px;
     left:0;
-    width:255px;
+    width:250px;
     padding:8px;
     background:#fff;
     border-radius:14px;
@@ -230,8 +229,8 @@ a{
     content:"🎁";
     position:absolute;
     right:55px;
-    top:20px;
-    font-size:100px;
+    top:15px;
+    font-size:105px;
     opacity:.13;
 }
 
@@ -267,14 +266,14 @@ a{
     color:#a80e12;
 }
 
-/* ================= CATEGORY ================= */
+/* ================= SECTION TITLE ================= */
 
 .category-title{
     display:flex;
     align-items:center;
     gap:10px;
     margin:0 0 15px;
-    padding:15px 17px;
+    padding:13px 16px;
     background:#fff;
     border-radius:12px;
     border:1px solid #e4e7eb;
@@ -290,7 +289,7 @@ a{
 
 .package-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
@@ -298,30 +297,25 @@ a{
 
 .package{
     background:#fff;
-    border:1px solid #e1e5ea;
+    border:1px solid #e2e5e9;
     border-radius:18px;
     overflow:hidden;
     box-shadow:0 4px 16px rgba(0,0,0,.07);
     transition:.25s;
+    position:relative;
 }
 
 .package:hover{
     transform:translateY(-6px);
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
     border-color:#d01018;
-    box-shadow:0 12px 28px rgba(0,0,0,.14);
 }
 
 .package-top{
-    padding:28px 20px;
-    text-align:center;
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            #9d1419,
-            #480609 60%,
-            #130000
-        );
-    color:#fff;
+    height:125px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     position:relative;
     overflow:hidden;
 }
@@ -329,76 +323,110 @@ a{
 .package-top::before{
     content:"";
     position:absolute;
-    width:120px;
-    height:120px;
+    width:170px;
+    height:170px;
     border-radius:50%;
-    background:rgba(255,255,255,.06);
-    left:-45px;
-    top:-45px;
+    background:rgba(255,255,255,.08);
+    left:-65px;
+    top:-80px;
+}
+
+.package-top::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-45px;
+    bottom:-70px;
 }
 
 .package-icon{
-    font-size:55px;
+    font-size:65px;
     position:relative;
+    z-index:2;
+    filter:drop-shadow(0 4px 6px rgba(0,0,0,.2));
 }
 
-.package-top h3{
-    margin:10px 0 4px;
-    font-size:22px;
-    position:relative;
+.package-0{
+    background:linear-gradient(135deg,#087f5b,#12b886);
 }
 
-.package-top p{
-    margin:0;
-    color:#ddd;
-    font-size:12px;
-    position:relative;
+.package-20{
+    background:linear-gradient(135deg,#075985,#0ea5e9);
 }
+
+.package-50{
+    background:linear-gradient(135deg,#5b21b6,#8b5cf6);
+}
+
+.package-80{
+    background:linear-gradient(135deg,#9a3412,#f97316);
+}
+
+.package-100{
+    background:linear-gradient(135deg,#991b1b,#ef4444);
+}
+
+.package-150{
+    background:linear-gradient(135deg,#854d0e,#eab308);
+}
+
+.package-200{
+    background:linear-gradient(135deg,#164e63,#06b6d4);
+}
+
+/* ================= PACKAGE BODY ================= */
 
 .package-body{
-    padding:18px;
+    padding:20px;
 }
 
-.package-price{
-    text-align:center;
-    margin-bottom:15px;
+.package-body h3{
+    margin:0 0 9px;
+    font-size:20px;
+    color:#172033;
 }
 
-.package-price strong{
-    display:block;
-    font-size:27px;
-    color:#d01018;
-}
-
-.package-price span{
-    color:#777;
-    font-size:12px;
-}
-
-.package-list{
-    margin:0 0 17px;
-    padding:0;
-    list-style:none;
-}
-
-.package-list li{
-    padding:7px 0;
-    border-bottom:1px dashed #e5e5e5;
+.package-description{
+    min-height:52px;
+    margin:0 0 15px;
+    color:#687386;
     font-size:13px;
-    color:#4f596b;
+    line-height:1.55;
 }
 
-.package-list li:last-child{
-    border-bottom:0;
+.price{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+    padding:11px 13px;
+    background:#f7f8fa;
+    border-radius:10px;
+}
+
+.price span:first-child{
+    color:#687386;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.price strong{
+    color:#d01018;
+    font-size:21px;
 }
 
 .buy-button{
+    display:block;
     width:100%;
-    padding:12px;
+    padding:13px;
     border:0;
     border-radius:10px;
     background:#a80e12;
     color:#fff;
+    text-align:center;
     font-size:14px;
     font-weight:bold;
     cursor:pointer;
@@ -407,25 +435,31 @@ a{
 
 .buy-button:hover{
     background:#d0161d;
+    transform:translateY(-1px);
 }
 
-.buy-button:disabled{
-    background:#999;
-    cursor:not-allowed;
+/* ================= SPECIAL 0K ================= */
+
+.package.special{
+    border:2px solid #10a66f;
 }
 
-/* ================= STATUS ================= */
+.package.special .package-body h3{
+    color:#078653;
+}
 
-.package-status{
-    display:inline-block;
+.free-label{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:5;
     padding:6px 10px;
     border-radius:20px;
+    background:#fff;
+    color:#078653;
     font-size:11px;
-    font-weight:bold;
-    background:#e7f8ef;
-    color:#078542;
-    border:1px solid #bde7cd;
-    margin-bottom:12px;
+    font-weight:900;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
 }
 
 /* ================= BACK ================= */
@@ -441,6 +475,7 @@ a{
     border:1px solid #ddd;
     color:#172033;
     font-weight:bold;
+    transition:.2s;
 }
 
 .back-button:hover{
@@ -474,96 +509,6 @@ a{
     border-color:#f1bebe;
 }
 
-/* ================= MODAL ================= */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.6);
-    z-index:5000;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:100%;
-    max-width:430px;
-    background:#fff;
-    border-radius:18px;
-    padding:25px;
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
-    text-align:center;
-}
-
-.modal-icon{
-    font-size:55px;
-    margin-bottom:8px;
-}
-
-.modal-box h2{
-    margin:0 0 8px;
-}
-
-.modal-box p{
-    color:#687386;
-    line-height:1.5;
-}
-
-.modal-buttons{
-    display:flex;
-    gap:10px;
-    margin-top:20px;
-}
-
-.modal-buttons button{
-    flex:1;
-    padding:12px;
-    border-radius:10px;
-    border:0;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.btn-confirm{
-    background:#a80e12;
-    color:#fff;
-}
-
-.btn-cancel{
-    background:#eee;
-    color:#333;
-}
-
-/* ================= TOAST ================= */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:70px;
-    transform:translateX(-50%) translateY(20px);
-    background:#171717;
-    color:#fff;
-    padding:13px 20px;
-    border-radius:12px;
-    opacity:0;
-    pointer-events:none;
-    transition:.3s;
-    z-index:9000;
-    font-size:14px;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
-}
-
-.toast.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-}
-
 /* ================= FOOTER ================= */
 
 footer{
@@ -572,17 +517,9 @@ footer{
     text-align:center;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:1150px){
-
-    .package-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-}
-
-@media(max-width:850px){
+@media(max-width:1100px){
 
     .package-grid{
         grid-template-columns:repeat(2,1fr);
@@ -631,20 +568,24 @@ footer{
         font-size:70px;
     }
 
-}
-
-@media(max-width:520px){
-
     .package-grid{
         grid-template-columns:1fr;
     }
+
+}
+
+@media(max-width:450px){
 
     .user-info{
         display:none;
     }
 
-    .modal-buttons{
-        flex-direction:column;
+    .package-top{
+        height:115px;
+    }
+
+    .package-icon{
+        font-size:58px;
     }
 
 }
@@ -664,11 +605,19 @@ footer{
         </div>
 
         <div class="logo-text">
-            <b>SHOP<span>KAROT</span></b>
-            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
         </div>
 
     </a>
+
 
     <div class="menu">
 
@@ -682,20 +631,12 @@ footer{
             class="menu-box"
             id="menuBox">
 
-            <a href="index.html">
-                🏠 TRANG CHỦ
-            </a>
-
             <a href="acc-game.html">
                 🎮 ACC GAME
             </a>
 
-            <a href="acc-blox-fruit.html">
-                🍎 ACC BLOX FRUITS
-            </a>
-
             <a href="tui-mu-blox-fruit.html">
-                🎁 TÚI MÙ BLOX FRUITS
+                🎁 Túi Mù Blox Fruit
             </a>
 
             <a href="lich-su.html">
@@ -714,9 +655,14 @@ footer{
                 🔐 ĐĂNG NHẬP
             </a>
 
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
         </div>
 
     </div>
+
 
     <div
         class="user"
@@ -758,12 +704,19 @@ footer{
 
 <main class="container">
 
+
     <!-- BREADCRUMB -->
 
     <div class="breadcrumb">
 
         <a href="index.html">
             🏠 Trang chủ
+        </a>
+
+        <span>›</span>
+
+        <a href="acc-game.html">
+            🎮 Acc Game
         </a>
 
         <span>›</span>
@@ -775,13 +728,13 @@ footer{
         <span>›</span>
 
         <b>
-            Túi Mù Blox Fruits
+            Túi Mù
         </b>
 
     </div>
 
 
-    <!-- TITLE -->
+    <!-- PAGE TITLE -->
 
     <section class="page-title">
 
@@ -802,14 +755,9 @@ footer{
 
         ⚠️
         <b>Lưu ý:</b>
-        Vui lòng đăng nhập trước khi mua.
-        Sau khi đặt mua, đơn hàng sẽ được ghi nhận trên hệ thống SHOPKAROT.
-
-        <br>
-
-        💰
-        <b>Số dư hiện tại của bạn:</b>
-        <span id="noticeBalance">0đ</span>
+        Vui lòng đăng nhập tài khoản trước khi mua.
+        Sau khi mua, hệ thống sẽ lưu lại thông tin đơn hàng
+        trong lịch sử mua hàng.
 
     </div>
 
@@ -825,345 +773,356 @@ footer{
     </div>
 
 
-    <!-- ================= PACKAGES ================= -->
+    <!-- ================= PACKAGE GRID ================= -->
 
     <section class="package-grid">
 
 
         <!-- 0K -->
 
-        <div class="package">
+        <article class="package special">
 
-            <div class="package-top">
+            <div class="free-label">
+                🎉 MIỄN PHÍ
+            </div>
+
+            <div class="package-top package-0">
 
                 <div class="package-icon">
                     🎁
                 </div>
 
-                <h3>
-                    Túi Mù 0K
-                </h3>
-
-                <p>
-                    Gói miễn phí
-                </p>
-
             </div>
 
             <div class="package-body">
 
-                <div class="package-price">
-                    <strong>0đ</strong>
-                    <span>MIỄN PHÍ</span>
+                <h3>
+                    Túi Mù Acc Blox Fruits 0đ
+                </h3>
+
+                <p class="package-description">
+                    🎁 Túi mù miễn phí dành cho khách hàng.
+                    Mỗi tài khoản có thể nhận theo quy định
+                    của ShopKarot.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        0đ
+                    </strong>
+
                 </div>
 
-                <span class="package-status">
-                    🟢 Sẵn sàng
-                </span>
+                <a
+                    href="acc-blox-fruit-0k.html"
+                    class="buy-button">
 
-                <ul class="package-list">
-                    <li>🎁 Túi mù Blox Fruits</li>
-                    <li>🎲 Phần thưởng ngẫu nhiên</li>
-                    <li>👤 Theo tài khoản</li>
-                </ul>
+                    MUA NGAY →
 
-                <button
-                    class="buy-button"
-                    onclick="buyPackage('Túi Mù Blox Fruits 0K',0)">
-                    NHẬN NGAY
-                </button>
+                </a>
 
             </div>
 
-        </div>
+        </article>
 
 
         <!-- 20K -->
 
-        <div class="package">
+        <article class="package">
 
-            <div class="package-top">
+            <div class="package-top package-20">
 
                 <div class="package-icon">
                     🎁
                 </div>
 
-                <h3>
-                    Túi Mù 20K
-                </h3>
-
-                <p>
-                    Gói cơ bản
-                </p>
-
             </div>
 
             <div class="package-body">
 
-                <div class="package-price">
-                    <strong>20.000đ</strong>
-                    <span>20K</span>
+                <h3>
+                    Túi Mù Blox Fruits 20K
+                </h3>
+
+                <p class="package-description">
+                    🎁 Gói túi mù Blox Fruits trị giá
+                    20.000đ với phần thưởng hấp dẫn.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        20.000đ
+                    </strong>
+
                 </div>
 
-                <span class="package-status">
-                    🟢 Sẵn sàng
-                </span>
-
-                <ul class="package-list">
-                    <li>🎁 Túi mù Blox Fruits</li>
-                    <li>🎲 Phần thưởng ngẫu nhiên</li>
-                    <li>🔥 Giá trị theo gói</li>
-                </ul>
-
-                <button
+                <a
+                    href="#"
                     class="buy-button"
-                    onclick="buyPackage('Túi Mù Blox Fruits 20K',20000)">
-                    MUA NGAY
-                </button>
+                    onclick="comingSoon(event,'20K')">
+
+                    MUA NGAY →
+
+                </a>
 
             </div>
 
-        </div>
+        </article>
 
 
         <!-- 50K -->
 
-        <div class="package">
+        <article class="package">
 
-            <div class="package-top">
+            <div class="package-top package-50">
 
                 <div class="package-icon">
                     🎁
                 </div>
 
-                <h3>
-                    Túi Mù 50K
-                </h3>
-
-                <p>
-                    Gói nâng cao
-                </p>
-
             </div>
 
             <div class="package-body">
 
-                <div class="package-price">
-                    <strong>50.000đ</strong>
-                    <span>50K</span>
+                <h3>
+                    Túi Mù Blox Fruits 50K
+                </h3>
+
+                <p class="package-description">
+                    🎁 Gói túi mù 50.000đ với nhiều
+                    lựa chọn phần thưởng.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        50.000đ
+                    </strong>
+
                 </div>
 
-                <span class="package-status">
-                    🟢 Sẵn sàng
-                </span>
-
-                <ul class="package-list">
-                    <li>🎁 Túi mù Blox Fruits</li>
-                    <li>🎲 Phần thưởng ngẫu nhiên</li>
-                    <li>🔥 Phần thưởng tốt hơn</li>
-                </ul>
-
-                <button
+                <a
+                    href="#"
                     class="buy-button"
-                    onclick="buyPackage('Túi Mù Blox Fruits 50K',50000)">
-                    MUA NGAY
-                </button>
+                    onclick="comingSoon(event,'50K')">
+
+                    MUA NGAY →
+
+                </a>
 
             </div>
 
-        </div>
+        </article>
 
 
         <!-- 80K -->
 
-        <div class="package">
+        <article class="package">
 
-            <div class="package-top">
+            <div class="package-top package-80">
 
                 <div class="package-icon">
                     🎁
                 </div>
 
-                <h3>
-                    Túi Mù 80K
-                </h3>
-
-                <p>
-                    Gói đặc biệt
-                </p>
-
             </div>
 
             <div class="package-body">
 
-                <div class="package-price">
-                    <strong>80.000đ</strong>
-                    <span>80K</span>
+                <h3>
+                    Túi Mù Blox Fruits 80K
+                </h3>
+
+                <p class="package-description">
+                    🎁 Gói túi mù 80.000đ dành cho
+                    khách hàng muốn lựa chọn mức cao hơn.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        80.000đ
+                    </strong>
+
                 </div>
 
-                <span class="package-status">
-                    🟢 Sẵn sàng
-                </span>
-
-                <ul class="package-list">
-                    <li>🎁 Túi mù Blox Fruits</li>
-                    <li>🎲 Phần thưởng ngẫu nhiên</li>
-                    <li>⭐ Giá trị cao hơn</li>
-                </ul>
-
-                <button
+                <a
+                    href="#"
                     class="buy-button"
-                    onclick="buyPackage('Túi Mù Blox Fruits 80K',80000)">
-                    MUA NGAY
-                </button>
+                    onclick="comingSoon(event,'80K')">
+
+                    MUA NGAY →
+
+                </a>
 
             </div>
 
-        </div>
+        </article>
 
 
         <!-- 100K -->
 
-        <div class="package">
+        <article class="package">
 
-            <div class="package-top">
+            <div class="package-top package-100">
 
                 <div class="package-icon">
                     🎁
                 </div>
 
-                <h3>
-                    Túi Mù 100K
-                </h3>
-
-                <p>
-                    Gói cao cấp
-                </p>
-
             </div>
 
             <div class="package-body">
 
-                <div class="package-price">
-                    <strong>100.000đ</strong>
-                    <span>100K</span>
+                <h3>
+                    Túi Mù Blox Fruits 100K
+                </h3>
+
+                <p class="package-description">
+                    🔥 Gói 100.000đ với giá trị phần thưởng
+                    cao hơn.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        100.000đ
+                    </strong>
+
                 </div>
 
-                <span class="package-status">
-                    🟢 Sẵn sàng
-                </span>
-
-                <ul class="package-list">
-                    <li>🎁 Túi mù Blox Fruits</li>
-                    <li>🎲 Phần thưởng ngẫu nhiên</li>
-                    <li>💎 Phần thưởng cao cấp</li>
-                </ul>
-
-                <button
+                <a
+                    href="#"
                     class="buy-button"
-                    onclick="buyPackage('Túi Mù Blox Fruits 100K',100000)">
-                    MUA NGAY
-                </button>
+                    onclick="comingSoon(event,'100K')">
+
+                    MUA NGAY →
+
+                </a>
 
             </div>
 
-        </div>
+        </article>
 
 
         <!-- 150K -->
 
-        <div class="package">
+        <article class="package">
 
-            <div class="package-top">
+            <div class="package-top package-150">
 
                 <div class="package-icon">
                     🎁
                 </div>
 
-                <h3>
-                    Túi Mù 150K
-                </h3>
-
-                <p>
-                    Gói VIP
-                </p>
-
             </div>
 
             <div class="package-body">
 
-                <div class="package-price">
-                    <strong>150.000đ</strong>
-                    <span>150K</span>
+                <h3>
+                    Túi Mù Blox Fruits 150K
+                </h3>
+
+                <p class="package-description">
+                    ⭐ Gói 150.000đ dành cho khách hàng
+                    muốn chọn túi mù giá trị cao.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        150.000đ
+                    </strong>
+
                 </div>
 
-                <span class="package-status">
-                    🟢 Sẵn sàng
-                </span>
-
-                <ul class="package-list">
-                    <li>🎁 Túi mù Blox Fruits</li>
-                    <li>🎲 Phần thưởng ngẫu nhiên</li>
-                    <li>💎 Phần thưởng VIP</li>
-                </ul>
-
-                <button
+                <a
+                    href="#"
                     class="buy-button"
-                    onclick="buyPackage('Túi Mù Blox Fruits 150K',150000)">
-                    MUA NGAY
-                </button>
+                    onclick="comingSoon(event,'150K')">
+
+                    MUA NGAY →
+
+                </a>
 
             </div>
 
-        </div>
+        </article>
 
 
         <!-- 200K -->
 
-        <div class="package">
+        <article class="package">
 
-            <div class="package-top">
+            <div class="package-top package-200">
 
                 <div class="package-icon">
-                    👑
+                    🎁
                 </div>
-
-                <h3>
-                    Túi Mù 200K
-                </h3>
-
-                <p>
-                    Gói cao cấp nhất
-                </p>
 
             </div>
 
             <div class="package-body">
 
-                <div class="package-price">
-                    <strong>200.000đ</strong>
-                    <span>200K</span>
+                <h3>
+                    Túi Mù Blox Fruits 200K
+                </h3>
+
+                <p class="package-description">
+                    💎 Gói cao cấp 200.000đ với giá trị
+                    phần thưởng lớn hơn.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        200.000đ
+                    </strong>
+
                 </div>
 
-                <span class="package-status">
-                    🟢 Sẵn sàng
-                </span>
-
-                <ul class="package-list">
-                    <li>🎁 Túi mù Blox Fruits</li>
-                    <li>🎲 Phần thưởng ngẫu nhiên</li>
-                    <li>👑 Gói cao cấp nhất</li>
-                </ul>
-
-                <button
+                <a
+                    href="#"
                     class="buy-button"
-                    onclick="buyPackage('Túi Mù Blox Fruits 200K',200000)">
-                    MUA NGAY
-                </button>
+                    onclick="comingSoon(event,'200K')">
+
+                    MUA NGAY →
+
+                </a>
 
             </div>
 
-        </div>
+        </article>
 
 
     </section>
@@ -1182,55 +1141,6 @@ footer{
 </main>
 
 
-<!-- ================= MODAL ================= -->
-
-<div
-    class="modal"
-    id="confirmModal">
-
-    <div class="modal-box">
-
-        <div class="modal-icon">
-            🎁
-        </div>
-
-        <h2>
-            Xác nhận mua
-        </h2>
-
-        <p id="confirmText">
-            Bạn có chắc muốn mua gói này?
-        </p>
-
-        <div class="modal-buttons">
-
-            <button
-                class="btn-cancel"
-                onclick="closeModal()">
-                HỦY
-            </button>
-
-            <button
-                class="btn-confirm"
-                onclick="confirmPurchase()">
-                XÁC NHẬN MUA
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= TOAST ================= -->
-
-<div
-    class="toast"
-    id="toast">
-</div>
-
-
 <!-- ================= FOOTER ================= -->
 
 <footer>
@@ -1242,17 +1152,13 @@ footer{
 
 <script>
 
-/* =====================================================
-   SHOPKAROT API v5.0
-===================================================== */
+/* ================= API ================= */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbzIlHsKj50m8z9yfhc_BmOvC6dPCG_TPpT4W8CDG2EdS_0dbCRMNJQzzcfAeOPHk5wW9g/exec";
 
 
-/* =====================================================
-   MENU
-===================================================== */
+/* ================= MENU ================= */
 
 function toggleMenu(){
 
@@ -1282,73 +1188,49 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   USER
-===================================================== */
-
-function getUsername(){
-
-    return localStorage.getItem(
-        "shopkarot_user"
-    ) || "";
-
-}
-
-
-function isLoggedIn(){
-
-    return (
-        localStorage.getItem(
-            "shopkarot_login"
-        ) === "true"
-        &&
-        !!getUsername()
-    );
-
-}
-
-
-function getBalance(){
-
-    return Number(
-        localStorage.getItem(
-            "shopkarot_balance"
-        ) || 0
-    );
-
-}
-
+/* ================= USER ================= */
 
 function updateUser(){
 
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
     const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
         document.getElementById(
             "username"
         );
 
-    const balance =
+    const balanceBox =
         document.getElementById(
             "userBalance"
         );
 
-    const noticeBalance =
-        document.getElementById(
-            "noticeBalance"
-        );
 
+    if(
+        login === "true" &&
+        username
+    ){
 
-    if(isLoggedIn()){
+        usernameBox.textContent =
+            username;
 
-        username.textContent =
-            getUsername();
-
-        balance.textContent =
-            getBalance().toLocaleString(
-                "vi-VN"
-            ) + "đ";
-
-        noticeBalance.textContent =
-            getBalance().toLocaleString(
+        balanceBox.textContent =
+            balance.toLocaleString(
                 "vi-VN"
             ) + "đ";
 
@@ -1356,13 +1238,10 @@ function updateUser(){
 
     else{
 
-        username.textContent =
+        usernameBox.textContent =
             "Đăng nhập";
 
-        balance.textContent =
-            "0đ";
-
-        noticeBalance.textContent =
+        balanceBox.textContent =
             "0đ";
 
     }
@@ -1370,9 +1249,7 @@ function updateUser(){
 }
 
 
-/* =====================================================
-   USER CLICK
-===================================================== */
+/* ================= USER CLICK ================= */
 
 document
 .getElementById("userBox")
@@ -1380,7 +1257,12 @@ document
     "click",
     function(){
 
-        if(isLoggedIn()){
+        const login =
+            localStorage.getItem(
+                "shopkarot_login"
+            );
+
+        if(login === "true"){
 
             window.location.href =
                 "ho-so.html";
@@ -1398,14 +1280,9 @@ document
 );
 
 
-/* =====================================================
-   API STATUS
-===================================================== */
+/* ================= API STATUS ================= */
 
-function setAPIStatus(
-    type,
-    text
-){
+function setAPIStatus(type,text){
 
     const box =
         document.getElementById(
@@ -1420,6 +1297,8 @@ function setAPIStatus(
 
 }
 
+
+/* ================= CHECK API ================= */
 
 async function checkAPI(){
 
@@ -1436,6 +1315,7 @@ async function checkAPI(){
                 }
             );
 
+
         if(!response.ok){
 
             throw new Error(
@@ -1445,8 +1325,10 @@ async function checkAPI(){
 
         }
 
+
         const data =
             await response.json();
+
 
         if(
             data &&
@@ -1455,7 +1337,7 @@ async function checkAPI(){
 
             setAPIStatus(
                 "ok",
-                "🟢 Đã kết nối API v5.0"
+                "🟢 Đã kết nối API"
             );
 
         }
@@ -1485,343 +1367,39 @@ async function checkAPI(){
 }
 
 
-/* =====================================================
-   PURCHASE
-===================================================== */
+/* ================= COMING SOON ================= */
 
-let selectedProduct = "";
-let selectedPrice = 0;
+function comingSoon(event,price){
 
+    event.preventDefault();
 
-function buyPackage(
-    product,
-    price
-){
-
-    if(!isLoggedIn()){
-
-        showToast(
-            "⚠️ Vui lòng đăng nhập trước khi mua!"
-        );
-
-        setTimeout(
-            function(){
-
-                window.location.href =
-                    "login.html";
-
-            },
-            1200
-        );
-
-        return;
-
-    }
-
-
-    selectedProduct =
-        product;
-
-    selectedPrice =
-        price;
-
-
-    if(
-        price > 0 &&
-        getBalance() < price
-    ){
-
-        showToast(
-            "❌ Số dư không đủ. Vui lòng nạp tiền!"
-        );
-
-        setTimeout(
-            function(){
-
-                window.location.href =
-                    "nap-tien.html";
-
-            },
-            1300
-        );
-
-        return;
-
-    }
-
-
-    const text =
-        document.getElementById(
-            "confirmText"
-        );
-
-
-    text.innerHTML =
-        "Bạn muốn mua <b>" +
-        escapeHtml(product) +
-        "</b> với giá <b>" +
-        price.toLocaleString("vi-VN") +
-        "đ</b>?";
-
-
-    document
-        .getElementById(
-            "confirmModal"
-        )
-        .classList.add("show");
-
-}
-
-
-function closeModal(){
-
-    document
-        .getElementById(
-            "confirmModal"
-        )
-        .classList.remove("show");
-
-}
-
-
-async function confirmPurchase(){
-
-    if(!isLoggedIn()){
-
-        closeModal();
-
-        window.location.href =
-            "login.html";
-
-        return;
-
-    }
-
-
-    const username =
-        getUsername();
-
-
-    const button =
-        document.querySelector(
-            ".btn-confirm"
-        );
-
-
-    button.disabled = true;
-
-    button.textContent =
-        "ĐANG XỬ LÝ...";
-
-
-    try{
-
-        /*
-         * Gửi đơn hàng lên Apps Script.
-         *
-         * Lưu ý:
-         * API createOrder hiện tại của bạn
-         * tạo đơn hàng nhưng chưa tự trừ số dư.
-         */
-
-        const response =
-            await fetch(
-                API_URL,
-                {
-                    method:"POST",
-                    headers:{
-                        "Content-Type":
-                            "text/plain;charset=utf-8"
-                    },
-                    body:JSON.stringify({
-
-                        action:
-                            "createOrder",
-
-                        username:
-                            username,
-
-                        product:
-                            selectedProduct,
-
-                        price:
-                            selectedPrice
-
-                    })
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if(
-            data &&
-            data.ok === true
-        ){
-
-            closeModal();
-
-            showToast(
-                "✅ Đặt mua thành công! Mã đơn: " +
-                (data.id || "")
-            );
-
-        }
-
-        else{
-
-            showToast(
-                "❌ " +
-                (
-                    data.message ||
-                    "Không thể tạo đơn hàng"
-                )
-            );
-
-        }
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-        showToast(
-            "❌ Không kết nối được API"
-        );
-
-    }
-
-    finally{
-
-        button.disabled =
-            false;
-
-        button.textContent =
-            "XÁC NHẬN MUA";
-
-    }
-
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-let toastTimer;
-
-
-function showToast(message){
-
-    const toast =
-        document.getElementById(
-            "toast"
-        );
-
-    toast.textContent =
-        message;
-
-    toast.classList.add(
-        "show"
+    alert(
+        "🎁 Túi Mù Blox Fruits " +
+        price +
+        " đang được cập nhật.\n\n" +
+        "Shop sẽ mở bán sớm."
     );
 
-
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toastTimer =
-        setTimeout(
-            function(){
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            3000
-        );
-
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* ================= START ================= */
 
-function escapeHtml(value){
+updateUser();
 
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
+checkAPI();
 
 
-/* =====================================================
-   CLOSE MODAL WHEN CLICK OUTSIDE
-===================================================== */
-
-document
-.getElementById(
-    "confirmModal"
-)
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closeModal();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   STORAGE UPDATE
-===================================================== */
+/* ================= STORAGE ================= */
 
 window.addEventListener(
     "storage",
     function(event){
 
         if(
-            event.key ===
-                "shopkarot_login"
-            ||
-            event.key ===
-                "shopkarot_user"
-            ||
-            event.key ===
-                "shopkarot_balance"
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_balance"
         ){
 
             updateUser();
@@ -1832,9 +1410,7 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   PAGE FOCUS
-===================================================== */
+/* ================= PAGE FOCUS ================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -1852,17 +1428,7 @@ document.addEventListener(
     }
 );
 
-
-/* =====================================================
-   START
-===================================================== */
-
-updateUser();
-
-checkAPI();
-
 </script>
 
 </body>
 </html>
-```
