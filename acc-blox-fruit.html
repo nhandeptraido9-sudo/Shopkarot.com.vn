@@ -1,1 +1,744 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blox Fruits - SHOPKAROT</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#f1f5f9;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#111827;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    padding:14px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    font-style:italic;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#e21b23;
+}
+
+.back{
+    text-decoration:none;
+    color:#555;
+    font-weight:700;
+    font-size:15px;
+    transition:.2s;
+}
+
+.back:hover{
+    color:#e21b23;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:100%;
+    max-width:1300px;
+    margin:auto;
+    padding:28px 15px 60px;
+}
+
+/* ================= TITLE ================= */
+
+.title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.title h1{
+    margin:0 0 8px;
+    font-size:32px;
+    font-weight:900;
+}
+
+.title p{
+    margin:0;
+    color:#6b7280;
+    font-size:15px;
+}
+
+/* ================= BANNER ================= */
+
+.banner{
+    width:100%;
+    height:230px;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:30px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,0,0,.25),
+            rgba(0,0,0,.05)
+        ),
+        url("images/blox-fruits.jpg") center/cover no-repeat;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.banner-content{
+    text-align:center;
+    color:#fff;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+}
+
+.banner-content h2{
+    margin:0;
+    font-size:36px;
+    font-weight:900;
+}
+
+.banner-content p{
+    margin:8px 0 0;
+    font-size:17px;
+    font-weight:700;
+}
+
+/* ================= SECTION ================= */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.section-title h2{
+    margin:0;
+    font-size:24px;
+    font-weight:900;
+}
+
+.section-title span{
+    color:#e21b23;
+    font-size:14px;
+    font-weight:700;
+}
+
+/* ================= PRODUCT GRID ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.product{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid #e5e7eb;
+    box-shadow:0 3px 10px rgba(0,0,0,.06);
+    transition:.25s;
+    display:flex;
+    flex-direction:column;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.product-image{
+    width:100%;
+    height:190px;
+    background:#e5e7eb;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.3s;
+}
+
+.product:hover .product-image img{
+    transform:scale(1.05);
+}
+
+/* ================= PRODUCT INFO ================= */
+
+.product-info{
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.product-name{
+    font-size:18px;
+    font-weight:900;
+    margin:0 0 9px;
+    line-height:1.35;
+}
+
+.product-price{
+    color:#e21b23;
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.product-price span{
+    color:#6b7280;
+    font-weight:600;
+}
+
+/* ================= BUTTON ================= */
+
+.view-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:42px;
+    background:#e21b23;
+    color:#fff;
+    text-decoration:none;
+    border-radius:9px;
+    font-size:14px;
+    font-weight:900;
+    transition:.2s;
+    margin-top:auto;
+}
+
+.view-btn:hover{
+    background:#c9151c;
+    transform:scale(1.02);
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin-top:30px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    padding:20px;
+}
+
+.notice h3{
+    margin:0 0 10px;
+    font-size:18px;
+}
+
+.notice p{
+    margin:6px 0;
+    color:#555;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    text-align:center;
+    padding:25px 15px;
+    background:#fff;
+    border-top:1px solid #e5e7eb;
+    color:#777;
+    font-size:13px;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:1000px){
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .product-image{
+        height:175px;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header{
+        padding:12px 15px;
+    }
+
+    .logo{
+        font-size:23px;
+    }
+
+    .back{
+        font-size:13px;
+    }
+
+    .container{
+        padding:20px 10px 45px;
+    }
+
+    .title h1{
+        font-size:26px;
+    }
+
+    .title p{
+        font-size:14px;
+    }
+
+    .banner{
+        height:175px;
+        border-radius:14px;
+        margin-bottom:24px;
+    }
+
+    .banner-content h2{
+        font-size:27px;
+    }
+
+    .banner-content p{
+        font-size:14px;
+    }
+
+    .section-title h2{
+        font-size:20px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .product{
+        border-radius:13px;
+    }
+
+    .product-image{
+        height:145px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product-name{
+        font-size:15px;
+    }
+
+    .product-price{
+        font-size:13px;
+        margin-bottom:11px;
+    }
+
+    .view-btn{
+        min-height:38px;
+        font-size:12px;
+    }
+}
+
+/* ================= SMALL PHONE ================= */
+
+@media(max-width:400px){
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:190px;
+    }
+
+    .product-name{
+        font-size:17px;
+    }
+
+    .view-btn{
+        min-height:42px;
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        SHOP<span>KAROT</span>
+    </div>
+
+    <a href="index.html" class="back">
+        ← Quay lại Shop
+    </a>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+    <div class="title">
+        <h1>🎁 Túi Mù Blox Fruits</h1>
+        <p>Chọn mức Túi Mù Blox Fruits bạn muốn</p>
+    </div>
+
+
+    <!-- ================= BANNER ================= -->
+
+    <div class="banner">
+
+        <div class="banner-content">
+
+            <h2>🍎 BLOX FRUITS</h2>
+
+            <p>
+                Túi Mù Blox Fruits - Nhiều phần quà hấp dẫn
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <div class="section-title">
+
+        <h2>🎁 Túi Mù Blox Fruits</h2>
+
+        <span>7 sản phẩm</span>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- 0K -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="images/blox-fruits-0k.jpg"
+                    alt="Túi Mù Blox Fruits 0K"
+                    onerror="this.src='images/blox-fruits.jpg'"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    🎁 Túi Mù Blox Fruits 0K
+                </h3>
+
+                <div class="product-price">
+                    Giá chỉ từ 0K
+                </div>
+
+                <a
+                    href="tui-mu-blox-fruits.html?price=0"
+                    class="view-btn"
+                >
+                    XEM TẤT CẢ →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 20K -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="images/blox-fruits-20k.jpg"
+                    alt="Túi Mù Blox Fruits 20K"
+                    onerror="this.src='images/blox-fruits.jpg'"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    🎁 Túi Mù Blox Fruits 20K
+                </h3>
+
+                <div class="product-price">
+                    Giá chỉ từ 20K
+                </div>
+
+                <a
+                    href="tui-mu-blox-fruits.html?price=20"
+                    class="view-btn"
+                >
+                    XEM TẤT CẢ →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 50K -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="images/blox-fruits-50k.jpg"
+                    alt="Túi Mù Blox Fruits 50K"
+                    onerror="this.src='images/blox-fruits.jpg'"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    🎁 Túi Mù Blox Fruits 50K
+                </h3>
+
+                <div class="product-price">
+                    Giá chỉ từ 50K
+                </div>
+
+                <a
+                    href="tui-mu-blox-fruits.html?price=50"
+                    class="view-btn"
+                >
+                    XEM TẤT CẢ →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 80K -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="images/blox-fruits-80k.jpg"
+                    alt="Túi Mù Blox Fruits 80K"
+                    onerror="this.src='images/blox-fruits.jpg'"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    🎁 Túi Mù Blox Fruits 80K
+                </h3>
+
+                <div class="product-price">
+                    Giá chỉ từ 80K
+                </div>
+
+                <a
+                    href="tui-mu-blox-fruits.html?price=80"
+                    class="view-btn"
+                >
+                    XEM TẤT CẢ →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 100K -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="images/blox-fruits-100k.jpg"
+                    alt="Túi Mù Blox Fruits 100K"
+                    onerror="this.src='images/blox-fruits.jpg'"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    🎁 Túi Mù Blox Fruits 100K
+                </h3>
+
+                <div class="product-price">
+                    Giá chỉ từ 100K
+                </div>
+
+                <a
+                    href="tui-mu-blox-fruits.html?price=100"
+                    class="view-btn"
+                >
+                    XEM TẤT CẢ →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 150K -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="images/blox-fruits-150k.jpg"
+                    alt="Túi Mù Blox Fruits 150K"
+                    onerror="this.src='images/blox-fruits.jpg'"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    🎁 Túi Mù Blox Fruits 150K
+                </h3>
+
+                <div class="product-price">
+                    Giá chỉ từ 150K
+                </div>
+
+                <a
+                    href="tui-mu-blox-fruits.html?price=150"
+                    class="view-btn"
+                >
+                    XEM TẤT CẢ →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 200K -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="images/blox-fruits-200k.jpg"
+                    alt="Túi Mù Blox Fruits 200K"
+                    onerror="this.src='images/blox-fruits.jpg'"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    🎁 Túi Mù Blox Fruits 200K
+                </h3>
+
+                <div class="product-price">
+                    Giá chỉ từ 200K
+                </div>
+
+                <a
+                    href="tui-mu-blox-fruits.html?price=200"
+                    class="view-btn"
+                >
+                    XEM TẤT CẢ →
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= NOTICE ================= -->
+
+    <div class="notice">
+
+        <h3>📌 Thông tin Túi Mù Blox Fruits</h3>
+
+        <p>
+            🎁 Mỗi mức giá sẽ có những phần quà Blox Fruits khác nhau.
+        </p>
+
+        <p>
+            ⚠️ Vui lòng kiểm tra kỹ thông tin sản phẩm trước khi mua.
+        </p>
+
+        <p>
+            💰 Các mức giá: <b>0K - 20K - 50K - 80K - 100K - 150K - 200K</b>
+        </p>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    © 2026 SHOPKAROT - Blox Fruits
+
+</footer>
+
+
+</body>
+</html>
+```
 
