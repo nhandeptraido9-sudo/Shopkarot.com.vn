@@ -548,6 +548,24 @@ a{
     background:linear-gradient(135deg,#160000,#d10b0b);
 }
 
+/* ================= NEW CATEGORIES ================= */
+
+.gamepass{
+    background:linear-gradient(135deg,#7c2d12,#f97316);
+}
+
+.robux120{
+    background:linear-gradient(135deg,#111827,#facc15);
+}
+
+.fish{
+    background:linear-gradient(135deg,#075985,#22d3ee);
+}
+
+.speed-keyboard{
+    background:linear-gradient(135deg,#312e81,#a855f7);
+}
+
 /* ================= GREEDY GROWERS ================= */
 
 .greedy{
@@ -1398,9 +1416,7 @@ footer{
                 </article>
 
 
-                <!-- =================================================
-                     GREEDY GROWERS
-                     ================================================= -->
+                <!-- GREEDY GROWERS -->
 
                 <article class="game">
 
@@ -1428,6 +1444,135 @@ footer{
 
                     <a
                         href="greedy-growers.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- ================= GAMEPASS ================= -->
+
+                <article class="game">
+
+                    <div class="game-image gamepass">
+                        🎟️<br>
+                        GAMEPASS
+                    </div>
+
+                    <h3>
+                        Gamepass Blox Fruits
+                    </h3>
+
+                    <small>
+                        🎟️ Gamepass
+                    </small>
+
+                    <br>
+
+                    <span class="status ready">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="gamepass/index.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- ================= ROBUX 120H ================= -->
+
+                <article class="game">
+
+                    <div class="game-image robux120">
+                        💰<br>
+                        ROBUX 120H
+                    </div>
+
+                    <h3>
+                        Robux 120H
+                    </h3>
+
+                    <small>
+                        💰 Robux
+                    </small>
+
+                    <br>
+
+                    <span class="status ready">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="robux-120h/index.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- ================= FISH ================= -->
+
+                <article class="game">
+
+                    <div class="game-image fish">
+                        🐟<br>
+                        FISH
+                    </div>
+
+                    <h3>
+                        Fish
+                    </h3>
+
+                    <small>
+                        🐟 Dịch vụ Fish
+                    </small>
+
+                    <br>
+
+                    <span class="status ready">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="fish/index.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- ================= SPEED KEYBOARD ================= -->
+
+                <article class="game">
+
+                    <div class="game-image speed-keyboard">
+                        ⌨️<br>
+                        SPEED<br>
+                        KEYBOARD
+                    </div>
+
+                    <h3>
+                        Speed Keyboard
+                    </h3>
+
+                    <small>
+                        ⌨️ Speed Keyboard
+                    </small>
+
+                    <br>
+
+                    <span class="status ready">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="speed-keyboard/index.html"
                         class="game-button">
                         XEM NGAY
                     </a>
@@ -1493,7 +1638,7 @@ footer{
    ===================================================== */
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbwoSypOKpE8NJu_lhWpVOWyu6FrUhiXxnXTlvu01DoGxH-__pG3r-LJp3zMT_UMrzXMZA/exec";
+"https://script.google.com/macros/s/AKfycbwoSypOKpE8NJu_lhWpVOWyu6FrUhiXxnXTlvu01DoGgH-__pG3r-LJp3zMT_UMrzXMZA/exec";
 
 
 /* =====================================================
@@ -1512,6 +1657,7 @@ function setAPIStatus(type,text){
 
     box.textContent =
         text;
+
 }
 
 
@@ -1923,8 +2069,6 @@ function setDefaultStatuses(){
         false
     );
 
-    /* GREEDY GROWERS */
-
     setGameStatus(
         "status-greedy",
         false
@@ -2253,17 +2397,7 @@ async function loadGameStatuses(){
         );
 
 
-        /* =================================================
-           GREEDY GROWERS 🌱
-
-           Admin có thể trả về:
-
-           greedy
-           greedyGrowers
-           greedyGrower
-           Greedy Growers
-           Greedy Growers 🌱
-           ================================================= */
+        /* ================= GREEDY GROWERS ================= */
 
         setGameStatus(
             "status-greedy",
