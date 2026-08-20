@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Danh Sách Acc Blox Fruits - SHOPKAROT</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+    color:#111;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e21b23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* =====================================================
+   USER
+===================================================== */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
+}
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+    font-size:14px;
+    color:#687386;
+}
+
+.breadcrumb a{
+    color:#d01018;
+    font-weight:bold;
+}
+
+.breadcrumb span{
+    color:#999;
+}
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #7c1010 0%,
+            #320606 38%,
+            #080808 78%
+        );
+    color:#fff;
+    border-radius:18px;
+    padding:35px 40px;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+    margin-bottom:18px;
+    position:relative;
+    overflow:hidden;
+}
+
+.page-title::after{
+    content:"🍎";
+    position:absolute;
+    right:55px;
+    top:20px;
+    font-size:100px;
+    opacity:.12;
+}
+
+.page-title h1{
+    margin:0;
+    font-size:38px;
+    font-weight:1000;
+}
+
+.page-title h1 span{
+    color:#ed1c24;
+}
+
+.page-title p{
+    margin:10px 0 0;
+    color:#ddd;
+    font-size:15px;
+}
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice{
+    margin-bottom:18px;
+    padding:18px 20px;
+    background:#fff8e8;
+    border:1px solid #f1d58b;
+    border-radius:14px;
+    color:#694d00;
+    line-height:1.7;
+}
+
+.notice b{
+    color:#a80e12;
+}
+
+/* =====================================================
+   WARNING
+===================================================== */
+
+.warning{
+    margin-bottom:20px;
+    padding:18px 20px;
+    background:#fff0f0;
+    border:1px solid #efb7b7;
+    border-radius:14px;
+    color:#6f1515;
+    line-height:1.7;
+}
+
+.warning strong{
+    color:#c00d15;
+}
+
+/* =====================================================
+   CATEGORY TITLE
+===================================================== */
+
+.category-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 15px;
+    padding:13px 16px;
+    background:#fff;
+    border-radius:12px;
+    border:1px solid #e4e7eb;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.category-title h2{
+    margin:0;
+    font-size:21px;
+}
+
+/* =====================================================
+   ACCOUNT GRID
+===================================================== */
+
+.account-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+/* =====================================================
+   ACCOUNT CARD
+===================================================== */
+
+.account-card{
+    background:#fff;
+    border:1px solid #e1e5ea;
+    border-radius:17px;
+    padding:22px;
+    box-shadow:0 4px 16px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.account-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 28px rgba(0,0,0,.13);
+    border-color:#d01018;
+}
+
+.account-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.account-title{
+    font-size:20px;
+    font-weight:900;
+    color:#172033;
+}
+
+.account-status{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+    background:#e7f8ef;
+    color:#078542;
+    border:1px solid #b7e8ca;
+}
+
+.account-status.taken{
+    background:#fff1f1;
+    color:#c50f16;
+    border-color:#efbaba;
+}
+
+/* =====================================================
+   FIELD
+===================================================== */
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:800;
+    color:#172033;
+}
+
+.field-box{
+    width:100%;
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    padding:12px 15px;
+    background:#f7f8fa;
+    border:1px solid #dfe3e8;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:bold;
+    color:#172033;
+    overflow:hidden;
+    word-break:break-all;
+}
+
+.password-box{
+    letter-spacing:4px;
+    color:#555;
+}
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.account-info{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.info-tag{
+    padding:6px 10px;
+    background:#f1f4f8;
+    border-radius:8px;
+    font-size:11px;
+    color:#586579;
+    font-weight:bold;
+}
+
+/* =====================================================
+   BUY BUTTON
+===================================================== */
+
+.buy-button{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:#a80e12;
+    color:#fff;
+    font-size:14px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.buy-button:hover{
+    background:#d0161d;
+}
+
+.buy-button:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+    padding:40px 20px;
+    text-align:center;
+    background:#fff;
+    border:1px dashed #ccc;
+    border-radius:15px;
+    color:#687386;
+}
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#fff;
+    border:1px solid #ddd;
+    color:#172033;
+    font-weight:bold;
+}
+
+.back-button:hover{
+    color:#d01018;
+    border-color:#d01018;
+}
+
+/* =====================================================
+   API STATUS
+===================================================== */
+
+.api-status{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    padding:9px 13px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.api-status.ok{
+    color:#078542;
+    border-color:#bde7cd;
+}
+
+.api-status.error{
+    color:#d01018;
+    border-color:#f1bebe;
+}
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:99999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:450px;
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    text-align:center;
+}
+
+.modal-box h3{
+    margin:0 0 12px;
+    font-size:22px;
+}
+
+.modal-box p{
+    color:#687386;
+    line-height:1.6;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.modal-buttons button{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    border:0;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cancel-button{
+    background:#eee;
+    color:#333;
+}
+
+.confirm-button{
+    background:#a80e12;
+    color:#fff;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:900px){
+
+    .account-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        margin-left:auto;
+        padding:6px 8px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .page-title{
+        padding:28px 22px;
+    }
+
+    .page-title h1{
+        font-size:29px;
+    }
+
+    .page-title::after{
+        right:15px;
+        font-size:70px;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .user-info{
+        display:none;
+    }
+
+    .account-card{
+        padding:17px;
+    }
+
+    .account-title{
+        font-size:17px;
+    }
+
+    .account-header{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu-blox-fruit.html">
+                🎁 Túi Mù Blox Fruit
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     API STATUS
+===================================================== -->
+
+<div
+    id="apiStatus"
+    class="api-status">
+
+    🔄 Đang tải...
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            🏠 Trang chủ
+        </a>
+
+        <span>›</span>
+
+        <a href="acc-game.html">
+            🎮 Acc Game
+        </a>
+
+        <span>›</span>
+
+        <a href="random-acc-blox-fruit.html">
+            🍎 Random Acc Blox Fruits
+        </a>
+
+        <span>›</span>
+
+        <b>
+            Danh Sách Acc
+        </b>
+
+    </div>
+
+
+    <!-- =================================================
+         TITLE
+    ================================================= -->
+
+    <section class="page-title">
+
+        <h1>
+            🍎 <span>Danh Sách Acc Blox Fruits</span>
+        </h1>
+
+        <p>
+            Acc Blox Fruits random - thông tin tài khoản
+            được admin cập nhật sẵn.
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         NOTICE
+    ================================================= -->
+
+    <div class="notice">
+
+        ⚠️
+        <b>Thông tin sản phẩm:</b>
+
+        <br>
+
+        🔥 Tài khoản Blox Fruits có
+        <b>LV trên 800</b>.
+
+        <br>
+
+        🎲 Acc được lấy theo hình thức
+        <b>random</b>, có thể có acc trắng hoặc
+        acc có vật phẩm khác nhau.
+
+        <br>
+
+        🔄 Danh sách tài khoản sẽ được
+        <b>làm mới sau 1 ngày</b>.
+
+    </div>
+
+
+    <!-- =================================================
+         WARNING
+    ================================================= -->
+
+    <div class="warning">
+
+        ⚠️
+        <strong>LƯU Ý QUAN TRỌNG:</strong>
+
+        <br>
+
+        Có một tỷ lệ thấp tài khoản có thể
+        <b>không đăng nhập được</b> do đây là
+        tài khoản random vùng.
+
+        <br>
+
+        Nếu gặp trường hợp này, vui lòng hiểu rằng
+        đây là đặc điểm của tài khoản random vùng
+        và <b>không nên đổ lỗi cho SHOPKAROT</b>.
+
+        <br>
+
+        Vui lòng đọc kỹ thông tin trước khi mua.
+
+    </div>
+
+
+    <!-- =================================================
+         CATEGORY
+    ================================================= -->
+
+    <div class="category-title">
+
+        <h2>
+            📋 DANH SÁCH 10 ACC BLOX FRUITS
+        </h2>
+
+    </div>
+
+
+    <!-- =================================================
+         ACCOUNT LIST
+    ================================================= -->
+
+    <section
+        class="account-grid"
+        id="accountGrid">
+
+        <!-- JS sẽ tạo 10 acc tại đây -->
+
+    </section>
+
+
+    <!-- =================================================
+         BACK
+    ================================================= -->
+
+    <a
+        href="index.html"
+        class="back-button">
+
+        ← Quay lại trang chủ
+
+    </a>
+
+</main>
+
+
+<!-- =====================================================
+     BUY MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="buyModal">
+
+    <div class="modal-box">
+
+        <h3>
+            🛒 Xác nhận mua acc
+        </h3>
+
+        <p id="modalText">
+            Bạn có chắc chắn muốn mua tài khoản này?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                class="cancel-button"
+                onclick="closeBuyModal()">
+
+                HỦY
+
+            </button>
+
+            <button
+                class="confirm-button"
+                onclick="confirmBuy()">
+
+                XÁC NHẬN MUA
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   API
+===================================================== */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwoSypOKpE8NJu_lhWpVOWyu6FrUhiXxnXTlvu01DoGxH-__pG3r-LJp3zMT_UMrzXMZA/exec";
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(!menu.contains(event.target)){
+
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   USER
+===================================================== */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true" &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* =====================================================
+   USER CLICK
+===================================================== */
+
+document
+.getElementById("userBox")
+.addEventListener(
+    "click",
+    function(){
+
+        const login =
+            localStorage.getItem(
+                "shopkarot_login"
+            );
+
+        if(login === "true"){
+
+            window.location.href =
+                "ho-so.html";
+
+        }
+
+        else{
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   API STATUS
+===================================================== */
+
+function setAPIStatus(type,text){
+
+    const box =
+        document.getElementById(
+            "apiStatus"
+        );
+
+    box.className =
+        "api-status " + type;
+
+    box.textContent =
+        text;
+
+}
+
+
+/* =====================================================
+   ACCOUNT DATA
+===================================================== */
+
+let accounts = [];
+
+let selectedAccountIndex = null;
+
+
+/* =====================================================
+   TẠO 10 Ô MẶC ĐỊNH
+===================================================== */
+
+function createDefaultAccounts(){
+
+    accounts = [];
+
+    for(let i = 1; i <= 10; i++){
+
+        accounts.push({
+
+            id:i,
+
+            username:"Đang cập nhật...",
+
+            password:"",
+
+            level:"800+",
+
+            taken:false
+
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   HIỂN THỊ ACC
+===================================================== */
+
+function renderAccounts(){
+
+    const grid =
+        document.getElementById(
+            "accountGrid"
+        );
+
+    grid.innerHTML = "";
+
+
+    if(!accounts.length){
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                📭 Hiện chưa có tài khoản.
+
+                <br><br>
+
+                Admin sẽ cập nhật tài khoản
+                mới trong thời gian tới.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    accounts.forEach(
+        function(acc,index){
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "account-card";
+
+
+            const taken =
+                acc.taken === true;
+
+
+            card.innerHTML = `
+
+                <div class="account-header">
+
+                    <div class="account-title">
+
+                        🍎 ACC BLOX FRUITS #${index + 1}
+
+                    </div>
+
+                    <span class="account-status ${taken ? "taken" : ""}">
+
+                        ${
+                            taken
+                            ? "🔴 Đã có khách lấy"
+                            : "🟢 Có sẵn"
+                        }
+
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Tài khoản
+                    </label>
+
+                    <div class="field-box">
+
+                        ${
+                            acc.username ||
+                            "Đang cập nhật..."
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Mật khẩu
+                    </label>
+
+                    <div class="field-box password-box">
+
+                        ${
+                            acc.password
+                            ? "••••••••••••"
+                            : "••••••••"
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-info">
+
+                    <span class="info-tag">
+                        🍎 Blox Fruits
+                    </span>
+
+                    <span class="info-tag">
+                        ⭐ LV ${acc.level || "800+"}
+                    </span>
+
+                    <span class="info-tag">
+                        🔄 Làm mới 1 ngày
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="buy-button"
+                    onclick="openBuyModal(${index})"
+                    ${taken ? "disabled" : ""}>
+
+                    ${
+                        taken
+                        ? "🔒 ĐÃ CÓ KHÁCH LẤY"
+                        : "🛒 MUA NGAY"
+                    }
+
+                </button>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LẤY DANH SÁCH TỪ API
+===================================================== */
+
+async function loadAccounts(){
+
+    createDefaultAccounts();
+
+    renderAccounts();
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=getRandomBloxFruitList&_=" +
+                Date.now(),
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            data &&
+            data.ok === true &&
+            Array.isArray(data.accounts)
+        ){
+
+            accounts =
+                data.accounts
+                    .slice(0,10);
+
+
+            while(
+                accounts.length < 10
+            ){
+
+                accounts.push({
+
+                    id:
+                        accounts.length + 1,
+
+                    username:
+                        "Đang cập nhật...",
+
+                    password:"",
+
+                    level:"800+",
+
+                    taken:false
+
+                });
+
+            }
+
+
+            renderAccounts();
+
+
+            setAPIStatus(
+                "ok",
+                "🟢 Đã kết nối API"
+            );
+
+        }
+
+        else{
+
+            setAPIStatus(
+                "error",
+                "🟠 API chưa có danh sách acc"
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            "API ERROR:",
+            error
+        );
+
+
+        setAPIStatus(
+            "error",
+            "🔴 Không kết nối được API"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   MỞ MODAL
+===================================================== */
+
+function openBuyModal(index){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+
+    if(login !== "true" || !username){
+
+        alert(
+            "🔐 Bạn cần đăng nhập trước khi mua acc!"
+        );
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    if(
+        !accounts[index] ||
+        accounts[index].taken === true
+    ){
+
+        alert(
+            "❌ Tài khoản này đã có khách lấy."
+        );
+
+        return;
+
+    }
+
+
+    selectedAccountIndex =
+        index;
+
+
+    document.getElementById(
+        "modalText"
+    ).textContent =
+        "Bạn có chắc chắn muốn mua ACC BLOX FRUITS #" +
+        (index + 1) +
+        "? Sau khi xác nhận, hệ thống sẽ thông báo cho admin.";
+
+
+    document
+        .getElementById("buyModal")
+        .classList.add("show");
+
+}
+
+
+/* =====================================================
+   ĐÓNG MODAL
+===================================================== */
+
+function closeBuyModal(){
+
+    selectedAccountIndex =
+        null;
+
+    document
+        .getElementById("buyModal")
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   XÁC NHẬN MUA
+===================================================== */
+
+async function confirmBuy(){
+
+    if(
+        selectedAccountIndex === null
+    ){
+
+        return;
+
+    }
+
+
+    const index =
+        selectedAccountIndex;
+
+
+    const acc =
+        accounts[index];
+
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+
+    if(!username){
+
+        alert(
+            "❌ Không xác định được tài khoản khách."
+        );
+
+        closeBuyModal();
+
+        return;
+
+    }
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".buy-button"
+        );
+
+
+    if(buttons[index]){
+
+        buttons[index].disabled =
+            true;
+
+        buttons[index].textContent =
+            "⏳ ĐANG XỬ LÝ...";
+
+    }
+
+
+    try{
+
+        const payload = {
+
+            action:
+                "buyRandomBloxFruit",
+
+            customer:
+                username,
+
+            accountId:
+                acc.id || index + 1,
+
+            accountIndex:
+                index + 1,
+
+            time:
+                new Date().toISOString()
+
+        };
+
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            payload
+                        )
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            data &&
+            data.ok === true
+        ){
+
+            /*
+             * KHÔNG XÓA ACC.
+             * Chỉ đánh dấu đã có khách lấy.
+             */
+
+            accounts[index].taken =
+                true;
+
+
+            renderAccounts();
+
+
+            closeBuyModal();
+
+
+            alert(
+                "✅ Đã ghi nhận!\n\n" +
+                "Admin đã nhận được thông báo khách " +
+                username +
+                " đã lấy ACC BLOX FRUITS #" +
+                (index + 1) +
+                ".\n\n" +
+                "Thông tin acc vẫn được giữ trên danh sách."
+            );
+
+
+            setAPIStatus(
+                "ok",
+                "🟢 Đã báo cho admin"
+            );
+
+        }
+
+        else{
+
+            throw new Error(
+                data &&
+                data.message
+                ? data.message
+                : "API từ chối yêu cầu"
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            "BUY ERROR:",
+            error
+        );
+
+
+        alert(
+            "❌ Không thể gửi yêu cầu mua.\n\n" +
+            "Vui lòng thử lại hoặc liên hệ admin."
+        );
+
+
+        renderAccounts();
+
+
+        setAPIStatus(
+            "error",
+            "🔴 Gửi yêu cầu thất bại"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CHECK API
+===================================================== */
+
+async function checkAPI(){
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=getShopStatus&_=" +
+                Date.now(),
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            data &&
+            data.ok === true
+        ){
+
+            setAPIStatus(
+                "ok",
+                "🟢 Đã kết nối API"
+            );
+
+        }
+
+        else{
+
+            setAPIStatus(
+                "error",
+                "🔴 API không phản hồi"
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        setAPIStatus(
+            "error",
+            "🔴 Không kết nối được API"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   STORAGE UPDATE
+===================================================== */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PAGE FOCUS
+===================================================== */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+updateUser();
+
+checkAPI();
+
+loadAccounts();
+
+</script>
+
+</body>
+</html>
