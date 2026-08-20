@@ -7,6 +7,7 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
     margin:0;
     min-height:100vh;
@@ -16,6 +17,7 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#f3f6fa;
 }
+
 .box{
     width:400px;
     max-width:92%;
@@ -24,17 +26,23 @@ body{
     border-radius:18px;
     box-shadow:0 10px 35px rgba(0,0,0,.15);
 }
+
 .logo{
     text-align:center;
     font-size:32px;
     font-weight:900;
     font-style:italic;
 }
-.logo span{color:#e21b23}
+
+.logo span{
+    color:#e21b23;
+}
+
 h2{
     text-align:center;
     margin:10px 0 25px;
 }
+
 input{
     width:100%;
     padding:14px;
@@ -43,6 +51,7 @@ input{
     border-radius:10px;
     font-size:15px;
 }
+
 button{
     width:100%;
     padding:14px;
@@ -54,27 +63,48 @@ button{
     font-weight:bold;
     cursor:pointer;
 }
-button:hover{background:#b30d14}
+
+button:hover{
+    background:#b30d14;
+}
+
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
 .message{
     text-align:center;
     margin-top:15px;
     font-weight:bold;
+    min-height:20px;
 }
+
 .links{
     text-align:center;
     margin-top:20px;
 }
+
 .links a{
     color:#d01018;
     text-decoration:none;
     font-weight:bold;
 }
+
 .home{
     display:block;
     text-align:center;
     margin-top:15px;
     color:#666;
     text-decoration:none;
+}
+
+.loading{
+    display:none;
+    text-align:center;
+    margin-top:10px;
+    color:#777;
+    font-size:14px;
 }
 </style>
 </head>
@@ -92,21 +122,30 @@ button:hover{background:#b30d14}
     <input
         id="username"
         type="text"
-        placeholder="Tên đăng nhập">
+        placeholder="Tên đăng nhập"
+        autocomplete="username">
 
     <input
         id="password"
         type="password"
-        placeholder="Mật khẩu">
+        placeholder="Mật khẩu"
+        autocomplete="new-password">
 
     <input
         id="password2"
         type="password"
-        placeholder="Nhập lại mật khẩu">
+        placeholder="Nhập lại mật khẩu"
+        autocomplete="new-password">
 
-    <button onclick="register()">
+    <button
+        id="registerButton"
+        onclick="register()">
         ĐĂNG KÝ
     </button>
+
+    <div id="loading" class="loading">
+        ⏳ Đang tạo tài khoản...
+    </div>
 
     <div id="message" class="message"></div>
 
@@ -121,118 +160,240 @@ button:hover{background:#b30d14}
 
 </div>
 
+
 <script>
 
-function register(){
+/* =========================================================
+   SHOPKAROT API
+========================================================= */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzvLguady_9Krw5eJ-qapaKk0hwc8wEvfuKU-eRH7Qdy_0f0ggC57q4GIX8pCzGh-zmMw/exec";
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+async function register(){
 
     const username =
-        document.getElementById("username")
-        .value.trim();
+        document
+        .getElementById("username")
+        .value
+        .trim();
 
     const password =
-        document.getElementById("password")
+        document
+        .getElementById("password")
         .value;
 
     const password2 =
-        document.getElementById("password2")
+        document
+        .getElementById("password2")
         .value;
 
     const message =
-        document.getElementById("message");
+        document
+        .getElementById("message");
+
+    const button =
+        document
+        .getElementById("registerButton");
+
+    const loading =
+        document
+        .getElementById("loading");
+
+
+    /* =====================================================
+       KIỂM TRA
+    ===================================================== */
 
     if(username.length < 3){
 
         message.style.color="red";
-        message.textContent=
+
+        message.textContent =
             "Tên đăng nhập phải có ít nhất 3 ký tự.";
 
         return;
     }
 
+
     if(password.length < 6){
 
         message.style.color="red";
-        message.textContent=
+
+        message.textContent =
             "Mật khẩu phải có ít nhất 6 ký tự.";
 
         return;
     }
 
+
     if(password !== password2){
 
         message.style.color="red";
-        message.textContent=
+
+        message.textContent =
             "Mật khẩu nhập lại không giống nhau.";
 
         return;
     }
 
-    let users =
-        JSON.parse(
-            localStorage.getItem("shopkarot_users") || "[]"
+
+    /* =====================================================
+       LOADING
+    ===================================================== */
+
+    button.disabled=true;
+
+    loading.style.display="block";
+
+    message.textContent="";
+
+
+    try{
+
+        /* =================================================
+           GỌI APPS SCRIPT
+        ================================================= */
+
+        const response =
+            await fetch(API_URL,{
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
+                },
+
+                body:JSON.stringify({
+
+                    action:"register",
+
+                    username:username,
+
+                    password:password
+
+                })
+
+            });
+
+
+        const result =
+            await response.json();
+
+
+        /* =================================================
+           ĐĂNG KÝ THẤT BẠI
+        ================================================= */
+
+        if(!result.ok){
+
+            message.style.color="red";
+
+            message.textContent =
+                result.message ||
+                "Đăng ký thất bại.";
+
+            return;
+        }
+
+
+        /* =================================================
+           ĐĂNG KÝ THÀNH CÔNG
+        ================================================= */
+
+        localStorage.setItem(
+            "shopkarot_user",
+            result.username
         );
 
-    const exists =
-        users.some(function(item){
+        localStorage.setItem(
+            "shopkarot_username",
+            result.username
+        );
 
-            return item.username.toLowerCase()
-                === username.toLowerCase();
+        localStorage.setItem(
+            "shopkarot_login",
+            "true"
+        );
 
-        });
+        localStorage.setItem(
+            "shopkarot_logged_in",
+            "true"
+        );
 
-    if(exists){
+        localStorage.setItem(
+            "shopkarot_balance",
+            String(
+                Number(
+                    result.balance || 0
+                )
+            )
+        );
+
+
+        message.style.color="#168b42";
+
+        message.textContent =
+            "Đăng ký thành công!";
+
+
+        /* =================================================
+           CHUYỂN VỀ TRANG CHỦ
+        ================================================= */
+
+        setTimeout(function(){
+
+            window.location.href =
+                "index.html";
+
+        },700);
+
+
+    }catch(error){
+
+        console.error(
+            "REGISTER ERROR:",
+            error
+        );
 
         message.style.color="red";
-        message.textContent=
-            "Tên đăng nhập đã tồn tại.";
 
-        return;
+        message.textContent =
+            "Không kết nối được Apps Script.";
+
+    }finally{
+
+        button.disabled=false;
+
+        loading.style.display="none";
+
     }
 
-    const newUser = {
-
-        username:username,
-
-        password:password,
-
-        balance:0,
-
-        createdAt:new Date().toISOString()
-
-    };
-
-    users.push(newUser);
-
-    localStorage.setItem(
-        "shopkarot_users",
-        JSON.stringify(users)
-    );
-
-    localStorage.setItem(
-        "shopkarot_user",
-        username
-    );
-
-    localStorage.setItem(
-        "shopkarot_login",
-        "true"
-    );
-
-    localStorage.setItem(
-        "shopkarot_balance",
-        "0"
-    );
-
-    message.style.color="#168b42";
-    message.textContent=
-        "Đăng ký thành công!";
-
-    setTimeout(function(){
-
-        window.location.href="index.html";
-
-    },700);
 }
+
+
+/* =========================================================
+   ENTER ĐỂ ĐĂNG KÝ
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            register();
+
+        }
+
+    }
+);
 
 </script>
 
