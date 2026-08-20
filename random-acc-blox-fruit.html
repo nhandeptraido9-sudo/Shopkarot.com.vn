@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Random Acc Blox Fruits - SHOPKAROT</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* HEADER */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e21b23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:white;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:white;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:block;
+    padding:14px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* USER */
+
+.user{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:white;
+    cursor:pointer;
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-bottom:15px;
+    color:#687386;
+    font-size:14px;
+}
+
+.breadcrumb a{
+    color:#d01018;
+    font-weight:bold;
+}
+
+/* TITLE */
+
+.page-title{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #7c1010,
+            #320606 40%,
+            #080808 78%
+        );
+
+    color:white;
+    border-radius:18px;
+    padding:38px 40px;
+    margin-bottom:18px;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+}
+
+.page-title h1{
+    margin:0;
+    font-size:38px;
+}
+
+.page-title h1 span{
+    color:#ed1c24;
+}
+
+.page-title p{
+    margin:12px 0 0;
+    color:#ddd;
+    line-height:1.6;
+}
+
+/* NOTICE */
+
+.notice{
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:14px;
+    background:#fff8e8;
+    border:1px solid #f1d58b;
+    color:#694d00;
+    line-height:1.6;
+}
+
+.notice b{
+    color:#a80e12;
+}
+
+/* CATEGORY */
+
+.category-title{
+    background:white;
+    border:1px solid #e4e7eb;
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.category-title h2{
+    margin:0;
+    font-size:21px;
+}
+
+/* GRID */
+
+.folder-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+/* FOLDER */
+
+.folder{
+    background:white;
+    border:1px solid #e2e5e9;
+    border-radius:17px;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.folder:hover{
+    transform:translateY(-5px);
+    border-color:#d01018;
+    box-shadow:0 10px 25px rgba(0,0,0,.14);
+}
+
+.folder-icon{
+    height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:75px;
+}
+
+.folder-boc-tui{
+    background:
+        linear-gradient(
+            135deg,
+            #4c006e,
+            #a52cff
+        );
+}
+
+.folder-danh-sach{
+    background:
+        linear-gradient(
+            135deg,
+            #003d68,
+            #168ee8
+        );
+}
+
+.folder-info{
+    padding:22px;
+}
+
+.folder-info h3{
+    margin:0 0 10px;
+    font-size:21px;
+}
+
+.folder-info p{
+    color:#687386;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.status{
+    display:inline-block;
+    margin:8px 0 14px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#e7f8ef;
+    border:1px solid #b7e8ca;
+    color:#00a86b;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.button{
+    display:block;
+    padding:12px;
+    border-radius:9px;
+    background:#a80e12;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+}
+
+.button:hover{
+    background:#d0161d;
+}
+
+/* BACK */
+
+.back{
+    display:inline-block;
+    margin-top:22px;
+    padding:12px 18px;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.back:hover{
+    color:#d01018;
+    border-color:#d01018;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .folder-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .page-title{
+        padding:28px 22px;
+    }
+
+    .page-title h1{
+        font-size:29px;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .user-info{
+        display:none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+
+            ☰
+
+        </button>
+
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu-blox-fruit.html">
+                🎁 TÚI MÙ BLOX FRUITS
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            🏠 Trang chủ
+        </a>
+
+        <span>›</span>
+
+        <a href="acc-blox-fruit.html">
+            🍎 Blox Fruits
+        </a>
+
+        <span>›</span>
+
+        <b>
+            🎲 Random Acc
+        </b>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <section class="page-title">
+
+        <h1>
+            🎲 RANDOM <span>ACC BLOX FRUITS</span>
+        </h1>
+
+        <p>
+            Khu vực Random Acc Blox Fruits 0K -
+            nhận acc tùy nhân phẩm.
+        </p>
+
+    </section>
+
+
+    <!-- NOTICE -->
+
+    <div class="notice">
+
+        🎲 <b>Thông tin:</b>
+
+        Đây là khu vực Random Acc Blox Fruits.
+
+        <br>
+
+        🍀 Các tài khoản được random ngẫu nhiên,
+        vì vậy chất lượng acc nhận được phụ thuộc vào nhân phẩm.
+
+        <br>
+
+        💰 <b>Random 0K</b> - không mất tiền.
+
+        <br>
+
+        ⚠️ Mỗi danh mục có cách nhận acc khác nhau.
+        Vui lòng đọc thông tin trước khi sử dụng.
+
+    </div>
+
+
+    <!-- CATEGORY -->
+
+    <div class="category-title">
+
+        <h2>
+            🎮 DANH MỤC RANDOM ACC BLOX FRUITS
+        </h2>
+
+    </div>
+
+
+    <!-- TWO FOLDERS -->
+
+    <section class="folder-grid">
+
+
+        <!-- ================= BÓC TÚI MÙ ================= -->
+
+        <a
+            href="random-acc-blox-fruit-boc-tui-mu.html"
+            class="folder">
+
+            <div
+                class="folder-icon folder-boc-tui">
+
+                🎁
+
+            </div>
+
+
+            <div class="folder-info">
+
+                <h3>
+                    Acc Blox Fruits Bóc Túi Mù
+                </h3>
+
+                <p>
+                    🎁 Bóc túi mù để nhận ngẫu nhiên
+                    một tài khoản Blox Fruits.
+                    Acc nhận được phụ thuộc vào nhân phẩm.
+                </p>
+
+                <span class="status">
+                    🟢 Random 0K
+                </span>
+
+                <div class="button">
+                    BÓC TÚI NGAY →
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- ================= DANH SÁCH ACC ================= -->
+
+        <a
+            href="random-acc-blox-fruit-danh-sach.html"
+            class="folder">
+
+            <div
+                class="folder-icon folder-danh-sach">
+
+                📋
+
+            </div>
+
+
+            <div class="folder-info">
+
+                <h3>
+                    Danh Sách Acc Blox Fruits
+                </h3>
+
+                <p>
+                    📋 Danh sách các tài khoản Blox Fruits
+                    có sẵn. Thông tin tài khoản và mật khẩu
+                    được hiển thị sẵn theo từng acc.
+                </p>
+
+                <span class="status">
+                    🟢 Có tài khoản sẵn
+                </span>
+
+                <div class="button">
+                    XEM DANH SÁCH →
+                </div>
+
+            </div>
+
+        </a>
+
+
+    </section>
+
+
+    <!-- BACK HOME -->
+
+    <a
+        href="index.html"
+        class="back">
+
+        ← Quay lại trang chủ
+
+    </a>
+
+</main>
+
+
+<footer>
+
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+
+</footer>
+
+
+<script>
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(
+            menu &&
+            !menu.contains(event.target)
+        ){
+
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* ================= USER ================= */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true" &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* ================= USER CLICK ================= */
+
+document
+    .getElementById("userBox")
+    .addEventListener(
+        "click",
+        function(){
+
+            const login =
+                localStorage.getItem(
+                    "shopkarot_login"
+                );
+
+
+            if(login === "true"){
+
+                window.location.href =
+                    "ho-so.html";
+
+            }
+
+            else{
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+    );
+
+
+/* ================= START ================= */
+
+updateUser();
+
+
+/* ================= STORAGE ================= */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+
+/* ================= PAGE FOCUS ================= */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
