@@ -378,6 +378,94 @@ a{
     font-size:21px;
 }
 
+/* ================= RANDOM ACC ================= */
+
+.random-acc{
+    display:flex;
+    overflow:hidden;
+    min-height:175px;
+    margin-bottom:18px;
+    border:1px solid #f0bcbc;
+    border-radius:15px;
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            #ff4444 0%,
+            #9d1111 35%,
+            #350606 85%
+        );
+    color:white;
+    box-shadow:0 5px 18px rgba(0,0,0,.12);
+    transition:.25s;
+}
+
+.random-acc:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.random-acc-icon{
+    width:170px;
+    min-width:170px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
+    background:rgba(0,0,0,.2);
+}
+
+.random-acc-info{
+    flex:1;
+    padding:20px;
+}
+
+.random-acc-info h3{
+    margin:0 0 9px;
+    font-size:21px;
+}
+
+.random-acc-info p{
+    margin:6px 0;
+    color:#f5f5f5;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.random-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:10px 0;
+}
+
+.random-tag{
+    display:inline-block;
+    padding:6px 9px;
+    border-radius:15px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.25);
+    font-size:11px;
+    font-weight:bold;
+}
+
+.random-button{
+    display:block;
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+    background:#fff;
+    color:#a80e12;
+    text-align:center;
+    font-size:12px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.random-button:hover{
+    background:#ffdede;
+}
+
 /* ================= EVENT ================= */
 
 .event-title{
@@ -721,12 +809,15 @@ footer{
 /* ================= MOBILE ================= */
 
 @media(max-width:1200px){
+
     .games{
         grid-template-columns:repeat(3,1fr);
     }
+
 }
 
 @media(max-width:1000px){
+
     .top{
         grid-template-columns:1fr;
     }
@@ -734,6 +825,7 @@ footer{
     .content{
         grid-template-columns:1fr;
     }
+
 }
 
 @media(max-width:700px){
@@ -792,6 +884,24 @@ footer{
         width:100%;
     }
 
+    .random-acc{
+        display:block;
+    }
+
+    .random-acc-icon{
+        width:100%;
+        min-width:0;
+        height:110px;
+    }
+
+    .random-acc-info{
+        padding:16px;
+    }
+
+    .random-acc-info h3{
+        font-size:18px;
+    }
+
     .events{
         grid-template-columns:1fr;
     }
@@ -813,6 +923,7 @@ footer{
     .stats{
         grid-template-columns:1fr 1fr;
     }
+
 }
 
 @media(max-width:450px){
@@ -834,6 +945,7 @@ footer{
     .event-info h3{
         font-size:14px;
     }
+
 }
 </style>
 </head>
@@ -875,6 +987,10 @@ footer{
 
             <a href="tui-mu.html?price=0">
                 🎁 TÚI MÙ
+            </a>
+
+            <a href="random-acc-roblox.html">
+                🎲 RANDOM ACC ROBLOX
             </a>
 
             <a href="lich-su.html">
@@ -1111,6 +1227,68 @@ footer{
                 </h2>
 
             </div>
+
+
+            <!-- =================================================
+                 RANDOM ACC ROBLOX
+                 NẰM NGOÀI PHẦN GAME
+                 ================================================= -->
+
+            <a
+                href="random-acc-roblox.html"
+                class="random-acc">
+
+                <div class="random-acc-icon">
+                    🎲
+                </div>
+
+                <div class="random-acc-info">
+
+                    <h3>
+                        🎲 RANDOM ACC ROBLOX VN & QUỐC TẾ
+                    </h3>
+
+                    <p>
+                        🆓 <b>Acc Free - Tùy Nhân Phẩm</b>
+                    </p>
+
+                    <p>
+                        🎮 Có thể có <b>nhiều game khác nhau</b>
+                        tùy vào acc random nhận được.
+                    </p>
+
+                    <p>
+                        🇻🇳 Roblox VN &nbsp;|&nbsp;
+                        🌎 Roblox Quốc Tế
+                    </p>
+
+                    <div class="random-tags">
+
+                        <span class="random-tag">
+                            🎁 RANDOM 0K
+                        </span>
+
+                        <span class="random-tag">
+                            🎲 HÊN XUI NHÂN PHẨM
+                        </span>
+
+                        <span class="random-tag">
+                            🎮 NHIỀU GAME
+                        </span>
+
+                        <span class="random-tag">
+                            ♾️ KHÔNG GIỚI HẠN 24H
+                        </span>
+
+                    </div>
+
+                    <div class="random-button">
+                        XEM RANDOM ACC NGAY →
+                    </div>
+
+                </div>
+
+            </a>
 
 
             <!-- ================= EVENT ================= -->
@@ -1451,7 +1629,7 @@ footer{
                 </article>
 
 
-                <!-- ================= GAMEPASS ================= -->
+                <!-- GAMEPASS -->
 
                 <article class="game">
 
@@ -1483,7 +1661,7 @@ footer{
                 </article>
 
 
-                <!-- ================= ROBUX 120H ================= -->
+                <!-- ROBUX 120H -->
 
                 <article class="game">
 
@@ -1515,7 +1693,7 @@ footer{
                 </article>
 
 
-                <!-- ================= FISH ================= -->
+                <!-- FISH -->
 
                 <article class="game">
 
@@ -1547,7 +1725,7 @@ footer{
                 </article>
 
 
-                <!-- ================= SPEED KEYBOARD ================= -->
+                <!-- SPEED KEYBOARD -->
 
                 <article class="game">
 
@@ -2034,45 +2212,14 @@ function setGameStatus(id,value){
 
 function setDefaultStatuses(){
 
-    setGameStatus(
-        "status-blox",
-        false
-    );
-
-    setGameStatus(
-        "status-king",
-        false
-    );
-
-    setGameStatus(
-        "status-anime",
-        false
-    );
-
-    setGameStatus(
-        "status-grow2",
-        false
-    );
-
-    setGameStatus(
-        "status-grow",
-        false
-    );
-
-    setGameStatus(
-        "status-caythue",
-        false
-    );
-
-    setGameStatus(
-        "status-mm2",
-        false
-    );
-
-    setGameStatus(
-        "status-greedy",
-        false
-    );
+    setGameStatus("status-blox",false);
+    setGameStatus("status-king",false);
+    setGameStatus("status-anime",false);
+    setGameStatus("status-grow2",false);
+    setGameStatus("status-grow",false);
+    setGameStatus("status-caythue",false);
+    setGameStatus("status-mm2",false);
+    setGameStatus("status-greedy",false);
 
 }
 
@@ -2285,8 +2432,6 @@ async function loadGameStatuses(){
             {};
 
 
-        /* ================= BLOX ================= */
-
         setGameStatus(
             "status-blox",
             getGameValue(
@@ -2300,8 +2445,6 @@ async function loadGameStatuses(){
             )
         );
 
-
-        /* ================= KING ================= */
 
         setGameStatus(
             "status-king",
@@ -2317,8 +2460,6 @@ async function loadGameStatuses(){
         );
 
 
-        /* ================= ANIME ================= */
-
         setGameStatus(
             "status-anime",
             getGameValue(
@@ -2332,8 +2473,6 @@ async function loadGameStatuses(){
             )
         );
 
-
-        /* ================= GROW 2 ================= */
 
         setGameStatus(
             "status-grow2",
@@ -2349,8 +2488,6 @@ async function loadGameStatuses(){
         );
 
 
-        /* ================= GROW ================= */
-
         setGameStatus(
             "status-grow",
             getGameValue(
@@ -2364,8 +2501,6 @@ async function loadGameStatuses(){
             )
         );
 
-
-        /* ================= CÀY THUÊ ================= */
 
         setGameStatus(
             "status-caythue",
@@ -2381,8 +2516,6 @@ async function loadGameStatuses(){
         );
 
 
-        /* ================= MM2 ================= */
-
         setGameStatus(
             "status-mm2",
             getGameValue(
@@ -2396,8 +2529,6 @@ async function loadGameStatuses(){
             )
         );
 
-
-        /* ================= GREEDY GROWERS ================= */
 
         setGameStatus(
             "status-greedy",
@@ -2414,8 +2545,6 @@ async function loadGameStatuses(){
             )
         );
 
-
-        /* ================= SHOP STATUS ================= */
 
         if(
             data.shopStatus !== undefined
