@@ -614,6 +614,28 @@ th{
           Greedy Growers 🌱
         </option>
 
+        <option value="Dịch vụ Roblox">
+          Dịch vụ Roblox
+        </option>
+
+        <!-- GAME MỚI -->
+
+        <option value="Fish">
+          🐟 Fish
+        </option>
+
+        <option value="Speed Keyboard">
+          ⌨️ Speed Keyboard
+        </option>
+
+        <option value="99 Nights Escape Tsunami">
+          🌊 99 Nights Escape Tsunami
+        </option>
+
+        <option value="Brainrot">
+          🧠 Brainrot
+        </option>
+
       </select>
 
     </div>
@@ -1396,17 +1418,11 @@ const folderData={
   "Blox Fruits":[
 
     "Túi mù Blox Fruits",
-
     "Acc Blox Fruits tùy chọn Item",
-
     "Acc Blox Fruits Race V4",
-
     "Acc Blox Fruits xem hình acc tùy chọn",
-
     "Robux 120H",
-
     "Gamepass Blox Fruits",
-
     "Fish"
 
   ],
@@ -1414,11 +1430,8 @@ const folderData={
   "King Legacy":[
 
     "King Legacy",
-
     "King Legacy Túi Mù",
-
     "King Legacy Acc Thường",
-
     "King Legacy Acc VIP"
 
   ],
@@ -1426,9 +1439,7 @@ const folderData={
   "Anime Fighters":[
 
     "Anime Fighters",
-
     "Anime Fighters Túi Mù",
-
     "Anime Fighters Acc Random"
 
   ],
@@ -1436,9 +1447,7 @@ const folderData={
   "Grow A Garden 2":[
 
     "Grow A Garden 2",
-
     "Grow A Garden 2 Túi Mù",
-
     "Grow A Garden 2 Acc"
 
   ],
@@ -1446,9 +1455,7 @@ const folderData={
   "Grow A Garden":[
 
     "Grow A Garden",
-
     "Grow A Garden Túi Mù",
-
     "Grow A Garden Acc"
 
   ],
@@ -1456,9 +1463,7 @@ const folderData={
   "Murder Mystery 2":[
 
     "Murder Mystery 2",
-
     "Murder Mystery 2 Túi Mù",
-
     "Murder Mystery 2 Acc"
 
   ],
@@ -1466,17 +1471,11 @@ const folderData={
   "Túi Mù":[
 
     "Túi Mù",
-
     "Túi Mù 0K",
-
     "Túi Mù 10K",
-
     "Túi Mù 20K",
-
     "Túi Mù 50K",
-
     "Túi Mù 80K",
-
     "Túi Mù 100K"
 
   ],
@@ -1484,9 +1483,7 @@ const folderData={
   "Event":[
 
     "Event",
-
     "Event Túi Mù",
-
     "Event Random"
 
   ],
@@ -1494,22 +1491,43 @@ const folderData={
   "Greedy Growers 🌱":[
 
     "Greedy Growers 🌱",
-
     "Greedy Growers Túi Mù",
-
     "Greedy Growers Acc"
 
   ],
 
-  /*
-    DỊCH VỤ ROBLOX
-  */
-
   "Dịch vụ Roblox":[
 
     "Treo acc Roblox",
-
     "Chuyển vùng acc Roblox"
+
+  ],
+
+  /* =====================================================
+     GAME MỚI
+  ===================================================== */
+
+  "Fish":[
+
+    "Fish"
+
+  ],
+
+  "Speed Keyboard":[
+
+    "Speed Keyboard"
+
+  ],
+
+  "99 Nights Escape Tsunami":[
+
+    "99 Nights Escape Tsunami"
+
+  ],
+
+  "Brainrot":[
+
+    "Brainrot"
 
   ]
 
@@ -1607,11 +1625,6 @@ function updatePackages(){
     '<option value="">-- Chọn gói --</option>';
 
   if(!game||!folder)return;
-
-  /*
-    Dịch vụ không cần tài khoản,
-    nên chỉ tạo 1 gói mặc định.
-  */
 
   if(
     game==="Dịch vụ Roblox"
@@ -1894,17 +1907,11 @@ function renderAccounts(){
       const text=[
 
         acc.game,
-
         acc.folder,
-
         acc.price,
-
         acc.package,
-
         acc.username,
-
         acc.password,
-
         acc.status
 
       ]
@@ -2494,7 +2501,6 @@ function renderOrders(){
 
 /* =====================================================
    PRODUCT STATUS
-   TỰ ĐỘNG LẤY TỪ FOLDERDATA
 ===================================================== */
 
 function buildProductsFromFolders(){
