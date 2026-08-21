@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Acc 99 Nights - SHOPKAROT</title>
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+    color:#111;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e21b23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:white;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* ================= USER ================= */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:white;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:96%;
+    max-width:1250px;
+    margin:25px auto;
+}
+
+/* ================= PAGE HEADER ================= */
+
+.page-header{
+    padding:30px;
+    margin-bottom:18px;
+    border-radius:18px;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #ff4444 0%,
+            #9d1111 35%,
+            #350606 85%
+        );
+    color:white;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+}
+
+.page-header h1{
+    margin:0 0 12px;
+    font-size:34px;
+}
+
+.page-header p{
+    margin:7px 0;
+    line-height:1.6;
+    font-size:15px;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin-bottom:20px;
+    padding:20px;
+    border-radius:15px;
+    background:white;
+    border:1px solid #e4e7eb;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.notice h2{
+    margin:0 0 10px;
+    font-size:20px;
+}
+
+.notice p{
+    margin:7px 0;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* ================= SECTION ================= */
+
+.section-title{
+    margin:0 0 15px;
+    padding:14px 17px;
+    border-radius:11px;
+    background:#fff;
+    border:1px solid #e4e7eb;
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* ================= PACKAGES ================= */
+
+.packages{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.package{
+    overflow:hidden;
+    padding:20px;
+    background:white;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    box-shadow:0 4px 17px rgba(0,0,0,.08);
+    transition:.2s;
+}
+
+.package:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 24px rgba(0,0,0,.13);
+}
+
+.package-number{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:linear-gradient(135deg,#111827,#7c3aed);
+    color:white;
+    font-size:19px;
+    font-weight:900;
+    margin-bottom:13px;
+}
+
+.package h3{
+    margin:0 0 9px;
+    font-size:18px;
+}
+
+.package p{
+    margin:6px 0;
+    color:#687386;
+    line-height:1.5;
+    font-size:13px;
+}
+
+.price{
+    margin-top:12px;
+    color:#d01018;
+    font-size:20px;
+    font-weight:900;
+}
+
+.status{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#e7f8ef;
+    border:1px solid #b7e8ca;
+    color:#078542;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.buy-button{
+    display:block;
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+    border:0;
+    border-radius:8px;
+    background:#a80e12;
+    color:white;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.buy-button:hover{
+    background:#d0161d;
+    transform:translateY(-1px);
+}
+
+/* ================= BACK ================= */
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 18px;
+    border-radius:9px;
+    background:#172033;
+    color:white;
+    font-weight:bold;
+}
+
+.back:hover{
+    background:#30394b;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        padding:6px 8px;
+    }
+
+    .user-info{
+        display:none;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .page-header{
+        padding:22px;
+    }
+
+    .page-header h1{
+        font-size:27px;
+    }
+
+    .packages{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:450px){
+
+    .page-header h1{
+        font-size:24px;
+    }
+
+    .section-title{
+        font-size:18px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu.html?price=0">
+                🎁 TÚI MÙ
+            </a>
+
+            <a href="random-acc-roblox.html">
+                🎲 RANDOM ACC ROBLOX
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- ================= TITLE ================= -->
+
+    <section class="page-header">
+
+        <h1>
+            🎮 Acc 99 Nights
+        </h1>
+
+        <p>
+            Đây là khu vực bán Acc 99 Nights
+            và các sản phẩm liên quan của SHOPKAROT.
+        </p>
+
+        <p>
+            Nếu có bất kỳ lỗi nào trong quá trình mua
+            hoặc sử dụng sản phẩm, vui lòng liên hệ Admin.
+        </p>
+
+    </section>
+
+
+    <!-- ================= NOTICE ================= -->
+
+    <section class="notice">
+
+        <h2>
+            📣 Thông tin sản phẩm
+        </h2>
+
+        <p>
+            🎮 Các gói bên dưới là sản phẩm Túi Mù
+            dành cho 99 Nights.
+        </p>
+
+        <p>
+            🟢 Sản phẩm đang mở bán bình thường.
+        </p>
+
+        <p>
+            💬 Nếu có vấn đề với đơn hàng,
+            hãy liên hệ Admin SHOPKAROT để được hỗ trợ.
+        </p>
+
+    </section>
+
+
+    <!-- ================= PACKAGES ================= -->
+
+    <div class="section-title">
+        🎁 10 GÓI TÚI MÙ 99 NIGHTS
+    </div>
+
+
+    <section class="packages">
+
+
+        <!-- GÓI 1 -->
+
+        <article class="package">
+
+            <div class="package-number">1</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #1
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 1.
+            </p>
+
+            <div class="price">
+                10.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(1,10000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 2 -->
+
+        <article class="package">
+
+            <div class="package-number">2</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #2
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 2.
+            </p>
+
+            <div class="price">
+                20.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(2,20000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 3 -->
+
+        <article class="package">
+
+            <div class="package-number">3</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #3
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 3.
+            </p>
+
+            <div class="price">
+                30.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(3,30000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 4 -->
+
+        <article class="package">
+
+            <div class="package-number">4</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #4
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 4.
+            </p>
+
+            <div class="price">
+                40.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(4,40000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 5 -->
+
+        <article class="package">
+
+            <div class="package-number">5</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #5
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 5.
+            </p>
+
+            <div class="price">
+                50.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(5,50000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 6 -->
+
+        <article class="package">
+
+            <div class="package-number">6</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #6
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 6.
+            </p>
+
+            <div class="price">
+                60.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(6,60000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 7 -->
+
+        <article class="package">
+
+            <div class="package-number">7</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #7
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 7.
+            </p>
+
+            <div class="price">
+                70.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(7,70000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 8 -->
+
+        <article class="package">
+
+            <div class="package-number">8</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #8
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 8.
+            </p>
+
+            <div class="price">
+                80.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(8,80000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 9 -->
+
+        <article class="package">
+
+            <div class="package-number">9</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #9
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 9.
+            </p>
+
+            <div class="price">
+                90.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(9,90000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+        <!-- GÓI 10 -->
+
+        <article class="package">
+
+            <div class="package-number">10</div>
+
+            <h3>
+                🎁 Túi Mù 99 Nights #10
+            </h3>
+
+            <p>
+                Gói Túi Mù 99 Nights số 10.
+            </p>
+
+            <div class="price">
+                100.000đ
+            </div>
+
+            <span class="status">
+                🟢 Sẵn Sàng
+            </span>
+
+            <button
+                class="buy-button"
+                onclick="buyPackage(10,100000)">
+                🛒 MUA NGAY
+            </button>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================= BACK ================= -->
+
+    <a
+        href="99-night.html"
+        class="back">
+        ← QUAY LẠI 99 NIGHTS
+    </a>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+</footer>
+
+
+<script>
+
+/* =====================================================
+   MENU
+   ===================================================== */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(!menu.contains(event.target)){
+
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   USER
+   ===================================================== */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true" &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* =====================================================
+   USER CLICK
+   ===================================================== */
+
+document
+.getElementById("userBox")
+.addEventListener(
+    "click",
+    function(){
+
+        const login =
+            localStorage.getItem(
+                "shopkarot_login"
+            );
+
+        if(login === "true"){
+
+            window.location.href =
+                "ho-so.html";
+
+        }
+
+        else{
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   MUA GÓI
+   ===================================================== */
+
+function buyPackage(packageNumber,price){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    if(login !== "true"){
+
+        alert(
+            "⚠️ Vui lòng đăng nhập trước khi mua sản phẩm!"
+        );
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+
+    if(!username){
+
+        alert(
+            "⚠️ Không tìm thấy tài khoản đăng nhập!"
+        );
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    if(balance < price){
+
+        alert(
+            "❌ Số dư không đủ để mua gói này!\n\n" +
+            "Số dư hiện tại: " +
+            balance.toLocaleString("vi-VN") +
+            "đ\n" +
+            "Giá sản phẩm: " +
+            price.toLocaleString("vi-VN") +
+            "đ"
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "🛒 Bạn đã chọn Túi Mù 99 Nights #" +
+        packageNumber +
+        ".\n\n" +
+        "Giá: " +
+        price.toLocaleString("vi-VN") +
+        "đ\n\n" +
+        "Vui lòng liên hệ Admin để hoàn tất đơn hàng."
+    );
+
+}
+
+
+/* =====================================================
+   START
+   ===================================================== */
+
+updateUser();
+
+
+/* =====================================================
+   STORAGE
+   ===================================================== */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
