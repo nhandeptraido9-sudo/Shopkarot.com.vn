@@ -353,31 +353,31 @@ th{
 
 <div id="loginPage" class="login-box">
 
-  <h1>🛠️ SHOPKAROT ADMIN</h1>
+<h1>🛠️ SHOPKAROT ADMIN</h1>
 
-  <p class="small">
-    Đăng nhập Admin để quản lý ShopKarot
-  </p>
+<p class="small">
+Đăng nhập Admin để quản lý ShopKarot
+</p>
 
-  <label>Admin Key</label>
+<label>Admin Key</label>
 
-  <input
-    id="adminKey"
-    class="input"
-    type="password"
-    placeholder="Nhập Admin Key"
-    onkeydown="if(event.key==='Enter')adminLogin()"
-  >
+<input
+id="adminKey"
+class="input"
+type="password"
+placeholder="Nhập Admin Key"
+onkeydown="if(event.key==='Enter')adminLogin()"
+>
 
-  <button
-    class="btn btn-primary"
-    style="width:100%"
-    onclick="adminLogin()"
-  >
-    🔐 Đăng nhập
-  </button>
+<button
+class="btn btn-primary"
+style="width:100%"
+onclick="adminLogin()"
+>
+🔐 Đăng nhập
+</button>
 
-  <div id="loginMessage" style="margin-top:15px"></div>
+<div id="loginMessage" style="margin-top:15px"></div>
 
 </div>
 
@@ -386,24 +386,24 @@ th{
 
 <header>
 
-  <div>
-    <h2>🛒 SHOPKAROT ADMIN</h2>
+<div>
+<h2>🛒 SHOPKAROT ADMIN</h2>
 
-    <div
-      class="small"
-      style="color:#d1d5db"
-    >
-      Quản lý kho acc, khách hàng, đơn hàng,
-      nạp tiền và trạng thái sản phẩm
-    </div>
-  </div>
+<div
+class="small"
+style="color:#d1d5db"
+>
+Quản lý kho acc, khách hàng, đơn hàng,
+nạp tiền và trạng thái sản phẩm
+</div>
+</div>
 
-  <button
-    class="btn btn-danger"
-    onclick="logout()"
-  >
-    🚪 Đăng xuất
-  </button>
+<button
+class="btn btn-danger"
+onclick="logout()"
+>
+🚪 Đăng xuất
+</button>
 
 </header>
 
@@ -412,117 +412,117 @@ th{
 
 <div class="dashboard">
 
-  <div class="card">
-    👥 Khách hàng
-    <div id="dashCustomers" class="number">0</div>
-  </div>
+<div class="card">
+👥 Khách hàng
+<div id="dashCustomers" class="number">0</div>
+</div>
 
-  <div class="card">
-    🎮 Kho acc
-    <div id="dashAccounts" class="number">0</div>
-  </div>
+<div class="card">
+🎮 Kho acc
+<div id="dashAccounts" class="number">0</div>
+</div>
 
-  <div class="card">
-    📦 Đơn hàng
-    <div id="dashOrders" class="number">0</div>
-  </div>
+<div class="card">
+📦 Đơn hàng
+<div id="dashOrders" class="number">0</div>
+</div>
 
-  <div class="card">
-    💰 Tổng nạp
-    <div id="dashTopup" class="number">0K</div>
-  </div>
+<div class="card">
+💰 Tổng nạp
+<div id="dashTopup" class="number">0K</div>
+</div>
 
-  <div class="card">
-    ⏳ Chờ duyệt
-    <div id="dashPending" class="number">0</div>
-  </div>
+<div class="card">
+⏳ Chờ duyệt
+<div id="dashPending" class="number">0</div>
+</div>
 
 </div>
 
 
 <div class="card" style="margin-bottom:20px">
 
-  <h3>⚙️ Trạng thái Shop</h3>
+<h3>⚙️ Trạng thái Shop</h3>
 
-  <div class="status-box">
+<div class="status-box">
 
-    <span
-      id="shopStatusDot"
-      class="status-dot"
-    ></span>
+<span
+id="shopStatusDot"
+class="status-dot"
+></span>
 
-    <b id="shopStatusText">
-      Đang tải...
-    </b>
+<b id="shopStatusText">
+Đang tải...
+</b>
 
-    <select
-      id="shopStatusSelect"
-      class="input"
-      style="width:auto;margin:0"
-    >
+<select
+id="shopStatusSelect"
+class="input"
+style="width:auto;margin:0"
+>
 
-      <option value="Shop đang hoạt động">
-        Shop đang hoạt động
-      </option>
+<option value="Shop đang hoạt động">
+Shop đang hoạt động
+</option>
 
-      <option value="Shop đang bảo trì">
-        Shop đang bảo trì
-      </option>
+<option value="Shop đang bảo trì">
+Shop đang bảo trì
+</option>
 
-      <option value="Shop tạm đóng">
-        Shop tạm đóng
-      </option>
+<option value="Shop tạm đóng">
+Shop tạm đóng
+</option>
 
-    </select>
+</select>
 
-    <button
-      class="btn btn-primary"
-      onclick="setShopStatus()"
-    >
-      💾 Lưu trạng thái
-    </button>
+<button
+class="btn btn-primary"
+onclick="setShopStatus()"
+>
+💾 Lưu trạng thái
+</button>
 
-  </div>
+</div>
 
 </div>
 
 
 <div class="tabs">
 
-  <button
-    class="tab active"
-    onclick="showTab('accounts',this)"
-  >
-    🎮 Kho Acc
-  </button>
+<button
+class="tab active"
+onclick="showTab('accounts',this)"
+>
+🎮 Kho Acc
+</button>
 
-  <button
-    class="tab"
-    onclick="showTab('customers',this)"
-  >
-    👥 Khách hàng
-  </button>
+<button
+class="tab"
+onclick="showTab('customers',this)"
+>
+👥 Khách hàng
+</button>
 
-  <button
-    class="tab"
-    onclick="showTab('topups',this)"
-  >
-    💰 Nạp tiền
-  </button>
+<button
+class="tab"
+onclick="showTab('topups',this)"
+>
+💰 Nạp tiền
+</button>
 
-  <button
-    class="tab"
-    onclick="showTab('orders',this)"
-  >
-    📦 Đơn hàng
-  </button>
+<button
+class="tab"
+onclick="showTab('orders',this)"
+>
+📦 Đơn hàng
+</button>
 
-  <button
-    class="tab"
-    onclick="showTab('products',this)"
-  >
-    🛍️ Trạng thái sản phẩm
-  </button>
+<button
+class="tab"
+onclick="showTab('products',this)"
+>
+🛍️ Trạng thái sản phẩm
+</button>
 
 </div>
 
@@ -531,250 +531,250 @@ th{
 
 <div class="card">
 
-  <h2>🎮 Thêm tài khoản vào kho</h2>
+<h2>🎮 Thêm tài khoản vào kho</h2>
 
-  <div class="notice">
-    Chọn Game → Thư mục → Giá → Gói →
-    nhập Username và Password.
-  </div>
+<div class="notice">
+Chọn Game → Thư mục → Giá → Gói →
+nhập Username và Password.
+</div>
 
-  <div class="form-grid">
+<div class="form-grid">
 
-    <div class="form-group">
+<div class="form-group">
 
-      <label>🎮 Game</label>
+<label>🎮 Game</label>
 
-      <select
-        id="accountGame"
-        class="input"
-        onchange="gameChanged()"
-      >
+<select
+id="accountGame"
+class="input"
+onchange="gameChanged()"
+>
 
-        <option value="">
-          -- Chọn game --
-        </option>
+<option value="">
+-- Chọn game --
+</option>
 
-        <option value="Blox Fruits">
-          Blox Fruits
-        </option>
+<option value="Blox Fruits">
+Blox Fruits
+</option>
 
-        <option value="King Legacy">
-          King Legacy
-        </option>
+<option value="King Legacy">
+King Legacy
+</option>
 
-        <option value="Anime Fighters">
-          Anime Fighters
-        </option>
+<option value="Anime Fighters">
+Anime Fighters
+</option>
 
-        <option value="Grow A Garden 2">
-          Grow A Garden 2
-        </option>
+<option value="Grow A Garden 2">
+Grow A Garden 2
+</option>
 
-        <option value="Grow A Garden">
-          Grow A Garden
-        </option>
+<option value="Grow A Garden">
+Grow A Garden
+</option>
 
-        <option value="Murder Mystery 2">
-          Murder Mystery 2
-        </option>
+<option value="Murder Mystery 2">
+Murder Mystery 2
+</option>
 
-        <option value="Túi Mù">
-          Túi Mù
-        </option>
+<option value="Túi Mù">
+Túi Mù
+</option>
 
-        <option value="Event">
-          Event
-        </option>
+<option value="Event">
+Event
+</option>
 
-        <option value="Greedy Growers 🌱">
-          Greedy Growers 🌱
-        </option>
+<option value="Greedy Growers 🌱">
+Greedy Growers 🌱
+</option>
 
-        <option value="Dịch vụ Roblox">
-          Dịch vụ Roblox
-        </option>
+<option value="Dịch vụ Roblox">
+Dịch vụ Roblox
+</option>
 
-        <option value="Fish">
-          🐟 Fish
-        </option>
+<option value="Fish">
+🐟 Fish
+</option>
 
-        <option value="Speed Keyboard">
-          ⌨️ Speed Keyboard
-        </option>
+<option value="Speed Keyboard">
+⌨️ Speed Keyboard
+</option>
 
-        <option value="99 Nights Escape Tsunami">
-          🌊 99 Nights Escape Tsunami
-        </option>
+<option value="99 Nights Escape Tsunami">
+🌊 99 Nights Escape Tsunami
+</option>
 
-        <option value="Brainrot">
-          🧠 Brainrot
-        </option>
+<option value="Brainrot">
+🧠 Brainrot
+</option>
 
-      </select>
+</select>
 
-    </div>
-
-
-    <div class="form-group">
-
-      <label>📁 Thư mục</label>
-
-      <select
-        id="accountFolder"
-        class="input"
-        onchange="folderChanged()"
-      >
-
-        <option value="">
-          -- Chọn thư mục --
-        </option>
-
-      </select>
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div class="form-group">
 
-      <label>💵 Giá</label>
+<label>📁 Thư mục</label>
 
-      <select
-        id="accountPrice"
-        class="input"
-        onchange="priceChanged()"
-      >
+<select
+id="accountFolder"
+class="input"
+onchange="folderChanged()"
+>
 
-        <option value="">
-          -- Chọn giá --
-        </option>
+<option value="">
+-- Chọn thư mục --
+</option>
 
-        <option value="0">0K</option>
-        <option value="10">10K</option>
-        <option value="20">20K</option>
-        <option value="30">30K</option>
-        <option value="40">40K</option>
-        <option value="50">50K</option>
-        <option value="60">60K</option>
-        <option value="70">70K</option>
-        <option value="80">80K</option>
-        <option value="90">90K</option>
-        <option value="100">100K</option>
-        <option value="120">120K</option>
-        <option value="150">150K</option>
-        <option value="200">200K</option>
+</select>
 
-      </select>
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div class="form-group">
 
-      <label>📦 Gói</label>
+<label>💵 Giá</label>
 
-      <select
-        id="accountPackage"
-        class="input"
-      >
+<select
+id="accountPrice"
+class="input"
+onchange="priceChanged()"
+>
 
-        <option value="">
-          -- Chọn gói --
-        </option>
+<option value="">
+-- Chọn giá --
+</option>
 
-      </select>
+<option value="0">0K</option>
+<option value="10">10K</option>
+<option value="20">20K</option>
+<option value="30">30K</option>
+<option value="40">40K</option>
+<option value="50">50K</option>
+<option value="60">60K</option>
+<option value="70">70K</option>
+<option value="80">80K</option>
+<option value="90">90K</option>
+<option value="100">100K</option>
+<option value="120">120K</option>
+<option value="150">150K</option>
+<option value="200">200K</option>
 
-    </div>
+</select>
 
-
-    <div class="form-group">
-
-      <label>👤 Tên đăng nhập</label>
-
-      <input
-        id="accountUsername"
-        class="input"
-        type="text"
-        placeholder="Ví dụ: xyz456"
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>🔑 Mật khẩu</label>
-
-      <input
-        id="accountPassword"
-        class="input"
-        type="text"
-        placeholder="Ví dụ: abcdef"
-      >
-
-    </div>
-
-  </div>
+</div>
 
 
-  <div class="actions">
+<div class="form-group">
 
-    <button
-      class="btn btn-success"
-      onclick="addAccount()"
-    >
-      ➕ Thêm tài khoản
-    </button>
+<label>📦 Gói</label>
 
-    <button
-      class="btn btn-gray"
-      onclick="clearAccountForm()"
-    >
-      🧹 Xóa form
-    </button>
+<select
+id="accountPackage"
+class="input"
+>
 
-  </div>
+<option value="">
+-- Chọn gói --
+</option>
 
-  <div id="accountMessage" style="margin-top:15px"></div>
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>👤 Tên đăng nhập</label>
+
+<input
+id="accountUsername"
+class="input"
+type="text"
+placeholder="Ví dụ: xyz456"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>🔑 Mật khẩu</label>
+
+<input
+id="accountPassword"
+class="input"
+type="text"
+placeholder="Ví dụ: abcdef"
+>
+
+</div>
+
+</div>
+
+
+<div class="actions">
+
+<button
+class="btn btn-success"
+onclick="addAccount()"
+>
+➕ Thêm tài khoản
+</button>
+
+<button
+class="btn btn-gray"
+onclick="clearAccountForm()"
+>
+🧹 Xóa form
+</button>
+
+</div>
+
+<div id="accountMessage" style="margin-top:15px"></div>
 
 </div>
 
 
 <div class="card" style="margin-top:20px">
 
-  <h2>📦 Kho tài khoản</h2>
+<h2>📦 Kho tài khoản</h2>
 
-  <input
-    id="accountSearch"
-    class="input search"
-    placeholder="🔎 Tìm game, thư mục, username..."
-    oninput="renderAccounts()"
-  >
+<input
+id="accountSearch"
+class="input search"
+placeholder="🔎 Tìm game, thư mục, username..."
+oninput="renderAccounts()"
+>
 
-  <div class="table-wrap">
+<div class="table-wrap">
 
-    <table>
+<table>
 
-      <thead>
+<thead>
 
-        <tr>
-          <th>ID</th>
-          <th>Game</th>
-          <th>Thư mục</th>
-          <th>Giá</th>
-          <th>Gói</th>
-          <th>Username</th>
-          <th>Password</th>
-          <th>Status</th>
-          <th>Thao tác</th>
-        </tr>
+<tr>
+<th>ID</th>
+<th>Game</th>
+<th>Thư mục</th>
+<th>Giá</th>
+<th>Gói</th>
+<th>Username</th>
+<th>Password</th>
+<th>Status</th>
+<th>Thao tác</th>
+</tr>
 
-      </thead>
+</thead>
 
-      <tbody id="accountsBody"></tbody>
+<tbody id="accountsBody"></tbody>
 
-    </table>
+</table>
 
-  </div>
+</div>
 
 </div>
 
@@ -785,35 +785,35 @@ th{
 
 <div class="card">
 
-  <h2>👥 Khách hàng</h2>
+<h2>👥 Khách hàng</h2>
 
-  <input
-    id="customerSearch"
-    class="input search"
-    placeholder="🔎 Tìm khách hàng..."
-    oninput="renderCustomers()"
-  >
+<input
+id="customerSearch"
+class="input search"
+placeholder="🔎 Tìm khách hàng..."
+oninput="renderCustomers()"
+>
 
-  <div class="table-wrap">
+<div class="table-wrap">
 
-    <table>
+<table>
 
-      <thead>
+<thead>
 
-        <tr>
-          <th>Username</th>
-          <th>Số dư</th>
-          <th>Ngày tạo</th>
-          <th>Trạng thái</th>
-        </tr>
+<tr>
+<th>Username</th>
+<th>Số dư</th>
+<th>Ngày tạo</th>
+<th>Trạng thái</th>
+</tr>
 
-      </thead>
+</thead>
 
-      <tbody id="customersBody"></tbody>
+<tbody id="customersBody"></tbody>
 
-    </table>
+</table>
 
-  </div>
+</div>
 
 </div>
 
@@ -824,34 +824,34 @@ th{
 
 <div class="card">
 
-  <h2>💰 Quản lý nạp tiền</h2>
+<h2>💰 Quản lý nạp tiền</h2>
 
-  <div class="table-wrap">
+<div class="table-wrap">
 
-    <table>
+<table>
 
-      <thead>
+<thead>
 
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Số tiền</th>
-          <th>Phương thức</th>
-          <th>Loại thẻ</th>
-          <th>Seri</th>
-          <th>Mã</th>
-          <th>Ngân hàng</th>
-          <th>Trạng thái</th>
-          <th>Thao tác</th>
-        </tr>
+<tr>
+<th>ID</th>
+<th>Username</th>
+<th>Số tiền</th>
+<th>Phương thức</th>
+<th>Loại thẻ</th>
+<th>Seri</th>
+<th>Mã</th>
+<th>Ngân hàng</th>
+<th>Trạng thái</th>
+<th>Thao tác</th>
+</tr>
 
-      </thead>
+</thead>
 
-      <tbody id="topupsBody"></tbody>
+<tbody id="topupsBody"></tbody>
 
-    </table>
+</table>
 
-  </div>
+</div>
 
 </div>
 
@@ -862,31 +862,31 @@ th{
 
 <div class="card">
 
-  <h2>📦 Đơn hàng</h2>
+<h2>📦 Đơn hàng</h2>
 
-  <div class="table-wrap">
+<div class="table-wrap">
 
-    <table>
+<table>
 
-      <thead>
+<thead>
 
-        <tr>
-          <th>ID</th>
-          <th>Khách</th>
-          <th>Sản phẩm</th>
-          <th>Giá</th>
-          <th>Trạng thái</th>
-          <th>Thời gian</th>
-          <th>Acc</th>
-        </tr>
+<tr>
+<th>ID</th>
+<th>Khách</th>
+<th>Sản phẩm</th>
+<th>Giá</th>
+<th>Trạng thái</th>
+<th>Thời gian</th>
+<th>Acc</th>
+</tr>
 
-      </thead>
+</thead>
 
-      <tbody id="ordersBody"></tbody>
+<tbody id="ordersBody"></tbody>
 
-    </table>
+</table>
 
-  </div>
+</div>
 
 </div>
 
@@ -897,19 +897,17 @@ th{
 
 <div class="card">
 
-  <h2>🛍️ Trạng thái sản phẩm</h2>
+<h2>🛍️ Trạng thái sản phẩm</h2>
 
-  <div class="notice">
+<div class="notice">
 
-    Danh sách sản phẩm được lấy tự động
-    từ <b>folderData</b>.
+Danh sách sản phẩm lấy từ <b>folderData</b>.
+Mỗi sản phẩm sử dụng key riêng theo
+<b>Game + Thư mục</b> để tránh bị nhầm trạng thái.
 
-    Khi thêm thư mục mới vào game,
-    sản phẩm sẽ tự động xuất hiện tại đây.
+</div>
 
-  </div>
-
-  <div id="productsContainer"></div>
+<div id="productsContainer"></div>
 
 </div>
 
@@ -924,20 +922,20 @@ th{
 
 <div class="modal-content">
 
-  <h2>🎉 Thông tin tài khoản</h2>
+<h2>🎉 Thông tin tài khoản</h2>
 
-  <div id="accountModalContent"></div>
+<div id="accountModalContent"></div>
 
-  <div class="actions">
+<div class="actions">
 
-    <button
-      class="btn btn-gray"
-      onclick="closeAccountModal()"
-    >
-      Đóng
-    </button>
+<button
+class="btn btn-gray"
+onclick="closeAccountModal()"
+>
+Đóng
+</button>
 
-  </div>
+</div>
 
 </div>
 
@@ -960,1925 +958,1948 @@ let productStatuses={};
 let products=[];
 
 
+/* =====================================================
+   API
+===================================================== */
+
 async function apiPost(action,data={}){
 
-  const response=await fetch(API_URL,{
-    method:"POST",
-    headers:{
-      "Content-Type":"text/plain;charset=utf-8"
-    },
-    body:JSON.stringify({
-      action,
-      ...data
-    })
-  });
+const response=await fetch(API_URL,{
+method:"POST",
+headers:{
+"Content-Type":"text/plain;charset=utf-8"
+},
+body:JSON.stringify({
+action,
+...data
+})
+});
 
-  return await response.json();
+return await response.json();
 
 }
 
 
 async function apiGet(action){
 
-  const response=await fetch(
-    API_URL+
-    "?action="+
-    encodeURIComponent(action)
-  );
+const response=await fetch(
+API_URL+
+"?action="+
+encodeURIComponent(action)
+);
 
-  return await response.json();
+return await response.json();
 
 }
 
 
+/* =====================================================
+   LOGIN
+===================================================== */
+
 async function adminLogin(){
 
-  const key=
-    document
-      .getElementById("adminKey")
-      .value
-      .trim();
+const key=
+document
+.getElementById("adminKey")
+.value
+.trim();
 
-  if(!key){
+if(!key){
 
-    showLoginMessage(
-      "❌ Vui lòng nhập Admin Key.",
-      "red"
-    );
+showLoginMessage(
+"❌ Vui lòng nhập Admin Key.",
+"red"
+);
 
-    return;
+return;
 
-  }
+}
 
-  showLoginMessage(
-    "⏳ Đang kiểm tra...",
-    "#2563eb"
-  );
+showLoginMessage(
+"⏳ Đang kiểm tra...",
+"#2563eb"
+);
 
-  try{
+try{
 
-    const result=
-      await apiPost(
-        "adminLogin",
-        {key:key}
-      );
+const result=
+await apiPost(
+"adminLogin",
+{key:key}
+);
 
-    if(!result.ok){
+if(!result.ok){
 
-      showLoginMessage(
-        result.message||
-        "Admin Key không đúng.",
-        "red"
-      );
+showLoginMessage(
+result.message||
+"Admin Key không đúng.",
+"red"
+);
 
-      return;
+return;
 
-    }
+}
 
-    ADMIN_KEY=key;
+ADMIN_KEY=key;
 
-    localStorage.setItem(
-      "shopkarot_admin_key",
-      key
-    );
+localStorage.setItem(
+"shopkarot_admin_key",
+key
+);
 
-    document
-      .getElementById("loginPage")
-      .classList.add("hidden");
+document
+.getElementById("loginPage")
+.classList.add("hidden");
 
-    document
-      .getElementById("adminPage")
-      .classList.remove("hidden");
+document
+.getElementById("adminPage")
+.classList.remove("hidden");
 
-    await loadAll();
+await loadAll();
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-    showLoginMessage(
-      "❌ Không kết nối được Apps Script.",
-      "red"
-    );
+showLoginMessage(
+"❌ Không kết nối được Apps Script.",
+"red"
+);
 
-  }
+}
 
 }
 
 
 function showLoginMessage(text,color){
 
-  const el=
-    document.getElementById("loginMessage");
+const el=
+document.getElementById(
+"loginMessage"
+);
 
-  el.textContent=text;
-  el.style.color=color;
+el.textContent=text;
+el.style.color=color;
 
 }
 
 
 function logout(){
 
-  localStorage.removeItem(
-    "shopkarot_admin_key"
-  );
+localStorage.removeItem(
+"shopkarot_admin_key"
+);
 
-  ADMIN_KEY="";
+ADMIN_KEY="";
 
-  location.reload();
+location.reload();
 
 }
 
 
 window.addEventListener(
-  "load",
-  async function(){
+"load",
+async function(){
 
-    const saved=
-      localStorage.getItem(
-        "shopkarot_admin_key"
-      );
+const saved=
+localStorage.getItem(
+"shopkarot_admin_key"
+);
 
-    if(!saved)return;
+if(!saved)return;
 
-    try{
+try{
 
-      const result=
-        await apiPost(
-          "adminLogin",
-          {key:saved}
-        );
+const result=
+await apiPost(
+"adminLogin",
+{key:saved}
+);
 
-      if(result.ok){
+if(result.ok){
 
-        ADMIN_KEY=saved;
+ADMIN_KEY=saved;
 
-        document
-          .getElementById("loginPage")
-          .classList.add("hidden");
+document
+.getElementById("loginPage")
+.classList.add("hidden");
 
-        document
-          .getElementById("adminPage")
-          .classList.remove("hidden");
+document
+.getElementById("adminPage")
+.classList.remove("hidden");
 
-        await loadAll();
+await loadAll();
 
-      }else{
+}else{
 
-        localStorage.removeItem(
-          "shopkarot_admin_key"
-        );
+localStorage.removeItem(
+"shopkarot_admin_key"
+);
 
-      }
+}
 
-    }catch(err){
+}catch(err){
 
-      console.error(err);
+console.error(err);
 
-    }
+}
 
-  }
+}
 );
 
 
+/* =====================================================
+   LOAD ALL
+===================================================== */
+
 async function loadAll(){
 
-  await Promise.all([
+await Promise.all([
 
-    loadDashboard(),
-    loadShopStatus(),
-    loadAccounts(),
-    loadCustomers(),
-    loadTopups(),
-    loadOrders(),
-    loadProducts()
+loadDashboard(),
+loadShopStatus(),
+loadAccounts(),
+loadCustomers(),
+loadTopups(),
+loadOrders(),
+loadProducts()
 
-  ]);
+]);
 
 }
 
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
 
 async function loadDashboard(){
 
-  try{
+try{
 
-    const result=
-      await apiGet("getDashboard");
+const result=
+await apiGet("getDashboard");
 
-    if(!result.ok)return;
+if(!result.ok)return;
 
-    document.getElementById(
-      "dashCustomers"
-    ).textContent=
-      result.customers||0;
+document.getElementById(
+"dashCustomers"
+).textContent=
+result.customers||0;
 
-    document.getElementById(
-      "dashAccounts"
-    ).textContent=
-      result.accounts||0;
+document.getElementById(
+"dashAccounts"
+).textContent=
+result.accounts||0;
 
-    document.getElementById(
-      "dashOrders"
-    ).textContent=
-      result.orders||0;
+document.getElementById(
+"dashOrders"
+).textContent=
+result.orders||0;
 
-    document.getElementById(
-      "dashTopup"
-    ).textContent=
-      formatMoney(
-        result.approvedTopupMoney||0
-      );
+document.getElementById(
+"dashTopup"
+).textContent=
+formatMoney(
+result.approvedTopupMoney||0
+);
 
-    document.getElementById(
-      "dashPending"
-    ).textContent=
-      result.pendingTopups||0;
+document.getElementById(
+"dashPending"
+).textContent=
+result.pendingTopups||0;
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-  }
+}
 
 }
 
 
+/* =====================================================
+   SHOP STATUS
+===================================================== */
+
 async function loadShopStatus(){
 
-  try{
+try{
 
-    const result=
-      await apiGet("getShopStatus");
+const result=
+await apiGet("getShopStatus");
 
-    if(!result.ok)return;
+if(!result.ok)return;
 
-    const status=
-      result.status||
-      "Shop đang hoạt động";
+const status=
+result.status||
+"Shop đang hoạt động";
 
-    document.getElementById(
-      "shopStatusText"
-    ).textContent=status;
+document.getElementById(
+"shopStatusText"
+).textContent=status;
 
-    document.getElementById(
-      "shopStatusSelect"
-    ).value=status;
+document.getElementById(
+"shopStatusSelect"
+).value=status;
 
-    const dot=
-      document.getElementById(
-        "shopStatusDot"
-      );
+const dot=
+document.getElementById(
+"shopStatusDot"
+);
 
-    if(status==="Shop đang hoạt động"){
+if(status==="Shop đang hoạt động"){
 
-      dot.style.background="#22c55e";
+dot.style.background="#22c55e";
 
-    }else if(status==="Shop đang bảo trì"){
+}else if(status==="Shop đang bảo trì"){
 
-      dot.style.background="#f59e0b";
+dot.style.background="#f59e0b";
 
-    }else{
+}else{
 
-      dot.style.background="#ef4444";
+dot.style.background="#ef4444";
 
-    }
+}
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-  }
+}
 
 }
 
 
 async function setShopStatus(){
 
-  const status=
-    document.getElementById(
-      "shopStatusSelect"
-    ).value;
+const status=
+document.getElementById(
+"shopStatusSelect"
+).value;
 
-  try{
+try{
 
-    const result=
-      await apiPost(
-        "setShopStatus",
-        {
-          key:ADMIN_KEY,
-          status:status
-        }
-      );
+const result=
+await apiPost(
+"setShopStatus",
+{
+key:ADMIN_KEY,
+status:status
+}
+);
 
-    if(!result.ok){
+if(!result.ok){
 
-      alert(
-        result.message||
-        "Không thể cập nhật."
-      );
+alert(
+result.message||
+"Không thể cập nhật."
+);
 
-      return;
+return;
 
-    }
+}
 
-    alert(
-      "✅ Đã cập nhật trạng thái Shop."
-    );
+alert(
+"✅ Đã cập nhật trạng thái Shop."
+);
 
-    await loadShopStatus();
+await loadShopStatus();
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-    alert(
-      "❌ Không kết nối được API."
-    );
+alert(
+"❌ Không kết nối được API."
+);
 
-  }
+}
 
 }
 
 
 /* =====================================================
    GAME → FOLDER
+
+   SỬA LỖI:
+   Fish KHÔNG còn nằm trong Blox Fruits.
+   Fish là mục riêng.
 ===================================================== */
 
 const folderData={
 
-  "Blox Fruits":[
-    "Túi mù Blox Fruits",
-    "Acc Blox Fruits tùy chọn Item",
-    "Acc Blox Fruits Race V4",
-    "Acc Blox Fruits xem hình acc tùy chọn",
-    "Robux 120H",
-    "Gamepass Blox Fruits",
-    "Fish"
-  ],
+"Blox Fruits":[
+"Túi mù Blox Fruits",
+"Acc Blox Fruits tùy chọn Item",
+"Acc Blox Fruits Race V4",
+"Acc Blox Fruits xem hình acc tùy chọn",
+"Robux 120H",
+"Gamepass Blox Fruits"
+],
 
-  "King Legacy":[
-    "King Legacy",
-    "King Legacy Túi Mù",
-    "King Legacy Acc Thường",
-    "King Legacy Acc VIP"
-  ],
+"King Legacy":[
+"King Legacy",
+"King Legacy Túi Mù",
+"King Legacy Acc Thường",
+"King Legacy Acc VIP"
+],
 
-  "Anime Fighters":[
-    "Anime Fighters",
-    "Anime Fighters Túi Mù",
-    "Anime Fighters Acc Random"
-  ],
+"Anime Fighters":[
+"Anime Fighters",
+"Anime Fighters Túi Mù",
+"Anime Fighters Acc Random"
+],
 
-  "Grow A Garden 2":[
-    "Grow A Garden 2",
-    "Grow A Garden 2 Túi Mù",
-    "Grow A Garden 2 Acc"
-  ],
+"Grow A Garden 2":[
+"Grow A Garden 2",
+"Grow A Garden 2 Túi Mù",
+"Grow A Garden 2 Acc"
+],
 
-  "Grow A Garden":[
-    "Grow A Garden",
-    "Grow A Garden Túi Mù",
-    "Grow A Garden Acc"
-  ],
+"Grow A Garden":[
+"Grow A Garden",
+"Grow A Garden Túi Mù",
+"Grow A Garden Acc"
+],
 
-  "Murder Mystery 2":[
-    "Murder Mystery 2",
-    "Murder Mystery 2 Túi Mù",
-    "Murder Mystery 2 Acc"
-  ],
+"Murder Mystery 2":[
+"Murder Mystery 2",
+"Murder Mystery 2 Túi Mù",
+"Murder Mystery 2 Acc"
+],
 
-  "Túi Mù":[
-    "Túi Mù",
-    "Túi Mù 0K",
-    "Túi Mù 10K",
-    "Túi Mù 20K",
-    "Túi Mù 50K",
-    "Túi Mù 80K",
-    "Túi Mù 100K"
-  ],
+"Túi Mù":[
+"Túi Mù",
+"Túi Mù 0K",
+"Túi Mù 10K",
+"Túi Mù 20K",
+"Túi Mù 50K",
+"Túi Mù 80K",
+"Túi Mù 100K"
+],
 
-  "Event":[
-    "Event",
-    "Event Túi Mù",
-    "Event Random"
-  ],
+"Event":[
+"Event",
+"Event Túi Mù",
+"Event Random"
+],
 
-  "Greedy Growers 🌱":[
-    "Greedy Growers 🌱",
-    "Greedy Growers Túi Mù",
-    "Greedy Growers Acc"
-  ],
+"Greedy Growers 🌱":[
+"Greedy Growers 🌱",
+"Greedy Growers Túi Mù",
+"Greedy Growers Acc"
+],
 
-  "Dịch vụ Roblox":[
-    "Treo acc Roblox",
-    "Chuyển vùng acc Roblox"
-  ],
+"Dịch vụ Roblox":[
+"Treo acc Roblox",
+"Chuyển vùng acc Roblox"
+],
 
-  "Fish":[
-    "Fish"
-  ],
+"Fish":[
+"Fish"
+],
 
-  "Speed Keyboard":[
-    "Speed Keyboard"
-  ],
+"Speed Keyboard":[
+"Speed Keyboard"
+],
 
-  "99 Nights Escape Tsunami":[
-    "99 Nights Escape Tsunami"
-  ],
+"99 Nights Escape Tsunami":[
+"99 Nights Escape Tsunami"
+],
 
-  "Brainrot":[
-    "Brainrot"
-  ]
+"Brainrot":[
+"Brainrot"
+]
 
 };
 
 
 function gameChanged(){
 
-  const game=
-    document.getElementById(
-      "accountGame"
-    ).value;
+const game=
+document.getElementById(
+"accountGame"
+).value;
 
-  const folder=
-    document.getElementById(
-      "accountFolder"
-    );
+const folder=
+document.getElementById(
+"accountFolder"
+);
 
-  folder.innerHTML=
-    '<option value="">-- Chọn thư mục --</option>';
+folder.innerHTML=
+'<option value="">-- Chọn thư mục --</option>';
 
-  if(!game){
+if(!game){
 
-    updatePackages();
+updatePackages();
 
-    return;
+return;
 
-  }
+}
 
-  const list=
-    folderData[game]||[];
+const list=
+folderData[game]||[];
 
-  list.forEach(name=>{
+list.forEach(name=>{
 
-    const option=
-      document.createElement("option");
+const option=
+document.createElement("option");
 
-    option.value=name;
-    option.textContent=name;
+option.value=name;
+option.textContent=name;
 
-    folder.appendChild(option);
+folder.appendChild(option);
 
-  });
+});
 
-  updatePackages();
+updatePackages();
 
 }
 
 
 function folderChanged(){
-  updatePackages();
+
+updatePackages();
+
 }
 
 
 function priceChanged(){
-  updatePackages();
+
+updatePackages();
+
 }
 
 
 /* =====================================================
-   GÓI ACC - ĐÃ SỬA THÀNH 1 → 20
+   PACKAGE 1 → 20
 ===================================================== */
 
 function updatePackages(){
 
-  const game=
-    document.getElementById(
-      "accountGame"
-    ).value;
+const game=
+document.getElementById(
+"accountGame"
+).value;
 
-  const folder=
-    document.getElementById(
-      "accountFolder"
-    ).value;
+const folder=
+document.getElementById(
+"accountFolder"
+).value;
 
-  const packageSelect=
-    document.getElementById(
-      "accountPackage"
-    );
+const packageSelect=
+document.getElementById(
+"accountPackage"
+);
 
-  packageSelect.innerHTML=
-    '<option value="">-- Chọn gói --</option>';
+packageSelect.innerHTML=
+'<option value="">-- Chọn gói --</option>';
 
-  if(!game||!folder)return;
+if(!game||!folder)return;
 
-  if(game==="Dịch vụ Roblox"){
+if(game==="Dịch vụ Roblox"){
 
-    const option=
-      document.createElement("option");
+const option=
+document.createElement("option");
 
-    option.value="Dịch vụ";
-    option.textContent="Dịch vụ";
+option.value="Dịch vụ";
+option.textContent="Dịch vụ";
 
-    packageSelect.appendChild(option);
+packageSelect.appendChild(option);
 
-    return;
+return;
 
-  }
+}
 
-  /* CHỈ SỬA PHẦN NÀY:
-     GÓI 1 → GÓI 20 */
+for(let i=1;i<=20;i++){
 
-  for(let i=1;i<=20;i++){
+const option=
+document.createElement("option");
 
-    const option=
-      document.createElement("option");
+option.value="Gói "+i;
+option.textContent="Gói "+i;
 
-    option.value="Gói "+i;
-    option.textContent="Gói "+i;
+packageSelect.appendChild(option);
 
-    packageSelect.appendChild(option);
-
-  }
+}
 
 }
 
 
+/* =====================================================
+   ADD ACCOUNT
+===================================================== */
+
 async function addAccount(){
 
-  const game=
-    document.getElementById(
-      "accountGame"
-    ).value.trim();
+const game=
+document.getElementById(
+"accountGame"
+).value.trim();
 
-  const folder=
-    document.getElementById(
-      "accountFolder"
-    ).value.trim();
+const folder=
+document.getElementById(
+"accountFolder"
+).value.trim();
 
-  const price=
-    document.getElementById(
-      "accountPrice"
-    ).value;
+const price=
+document.getElementById(
+"accountPrice"
+).value;
 
-  const packageName=
-    document.getElementById(
-      "accountPackage"
-    ).value.trim();
+const packageName=
+document.getElementById(
+"accountPackage"
+).value.trim();
 
-  const username=
-    document.getElementById(
-      "accountUsername"
-    ).value.trim();
+const username=
+document.getElementById(
+"accountUsername"
+).value.trim();
 
-  const password=
-    document.getElementById(
-      "accountPassword"
-    ).value.trim();
+const password=
+document.getElementById(
+"accountPassword"
+).value.trim();
 
-  if(
-    !game||
-    !folder||
-    price===""||
-    !packageName||
-    !username||
-    !password
-  ){
+if(
+!game||
+!folder||
+price===""||
+!packageName||
+!username||
+!password
+){
 
-    showAccountMessage(
-      "❌ Vui lòng nhập đầy đủ thông tin.",
-      "red"
-    );
+showAccountMessage(
+"❌ Vui lòng nhập đầy đủ thông tin.",
+"red"
+);
 
-    return;
+return;
 
-  }
+}
 
-  showAccountMessage(
-    "⏳ Đang thêm tài khoản...",
-    "#2563eb"
-  );
+showAccountMessage(
+"⏳ Đang thêm tài khoản...",
+"#2563eb"
+);
 
-  try{
+try{
 
-    const result=
-      await apiPost(
-        "addAccount",
-        {
-          key:ADMIN_KEY,
-          game:game,
-          folder:folder,
-          price:Number(price),
-          package:packageName,
-          username:username,
-          password:password
-        }
-      );
+const result=
+await apiPost(
+"addAccount",
+{
+key:ADMIN_KEY,
+game:game,
+folder:folder,
+price:Number(price),
+package:packageName,
+username:username,
+password:password
+}
+);
 
-    if(!result.ok){
+if(!result.ok){
 
-      showAccountMessage(
-        "❌ "+
-        (
-          result.message||
-          "Không thể thêm acc."
-        ),
-        "red"
-      );
+showAccountMessage(
+"❌ "+
+(
+result.message||
+"Không thể thêm acc."
+),
+"red"
+);
 
-      return;
+return;
 
-    }
+}
 
-    showAccountMessage(
-      "✅ Đã thêm tài khoản thành công.",
-      "green"
-    );
+showAccountMessage(
+"✅ Đã thêm tài khoản thành công.",
+"green"
+);
 
-    clearAccountForm();
+clearAccountForm();
 
-    await loadAccounts();
-    await loadDashboard();
+await loadAccounts();
+await loadDashboard();
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-    showAccountMessage(
-      "❌ Lỗi kết nối API.",
-      "red"
-    );
+showAccountMessage(
+"❌ Lỗi kết nối API.",
+"red"
+);
 
-  }
+}
 
 }
 
 
 function showAccountMessage(text,color){
 
-  const el=
-    document.getElementById(
-      "accountMessage"
-    );
+const el=
+document.getElementById(
+"accountMessage"
+);
 
-  el.textContent=text;
-  el.style.color=color;
+el.textContent=text;
+el.style.color=color;
 
 }
 
 
 function clearAccountForm(){
 
-  document.getElementById(
-    "accountGame"
-  ).value="";
+document.getElementById(
+"accountGame"
+).value="";
 
-  document.getElementById(
-    "accountFolder"
-  ).innerHTML=
-    '<option value="">-- Chọn thư mục --</option>';
+document.getElementById(
+"accountFolder"
+).innerHTML=
+'<option value="">-- Chọn thư mục --</option>';
 
-  document.getElementById(
-    "accountPrice"
-  ).value="";
+document.getElementById(
+"accountPrice"
+).value="";
 
-  document.getElementById(
-    "accountPackage"
-  ).innerHTML=
-    '<option value="">-- Chọn gói --</option>';
+document.getElementById(
+"accountPackage"
+).innerHTML=
+'<option value="">-- Chọn gói --</option>';
 
-  document.getElementById(
-    "accountUsername"
-  ).value="";
+document.getElementById(
+"accountUsername"
+).value="";
 
-  document.getElementById(
-    "accountPassword"
-  ).value="";
+document.getElementById(
+"accountPassword"
+).value="";
 
 }
 
 
+/* =====================================================
+   ACCOUNTS
+===================================================== */
+
 async function loadAccounts(){
 
-  try{
+try{
 
-    const result=
-      await apiGet("getAccounts");
+const result=
+await apiGet("getAccounts");
 
-    if(result.ok){
+if(result.ok){
 
-      accounts=
-        result.accounts||[];
+accounts=
+result.accounts||[];
 
-      renderAccounts();
+renderAccounts();
 
-    }
+}
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-  }
+}
 
 }
 
 
 function renderAccounts(){
 
-  const body=
-    document.getElementById(
-      "accountsBody"
-    );
+const body=
+document.getElementById(
+"accountsBody"
+);
 
-  const search=
-    document.getElementById(
-      "accountSearch"
-    ).value
-    .toLowerCase()
-    .trim();
+const search=
+document.getElementById(
+"accountSearch"
+).value
+.toLowerCase()
+.trim();
 
-  body.innerHTML="";
+body.innerHTML="";
 
-  accounts
-    .filter(acc=>{
+accounts
+.filter(acc=>{
 
-      const text=[
-        acc.game,
-        acc.folder,
-        acc.price,
-        acc.package,
-        acc.username,
-        acc.password,
-        acc.status
-      ]
-      .join(" ")
-      .toLowerCase();
+const text=[
+acc.game,
+acc.folder,
+acc.price,
+acc.package,
+acc.username,
+acc.password,
+acc.status
+]
+.join(" ")
+.toLowerCase();
 
-      return text.includes(search);
+return text.includes(search);
 
-    })
-    .forEach(acc=>{
+})
+.forEach(acc=>{
 
-      const tr=
-        document.createElement("tr");
+const tr=
+document.createElement("tr");
 
-      const status=
-        String(
-          acc.status||""
-        ).toLowerCase();
+const status=
+String(
+acc.status||""
+).toLowerCase();
 
-      let badgeClass="";
+let badgeClass="";
 
-      if(status==="available")
-        badgeClass="available";
+if(status==="available")
+badgeClass="available";
 
-      if(status==="sold")
-        badgeClass="sold";
+if(status==="sold")
+badgeClass="sold";
 
-      tr.innerHTML=`
+tr.innerHTML=`
 
-        <td>${escapeHtml(acc.id||"")}</td>
+<td>${escapeHtml(acc.id||"")}</td>
 
-        <td>${escapeHtml(acc.game||"")}</td>
+<td>${escapeHtml(acc.game||"")}</td>
 
-        <td>${escapeHtml(acc.folder||"-")}</td>
+<td>${escapeHtml(acc.folder||"-")}</td>
 
-        <td>${formatPrice(acc.price)}</td>
+<td>${formatPrice(acc.price)}</td>
 
-        <td>${escapeHtml(acc.package||"-")}</td>
+<td>${escapeHtml(acc.package||"-")}</td>
 
-        <td>
-          ${escapeHtml(
-            acc.username||
-            acc.accUsername||
-            ""
-          )}
-        </td>
+<td>
+${escapeHtml(
+acc.username||
+acc.accUsername||
+""
+)}
+</td>
 
-        <td>
-          ${escapeHtml(
-            acc.password||
-            acc.accPassword||
-            ""
-          )}
-        </td>
+<td>
+${escapeHtml(
+acc.password||
+acc.accPassword||
+""
+)}
+</td>
 
-        <td>
-          <span class="badge ${badgeClass}">
-            ${escapeHtml(acc.status||"")}
-          </span>
-        </td>
+<td>
+<span class="badge ${badgeClass}">
+${escapeHtml(acc.status||"")}
+</span>
+</td>
 
-        <td>
+<td>
 
-          <button
-            class="btn btn-danger"
-            onclick="deleteAccount('${escapeJs(acc.id||"")}')"
-          >
-            🗑️ Xóa
-          </button>
+<button
+class="btn btn-danger"
+onclick="deleteAccount('${escapeJs(acc.id||"")}')"
+>
+🗑️ Xóa
+</button>
 
-        </td>
+</td>
 
-      `;
+`;
 
-      body.appendChild(tr);
+body.appendChild(tr);
 
-    });
+});
 
 }
 
 
 async function deleteAccount(id){
 
-  if(!id)return;
+if(!id)return;
 
-  if(!confirm(
-    "Bạn có chắc muốn xóa tài khoản này?"
-  ))return;
+if(!confirm(
+"Bạn có chắc muốn xóa tài khoản này?"
+))return;
 
-  try{
+try{
 
-    const result=
-      await apiPost(
-        "deleteAccount",
-        {
-          key:ADMIN_KEY,
-          id:id
-        }
-      );
+const result=
+await apiPost(
+"deleteAccount",
+{
+key:ADMIN_KEY,
+id:id
+}
+);
 
-    if(!result.ok){
+if(!result.ok){
 
-      alert(
-        result.message||
-        "Không thể xóa."
-      );
+alert(
+result.message||
+"Không thể xóa."
+);
 
-      return;
+return;
 
-    }
+}
 
-    alert(
-      "✅ Đã xóa tài khoản."
-    );
+alert(
+"✅ Đã xóa tài khoản."
+);
 
-    await loadAccounts();
-    await loadDashboard();
+await loadAccounts();
+await loadDashboard();
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-    alert(
-      "❌ Lỗi kết nối API."
-    );
+alert(
+"❌ Lỗi kết nối API."
+);
 
-  }
+}
 
 }
 
 
+/* =====================================================
+   CUSTOMERS
+===================================================== */
+
 async function loadCustomers(){
 
-  try{
+try{
 
-    const result=
-      await apiGet("getCustomers");
+const result=
+await apiGet("getCustomers");
 
-    if(result.ok){
+if(result.ok){
 
-      customers=
-        result.customers||[];
+customers=
+result.customers||[];
 
-      renderCustomers();
+renderCustomers();
 
-    }
+}
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-  }
+}
 
 }
 
 
 function renderCustomers(){
 
-  const body=
-    document.getElementById(
-      "customersBody"
-    );
+const body=
+document.getElementById(
+"customersBody"
+);
 
-  const search=
-    document.getElementById(
-      "customerSearch"
-    ).value
-    .toLowerCase()
-    .trim();
+const search=
+document.getElementById(
+"customerSearch"
+).value
+.toLowerCase()
+.trim();
 
-  body.innerHTML="";
+body.innerHTML="";
 
-  customers
-    .filter(user=>
-      String(
-        user.username||""
-      )
-      .toLowerCase()
-      .includes(search)
-    )
-    .forEach(user=>{
+customers
+.filter(user=>
+String(
+user.username||""
+)
+.toLowerCase()
+.includes(search)
+)
+.forEach(user=>{
 
-      const tr=
-        document.createElement("tr");
+const tr=
+document.createElement("tr");
 
-      tr.innerHTML=`
+tr.innerHTML=`
 
-        <td>
-          ${escapeHtml(
-            user.username||""
-          )}
-        </td>
+<td>
+${escapeHtml(
+user.username||""
+)}
+</td>
 
-        <td>
-          ${formatMoney(
-            user.balance||0
-          )}
-        </td>
+<td>
+${formatMoney(
+user.balance||0
+)}
+</td>
 
-        <td>
-          ${escapeHtml(
-            formatDate(user.createdAt)
-          )}
-        </td>
+<td>
+${escapeHtml(
+formatDate(user.createdAt)
+)}
+</td>
 
-        <td>
-          ${escapeHtml(
-            user.status||""
-          )}
-        </td>
+<td>
+${escapeHtml(
+user.status||""
+)}
+</td>
 
-      `;
+`;
 
-      body.appendChild(tr);
+body.appendChild(tr);
 
-    });
+});
 
 }
 
 
+/* =====================================================
+   TOPUPS
+===================================================== */
+
 async function loadTopups(){
 
-  try{
+try{
 
-    const result=
-      await apiGet("getTopups");
+const result=
+await apiGet("getTopups");
 
-    if(result.ok){
+if(result.ok){
 
-      topups=
-        result.topups||[];
+topups=
+result.topups||[];
 
-      renderTopups();
+renderTopups();
 
-    }
+}
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-  }
+}
 
 }
 
 
 function renderTopups(){
 
-  const body=
-    document.getElementById(
-      "topupsBody"
-    );
+const body=
+document.getElementById(
+"topupsBody"
+);
 
-  body.innerHTML="";
+body.innerHTML="";
 
-  topups
-    .slice()
-    .reverse()
-    .forEach(item=>{
+topups
+.slice()
+.reverse()
+.forEach(item=>{
 
-      const tr=
-        document.createElement("tr");
+const tr=
+document.createElement("tr");
 
-      const status=
-        String(
-          item.status||""
-        ).toLowerCase();
+const status=
+String(
+item.status||""
+).toLowerCase();
 
-      let buttons="";
+let buttons="";
 
-      if(status==="pending"){
+if(status==="pending"){
 
-        buttons=`
+buttons=`
 
-          <button
-            class="btn btn-success"
-            onclick="approveTopup('${escapeJs(item.id||"")}')"
-          >
-            ✅ Duyệt
-          </button>
+<button
+class="btn btn-success"
+onclick="approveTopup('${escapeJs(item.id||"")}')"
+>
+✅ Duyệt
+</button>
 
-          <button
-            class="btn btn-danger"
-            onclick="rejectTopup('${escapeJs(item.id||"")}')"
-          >
-            ❌ Từ chối
-          </button>
+<button
+class="btn btn-danger"
+onclick="rejectTopup('${escapeJs(item.id||"")}')"
+>
+❌ Từ chối
+</button>
 
-        `;
+`;
 
-      }
+}
 
-      tr.innerHTML=`
+tr.innerHTML=`
 
-        <td>${escapeHtml(item.id||"")}</td>
+<td>${escapeHtml(item.id||"")}</td>
 
-        <td>${escapeHtml(item.username||"")}</td>
+<td>${escapeHtml(item.username||"")}</td>
 
-        <td>${formatMoney(item.amount||0)}</td>
+<td>${formatMoney(item.amount||0)}</td>
 
-        <td>${escapeHtml(item.method||"")}</td>
+<td>${escapeHtml(item.method||"")}</td>
 
-        <td>${escapeHtml(item.cardType||"")}</td>
+<td>${escapeHtml(item.cardType||"")}</td>
 
-        <td>${escapeHtml(item.cardSerial||"")}</td>
+<td>${escapeHtml(item.cardSerial||"")}</td>
 
-        <td>${escapeHtml(item.cardCode||"")}</td>
+<td>${escapeHtml(item.cardCode||"")}</td>
 
-        <td>${escapeHtml(item.bankName||"")}</td>
+<td>${escapeHtml(item.bankName||"")}</td>
 
-        <td>
-          <span class="badge ${status}">
-            ${escapeHtml(item.status||"")}
-          </span>
-        </td>
+<td>
+<span class="badge ${status}">
+${escapeHtml(item.status||"")}
+</span>
+</td>
 
-        <td>${buttons}</td>
+<td>${buttons}</td>
 
-      `;
+`;
 
-      body.appendChild(tr);
+body.appendChild(tr);
 
-    });
+});
 
 }
 
 
 async function approveTopup(id){
 
-  if(!confirm(
-    "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
-  ))return;
+if(!confirm(
+"Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
+))return;
 
-  try{
+try{
 
-    const result=
-      await apiPost(
-        "approveTopup",
-        {
-          key:ADMIN_KEY,
-          id:id
-        }
-      );
+const result=
+await apiPost(
+"approveTopup",
+{
+key:ADMIN_KEY,
+id:id
+}
+);
 
-    alert(
-      result.message||
-      (
-        result.ok
-          ?"Đã duyệt."
-          :"Không thể duyệt."
-      )
-    );
+alert(
+result.message||
+(
+result.ok
+?"Đã duyệt."
+:"Không thể duyệt."
+)
+);
 
-    if(result.ok){
+if(result.ok){
 
-      await loadTopups();
-      await loadCustomers();
-      await loadDashboard();
+await loadTopups();
+await loadCustomers();
+await loadDashboard();
 
-    }
+}
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-    alert("❌ Lỗi API.");
+alert("❌ Lỗi API.");
 
-  }
+}
 
 }
 
 
 async function rejectTopup(id){
 
-  if(!confirm(
-    "Bạn có chắc muốn từ chối yêu cầu này?"
-  ))return;
+if(!confirm(
+"Bạn có chắc muốn từ chối yêu cầu này?"
+))return;
 
-  try{
+try{
 
-    const result=
-      await apiPost(
-        "rejectTopup",
-        {
-          key:ADMIN_KEY,
-          id:id
-        }
-      );
+const result=
+await apiPost(
+"rejectTopup",
+{
+key:ADMIN_KEY,
+id:id
+}
+);
 
-    alert(
-      result.message||
-      "Đã xử lý."
-    );
+alert(
+result.message||
+"Đã xử lý."
+);
 
-    if(result.ok){
+if(result.ok){
 
-      await loadTopups();
-      await loadDashboard();
+await loadTopups();
+await loadDashboard();
 
-    }
+}
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-    alert("❌ Lỗi API.");
+alert("❌ Lỗi API.");
 
-  }
+}
 
 }
 
 
+/* =====================================================
+   ORDERS
+===================================================== */
+
 async function loadOrders(){
 
-  try{
+try{
 
-    const result=
-      await apiGet("getOrders");
+const result=
+await apiGet("getOrders");
 
-    if(result.ok){
+if(result.ok){
 
-      orders=
-        result.orders||[];
+orders=
+result.orders||[];
 
-      renderOrders();
+renderOrders();
 
-    }
+}
 
-  }catch(err){
+}catch(err){
 
-    console.error(err);
+console.error(err);
 
-  }
+}
 
 }
 
 
 function renderOrders(){
 
-  const body=
-    document.getElementById(
-      "ordersBody"
-    );
+const body=
+document.getElementById(
+"ordersBody"
+);
 
-  body.innerHTML="";
+body.innerHTML="";
 
-  orders
-    .slice()
-    .reverse()
-    .forEach(order=>{
+orders
+.slice()
+.reverse()
+.forEach(order=>{
 
-      const tr=
-        document.createElement("tr");
+const tr=
+document.createElement("tr");
 
-      tr.innerHTML=`
+tr.innerHTML=`
 
-        <td>
-          ${escapeHtml(order.id||"")}
-        </td>
+<td>
+${escapeHtml(order.id||"")}
+</td>
 
-        <td>
-          ${escapeHtml(order.username||"")}
-        </td>
+<td>
+${escapeHtml(order.username||"")}
+</td>
 
-        <td>
-          ${escapeHtml(order.product||"")}
-        </td>
+<td>
+${escapeHtml(order.product||"")}
+</td>
 
-        <td>
-          ${formatMoney(order.price||0)}
-        </td>
+<td>
+${formatMoney(order.price||0)}
+</td>
 
-        <td>
-          ${escapeHtml(order.status||"")}
-        </td>
+<td>
+${escapeHtml(order.status||"")}
+</td>
 
-        <td>
-          ${escapeHtml(
-            formatDate(order.createdAt)
-          )}
-        </td>
+<td>
+${escapeHtml(
+formatDate(order.createdAt)
+)}
+</td>
 
-        <td>
-          ${
-            order.accUsername
-              ?escapeHtml(order.accUsername)
-              :"-"
-          }
-        </td>
+<td>
+${
+order.accUsername
+?escapeHtml(order.accUsername)
+:"-"
+}
+</td>
 
-      `;
+`;
 
-      body.appendChild(tr);
+body.appendChild(tr);
 
-    });
+});
 
 }
 
 
 /* =====================================================
    PRODUCT STATUS
-   ĐÃ SỬA ĐỂ KHÔNG BỊ NHẦM TRẠNG THÁI
 ===================================================== */
 
-function buildProductsFromFolders(){
+/*
+   KEY LUÔN LÀ:
+   GAME + FOLDER
 
-  products=[];
+   Không còn fallback theo folder riêng.
+   Như vậy Fish của Blox Fruits và Fish
+   sẽ không thể dùng chung trạng thái.
+*/
 
-  const seen=new Set();
+function createProductKey(game,folder){
 
-  Object.keys(folderData)
-    .forEach(game=>{
-
-      const folders=
-        Array.isArray(folderData[game])
-          ?folderData[game]
-          :[];
-
-      folders.forEach(folder=>{
-
-        const key=
-          createProductKey(
-            game,
-            folder
-          );
-
-        /* Không cho sản phẩm bị lặp */
-        if(seen.has(key))return;
-
-        seen.add(key);
-
-        products.push({
-
-          key:key,
-
-          game:String(game),
-
-          folder:String(folder),
-
-          name:String(folder)
-
-        });
-
-      });
-
-    });
+return (
+String(game)+
+"__"+
+String(folder)
+)
+.normalize("NFD")
+.replace(
+/[\u0300-\u036f]/g,
+""
+)
+.replace(
+/[^a-zA-Z0-9]+/g,
+"_"
+)
+.replace(
+/^_+|_+$/g,
+""
+)
+.toLowerCase();
 
 }
 
 
-function createProductKey(game,folder){
+function buildProductsFromFolders(){
 
-  return (
-    String(game)+
-    "_"+
-    String(folder)
-  )
-  .normalize("NFD")
-  .replace(
-    /[\u0300-\u036f]/g,
-    ""
-  )
-  .replace(
-    /[^a-zA-Z0-9]+/g,
-    "_"
-  )
-  .replace(
-    /^_+|_+$/g,
-    ""
-  )
-  .toLowerCase();
+products=[];
+
+const seen=new Set();
+
+Object.keys(folderData)
+.forEach(game=>{
+
+const folders=
+Array.isArray(folderData[game])
+?folderData[game]
+:[];
+
+folders.forEach(folder=>{
+
+const key=
+createProductKey(
+game,
+folder
+);
+
+if(seen.has(key))return;
+
+seen.add(key);
+
+products.push({
+
+key:key,
+
+game:String(game),
+
+folder:String(folder),
+
+name:String(folder)
+
+});
+
+});
+
+});
 
 }
 
 
 /*
-  Chuẩn hóa trạng thái để tránh trường hợp
-  Apps Script trả về chữ hoa/thường khác nhau.
+   Chuẩn hóa trạng thái.
 */
 
 function normalizeProductStatus(value){
 
-  const text=
-    String(value||"")
-      .trim()
-      .toLowerCase();
+const text=
+String(value||"")
+.trim()
+.toLowerCase();
 
-  if(
-    text==="chưa sẵn sàng"||
-    text==="chua san sang"||
-    text==="not ready"||
-    text==="unavailable"||
-    text==="false"
-  ){
+if(
+text==="chưa sẵn sàng"||
+text==="chua san sang"||
+text==="not ready"||
+text==="unavailable"||
+text==="false"
+){
 
-    return "Chưa Sẵn Sàng";
+return "Chưa Sẵn Sàng";
 
-  }
+}
 
-  return "Sẵn Sàng";
+return "Sẵn Sàng";
 
 }
 
 
 /*
-  Lấy trạng thái theo key chính.
-  Có thêm kiểm tra key cũ để tránh dữ liệu
-  trạng thái đã lưu trước đây bị hiện sai.
+   Chỉ đọc trạng thái theo KEY đầy đủ.
+   Không còn đọc theo tên folder riêng.
 */
 
 function getProductStatus(product){
 
-  if(!product)return "Sẵn Sàng";
+if(!product)return "Sẵn Sàng";
 
-  const key=
-    String(product.key||"");
+const key=
+String(product.key||"");
 
-  const folder=
-    String(product.folder||"");
+let value=null;
 
-  const game=
-    String(product.game||"");
+if(
+productStatuses &&
+Object.prototype.hasOwnProperty.call(
+productStatuses,
+key
+)
+){
 
-  let value=null;
+value=
+productStatuses[key];
 
-  if(
-    productStatuses &&
-    Object.prototype.hasOwnProperty.call(
-      productStatuses,
-      key
-    )
-  ){
+}
 
-    value=
-      productStatuses[key];
+if(
+value &&
+typeof value==="object"
+){
 
-  }
+value=
+value.status||
+value.value||
+value.productStatus||
+null;
 
-  /*
-    Hỗ trợ dữ liệu cũ nếu Apps Script
-    đang lưu bằng tên thư mục.
-  */
+}
 
-  if(
-    value===null||
-    typeof value==="undefined"
-  ){
-
-    if(
-      productStatuses &&
-      Object.prototype.hasOwnProperty.call(
-        productStatuses,
-        folder
-      )
-    ){
-
-      value=
-        productStatuses[folder];
-
-    }
-
-  }
-
-  /*
-    Hỗ trợ trường hợp backend trả object.
-  */
-
-  if(
-    value &&
-    typeof value==="object"
-  ){
-
-    value=
-      value.status||
-      value.value||
-      value.productStatus||
-      null;
-
-  }
-
-  return normalizeProductStatus(value);
+return normalizeProductStatus(value);
 
 }
 
 
 async function loadProducts(){
 
-  buildProductsFromFolders();
+buildProductsFromFolders();
 
-  try{
+try{
 
-    const result=
-      await apiGet(
-        "getProductStatuses"
-      );
+const result=
+await apiGet(
+"getProductStatuses"
+);
 
-    if(
-      result &&
-      result.ok
-    ){
+if(
+result &&
+result.ok
+){
 
-      /*
-        Đảm bảo luôn là object.
-      */
+if(
+result.statuses &&
+typeof result.statuses==="object"
+){
 
-      if(
-        result.statuses &&
-        typeof result.statuses==="object"
-      ){
+productStatuses=
+result.statuses;
 
-        productStatuses=
-          result.statuses;
+}else{
 
-      }else{
+productStatuses={};
 
-        productStatuses={};
+}
 
-      }
+}else{
 
-    }else{
+productStatuses={};
 
-      productStatuses={};
+}
 
-    }
+}catch(err){
 
-  }catch(err){
+console.error(
+"Lỗi load trạng thái sản phẩm:",
+err
+);
 
-    console.error(
-      "Lỗi load trạng thái sản phẩm:",
-      err
-    );
+productStatuses={};
 
-    productStatuses={};
+}
 
-  }
-
-  renderProducts();
+renderProducts();
 
 }
 
 
 function renderProducts(){
 
-  const container=
-    document.getElementById(
-      "productsContainer"
-    );
+const container=
+document.getElementById(
+"productsContainer"
+);
 
-  if(!container)return;
+if(!container)return;
 
-  container.innerHTML="";
+container.innerHTML="";
 
-  if(
-    !Array.isArray(products)||
-    products.length===0
-  ){
+if(
+!Array.isArray(products)||
+products.length===0
+){
 
-    container.innerHTML=`
+container.innerHTML=`
 
-      <div class="notice">
-        ⚠️ Hiện chưa có thư mục sản phẩm.
-      </div>
+<div class="notice">
+⚠️ Hiện chưa có thư mục sản phẩm.
+</div>
 
-    `;
+`;
 
-    return;
+return;
 
-  }
-
-
-  const groups={};
-
-  products.forEach(product=>{
-
-    if(!groups[product.game]){
-
-      groups[product.game]=[];
-
-    }
-
-    groups[product.game].push(product);
-
-  });
+}
 
 
-  Object.keys(groups)
-    .forEach(game=>{
+const groups={};
 
-      const title=
-        document.createElement("div");
+products.forEach(product=>{
 
-      title.className=
-        "product-group-title";
+if(!groups[product.game]){
 
-      title.textContent=
-        "🎮 "+game;
+groups[product.game]=[];
 
-      container.appendChild(title);
+}
+
+groups[product.game].push(product);
+
+});
 
 
-      groups[game].forEach(product=>{
+Object.keys(groups)
+.forEach(game=>{
 
-        createProductStatusCard(
-          container,
-          product
-        );
+const title=
+document.createElement("div");
 
-      });
+title.className=
+"product-group-title";
 
-    });
+title.textContent=
+"🎮 "+game;
+
+container.appendChild(title);
+
+groups[game].forEach(product=>{
+
+createProductStatusCard(
+container,
+product
+);
+
+});
+
+});
 
 }
 
 
 function createProductStatusCard(
-  container,
-  product
+container,
+product
 ){
 
-  const key=
-    String(product.key||"");
+const key=
+String(product.key||"");
 
-  const status=
-    getProductStatus(product);
+const status=
+getProductStatus(product);
 
-  const div=
-    document.createElement("div");
+const div=
+document.createElement("div");
 
-  div.className=
-    "card product-status-card "+
-    (
-      status==="Sẵn Sàng"
-        ?"ready"
-        :"not-ready"
-    );
+div.className=
+"card product-status-card "+
+(
+status==="Sẵn Sàng"
+?"ready"
+:"not-ready"
+);
 
-  div.dataset.productKey=key;
+div.dataset.productKey=key;
 
-  div.innerHTML=`
+div.innerHTML=`
 
-    <div class="product-status-row">
+<div class="product-status-row">
 
-      <div>
+<div>
 
-        <div class="product-status-name">
-          ${escapeHtml(product.name)}
-        </div>
+<div class="product-status-name">
+${escapeHtml(product.name)}
+</div>
 
-        <div class="small">
-          🎮 ${escapeHtml(product.game)}
-        </div>
+<div class="small">
+🎮 ${escapeHtml(product.game)}
+</div>
 
-      </div>
+</div>
 
-      <select
-        id="status_${escapeHtml(key)}"
-        class="input product-status-select"
-        onchange="changeProductVisual('${escapeJs(key)}')"
-      >
+<select
+id="status_${escapeHtml(key)}"
+class="input product-status-select"
+onchange="changeProductVisual('${escapeJs(key)}')"
+>
 
-        <option
-          value="Sẵn Sàng"
-          ${status==="Sẵn Sàng"?"selected":""}
-        >
-          🟢 Sẵn Sàng
-        </option>
+<option
+value="Sẵn Sàng"
+${status==="Sẵn Sàng"?"selected":""}
+>
+🟢 Sẵn Sàng
+</option>
 
-        <option
-          value="Chưa Sẵn Sàng"
-          ${status==="Chưa Sẵn Sàng"?"selected":""}
-        >
-          🔴 Chưa Sẵn Sàng
-        </option>
+<option
+value="Chưa Sẵn Sàng"
+${status==="Chưa Sẵn Sàng"?"selected":""}
+>
+🔴 Chưa Sẵn Sàng
+</option>
 
-      </select>
+</select>
 
-      <button
-        class="btn btn-primary"
-        onclick="saveProductStatus('${escapeJs(key)}')"
-      >
-        💾 Lưu
-      </button>
+<button
+class="btn btn-primary"
+onclick="saveProductStatus('${escapeJs(key)}')"
+>
+💾 Lưu
+</button>
 
-    </div>
+</div>
 
-  `;
+`;
 
-  container.appendChild(div);
+container.appendChild(div);
 
 }
 
 
 function changeProductVisual(product){
 
-  const select=
-    document.getElementById(
-      "status_"+product
-    );
+const select=
+document.getElementById(
+"status_"+product
+);
 
-  if(!select)return;
+if(!select)return;
 
-  const card=
-    select.closest(
-      ".product-status-card"
-    );
+const card=
+select.closest(
+".product-status-card"
+);
 
-  if(!card)return;
+if(!card)return;
 
-  card.classList.remove(
-    "ready",
-    "not-ready"
-  );
+card.classList.remove(
+"ready",
+"not-ready"
+);
 
-  if(
-    normalizeProductStatus(
-      select.value
-    )==="Sẵn Sàng"
-  ){
+if(
+normalizeProductStatus(
+select.value
+)==="Sẵn Sàng"
+){
 
-    card.classList.add("ready");
+card.classList.add("ready");
 
-  }else{
+}else{
 
-    card.classList.add("not-ready");
+card.classList.add("not-ready");
 
-  }
+}
 
 }
 
 
 async function saveProductStatus(product){
 
-  const select=
-    document.getElementById(
-      "status_"+product
-    );
+const select=
+document.getElementById(
+"status_"+product
+);
 
-  if(!select)return;
+if(!select)return;
 
-  const status=
-    normalizeProductStatus(
-      select.value
-    );
+const status=
+normalizeProductStatus(
+select.value
+);
 
-  try{
+try{
 
-    const result=
-      await apiPost(
-        "setProductStatus",
-        {
-          key:ADMIN_KEY,
-          product:product,
-          status:status
-        }
-      );
+const result=
+await apiPost(
+"setProductStatus",
+{
+key:ADMIN_KEY,
+product:product,
+status:status
+}
+);
 
-    if(!result.ok){
+if(!result.ok){
 
-      alert(
-        result.message||
-        "❌ Không thể lưu trạng thái."
-      );
+alert(
+result.message||
+"❌ Không thể lưu trạng thái."
+);
 
-      return;
-
-    }
-
-    /*
-      Cập nhật ngay giao diện hiện tại.
-    */
-
-    productStatuses[product]=status;
-
-    changeProductVisual(product);
-
-    alert(
-      "✅ Đã lưu trạng thái sản phẩm."
-    );
-
-  }catch(err){
-
-    console.error(err);
-
-    alert(
-      "❌ Lỗi kết nối API."
-    );
-
-  }
+return;
 
 }
 
+productStatuses[product]=status;
+
+changeProductVisual(product);
+
+alert(
+"✅ Đã lưu trạng thái sản phẩm."
+);
+
+}catch(err){
+
+console.error(err);
+
+alert(
+"❌ Lỗi kết nối API."
+);
+
+}
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
 
 function showTab(name,button){
 
-  document
-    .querySelectorAll(".panel")
-    .forEach(panel=>{
+document
+.querySelectorAll(".panel")
+.forEach(panel=>{
 
-      panel.classList.remove("active");
+panel.classList.remove("active");
 
-    });
+});
 
-  document
-    .querySelectorAll(".tab")
-    .forEach(tab=>{
+document
+.querySelectorAll(".tab")
+.forEach(tab=>{
 
-      tab.classList.remove("active");
+tab.classList.remove("active");
 
-    });
+});
 
-  const panel=
-    document.getElementById(
-      "panel-"+name
-    );
+const panel=
+document.getElementById(
+"panel-"+name
+);
 
-  if(panel){
+if(panel){
 
-    panel.classList.add("active");
+panel.classList.add("active");
 
-  }
+}
 
-  if(button){
+if(button){
 
-    button.classList.add("active");
+button.classList.add("active");
 
-  }
+}
 
 }
 
 
+/* =====================================================
+   ACCOUNT MODAL
+===================================================== */
+
 function showAccountModal(account){
 
-  const content=
-    document.getElementById(
-      "accountModalContent"
-    );
+const content=
+document.getElementById(
+"accountModalContent"
+);
 
-  content.innerHTML=`
+content.innerHTML=`
 
-    <div class="account-result">
+<div class="account-result">
 
-      <div>
-        🎮 Game:
-        <b>${escapeHtml(account.game||"")}</b>
-      </div>
+<div>
+🎮 Game:
+<b>${escapeHtml(account.game||"")}</b>
+</div>
 
-      <div>
-        📁 Thư mục:
-        <b>${escapeHtml(account.folder||"")}</b>
-      </div>
+<div>
+📁 Thư mục:
+<b>${escapeHtml(account.folder||"")}</b>
+</div>
 
-      <div>
-        💵 Giá:
-        <b>${formatPrice(account.price)}</b>
-      </div>
+<div>
+💵 Giá:
+<b>${formatPrice(account.price)}</b>
+</div>
 
-      <div>
-        📦 Gói:
-        <b>${escapeHtml(account.package||"")}</b>
-      </div>
+<div>
+📦 Gói:
+<b>${escapeHtml(account.package||"")}</b>
+</div>
 
-      <div>
-        👤 Username:
-        <b>${escapeHtml(account.username||"")}</b>
-      </div>
+<div>
+👤 Username:
+<b>${escapeHtml(account.username||"")}</b>
+</div>
 
-      <div>
-        🔑 Password:
-        <b>${escapeHtml(account.password||"")}</b>
-      </div>
+<div>
+🔑 Password:
+<b>${escapeHtml(account.password||"")}</b>
+</div>
 
-    </div>
+</div>
 
-  `;
+`;
 
-  document
-    .getElementById("accountModal")
-    .classList.remove("hidden");
+document
+.getElementById("accountModal")
+.classList.remove("hidden");
 
 }
 
 
 function closeAccountModal(){
 
-  document
-    .getElementById("accountModal")
-    .classList.add("hidden");
+document
+.getElementById("accountModal")
+.classList.add("hidden");
 
 }
 
 
+/* =====================================================
+   FORMAT
+===================================================== */
+
 function formatMoney(value){
 
-  const n=
-    Number(value||0);
+const n=
+Number(value||0);
 
-  if(n>=1000){
+if(n>=1000){
 
-    return n.toLocaleString("vi-VN")+"đ";
+return n.toLocaleString("vi-VN")+"đ";
 
-  }
+}
 
-  return n.toLocaleString("vi-VN")+"K";
+return n.toLocaleString("vi-VN")+"K";
 
 }
 
 
 function formatPrice(value){
 
-  if(
-    value===""||
-    value===null||
-    typeof value==="undefined"
-  ){
+if(
+value===""||
+value===null||
+typeof value==="undefined"
+){
 
-    return "-";
+return "-";
 
-  }
+}
 
-  return Number(value||0)
-    .toLocaleString("vi-VN")+"K";
+return Number(value||0)
+.toLocaleString("vi-VN")+"K";
 
 }
 
 
 function formatDate(value){
 
-  if(!value)return "";
+if(!value)return "";
 
-  try{
+try{
 
-    const date=
-      new Date(value);
+const date=
+new Date(value);
 
-    if(
-      isNaN(date.getTime())
-    ){
+if(
+isNaN(date.getTime())
+){
 
-      return String(value);
+return String(value);
 
-    }
+}
 
-    return date.toLocaleString("vi-VN");
+return date.toLocaleString("vi-VN");
 
-  }catch(e){
+}catch(e){
 
-    return String(value);
+return String(value);
 
-  }
+}
 
 }
 
 
+/* =====================================================
+   SECURITY
+===================================================== */
+
 function escapeHtml(value){
 
-  return String(value??"")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+return String(value??"")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
 
 function escapeJs(value){
 
-  return String(value??"")
-    .replaceAll("\\","\\\\")
-    .replaceAll("'","\\'")
-    .replaceAll("\n","\\n")
-    .replaceAll("\r","\\r");
+return String(value??"")
+.replaceAll("\\","\\\\")
+.replaceAll("'","\\'")
+.replaceAll("\n","\\n")
+.replaceAll("\r","\\r");
 
 }
 
@@ -2886,3 +2907,4 @@ function escapeJs(value){
 
 </body>
 </html>
+```
