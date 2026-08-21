@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>99 Nights - SHOPKAROT</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+    color:#111;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e21b23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:white;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* ================= USER ================= */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:white;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:96%;
+    max-width:1200px;
+    margin:25px auto;
+}
+
+/* ================= PAGE TITLE ================= */
+
+.page-title{
+    padding:30px;
+    margin-bottom:18px;
+    border-radius:18px;
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            #ff4444 0%,
+            #9d1111 35%,
+            #350606 85%
+        );
+    color:white;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+}
+
+.page-title h1{
+    margin:0 0 12px;
+    font-size:32px;
+}
+
+.page-title p{
+    margin:0;
+    line-height:1.7;
+    color:#f5f5f5;
+    font-size:15px;
+}
+
+.page-title b{
+    color:#ffd21b;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:15px;
+    background:#fff8e6;
+    border:1px solid #ffe0a3;
+    color:#624500;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+.notice-title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.notice p{
+    margin:5px 0;
+    line-height:1.6;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.service-card{
+    overflow:hidden;
+    background:white;
+    border:1px solid #e4e7eb;
+    border-radius:17px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.service-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.14);
+}
+
+.service-image{
+    height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:34px;
+    font-weight:1000;
+    text-align:center;
+    text-shadow:2px 2px 5px #000;
+}
+
+.acc99{
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            #9333ea 0%,
+            #4c1d95 40%,
+            #111827 90%
+        );
+}
+
+.service99{
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            #f97316 0%,
+            #9a3412 40%,
+            #1c1917 90%
+        );
+}
+
+.service-content{
+    padding:20px;
+}
+
+.service-content h2{
+    margin:0 0 8px;
+    font-size:22px;
+}
+
+.service-content p{
+    margin:0 0 15px;
+    color:#687386;
+    line-height:1.5;
+    font-size:14px;
+}
+
+.status{
+    display:inline-block;
+    margin-bottom:13px;
+    padding:7px 13px;
+    border-radius:20px;
+    background:#e7f8ef;
+    border:1px solid #b7e8ca;
+    color:#00a86b;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.game-button{
+    display:block;
+    width:100%;
+    padding:12px;
+    border-radius:9px;
+    background:#a80e12;
+    color:white;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.game-button:hover{
+    background:#d0161d;
+}
+
+/* ================= BACK ================= */
+
+.back-button{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 18px;
+    border-radius:9px;
+    background:#172033;
+    color:white;
+    font-weight:bold;
+}
+
+.back-button:hover{
+    background:#30394b;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        padding:6px 8px;
+    }
+
+    .user-info{
+        display:none;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .page-title{
+        padding:22px;
+    }
+
+    .page-title h1{
+        font-size:26px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .service-image{
+        height:160px;
+    }
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:450px){
+
+    .service-image{
+        height:140px;
+        font-size:28px;
+    }
+
+    .service-content h2{
+        font-size:19px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu.html?price=0">
+                🎁 TÚI MÙ
+            </a>
+
+            <a href="random-acc-roblox.html">
+                🎲 RANDOM ACC ROBLOX
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- ================= PAGE TITLE ================= -->
+
+    <section class="page-title">
+
+        <h1>
+            99 Nights
+        </h1>
+
+        <p>
+            Đây là <b>dịch vụ và acc 99 Nights</b>.
+            Nếu có lỗi hoặc gặp vấn đề trong quá trình mua,
+            bạn hãy liên hệ <b>Admin SHOPKAROT</b> để được hỗ trợ.
+        </p>
+
+    </section>
+
+
+    <!-- ================= NOTICE ================= -->
+
+    <section class="notice">
+
+        <div class="notice-title">
+            📣 Thông tin 99 Nights
+        </div>
+
+        <p>
+            🎮 Tại đây có các sản phẩm <b>Acc 99 Nights</b>
+            và <b>Dịch vụ 99 Nights</b>.
+        </p>
+
+        <p>
+            ⚠️ Nếu sản phẩm hoặc dịch vụ xảy ra lỗi,
+            vui lòng liên hệ Admin SHOPKAROT để được kiểm tra và hỗ trợ.
+        </p>
+
+    </section>
+
+
+    <!-- ================= 2 MỤC ================= -->
+
+    <section class="services">
+
+
+        <!-- ================= ACC 99 NIGHT ================= -->
+
+        <article class="service-card">
+
+            <div class="service-image acc99">
+                ACC<br>99 NIGHTS
+            </div>
+
+            <div class="service-content">
+
+                <h2>
+                    🎮 Acc 99 Nights
+                </h2>
+
+                <p>
+                    Danh sách tài khoản 99 Nights
+                    đang được bán tại SHOPKAROT.
+                </p>
+
+                <span class="status">
+                    🟢 Sẵn Sàng
+                </span>
+
+                <a
+                    href="acc-99-night.html"
+                    class="game-button">
+                    XEM ACC 99 NIGHTS →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- ================= DỊCH VỤ 99 NIGHT ================= -->
+
+        <article class="service-card">
+
+            <div class="service-image service99">
+                DỊCH VỤ<br>99 NIGHTS
+            </div>
+
+            <div class="service-content">
+
+                <h2>
+                    🛠️ Dịch vụ 99 Nights
+                </h2>
+
+                <p>
+                    Các dịch vụ hỗ trợ 99 Nights
+                    được cung cấp bởi SHOPKAROT.
+                </p>
+
+                <span class="status">
+                    🟢 Sẵn Sàng
+                </span>
+
+                <a
+                    href="dich-vu-99-night.html"
+                    class="game-button">
+                    XEM DỊCH VỤ →
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================= BACK ================= -->
+
+    <a
+        href="index.html"
+        class="back-button">
+        ← QUAY LẠI TRANG CHỦ
+    </a>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+
+</footer>
+
+
+<script>
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(!menu.contains(event.target)){
+
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* ================= USER ================= */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true" &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* ================= USER CLICK ================= */
+
+document
+.getElementById("userBox")
+.addEventListener(
+    "click",
+    function(){
+
+        const login =
+            localStorage.getItem(
+                "shopkarot_login"
+            );
+
+        if(login === "true"){
+
+            window.location.href =
+                "ho-so.html";
+
+        }
+
+        else{
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    }
+);
+
+
+/* ================= START ================= */
+
+updateUser();
+
+
+/* ================= STORAGE ================= */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
