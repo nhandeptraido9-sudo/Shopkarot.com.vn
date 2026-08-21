@@ -2042,6 +2042,10 @@ footer{
 
 <script>
 
+/* =========================================================
+   SHOPKAROT - INDEX API
+   ========================================================= */
+
 const API_URL =
 "https://script.google.com/macros/s/AKfycbzhwwbBQSj4PV-jyiSrvLK3MUkyam4dk4ADytRRn5fXhSx_IpEhsT7EgQx0ckxAg17YmA/exec";
 
@@ -2050,13 +2054,13 @@ const API_URL =
    API STATUS
 ========================================================= */
 
-function setAPIStatus(type,text){
+function setAPIStatus(type, text){
 
     const box = document.getElementById("apiStatus");
 
     if(!box) return;
 
-    box.className = "api-status " + type;
+    box.className = "api-status " + (type || "");
     box.textContent = text;
 }
 
@@ -2067,8 +2071,7 @@ function setAPIStatus(type,text){
 
 function toggleMenu(){
 
-    const menu =
-        document.getElementById("menuBox");
+    const menu = document.getElementById("menuBox");
 
     if(menu){
         menu.classList.toggle("show");
@@ -2076,17 +2079,15 @@ function toggleMenu(){
 }
 
 
-document.addEventListener("click",function(event){
+document.addEventListener("click", function(event){
 
-    const menu =
-        document.querySelector(".menu");
+    const menu = document.querySelector(".menu");
 
     if(!menu) return;
 
     if(!menu.contains(event.target)){
 
-        const box =
-            document.getElementById("menuBox");
+        const box = document.getElementById("menuBox");
 
         if(box){
             box.classList.remove("show");
@@ -2121,31 +2122,35 @@ function updateUser(){
 
     if(!usernameBox || !balanceBox) return;
 
+
     if(login === "true" && username){
 
-        usernameBox.textContent =
-            username;
+        usernameBox.textContent = username;
 
         balanceBox.textContent =
             balance.toLocaleString("vi-VN") + "đ";
 
     }else{
 
-        usernameBox.textContent =
-            "Đăng nhập";
+        usernameBox.textContent = "Đăng nhập";
 
-        balanceBox.textContent =
-            "0đ";
+        balanceBox.textContent = "0đ";
+
     }
+
 }
 
+
+/* =========================================================
+   USER BOX
+========================================================= */
 
 const userBox =
     document.getElementById("userBox");
 
 if(userBox){
 
-    userBox.addEventListener("click",function(){
+    userBox.addEventListener("click", function(){
 
         const login =
             localStorage.getItem("shopkarot_login");
@@ -2159,6 +2164,7 @@ if(userBox){
 
             window.location.href =
                 "login.html";
+
         }
 
     });
@@ -2178,6 +2184,7 @@ function escapeHTML(text){
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
+
 }
 
 
@@ -2200,14 +2207,20 @@ function loadTopNap(){
             localStorage.getItem("shopkarot_topnap");
 
         if(saved){
+
             data = JSON.parse(saved);
+
         }
 
     }catch(error){
 
-        console.error("TOP NẠP ERROR:",error);
+        console.error(
+            "TOP NẠP ERROR:",
+            error
+        );
 
         data = [];
+
     }
 
 
@@ -2228,6 +2241,7 @@ function loadTopNap(){
         `;
 
         return;
+
     }
 
 
@@ -2239,8 +2253,7 @@ function loadTopNap(){
     });
 
 
-    data =
-        data.slice(0,5);
+    data = data.slice(0,5);
 
 
     const medals = [
@@ -2304,7 +2317,7 @@ function loadTopNap(){
 
 
 /* =========================================================
-   KIỂM TRA TRẠNG THÁI GAME
+   KIỂM TRA GAME READY
 ========================================================= */
 
 function isReady(value){
@@ -2439,7 +2452,7 @@ function setDefaultStatuses(){
 
 
 /* =========================================================
-   LẤY GIÁ TRỊ GAME
+   GET GAME VALUE
 ========================================================= */
 
 function getGameValue(statuses,data,keys){
@@ -2513,12 +2526,12 @@ function showShopStatus(status){
             "🔴 Chưa có trạng thái shop";
 
         return;
+
     }
 
 
     const lower =
-        text
-        .toLowerCase();
+        text.toLowerCase();
 
 
     const active =
@@ -2557,7 +2570,7 @@ function showShopStatus(status){
 
 
 /* =========================================================
-   TÌM SHOP STATUS TRONG API
+   LẤY SHOP STATUS TỪ API
 ========================================================= */
 
 function getShopStatusFromAPI(data){
@@ -2566,14 +2579,6 @@ function getShopStatusFromAPI(data){
         return "";
     }
 
-
-    /* ===============================
-       DẠNG:
-
-       {
-         shopStatus:"Đang hoạt động"
-       }
-    =============================== */
 
     if(
         typeof data.shopStatus === "string" &&
@@ -2585,14 +2590,6 @@ function getShopStatusFromAPI(data){
     }
 
 
-    /* ===============================
-       DẠNG:
-
-       {
-         status:"Đang hoạt động"
-       }
-    =============================== */
-
     if(
         typeof data.status === "string" &&
         data.status.trim()
@@ -2602,16 +2599,6 @@ function getShopStatusFromAPI(data){
 
     }
 
-
-    /* ===============================
-       DẠNG:
-
-       {
-         data:{
-           shopStatus:"..."
-         }
-       }
-    =============================== */
 
     if(
         data.data &&
@@ -2639,16 +2626,6 @@ function getShopStatusFromAPI(data){
 
     }
 
-
-    /* ===============================
-       DẠNG:
-
-       {
-         shop:{
-           status:"..."
-         }
-       }
-    =============================== */
 
     if(
         data.shop &&
@@ -2732,10 +2709,6 @@ async function loadGameStatuses(){
         );
 
 
-        /* =========================================
-           API PHẢI TRẢ OK
-        ========================================= */
-
         if(
             data &&
             data.ok === false
@@ -2766,13 +2739,17 @@ async function loadGameStatuses(){
             (
                 data.data &&
                 typeof data.data === "object"
-                    ? data.data.games ||
-                      data.data.statuses ||
-                      data.data
+                    ? (
+                        data.data.games ||
+                        data.data.statuses ||
+                        data.data
+                    )
                     : {}
             ) ||
             {};
 
+
+        /* BLOX FRUITS */
 
         setGameStatus(
             "status-blox",
@@ -2788,6 +2765,8 @@ async function loadGameStatuses(){
         );
 
 
+        /* KING LEGACY */
+
         setGameStatus(
             "status-king",
             getGameValue(
@@ -2801,6 +2780,8 @@ async function loadGameStatuses(){
             )
         );
 
+
+        /* ANIME FIGHTERS */
 
         setGameStatus(
             "status-anime",
@@ -2816,6 +2797,8 @@ async function loadGameStatuses(){
         );
 
 
+        /* GROW A GARDEN 2 */
+
         setGameStatus(
             "status-grow2",
             getGameValue(
@@ -2829,6 +2812,8 @@ async function loadGameStatuses(){
             )
         );
 
+
+        /* GROW A GARDEN */
 
         setGameStatus(
             "status-grow",
@@ -2844,6 +2829,8 @@ async function loadGameStatuses(){
         );
 
 
+        /* CÀY THUÊ */
+
         setGameStatus(
             "status-caythue",
             getGameValue(
@@ -2858,6 +2845,8 @@ async function loadGameStatuses(){
         );
 
 
+        /* MM2 */
+
         setGameStatus(
             "status-mm2",
             getGameValue(
@@ -2871,6 +2860,8 @@ async function loadGameStatuses(){
             )
         );
 
+
+        /* GREEDY GROWERS */
 
         setGameStatus(
             "status-greedy",
@@ -2947,15 +2938,22 @@ async function loadGameStatuses(){
    KHỞI ĐỘNG
 ========================================================= */
 
-updateUser();
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
-loadTopNap();
+        updateUser();
 
-loadGameStatuses();
+        loadTopNap();
+
+        loadGameStatuses();
+
+    }
+);
 
 
 /* =========================================================
-   TỰ ĐỘNG CẬP NHẬT
+   TỰ ĐỘNG CẬP NHẬT API
 ========================================================= */
 
 setInterval(
