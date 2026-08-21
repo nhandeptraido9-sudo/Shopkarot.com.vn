@@ -654,6 +654,30 @@ a{
     background:linear-gradient(135deg,#312e81,#a855f7);
 }
 
+/* ================= 99 NIGHTS ================= */
+
+.nights99{
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #374151 0%,
+            #111827 45%,
+            #020617 85%
+        );
+}
+
+/* ================= ESCAPE TSUNAMI BRAINROT ================= */
+
+.tsunami{
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #06b6d4 45%,
+            #164e63
+        );
+}
+
 /* ================= GREEDY GROWERS ================= */
 
 .greedy{
@@ -952,8 +976,6 @@ footer{
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header class="header">
 
     <a href="index.html" class="logo">
@@ -1041,8 +1063,6 @@ footer{
 </header>
 
 
-<!-- ================= API STATUS ================= -->
-
 <div
     id="apiStatus"
     class="api-status">
@@ -1052,19 +1072,13 @@ footer{
 </div>
 
 
-<!-- ================= MAIN ================= -->
-
 <main class="container">
-
-    <!-- SHOP STATUS -->
 
     <div
         id="shopStatusBox"
         class="shop-status">
     </div>
 
-
-    <!-- ================= BANNER ================= -->
 
     <section class="top">
 
@@ -1122,8 +1136,6 @@ footer{
         </div>
 
 
-        <!-- ================= TOP NẠP ================= -->
-
         <aside class="top-nap">
 
             <div class="top-nap-title">
@@ -1156,12 +1168,8 @@ footer{
     </section>
 
 
-    <!-- ================= CONTENT ================= -->
-
     <section class="content">
 
-
-        <!-- ================= NOTICE ================= -->
 
         <aside class="card notice">
 
@@ -1216,8 +1224,6 @@ footer{
         </aside>
 
 
-        <!-- ================= DANH MỤC ================= -->
-
         <section class="card featured">
 
             <div class="title">
@@ -1228,11 +1234,6 @@ footer{
 
             </div>
 
-
-            <!-- =================================================
-                 RANDOM ACC ROBLOX
-                 NẰM NGOÀI PHẦN GAME
-                 ================================================= -->
 
             <a
                 href="random-acc-roblox.html"
@@ -1291,15 +1292,11 @@ footer{
             </a>
 
 
-            <!-- ================= EVENT ================= -->
-
             <div class="event-title">
                 🎉 EVENT
             </div>
 
             <div class="events">
-
-                <!-- EVENT BLOX FRUITS -->
 
                 <article class="event-card">
 
@@ -1333,8 +1330,6 @@ footer{
 
                 </article>
 
-
-                <!-- EVENT GROW A GARDEN 2 -->
 
                 <article class="event-card">
 
@@ -1370,8 +1365,6 @@ footer{
 
             </div>
 
-
-            <!-- ================= GAME ================= -->
 
             <div class="game-title">
                 🎮 GAME
@@ -1758,14 +1751,78 @@ footer{
                 </article>
 
 
+                <!-- 99 NIGHTS -->
+
+                <article class="game">
+
+                    <div class="game-image nights99">
+                        🌙<br>
+                        99<br>
+                        NIGHTS
+                    </div>
+
+                    <h3>
+                        99 Nights
+                    </h3>
+
+                    <small>
+                        🌙 Acc game
+                    </small>
+
+                    <br>
+
+                    <span class="status ready">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="99-night/index.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- ESCAPE TSUNAMI BRAINROT -->
+
+                <article class="game">
+
+                    <div class="game-image tsunami">
+                        🌊<br>
+                        ESCAPE<br>
+                        TSUNAMI
+                    </div>
+
+                    <h3>
+                        Escape Tsunami Brainrot
+                    </h3>
+
+                    <small>
+                        🌊 Acc game
+                    </small>
+
+                    <br>
+
+                    <span class="status ready">
+                        Sẵn Sàng
+                    </span>
+
+                    <a
+                        href="escape-tsunami-brainrot/index.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
             </div>
 
         </section>
 
     </section>
 
-
-    <!-- ================= STATS ================= -->
 
     <section class="card stats">
 
@@ -1811,17 +1868,9 @@ footer{
 
 <script>
 
-/* =====================================================
-   SHOPKAROT API
-   ===================================================== */
-
 const API_URL =
 "https://script.google.com/macros/s/AKfycbzprufEjsxF7qsXQ2rlabXbwNlE_3OTC99jHKSkAY6mkRSpAhgMK2v0nucBcQKy2iwllg/exec";
 
-
-/* =====================================================
-   API STATUS
-   ===================================================== */
 
 function setAPIStatus(type,text){
 
@@ -1838,10 +1887,6 @@ function setAPIStatus(type,text){
 
 }
 
-
-/* =====================================================
-   MENU
-   ===================================================== */
 
 function toggleMenu(){
 
@@ -1871,53 +1916,34 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   USER
-   ===================================================== */
-
 function updateUser(){
 
     const login =
-        localStorage.getItem(
-            "shopkarot_login"
-        );
+        localStorage.getItem("shopkarot_login");
 
     const username =
-        localStorage.getItem(
-            "shopkarot_user"
-        );
+        localStorage.getItem("shopkarot_user");
 
     const balance =
         Number(
-            localStorage.getItem(
-                "shopkarot_balance"
-            ) || 0
+            localStorage.getItem("shopkarot_balance") || 0
         );
 
 
     const usernameBox =
-        document.getElementById(
-            "username"
-        );
+        document.getElementById("username");
 
     const balanceBox =
-        document.getElementById(
-            "userBalance"
-        );
+        document.getElementById("userBalance");
 
 
-    if(
-        login === "true" &&
-        username
-    ){
+    if(login === "true" && username){
 
         usernameBox.textContent =
             username;
 
         balanceBox.textContent =
-            balance.toLocaleString(
-                "vi-VN"
-            ) + "đ";
+            balance.toLocaleString("vi-VN") + "đ";
 
     }
 
@@ -1934,10 +1960,6 @@ function updateUser(){
 }
 
 
-/* =====================================================
-   USER CLICK
-   ===================================================== */
-
 document
 .getElementById("userBox")
 .addEventListener(
@@ -1945,9 +1967,7 @@ document
     function(){
 
         const login =
-            localStorage.getItem(
-                "shopkarot_login"
-            );
+            localStorage.getItem("shopkarot_login");
 
         if(login === "true"){
 
@@ -1967,10 +1987,6 @@ document
 );
 
 
-/* =====================================================
-   ESCAPE HTML
-   ===================================================== */
-
 function escapeHTML(text){
 
     return String(text)
@@ -1983,25 +1999,17 @@ function escapeHTML(text){
 }
 
 
-/* =====================================================
-   TOP NẠP
-   ===================================================== */
-
 function loadTopNap(){
 
     const box =
-        document.getElementById(
-            "topNapList"
-        );
+        document.getElementById("topNapList");
 
     let data = [];
 
     try{
 
         const saved =
-            localStorage.getItem(
-                "shopkarot_topnap"
-            );
+            localStorage.getItem("shopkarot_topnap");
 
         if(saved){
             data = JSON.parse(saved);
@@ -2011,10 +2019,7 @@ function loadTopNap(){
 
     catch(error){
 
-        console.error(
-            "TOP NẠP:",
-            error
-        );
+        console.error("TOP NẠP:",error);
 
         data = [];
 
@@ -2046,20 +2051,15 @@ function loadTopNap(){
     data.sort(
         function(a,b){
 
-            return Number(
-                b.money || 0
-            )
-            -
-            Number(
-                a.money || 0
-            );
+            return Number(b.money || 0)
+                -
+                Number(a.money || 0);
 
         }
     );
 
 
-    data =
-        data.slice(0,5);
+    data = data.slice(0,5);
 
 
     const medals = [
@@ -2078,12 +2078,9 @@ function loadTopNap(){
         function(item,index){
 
             const row =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
-            row.className =
-                "rank";
+            row.className = "rank";
 
 
             const name =
@@ -2092,12 +2089,8 @@ function loadTopNap(){
 
 
             const money =
-                Number(
-                    item.money || 0
-                )
-                .toLocaleString(
-                    "vi-VN"
-                );
+                Number(item.money || 0)
+                .toLocaleString("vi-VN");
 
 
             row.innerHTML = `
@@ -2124,10 +2117,6 @@ function loadTopNap(){
 
 }
 
-
-/* =====================================================
-   STATUS VALUE
-   ===================================================== */
 
 function isReady(value){
 
@@ -2157,10 +2146,6 @@ function isReady(value){
 }
 
 
-/* =====================================================
-   GAME STATUS
-   ===================================================== */
-
 function setGameStatus(id,value){
 
     const element =
@@ -2186,9 +2171,7 @@ function setGameStatus(id,value){
         element.textContent =
             "Sẵn Sàng";
 
-        element.classList.add(
-            "ready"
-        );
+        element.classList.add("ready");
 
     }
 
@@ -2197,18 +2180,12 @@ function setGameStatus(id,value){
         element.textContent =
             "Chưa Sẵn Sàng";
 
-        element.classList.add(
-            "not-ready"
-        );
+        element.classList.add("not-ready");
 
     }
 
 }
 
-
-/* =====================================================
-   DEFAULT
-   ===================================================== */
 
 function setDefaultStatuses(){
 
@@ -2224,19 +2201,13 @@ function setDefaultStatuses(){
 }
 
 
-/* =====================================================
-   LẤY GIÁ TRỊ GAME
-   ===================================================== */
-
 function getGameValue(
     statuses,
     data,
     keys
 ){
 
-    for(
-        const key of keys
-    ){
+    for(const key of keys){
 
         if(
             statuses &&
@@ -2271,16 +2242,10 @@ function getGameValue(
 }
 
 
-/* =====================================================
-   SHOP STATUS
-   ===================================================== */
-
 function showShopStatus(status){
 
     const box =
-        document.getElementById(
-            "shopStatusBox"
-        );
+        document.getElementById("shopStatusBox");
 
 
     if(!box){
@@ -2289,8 +2254,7 @@ function showShopStatus(status){
 
 
     const text =
-        String(status || "")
-        .trim();
+        String(status || "").trim();
 
 
     if(!text){
@@ -2314,9 +2278,7 @@ function showShopStatus(status){
     );
 
 
-    box.classList.add(
-        "show"
-    );
+    box.classList.add("show");
 
 
     const lower =
@@ -2331,9 +2293,7 @@ function showShopStatus(status){
         lower.includes("open")
     ){
 
-        box.classList.add(
-            "ready"
-        );
+        box.classList.add("ready");
 
         box.innerHTML =
             "🟢 " +
@@ -2343,9 +2303,7 @@ function showShopStatus(status){
 
     else{
 
-        box.classList.add(
-            "not-ready"
-        );
+        box.classList.add("not-ready");
 
         box.innerHTML =
             "🔴 " +
@@ -2355,10 +2313,6 @@ function showShopStatus(status){
 
 }
 
-
-/* =====================================================
-   LOAD SHOP STATUS
-   ===================================================== */
 
 async function loadGameStatuses(){
 
@@ -2389,8 +2343,7 @@ async function loadGameStatuses(){
         if(!response.ok){
 
             throw new Error(
-                "HTTP " +
-                response.status
+                "HTTP " + response.status
             );
 
         }
@@ -2409,8 +2362,7 @@ async function loadGameStatuses(){
         if(!data || data.ok !== true){
 
             throw new Error(
-                data &&
-                data.message
+                data && data.message
                     ? data.message
                     : "API trả về lỗi"
             );
@@ -2546,9 +2498,7 @@ async function loadGameStatuses(){
         );
 
 
-        if(
-            data.shopStatus !== undefined
-        ){
+        if(data.shopStatus !== undefined){
 
             showShopStatus(
                 data.shopStatus
@@ -2602,20 +2552,12 @@ async function loadGameStatuses(){
 }
 
 
-/* =====================================================
-   KHỞI ĐỘNG
-   ===================================================== */
-
 updateUser();
 
 loadTopNap();
 
 loadGameStatuses();
 
-
-/* =====================================================
-   TỰ ĐỘNG CẬP NHẬT STATUS
-   ===================================================== */
 
 setInterval(
     function(){
@@ -2626,10 +2568,6 @@ setInterval(
     30000
 );
 
-
-/* =====================================================
-   STORAGE
-   ===================================================== */
 
 window.addEventListener(
     "storage",
@@ -2646,12 +2584,9 @@ window.addEventListener(
 
 
         if(
-            event.key ===
-            "shopkarot_user" ||
-            event.key ===
-            "shopkarot_login" ||
-            event.key ===
-            "shopkarot_balance"
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_balance"
         ){
 
             updateUser();
@@ -2661,10 +2596,6 @@ window.addEventListener(
     }
 );
 
-
-/* =====================================================
-   PAGE FOCUS
-   ===================================================== */
 
 document.addEventListener(
     "visibilitychange",
