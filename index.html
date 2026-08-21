@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -8,7 +9,6 @@
 
 <style>
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -181,6 +181,33 @@ a{
     margin:25px auto;
 }
 
+/* ================= SHOP STATUS ================= */
+
+.shop-status{
+    display:block;
+    margin-bottom:15px;
+    padding:15px 18px;
+    border-radius:13px;
+    background:white;
+    border:1px solid #eee;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+    font-weight:bold;
+    text-align:center;
+    font-size:15px;
+}
+
+.shop-status.ready{
+    color:#078542;
+    border-color:#bde7cd;
+    background:#f0fff6;
+}
+
+.shop-status.not-ready{
+    color:#d01018;
+    border-color:#f1bebe;
+    background:#fff5f5;
+}
+
 /* ================= TOP ================= */
 
 .top{
@@ -345,18 +372,18 @@ a{
     padding:22px;
 }
 
-.notice h2{
+.shop-notice h2{
     margin:0 0 20px;
     font-size:21px;
 }
 
-.notice p{
+.shop-notice p{
     margin:13px 0;
     font-size:15px;
     line-height:1.5;
 }
 
-.notice .thank{
+.shop-notice .thank{
     text-align:center;
     font-weight:bold;
     margin-top:20px;
@@ -459,7 +486,6 @@ a{
     text-align:center;
     font-size:12px;
     font-weight:bold;
-    transition:.2s;
 }
 
 .random-button:hover{
@@ -608,110 +634,27 @@ a{
     text-shadow:2px 2px 5px #000;
 }
 
-.blox{
-    background:linear-gradient(135deg,#27006e,#913bff);
-}
-
-.king{
-    background:linear-gradient(135deg,#06345d,#1689df);
-}
-
-.anime{
-    background:linear-gradient(135deg,#08733a,#62d52b);
-}
-
-.grow{
-    background:linear-gradient(135deg,#166534,#84cc16);
-}
-
-.grow2{
-    background:linear-gradient(135deg,#14532d,#a3e635);
-}
-
-.mm2{
-    background:linear-gradient(135deg,#560000,#ec2424);
-}
-
-.caythue{
-    background:linear-gradient(135deg,#160000,#d10b0b);
-}
-
-/* ================= NEW CATEGORIES ================= */
-
-.gamepass{
-    background:linear-gradient(135deg,#7c2d12,#f97316);
-}
-
-.robux120{
-    background:linear-gradient(135deg,#111827,#facc15);
-}
-
-.fish{
-    background:linear-gradient(135deg,#075985,#22d3ee);
-}
-
-.speed-keyboard{
-    background:linear-gradient(135deg,#312e81,#a855f7);
-}
-
-/* ================= TREO ACC ROBLOX ================= */
-
-.roblox-treo{
-    background:
-        linear-gradient(
-            135deg,
-            #111827,
-            #2563eb,
-            #38bdf8
-        );
-}
-
-/* ================= CHUYỂN VÙNG ROBLOX ================= */
-
-.chuyen-vung{
-    background:
-        linear-gradient(
-            135deg,
-            #075985,
-            #06b6d4,
-            #22c55e
-        );
-}
-
-/* ================= 99 NIGHTS ================= */
-
+.blox{background:linear-gradient(135deg,#27006e,#913bff)}
+.king{background:linear-gradient(135deg,#06345d,#1689df)}
+.anime{background:linear-gradient(135deg,#08733a,#62d52b)}
+.grow{background:linear-gradient(135deg,#166534,#84cc16)}
+.grow2{background:linear-gradient(135deg,#14532d,#a3e635)}
+.mm2{background:linear-gradient(135deg,#560000,#ec2424)}
+.caythue{background:linear-gradient(135deg,#160000,#d10b0b)}
+.gamepass{background:linear-gradient(135deg,#7c2d12,#f97316)}
+.robux120{background:linear-gradient(135deg,#111827,#facc15)}
+.fish{background:linear-gradient(135deg,#075985,#22d3ee)}
+.speed-keyboard{background:linear-gradient(135deg,#312e81,#a855f7)}
+.roblox-treo{background:linear-gradient(135deg,#111827,#2563eb,#38bdf8)}
+.chuyen-vung{background:linear-gradient(135deg,#075985,#06b6d4,#22c55e)}
 .nights99{
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            #374151 0%,
-            #111827 45%,
-            #020617 85%
-        );
+    background:radial-gradient(circle at 50% 20%,#374151 0%,#111827 45%,#020617 85%);
 }
-
-/* ================= ESCAPE TSUNAMI BRAINROT ================= */
-
 .tsunami{
-    background:
-        linear-gradient(
-            135deg,
-            #075985,
-            #06b6d4 45%,
-            #164e63
-        );
+    background:linear-gradient(135deg,#075985,#06b6d4 45%,#164e63);
 }
-
-/* ================= GREEDY GROWERS ================= */
-
 .greedy{
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #86efac 0%,
-            #166534 35%,
-            #052e16 75%
-        );
+    background:radial-gradient(circle at 30% 25%,#86efac 0%,#166534 35%,#052e16 75%);
 }
 
 .game h3{
@@ -723,7 +666,7 @@ a{
     color:#6b7280;
 }
 
-/* ================= STATUS ================= */
+/* ================= STATUS GAME ================= */
 
 .status{
     display:inline-block;
@@ -763,36 +706,7 @@ a{
     background:#d0161d;
 }
 
-/* ================= SHOP STATUS ================= */
-
-.shop-status{
-    display:none;
-    margin-bottom:15px;
-    padding:15px 18px;
-    border-radius:13px;
-    background:white;
-    border:1px solid #eee;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
-    font-weight:bold;
-}
-
-.shop-status.show{
-    display:block;
-}
-
-.shop-status.ready{
-    color:#078542;
-    border-color:#bde7cd;
-    background:#f0fff6;
-}
-
-.shop-status.not-ready{
-    color:#d01018;
-    border-color:#f1bebe;
-    background:#fff5f5;
-}
-
-/* ================= CONNECTION ================= */
+/* ================= API ================= */
 
 .api-status{
     position:fixed;
@@ -857,15 +771,12 @@ footer{
 /* ================= MOBILE ================= */
 
 @media(max-width:1200px){
-
     .games{
         grid-template-columns:repeat(3,1fr);
     }
-
 }
 
 @media(max-width:1000px){
-
     .top{
         grid-template-columns:1fr;
     }
@@ -873,7 +784,6 @@ footer{
     .content{
         grid-template-columns:1fr;
     }
-
 }
 
 @media(max-width:700px){
@@ -971,7 +881,6 @@ footer{
     .stats{
         grid-template-columns:1fr 1fr;
     }
-
 }
 
 @media(max-width:450px){
@@ -993,7 +902,6 @@ footer{
     .event-info h3{
         font-size:14px;
     }
-
 }
 </style>
 </head>
@@ -1004,9 +912,7 @@ footer{
 
     <a href="index.html" class="logo">
 
-        <div class="logo-icon">
-            SK
-        </div>
+        <div class="logo-icon">SK</div>
 
         <div class="logo-text">
             <b>SHOP<span>KAROT</span></b>
@@ -1022,60 +928,48 @@ footer{
             onclick="toggleMenu()">
             ☰
         </button>
-<div
-    class="menu-box"
-    id="menuBox">
 
-    <a href="acc-game.html">
-        🎮 ACC GAME
-    </a>
+        <div class="menu-box" id="menuBox">
 
-    <a href="random-acc-roblox.html">
-        🎲 RANDOM ACC ROBLOX
-    </a>
+            <a href="acc-game.html">🎮 ACC GAME</a>
 
-    <a href="lich-su.html">
-        🧾 LỊCH SỬ MUA
-    </a>
+            <a href="random-acc-roblox.html">
+                🎲 RANDOM ACC ROBLOX
+            </a>
 
-    <a href="nap-tien.html">
-        💰 NẠP TIỀN
-    </a>
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
 
-    <a href="ho-so.html">
-        👤 HỒ SƠ
-    </a>
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
 
-    <a href="login.html">
-        🔐 ĐĂNG NHẬP
-    </a>
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
 
-    <a href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html">
-        ↩️ QUAY LẠI SHOP CŨ
-    </a>
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
 
-</div>
-        
-        
+            <a href="https://nhandeptraido9-sudo.github.io/shopaccgame/index.html">
+                ↩️ QUAY LẠI SHOP CŨ
+            </a>
+
+        </div>
+
     </div>
 
-    <div
-        class="user"
-        id="userBox">
+    <div class="user" id="userBox">
 
-        <div class="user-icon">
-            👤
-        </div>
+        <div class="user-icon">👤</div>
 
         <div class="user-info">
 
-            <b id="username">
-                Đăng nhập
-            </b>
+            <b id="username">Đăng nhập</b>
 
-            <small id="userBalance">
-                0đ
-            </small>
+            <small id="userBalance">0đ</small>
 
         </div>
 
@@ -1083,23 +977,17 @@ footer{
 
 </header>
 
-
-<div
-    id="apiStatus"
-    class="api-status">
-
+<div id="apiStatus" class="api-status">
     🔄 Đang kết nối...
-
 </div>
-
 
 <main class="container">
 
-    <div
-        id="shopStatusBox"
-        class="shop-status">
-    </div>
+    <!-- TRẠNG THÁI SHOP Ở ĐẦU TRANG -->
 
+    <div id="shopStatusBox" class="shop-status">
+        🔄 Đang tải trạng thái shop...
+    </div>
 
     <section class="top">
 
@@ -1156,7 +1044,6 @@ footer{
 
         </div>
 
-
         <aside class="top-nap">
 
             <div class="top-nap-title">
@@ -1188,62 +1075,80 @@ footer{
 
     </section>
 
-
     <section class="content">
 
+        <!-- THÔNG TIN SHOP -->
 
         <aside class="card notice">
 
-            <h2>
-         <div class="shop-notice">
-  <h3>📣 Thông tin Shopkarot</h3>
+            <div class="shop-notice">
 
-  <p>
-    Hiện tại ShopKarot chỉ có <b>2 shop chính thức</b> là
-    <b>ShopAccGame</b> và <b>ShopKarot</b>.
-    Các shop khác sử dụng tên tương tự có thể là shop giả mạo.
-  </p>
+                <h2>
+                    📣 Thông tin Shopkarot
+                </h2>
 
-  <p>
-    🛒 Shop mình có bán <b>nick</b> và <b>cày thuê Blox Fruits</b>.
-  </p>
+                <p>
+                    Hiện tại ShopKarot chỉ có
+                    <b>2 shop chính thức</b> là
+                    <b>ShopAccGame</b> và
+                    <b>ShopKarot</b>.
+                    Các shop khác sử dụng tên tương tự
+                    có thể là shop giả mạo.
+                </p>
 
-  <p>
-    🔥 <b>Giao acc nhanh</b> sau khi hoàn tất đơn hàng.
-  </p>
+                <p>
+                    🛒 Shop mình có bán
+                    <b>nick</b> và
+                    <b>cày thuê Blox Fruits</b>.
+                </p>
 
-  <p>
-    🛡️ <b>Bảo hành</b> theo chính sách của từng sản phẩm.
-  </p>
+                <p>
+                    🔥 <b>Giao acc nhanh</b>
+                    sau khi hoàn tất đơn hàng.
+                </p>
 
-  <p>
-    💬 Mọi thắc mắc vui lòng liên hệ <b>Admin ShopKarot</b>.
-  </p>
+                <p>
+                    🛡️ <b>Bảo hành</b>
+                    theo chính sách của từng sản phẩm.
+                </p>
 
-  <p>
-    ⭐ <b>ShopKarot uy tín, giá rẻ, an toàn, nạp tiền nhanh chóng.</b>
-  </p>
+                <p>
+                    💬 Mọi thắc mắc vui lòng liên hệ
+                    <b>Admin ShopKarot</b>.
+                </p>
 
-  <p>
-    🕙 <b>Thời gian hoạt động:</b> 10h sáng – 8h tối
-  </p>
+                <p>
+                    ⭐ <b>
+                        ShopKarot uy tín, giá rẻ,
+                        an toàn, nạp tiền nhanh chóng.
+                    </b>
+                </p>
 
-  <p>
-    📅 <b>Ngày hoạt động:</b> Thứ 2 đến Thứ 7
-  </p>
+                <p>
+                    🕙 <b>Thời gian hoạt động:</b>
+                    10h sáng – 8h tối
+                </p>
 
-  <p>
-    ⚠️ <b>Lưu ý quan trọng:</b> Nên nạp tiền khi shop đang hiển thị
-    trạng thái <b>đang hoạt động</b>.
-  </p>
+                <p>
+                    📅 <b>Ngày hoạt động:</b>
+                    Thứ 2 đến Thứ 7
+                </p>
 
-  <p>
-    🖤 <b>Cảm ơn bạn đã ủng hộ SHOPKAROT!</b>
-  </p>
-</div>
+                <p>
+                    ⚠️ <b>Lưu ý quan trọng:</b>
+                    Nên nạp tiền khi shop đang hiển thị
+                    trạng thái <b>đang hoạt động</b>.
+                </p>
+
+                <p class="thank">
+                    🖤 <b>
+                        Cảm ơn bạn đã ủng hộ SHOPKAROT!
+                    </b>
+                </p>
+
+            </div>
 
         </aside>
-
 
         <section class="card featured">
 
@@ -1254,7 +1159,6 @@ footer{
                 </h2>
 
             </div>
-
 
             <a
                 href="random-acc-roblox.html"
@@ -1275,12 +1179,14 @@ footer{
                     </p>
 
                     <p>
-                        🎮 Có thể có <b>nhiều game khác nhau</b>
+                        🎮 Có thể có
+                        <b>nhiều game khác nhau</b>
                         tùy vào acc random nhận được.
                     </p>
 
                     <p>
-                        🇻🇳 Roblox VN &nbsp;|&nbsp;
+                        🇻🇳 Roblox VN
+                        &nbsp;|&nbsp;
                         🌎 Roblox Quốc Tế
                     </p>
 
@@ -1311,7 +1217,6 @@ footer{
                 </div>
 
             </a>
-
 
             <div class="event-title">
                 🎉 EVENT
@@ -1351,7 +1256,6 @@ footer{
 
                 </article>
 
-
                 <article class="event-card">
 
                     <div class="event-image event-grow2">
@@ -1386,16 +1290,11 @@ footer{
 
             </div>
 
-
             <div class="game-title">
                 🎮 GAME
             </div>
 
-
             <div class="games">
-
-
-                <!-- BLOX FRUITS -->
 
                 <article class="game">
 
@@ -1403,32 +1302,25 @@ footer{
                         BLOX<br>FRUITS
                     </div>
 
-                    <h3>
-                        Blox Fruits
-                    </h3>
+                    <h3>Blox Fruits</h3>
 
-                    <small>
-                        👥 Acc game
-                    </small>
+                    <small>👥 Acc game</small>
 
                     <br>
 
-                    <span
-                        class="status"
-                        id="status-blox">
+                    <span class="status" id="status-blox">
                         Đang tải...
                     </span>
 
                     <a
                         href="acc-blox-fruit.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- KING LEGACY -->
 
                 <article class="game">
 
@@ -1436,32 +1328,25 @@ footer{
                         KING<br>LEGACY
                     </div>
 
-                    <h3>
-                        King Legacy
-                    </h3>
+                    <h3>King Legacy</h3>
 
-                    <small>
-                        👥 Acc game
-                    </small>
+                    <small>👥 Acc game</small>
 
                     <br>
 
-                    <span
-                        class="status"
-                        id="status-king">
+                    <span class="status" id="status-king">
                         Đang tải...
                     </span>
 
                     <a
                         href="king-legacy.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- ANIME FIGHTERS -->
 
                 <article class="game">
 
@@ -1469,32 +1354,25 @@ footer{
                         ANIME<br>FIGHTERS
                     </div>
 
-                    <h3>
-                        Anime Fighters
-                    </h3>
+                    <h3>Anime Fighters</h3>
 
-                    <small>
-                        👥 Acc game
-                    </small>
+                    <small>👥 Acc game</small>
 
                     <br>
 
-                    <span
-                        class="status"
-                        id="status-anime">
+                    <span class="status" id="status-anime">
                         Đang tải...
                     </span>
 
                     <a
                         href="anime-fighters.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- GROW A GARDEN 2 -->
 
                 <article class="game">
 
@@ -1502,26 +1380,21 @@ footer{
                         GROW A<br>GARDEN 2
                     </div>
 
-                    <h3>
-                        Grow A Garden 2
-                    </h3>
+                    <h3>Grow A Garden 2</h3>
 
-                    <span
-                        class="status"
-                        id="status-grow2">
+                    <span class="status" id="status-grow2">
                         Đang tải...
                     </span>
 
                     <a
                         href="grow-a-garden-2.html"
                         class="game-button">
+
                         XEM TẤT CẢ →
+
                     </a>
 
                 </article>
-
-
-                <!-- GROW A GARDEN -->
 
                 <article class="game">
 
@@ -1529,26 +1402,21 @@ footer{
                         GROW A<br>GARDEN
                     </div>
 
-                    <h3>
-                        Grow A Garden
-                    </h3>
+                    <h3>Grow A Garden</h3>
 
-                    <span
-                        class="status"
-                        id="status-grow">
+                    <span class="status" id="status-grow">
                         Đang tải...
                     </span>
 
                     <a
                         href="grow-a-garden.html"
                         class="game-button">
+
                         XEM TẤT CẢ →
+
                     </a>
 
                 </article>
-
-
-                <!-- CÀY THUÊ -->
 
                 <article class="game">
 
@@ -1556,26 +1424,21 @@ footer{
                         CÀY THUÊ<br>BLOX FRUITS
                     </div>
 
-                    <h3>
-                        Cày Thuê
-                    </h3>
+                    <h3>Cày Thuê</h3>
 
-                    <span
-                        class="status"
-                        id="status-caythue">
+                    <span class="status" id="status-caythue">
                         Đang tải...
                     </span>
 
                     <a
                         href="cay-thue.html"
                         class="game-button">
+
                         XEM TẤT CẢ →
+
                     </a>
 
                 </article>
-
-
-                <!-- MM2 -->
 
                 <article class="game">
 
@@ -1583,32 +1446,25 @@ footer{
                         MURDER<br>MYSTERY 2
                     </div>
 
-                    <h3>
-                        Murder Mystery 2
-                    </h3>
+                    <h3>Murder Mystery 2</h3>
 
-                    <small>
-                        👥 Acc game
-                    </small>
+                    <small>👥 Acc game</small>
 
                     <br>
 
-                    <span
-                        class="status"
-                        id="status-mm2">
+                    <span class="status" id="status-mm2">
                         Đang tải...
                     </span>
 
                     <a
                         href="murder-mystery-2.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- GREEDY GROWERS -->
 
                 <article class="game">
 
@@ -1622,28 +1478,23 @@ footer{
                         Greedy Growers 🌱
                     </h3>
 
-                    <small>
-                        👥 Acc game
-                    </small>
+                    <small>👥 Acc game</small>
 
                     <br>
 
-                    <span
-                        class="status"
-                        id="status-greedy">
+                    <span class="status" id="status-greedy">
                         Đang tải...
                     </span>
 
                     <a
                         href="greedy-growers.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- GAMEPASS -->
 
                 <article class="game">
 
@@ -1656,9 +1507,7 @@ footer{
                         Gamepass Blox Fruits
                     </h3>
 
-                    <small>
-                        🎟️ Gamepass
-                    </small>
+                    <small>🎟️ Gamepass</small>
 
                     <br>
 
@@ -1669,13 +1518,12 @@ footer{
                     <a
                         href="gamepass/index.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- ROBUX 120H -->
 
                 <article class="game">
 
@@ -1688,9 +1536,7 @@ footer{
                         Robux 120H
                     </h3>
 
-                    <small>
-                        💰 Robux
-                    </small>
+                    <small>💰 Robux</small>
 
                     <br>
 
@@ -1701,13 +1547,12 @@ footer{
                     <a
                         href="robux-120h/index.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- FISH -->
 
                 <article class="game">
 
@@ -1716,13 +1561,9 @@ footer{
                         FISH
                     </div>
 
-                    <h3>
-                        Fish
-                    </h3>
+                    <h3>Fish</h3>
 
-                    <small>
-                        🐟 Dịch vụ Fish
-                    </small>
+                    <small>🐟 Dịch vụ Fish</small>
 
                     <br>
 
@@ -1733,13 +1574,12 @@ footer{
                     <a
                         href="fish/index.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- SPEED KEYBOARD -->
 
                 <article class="game">
 
@@ -1753,9 +1593,7 @@ footer{
                         Speed Keyboard
                     </h3>
 
-                    <small>
-                        ⌨️ Speed Keyboard
-                    </small>
+                    <small>⌨️ Speed Keyboard</small>
 
                     <br>
 
@@ -1766,13 +1604,12 @@ footer{
                     <a
                         href="speed-keyboard/index.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- 99 NIGHTS -->
 
                 <article class="game">
 
@@ -1782,13 +1619,9 @@ footer{
                         NIGHTS
                     </div>
 
-                    <h3>
-                        99 Nights
-                    </h3>
+                    <h3>99 Nights</h3>
 
-                    <small>
-                        🌙 Acc game
-                    </small>
+                    <small>🌙 Acc game</small>
 
                     <br>
 
@@ -1799,13 +1632,12 @@ footer{
                     <a
                         href="99-night.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- ESCAPE TSUNAMI BRAINROT -->
 
                 <article class="game">
 
@@ -1819,9 +1651,7 @@ footer{
                         Escape Tsunami Brainrot
                     </h3>
 
-                    <small>
-                        🌊 Acc game
-                    </small>
+                    <small>🌊 Acc game</small>
 
                     <br>
 
@@ -1832,13 +1662,12 @@ footer{
                     <a
                         href="escape-tsunami-brainrot/index.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- ================= TREO ACC ROBLOX ================= -->
 
                 <article class="game">
 
@@ -1865,13 +1694,12 @@ footer{
                     <a
                         href="treo-acc-roblox/index.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
-
-                <!-- ================= CHUYỂN VÙNG ACC ROBLOX ================= -->
 
                 <article class="game">
 
@@ -1898,18 +1726,18 @@ footer{
                     <a
                         href="chuyen-vung-acc-roblox/index.html"
                         class="game-button">
+
                         XEM NGAY
+
                     </a>
 
                 </article>
-
 
             </div>
 
         </section>
 
     </section>
-
 
     <section class="card stats">
 
@@ -1947,11 +1775,9 @@ footer{
 
 </main>
 
-
 <footer>
     © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
 </footer>
-
 
 <script>
 
@@ -1971,7 +1797,6 @@ function setAPIStatus(type,text){
 
     box.textContent =
         text;
-
 }
 
 
@@ -1980,7 +1805,6 @@ function toggleMenu(){
     document
         .getElementById("menuBox")
         .classList.toggle("show");
-
 }
 
 
@@ -1996,9 +1820,7 @@ document.addEventListener(
             document
                 .getElementById("menuBox")
                 .classList.remove("show");
-
         }
-
     }
 );
 
@@ -2016,13 +1838,11 @@ function updateUser(){
             localStorage.getItem("shopkarot_balance") || 0
         );
 
-
     const usernameBox =
         document.getElementById("username");
 
     const balanceBox =
         document.getElementById("userBalance");
-
 
     if(login === "true" && username){
 
@@ -2032,18 +1852,14 @@ function updateUser(){
         balanceBox.textContent =
             balance.toLocaleString("vi-VN") + "đ";
 
-    }
-
-    else{
+    }else{
 
         usernameBox.textContent =
             "Đăng nhập";
 
         balanceBox.textContent =
             "0đ";
-
     }
-
 }
 
 
@@ -2061,15 +1877,11 @@ document
             window.location.href =
                 "ho-so.html";
 
-        }
-
-        else{
+        }else{
 
             window.location.href =
                 "login.html";
-
         }
-
     }
 );
 
@@ -2082,7 +1894,6 @@ function escapeHTML(text){
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
-
 }
 
 
@@ -2102,16 +1913,12 @@ function loadTopNap(){
             data = JSON.parse(saved);
         }
 
-    }
-
-    catch(error){
+    }catch(error){
 
         console.error("TOP NẠP:",error);
 
         data = [];
-
     }
-
 
     if(
         !Array.isArray(data) ||
@@ -2131,9 +1938,7 @@ function loadTopNap(){
         `;
 
         return;
-
     }
-
 
     data.sort(
         function(a,b){
@@ -2141,13 +1946,10 @@ function loadTopNap(){
             return Number(b.money || 0)
                 -
                 Number(a.money || 0);
-
         }
     );
 
-
     data = data.slice(0,5);
-
 
     const medals = [
         "🥇",
@@ -2157,9 +1959,7 @@ function loadTopNap(){
         "5️⃣"
     ];
 
-
     box.innerHTML = "";
-
 
     data.forEach(
         function(item,index){
@@ -2169,16 +1969,13 @@ function loadTopNap(){
 
             row.className = "rank";
 
-
             const name =
                 item.name ||
                 "Khách hàng";
 
-
             const money =
                 Number(item.money || 0)
                 .toLocaleString("vi-VN");
-
 
             row.innerHTML = `
 
@@ -2196,12 +1993,9 @@ function loadTopNap(){
 
             `;
 
-
             box.appendChild(row);
-
         }
     );
-
 }
 
 
@@ -2211,12 +2005,10 @@ function isReady(value){
         return value;
     }
 
-
     const text =
         String(value || "")
         .trim()
         .toLowerCase();
-
 
     return (
         text === "sẵn sàng" ||
@@ -2229,7 +2021,6 @@ function isReady(value){
         text === "on" ||
         text === "open"
     );
-
 }
 
 
@@ -2242,16 +2033,13 @@ function setGameStatus(id,value){
         return;
     }
 
-
     const ready =
         isReady(value);
-
 
     element.classList.remove(
         "ready",
         "not-ready"
     );
-
 
     if(ready){
 
@@ -2260,17 +2048,13 @@ function setGameStatus(id,value){
 
         element.classList.add("ready");
 
-    }
-
-    else{
+    }else{
 
         element.textContent =
             "Chưa Sẵn Sàng";
 
         element.classList.add("not-ready");
-
     }
-
 }
 
 
@@ -2284,7 +2068,6 @@ function setDefaultStatuses(){
     setGameStatus("status-caythue",false);
     setGameStatus("status-mm2",false);
     setGameStatus("status-greedy",false);
-
 }
 
 
@@ -2305,9 +2088,7 @@ function getGameValue(
         ){
 
             return statuses[key];
-
         }
-
 
         if(
             data &&
@@ -2318,14 +2099,10 @@ function getGameValue(
         ){
 
             return data[key];
-
         }
-
     }
 
-
     return false;
-
 }
 
 
@@ -2334,43 +2111,33 @@ function showShopStatus(status){
     const box =
         document.getElementById("shopStatusBox");
 
-
     if(!box){
         return;
     }
 
-
     const text =
         String(status || "").trim();
-
 
     if(!text){
 
         box.classList.remove(
-            "show",
             "ready",
             "not-ready"
         );
 
-        box.innerHTML = "";
+        box.innerHTML =
+            "⚠️ Chưa nhận được trạng thái shop";
 
         return;
-
     }
-
 
     box.classList.remove(
         "ready",
         "not-ready"
     );
 
-
-    box.classList.add("show");
-
-
     const lower =
         text.toLowerCase();
-
 
     if(
         lower.includes("hoạt động") ||
@@ -2386,18 +2153,14 @@ function showShopStatus(status){
             "🟢 " +
             escapeHTML(text);
 
-    }
-
-    else{
+    }else{
 
         box.classList.add("not-ready");
 
         box.innerHTML =
             "🔴 " +
             escapeHTML(text);
-
     }
-
 }
 
 
@@ -2408,14 +2171,12 @@ async function loadGameStatuses(){
         "🔄 Đang kết nối..."
     );
 
-
     try{
 
         const url =
             API_URL +
             "?action=getShopStatus&_=" +
             Date.now();
-
 
         const response =
             await fetch(
@@ -2426,25 +2187,20 @@ async function loadGameStatuses(){
                 }
             );
 
-
         if(!response.ok){
 
             throw new Error(
                 "HTTP " + response.status
             );
-
         }
-
 
         const data =
             await response.json();
-
 
         console.log(
             "SHOPKAROT API:",
             data
         );
-
 
         if(!data || data.ok !== true){
 
@@ -2453,15 +2209,12 @@ async function loadGameStatuses(){
                     ? data.message
                     : "API trả về lỗi"
             );
-
         }
-
 
         setAPIStatus(
             "ok",
             "🟢 Đã kết nối API"
         );
-
 
         const statuses =
             data.games ||
@@ -2469,7 +2222,6 @@ async function loadGameStatuses(){
             data.gameStatuses ||
             data.data ||
             {};
-
 
         setGameStatus(
             "status-blox",
@@ -2484,7 +2236,6 @@ async function loadGameStatuses(){
             )
         );
 
-
         setGameStatus(
             "status-king",
             getGameValue(
@@ -2497,7 +2248,6 @@ async function loadGameStatuses(){
                 ]
             )
         );
-
 
         setGameStatus(
             "status-anime",
@@ -2512,7 +2262,6 @@ async function loadGameStatuses(){
             )
         );
 
-
         setGameStatus(
             "status-grow2",
             getGameValue(
@@ -2525,7 +2274,6 @@ async function loadGameStatuses(){
                 ]
             )
         );
-
 
         setGameStatus(
             "status-grow",
@@ -2540,7 +2288,6 @@ async function loadGameStatuses(){
             )
         );
 
-
         setGameStatus(
             "status-caythue",
             getGameValue(
@@ -2554,7 +2301,6 @@ async function loadGameStatuses(){
             )
         );
 
-
         setGameStatus(
             "status-mm2",
             getGameValue(
@@ -2567,7 +2313,6 @@ async function loadGameStatuses(){
                 ]
             )
         );
-
 
         setGameStatus(
             "status-greedy",
@@ -2584,6 +2329,9 @@ async function loadGameStatuses(){
             )
         );
 
+        /*
+         * LẤY TRẠNG THÁI SHOP TỪ APPS SCRIPT
+         */
 
         if(data.shopStatus !== undefined){
 
@@ -2591,9 +2339,7 @@ async function loadGameStatuses(){
                 data.shopStatus
             );
 
-        }
-
-        else if(
+        }else if(
             data.status !== undefined &&
             typeof data.status === "string"
         ){
@@ -2601,43 +2347,42 @@ async function loadGameStatuses(){
             const statusText =
                 data.status.trim();
 
-
-            if(
-                statusText &&
-                statusText !== "Sẵn Sàng" &&
-                statusText !== "Chưa Sẵn Sàng"
-            ){
+            if(statusText){
 
                 showShopStatus(
                     statusText
                 );
-
             }
 
+        }else{
+
+            showShopStatus(
+                "⚠️ Chưa có trạng thái shop từ API"
+            );
         }
 
-    }
-
-    catch(error){
+    }catch(error){
 
         console.error(
             "SHOPKAROT API ERROR:",
             error
         );
 
-
         setAPIStatus(
             "error",
             "🔴 Không kết nối được Apps Script"
         );
 
+        showShopStatus(
+            "⚠️ Không thể kết nối để lấy trạng thái shop"
+        );
 
         setDefaultStatuses();
-
     }
-
 }
 
+
+/* ================= KHỞI ĐỘNG ================= */
 
 updateUser();
 
@@ -2645,6 +2390,8 @@ loadTopNap();
 
 loadGameStatuses();
 
+
+/* ================= TỰ ĐỘNG CẬP NHẬT 30 GIÂY ================= */
 
 setInterval(
     function(){
@@ -2656,6 +2403,8 @@ setInterval(
 );
 
 
+/* ================= CẬP NHẬT KHI LOCAL STORAGE ĐỔI ================= */
+
 window.addEventListener(
     "storage",
     function(event){
@@ -2666,9 +2415,7 @@ window.addEventListener(
         ){
 
             loadTopNap();
-
         }
-
 
         if(
             event.key === "shopkarot_user" ||
@@ -2677,12 +2424,12 @@ window.addEventListener(
         ){
 
             updateUser();
-
         }
-
     }
 );
 
+
+/* ================= KHI QUAY LẠI TAB ================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -2698,9 +2445,7 @@ document.addEventListener(
             loadTopNap();
 
             loadGameStatuses();
-
         }
-
     }
 );
 
@@ -2708,3 +2453,4 @@ document.addEventListener(
 
 </body>
 </html>
+```
