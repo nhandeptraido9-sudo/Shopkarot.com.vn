@@ -2040,33 +2040,30 @@ footer{
    SHOPKAROT - INDEX API
    ========================================================= */
 
+<script>
+
 const API_URL =
 "https://script.google.com/macros/s/AKfycbySVM1DBFvb6zOYslSqETOdqund3AY0dLQpxhKZXYh27sl1qcYJ8QIPx5jaDVQ5w1zhwQ/exec";
 
 
 /* =========================================================
    API STATUS
-   ========================================================= */
+========================================================= */
 
 function setAPIStatus(type,text){
 
-    const box =
-        document.getElementById("apiStatus");
+    const box = document.getElementById("apiStatus");
 
     if(!box) return;
 
-    box.className =
-        "api-status " + type;
-
-    box.textContent =
-        text;
-
+    box.className = "api-status " + type;
+    box.textContent = text;
 }
 
 
 /* =========================================================
    MENU
-   ========================================================= */
+========================================================= */
 
 function toggleMenu(){
 
@@ -2076,86 +2073,61 @@ function toggleMenu(){
     if(menu){
         menu.classList.toggle("show");
     }
-
 }
 
 
-document.addEventListener(
-    "click",
-    function(event){
+document.addEventListener("click",function(event){
 
-        const menu =
-            document.querySelector(".menu");
+    const menu =
+        document.querySelector(".menu");
 
-        if(!menu) return;
+    if(!menu) return;
 
-        if(!menu.contains(event.target)){
+    if(!menu.contains(event.target)){
 
-            const box =
-                document.getElementById("menuBox");
+        const box =
+            document.getElementById("menuBox");
 
-            if(box){
-                box.classList.remove("show");
-            }
-
+        if(box){
+            box.classList.remove("show");
         }
-
     }
-);
+
+});
 
 
 /* =========================================================
    USER
-   ========================================================= */
+========================================================= */
 
 function updateUser(){
 
     const login =
-        localStorage.getItem(
-            "shopkarot_login"
-        );
+        localStorage.getItem("shopkarot_login");
 
     const username =
-        localStorage.getItem(
-            "shopkarot_user"
-        );
+        localStorage.getItem("shopkarot_user");
 
     const balance =
         Number(
-            localStorage.getItem(
-                "shopkarot_balance"
-            ) || 0
+            localStorage.getItem("shopkarot_balance") || 0
         );
-
 
     const usernameBox =
-        document.getElementById(
-            "username"
-        );
+        document.getElementById("username");
 
     const balanceBox =
-        document.getElementById(
-            "userBalance"
-        );
+        document.getElementById("userBalance");
 
+    if(!usernameBox || !balanceBox) return;
 
-    if(!usernameBox || !balanceBox){
-        return;
-    }
-
-
-    if(
-        login === "true" &&
-        username
-    ){
+    if(login === "true" && username){
 
         usernameBox.textContent =
             username;
 
         balanceBox.textContent =
-            balance.toLocaleString(
-                "vi-VN"
-            ) + "đ";
+            balance.toLocaleString("vi-VN") + "đ";
 
     }else{
 
@@ -2164,22 +2136,19 @@ function updateUser(){
 
         balanceBox.textContent =
             "0đ";
-
     }
-
 }
 
 
-document
-.getElementById("userBox")
-.addEventListener(
-    "click",
-    function(){
+const userBox =
+    document.getElementById("userBox");
+
+if(userBox){
+
+    userBox.addEventListener("click",function(){
 
         const login =
-            localStorage.getItem(
-                "shopkarot_login"
-            );
+            localStorage.getItem("shopkarot_login");
 
         if(login === "true"){
 
@@ -2190,69 +2159,55 @@ document
 
             window.location.href =
                 "login.html";
-
         }
 
-    }
-);
-
-
-/* =========================================================
-   ESCAPE
-   ========================================================= */
-
-function escapeHTML(text){
-
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    });
 
 }
 
 
 /* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text){
+
+    return String(text ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+/* =========================================================
    TOP NẠP
-   ========================================================= */
+========================================================= */
 
 function loadTopNap(){
 
     const box =
-        document.getElementById(
-            "topNapList"
-        );
+        document.getElementById("topNapList");
 
     if(!box) return;
 
-
     let data = [];
-
 
     try{
 
         const saved =
-            localStorage.getItem(
-                "shopkarot_topnap"
-            );
+            localStorage.getItem("shopkarot_topnap");
 
         if(saved){
-
-            data =
-                JSON.parse(saved);
-
+            data = JSON.parse(saved);
         }
 
     }catch(error){
 
-        console.error(
-            "TOP NẠP:",
-            error
-        );
+        console.error("TOP NẠP ERROR:",error);
 
         data = [];
-
     }
 
 
@@ -2273,23 +2228,15 @@ function loadTopNap(){
         `;
 
         return;
-
     }
 
 
-    data.sort(
-        function(a,b){
+    data.sort(function(a,b){
 
-            return Number(
-                b.money || 0
-            )
-            -
-            Number(
-                a.money || 0
-            );
+        return Number(b.money || 0)
+             - Number(a.money || 0);
 
-        }
-    );
+    });
 
 
     data =
@@ -2308,124 +2255,105 @@ function loadTopNap(){
     box.innerHTML = "";
 
 
-    data.forEach(
-        function(item,index){
+    data.forEach(function(item,index){
 
-            const row =
-                document.createElement(
-                    "div"
-                );
+        const row =
+            document.createElement("div");
 
-            row.className =
-                "rank";
+        row.className = "rank";
 
 
-            const name =
-                item.name ||
-                item.username ||
-                "Khách hàng";
+        const name =
+            item.name ||
+            item.username ||
+            item.user ||
+            "Khách hàng";
 
 
-            const money =
-                Number(
-                    item.money ||
-                    item.amount ||
-                    0
-                ).toLocaleString(
-                    "vi-VN"
-                );
+        const money =
+            Number(
+                item.money ||
+                item.amount ||
+                item.total ||
+                0
+            ).toLocaleString("vi-VN");
 
 
-            row.innerHTML = `
+        row.innerHTML = `
 
-                <div class="rank-medal">
-                    ${medals[index]}
-                </div>
+            <div class="rank-medal">
+                ${medals[index] || "🏅"}
+            </div>
 
-                <div class="rank-name">
-                    ${escapeHTML(name)}
-                </div>
+            <div class="rank-name">
+                ${escapeHTML(name)}
+            </div>
 
-                <div class="rank-money">
-                    +${money}đ
-                </div>
+            <div class="rank-money">
+                +${money}đ
+            </div>
 
-            `;
+        `;
 
 
-            box.appendChild(row);
+        box.appendChild(row);
 
-        }
-    );
+    });
 
 }
 
 
 /* =========================================================
-   GAME READY
-   ========================================================= */
+   KIỂM TRA TRẠNG THÁI GAME
+========================================================= */
 
 function isReady(value){
 
-    if(
-        typeof value === "boolean"
-    ){
-
+    if(typeof value === "boolean"){
         return value;
-
     }
 
 
-    if(
-        typeof value === "number"
-    ){
-
+    if(typeof value === "number"){
         return value === 1;
-
     }
 
 
     const text =
-        String(value || "")
+        String(value ?? "")
         .trim()
         .toLowerCase();
 
 
-    return (
+    return [
 
-        text === "sẵn sàng" ||
-        text === "san sang" ||
-        text === "ready" ||
-        text === "available" ||
-        text === "true" ||
-        text === "1" ||
-        text === "on" ||
-        text === "open" ||
-        text === "active" ||
-        text.includes("sẵn sàng") ||
-        text.includes("san sang") ||
-        text.includes("ready")
+        "sẵn sàng",
+        "san sang",
+        "ready",
+        "available",
+        "true",
+        "1",
+        "on",
+        "open",
+        "active",
+        "đang hoạt động",
+        "dang hoat dong"
 
-    );
+    ].includes(text);
 
 }
 
 
 /* =========================================================
-   SET GAME STATUS
-   ========================================================= */
+   GAME STATUS UI
+========================================================= */
 
-function setGameStatus(
-    id,
-    value
-){
+function setGameStatus(id,value){
 
     const element =
         document.getElementById(id);
 
-    if(!element){
-        return;
-    }
+    if(!element) return;
 
 
     const ready =
@@ -2463,7 +2391,7 @@ function setGameStatus(
 
 /* =========================================================
    DEFAULT GAME STATUS
-   ========================================================= */
+========================================================= */
 
 function setDefaultStatuses(){
 
@@ -2511,18 +2439,12 @@ function setDefaultStatuses(){
 
 
 /* =========================================================
-   GET GAME VALUE
-   ========================================================= */
+   LẤY GIÁ TRỊ GAME
+========================================================= */
 
-function getGameValue(
-    statuses,
-    data,
-    keys
-){
+function getGameValue(statuses,data,keys){
 
-    for(
-        const key of keys
-    ){
+    for(const key of keys){
 
         if(
             statuses &&
@@ -2551,7 +2473,6 @@ function getGameValue(
 
     }
 
-
     return false;
 
 }
@@ -2559,58 +2480,21 @@ function getGameValue(
 
 /* =========================================================
    SHOP STATUS
-   ========================================================= */
+========================================================= */
 
-function showShopStatus(
-    status
-){
+function showShopStatus(status){
 
     const box =
         document.getElementById(
             "shopStatusBox"
         );
 
-    if(!box){
-        return;
-    }
-
-
-    if(
-        status &&
-        typeof status === "object"
-    ){
-
-        status =
-            status.status ||
-            status.shopStatus ||
-            status.value ||
-            status.name ||
-            "";
-
-    }
+    if(!box) return;
 
 
     const text =
-        String(
-            status || ""
-        ).trim();
-
-
-    if(!text){
-
-        box.className =
-            "shop-status not-ready";
-
-        box.innerHTML =
-            "🔴 Chưa có trạng thái shop";
-
-        return;
-
-    }
-
-
-    const lower =
-        text.toLowerCase();
+        String(status ?? "")
+        .trim();
 
 
     box.classList.remove(
@@ -2619,37 +2503,35 @@ function showShopStatus(
     );
 
 
-    /*
-     * SHOP ĐANG HOẠT ĐỘNG
-     */
+    if(!text){
 
-    if(
+        box.classList.add(
+            "not-ready"
+        );
 
+        box.innerHTML =
+            "🔴 Chưa có trạng thái shop";
+
+        return;
+    }
+
+
+    const lower =
+        text
+        .toLowerCase();
+
+
+    const active =
+        lower.includes("hoạt động") ||
+        lower.includes("dang hoat dong") ||
+        lower.includes("đang hoạt động") ||
         lower === "active" ||
         lower === "open" ||
-        lower === "on" ||
-        lower === "true" ||
-        lower === "1" ||
-        lower.includes(
-            "đang hoạt động"
-        ) ||
-        lower.includes(
-            "dang hoat dong"
-        ) ||
-        lower.includes(
-            "hoạt động"
-        ) ||
-        lower.includes(
-            "hoat dong"
-        ) ||
-        lower.includes(
-            "mở cửa"
-        ) ||
-        lower.includes(
-            "mo cua"
-        )
+        lower === "online" ||
+        lower === "on";
 
-    ){
+
+    if(active){
 
         box.classList.add(
             "ready"
@@ -2659,180 +2541,150 @@ function showShopStatus(
             "🟢 " +
             escapeHTML(text);
 
-        return;
+    }else{
+
+        box.classList.add(
+            "not-ready"
+        );
+
+        box.innerHTML =
+            "🔴 " +
+            escapeHTML(text);
 
     }
-
-
-    /*
-     * SHOP KHÔNG HOẠT ĐỘNG
-     */
-
-    box.classList.add(
-        "not-ready"
-    );
-
-    box.innerHTML =
-        "🔴 " +
-        escapeHTML(text);
 
 }
 
 
 /* =========================================================
-   TÌM SHOP STATUS TRONG JSON API
-   ========================================================= */
+   TÌM SHOP STATUS TRONG API
+========================================================= */
 
-function findShopStatus(
-    data
-){
+function getShopStatusFromAPI(data){
 
     if(!data){
-        return null;
+        return "";
     }
 
 
-    /* shopStatus */
+    /* ===============================
+       DẠNG:
+
+       {
+         shopStatus:"Đang hoạt động"
+       }
+    =============================== */
 
     if(
-        data.shopStatus !== undefined &&
-        data.shopStatus !== null
+        typeof data.shopStatus === "string" &&
+        data.shopStatus.trim()
     ){
 
-        return data.shopStatus;
+        return data.shopStatus.trim();
 
     }
 
 
-    /* shop_status */
+    /* ===============================
+       DẠNG:
+
+       {
+         status:"Đang hoạt động"
+       }
+    =============================== */
 
     if(
-        data.shop_status !== undefined &&
-        data.shop_status !== null
+        typeof data.status === "string" &&
+        data.status.trim()
     ){
 
-        return data.shop_status;
+        return data.status.trim();
 
     }
 
 
-    /* status */
+    /* ===============================
+       DẠNG:
 
-    if(
-        data.status !== undefined &&
-        data.status !== null
-    ){
-
-        return data.status;
-
-    }
-
-
-    /* shop */
-
-    if(
-        data.shop !== undefined &&
-        data.shop !== null
-    ){
-
-        if(
-            typeof data.shop ===
-            "object"
-        ){
-
-            return (
-                data.shop.status ||
-                data.shop.shopStatus ||
-                data.shop.value ||
-                data.shop.name ||
-                null
-            );
-
-        }
-
-        return data.shop;
-
-    }
-
-
-    /* data */
+       {
+         data:{
+           shopStatus:"..."
+         }
+       }
+    =============================== */
 
     if(
         data.data &&
-        typeof data.data ===
-        "object"
+        typeof data.data === "object"
     ){
 
         if(
-            data.data.shopStatus !==
-            undefined
+            typeof data.data.shopStatus === "string" &&
+            data.data.shopStatus.trim()
         ){
 
-            return data.data.shopStatus;
+            return data.data.shopStatus.trim();
 
         }
 
 
         if(
-            data.data.shop_status !==
-            undefined
+            typeof data.data.status === "string" &&
+            data.data.status.trim()
         ){
 
-            return data.data.shop_status;
-
-        }
-
-
-        if(
-            data.data.status !==
-            undefined
-        ){
-
-            return data.data.status;
+            return data.data.status.trim();
 
         }
 
     }
 
 
-    /* result */
+    /* ===============================
+       DẠNG:
+
+       {
+         shop:{
+           status:"..."
+         }
+       }
+    =============================== */
 
     if(
-        data.result &&
-        typeof data.result ===
-        "object"
+        data.shop &&
+        typeof data.shop === "object"
     ){
 
         if(
-            data.result.shopStatus !==
-            undefined
+            typeof data.shop.status === "string" &&
+            data.shop.status.trim()
         ){
 
-            return data.result.shopStatus;
+            return data.shop.status.trim();
 
         }
 
 
         if(
-            data.result.status !==
-            undefined
+            typeof data.shop.shopStatus === "string" &&
+            data.shop.shopStatus.trim()
         ){
 
-            return data.result.status;
+            return data.shop.shopStatus.trim();
 
         }
 
     }
 
 
-    return null;
+    return "";
 
 }
 
 
 /* =========================================================
-   LOAD API
-   ========================================================= */
+   LOAD GAME + SHOP STATUS
+========================================================= */
 
 async function loadGameStatuses(){
 
@@ -2875,10 +2727,14 @@ async function loadGameStatuses(){
 
 
         console.log(
-            "SHOPKAROT API:",
+            "SHOPKAROT API DATA:",
             data
         );
 
+
+        /* =========================================
+           API PHẢI TRẢ OK
+        ========================================= */
 
         if(
             data &&
@@ -2899,20 +2755,21 @@ async function loadGameStatuses(){
         );
 
 
-        /* ================= GAME STATUS ================= */
+        /* =========================================
+           GAME STATUS
+        ========================================= */
 
         const statuses =
             data.games ||
             data.statuses ||
             data.gameStatuses ||
-            data.game_statuses ||
             (
                 data.data &&
-                (
-                    data.data.games ||
-                    data.data.statuses ||
-                    data.data.gameStatuses
-                )
+                typeof data.data === "object"
+                    ? data.data.games ||
+                      data.data.statuses ||
+                      data.data
+                    : {}
             ) ||
             {};
 
@@ -2925,7 +2782,6 @@ async function loadGameStatuses(){
                 [
                     "blox",
                     "bloxFruits",
-                    "blox_fruits",
                     "Blox Fruits"
                 ]
             )
@@ -2940,7 +2796,6 @@ async function loadGameStatuses(){
                 [
                     "king",
                     "kingLegacy",
-                    "king_legacy",
                     "King Legacy"
                 ]
             )
@@ -2955,7 +2810,6 @@ async function loadGameStatuses(){
                 [
                     "anime",
                     "animeFighters",
-                    "anime_fighters",
                     "Anime Fighters"
                 ]
             )
@@ -2970,7 +2824,6 @@ async function loadGameStatuses(){
                 [
                     "grow2",
                     "growAGarden2",
-                    "grow_a_garden_2",
                     "Grow A Garden 2"
                 ]
             )
@@ -2985,7 +2838,6 @@ async function loadGameStatuses(){
                 [
                     "grow",
                     "growAGarden",
-                    "grow_a_garden",
                     "Grow A Garden"
                 ]
             )
@@ -3000,7 +2852,6 @@ async function loadGameStatuses(){
                 [
                     "caythue",
                     "cayThue",
-                    "cay_thue",
                     "Cày Thuê"
                 ]
             )
@@ -3015,7 +2866,6 @@ async function loadGameStatuses(){
                 [
                     "mm2",
                     "murderMystery2",
-                    "murder_mystery_2",
                     "Murder Mystery 2"
                 ]
             )
@@ -3031,7 +2881,6 @@ async function loadGameStatuses(){
                     "greedy",
                     "greedyGrowers",
                     "greedyGrower",
-                    "greedy_growers",
                     "Greedy Growers",
                     "Greedy Growers 🌱"
                 ]
@@ -3039,10 +2888,12 @@ async function loadGameStatuses(){
         );
 
 
-        /* ================= SHOP STATUS ================= */
+        /* =========================================
+           SHOP STATUS
+        ========================================= */
 
         const shopStatus =
-            findShopStatus(data);
+            getShopStatusFromAPI(data);
 
 
         console.log(
@@ -3051,11 +2902,7 @@ async function loadGameStatuses(){
         );
 
 
-        if(
-            shopStatus !== null &&
-            shopStatus !== undefined &&
-            String(shopStatus).trim() !== ""
-        ){
+        if(shopStatus){
 
             showShopStatus(
                 shopStatus
@@ -3064,13 +2911,13 @@ async function loadGameStatuses(){
         }else{
 
             showShopStatus(
-                "⚠️ API chưa trả về trạng thái shop"
+                "Chưa có trạng thái shop từ API"
             );
 
         }
 
-
-    }catch(error){
+    }
+    catch(error){
 
         console.error(
             "SHOPKAROT API ERROR:",
@@ -3085,7 +2932,7 @@ async function loadGameStatuses(){
 
 
         showShopStatus(
-            "⚠️ Không thể kết nối để lấy trạng thái shop"
+            "Không thể kết nối để lấy trạng thái shop"
         );
 
 
@@ -3097,8 +2944,8 @@ async function loadGameStatuses(){
 
 
 /* =========================================================
-   START
-   ========================================================= */
+   KHỞI ĐỘNG
+========================================================= */
 
 updateUser();
 
@@ -3108,8 +2955,8 @@ loadGameStatuses();
 
 
 /* =========================================================
-   AUTO REFRESH 30 GIÂY
-   ========================================================= */
+   TỰ ĐỘNG CẬP NHẬT
+========================================================= */
 
 setInterval(
     function(){
@@ -3123,7 +2970,7 @@ setInterval(
 
 /* =========================================================
    LOCAL STORAGE
-   ========================================================= */
+========================================================= */
 
 window.addEventListener(
     "storage",
@@ -3140,12 +2987,9 @@ window.addEventListener(
 
 
         if(
-            event.key ===
-            "shopkarot_user" ||
-            event.key ===
-            "shopkarot_login" ||
-            event.key ===
-            "shopkarot_balance"
+            event.key === "shopkarot_user" ||
+            event.key === "shopkarot_login" ||
+            event.key === "shopkarot_balance"
         ){
 
             updateUser();
@@ -3157,8 +3001,8 @@ window.addEventListener(
 
 
 /* =========================================================
-   QUAY LẠI TAB
-   ========================================================= */
+   KHI QUAY LẠI TAB
+========================================================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -3181,6 +3025,5 @@ document.addEventListener(
 );
 
 </script>
-
 </body>
 </html>
