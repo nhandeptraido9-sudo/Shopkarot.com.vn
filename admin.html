@@ -351,10 +351,6 @@ th{
 
 <body>
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
-
 <div id="loginPage" class="login-box">
 
   <h1>🛠️ SHOPKAROT ADMIN</h1>
@@ -386,10 +382,6 @@ th{
 </div>
 
 
-<!-- =====================================================
-     ADMIN
-===================================================== -->
-
 <div id="adminPage" class="hidden">
 
 <header>
@@ -417,10 +409,6 @@ th{
 
 
 <div class="container">
-
-<!-- =====================================================
-     DASHBOARD
-===================================================== -->
 
 <div class="dashboard">
 
@@ -451,10 +439,6 @@ th{
 
 </div>
 
-
-<!-- =====================================================
-     SHOP STATUS
-===================================================== -->
 
 <div class="card" style="margin-bottom:20px">
 
@@ -503,10 +487,6 @@ th{
 </div>
 
 
-<!-- =====================================================
-     TABS
-===================================================== -->
-
 <div class="tabs">
 
   <button
@@ -546,10 +526,6 @@ th{
 
 </div>
 
-
-<!-- =====================================================
-     KHO ACC
-===================================================== -->
 
 <section id="panel-accounts" class="panel active">
 
@@ -617,8 +593,6 @@ th{
         <option value="Dịch vụ Roblox">
           Dịch vụ Roblox
         </option>
-
-        <!-- GAME MỚI -->
 
         <option value="Fish">
           🐟 Fish
@@ -807,10 +781,6 @@ th{
 </section>
 
 
-<!-- =====================================================
-     CUSTOMERS
-===================================================== -->
-
 <section id="panel-customers" class="panel">
 
 <div class="card">
@@ -850,10 +820,6 @@ th{
 </section>
 
 
-<!-- =====================================================
-     TOPUPS
-===================================================== -->
-
 <section id="panel-topups" class="panel">
 
 <div class="card">
@@ -892,10 +858,6 @@ th{
 </section>
 
 
-<!-- =====================================================
-     ORDERS
-===================================================== -->
-
 <section id="panel-orders" class="panel">
 
 <div class="card">
@@ -931,10 +893,6 @@ th{
 </section>
 
 
-<!-- =====================================================
-     PRODUCT STATUS
-===================================================== -->
-
 <section id="panel-products" class="panel">
 
 <div class="card">
@@ -943,10 +901,10 @@ th{
 
   <div class="notice">
 
-    Danh sách dưới đây được tự động lấy từ
-    <b>folderData</b>.
+    Danh sách sản phẩm được lấy tự động
+    từ <b>folderData</b>.
 
-    Khi bạn thêm thư mục mới vào game,
+    Khi thêm thư mục mới vào game,
     sản phẩm sẽ tự động xuất hiện tại đây.
 
   </div>
@@ -961,10 +919,6 @@ th{
 
 </div>
 
-
-<!-- =====================================================
-     MODAL
-===================================================== -->
 
 <div id="accountModal" class="modal hidden">
 
@@ -992,10 +946,6 @@ th{
 
 <script>
 
-/* =====================================================
-   CONFIG
-===================================================== */
-
 const API_URL =
 "https://script.google.com/macros/s/AKfycbxh-wKIznylXlA8dCnmXS09kQ8YzDXbeZ9VtNc5aP083JA71uGaqDkiixGQlP4oIeSB/exec";
 
@@ -1007,21 +957,15 @@ let topups=[];
 let orders=[];
 
 let productStatuses={};
-
 let products=[];
 
-
-/* =====================================================
-   API POST
-===================================================== */
 
 async function apiPost(action,data={}){
 
   const response=await fetch(API_URL,{
     method:"POST",
     headers:{
-      "Content-Type":
-      "text/plain;charset=utf-8"
+      "Content-Type":"text/plain;charset=utf-8"
     },
     body:JSON.stringify({
       action,
@@ -1033,10 +977,6 @@ async function apiPost(action,data={}){
 
 }
 
-
-/* =====================================================
-   API GET
-===================================================== */
 
 async function apiGet(action){
 
@@ -1050,10 +990,6 @@ async function apiGet(action){
 
 }
 
-
-/* =====================================================
-   LOGIN
-===================================================== */
 
 async function adminLogin(){
 
@@ -1084,9 +1020,7 @@ async function adminLogin(){
     const result=
       await apiPost(
         "adminLogin",
-        {
-          key:key
-        }
+        {key:key}
       );
 
     if(!result.ok){
@@ -1135,19 +1069,13 @@ async function adminLogin(){
 function showLoginMessage(text,color){
 
   const el=
-    document.getElementById(
-      "loginMessage"
-    );
+    document.getElementById("loginMessage");
 
   el.textContent=text;
   el.style.color=color;
 
 }
 
-
-/* =====================================================
-   LOGOUT
-===================================================== */
 
 function logout(){
 
@@ -1161,10 +1089,6 @@ function logout(){
 
 }
 
-
-/* =====================================================
-   AUTO LOGIN
-===================================================== */
 
 window.addEventListener(
   "load",
@@ -1182,9 +1106,7 @@ window.addEventListener(
       const result=
         await apiPost(
           "adminLogin",
-          {
-            key:saved
-          }
+          {key:saved}
         );
 
       if(result.ok){
@@ -1219,26 +1141,16 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   LOAD ALL
-===================================================== */
-
 async function loadAll(){
 
   await Promise.all([
 
     loadDashboard(),
-
     loadShopStatus(),
-
     loadAccounts(),
-
     loadCustomers(),
-
     loadTopups(),
-
     loadOrders(),
-
     loadProducts()
 
   ]);
@@ -1246,18 +1158,12 @@ async function loadAll(){
 }
 
 
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
 async function loadDashboard(){
 
   try{
 
     const result=
-      await apiGet(
-        "getDashboard"
-      );
+      await apiGet("getDashboard");
 
     if(!result.ok)return;
 
@@ -1297,18 +1203,12 @@ async function loadDashboard(){
 }
 
 
-/* =====================================================
-   SHOP STATUS
-===================================================== */
-
 async function loadShopStatus(){
 
   try{
 
     const result=
-      await apiGet(
-        "getShopStatus"
-      );
+      await apiGet("getShopStatus");
 
     if(!result.ok)return;
 
@@ -1329,26 +1229,17 @@ async function loadShopStatus(){
         "shopStatusDot"
       );
 
-    if(
-      status===
-      "Shop đang hoạt động"
-    ){
+    if(status==="Shop đang hoạt động"){
 
-      dot.style.background=
-        "#22c55e";
+      dot.style.background="#22c55e";
 
-    }else if(
-      status===
-      "Shop đang bảo trì"
-    ){
+    }else if(status==="Shop đang bảo trì"){
 
-      dot.style.background=
-        "#f59e0b";
+      dot.style.background="#f59e0b";
 
     }else{
 
-      dot.style.background=
-        "#ef4444";
+      dot.style.background="#ef4444";
 
     }
 
@@ -1416,7 +1307,6 @@ async function setShopStatus(){
 const folderData={
 
   "Blox Fruits":[
-
     "Túi mù Blox Fruits",
     "Acc Blox Fruits tùy chọn Item",
     "Acc Blox Fruits Race V4",
@@ -1424,52 +1314,40 @@ const folderData={
     "Robux 120H",
     "Gamepass Blox Fruits",
     "Fish"
-
   ],
 
   "King Legacy":[
-
     "King Legacy",
     "King Legacy Túi Mù",
     "King Legacy Acc Thường",
     "King Legacy Acc VIP"
-
   ],
 
   "Anime Fighters":[
-
     "Anime Fighters",
     "Anime Fighters Túi Mù",
     "Anime Fighters Acc Random"
-
   ],
 
   "Grow A Garden 2":[
-
     "Grow A Garden 2",
     "Grow A Garden 2 Túi Mù",
     "Grow A Garden 2 Acc"
-
   ],
 
   "Grow A Garden":[
-
     "Grow A Garden",
     "Grow A Garden Túi Mù",
     "Grow A Garden Acc"
-
   ],
 
   "Murder Mystery 2":[
-
     "Murder Mystery 2",
     "Murder Mystery 2 Túi Mù",
     "Murder Mystery 2 Acc"
-
   ],
 
   "Túi Mù":[
-
     "Túi Mù",
     "Túi Mù 0K",
     "Túi Mù 10K",
@@ -1477,66 +1355,43 @@ const folderData={
     "Túi Mù 50K",
     "Túi Mù 80K",
     "Túi Mù 100K"
-
   ],
 
   "Event":[
-
     "Event",
     "Event Túi Mù",
     "Event Random"
-
   ],
 
   "Greedy Growers 🌱":[
-
     "Greedy Growers 🌱",
     "Greedy Growers Túi Mù",
     "Greedy Growers Acc"
-
   ],
 
   "Dịch vụ Roblox":[
-
     "Treo acc Roblox",
     "Chuyển vùng acc Roblox"
-
   ],
 
-  /* =====================================================
-     GAME MỚI
-  ===================================================== */
-
   "Fish":[
-
     "Fish"
-
   ],
 
   "Speed Keyboard":[
-
     "Speed Keyboard"
-
   ],
 
   "99 Nights Escape Tsunami":[
-
     "99 Nights Escape Tsunami"
-
   ],
 
   "Brainrot":[
-
     "Brainrot"
-
   ]
 
 };
 
-
-/* =====================================================
-   GAME CHANGE
-===================================================== */
 
 function gameChanged(){
 
@@ -1567,17 +1422,12 @@ function gameChanged(){
   list.forEach(name=>{
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
     option.value=name;
-
     option.textContent=name;
 
-    folder.appendChild(
-      option
-    );
+    folder.appendChild(option);
 
   });
 
@@ -1587,21 +1437,17 @@ function gameChanged(){
 
 
 function folderChanged(){
-
   updatePackages();
-
 }
 
 
 function priceChanged(){
-
   updatePackages();
-
 }
 
 
 /* =====================================================
-   PACKAGE
+   GÓI ACC - ĐÃ SỬA THÀNH 1 → 20
 ===================================================== */
 
 function updatePackages(){
@@ -1626,58 +1472,37 @@ function updatePackages(){
 
   if(!game||!folder)return;
 
-  if(
-    game==="Dịch vụ Roblox"
-  ){
+  if(game==="Dịch vụ Roblox"){
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
-    option.value=
-      "Dịch vụ";
+    option.value="Dịch vụ";
+    option.textContent="Dịch vụ";
 
-    option.textContent=
-      "Dịch vụ";
-
-    packageSelect.appendChild(
-      option
-    );
+    packageSelect.appendChild(option);
 
     return;
 
   }
 
-  for(
-    let i=1;
-    i<=8;
-    i++
-  ){
+  /* CHỈ SỬA PHẦN NÀY:
+     GÓI 1 → GÓI 20 */
+
+  for(let i=1;i<=20;i++){
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
-    option.value=
-      "Gói "+i;
+    option.value="Gói "+i;
+    option.textContent="Gói "+i;
 
-    option.textContent=
-      "Gói "+i;
-
-    packageSelect.appendChild(
-      option
-    );
+    packageSelect.appendChild(option);
 
   }
 
 }
 
-
-/* =====================================================
-   ADD ACCOUNT
-===================================================== */
 
 async function addAccount(){
 
@@ -1740,21 +1565,13 @@ async function addAccount(){
       await apiPost(
         "addAccount",
         {
-
           key:ADMIN_KEY,
-
           game:game,
-
           folder:folder,
-
           price:Number(price),
-
           package:packageName,
-
           username:username,
-
           password:password
-
         }
       );
 
@@ -1781,7 +1598,6 @@ async function addAccount(){
     clearAccountForm();
 
     await loadAccounts();
-
     await loadDashboard();
 
   }catch(err){
@@ -1798,10 +1614,7 @@ async function addAccount(){
 }
 
 
-function showAccountMessage(
-  text,
-  color
-){
+function showAccountMessage(text,color){
 
   const el=
     document.getElementById(
@@ -1809,15 +1622,10 @@ function showAccountMessage(
     );
 
   el.textContent=text;
-
   el.style.color=color;
 
 }
 
-
-/* =====================================================
-   CLEAR FORM
-===================================================== */
 
 function clearAccountForm(){
 
@@ -1850,18 +1658,12 @@ function clearAccountForm(){
 }
 
 
-/* =====================================================
-   LOAD ACCOUNTS
-===================================================== */
-
 async function loadAccounts(){
 
   try{
 
     const result=
-      await apiGet(
-        "getAccounts"
-      );
+      await apiGet("getAccounts");
 
     if(result.ok){
 
@@ -1880,10 +1682,6 @@ async function loadAccounts(){
 
 }
 
-
-/* =====================================================
-   RENDER ACCOUNTS
-===================================================== */
 
 function renderAccounts(){
 
@@ -1905,7 +1703,6 @@ function renderAccounts(){
     .filter(acc=>{
 
       const text=[
-
         acc.game,
         acc.folder,
         acc.price,
@@ -1913,7 +1710,6 @@ function renderAccounts(){
         acc.username,
         acc.password,
         acc.status
-
       ]
       .join(" ")
       .toLowerCase();
@@ -1924,9 +1720,7 @@ function renderAccounts(){
     .forEach(acc=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       const status=
         String(
@@ -1943,25 +1737,15 @@ function renderAccounts(){
 
       tr.innerHTML=`
 
-        <td>
-          ${escapeHtml(acc.id||"")}
-        </td>
+        <td>${escapeHtml(acc.id||"")}</td>
 
-        <td>
-          ${escapeHtml(acc.game||"")}
-        </td>
+        <td>${escapeHtml(acc.game||"")}</td>
 
-        <td>
-          ${escapeHtml(acc.folder||"-")}
-        </td>
+        <td>${escapeHtml(acc.folder||"-")}</td>
 
-        <td>
-          ${formatPrice(acc.price)}
-        </td>
+        <td>${formatPrice(acc.price)}</td>
 
-        <td>
-          ${escapeHtml(acc.package||"-")}
-        </td>
+        <td>${escapeHtml(acc.package||"-")}</td>
 
         <td>
           ${escapeHtml(
@@ -1980,13 +1764,9 @@ function renderAccounts(){
         </td>
 
         <td>
-
           <span class="badge ${badgeClass}">
-            ${escapeHtml(
-              acc.status||""
-            )}
+            ${escapeHtml(acc.status||"")}
           </span>
-
         </td>
 
         <td>
@@ -2008,10 +1788,6 @@ function renderAccounts(){
 
 }
 
-
-/* =====================================================
-   DELETE ACCOUNT
-===================================================== */
 
 async function deleteAccount(id){
 
@@ -2048,7 +1824,6 @@ async function deleteAccount(id){
     );
 
     await loadAccounts();
-
     await loadDashboard();
 
   }catch(err){
@@ -2064,18 +1839,12 @@ async function deleteAccount(id){
 }
 
 
-/* =====================================================
-   CUSTOMERS
-===================================================== */
-
 async function loadCustomers(){
 
   try{
 
     const result=
-      await apiGet(
-        "getCustomers"
-      );
+      await apiGet("getCustomers");
 
     if(result.ok){
 
@@ -2122,9 +1891,7 @@ function renderCustomers(){
     .forEach(user=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       tr.innerHTML=`
 
@@ -2142,9 +1909,7 @@ function renderCustomers(){
 
         <td>
           ${escapeHtml(
-            formatDate(
-              user.createdAt
-            )
+            formatDate(user.createdAt)
           )}
         </td>
 
@@ -2163,18 +1928,12 @@ function renderCustomers(){
 }
 
 
-/* =====================================================
-   TOPUPS
-===================================================== */
-
 async function loadTopups(){
 
   try{
 
     const result=
-      await apiGet(
-        "getTopups"
-      );
+      await apiGet("getTopups");
 
     if(result.ok){
 
@@ -2209,9 +1968,7 @@ function renderTopups(){
     .forEach(item=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       const status=
         String(
@@ -2244,37 +2001,21 @@ function renderTopups(){
 
       tr.innerHTML=`
 
-        <td>
-          ${escapeHtml(item.id||"")}
-        </td>
+        <td>${escapeHtml(item.id||"")}</td>
 
-        <td>
-          ${escapeHtml(item.username||"")}
-        </td>
+        <td>${escapeHtml(item.username||"")}</td>
 
-        <td>
-          ${formatMoney(item.amount||0)}
-        </td>
+        <td>${formatMoney(item.amount||0)}</td>
 
-        <td>
-          ${escapeHtml(item.method||"")}
-        </td>
+        <td>${escapeHtml(item.method||"")}</td>
 
-        <td>
-          ${escapeHtml(item.cardType||"")}
-        </td>
+        <td>${escapeHtml(item.cardType||"")}</td>
 
-        <td>
-          ${escapeHtml(item.cardSerial||"")}
-        </td>
+        <td>${escapeHtml(item.cardSerial||"")}</td>
 
-        <td>
-          ${escapeHtml(item.cardCode||"")}
-        </td>
+        <td>${escapeHtml(item.cardCode||"")}</td>
 
-        <td>
-          ${escapeHtml(item.bankName||"")}
-        </td>
+        <td>${escapeHtml(item.bankName||"")}</td>
 
         <td>
           <span class="badge ${status}">
@@ -2282,9 +2023,7 @@ function renderTopups(){
           </span>
         </td>
 
-        <td>
-          ${buttons}
-        </td>
+        <td>${buttons}</td>
 
       `;
 
@@ -2294,10 +2033,6 @@ function renderTopups(){
 
 }
 
-
-/* =====================================================
-   APPROVE TOPUP
-===================================================== */
 
 async function approveTopup(id){
 
@@ -2337,18 +2072,12 @@ async function approveTopup(id){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi API."
-    );
+    alert("❌ Lỗi API.");
 
   }
 
 }
 
-
-/* =====================================================
-   REJECT TOPUP
-===================================================== */
 
 async function rejectTopup(id){
 
@@ -2383,27 +2112,19 @@ async function rejectTopup(id){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi API."
-    );
+    alert("❌ Lỗi API.");
 
   }
 
 }
 
 
-/* =====================================================
-   ORDERS
-===================================================== */
-
 async function loadOrders(){
 
   try{
 
     const result=
-      await apiGet(
-        "getOrders"
-      );
+      await apiGet("getOrders");
 
     if(result.ok){
 
@@ -2438,9 +2159,7 @@ function renderOrders(){
     .forEach(order=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       tr.innerHTML=`
 
@@ -2449,43 +2168,31 @@ function renderOrders(){
         </td>
 
         <td>
-          ${escapeHtml(
-            order.username||""
-          )}
+          ${escapeHtml(order.username||"")}
+        </td>
+
+        <td>
+          ${escapeHtml(order.product||"")}
+        </td>
+
+        <td>
+          ${formatMoney(order.price||0)}
+        </td>
+
+        <td>
+          ${escapeHtml(order.status||"")}
         </td>
 
         <td>
           ${escapeHtml(
-            order.product||""
-          )}
-        </td>
-
-        <td>
-          ${formatMoney(
-            order.price||0
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            order.status||""
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            formatDate(
-              order.createdAt
-            )
+            formatDate(order.createdAt)
           )}
         </td>
 
         <td>
           ${
             order.accUsername
-              ?escapeHtml(
-                order.accUsername
-              )
+              ?escapeHtml(order.accUsername)
               :"-"
           }
         </td>
@@ -2501,17 +2208,22 @@ function renderOrders(){
 
 /* =====================================================
    PRODUCT STATUS
+   ĐÃ SỬA ĐỂ KHÔNG BỊ NHẦM TRẠNG THÁI
 ===================================================== */
 
 function buildProductsFromFolders(){
 
   products=[];
 
+  const seen=new Set();
+
   Object.keys(folderData)
     .forEach(game=>{
 
       const folders=
-        folderData[game]||[];
+        Array.isArray(folderData[game])
+          ?folderData[game]
+          :[];
 
       folders.forEach(folder=>{
 
@@ -2521,15 +2233,20 @@ function buildProductsFromFolders(){
             folder
           );
 
+        /* Không cho sản phẩm bị lặp */
+        if(seen.has(key))return;
+
+        seen.add(key);
+
         products.push({
 
           key:key,
 
-          game:game,
+          game:String(game),
 
-          folder:folder,
+          folder:String(folder),
 
-          name:folder
+          name:String(folder)
 
         });
 
@@ -2540,14 +2257,7 @@ function buildProductsFromFolders(){
 }
 
 
-/* =====================================================
-   PRODUCT KEY
-===================================================== */
-
-function createProductKey(
-  game,
-  folder
-){
+function createProductKey(game,folder){
 
   return (
     String(game)+
@@ -2572,9 +2282,115 @@ function createProductKey(
 }
 
 
-/* =====================================================
-   LOAD PRODUCT STATUS
-===================================================== */
+/*
+  Chuẩn hóa trạng thái để tránh trường hợp
+  Apps Script trả về chữ hoa/thường khác nhau.
+*/
+
+function normalizeProductStatus(value){
+
+  const text=
+    String(value||"")
+      .trim()
+      .toLowerCase();
+
+  if(
+    text==="chưa sẵn sàng"||
+    text==="chua san sang"||
+    text==="not ready"||
+    text==="unavailable"||
+    text==="false"
+  ){
+
+    return "Chưa Sẵn Sàng";
+
+  }
+
+  return "Sẵn Sàng";
+
+}
+
+
+/*
+  Lấy trạng thái theo key chính.
+  Có thêm kiểm tra key cũ để tránh dữ liệu
+  trạng thái đã lưu trước đây bị hiện sai.
+*/
+
+function getProductStatus(product){
+
+  if(!product)return "Sẵn Sàng";
+
+  const key=
+    String(product.key||"");
+
+  const folder=
+    String(product.folder||"");
+
+  const game=
+    String(product.game||"");
+
+  let value=null;
+
+  if(
+    productStatuses &&
+    Object.prototype.hasOwnProperty.call(
+      productStatuses,
+      key
+    )
+  ){
+
+    value=
+      productStatuses[key];
+
+  }
+
+  /*
+    Hỗ trợ dữ liệu cũ nếu Apps Script
+    đang lưu bằng tên thư mục.
+  */
+
+  if(
+    value===null||
+    typeof value==="undefined"
+  ){
+
+    if(
+      productStatuses &&
+      Object.prototype.hasOwnProperty.call(
+        productStatuses,
+        folder
+      )
+    ){
+
+      value=
+        productStatuses[folder];
+
+    }
+
+  }
+
+  /*
+    Hỗ trợ trường hợp backend trả object.
+  */
+
+  if(
+    value &&
+    typeof value==="object"
+  ){
+
+    value=
+      value.status||
+      value.value||
+      value.productStatus||
+      null;
+
+  }
+
+  return normalizeProductStatus(value);
+
+}
+
 
 async function loadProducts(){
 
@@ -2592,8 +2408,23 @@ async function loadProducts(){
       result.ok
     ){
 
-      productStatuses=
-        result.statuses||{};
+      /*
+        Đảm bảo luôn là object.
+      */
+
+      if(
+        result.statuses &&
+        typeof result.statuses==="object"
+      ){
+
+        productStatuses=
+          result.statuses;
+
+      }else{
+
+        productStatuses={};
+
+      }
 
     }else{
 
@@ -2617,10 +2448,6 @@ async function loadProducts(){
 }
 
 
-/* =====================================================
-   RENDER PRODUCTS
-===================================================== */
-
 function renderProducts(){
 
   const container=
@@ -2633,7 +2460,7 @@ function renderProducts(){
   container.innerHTML="";
 
   if(
-    !products||
+    !Array.isArray(products)||
     products.length===0
   ){
 
@@ -2652,7 +2479,6 @@ function renderProducts(){
 
   const groups={};
 
-
   products.forEach(product=>{
 
     if(!groups[product.game]){
@@ -2661,9 +2487,7 @@ function renderProducts(){
 
     }
 
-    groups[
-      product.game
-    ].push(product);
+    groups[product.game].push(product);
 
   });
 
@@ -2672,9 +2496,7 @@ function renderProducts(){
     .forEach(game=>{
 
       const title=
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
       title.className=
         "product-group-title";
@@ -2682,30 +2504,22 @@ function renderProducts(){
       title.textContent=
         "🎮 "+game;
 
-      container.appendChild(
-        title
-      );
+      container.appendChild(title);
 
 
-      groups[game].forEach(
-        product=>{
+      groups[game].forEach(product=>{
 
-          createProductStatusCard(
-            container,
-            product
-          );
+        createProductStatusCard(
+          container,
+          product
+        );
 
-        }
-      );
+      });
 
     });
 
 }
 
-
-/* =====================================================
-   CREATE PRODUCT CARD
-===================================================== */
 
 function createProductStatusCard(
   container,
@@ -2713,18 +2527,13 @@ function createProductStatusCard(
 ){
 
   const key=
-    product.key;
+    String(product.key||"");
 
   const status=
-    productStatuses[key]||
-    "Sẵn Sàng";
-
+    getProductStatus(product);
 
   const div=
-    document.createElement(
-      "div"
-    );
-
+    document.createElement("div");
 
   div.className=
     "card product-status-card "+
@@ -2734,6 +2543,7 @@ function createProductStatusCard(
         :"not-ready"
     );
 
+  div.dataset.productKey=key;
 
   div.innerHTML=`
 
@@ -2742,19 +2552,14 @@ function createProductStatusCard(
       <div>
 
         <div class="product-status-name">
-          ${escapeHtml(
-            product.name
-          )}
+          ${escapeHtml(product.name)}
         </div>
 
         <div class="small">
-          🎮 ${escapeHtml(
-            product.game
-          )}
+          🎮 ${escapeHtml(product.game)}
         </div>
 
       </div>
-
 
       <select
         id="status_${escapeHtml(key)}"
@@ -2764,28 +2569,19 @@ function createProductStatusCard(
 
         <option
           value="Sẵn Sàng"
-          ${
-            status==="Sẵn Sàng"
-              ?"selected"
-              :""
-          }
+          ${status==="Sẵn Sàng"?"selected":""}
         >
           🟢 Sẵn Sàng
         </option>
 
         <option
           value="Chưa Sẵn Sàng"
-          ${
-            status==="Chưa Sẵn Sàng"
-              ?"selected"
-              :""
-          }
+          ${status==="Chưa Sẵn Sàng"?"selected":""}
         >
           🔴 Chưa Sẵn Sàng
         </option>
 
       </select>
-
 
       <button
         class="btn btn-primary"
@@ -2803,13 +2599,7 @@ function createProductStatusCard(
 }
 
 
-/* =====================================================
-   CHANGE PRODUCT VISUAL
-===================================================== */
-
-function changeProductVisual(
-  product
-){
+function changeProductVisual(product){
 
   const select=
     document.getElementById(
@@ -2830,34 +2620,24 @@ function changeProductVisual(
     "not-ready"
   );
 
-
   if(
-    select.value===
-    "Sẵn Sàng"
+    normalizeProductStatus(
+      select.value
+    )==="Sẵn Sàng"
   ){
 
-    card.classList.add(
-      "ready"
-    );
+    card.classList.add("ready");
 
   }else{
 
-    card.classList.add(
-      "not-ready"
-    );
+    card.classList.add("not-ready");
 
   }
 
 }
 
 
-/* =====================================================
-   SAVE PRODUCT STATUS
-===================================================== */
-
-async function saveProductStatus(
-  product
-){
+async function saveProductStatus(product){
 
   const select=
     document.getElementById(
@@ -2867,8 +2647,9 @@ async function saveProductStatus(
   if(!select)return;
 
   const status=
-    select.value;
-
+    normalizeProductStatus(
+      select.value
+    );
 
   try{
 
@@ -2876,16 +2657,11 @@ async function saveProductStatus(
       await apiPost(
         "setProductStatus",
         {
-
           key:ADMIN_KEY,
-
           product:product,
-
           status:status
-
         }
       );
-
 
     if(!result.ok){
 
@@ -2898,21 +2674,17 @@ async function saveProductStatus(
 
     }
 
+    /*
+      Cập nhật ngay giao diện hiện tại.
+    */
 
-    productStatuses[
-      product
-    ]=status;
+    productStatuses[product]=status;
 
-
-    changeProductVisual(
-      product
-    );
-
+    changeProductVisual(product);
 
     alert(
       "✅ Đã lưu trạng thái sản phẩm."
     );
-
 
   }catch(err){
 
@@ -2927,36 +2699,23 @@ async function saveProductStatus(
 }
 
 
-/* =====================================================
-   TABS
-===================================================== */
-
-function showTab(
-  name,
-  button
-){
+function showTab(name,button){
 
   document
     .querySelectorAll(".panel")
     .forEach(panel=>{
 
-      panel.classList.remove(
-        "active"
-      );
+      panel.classList.remove("active");
 
     });
-
 
   document
     .querySelectorAll(".tab")
     .forEach(tab=>{
 
-      tab.classList.remove(
-        "active"
-      );
+      tab.classList.remove("active");
 
     });
-
 
   const panel=
     document.getElementById(
@@ -2965,31 +2724,20 @@ function showTab(
 
   if(panel){
 
-    panel.classList.add(
-      "active"
-    );
+    panel.classList.add("active");
 
   }
 
-
   if(button){
 
-    button.classList.add(
-      "active"
-    );
+    button.classList.add("active");
 
   }
 
 }
 
 
-/* =====================================================
-   ACCOUNT MODAL
-===================================================== */
-
-function showAccountModal(
-  account
-){
+function showAccountModal(account){
 
   const content=
     document.getElementById(
@@ -3002,70 +2750,41 @@ function showAccountModal(
 
       <div>
         🎮 Game:
-        <b>
-          ${escapeHtml(
-            account.game||""
-          )}
-        </b>
+        <b>${escapeHtml(account.game||"")}</b>
       </div>
 
       <div>
         📁 Thư mục:
-        <b>
-          ${escapeHtml(
-            account.folder||""
-          )}
-        </b>
+        <b>${escapeHtml(account.folder||"")}</b>
       </div>
 
       <div>
         💵 Giá:
-        <b>
-          ${formatPrice(
-            account.price
-          )}
-        </b>
+        <b>${formatPrice(account.price)}</b>
       </div>
 
       <div>
         📦 Gói:
-        <b>
-          ${escapeHtml(
-            account.package||""
-          )}
-        </b>
+        <b>${escapeHtml(account.package||"")}</b>
       </div>
 
       <div>
         👤 Username:
-        <b>
-          ${escapeHtml(
-            account.username||""
-          )}
-        </b>
+        <b>${escapeHtml(account.username||"")}</b>
       </div>
 
       <div>
         🔑 Password:
-        <b>
-          ${escapeHtml(
-            account.password||""
-          )}
-        </b>
+        <b>${escapeHtml(account.password||"")}</b>
       </div>
 
     </div>
 
   `;
 
-
   document
-    .getElementById(
-      "accountModal"
-    )
-    .classList.remove(
-      "hidden"
-    );
+    .getElementById("accountModal")
+    .classList.remove("hidden");
 
 }
 
@@ -3073,19 +2792,11 @@ function showAccountModal(
 function closeAccountModal(){
 
   document
-    .getElementById(
-      "accountModal"
-    )
-    .classList.add(
-      "hidden"
-    );
+    .getElementById("accountModal")
+    .classList.add("hidden");
 
 }
 
-
-/* =====================================================
-   FORMAT MONEY
-===================================================== */
 
 function formatMoney(value){
 
@@ -3094,22 +2805,14 @@ function formatMoney(value){
 
   if(n>=1000){
 
-    return n.toLocaleString(
-      "vi-VN"
-    )+"đ";
+    return n.toLocaleString("vi-VN")+"đ";
 
   }
 
-  return n.toLocaleString(
-    "vi-VN"
-  )+"K";
+  return n.toLocaleString("vi-VN")+"K";
 
 }
 
-
-/* =====================================================
-   FORMAT PRICE
-===================================================== */
 
 function formatPrice(value){
 
@@ -3124,16 +2827,10 @@ function formatPrice(value){
   }
 
   return Number(value||0)
-    .toLocaleString(
-      "vi-VN"
-    )+"K";
+    .toLocaleString("vi-VN")+"K";
 
 }
 
-
-/* =====================================================
-   FORMAT DATE
-===================================================== */
 
 function formatDate(value){
 
@@ -3145,18 +2842,14 @@ function formatDate(value){
       new Date(value);
 
     if(
-      isNaN(
-        date.getTime()
-      )
+      isNaN(date.getTime())
     ){
 
       return String(value);
 
     }
 
-    return date.toLocaleString(
-      "vi-VN"
-    );
+    return date.toLocaleString("vi-VN");
 
   }catch(e){
 
@@ -3167,64 +2860,25 @@ function formatDate(value){
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
 function escapeHtml(value){
 
-  return String(
-    value??""
-  )
-  .replaceAll(
-    "&",
-    "&amp;"
-  )
-  .replaceAll(
-    "<",
-    "&lt;"
-  )
-  .replaceAll(
-    ">",
-    "&gt;"
-  )
-  .replaceAll(
-    '"',
-    "&quot;"
-  )
-  .replaceAll(
-    "'",
-    "&#039;"
-  );
+  return String(value??"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
 
-/* =====================================================
-   ESCAPE JS
-===================================================== */
-
 function escapeJs(value){
 
-  return String(
-    value??""
-  )
-  .replaceAll(
-    "\\",
-    "\\\\"
-  )
-  .replaceAll(
-    "'",
-    "\\'"
-  )
-  .replaceAll(
-    "\n",
-    "\\n"
-  )
-  .replaceAll(
-    "\r",
-    "\\r"
-  );
+  return String(value??"")
+    .replaceAll("\\","\\\\")
+    .replaceAll("'","\\'")
+    .replaceAll("\n","\\n")
+    .replaceAll("\r","\\r");
 
 }
 
