@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -647,14 +646,35 @@ a{
 .speed-keyboard{background:linear-gradient(135deg,#312e81,#a855f7)}
 .roblox-treo{background:linear-gradient(135deg,#111827,#2563eb,#38bdf8)}
 .chuyen-vung{background:linear-gradient(135deg,#075985,#06b6d4,#22c55e)}
+
 .nights99{
-    background:radial-gradient(circle at 50% 20%,#374151 0%,#111827 45%,#020617 85%);
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #374151 0%,
+            #111827 45%,
+            #020617 85%
+        );
 }
+
 .tsunami{
-    background:linear-gradient(135deg,#075985,#06b6d4 45%,#164e63);
+    background:
+        linear-gradient(
+            135deg,
+            #075985,
+            #06b6d4 45%,
+            #164e63
+        );
 }
+
 .greedy{
-    background:radial-gradient(circle at 30% 25%,#86efac 0%,#166534 35%,#052e16 75%);
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #86efac 0%,
+            #166534 35%,
+            #052e16 75%
+        );
 }
 
 .game h3{
@@ -771,12 +791,15 @@ footer{
 /* ================= MOBILE ================= */
 
 @media(max-width:1200px){
+
     .games{
         grid-template-columns:repeat(3,1fr);
     }
+
 }
 
 @media(max-width:1000px){
+
     .top{
         grid-template-columns:1fr;
     }
@@ -784,6 +807,7 @@ footer{
     .content{
         grid-template-columns:1fr;
     }
+
 }
 
 @media(max-width:700px){
@@ -881,6 +905,7 @@ footer{
     .stats{
         grid-template-columns:1fr 1fr;
     }
+
 }
 
 @media(max-width:450px){
@@ -902,6 +927,7 @@ footer{
     .event-info h3{
         font-size:14px;
     }
+
 }
 </style>
 </head>
@@ -915,11 +941,17 @@ footer{
         <div class="logo-icon">SK</div>
 
         <div class="logo-text">
+
             <b>SHOP<span>KAROT</span></b>
-            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
         </div>
 
     </a>
+
 
     <div class="menu">
 
@@ -929,9 +961,12 @@ footer{
             ☰
         </button>
 
+
         <div class="menu-box" id="menuBox">
 
-            <a href="acc-game.html">🎮 ACC GAME</a>
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
 
             <a href="random-acc-roblox.html">
                 🎲 RANDOM ACC ROBLOX
@@ -961,15 +996,22 @@ footer{
 
     </div>
 
+
     <div class="user" id="userBox">
 
-        <div class="user-icon">👤</div>
+        <div class="user-icon">
+            👤
+        </div>
 
         <div class="user-info">
 
-            <b id="username">Đăng nhập</b>
+            <b id="username">
+                Đăng nhập
+            </b>
 
-            <small id="userBalance">0đ</small>
+            <small id="userBalance">
+                0đ
+            </small>
 
         </div>
 
@@ -977,17 +1019,26 @@ footer{
 
 </header>
 
+
 <div id="apiStatus" class="api-status">
     🔄 Đang kết nối...
 </div>
 
+
 <main class="container">
 
-    <!-- TRẠNG THÁI SHOP Ở ĐẦU TRANG -->
+    <!-- ================= SHOP STATUS ================= -->
 
-    <div id="shopStatusBox" class="shop-status">
+    <div
+        id="shopStatusBox"
+        class="shop-status not-ready">
+
         🔄 Đang tải trạng thái shop...
+
     </div>
+
+
+    <!-- ================= TOP ================= -->
 
     <section class="top">
 
@@ -1007,24 +1058,30 @@ footer{
                     GIÁ RẺ - TỰ ĐỘNG - AN TOÀN
                 </h2>
 
+
                 <div class="badges">
 
                     <div class="badge">
                         🛡️ <b>UY TÍN</b>
+
                         <small>
                             Đặt uy tín lên hàng đầu
                         </small>
                     </div>
 
+
                     <div class="badge">
                         ⚡ <b>TỰ ĐỘNG</b>
+
                         <small>
                             Giao acc nhanh chóng
                         </small>
                     </div>
 
+
                     <div class="badge">
                         🏅 <b>AN TOÀN</b>
+
                         <small>
                             Bảo hành đầy đủ
                         </small>
@@ -1032,23 +1089,28 @@ footer{
 
                 </div>
 
+
                 <div class="social">
+
                     ♪ @shopkarot
                     &nbsp;&nbsp;
                     ▶ ShopKarot
                     &nbsp;&nbsp;
                     f /shopkarot.vn
+
                 </div>
 
             </div>
 
         </div>
 
+
         <aside class="top-nap">
 
             <div class="top-nap-title">
                 🏆 TOP NẠP THÁNG 08/2026
             </div>
+
 
             <div id="topNapList">
 
@@ -1063,6 +1125,7 @@ footer{
 
             </div>
 
+
             <a
                 href="nap-tien.html"
                 class="nap-button">
@@ -1075,9 +1138,13 @@ footer{
 
     </section>
 
+
+    <!-- ================= CONTENT ================= -->
+
     <section class="content">
 
-        <!-- THÔNG TIN SHOP -->
+
+        <!-- ================= NOTICE ================= -->
 
         <aside class="card notice">
 
@@ -1086,6 +1153,7 @@ footer{
                 <h2>
                     📣 Thông tin Shopkarot
                 </h2>
+
 
                 <p>
                     Hiện tại ShopKarot chỉ có
@@ -1096,26 +1164,31 @@ footer{
                     có thể là shop giả mạo.
                 </p>
 
+
                 <p>
                     🛒 Shop mình có bán
                     <b>nick</b> và
                     <b>cày thuê Blox Fruits</b>.
                 </p>
 
+
                 <p>
                     🔥 <b>Giao acc nhanh</b>
                     sau khi hoàn tất đơn hàng.
                 </p>
+
 
                 <p>
                     🛡️ <b>Bảo hành</b>
                     theo chính sách của từng sản phẩm.
                 </p>
 
+
                 <p>
                     💬 Mọi thắc mắc vui lòng liên hệ
                     <b>Admin ShopKarot</b>.
                 </p>
+
 
                 <p>
                     ⭐ <b>
@@ -1124,21 +1197,25 @@ footer{
                     </b>
                 </p>
 
+
                 <p>
                     🕙 <b>Thời gian hoạt động:</b>
                     10h sáng – 8h tối
                 </p>
+
 
                 <p>
                     📅 <b>Ngày hoạt động:</b>
                     Thứ 2 đến Thứ 7
                 </p>
 
+
                 <p>
                     ⚠️ <b>Lưu ý quan trọng:</b>
                     Nên nạp tiền khi shop đang hiển thị
                     trạng thái <b>đang hoạt động</b>.
                 </p>
+
 
                 <p class="thank">
                     🖤 <b>
@@ -1150,6 +1227,9 @@ footer{
 
         </aside>
 
+
+        <!-- ================= FEATURED ================= -->
+
         <section class="card featured">
 
             <div class="title">
@@ -1160,6 +1240,9 @@ footer{
 
             </div>
 
+
+            <!-- RANDOM -->
+
             <a
                 href="random-acc-roblox.html"
                 class="random-acc">
@@ -1168,27 +1251,37 @@ footer{
                     🎲
                 </div>
 
+
                 <div class="random-acc-info">
 
                     <h3>
                         🎲 RANDOM ACC ROBLOX VN & QUỐC TẾ
                     </h3>
 
+
                     <p>
-                        🆓 <b>Acc Free - Tùy Nhân Phẩm</b>
+                        🆓
+                        <b>
+                            Acc Free - Tùy Nhân Phẩm
+                        </b>
                     </p>
+
 
                     <p>
                         🎮 Có thể có
-                        <b>nhiều game khác nhau</b>
+                        <b>
+                            nhiều game khác nhau
+                        </b>
                         tùy vào acc random nhận được.
                     </p>
+
 
                     <p>
                         🇻🇳 Roblox VN
                         &nbsp;|&nbsp;
                         🌎 Roblox Quốc Tế
                     </p>
+
 
                     <div class="random-tags">
 
@@ -1210,6 +1303,7 @@ footer{
 
                     </div>
 
+
                     <div class="random-button">
                         XEM RANDOM ACC NGAY →
                     </div>
@@ -1218,11 +1312,16 @@ footer{
 
             </a>
 
+
+            <!-- EVENT -->
+
             <div class="event-title">
                 🎉 EVENT
             </div>
 
+
             <div class="events">
+
 
                 <article class="event-card">
 
@@ -1230,19 +1329,23 @@ footer{
                         🎉
                     </div>
 
+
                     <div class="event-info">
 
                         <h3>
                             EVENT BLOX FRUITS
                         </h3>
 
+
                         <p>
                             🔥 Sự kiện Blox Fruits mới
                         </p>
 
+
                         <span class="event-status">
                             🟢 Đang diễn ra
                         </span>
+
 
                         <a
                             href="event-blox-fruit.html"
@@ -1256,11 +1359,13 @@ footer{
 
                 </article>
 
+
                 <article class="event-card">
 
                     <div class="event-image event-grow2">
                         🌱
                     </div>
+
 
                     <div class="event-info">
 
@@ -1268,13 +1373,16 @@ footer{
                             EVENT GROW A GARDEN 2
                         </h3>
 
+
                         <p>
                             🌿 Sự kiện Grow A Garden 2
                         </p>
 
+
                         <span class="event-status">
                             🟢 Đang diễn ra
                         </span>
+
 
                         <a
                             href="event-grow-a-garden-2.html"
@@ -1290,11 +1398,18 @@ footer{
 
             </div>
 
+
+            <!-- GAME -->
+
             <div class="game-title">
                 🎮 GAME
             </div>
 
+
             <div class="games">
+
+
+                <!-- BLOX -->
 
                 <article class="game">
 
@@ -1302,14 +1417,22 @@ footer{
                         BLOX<br>FRUITS
                     </div>
 
-                    <h3>Blox Fruits</h3>
+                    <h3>
+                        Blox Fruits
+                    </h3>
 
-                    <small>👥 Acc game</small>
+                    <small>
+                        👥 Acc game
+                    </small>
 
                     <br>
 
-                    <span class="status" id="status-blox">
+                    <span
+                        class="status"
+                        id="status-blox">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1322,20 +1445,31 @@ footer{
 
                 </article>
 
+
+                <!-- KING -->
+
                 <article class="game">
 
                     <div class="game-image king">
                         KING<br>LEGACY
                     </div>
 
-                    <h3>King Legacy</h3>
+                    <h3>
+                        King Legacy
+                    </h3>
 
-                    <small>👥 Acc game</small>
+                    <small>
+                        👥 Acc game
+                    </small>
 
                     <br>
 
-                    <span class="status" id="status-king">
+                    <span
+                        class="status"
+                        id="status-king">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1348,20 +1482,31 @@ footer{
 
                 </article>
 
+
+                <!-- ANIME -->
+
                 <article class="game">
 
                     <div class="game-image anime">
                         ANIME<br>FIGHTERS
                     </div>
 
-                    <h3>Anime Fighters</h3>
+                    <h3>
+                        Anime Fighters
+                    </h3>
 
-                    <small>👥 Acc game</small>
+                    <small>
+                        👥 Acc game
+                    </small>
 
                     <br>
 
-                    <span class="status" id="status-anime">
+                    <span
+                        class="status"
+                        id="status-anime">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1374,16 +1519,25 @@ footer{
 
                 </article>
 
+
+                <!-- GROW 2 -->
+
                 <article class="game">
 
                     <div class="game-image grow2">
                         GROW A<br>GARDEN 2
                     </div>
 
-                    <h3>Grow A Garden 2</h3>
+                    <h3>
+                        Grow A Garden 2
+                    </h3>
 
-                    <span class="status" id="status-grow2">
+                    <span
+                        class="status"
+                        id="status-grow2">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1396,16 +1550,25 @@ footer{
 
                 </article>
 
+
+                <!-- GROW -->
+
                 <article class="game">
 
                     <div class="game-image grow">
                         GROW A<br>GARDEN
                     </div>
 
-                    <h3>Grow A Garden</h3>
+                    <h3>
+                        Grow A Garden
+                    </h3>
 
-                    <span class="status" id="status-grow">
+                    <span
+                        class="status"
+                        id="status-grow">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1418,16 +1581,25 @@ footer{
 
                 </article>
 
+
+                <!-- CÀY THUÊ -->
+
                 <article class="game">
 
                     <div class="game-image caythue">
                         CÀY THUÊ<br>BLOX FRUITS
                     </div>
 
-                    <h3>Cày Thuê</h3>
+                    <h3>
+                        Cày Thuê
+                    </h3>
 
-                    <span class="status" id="status-caythue">
+                    <span
+                        class="status"
+                        id="status-caythue">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1440,20 +1612,31 @@ footer{
 
                 </article>
 
+
+                <!-- MM2 -->
+
                 <article class="game">
 
                     <div class="game-image mm2">
                         MURDER<br>MYSTERY 2
                     </div>
 
-                    <h3>Murder Mystery 2</h3>
+                    <h3>
+                        Murder Mystery 2
+                    </h3>
 
-                    <small>👥 Acc game</small>
+                    <small>
+                        👥 Acc game
+                    </small>
 
                     <br>
 
-                    <span class="status" id="status-mm2">
+                    <span
+                        class="status"
+                        id="status-mm2">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1466,24 +1649,35 @@ footer{
 
                 </article>
 
+
+                <!-- GREEDY -->
+
                 <article class="game">
 
                     <div class="game-image greedy">
+
                         🌱<br>
                         GREEDY<br>
                         GROWERS
+
                     </div>
 
                     <h3>
                         Greedy Growers 🌱
                     </h3>
 
-                    <small>👥 Acc game</small>
+                    <small>
+                        👥 Acc game
+                    </small>
 
                     <br>
 
-                    <span class="status" id="status-greedy">
+                    <span
+                        class="status"
+                        id="status-greedy">
+
                         Đang tải...
+
                     </span>
 
                     <a
@@ -1496,18 +1690,25 @@ footer{
 
                 </article>
 
+
+                <!-- GAMEPASS -->
+
                 <article class="game">
 
                     <div class="game-image gamepass">
+
                         🎟️<br>
                         GAMEPASS
+
                     </div>
 
                     <h3>
                         Gamepass Blox Fruits
                     </h3>
 
-                    <small>🎟️ Gamepass</small>
+                    <small>
+                        🎟️ Gamepass
+                    </small>
 
                     <br>
 
@@ -1525,18 +1726,25 @@ footer{
 
                 </article>
 
+
+                <!-- ROBUX -->
+
                 <article class="game">
 
                     <div class="game-image robux120">
+
                         💰<br>
                         ROBUX 120H
+
                     </div>
 
                     <h3>
                         Robux 120H
                     </h3>
 
-                    <small>💰 Robux</small>
+                    <small>
+                        💰 Robux
+                    </small>
 
                     <br>
 
@@ -1554,16 +1762,25 @@ footer{
 
                 </article>
 
+
+                <!-- FISH -->
+
                 <article class="game">
 
                     <div class="game-image fish">
+
                         🐟<br>
                         FISH
+
                     </div>
 
-                    <h3>Fish</h3>
+                    <h3>
+                        Fish
+                    </h3>
 
-                    <small>🐟 Dịch vụ Fish</small>
+                    <small>
+                        🐟 Dịch vụ Fish
+                    </small>
 
                     <br>
 
@@ -1581,19 +1798,26 @@ footer{
 
                 </article>
 
+
+                <!-- SPEED -->
+
                 <article class="game">
 
                     <div class="game-image speed-keyboard">
+
                         ⌨️<br>
                         SPEED<br>
                         KEYBOARD
+
                     </div>
 
                     <h3>
                         Speed Keyboard
                     </h3>
 
-                    <small>⌨️ Speed Keyboard</small>
+                    <small>
+                        ⌨️ Speed Keyboard
+                    </small>
 
                     <br>
 
@@ -1611,17 +1835,26 @@ footer{
 
                 </article>
 
+
+                <!-- 99 NIGHTS -->
+
                 <article class="game">
 
                     <div class="game-image nights99">
+
                         🌙<br>
                         99<br>
                         NIGHTS
+
                     </div>
 
-                    <h3>99 Nights</h3>
+                    <h3>
+                        99 Nights
+                    </h3>
 
-                    <small>🌙 Acc game</small>
+                    <small>
+                        🌙 Acc game
+                    </small>
 
                     <br>
 
@@ -1639,19 +1872,26 @@ footer{
 
                 </article>
 
+
+                <!-- TSUNAMI -->
+
                 <article class="game">
 
                     <div class="game-image tsunami">
+
                         🌊<br>
                         ESCAPE<br>
                         TSUNAMI
+
                     </div>
 
                     <h3>
                         Escape Tsunami Brainrot
                     </h3>
 
-                    <small>🌊 Acc game</small>
+                    <small>
+                        🌊 Acc game
+                    </small>
 
                     <br>
 
@@ -1669,12 +1909,17 @@ footer{
 
                 </article>
 
+
+                <!-- TREO ACC -->
+
                 <article class="game">
 
                     <div class="game-image roblox-treo">
+
                         🖥️<br>
                         TREO ACC<br>
                         ROBLOX
+
                     </div>
 
                     <h3>
@@ -1701,12 +1946,17 @@ footer{
 
                 </article>
 
+
+                <!-- CHUYỂN VÙNG -->
+
                 <article class="game">
 
                     <div class="game-image chuyen-vung">
+
                         🌎<br>
                         CHUYỂN VÙNG<br>
                         ROBLOX
+
                     </div>
 
                     <h3>
@@ -1738,6 +1988,9 @@ footer{
         </section>
 
     </section>
+
+
+    <!-- ================= STATS ================= -->
 
     <section class="card stats">
 
@@ -1775,15 +2028,25 @@ footer{
 
 </main>
 
+
 <footer>
     © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
 </footer>
 
+
 <script>
+
+/* =========================================================
+   SHOPKAROT - INDEX API
+   ========================================================= */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbySVM1DBFvb6zOYslSqETOdqund3AY0dLQpxhKZXYh27sl1qcYJ8QIPx5jaDVQ5w1zhwQ/exec";
 
+
+/* =========================================================
+   API STATUS
+   ========================================================= */
 
 function setAPIStatus(type,text){
 
@@ -1797,14 +2060,23 @@ function setAPIStatus(type,text){
 
     box.textContent =
         text;
+
 }
 
 
+/* =========================================================
+   MENU
+   ========================================================= */
+
 function toggleMenu(){
 
-    document
-        .getElementById("menuBox")
-        .classList.toggle("show");
+    const menu =
+        document.getElementById("menuBox");
+
+    if(menu){
+        menu.classList.toggle("show");
+    }
+
 }
 
 
@@ -1815,42 +2087,75 @@ document.addEventListener(
         const menu =
             document.querySelector(".menu");
 
+        if(!menu) return;
+
         if(!menu.contains(event.target)){
 
-            document
-                .getElementById("menuBox")
-                .classList.remove("show");
+            const box =
+                document.getElementById("menuBox");
+
+            if(box){
+                box.classList.remove("show");
+            }
+
         }
+
     }
 );
 
 
+/* =========================================================
+   USER
+   ========================================================= */
+
 function updateUser(){
 
     const login =
-        localStorage.getItem("shopkarot_login");
+        localStorage.getItem(
+            "shopkarot_login"
+        );
 
     const username =
-        localStorage.getItem("shopkarot_user");
+        localStorage.getItem(
+            "shopkarot_user"
+        );
 
     const balance =
         Number(
-            localStorage.getItem("shopkarot_balance") || 0
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
         );
 
+
     const usernameBox =
-        document.getElementById("username");
+        document.getElementById(
+            "username"
+        );
 
     const balanceBox =
-        document.getElementById("userBalance");
+        document.getElementById(
+            "userBalance"
+        );
 
-    if(login === "true" && username){
+
+    if(!usernameBox || !balanceBox){
+        return;
+    }
+
+
+    if(
+        login === "true" &&
+        username
+    ){
 
         usernameBox.textContent =
             username;
 
         balanceBox.textContent =
-            balance.toLocaleString("vi-VN") + "đ";
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
 
     }else{
 
@@ -1859,7 +2164,9 @@ function updateUser(){
 
         balanceBox.textContent =
             "0đ";
+
     }
+
 }
 
 
@@ -1870,7 +2177,9 @@ document
     function(){
 
         const login =
-            localStorage.getItem("shopkarot_login");
+            localStorage.getItem(
+                "shopkarot_login"
+            );
 
         if(login === "true"){
 
@@ -1881,10 +2190,16 @@ document
 
             window.location.href =
                 "login.html";
+
         }
+
     }
 );
 
+
+/* =========================================================
+   ESCAPE
+   ========================================================= */
 
 function escapeHTML(text){
 
@@ -1894,62 +2209,92 @@ function escapeHTML(text){
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
+
 }
 
+
+/* =========================================================
+   TOP NẠP
+   ========================================================= */
 
 function loadTopNap(){
 
     const box =
-        document.getElementById("topNapList");
+        document.getElementById(
+            "topNapList"
+        );
+
+    if(!box) return;
+
 
     let data = [];
+
 
     try{
 
         const saved =
-            localStorage.getItem("shopkarot_topnap");
+            localStorage.getItem(
+                "shopkarot_topnap"
+            );
 
         if(saved){
-            data = JSON.parse(saved);
+
+            data =
+                JSON.parse(saved);
+
         }
 
     }catch(error){
 
-        console.error("TOP NẠP:",error);
+        console.error(
+            "TOP NẠP:",
+            error
+        );
 
         data = [];
+
     }
+
 
     if(
         !Array.isArray(data) ||
         data.length === 0
     ){
 
-        box.innerHTML =
-        `
-        <div style="
-            padding:25px;
-            text-align:center;
-            color:#888">
+        box.innerHTML = `
+            <div style="
+                padding:25px;
+                text-align:center;
+                color:#888">
 
-            Chưa có dữ liệu
+                Chưa có dữ liệu
 
-        </div>
+            </div>
         `;
 
         return;
+
     }
+
 
     data.sort(
         function(a,b){
 
-            return Number(b.money || 0)
-                -
-                Number(a.money || 0);
+            return Number(
+                b.money || 0
+            )
+            -
+            Number(
+                a.money || 0
+            );
+
         }
     );
 
-    data = data.slice(0,5);
+
+    data =
+        data.slice(0,5);
+
 
     const medals = [
         "🥇",
@@ -1959,23 +2304,37 @@ function loadTopNap(){
         "5️⃣"
     ];
 
+
     box.innerHTML = "";
+
 
     data.forEach(
         function(item,index){
 
             const row =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
-            row.className = "rank";
+            row.className =
+                "rank";
+
 
             const name =
                 item.name ||
+                item.username ||
                 "Khách hàng";
 
+
             const money =
-                Number(item.money || 0)
-                .toLocaleString("vi-VN");
+                Number(
+                    item.money ||
+                    item.amount ||
+                    0
+                ).toLocaleString(
+                    "vi-VN"
+                );
+
 
             row.innerHTML = `
 
@@ -1993,38 +2352,73 @@ function loadTopNap(){
 
             `;
 
+
             box.appendChild(row);
+
         }
     );
+
 }
 
 
+/* =========================================================
+   GAME READY
+   ========================================================= */
+
 function isReady(value){
 
-    if(typeof value === "boolean"){
+    if(
+        typeof value === "boolean"
+    ){
+
         return value;
+
     }
+
+
+    if(
+        typeof value === "number"
+    ){
+
+        return value === 1;
+
+    }
+
 
     const text =
         String(value || "")
         .trim()
         .toLowerCase();
 
+
     return (
+
         text === "sẵn sàng" ||
         text === "san sang" ||
-        text === "sẵn sàng." ||
         text === "ready" ||
         text === "available" ||
         text === "true" ||
         text === "1" ||
         text === "on" ||
-        text === "open"
+        text === "open" ||
+        text === "active" ||
+        text.includes("sẵn sàng") ||
+        text.includes("san sang") ||
+        text.includes("ready")
+
     );
+
 }
 
 
-function setGameStatus(id,value){
+/* =========================================================
+   SET GAME STATUS
+   ========================================================= */
+
+function setGameStatus(
+    id,
+    value
+){
 
     const element =
         document.getElementById(id);
@@ -2033,43 +2427,92 @@ function setGameStatus(id,value){
         return;
     }
 
+
     const ready =
         isReady(value);
+
 
     element.classList.remove(
         "ready",
         "not-ready"
     );
 
+
     if(ready){
 
         element.textContent =
             "Sẵn Sàng";
 
-        element.classList.add("ready");
+        element.classList.add(
+            "ready"
+        );
 
     }else{
 
         element.textContent =
             "Chưa Sẵn Sàng";
 
-        element.classList.add("not-ready");
+        element.classList.add(
+            "not-ready"
+        );
+
     }
+
 }
 
+
+/* =========================================================
+   DEFAULT GAME STATUS
+   ========================================================= */
 
 function setDefaultStatuses(){
 
-    setGameStatus("status-blox",false);
-    setGameStatus("status-king",false);
-    setGameStatus("status-anime",false);
-    setGameStatus("status-grow2",false);
-    setGameStatus("status-grow",false);
-    setGameStatus("status-caythue",false);
-    setGameStatus("status-mm2",false);
-    setGameStatus("status-greedy",false);
+    setGameStatus(
+        "status-blox",
+        false
+    );
+
+    setGameStatus(
+        "status-king",
+        false
+    );
+
+    setGameStatus(
+        "status-anime",
+        false
+    );
+
+    setGameStatus(
+        "status-grow2",
+        false
+    );
+
+    setGameStatus(
+        "status-grow",
+        false
+    );
+
+    setGameStatus(
+        "status-caythue",
+        false
+    );
+
+    setGameStatus(
+        "status-mm2",
+        false
+    );
+
+    setGameStatus(
+        "status-greedy",
+        false
+    );
+
 }
 
+
+/* =========================================================
+   GET GAME VALUE
+   ========================================================= */
 
 function getGameValue(
     statuses,
@@ -2077,7 +2520,9 @@ function getGameValue(
     keys
 ){
 
-    for(const key of keys){
+    for(
+        const key of keys
+    ){
 
         if(
             statuses &&
@@ -2088,7 +2533,9 @@ function getGameValue(
         ){
 
             return statuses[key];
+
         }
+
 
         if(
             data &&
@@ -2099,70 +2546,293 @@ function getGameValue(
         ){
 
             return data[key];
+
         }
+
     }
 
+
     return false;
+
 }
 
 
-function showShopStatus(status){
+/* =========================================================
+   SHOP STATUS
+   ========================================================= */
+
+function showShopStatus(
+    status
+){
 
     const box =
-        document.getElementById("shopStatusBox");
+        document.getElementById(
+            "shopStatusBox"
+        );
 
     if(!box){
         return;
     }
 
+
+    if(
+        status &&
+        typeof status === "object"
+    ){
+
+        status =
+            status.status ||
+            status.shopStatus ||
+            status.value ||
+            status.name ||
+            "";
+
+    }
+
+
     const text =
-        String(status || "").trim();
+        String(
+            status || ""
+        ).trim();
+
 
     if(!text){
 
-        box.classList.remove(
-            "ready",
-            "not-ready"
-        );
+        box.className =
+            "shop-status not-ready";
 
         box.innerHTML =
-            "⚠️ Chưa nhận được trạng thái shop";
+            "🔴 Chưa có trạng thái shop";
 
         return;
+
     }
+
+
+    const lower =
+        text.toLowerCase();
+
 
     box.classList.remove(
         "ready",
         "not-ready"
     );
 
-    const lower =
-        text.toLowerCase();
+
+    /*
+     * SHOP ĐANG HOẠT ĐỘNG
+     */
 
     if(
-        lower.includes("hoạt động") ||
-        lower.includes("dang hoat dong") ||
-        lower.includes("đang hoạt động") ||
-        lower.includes("active") ||
-        lower.includes("open")
+
+        lower === "active" ||
+        lower === "open" ||
+        lower === "on" ||
+        lower === "true" ||
+        lower === "1" ||
+        lower.includes(
+            "đang hoạt động"
+        ) ||
+        lower.includes(
+            "dang hoat dong"
+        ) ||
+        lower.includes(
+            "hoạt động"
+        ) ||
+        lower.includes(
+            "hoat dong"
+        ) ||
+        lower.includes(
+            "mở cửa"
+        ) ||
+        lower.includes(
+            "mo cua"
+        )
+
     ){
 
-        box.classList.add("ready");
+        box.classList.add(
+            "ready"
+        );
 
         box.innerHTML =
             "🟢 " +
             escapeHTML(text);
 
-    }else{
+        return;
 
-        box.classList.add("not-ready");
-
-        box.innerHTML =
-            "🔴 " +
-            escapeHTML(text);
     }
+
+
+    /*
+     * SHOP KHÔNG HOẠT ĐỘNG
+     */
+
+    box.classList.add(
+        "not-ready"
+    );
+
+    box.innerHTML =
+        "🔴 " +
+        escapeHTML(text);
+
 }
 
+
+/* =========================================================
+   TÌM SHOP STATUS TRONG JSON API
+   ========================================================= */
+
+function findShopStatus(
+    data
+){
+
+    if(!data){
+        return null;
+    }
+
+
+    /* shopStatus */
+
+    if(
+        data.shopStatus !== undefined &&
+        data.shopStatus !== null
+    ){
+
+        return data.shopStatus;
+
+    }
+
+
+    /* shop_status */
+
+    if(
+        data.shop_status !== undefined &&
+        data.shop_status !== null
+    ){
+
+        return data.shop_status;
+
+    }
+
+
+    /* status */
+
+    if(
+        data.status !== undefined &&
+        data.status !== null
+    ){
+
+        return data.status;
+
+    }
+
+
+    /* shop */
+
+    if(
+        data.shop !== undefined &&
+        data.shop !== null
+    ){
+
+        if(
+            typeof data.shop ===
+            "object"
+        ){
+
+            return (
+                data.shop.status ||
+                data.shop.shopStatus ||
+                data.shop.value ||
+                data.shop.name ||
+                null
+            );
+
+        }
+
+        return data.shop;
+
+    }
+
+
+    /* data */
+
+    if(
+        data.data &&
+        typeof data.data ===
+        "object"
+    ){
+
+        if(
+            data.data.shopStatus !==
+            undefined
+        ){
+
+            return data.data.shopStatus;
+
+        }
+
+
+        if(
+            data.data.shop_status !==
+            undefined
+        ){
+
+            return data.data.shop_status;
+
+        }
+
+
+        if(
+            data.data.status !==
+            undefined
+        ){
+
+            return data.data.status;
+
+        }
+
+    }
+
+
+    /* result */
+
+    if(
+        data.result &&
+        typeof data.result ===
+        "object"
+    ){
+
+        if(
+            data.result.shopStatus !==
+            undefined
+        ){
+
+            return data.result.shopStatus;
+
+        }
+
+
+        if(
+            data.result.status !==
+            undefined
+        ){
+
+            return data.result.status;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   LOAD API
+   ========================================================= */
 
 async function loadGameStatuses(){
 
@@ -2171,12 +2841,14 @@ async function loadGameStatuses(){
         "🔄 Đang kết nối..."
     );
 
+
     try{
 
         const url =
             API_URL +
             "?action=getShopStatus&_=" +
             Date.now();
+
 
         const response =
             await fetch(
@@ -2187,41 +2859,63 @@ async function loadGameStatuses(){
                 }
             );
 
+
         if(!response.ok){
 
             throw new Error(
-                "HTTP " + response.status
+                "HTTP " +
+                response.status
             );
+
         }
+
 
         const data =
             await response.json();
+
 
         console.log(
             "SHOPKAROT API:",
             data
         );
 
-        if(!data || data.ok !== true){
+
+        if(
+            data &&
+            data.ok === false
+        ){
 
             throw new Error(
-                data && data.message
-                    ? data.message
-                    : "API trả về lỗi"
+                data.message ||
+                "API trả về lỗi"
             );
+
         }
+
 
         setAPIStatus(
             "ok",
             "🟢 Đã kết nối API"
         );
 
+
+        /* ================= GAME STATUS ================= */
+
         const statuses =
             data.games ||
             data.statuses ||
             data.gameStatuses ||
-            data.data ||
+            data.game_statuses ||
+            (
+                data.data &&
+                (
+                    data.data.games ||
+                    data.data.statuses ||
+                    data.data.gameStatuses
+                )
+            ) ||
             {};
+
 
         setGameStatus(
             "status-blox",
@@ -2231,10 +2925,12 @@ async function loadGameStatuses(){
                 [
                     "blox",
                     "bloxFruits",
+                    "blox_fruits",
                     "Blox Fruits"
                 ]
             )
         );
+
 
         setGameStatus(
             "status-king",
@@ -2244,10 +2940,12 @@ async function loadGameStatuses(){
                 [
                     "king",
                     "kingLegacy",
+                    "king_legacy",
                     "King Legacy"
                 ]
             )
         );
+
 
         setGameStatus(
             "status-anime",
@@ -2257,10 +2955,12 @@ async function loadGameStatuses(){
                 [
                     "anime",
                     "animeFighters",
+                    "anime_fighters",
                     "Anime Fighters"
                 ]
             )
         );
+
 
         setGameStatus(
             "status-grow2",
@@ -2270,10 +2970,12 @@ async function loadGameStatuses(){
                 [
                     "grow2",
                     "growAGarden2",
+                    "grow_a_garden_2",
                     "Grow A Garden 2"
                 ]
             )
         );
+
 
         setGameStatus(
             "status-grow",
@@ -2283,10 +2985,12 @@ async function loadGameStatuses(){
                 [
                     "grow",
                     "growAGarden",
+                    "grow_a_garden",
                     "Grow A Garden"
                 ]
             )
         );
+
 
         setGameStatus(
             "status-caythue",
@@ -2296,10 +3000,12 @@ async function loadGameStatuses(){
                 [
                     "caythue",
                     "cayThue",
+                    "cay_thue",
                     "Cày Thuê"
                 ]
             )
         );
+
 
         setGameStatus(
             "status-mm2",
@@ -2309,10 +3015,12 @@ async function loadGameStatuses(){
                 [
                     "mm2",
                     "murderMystery2",
+                    "murder_mystery_2",
                     "Murder Mystery 2"
                 ]
             )
         );
+
 
         setGameStatus(
             "status-greedy",
@@ -2323,43 +3031,44 @@ async function loadGameStatuses(){
                     "greedy",
                     "greedyGrowers",
                     "greedyGrower",
+                    "greedy_growers",
                     "Greedy Growers",
                     "Greedy Growers 🌱"
                 ]
             )
         );
 
-        /*
-         * LẤY TRẠNG THÁI SHOP TỪ APPS SCRIPT
-         */
 
-        if(data.shopStatus !== undefined){
+        /* ================= SHOP STATUS ================= */
 
-            showShopStatus(
-                data.shopStatus
-            );
+        const shopStatus =
+            findShopStatus(data);
 
-        }else if(
-            data.status !== undefined &&
-            typeof data.status === "string"
+
+        console.log(
+            "SHOP STATUS:",
+            shopStatus
+        );
+
+
+        if(
+            shopStatus !== null &&
+            shopStatus !== undefined &&
+            String(shopStatus).trim() !== ""
         ){
 
-            const statusText =
-                data.status.trim();
-
-            if(statusText){
-
-                showShopStatus(
-                    statusText
-                );
-            }
+            showShopStatus(
+                shopStatus
+            );
 
         }else{
 
             showShopStatus(
-                "⚠️ Chưa có trạng thái shop từ API"
+                "⚠️ API chưa trả về trạng thái shop"
             );
+
         }
+
 
     }catch(error){
 
@@ -2368,21 +3077,28 @@ async function loadGameStatuses(){
             error
         );
 
+
         setAPIStatus(
             "error",
             "🔴 Không kết nối được Apps Script"
         );
 
+
         showShopStatus(
             "⚠️ Không thể kết nối để lấy trạng thái shop"
         );
 
+
         setDefaultStatuses();
+
     }
+
 }
 
 
-/* ================= KHỞI ĐỘNG ================= */
+/* =========================================================
+   START
+   ========================================================= */
 
 updateUser();
 
@@ -2391,7 +3107,9 @@ loadTopNap();
 loadGameStatuses();
 
 
-/* ================= TỰ ĐỘNG CẬP NHẬT 30 GIÂY ================= */
+/* =========================================================
+   AUTO REFRESH 30 GIÂY
+   ========================================================= */
 
 setInterval(
     function(){
@@ -2403,7 +3121,9 @@ setInterval(
 );
 
 
-/* ================= CẬP NHẬT KHI LOCAL STORAGE ĐỔI ================= */
+/* =========================================================
+   LOCAL STORAGE
+   ========================================================= */
 
 window.addEventListener(
     "storage",
@@ -2415,21 +3135,30 @@ window.addEventListener(
         ){
 
             loadTopNap();
+
         }
 
+
         if(
-            event.key === "shopkarot_user" ||
-            event.key === "shopkarot_login" ||
-            event.key === "shopkarot_balance"
+            event.key ===
+            "shopkarot_user" ||
+            event.key ===
+            "shopkarot_login" ||
+            event.key ===
+            "shopkarot_balance"
         ){
 
             updateUser();
+
         }
+
     }
 );
 
 
-/* ================= KHI QUAY LẠI TAB ================= */
+/* =========================================================
+   QUAY LẠI TAB
+   ========================================================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -2445,7 +3174,9 @@ document.addEventListener(
             loadTopNap();
 
             loadGameStatuses();
+
         }
+
     }
 );
 
@@ -2453,4 +3184,3 @@ document.addEventListener(
 
 </body>
 </html>
-```
