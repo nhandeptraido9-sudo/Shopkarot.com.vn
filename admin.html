@@ -52,30 +52,11 @@ button,input,select{font:inherit}
   font-weight:bold;
 }
 
-.btn-primary{
-  background:#2563eb;
-  color:#fff;
-}
-
-.btn-success{
-  background:#16a34a;
-  color:#fff;
-}
-
-.btn-danger{
-  background:#dc2626;
-  color:#fff;
-}
-
-.btn-warning{
-  background:#f59e0b;
-  color:#fff;
-}
-
-.btn-gray{
-  background:#6b7280;
-  color:#fff;
-}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-success{background:#16a34a;color:#fff}
+.btn-danger{background:#dc2626;color:#fff}
+.btn-warning{background:#f59e0b;color:#fff}
+.btn-gray{background:#6b7280;color:#fff}
 
 .btn:hover{
   opacity:.88;
@@ -445,52 +426,27 @@ th{
 
   <div class="card">
     👥 Khách hàng
-    <div
-      id="dashCustomers"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashCustomers" class="number">0</div>
   </div>
 
   <div class="card">
     🎮 Kho acc
-    <div
-      id="dashAccounts"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashAccounts" class="number">0</div>
   </div>
 
   <div class="card">
     📦 Đơn hàng
-    <div
-      id="dashOrders"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashOrders" class="number">0</div>
   </div>
 
   <div class="card">
     💰 Tổng nạp
-    <div
-      id="dashTopup"
-      class="number"
-    >
-      0K
-    </div>
+    <div id="dashTopup" class="number">0K</div>
   </div>
 
   <div class="card">
     ⏳ Chờ duyệt
-    <div
-      id="dashPending"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashPending" class="number">0</div>
   </div>
 
 </div>
@@ -500,10 +456,7 @@ th{
      SHOP STATUS
 ===================================================== -->
 
-<div
-  class="card"
-  style="margin-bottom:20px"
->
+<div class="card" style="margin-bottom:20px">
 
   <h3>⚙️ Trạng thái Shop</h3>
 
@@ -598,10 +551,7 @@ th{
      KHO ACC
 ===================================================== -->
 
-<section
-  id="panel-accounts"
-  class="panel active"
->
+<section id="panel-accounts" class="panel active">
 
 <div class="card">
 
@@ -788,18 +738,12 @@ th{
 
   </div>
 
-  <div
-    id="accountMessage"
-    style="margin-top:15px"
-  ></div>
+  <div id="accountMessage" style="margin-top:15px"></div>
 
 </div>
 
 
-<div
-  class="card"
-  style="margin-top:20px"
->
+<div class="card" style="margin-top:20px">
 
   <h2>📦 Kho tài khoản</h2>
 
@@ -845,10 +789,7 @@ th{
      CUSTOMERS
 ===================================================== -->
 
-<section
-  id="panel-customers"
-  class="panel"
->
+<section id="panel-customers" class="panel">
 
 <div class="card">
 
@@ -891,10 +832,7 @@ th{
      TOPUPS
 ===================================================== -->
 
-<section
-  id="panel-topups"
-  class="panel"
->
+<section id="panel-topups" class="panel">
 
 <div class="card">
 
@@ -936,10 +874,7 @@ th{
      ORDERS
 ===================================================== -->
 
-<section
-  id="panel-orders"
-  class="panel"
->
+<section id="panel-orders" class="panel">
 
 <div class="card">
 
@@ -978,19 +913,20 @@ th{
      PRODUCT STATUS
 ===================================================== -->
 
-<section
-  id="panel-products"
-  class="panel"
->
+<section id="panel-products" class="panel">
 
 <div class="card">
 
   <h2>🛍️ Trạng thái sản phẩm</h2>
 
   <div class="notice">
-    Chọn trạng thái cho từng sản phẩm/thư mục.
-    Trạng thái được lưu trên Apps Script và có thể
-    đồng bộ cho trang Shop.
+
+    Danh sách dưới đây được tự động lấy từ
+    <b>folderData</b>.
+
+    Khi bạn thêm thư mục mới vào game,
+    sản phẩm sẽ tự động xuất hiện tại đây.
+
   </div>
 
   <div id="productsContainer"></div>
@@ -1008,10 +944,7 @@ th{
      MODAL
 ===================================================== -->
 
-<div
-  id="accountModal"
-  class="modal hidden"
->
+<div id="accountModal" class="modal hidden">
 
 <div class="modal-content">
 
@@ -1050,7 +983,10 @@ let accounts=[];
 let customers=[];
 let topups=[];
 let orders=[];
+
 let productStatuses={};
+
+let products=[];
 
 
 /* =====================================================
@@ -1099,10 +1035,11 @@ async function apiGet(action){
 
 async function adminLogin(){
 
-  const key=document
-    .getElementById("adminKey")
-    .value
-    .trim();
+  const key=
+    document
+      .getElementById("adminKey")
+      .value
+      .trim();
 
   if(!key){
 
@@ -1122,12 +1059,13 @@ async function adminLogin(){
 
   try{
 
-    const result=await apiPost(
-      "adminLogin",
-      {
-        key:key
-      }
-    );
+    const result=
+      await apiPost(
+        "adminLogin",
+        {
+          key:key
+        }
+      );
 
     if(!result.ok){
 
@@ -1174,8 +1112,10 @@ async function adminLogin(){
 
 function showLoginMessage(text,color){
 
-  const el=document
-    .getElementById("loginMessage");
+  const el=
+    document.getElementById(
+      "loginMessage"
+    );
 
   el.textContent=text;
   el.style.color=color;
@@ -1559,6 +1499,18 @@ const folderData={
 
     "Greedy Growers Acc"
 
+  ],
+
+  /*
+    DỊCH VỤ ROBLOX
+  */
+
+  "Dịch vụ Roblox":[
+
+    "Treo acc Roblox",
+
+    "Chuyển vùng acc Roblox"
+
   ]
 
 };
@@ -1605,7 +1557,9 @@ function gameChanged(){
 
     option.textContent=name;
 
-    folder.appendChild(option);
+    folder.appendChild(
+      option
+    );
 
   });
 
@@ -1653,6 +1607,34 @@ function updatePackages(){
     '<option value="">-- Chọn gói --</option>';
 
   if(!game||!folder)return;
+
+  /*
+    Dịch vụ không cần tài khoản,
+    nên chỉ tạo 1 gói mặc định.
+  */
+
+  if(
+    game==="Dịch vụ Roblox"
+  ){
+
+    const option=
+      document.createElement(
+        "option"
+      );
+
+    option.value=
+      "Dịch vụ";
+
+    option.textContent=
+      "Dịch vụ";
+
+    packageSelect.appendChild(
+      option
+    );
+
+    return;
+
+  }
 
   for(
     let i=1;
@@ -1992,9 +1974,7 @@ function renderAccounts(){
 
         <td>
 
-          <span
-            class="badge ${badgeClass}"
-          >
+          <span class="badge ${badgeClass}">
             ${escapeHtml(
               acc.status||""
             )}
@@ -2290,11 +2270,9 @@ function renderTopups(){
         </td>
 
         <td>
-
           <span class="badge ${status}">
             ${escapeHtml(item.status||"")}
           </span>
-
         </td>
 
         <td>
@@ -2343,9 +2321,7 @@ async function approveTopup(id){
     if(result.ok){
 
       await loadTopups();
-
       await loadCustomers();
-
       await loadDashboard();
 
     }
@@ -2392,7 +2368,6 @@ async function rejectTopup(id){
     if(result.ok){
 
       await loadTopups();
-
       await loadDashboard();
 
     }
@@ -2518,103 +2493,77 @@ function renderOrders(){
 
 
 /* =====================================================
-   PRODUCTS
-   CÁC SẢN PHẨM + THƯ MỤC MỚI
+   PRODUCT STATUS
+   TỰ ĐỘNG LẤY TỪ FOLDERDATA
 ===================================================== */
 
-const products=[
+function buildProductsFromFolders(){
 
-  /* ================= Blox Fruits ================= */
+  products=[];
 
-  [
-    "bloxFruit",
-    "🎮 Blox Fruits"
-  ],
+  Object.keys(folderData)
+    .forEach(game=>{
 
-  [
-    "cayThueBloxFruit",
-    "🛠️ Cày thuê Blox Fruits"
-  ],
+      const folders=
+        folderData[game]||[];
 
-  [
-    "tuiMuBloxFruit",
-    "🎁 Túi mù Blox Fruits"
-  ],
+      folders.forEach(folder=>{
 
-  [
-    "accBloxFruitItem",
-    "📦 Acc Blox Fruits tùy chọn Item"
-  ],
+        const key=
+          createProductKey(
+            game,
+            folder
+          );
 
-  [
-    "accBloxFruitRaceV4",
-    "🔥 Acc Blox Fruits Race V4"
-  ],
+        products.push({
 
-  [
-    "accBloxFruitXemHinh",
-    "🖼️ Acc Blox Fruits xem hình acc tùy chọn"
-  ],
+          key:key,
 
-  [
-    "robux120h",
-    "💎 Robux 120H"
-  ],
+          game:game,
 
-  [
-    "gamepassBloxFruit",
-    "🎟️ Gamepass Blox Fruits"
-  ],
+          folder:folder,
 
-  [
-    "fish",
-    "🐟 Fish"
-  ],
+          name:folder
+
+        });
+
+      });
+
+    });
+
+}
 
 
-  /* ================= Game khác ================= */
+/* =====================================================
+   PRODUCT KEY
+===================================================== */
 
-  [
-    "kingLegacy",
-    "👑 King Legacy"
-  ],
+function createProductKey(
+  game,
+  folder
+){
 
-  [
-    "animeFighters",
-    "⚔️ Anime Fighters"
-  ],
+  return (
+    String(game)+
+    "_"+
+    String(folder)
+  )
+  .normalize("NFD")
+  .replace(
+    /[\u0300-\u036f]/g,
+    ""
+  )
+  .replace(
+    /[^a-zA-Z0-9]+/g,
+    "_"
+  )
+  .replace(
+    /^_+|_+$/g,
+    ""
+  )
+  .toLowerCase();
 
-  [
-    "growAGarden2",
-    "🌱 Grow A Garden 2"
-  ],
-
-  [
-    "growAGarden",
-    "🌱 Grow A Garden"
-  ],
-
-  [
-    "murderMystery2",
-    "🔪 Murder Mystery 2"
-  ],
-
-  [
-    "tuiMu",
-    "🎁 Túi Mù"
-  ],
-
-  [
-    "event",
-    "🎉 Event"
-  ],
-
-  [
-    "greedyGrowers",
-    "🌱 Greedy Growers"
-  ]
-
-];
+}
 
 
 /* =====================================================
@@ -2623,6 +2572,8 @@ const products=[
 
 async function loadProducts(){
 
+  buildProductsFromFolders();
+
   try{
 
     const result=
@@ -2630,26 +2581,32 @@ async function loadProducts(){
         "getProductStatuses"
       );
 
-    if(result.ok){
+    if(
+      result &&
+      result.ok
+    ){
 
       productStatuses=
         result.statuses||{};
 
-      renderProducts();
-
     }else{
 
-      renderProducts();
+      productStatuses={};
 
     }
 
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Lỗi load trạng thái sản phẩm:",
+      err
+    );
 
-    renderProducts();
+    productStatuses={};
 
   }
+
+  renderProducts();
 
 }
 
@@ -2665,104 +2622,74 @@ function renderProducts(){
       "productsContainer"
     );
 
+  if(!container)return;
+
   container.innerHTML="";
 
+  if(
+    !products||
+    products.length===0
+  ){
 
-  /* ================= Blox Fruits ================= */
+    container.innerHTML=`
 
-  const title=
-    document.createElement("div");
+      <div class="notice">
+        ⚠️ Hiện chưa có thư mục sản phẩm.
+      </div>
 
-  title.className=
-    "product-group-title";
+    `;
 
-  title.textContent=
-    "🍎 Blox Fruits";
+    return;
 
-  container.appendChild(title);
+  }
 
 
-  products
-    .filter(item=>{
+  const groups={};
 
-      return [
 
-        "bloxFruit",
+  products.forEach(product=>{
 
-        "cayThueBloxFruit",
+    if(!groups[product.game]){
 
-        "tuiMuBloxFruit",
+      groups[product.game]=[];
 
-        "accBloxFruitItem",
+    }
 
-        "accBloxFruitRaceV4",
+    groups[
+      product.game
+    ].push(product);
 
-        "accBloxFruitXemHinh",
+  });
 
-        "robux120h",
 
-        "gamepassBloxFruit",
+  Object.keys(groups)
+    .forEach(game=>{
 
-        "fish"
+      const title=
+        document.createElement(
+          "div"
+        );
 
-      ].includes(item[0]);
+      title.className=
+        "product-group-title";
 
-    })
-    .forEach(item=>{
+      title.textContent=
+        "🎮 "+game;
 
-      createProductStatusCard(
-        container,
-        item
+      container.appendChild(
+        title
       );
 
-    });
 
+      groups[game].forEach(
+        product=>{
 
-  /* ================= Game khác ================= */
+          createProductStatusCard(
+            container,
+            product
+          );
 
-  const title2=
-    document.createElement("div");
-
-  title2.className=
-    "product-group-title";
-
-  title2.textContent=
-    "🎮 Sản phẩm khác";
-
-  container.appendChild(title2);
-
-
-  products
-    .filter(item=>{
-
-      return ![
-
-        "bloxFruit",
-
-        "cayThueBloxFruit",
-
-        "tuiMuBloxFruit",
-
-        "accBloxFruitItem",
-
-        "accBloxFruitRaceV4",
-
-        "accBloxFruitXemHinh",
-
-        "robux120h",
-
-        "gamepassBloxFruit",
-
-        "fish"
-
-      ].includes(item[0]);
-
-    })
-    .forEach(item=>{
-
-      createProductStatusCard(
-        container,
-        item
+        }
       );
 
     });
@@ -2776,19 +2703,22 @@ function renderProducts(){
 
 function createProductStatusCard(
   container,
-  item
+  product
 ){
 
-  const key=item[0];
-
-  const name=item[1];
+  const key=
+    product.key;
 
   const status=
     productStatuses[key]||
     "Sẵn Sàng";
 
+
   const div=
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   div.className=
     "card product-status-card "+
@@ -2803,9 +2733,22 @@ function createProductStatusCard(
 
     <div class="product-status-row">
 
-      <div class="product-status-name">
-        ${escapeHtml(name)}
+      <div>
+
+        <div class="product-status-name">
+          ${escapeHtml(
+            product.name
+          )}
+        </div>
+
+        <div class="small">
+          🎮 ${escapeHtml(
+            product.game
+          )}
+        </div>
+
       </div>
+
 
       <select
         id="status_${escapeHtml(key)}"
@@ -2815,19 +2758,28 @@ function createProductStatusCard(
 
         <option
           value="Sẵn Sàng"
-          ${status==="Sẵn Sàng"?"selected":""}
+          ${
+            status==="Sẵn Sàng"
+              ?"selected"
+              :""
+          }
         >
           🟢 Sẵn Sàng
         </option>
 
         <option
           value="Chưa Sẵn Sàng"
-          ${status==="Chưa Sẵn Sàng"?"selected":""}
+          ${
+            status==="Chưa Sẵn Sàng"
+              ?"selected"
+              :""
+          }
         >
           🔴 Chưa Sẵn Sàng
         </option>
 
       </select>
+
 
       <button
         class="btn btn-primary"
@@ -2846,10 +2798,12 @@ function createProductStatusCard(
 
 
 /* =====================================================
-   PRODUCT VISUAL
+   CHANGE PRODUCT VISUAL
 ===================================================== */
 
-function changeProductVisual(product){
+function changeProductVisual(
+  product
+){
 
   const select=
     document.getElementById(
@@ -2869,6 +2823,7 @@ function changeProductVisual(product){
     "ready",
     "not-ready"
   );
+
 
   if(
     select.value===
@@ -2908,6 +2863,7 @@ async function saveProductStatus(
   const status=
     select.value;
 
+
   try{
 
     const result=
@@ -2924,25 +2880,33 @@ async function saveProductStatus(
         }
       );
 
-    alert(
-      result.message||
-      (
-        result.ok
-          ?"✅ Đã lưu trạng thái."
-          :"❌ Không thể lưu."
-      )
-    );
 
-    if(result.ok){
+    if(!result.ok){
 
-      productStatuses[product]=
-        status;
-
-      changeProductVisual(
-        product
+      alert(
+        result.message||
+        "❌ Không thể lưu trạng thái."
       );
 
+      return;
+
     }
+
+
+    productStatuses[
+      product
+    ]=status;
+
+
+    changeProductVisual(
+      product
+    );
+
+
+    alert(
+      "✅ Đã lưu trạng thái sản phẩm."
+    );
+
 
   }catch(err){
 
