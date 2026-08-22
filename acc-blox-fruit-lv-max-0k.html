@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Acc Blox Fruits LV MAX - SHOPKAROT</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+    color:#111;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e21b23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* ================= USER ================= */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
+}
+
+/* ================= BREADCRUMB ================= */
+
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+    font-size:14px;
+    color:#687386;
+}
+
+.breadcrumb a{
+    color:#d01018;
+    font-weight:bold;
+}
+
+.breadcrumb span{
+    color:#999;
+}
+
+/* ================= TITLE ================= */
+
+.page-title{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #7c1010 0%,
+            #320606 38%,
+            #080808 78%
+        );
+
+    color:#fff;
+    border-radius:18px;
+    padding:35px 40px;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+    margin-bottom:18px;
+    position:relative;
+    overflow:hidden;
+}
+
+.page-title::after{
+    content:"🎁";
+    position:absolute;
+    right:55px;
+    top:15px;
+    font-size:105px;
+    opacity:.13;
+}
+
+.page-title h1{
+    margin:0;
+    font-size:38px;
+    font-weight:1000;
+}
+
+.page-title h1 span{
+    color:#ed1c24;
+}
+
+.page-title p{
+    margin:12px 0 0;
+    color:#ddd;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin-bottom:20px;
+    padding:20px 22px;
+    background:#fff8e8;
+    border:1px solid #f1d58b;
+    border-radius:14px;
+    color:#694d00;
+    line-height:1.7;
+}
+
+.notice-title{
+    display:block;
+    margin-bottom:8px;
+    font-size:18px;
+}
+
+.notice b{
+    color:#a80e12;
+}
+
+/* ================= UPDATE ================= */
+
+.update-box{
+    margin-bottom:20px;
+    padding:18px 20px;
+    background:#fff0f0;
+    border:1px solid #f2b8b8;
+    border-radius:14px;
+    color:#8b1010;
+    line-height:1.6;
+}
+
+.update-box-title{
+    display:block;
+    font-size:18px;
+    font-weight:900;
+    margin-bottom:7px;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 15px;
+    padding:13px 16px;
+    background:#fff;
+    border-radius:12px;
+    border:1px solid #e4e7eb;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.category-title h2{
+    margin:0;
+    font-size:21px;
+}
+
+/* ================= GRID ================= */
+
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+/* ================= PACKAGE ================= */
+
+.package{
+    background:#fff;
+    border:1px solid #e2e5e9;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,.07);
+    transition:.25s;
+    position:relative;
+}
+
+.package:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
+    border-color:#d01018;
+}
+
+.package-top{
+    height:125px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.package-top::before{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    left:-65px;
+    top:-80px;
+}
+
+.package-top::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-45px;
+    bottom:-70px;
+}
+
+.package-icon{
+    font-size:62px;
+    position:relative;
+    z-index:2;
+    filter:drop-shadow(0 4px 6px rgba(0,0,0,.2));
+}
+
+/* ================= COLORS ================= */
+
+.package-1{
+    background:linear-gradient(135deg,#111827,#4c1d95);
+}
+
+.package-2{
+    background:linear-gradient(135deg,#172554,#1d4ed8);
+}
+
+.package-3{
+    background:linear-gradient(135deg,#064e3b,#059669);
+}
+
+.package-4{
+    background:linear-gradient(135deg,#7f1d1d,#dc2626);
+}
+
+.package-5{
+    background:linear-gradient(135deg,#581c87,#9333ea);
+}
+
+.package-6{
+    background:linear-gradient(135deg,#164e63,#0891b2);
+}
+
+.package-7{
+    background:linear-gradient(135deg,#713f12,#ca8a04);
+}
+
+.package-8{
+    background:linear-gradient(135deg,#3f3f46,#71717a);
+}
+
+.package-9{
+    background:linear-gradient(135deg,#831843,#db2777);
+}
+
+.package-10{
+    background:linear-gradient(135deg,#312e81,#6366f1);
+}
+
+.package-11{
+    background:linear-gradient(135deg,#14532d,#16a34a);
+}
+
+.package-12{
+    background:linear-gradient(135deg,#7c2d12,#ea580c);
+}
+
+.package-13{
+    background:linear-gradient(135deg,#701a75,#c026d3);
+}
+
+.package-14{
+    background:linear-gradient(135deg,#0c4a6e,#0284c7);
+}
+
+.package-15{
+    background:linear-gradient(135deg,#365314,#65a30d);
+}
+
+.package-16{
+    background:linear-gradient(135deg,#450a0a,#b91c1c);
+}
+
+.package-17{
+    background:linear-gradient(135deg,#1e1b4b,#4338ca);
+}
+
+.package-18{
+    background:linear-gradient(135deg,#134e4a,#0f766e);
+}
+
+.package-19{
+    background:linear-gradient(135deg,#4a044e,#a21caf);
+}
+
+.package-20{
+    background:linear-gradient(135deg,#422006,#d97706);
+}
+
+/* ================= PACKAGE BODY ================= */
+
+.package-body{
+    padding:18px;
+}
+
+.package-body h3{
+    margin:0 0 9px;
+    font-size:18px;
+    color:#172033;
+}
+
+.package-description{
+    min-height:58px;
+    margin:0 0 14px;
+    color:#687386;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.price{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+    padding:10px 12px;
+    background:#f7f8fa;
+    border-radius:10px;
+}
+
+.price span{
+    color:#687386;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.price strong{
+    color:#d01018;
+    font-size:19px;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+    display:block;
+    width:100%;
+    padding:9px 10px;
+    margin-bottom:12px;
+    text-align:center;
+    border-radius:9px;
+    background:#fff0f0;
+    border:1px solid #f1c0c0;
+    color:#c1121f;
+    font-size:11px;
+    font-weight:900;
+}
+
+.buy-button{
+    display:block;
+    width:100%;
+    padding:12px;
+    border:0;
+    border-radius:10px;
+    background:#8b8f98;
+    color:#fff;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+    cursor:not-allowed;
+    opacity:.8;
+}
+
+/* ================= BACK ================= */
+
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#fff;
+    border:1px solid #ddd;
+    color:#172033;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.back-button:hover{
+    color:#d01018;
+    border-color:#d01018;
+}
+
+/* ================= API ================= */
+
+.api-status{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    padding:9px 13px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.api-status.ok{
+    color:#078542;
+    border-color:#bde7cd;
+}
+
+.api-status.error{
+    color:#d01018;
+    border-color:#f1bebe;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px){
+
+    .package-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:900px){
+
+    .package-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        margin-left:auto;
+        padding:6px 8px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .page-title{
+        padding:28px 22px;
+    }
+
+    .page-title h1{
+        font-size:29px;
+    }
+
+    .page-title::after{
+        right:15px;
+        font-size:70px;
+    }
+
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .user-info{
+        display:none;
+    }
+
+    .package-top{
+        height:115px;
+    }
+
+    .package-icon{
+        font-size:58px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+
+            ☰
+
+        </button>
+
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu-blox-fruit.html">
+                🎁 TÚI MÙ BLOX FRUITS
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= API STATUS ================= -->
+
+<div
+    id="apiStatus"
+    class="api-status">
+
+    🔄 Đang kết nối...
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- ================= BREADCRUMB ================= -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            🏠 Trang chủ
+        </a>
+
+        <span>›</span>
+
+        <a href="acc-blox-fruit.html">
+            🍎 Blox Fruits
+        </a>
+
+        <span>›</span>
+
+        <a href="tui-mu-blox-fruit.html">
+            🎁 Túi Mù
+        </a>
+
+        <span>›</span>
+
+        <b>
+            Acc LV MAX 0K
+        </b>
+
+    </div>
+
+
+    <!-- ================= TITLE ================= -->
+
+    <section class="page-title">
+
+        <h1>
+            🎁 ACC BLOX FRUIT <span>LV MAX</span>
+        </h1>
+
+        <p>
+            Acc Blox Fruits LV MAX - Melee/Godhuman ngẫu nhiên,
+            item ngẫu nhiên và là acc Roblox quốc tế.
+        </p>
+
+    </section>
+
+
+    <!-- ================= NOTICE ================= -->
+
+    <div class="notice">
+
+        <span class="notice-title">
+            🎁 <b>THÔNG TIN ACC BLOX FRUIT LV MAX</b>
+        </span>
+
+        🎲 Đây là loại <b>Acc Blox Fruits LV MAX</b>
+        được random ngẫu nhiên.
+
+        <br>
+
+        🥋 Acc có thể có các Fighting Style / Melee
+        tùy theo từng tài khoản.
+
+        <br>
+
+        🍀 <b>Ngẫu nhiên hên xui.</b>
+        Có thể có cơ hội gặp tài khoản sở hữu
+        <b>Godhuman</b> hoặc các item khác tùy kho acc.
+
+        <br>
+
+        🎁 <b>Item trong tài khoản là ngẫu nhiên.</b>
+
+        <br>
+
+        🌎 Đây là <b>acc Roblox quốc tế</b>.
+
+    </div>
+
+
+    <!-- ================= UPDATE ================= -->
+
+    <div class="update-box">
+
+        <span class="update-box-title">
+            🔴 LOẠI ACC NÀY ĐANG CẬP NHẬT
+        </span>
+
+        Hiện tại các gói Acc Blox Fruits LV MAX
+        đang trong quá trình cập nhật kho.
+
+        <br>
+
+        ⚠️ <b>CHƯA MỞ HÀNG.</b>
+
+        <br>
+
+        Khi ShopKarot cập nhật xong,
+        các gói sẽ được mở bán.
+
+    </div>
+
+
+    <!-- ================= CATEGORY ================= -->
+
+    <div class="category-title">
+
+        <h2>
+            🎁 20 GÓI TÚI MÙ ACC BLOX FRUITS LV MAX
+        </h2>
+
+    </div>
+
+
+    <!-- ================= 20 PACKAGES ================= -->
+
+    <section class="package-grid">
+
+
+        <!-- 01 -->
+
+        <article class="package">
+
+            <div class="package-top package-1">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #01</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="package">
+
+            <div class="package-top package-2">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #02</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="package">
+
+            <div class="package-top package-3">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #03</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 -->
+
+        <article class="package">
+
+            <div class="package-top package-4">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #04</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 -->
+
+        <article class="package">
+
+            <div class="package-top package-5">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #05</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 -->
+
+        <article class="package">
+
+            <div class="package-top package-6">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #06</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 07 -->
+
+        <article class="package">
+
+            <div class="package-top package-7">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #07</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 08 -->
+
+        <article class="package">
+
+            <div class="package-top package-8">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #08</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 09 -->
+
+        <article class="package">
+
+            <div class="package-top package-9">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #09</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 10 -->
+
+        <article class="package">
+
+            <div class="package-top package-10">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #10</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 11 -->
+
+        <article class="package">
+
+            <div class="package-top package-11">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #11</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 12 -->
+
+        <article class="package">
+
+            <div class="package-top package-12">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #12</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 13 -->
+
+        <article class="package">
+
+            <div class="package-top package-13">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #13</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 14 -->
+
+        <article class="package">
+
+            <div class="package-top package-14">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #14</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 15 -->
+
+        <article class="package">
+
+            <div class="package-top package-15">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #15</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 16 -->
+
+        <article class="package">
+
+            <div class="package-top package-16">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #16</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 17 -->
+
+        <article class="package">
+
+            <div class="package-top package-17">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #17</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 18 -->
+
+        <article class="package">
+
+            <div class="package-top package-18">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #18</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 19 -->
+
+        <article class="package">
+
+            <div class="package-top package-19">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #19</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 20 -->
+
+        <article class="package">
+
+            <div class="package-top package-20">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>Túi Mù LV MAX #20</h3>
+
+                <p class="package-description">
+                    🎲 Acc LV MAX random ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="status">
+                    🔴 ĐANG CẬP NHẬT - CHƯA MỞ HÀNG
+                </div>
+
+                <div class="buy-button">
+                    CHƯA MỞ BÁN
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================= BACK ================= -->
+
+    <a
+        href="tui-mu-blox-fruit.html"
+        class="back-button">
+
+        ← Quay lại Túi Mù Blox Fruits
+
+    </a>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+
+</footer>
+
+
+<script>
+
+/* ================= API ================= */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzIlHsKj50m8z9yfhc_BmOvC6dPCG_TPpT4W8CDG2EdS_0dbCRMNJQzzcfAeOPHk5wW9g/exec";
+
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(
+            menu &&
+            !menu.contains(event.target)
+        ){
+
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* ================= USER ================= */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true" &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* ================= USER CLICK ================= */
+
+document
+    .getElementById("userBox")
+    .addEventListener(
+        "click",
+        function(){
+
+            const login =
+                localStorage.getItem(
+                    "shopkarot_login"
+                );
+
+            if(login === "true"){
+
+                window.location.href =
+                    "ho-so.html";
+
+            }
+
+            else{
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+    );
+
+
+/* ================= API STATUS ================= */
+
+function setAPIStatus(type,text){
+
+    const box =
+        document.getElementById(
+            "apiStatus"
+        );
+
+    if(!box) return;
+
+    box.className =
+        "api-status " + type;
+
+    box.textContent =
+        text;
+
+}
+
+
+/* ================= CHECK API ================= */
+
+async function checkAPI(){
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=getShopStatus&_=" +
+                Date.now(),
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            data &&
+            data.ok === true
+        ){
+
+            setAPIStatus(
+                "ok",
+                "🟢 Đã kết nối API"
+            );
+
+        }
+
+        else{
+
+            setAPIStatus(
+                "error",
+                "🔴 API không phản hồi"
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            "API ERROR:",
+            error
+        );
+
+        setAPIStatus(
+            "error",
+            "🔴 Không kết nối được API"
+        );
+
+    }
+
+}
+
+
+/* ================= START ================= */
+
+updateUser();
+
+checkAPI();
+
+
+/* ================= STORAGE ================= */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key ===
+            "shopkarot_login" ||
+
+            event.key ===
+            "shopkarot_user" ||
+
+            event.key ===
+            "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+
+/* ================= PAGE FOCUS ================= */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            updateUser();
+
+            checkAPI();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
