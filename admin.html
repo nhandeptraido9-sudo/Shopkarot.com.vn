@@ -303,48 +303,6 @@ th{
   margin-bottom:15px;
 }
 
-.product-status-card{
-  margin-bottom:12px;
-}
-
-.product-status-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.product-status-name{
-  font-size:17px;
-  font-weight:bold;
-  min-width:280px;
-}
-
-.product-status-select{
-  width:auto;
-  min-width:180px;
-  margin:0;
-}
-
-.product-group-title{
-  background:#111827;
-  color:white;
-  padding:14px 18px;
-  border-radius:12px;
-  margin:20px 0 12px;
-  font-size:18px;
-  font-weight:bold;
-}
-
-.product-status-card.ready{
-  border-left:5px solid #22c55e;
-}
-
-.product-status-card.not-ready{
-  border-left:5px solid #ef4444;
-}
-
 @media(max-width:700px){
 
   .form-grid{
@@ -353,16 +311,6 @@ th{
 
   .full{
     grid-column:auto;
-  }
-
-  .product-status-row{
-    align-items:stretch;
-  }
-
-  .product-status-name,
-  .product-status-select{
-    width:100%;
-    min-width:0;
   }
 }
 </style>
@@ -420,8 +368,7 @@ th{
       class="small"
       style="color:#d1d5db"
     >
-      Quản lý kho acc, khách hàng, đơn hàng,
-      nạp tiền và trạng thái sản phẩm
+      Quản lý kho acc, khách hàng, đơn hàng và nạp tiền
     </div>
   </div>
 
@@ -582,13 +529,6 @@ th{
     onclick="showTab('orders',this)"
   >
     📦 Đơn hàng
-  </button>
-
-  <button
-    class="tab"
-    onclick="showTab('products',this)"
-  >
-    🛍️ Trạng thái sản phẩm
   </button>
 
 </div>
@@ -973,32 +913,6 @@ th{
 
 </section>
 
-
-<!-- =====================================================
-     PRODUCT STATUS
-===================================================== -->
-
-<section
-  id="panel-products"
-  class="panel"
->
-
-<div class="card">
-
-  <h2>🛍️ Trạng thái sản phẩm</h2>
-
-  <div class="notice">
-    Chọn trạng thái cho từng sản phẩm/thư mục.
-    Trạng thái được lưu trên Apps Script và có thể
-    đồng bộ cho trang Shop.
-  </div>
-
-  <div id="productsContainer"></div>
-
-</div>
-
-</section>
-
 </div>
 
 </div>
@@ -1050,7 +964,6 @@ let accounts=[];
 let customers=[];
 let topups=[];
 let orders=[];
-let productStatuses={};
 
 
 /* =====================================================
@@ -1062,8 +975,7 @@ async function apiPost(action,data={}){
   const response=await fetch(API_URL,{
     method:"POST",
     headers:{
-      "Content-Type":
-      "text/plain;charset=utf-8"
+      "Content-Type":"text/plain;charset=utf-8"
     },
     body:JSON.stringify({
       action,
@@ -1275,9 +1187,7 @@ async function loadAll(){
 
     loadTopups(),
 
-    loadOrders(),
-
-    loadProducts()
+    loadOrders()
 
   ]);
 
@@ -1368,16 +1278,14 @@ async function loadShopStatus(){
       );
 
     if(
-      status===
-      "Shop đang hoạt động"
+      status==="Shop đang hoạt động"
     ){
 
       dot.style.background=
         "#22c55e";
 
     }else if(
-      status===
-      "Shop đang bảo trì"
+      status==="Shop đang bảo trì"
     ){
 
       dot.style.background=
@@ -1467,7 +1375,9 @@ const folderData={
 
     "Gamepass Blox Fruits",
 
-    "Fish"
+    "Fish",
+
+    "Event Blox Fruits"
 
   ],
 
@@ -1544,8 +1454,6 @@ const folderData={
   "Event":[
 
     "Event",
-
-    "Event Túi Mù",
 
     "Event Random"
 
@@ -2513,446 +2421,6 @@ function renderOrders(){
       body.appendChild(tr);
 
     });
-
-}
-
-
-/* =====================================================
-   PRODUCTS
-   CÁC SẢN PHẨM + THƯ MỤC MỚI
-===================================================== */
-
-const products=[
-
-  /* ================= Blox Fruits ================= */
-
-  [
-    "bloxFruit",
-    "🎮 Blox Fruits"
-  ],
-
-  [
-    "cayThueBloxFruit",
-    "🛠️ Cày thuê Blox Fruits"
-  ],
-
-  [
-    "tuiMuBloxFruit",
-    "🎁 Túi mù Blox Fruits"
-  ],
-
-  [
-    "accBloxFruitItem",
-    "📦 Acc Blox Fruits tùy chọn Item"
-  ],
-
-  [
-    "accBloxFruitRaceV4",
-    "🔥 Acc Blox Fruits Race V4"
-  ],
-
-  [
-    "accBloxFruitXemHinh",
-    "🖼️ Acc Blox Fruits xem hình acc tùy chọn"
-  ],
-
-  [
-    "robux120h",
-    "💎 Robux 120H"
-  ],
-
-  [
-    "gamepassBloxFruit",
-    "🎟️ Gamepass Blox Fruits"
-  ],
-
-  [
-    "fish",
-    "🐟 Fish"
-  ],
-
-
-  /* ================= Game khác ================= */
-
-  [
-    "kingLegacy",
-    "👑 King Legacy"
-  ],
-
-  [
-    "animeFighters",
-    "⚔️ Anime Fighters"
-  ],
-
-  [
-    "growAGarden2",
-    "🌱 Grow A Garden 2"
-  ],
-
-  [
-    "growAGarden",
-    "🌱 Grow A Garden"
-  ],
-
-  [
-    "murderMystery2",
-    "🔪 Murder Mystery 2"
-  ],
-
-  [
-    "tuiMu",
-    "🎁 Túi Mù"
-  ],
-
-  [
-    "event",
-    "🎉 Event"
-  ],
-
-  [
-    "greedyGrowers",
-    "🌱 Greedy Growers"
-  ]
-
-];
-
-
-/* =====================================================
-   LOAD PRODUCT STATUS
-===================================================== */
-
-async function loadProducts(){
-
-  try{
-
-    const result=
-      await apiGet(
-        "getProductStatuses"
-      );
-
-    if(result.ok){
-
-      productStatuses=
-        result.statuses||{};
-
-      renderProducts();
-
-    }else{
-
-      renderProducts();
-
-    }
-
-  }catch(err){
-
-    console.error(err);
-
-    renderProducts();
-
-  }
-
-}
-
-
-/* =====================================================
-   RENDER PRODUCTS
-===================================================== */
-
-function renderProducts(){
-
-  const container=
-    document.getElementById(
-      "productsContainer"
-    );
-
-  container.innerHTML="";
-
-
-  /* ================= Blox Fruits ================= */
-
-  const title=
-    document.createElement("div");
-
-  title.className=
-    "product-group-title";
-
-  title.textContent=
-    "🍎 Blox Fruits";
-
-  container.appendChild(title);
-
-
-  products
-    .filter(item=>{
-
-      return [
-
-        "bloxFruit",
-
-        "cayThueBloxFruit",
-
-        "tuiMuBloxFruit",
-
-        "accBloxFruitItem",
-
-        "accBloxFruitRaceV4",
-
-        "accBloxFruitXemHinh",
-
-        "robux120h",
-
-        "gamepassBloxFruit",
-
-        "fish"
-
-      ].includes(item[0]);
-
-    })
-    .forEach(item=>{
-
-      createProductStatusCard(
-        container,
-        item
-      );
-
-    });
-
-
-  /* ================= Game khác ================= */
-
-  const title2=
-    document.createElement("div");
-
-  title2.className=
-    "product-group-title";
-
-  title2.textContent=
-    "🎮 Sản phẩm khác";
-
-  container.appendChild(title2);
-
-
-  products
-    .filter(item=>{
-
-      return ![
-
-        "bloxFruit",
-
-        "cayThueBloxFruit",
-
-        "tuiMuBloxFruit",
-
-        "accBloxFruitItem",
-
-        "accBloxFruitRaceV4",
-
-        "accBloxFruitXemHinh",
-
-        "robux120h",
-
-        "gamepassBloxFruit",
-
-        "fish"
-
-      ].includes(item[0]);
-
-    })
-    .forEach(item=>{
-
-      createProductStatusCard(
-        container,
-        item
-      );
-
-    });
-
-}
-
-
-/* =====================================================
-   CREATE PRODUCT CARD
-===================================================== */
-
-function createProductStatusCard(
-  container,
-  item
-){
-
-  const key=item[0];
-
-  const name=item[1];
-
-  const status=
-    productStatuses[key]||
-    "Sẵn Sàng";
-
-  const div=
-    document.createElement("div");
-
-  div.className=
-    "card product-status-card "+
-    (
-      status==="Sẵn Sàng"
-        ?"ready"
-        :"not-ready"
-    );
-
-
-  div.innerHTML=`
-
-    <div class="product-status-row">
-
-      <div class="product-status-name">
-        ${escapeHtml(name)}
-      </div>
-
-      <select
-        id="status_${escapeHtml(key)}"
-        class="input product-status-select"
-        onchange="changeProductVisual('${escapeJs(key)}')"
-      >
-
-        <option
-          value="Sẵn Sàng"
-          ${status==="Sẵn Sàng"?"selected":""}
-        >
-          🟢 Sẵn Sàng
-        </option>
-
-        <option
-          value="Chưa Sẵn Sàng"
-          ${status==="Chưa Sẵn Sàng"?"selected":""}
-        >
-          🔴 Chưa Sẵn Sàng
-        </option>
-
-      </select>
-
-      <button
-        class="btn btn-primary"
-        onclick="saveProductStatus('${escapeJs(key)}')"
-      >
-        💾 Lưu
-      </button>
-
-    </div>
-
-  `;
-
-  container.appendChild(div);
-
-}
-
-
-/* =====================================================
-   PRODUCT VISUAL
-===================================================== */
-
-function changeProductVisual(product){
-
-  const select=
-    document.getElementById(
-      "status_"+product
-    );
-
-  if(!select)return;
-
-  const card=
-    select.closest(
-      ".product-status-card"
-    );
-
-  if(!card)return;
-
-  card.classList.remove(
-    "ready",
-    "not-ready"
-  );
-
-  if(
-    select.value===
-    "Sẵn Sàng"
-  ){
-
-    card.classList.add(
-      "ready"
-    );
-
-  }else{
-
-    card.classList.add(
-      "not-ready"
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   SAVE PRODUCT STATUS
-===================================================== */
-
-async function saveProductStatus(
-  product
-){
-
-  const select=
-    document.getElementById(
-      "status_"+product
-    );
-
-  if(!select)return;
-
-  const status=
-    select.value;
-
-  try{
-
-    const result=
-      await apiPost(
-        "setProductStatus",
-        {
-
-          key:ADMIN_KEY,
-
-          product:product,
-
-          status:status
-
-        }
-      );
-
-    alert(
-      result.message||
-      (
-        result.ok
-          ?"✅ Đã lưu trạng thái."
-          :"❌ Không thể lưu."
-      )
-    );
-
-    if(result.ok){
-
-      productStatuses[product]=
-        status;
-
-      changeProductVisual(
-        product
-      );
-
-    }
-
-  }catch(err){
-
-    console.error(err);
-
-    alert(
-      "❌ Lỗi kết nối API."
-    );
-
-  }
 
 }
 
