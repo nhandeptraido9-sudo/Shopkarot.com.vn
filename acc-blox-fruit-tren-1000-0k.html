@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Acc Blox Fruits LV Trên 1000 0K - SHOPKAROT</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:82px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    gap:18px;
+    border-bottom:1px solid #eee;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:275px;
+    color:#111;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111,#e21b23);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-text b{
+    display:block;
+    font-size:29px;
+    font-style:italic;
+}
+
+.logo-text b span{
+    color:#e21b23;
+}
+
+.logo-text small{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    position:relative;
+}
+
+.menu-button{
+    width:48px;
+    height:48px;
+    border:0;
+    background:#fff;
+    border-radius:10px;
+    font-size:29px;
+    cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
+}
+
+.menu-box{
+    display:none;
+    position:absolute;
+    top:57px;
+    left:0;
+    width:250px;
+    padding:8px;
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #eee;
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+
+.menu-box.show{
+    display:block;
+}
+
+.menu-box a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    color:#172033;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.menu-box a:hover{
+    background:#f3f4f6;
+    color:#e21b23;
+}
+
+/* ================= USER ================= */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid #e4e7eb;
+    border-radius:15px;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+    margin-left:auto;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
+}
+
+.user-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#f1f1f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.user-info b{
+    display:block;
+    font-size:14px;
+}
+
+.user-info small{
+    display:block;
+    color:#168b42;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:96%;
+    max-width:1500px;
+    margin:25px auto;
+}
+
+/* ================= BREADCRUMB ================= */
+
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+    font-size:14px;
+    color:#687386;
+}
+
+.breadcrumb a{
+    color:#d01018;
+    font-weight:bold;
+}
+
+.breadcrumb span{
+    color:#999;
+}
+
+/* ================= TITLE ================= */
+
+.page-title{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #7c1010 0%,
+            #320606 38%,
+            #080808 78%
+        );
+
+    color:#fff;
+    border-radius:18px;
+    padding:35px 40px;
+    box-shadow:0 5px 22px rgba(0,0,0,.15);
+    margin-bottom:18px;
+    position:relative;
+    overflow:hidden;
+}
+
+.page-title::after{
+    content:"🎁";
+    position:absolute;
+    right:55px;
+    top:15px;
+    font-size:105px;
+    opacity:.13;
+}
+
+.page-title h1{
+    margin:0;
+    font-size:38px;
+    font-weight:1000;
+}
+
+.page-title h1 span{
+    color:#ed1c24;
+}
+
+.page-title p{
+    margin:12px 0 0;
+    color:#ddd;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin-bottom:20px;
+    padding:20px 22px;
+    background:#fff8e8;
+    border:1px solid #f1d58b;
+    border-radius:14px;
+    color:#694d00;
+    line-height:1.7;
+}
+
+.notice-title{
+    display:block;
+    margin-bottom:8px;
+    font-size:18px;
+    color:#a80e12;
+}
+
+.notice b{
+    color:#a80e12;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 15px;
+    padding:13px 16px;
+    background:#fff;
+    border-radius:12px;
+    border:1px solid #e4e7eb;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.category-title h2{
+    margin:0;
+    font-size:21px;
+}
+
+/* ================= GRID ================= */
+
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+/* ================= PACKAGE ================= */
+
+.package{
+    background:#fff;
+    border:1px solid #e2e5e9;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,.07);
+    transition:.25s;
+    position:relative;
+}
+
+.package:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
+    border-color:#d01018;
+}
+
+.package-top{
+    height:125px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.package-top::before{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    left:-65px;
+    top:-80px;
+}
+
+.package-top::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-45px;
+    bottom:-70px;
+}
+
+.package-icon{
+    font-size:65px;
+    position:relative;
+    z-index:2;
+    filter:drop-shadow(0 4px 6px rgba(0,0,0,.2));
+}
+
+/* ================= COLORS ================= */
+
+.package-1{
+    background:linear-gradient(135deg,#087f5b,#12b886);
+}
+
+.package-2{
+    background:linear-gradient(135deg,#075985,#0ea5e9);
+}
+
+.package-3{
+    background:linear-gradient(135deg,#5b21b6,#8b5cf6);
+}
+
+.package-4{
+    background:linear-gradient(135deg,#9a3412,#f97316);
+}
+
+.package-5{
+    background:linear-gradient(135deg,#991b1b,#ef4444);
+}
+
+.package-6{
+    background:linear-gradient(135deg,#854d0e,#eab308);
+}
+
+.package-7{
+    background:linear-gradient(135deg,#164e63,#06b6d4);
+}
+
+.package-8{
+    background:linear-gradient(135deg,#312e81,#6366f1);
+}
+
+.package-9{
+    background:linear-gradient(135deg,#831843,#ec4899);
+}
+
+.package-10{
+    background:linear-gradient(135deg,#14532d,#22c55e);
+}
+
+.package-11{
+    background:linear-gradient(135deg,#7f1d1d,#f43f5e);
+}
+
+.package-12{
+    background:linear-gradient(135deg,#3f3f46,#71717a);
+}
+
+.package-13{
+    background:linear-gradient(135deg,#164e63,#0891b2);
+}
+
+.package-14{
+    background:linear-gradient(135deg,#581c87,#c026d3);
+}
+
+.package-15{
+    background:linear-gradient(135deg,#713f12,#f59e0b);
+}
+
+.package-16{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+}
+
+.package-17{
+    background:linear-gradient(135deg,#134e4a,#14b8a6);
+}
+
+.package-18{
+    background:linear-gradient(135deg,#4c0519,#be123c);
+}
+
+.package-19{
+    background:linear-gradient(135deg,#365314,#84cc16);
+}
+
+.package-20{
+    background:linear-gradient(135deg,#1e1b4b,#7c3aed);
+}
+
+/* ================= PACKAGE BODY ================= */
+
+.package-body{
+    padding:20px;
+}
+
+.package-body h3{
+    margin:0 0 9px;
+    font-size:19px;
+    color:#172033;
+}
+
+.package-description{
+    min-height:55px;
+    margin:0 0 15px;
+    color:#687386;
+    font-size:13px;
+    line-height:1.55;
+}
+
+.price{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+    padding:11px 13px;
+    background:#f7f8fa;
+    border-radius:10px;
+}
+
+.price span{
+    color:#687386;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.price strong{
+    color:#d01018;
+    font-size:21px;
+}
+
+.buy-button{
+    display:block;
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:#a80e12;
+    color:#fff;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.buy-button:hover{
+    background:#d0161d;
+    transform:translateY(-1px);
+}
+
+/* ================= FREE ================= */
+
+.package.special{
+    border:2px solid #10a66f;
+}
+
+.package.special .package-body h3{
+    color:#078653;
+}
+
+.free-label{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:5;
+    padding:6px 10px;
+    border-radius:20px;
+    background:#fff;
+    color:#078653;
+    font-size:11px;
+    font-weight:900;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+/* ================= BACK ================= */
+
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#fff;
+    border:1px solid #ddd;
+    color:#172033;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.back-button:hover{
+    color:#d01018;
+    border-color:#d01018;
+}
+
+/* ================= API ================= */
+
+.api-status{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:9999;
+    padding:9px 13px;
+    border-radius:20px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.api-status.ok{
+    color:#078542;
+    border-color:#bde7cd;
+}
+
+.api-status.error{
+    color:#d01018;
+    border-color:#f1bebe;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 20px;
+    color:#687386;
+    text-align:center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .package-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:auto;
+        padding:10px 12px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .logo-text b{
+        font-size:23px;
+    }
+
+    .logo-text small{
+        display:none;
+    }
+
+    .user{
+        margin-left:auto;
+        padding:6px 8px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .page-title{
+        padding:28px 22px;
+    }
+
+    .page-title h1{
+        font-size:29px;
+    }
+
+    .page-title::after{
+        right:15px;
+        font-size:70px;
+    }
+
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .user-info{
+        display:none;
+    }
+
+    .package-top{
+        height:115px;
+    }
+
+    .package-icon{
+        font-size:58px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        <div class="logo-icon">
+            SK
+        </div>
+
+        <div class="logo-text">
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+
+            ☰
+
+        </button>
+
+
+        <div
+            class="menu-box"
+            id="menuBox">
+
+            <a href="acc-game.html">
+                🎮 ACC GAME
+            </a>
+
+            <a href="tui-mu-blox-fruit.html">
+                🎁 TÚI MÙ BLOX FRUITS
+            </a>
+
+            <a href="lich-su.html">
+                🧾 LỊCH SỬ MUA
+            </a>
+
+            <a href="nap-tien.html">
+                💰 NẠP TIỀN
+            </a>
+
+            <a href="ho-so.html">
+                👤 HỒ SƠ
+            </a>
+
+            <a href="login.html">
+                🔐 ĐĂNG NHẬP
+            </a>
+
+            <a href="index.html">
+                🏠 TRANG CHỦ
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="user"
+        id="userBox">
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <div class="user-info">
+
+            <b id="username">
+                Đăng nhập
+            </b>
+
+            <small id="userBalance">
+                0đ
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= API STATUS ================= -->
+
+<div
+    id="apiStatus"
+    class="api-status">
+
+    🔄 Đang kết nối...
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- ================= BREADCRUMB ================= -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            🏠 Trang chủ
+        </a>
+
+        <span>›</span>
+
+        <a href="acc-blox-fruit.html">
+            🍎 Blox Fruits
+        </a>
+
+        <span>›</span>
+
+        <a href="random-acc-blox-fruit.html">
+            🎲 Random Acc
+        </a>
+
+        <span>›</span>
+
+        <b>
+            🎁 LV trên 1000
+        </b>
+
+    </div>
+
+
+    <!-- ================= TITLE ================= -->
+
+    <section class="page-title">
+
+        <h1>
+            🎁 ACC BLOX FRUITS <span>LV TRÊN 1000</span>
+        </h1>
+
+        <p>
+            Random Acc Blox Fruits LV trên 1000 -
+            bóc túi mù 0đ, nhận được gì tùy thuộc vào nhân phẩm.
+        </p>
+
+    </section>
+
+
+    <!-- ================= NOTICE ================= -->
+
+    <div class="notice">
+
+        <span class="notice-title">
+            🎁 <b>THÔNG TIN ACC BLOX FRUITS LV TRÊN 1000</b>
+        </span>
+
+        🎮 Đây là loại tài khoản
+        <b>Blox Fruits LV trên 1000</b>.
+
+        <br>
+
+        🎲 Tài khoản được nhận thông qua hình thức
+        <b>bóc túi mù</b>, vật phẩm và thông tin tài khoản
+        nhận được là <b>ngẫu nhiên</b>.
+
+        <br>
+
+        🍀 <b>Nhân phẩm quyết định phần thưởng.</b>
+        Có thể nhận được tài khoản với vật phẩm khác nhau.
+
+        <br>
+
+        🌍 <b>Loại acc: Roblox quốc tế.</b>
+
+        <br>
+
+        💰 <b>Giá: 0đ.</b>
+
+        <br>
+
+        ⚠️ Vui lòng đọc thông tin của từng gói trước khi nhận.
+
+    </div>
+
+
+    <!-- ================= CATEGORY ================= -->
+
+    <div class="category-title">
+
+        <h2>
+            🎁 20 GÓI TÚI MÙ ACC BLOX FRUITS LV TRÊN 1000
+        </h2>
+
+    </div>
+
+
+    <!-- ================= 20 PACKAGES ================= -->
+
+    <section class="package-grid">
+
+
+        <!-- 01 -->
+
+        <article class="package special">
+
+            <div class="free-label">
+                🎉 0K
+            </div>
+
+            <div class="package-top package-1">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #01</h3>
+
+                <p class="package-description">
+                    Random acc Blox Fruits LV trên 1000.
+                    Item ngẫu nhiên, tùy nhân phẩm.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,1)">
+                    MỞ TÚI → 
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="package">
+
+            <div class="package-top package-2">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #02</h3>
+
+                <p class="package-description">
+                    Random acc Roblox quốc tế LV trên 1000.
+                    Item nhận được hoàn toàn ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,2)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="package">
+
+            <div class="package-top package-3">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #03</h3>
+
+                <p class="package-description">
+                    Túi mù miễn phí với acc Blox Fruits
+                    LV trên 1000, item ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,3)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 -->
+
+        <article class="package">
+
+            <div class="package-top package-4">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #04</h3>
+
+                <p class="package-description">
+                    Random tài khoản Roblox quốc tế.
+                    Phần thưởng tùy thuộc vào nhân phẩm.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,4)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 -->
+
+        <article class="package">
+
+            <div class="package-top package-5">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #05</h3>
+
+                <p class="package-description">
+                    Acc Blox Fruits LV trên 1000.
+                    Item và acc nhận được là ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,5)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 -->
+
+        <article class="package">
+
+            <div class="package-top package-6">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #06</h3>
+
+                <p class="package-description">
+                    Bóc túi mù nhận acc Blox Fruits
+                    quốc tế LV trên 1000.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,6)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 07 -->
+
+        <article class="package">
+
+            <div class="package-top package-7">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #07</h3>
+
+                <p class="package-description">
+                    Random acc và item Blox Fruits.
+                    Nhận được gì tùy nhân phẩm.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,7)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 08 -->
+
+        <article class="package">
+
+            <div class="package-top package-8">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #08</h3>
+
+                <p class="package-description">
+                    Túi mù Roblox quốc tế với tài khoản
+                    Blox Fruits LV trên 1000.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,8)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 09 -->
+
+        <article class="package">
+
+            <div class="package-top package-9">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #09</h3>
+
+                <p class="package-description">
+                    Random miễn phí acc Blox Fruits.
+                    Item nhận được tùy nhân phẩm.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,9)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 10 -->
+
+        <article class="package">
+
+            <div class="package-top package-10">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #10</h3>
+
+                <p class="package-description">
+                    Bóc túi mù nhận tài khoản Roblox
+                    quốc tế LV trên 1000.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,10)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 11 -->
+
+        <article class="package">
+
+            <div class="package-top package-11">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #11</h3>
+
+                <p class="package-description">
+                    Acc Blox Fruits LV trên 1000
+                    với item ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,11)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 12 -->
+
+        <article class="package">
+
+            <div class="package-top package-12">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #12</h3>
+
+                <p class="package-description">
+                    Random Roblox quốc tế.
+                    Phần thưởng hoàn toàn ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,12)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 13 -->
+
+        <article class="package">
+
+            <div class="package-top package-13">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #13</h3>
+
+                <p class="package-description">
+                    Túi mù acc Blox Fruits LV trên 1000.
+                    Tùy nhân phẩm khi bóc túi.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,13)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 14 -->
+
+        <article class="package">
+
+            <div class="package-top package-14">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #14</h3>
+
+                <p class="package-description">
+                    Random acc Roblox quốc tế
+                    với level trên 1000.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,14)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 15 -->
+
+        <article class="package">
+
+            <div class="package-top package-15">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #15</h3>
+
+                <p class="package-description">
+                    Acc Blox Fruits ngẫu nhiên.
+                    Có thể nhận item khác nhau.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,15)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 16 -->
+
+        <article class="package">
+
+            <div class="package-top package-16">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #16</h3>
+
+                <p class="package-description">
+                    Bóc túi mù miễn phí.
+                    Roblox quốc tế, LV trên 1000.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,16)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 17 -->
+
+        <article class="package">
+
+            <div class="package-top package-17">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #17</h3>
+
+                <p class="package-description">
+                    Random tài khoản Blox Fruits
+                    theo hệ thống túi mù.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,17)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 18 -->
+
+        <article class="package">
+
+            <div class="package-top package-18">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #18</h3>
+
+                <p class="package-description">
+                    Acc Roblox quốc tế LV trên 1000.
+                    Item nhận được là ngẫu nhiên.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,18)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 19 -->
+
+        <article class="package">
+
+            <div class="package-top package-19">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #19</h3>
+
+                <p class="package-description">
+                    Túi mù Blox Fruits miễn phí.
+                    Nhận được gì phụ thuộc nhân phẩm.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,19)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 20 -->
+
+        <article class="package">
+
+            <div class="package-top package-20">
+                <div class="package-icon">🎁</div>
+            </div>
+
+            <div class="package-body">
+
+                <h3>🎁 Túi Mù LV Trên 1000 #20</h3>
+
+                <p class="package-description">
+                    Gói túi mù cuối cùng.
+                    Random acc Roblox quốc tế LV trên 1000.
+                </p>
+
+                <div class="price">
+                    <span>Giá</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <a href="#" class="buy-button"
+                   onclick="comingSoon(event,20)">
+                    MỞ TÚI →
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================= BACK ================= -->
+
+    <a
+        href="random-acc-blox-fruit.html"
+        class="back-button">
+
+        ← Quay lại Random Acc Blox Fruits
+
+    </a>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   API
+===================================================== */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzIlHsKj50m8z9yfhc_BmOvC6dPCG_TPpT4W8CDG2EdS_0dbCRMNJQzzcfAeOPHk5wW9g/exec";
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function toggleMenu(){
+
+    document
+        .getElementById("menuBox")
+        .classList.toggle("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.querySelector(".menu");
+
+        if(
+            menu &&
+            !menu.contains(event.target)
+        ){
+
+            document
+                .getElementById("menuBox")
+                .classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   USER
+===================================================== */
+
+function updateUser(){
+
+    const login =
+        localStorage.getItem(
+            "shopkarot_login"
+        );
+
+    const username =
+        localStorage.getItem(
+            "shopkarot_user"
+        );
+
+    const balance =
+        Number(
+            localStorage.getItem(
+                "shopkarot_balance"
+            ) || 0
+        );
+
+
+    const usernameBox =
+        document.getElementById(
+            "username"
+        );
+
+    const balanceBox =
+        document.getElementById(
+            "userBalance"
+        );
+
+
+    if(
+        login === "true" &&
+        username
+    ){
+
+        usernameBox.textContent =
+            username;
+
+        balanceBox.textContent =
+            balance.toLocaleString(
+                "vi-VN"
+            ) + "đ";
+
+    }
+
+    else{
+
+        usernameBox.textContent =
+            "Đăng nhập";
+
+        balanceBox.textContent =
+            "0đ";
+
+    }
+
+}
+
+
+/* =====================================================
+   USER CLICK
+===================================================== */
+
+document
+    .getElementById("userBox")
+    .addEventListener(
+        "click",
+        function(){
+
+            const login =
+                localStorage.getItem(
+                    "shopkarot_login"
+                );
+
+
+            if(login === "true"){
+
+                window.location.href =
+                    "ho-so.html";
+
+            }
+
+            else{
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   API STATUS
+===================================================== */
+
+function setAPIStatus(type,text){
+
+    const box =
+        document.getElementById(
+            "apiStatus"
+        );
+
+    if(!box) return;
+
+    box.className =
+        "api-status " + type;
+
+    box.textContent =
+        text;
+
+}
+
+
+/* =====================================================
+   CHECK API
+===================================================== */
+
+async function checkAPI(){
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "?action=getShopStatus&_=" +
+                Date.now(),
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            data &&
+            data.ok === true
+        ){
+
+            setAPIStatus(
+                "ok",
+                "🟢 Đã kết nối API"
+            );
+
+        }
+
+        else{
+
+            setAPIStatus(
+                "error",
+                "🔴 API không phản hồi"
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            "API ERROR:",
+            error
+        );
+
+        setAPIStatus(
+            "error",
+            "🔴 Không kết nối được API"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   OPEN PACKAGE
+===================================================== */
+
+function comingSoon(event,number){
+
+    event.preventDefault();
+
+    alert(
+        "🎁 Túi Mù #" +
+        number +
+        "\n\n" +
+        "Loại: Acc Blox Fruits LV trên 1000\n" +
+        "🌍 Roblox quốc tế\n" +
+        "💰 Giá: 0đ\n\n" +
+        "⚠️ Gói túi mù này hiện đang được cập nhật."
+    );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+updateUser();
+
+checkAPI();
+
+
+/* =====================================================
+   STORAGE
+===================================================== */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key ===
+            "shopkarot_login" ||
+
+            event.key ===
+            "shopkarot_user" ||
+
+            event.key ===
+            "shopkarot_balance"
+        ){
+
+            updateUser();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PAGE FOCUS
+===================================================== */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            updateUser();
+
+            checkAPI();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
