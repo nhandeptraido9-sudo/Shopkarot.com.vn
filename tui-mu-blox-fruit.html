@@ -377,6 +377,26 @@ a{
     background:linear-gradient(135deg,#164e63,#06b6d4);
 }
 
+/* ================= NEW 0K COLORS ================= */
+
+.package-lvmax{
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #7c3aed
+        );
+}
+
+.package-lv1000{
+    background:
+        linear-gradient(
+            135deg,
+            #064e3b,
+            #10b981
+        );
+}
+
 /* ================= PACKAGE BODY ================= */
 
 .package-body{
@@ -449,6 +469,36 @@ a{
 }
 
 .free-label{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:5;
+    padding:6px 10px;
+    border-radius:20px;
+    background:#fff;
+    color:#078653;
+    font-size:11px;
+    font-weight:900;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+/* ================= NEW FREE LABEL ================= */
+
+.free-label-purple{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:5;
+    padding:6px 10px;
+    border-radius:20px;
+    background:#fff;
+    color:#6d28d9;
+    font-size:11px;
+    font-weight:900;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.free-label-green{
     position:absolute;
     top:12px;
     right:12px;
@@ -778,7 +828,7 @@ footer{
     <section class="package-grid">
 
 
-        <!-- 0K -->
+        <!-- ================= 0K ================= -->
 
         <article class="package special">
 
@@ -831,7 +881,7 @@ footer{
         </article>
 
 
-        <!-- 20K -->
+        <!-- ================= 20K ================= -->
 
         <article class="package">
 
@@ -880,7 +930,7 @@ footer{
         </article>
 
 
-        <!-- 50K -->
+        <!-- ================= 50K ================= -->
 
         <article class="package">
 
@@ -929,7 +979,7 @@ footer{
         </article>
 
 
-        <!-- 80K -->
+        <!-- ================= 80K ================= -->
 
         <article class="package">
 
@@ -978,7 +1028,7 @@ footer{
         </article>
 
 
-        <!-- 100K -->
+        <!-- ================= 100K ================= -->
 
         <article class="package">
 
@@ -1027,7 +1077,7 @@ footer{
         </article>
 
 
-        <!-- 150K -->
+        <!-- ================= 150K ================= -->
 
         <article class="package">
 
@@ -1076,7 +1126,7 @@ footer{
         </article>
 
 
-        <!-- 200K -->
+        <!-- ================= 200K ================= -->
 
         <article class="package">
 
@@ -1125,10 +1175,121 @@ footer{
         </article>
 
 
+        <!-- =====================================================
+             THÊM MỚI: ACC BLOX FRUITS LV MAX 0K
+             ===================================================== -->
+
+        <article class="package special">
+
+            <div class="free-label-purple">
+                🎉 0K
+            </div>
+
+            <div class="package-top package-lvmax">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+            </div>
+
+            <div class="package-body">
+
+                <h3>
+                    Acc Blox Fruits LV MAX
+                </h3>
+
+                <p class="package-description">
+                    🎁 Acc Blox Fruits LV MAX miễn phí.
+                    Tài khoản có level tối đa,
+                    nhận ngẫu nhiên tùy kho acc
+                    của ShopKarot.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        0đ
+                    </strong>
+
+                </div>
+
+                <a
+                    href="acc-blox-fruit-lv-max-0k.html"
+                    class="buy-button">
+
+                    MUA NGAY →
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================================
+             THÊM MỚI: ACC BLOX FRUITS LV TRÊN 1000 0K
+             ===================================================== -->
+
+        <article class="package special">
+
+            <div class="free-label-green">
+                🎉 0K
+            </div>
+
+            <div class="package-top package-lv1000">
+
+                <div class="package-icon">
+                    🎁
+                </div>
+
+            </div>
+
+            <div class="package-body">
+
+                <h3>
+                    Acc Blox Fruits LV Trên 1000
+                </h3>
+
+                <p class="package-description">
+                    🎁 Acc Blox Fruits có level trên 1000.
+                    Nhận ngẫu nhiên tùy kho tài khoản
+                    của ShopKarot.
+                </p>
+
+                <div class="price">
+
+                    <span>
+                        Giá
+                    </span>
+
+                    <strong>
+                        0đ
+                    </strong>
+
+                </div>
+
+                <a
+                    href="acc-blox-fruit-tren-1000-0k.html"
+                    class="buy-button">
+
+                    MUA NGAY →
+
+                </a>
+
+            </div>
+
+        </article>
+
+
     </section>
 
 
-    <!-- BACK -->
+    <!-- ================= BACK ================= -->
 
     <a
         href="acc-blox-fruit.html"
@@ -1176,7 +1337,10 @@ document.addEventListener(
         const menu =
             document.querySelector(".menu");
 
-        if(!menu.contains(event.target)){
+        if(
+            menu &&
+            !menu.contains(event.target)
+        ){
 
             document
                 .getElementById("menuBox")
@@ -1288,6 +1452,8 @@ function setAPIStatus(type,text){
         document.getElementById(
             "apiStatus"
         );
+
+    if(!box) return;
 
     box.className =
         "api-status " + type;
