@@ -52,38 +52,15 @@ button,input,select{font:inherit}
   font-weight:bold;
 }
 
-.btn-primary{
-  background:#2563eb;
-  color:#fff;
-}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-success{background:#16a34a;color:#fff}
+.btn-danger{background:#dc2626;color:#fff}
+.btn-warning{background:#f59e0b;color:#fff}
+.btn-gray{background:#6b7280;color:#fff}
 
-.btn-success{
-  background:#16a34a;
-  color:#fff;
-}
+.btn:hover{opacity:.88}
 
-.btn-danger{
-  background:#dc2626;
-  color:#fff;
-}
-
-.btn-warning{
-  background:#f59e0b;
-  color:#fff;
-}
-
-.btn-gray{
-  background:#6b7280;
-  color:#fff;
-}
-
-.btn:hover{
-  opacity:.88;
-}
-
-.hidden{
-  display:none!important;
-}
+.hidden{display:none!important}
 
 header{
   background:#111827;
@@ -96,9 +73,7 @@ header{
   flex-wrap:wrap;
 }
 
-header h2{
-  margin:0;
-}
+header h2{margin:0}
 
 .container{
   width:min(1400px,96%);
@@ -146,13 +121,8 @@ header h2{
   color:#fff;
 }
 
-.panel{
-  display:none;
-}
-
-.panel.active{
-  display:block;
-}
+.panel{display:none}
+.panel.active{display:block}
 
 .form-grid{
   display:grid;
@@ -170,9 +140,7 @@ header h2{
   margin-bottom:6px;
 }
 
-.full{
-  grid-column:1/-1;
-}
+.full{grid-column:1/-1}
 
 .actions{
   display:flex;
@@ -277,9 +245,7 @@ th{
   padding:25px;
 }
 
-.modal-content h2{
-  margin-top:0;
-}
+.modal-content h2{margin-top:0}
 
 .account-result{
   background:#111827;
@@ -289,9 +255,7 @@ th{
   margin-top:15px;
 }
 
-.account-result div{
-  margin:7px 0;
-}
+.account-result div{margin:7px 0}
 
 .small{
   font-size:13px;
@@ -303,14 +267,60 @@ th{
   margin-bottom:15px;
 }
 
-@media(max-width:700px){
+.product-status-card{
+  margin-bottom:12px;
+}
 
-  .form-grid{
-    grid-template-columns:1fr;
+.product-status-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.product-status-name{
+  font-size:17px;
+  font-weight:bold;
+  min-width:280px;
+}
+
+.product-status-select{
+  width:auto;
+  min-width:180px;
+  margin:0;
+}
+
+.product-group-title{
+  background:#111827;
+  color:white;
+  padding:14px 18px;
+  border-radius:12px;
+  margin:20px 0 12px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.product-status-card.ready{
+  border-left:5px solid #22c55e;
+}
+
+.product-status-card.not-ready{
+  border-left:5px solid #ef4444;
+}
+
+@media(max-width:700px){
+  .form-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+
+  .product-status-row{
+    align-items:stretch;
   }
 
-  .full{
-    grid-column:auto;
+  .product-status-name,
+  .product-status-select{
+    width:100%;
+    min-width:0;
   }
 }
 </style>
@@ -318,9 +328,7 @@ th{
 
 <body>
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<!-- LOGIN -->
 
 <div id="loginPage" class="login-box">
 
@@ -353,9 +361,7 @@ th{
 </div>
 
 
-<!-- =====================================================
-     ADMIN
-===================================================== -->
+<!-- ADMIN -->
 
 <div id="adminPage" class="hidden">
 
@@ -368,7 +374,8 @@ th{
       class="small"
       style="color:#d1d5db"
     >
-      Quản lý kho acc, khách hàng, đơn hàng và nạp tiền
+      Quản lý kho acc, khách hàng, đơn hàng,
+      nạp tiền và trạng thái sản phẩm
     </div>
   </div>
 
@@ -384,68 +391,39 @@ th{
 
 <div class="container">
 
-<!-- =====================================================
-     DASHBOARD
-===================================================== -->
+<!-- DASHBOARD -->
 
 <div class="dashboard">
 
   <div class="card">
     👥 Khách hàng
-    <div
-      id="dashCustomers"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashCustomers" class="number">0</div>
   </div>
 
   <div class="card">
     🎮 Kho acc
-    <div
-      id="dashAccounts"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashAccounts" class="number">0</div>
   </div>
 
   <div class="card">
     📦 Đơn hàng
-    <div
-      id="dashOrders"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashOrders" class="number">0</div>
   </div>
 
   <div class="card">
     💰 Tổng nạp
-    <div
-      id="dashTopup"
-      class="number"
-    >
-      0K
-    </div>
+    <div id="dashTopup" class="number">0K</div>
   </div>
 
   <div class="card">
     ⏳ Chờ duyệt
-    <div
-      id="dashPending"
-      class="number"
-    >
-      0
-    </div>
+    <div id="dashPending" class="number">0</div>
   </div>
 
 </div>
 
 
-<!-- =====================================================
-     SHOP STATUS
-===================================================== -->
+<!-- SHOP STATUS -->
 
 <div
   class="card"
@@ -497,9 +475,7 @@ th{
 </div>
 
 
-<!-- =====================================================
-     TABS
-===================================================== -->
+<!-- TABS -->
 
 <div class="tabs">
 
@@ -531,12 +507,17 @@ th{
     📦 Đơn hàng
   </button>
 
+  <button
+    class="tab"
+    onclick="showTab('products',this)"
+  >
+    🛍️ Trạng thái sản phẩm
+  </button>
+
 </div>
 
 
-<!-- =====================================================
-     KHO ACC
-===================================================== -->
+<!-- KHO ACC -->
 
 <section
   id="panel-accounts"
@@ -755,7 +736,6 @@ th{
     <table>
 
       <thead>
-
         <tr>
           <th>ID</th>
           <th>Game</th>
@@ -767,7 +747,6 @@ th{
           <th>Status</th>
           <th>Thao tác</th>
         </tr>
-
       </thead>
 
       <tbody id="accountsBody"></tbody>
@@ -781,9 +760,7 @@ th{
 </section>
 
 
-<!-- =====================================================
-     CUSTOMERS
-===================================================== -->
+<!-- CUSTOMERS -->
 
 <section
   id="panel-customers"
@@ -806,14 +783,12 @@ th{
     <table>
 
       <thead>
-
         <tr>
           <th>Username</th>
           <th>Số dư</th>
           <th>Ngày tạo</th>
           <th>Trạng thái</th>
         </tr>
-
       </thead>
 
       <tbody id="customersBody"></tbody>
@@ -827,9 +802,7 @@ th{
 </section>
 
 
-<!-- =====================================================
-     TOPUPS
-===================================================== -->
+<!-- TOPUPS -->
 
 <section
   id="panel-topups"
@@ -845,7 +818,6 @@ th{
     <table>
 
       <thead>
-
         <tr>
           <th>ID</th>
           <th>Username</th>
@@ -858,7 +830,6 @@ th{
           <th>Trạng thái</th>
           <th>Thao tác</th>
         </tr>
-
       </thead>
 
       <tbody id="topupsBody"></tbody>
@@ -872,9 +843,7 @@ th{
 </section>
 
 
-<!-- =====================================================
-     ORDERS
-===================================================== -->
+<!-- ORDERS -->
 
 <section
   id="panel-orders"
@@ -890,7 +859,6 @@ th{
     <table>
 
       <thead>
-
         <tr>
           <th>ID</th>
           <th>Khách</th>
@@ -900,7 +868,6 @@ th{
           <th>Thời gian</th>
           <th>Acc</th>
         </tr>
-
       </thead>
 
       <tbody id="ordersBody"></tbody>
@@ -913,14 +880,36 @@ th{
 
 </section>
 
+
+<!-- PRODUCT STATUS -->
+
+<section
+  id="panel-products"
+  class="panel"
+>
+
+<div class="card">
+
+  <h2>🛍️ Trạng thái sản phẩm</h2>
+
+  <div class="notice">
+    Chọn trạng thái cho từng sản phẩm/thư mục.
+    Trạng thái được lưu trên Apps Script và có thể
+    đồng bộ cho trang Shop.
+  </div>
+
+  <div id="productsContainer"></div>
+
+</div>
+
+</section>
+
 </div>
 
 </div>
 
 
-<!-- =====================================================
-     MODAL
-===================================================== -->
+<!-- MODAL -->
 
 <div
   id="accountModal"
@@ -964,6 +953,7 @@ let accounts=[];
 let customers=[];
 let topups=[];
 let orders=[];
+let productStatuses={};
 
 
 /* =====================================================
@@ -1024,7 +1014,6 @@ async function adminLogin(){
     );
 
     return;
-
   }
 
   showLoginMessage(
@@ -1036,21 +1025,17 @@ async function adminLogin(){
 
     const result=await apiPost(
       "adminLogin",
-      {
-        key:key
-      }
+      {key:key}
     );
 
     if(!result.ok){
 
       showLoginMessage(
-        result.message||
-        "Admin Key không đúng.",
+        result.message||"Admin Key không đúng.",
         "red"
       );
 
       return;
-
     }
 
     ADMIN_KEY=key;
@@ -1086,8 +1071,7 @@ async function adminLogin(){
 
 function showLoginMessage(text,color){
 
-  const el=document
-    .getElementById("loginMessage");
+  const el=document.getElementById("loginMessage");
 
   el.textContent=text;
   el.style.color=color;
@@ -1132,9 +1116,7 @@ window.addEventListener(
       const result=
         await apiPost(
           "adminLogin",
-          {
-            key:saved
-          }
+          {key:saved}
         );
 
       if(result.ok){
@@ -1176,19 +1158,13 @@ window.addEventListener(
 async function loadAll(){
 
   await Promise.all([
-
     loadDashboard(),
-
     loadShopStatus(),
-
     loadAccounts(),
-
     loadCustomers(),
-
     loadTopups(),
-
-    loadOrders()
-
+    loadOrders(),
+    loadProducts()
   ]);
 
 }
@@ -1203,26 +1179,21 @@ async function loadDashboard(){
   try{
 
     const result=
-      await apiGet(
-        "getDashboard"
-      );
+      await apiGet("getDashboard");
 
     if(!result.ok)return;
 
     document.getElementById(
       "dashCustomers"
-    ).textContent=
-      result.customers||0;
+    ).textContent=result.customers||0;
 
     document.getElementById(
       "dashAccounts"
-    ).textContent=
-      result.accounts||0;
+    ).textContent=result.accounts||0;
 
     document.getElementById(
       "dashOrders"
-    ).textContent=
-      result.orders||0;
+    ).textContent=result.orders||0;
 
     document.getElementById(
       "dashTopup"
@@ -1254,9 +1225,7 @@ async function loadShopStatus(){
   try{
 
     const result=
-      await apiGet(
-        "getShopStatus"
-      );
+      await apiGet("getShopStatus");
 
     if(!result.ok)return;
 
@@ -1277,25 +1246,12 @@ async function loadShopStatus(){
         "shopStatusDot"
       );
 
-    if(
-      status==="Shop đang hoạt động"
-    ){
-
-      dot.style.background=
-        "#22c55e";
-
-    }else if(
-      status==="Shop đang bảo trì"
-    ){
-
-      dot.style.background=
-        "#f59e0b";
-
+    if(status==="Shop đang hoạt động"){
+      dot.style.background="#22c55e";
+    }else if(status==="Shop đang bảo trì"){
+      dot.style.background="#f59e0b";
     }else{
-
-      dot.style.background=
-        "#ef4444";
-
+      dot.style.background="#ef4444";
     }
 
   }catch(err){
@@ -1333,12 +1289,9 @@ async function setShopStatus(){
       );
 
       return;
-
     }
 
-    alert(
-      "✅ Đã cập nhật trạng thái Shop."
-    );
+    alert("✅ Đã cập nhật trạng thái Shop.");
 
     await loadShopStatus();
 
@@ -1346,9 +1299,7 @@ async function setShopStatus(){
 
     console.error(err);
 
-    alert(
-      "❌ Không kết nối được API."
-    );
+    alert("❌ Không kết nối được API.");
 
   }
 
@@ -1357,6 +1308,9 @@ async function setShopStatus(){
 
 /* =====================================================
    GAME → FOLDER
+   ĐÃ THÊM:
+   - Acc Blox Fruits LVL MAX
+   - Acc Blox Fruits LV trên 1000
 ===================================================== */
 
 const folderData={
@@ -1371,102 +1325,69 @@ const folderData={
 
     "Acc Blox Fruits xem hình acc tùy chọn",
 
+    "Acc Blox Fruits LVL MAX",
+
+    "Acc Blox Fruits LV trên 1000",
+
     "Robux 120H",
 
     "Gamepass Blox Fruits",
 
-    "Fish",
-
-    "Event Blox Fruits"
+    "Fish"
 
   ],
 
   "King Legacy":[
-
     "King Legacy",
-
     "King Legacy Túi Mù",
-
     "King Legacy Acc Thường",
-
     "King Legacy Acc VIP"
-
   ],
 
   "Anime Fighters":[
-
     "Anime Fighters",
-
     "Anime Fighters Túi Mù",
-
     "Anime Fighters Acc Random"
-
   ],
 
   "Grow A Garden 2":[
-
     "Grow A Garden 2",
-
     "Grow A Garden 2 Túi Mù",
-
     "Grow A Garden 2 Acc"
-
   ],
 
   "Grow A Garden":[
-
     "Grow A Garden",
-
     "Grow A Garden Túi Mù",
-
     "Grow A Garden Acc"
-
   ],
 
   "Murder Mystery 2":[
-
     "Murder Mystery 2",
-
     "Murder Mystery 2 Túi Mù",
-
     "Murder Mystery 2 Acc"
-
   ],
 
   "Túi Mù":[
-
     "Túi Mù",
-
     "Túi Mù 0K",
-
     "Túi Mù 10K",
-
     "Túi Mù 20K",
-
     "Túi Mù 50K",
-
     "Túi Mù 80K",
-
     "Túi Mù 100K"
-
   ],
 
   "Event":[
-
     "Event",
-
+    "Event Túi Mù",
     "Event Random"
-
   ],
 
   "Greedy Growers 🌱":[
-
     "Greedy Growers 🌱",
-
     "Greedy Growers Túi Mù",
-
     "Greedy Growers Acc"
-
   ]
 
 };
@@ -1494,7 +1415,6 @@ function gameChanged(){
   if(!game){
 
     updatePackages();
-
     return;
 
   }
@@ -1505,12 +1425,9 @@ function gameChanged(){
   list.forEach(name=>{
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
     option.value=name;
-
     option.textContent=name;
 
     folder.appendChild(option);
@@ -1523,16 +1440,12 @@ function gameChanged(){
 
 
 function folderChanged(){
-
   updatePackages();
-
 }
 
 
 function priceChanged(){
-
   updatePackages();
-
 }
 
 
@@ -1562,26 +1475,15 @@ function updatePackages(){
 
   if(!game||!folder)return;
 
-  for(
-    let i=1;
-    i<=8;
-    i++
-  ){
+  for(let i=1;i<=8;i++){
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
-    option.value=
-      "Gói "+i;
+    option.value="Gói "+i;
+    option.textContent="Gói "+i;
 
-    option.textContent=
-      "Gói "+i;
-
-    packageSelect.appendChild(
-      option
-    );
+    packageSelect.appendChild(option);
 
   }
 
@@ -1653,21 +1555,13 @@ async function addAccount(){
       await apiPost(
         "addAccount",
         {
-
           key:ADMIN_KEY,
-
           game:game,
-
           folder:folder,
-
           price:Number(price),
-
           package:packageName,
-
           username:username,
-
           password:password
-
         }
       );
 
@@ -1694,7 +1588,6 @@ async function addAccount(){
     clearAccountForm();
 
     await loadAccounts();
-
     await loadDashboard();
 
   }catch(err){
@@ -1711,10 +1604,7 @@ async function addAccount(){
 }
 
 
-function showAccountMessage(
-  text,
-  color
-){
+function showAccountMessage(text,color){
 
   const el=
     document.getElementById(
@@ -1722,7 +1612,6 @@ function showAccountMessage(
     );
 
   el.textContent=text;
-
   el.style.color=color;
 
 }
@@ -1772,9 +1661,7 @@ async function loadAccounts(){
   try{
 
     const result=
-      await apiGet(
-        "getAccounts"
-      );
+      await apiGet("getAccounts");
 
     if(result.ok){
 
@@ -1820,17 +1707,11 @@ function renderAccounts(){
       const text=[
 
         acc.game,
-
         acc.folder,
-
         acc.price,
-
         acc.package,
-
         acc.username,
-
         acc.password,
-
         acc.status
 
       ]
@@ -1843,9 +1724,7 @@ function renderAccounts(){
     .forEach(acc=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       const status=
         String(
@@ -1899,26 +1778,18 @@ function renderAccounts(){
         </td>
 
         <td>
-
-          <span
-            class="badge ${badgeClass}"
-          >
-            ${escapeHtml(
-              acc.status||""
-            )}
+          <span class="badge ${badgeClass}">
+            ${escapeHtml(acc.status||"")}
           </span>
-
         </td>
 
         <td>
-
           <button
             class="btn btn-danger"
             onclick="deleteAccount('${escapeJs(acc.id||"")}')"
           >
             🗑️ Xóa
           </button>
-
         </td>
 
       `;
@@ -1964,21 +1835,16 @@ async function deleteAccount(id){
 
     }
 
-    alert(
-      "✅ Đã xóa tài khoản."
-    );
+    alert("✅ Đã xóa tài khoản.");
 
     await loadAccounts();
-
     await loadDashboard();
 
   }catch(err){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi kết nối API."
-    );
+    alert("❌ Lỗi kết nối API.");
 
   }
 
@@ -1994,9 +1860,7 @@ async function loadCustomers(){
   try{
 
     const result=
-      await apiGet(
-        "getCustomers"
-      );
+      await apiGet("getCustomers");
 
     if(result.ok){
 
@@ -2043,9 +1907,7 @@ function renderCustomers(){
     .forEach(user=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       tr.innerHTML=`
 
@@ -2093,9 +1955,7 @@ async function loadTopups(){
   try{
 
     const result=
-      await apiGet(
-        "getTopups"
-      );
+      await apiGet("getTopups");
 
     if(result.ok){
 
@@ -2130,9 +1990,7 @@ function renderTopups(){
     .forEach(item=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       const status=
         String(
@@ -2165,49 +2023,29 @@ function renderTopups(){
 
       tr.innerHTML=`
 
-        <td>
-          ${escapeHtml(item.id||"")}
-        </td>
+        <td>${escapeHtml(item.id||"")}</td>
+
+        <td>${escapeHtml(item.username||"")}</td>
+
+        <td>${formatMoney(item.amount||0)}</td>
+
+        <td>${escapeHtml(item.method||"")}</td>
+
+        <td>${escapeHtml(item.cardType||"")}</td>
+
+        <td>${escapeHtml(item.cardSerial||"")}</td>
+
+        <td>${escapeHtml(item.cardCode||"")}</td>
+
+        <td>${escapeHtml(item.bankName||"")}</td>
 
         <td>
-          ${escapeHtml(item.username||"")}
-        </td>
-
-        <td>
-          ${formatMoney(item.amount||0)}
-        </td>
-
-        <td>
-          ${escapeHtml(item.method||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.cardType||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.cardSerial||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.cardCode||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.bankName||"")}
-        </td>
-
-        <td>
-
           <span class="badge ${status}">
             ${escapeHtml(item.status||"")}
           </span>
-
         </td>
 
-        <td>
-          ${buttons}
-        </td>
+        <td>${buttons}</td>
 
       `;
 
@@ -2251,9 +2089,7 @@ async function approveTopup(id){
     if(result.ok){
 
       await loadTopups();
-
       await loadCustomers();
-
       await loadDashboard();
 
     }
@@ -2262,9 +2098,7 @@ async function approveTopup(id){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi API."
-    );
+    alert("❌ Lỗi API.");
 
   }
 
@@ -2300,7 +2134,6 @@ async function rejectTopup(id){
     if(result.ok){
 
       await loadTopups();
-
       await loadDashboard();
 
     }
@@ -2309,9 +2142,7 @@ async function rejectTopup(id){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi API."
-    );
+    alert("❌ Lỗi API.");
 
   }
 
@@ -2327,9 +2158,7 @@ async function loadOrders(){
   try{
 
     const result=
-      await apiGet(
-        "getOrders"
-      );
+      await apiGet("getOrders");
 
     if(result.ok){
 
@@ -2364,9 +2193,7 @@ function renderOrders(){
     .forEach(order=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       tr.innerHTML=`
 
@@ -2375,43 +2202,31 @@ function renderOrders(){
         </td>
 
         <td>
-          ${escapeHtml(
-            order.username||""
-          )}
+          ${escapeHtml(order.username||"")}
+        </td>
+
+        <td>
+          ${escapeHtml(order.product||"")}
+        </td>
+
+        <td>
+          ${formatMoney(order.price||0)}
+        </td>
+
+        <td>
+          ${escapeHtml(order.status||"")}
         </td>
 
         <td>
           ${escapeHtml(
-            order.product||""
-          )}
-        </td>
-
-        <td>
-          ${formatMoney(
-            order.price||0
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            order.status||""
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            formatDate(
-              order.createdAt
-            )
+            formatDate(order.createdAt)
           )}
         </td>
 
         <td>
           ${
             order.accUsername
-              ?escapeHtml(
-                order.accUsername
-              )
+              ?escapeHtml(order.accUsername)
               :"-"
           }
         </td>
@@ -2426,21 +2241,359 @@ function renderOrders(){
 
 
 /* =====================================================
+   PRODUCTS
+===================================================== */
+
+const products=[
+
+  ["bloxFruit","🎮 Blox Fruits"],
+
+  ["cayThueBloxFruit","🛠️ Cày thuê Blox Fruits"],
+
+  ["tuiMuBloxFruit","🎁 Túi mù Blox Fruits"],
+
+  ["accBloxFruitItem","📦 Acc Blox Fruits tùy chọn Item"],
+
+  ["accBloxFruitRaceV4","🔥 Acc Blox Fruits Race V4"],
+
+  ["accBloxFruitXemHinh","🖼️ Acc Blox Fruits xem hình acc tùy chọn"],
+
+  ["robux120h","💎 Robux 120H"],
+
+  ["gamepassBloxFruit","🎟️ Gamepass Blox Fruits"],
+
+  ["fish","🐟 Fish"],
+
+  ["kingLegacy","👑 King Legacy"],
+
+  ["animeFighters","⚔️ Anime Fighters"],
+
+  ["growAGarden2","🌱 Grow A Garden 2"],
+
+  ["growAGarden","🌱 Grow A Garden"],
+
+  ["murderMystery2","🔪 Murder Mystery 2"],
+
+  ["tuiMu","🎁 Túi Mù"],
+
+  ["event","🎉 Event"],
+
+  ["greedyGrowers","🌱 Greedy Growers"]
+
+];
+
+
+/* =====================================================
+   LOAD PRODUCT STATUS
+===================================================== */
+
+async function loadProducts(){
+
+  try{
+
+    const result=
+      await apiGet(
+        "getProductStatuses"
+      );
+
+    if(result.ok){
+
+      productStatuses=
+        result.statuses||{};
+
+      renderProducts();
+
+    }else{
+
+      renderProducts();
+
+    }
+
+  }catch(err){
+
+    console.error(err);
+
+    renderProducts();
+
+  }
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+  const container=
+    document.getElementById(
+      "productsContainer"
+    );
+
+  container.innerHTML="";
+
+
+  const title=
+    document.createElement("div");
+
+  title.className=
+    "product-group-title";
+
+  title.textContent=
+    "🍎 Blox Fruits";
+
+  container.appendChild(title);
+
+
+  products
+    .filter(item=>{
+
+      return [
+
+        "bloxFruit",
+        "cayThueBloxFruit",
+        "tuiMuBloxFruit",
+        "accBloxFruitItem",
+        "accBloxFruitRaceV4",
+        "accBloxFruitXemHinh",
+        "robux120h",
+        "gamepassBloxFruit",
+        "fish"
+
+      ].includes(item[0]);
+
+    })
+    .forEach(item=>{
+
+      createProductStatusCard(
+        container,
+        item
+      );
+
+    });
+
+
+  const title2=
+    document.createElement("div");
+
+  title2.className=
+    "product-group-title";
+
+  title2.textContent=
+    "🎮 Sản phẩm khác";
+
+  container.appendChild(title2);
+
+
+  products
+    .filter(item=>{
+
+      return ![
+
+        "bloxFruit",
+        "cayThueBloxFruit",
+        "tuiMuBloxFruit",
+        "accBloxFruitItem",
+        "accBloxFruitRaceV4",
+        "accBloxFruitXemHinh",
+        "robux120h",
+        "gamepassBloxFruit",
+        "fish"
+
+      ].includes(item[0]);
+
+    })
+    .forEach(item=>{
+
+      createProductStatusCard(
+        container,
+        item
+      );
+
+    });
+
+}
+
+
+/* =====================================================
+   CREATE PRODUCT CARD
+===================================================== */
+
+function createProductStatusCard(
+  container,
+  item
+){
+
+  const key=item[0];
+
+  const name=item[1];
+
+  const status=
+    productStatuses[key]||
+    "Sẵn Sàng";
+
+  const div=
+    document.createElement("div");
+
+  div.className=
+    "card product-status-card "+
+    (
+      status==="Sẵn Sàng"
+        ?"ready"
+        :"not-ready"
+    );
+
+  div.innerHTML=`
+
+    <div class="product-status-row">
+
+      <div class="product-status-name">
+        ${escapeHtml(name)}
+      </div>
+
+      <select
+        id="status_${escapeHtml(key)}"
+        class="input product-status-select"
+        onchange="changeProductVisual('${escapeJs(key)}')"
+      >
+
+        <option
+          value="Sẵn Sàng"
+          ${status==="Sẵn Sàng"?"selected":""}
+        >
+          🟢 Sẵn Sàng
+        </option>
+
+        <option
+          value="Chưa Sẵn Sàng"
+          ${status==="Chưa Sẵn Sàng"?"selected":""}
+        >
+          🔴 Chưa Sẵn Sàng
+        </option>
+
+      </select>
+
+      <button
+        class="btn btn-primary"
+        onclick="saveProductStatus('${escapeJs(key)}')"
+      >
+        💾 Lưu
+      </button>
+
+    </div>
+
+  `;
+
+  container.appendChild(div);
+
+}
+
+
+/* =====================================================
+   PRODUCT VISUAL
+===================================================== */
+
+function changeProductVisual(product){
+
+  const select=
+    document.getElementById(
+      "status_"+product
+    );
+
+  if(!select)return;
+
+  const card=
+    select.closest(
+      ".product-status-card"
+    );
+
+  if(!card)return;
+
+  card.classList.remove(
+    "ready",
+    "not-ready"
+  );
+
+  if(select.value==="Sẵn Sàng"){
+
+    card.classList.add("ready");
+
+  }else{
+
+    card.classList.add("not-ready");
+
+  }
+
+}
+
+
+/* =====================================================
+   SAVE PRODUCT STATUS
+===================================================== */
+
+async function saveProductStatus(product){
+
+  const select=
+    document.getElementById(
+      "status_"+product
+    );
+
+  if(!select)return;
+
+  const status=select.value;
+
+  try{
+
+    const result=
+      await apiPost(
+        "setProductStatus",
+        {
+          key:ADMIN_KEY,
+          product:product,
+          status:status
+        }
+      );
+
+    alert(
+      result.message||
+      (
+        result.ok
+          ?"✅ Đã lưu trạng thái."
+          :"❌ Không thể lưu."
+      )
+    );
+
+    if(result.ok){
+
+      productStatuses[product]=status;
+
+      changeProductVisual(product);
+
+    }
+
+  }catch(err){
+
+    console.error(err);
+
+    alert("❌ Lỗi kết nối API.");
+
+  }
+
+}
+
+
+/* =====================================================
    TABS
 ===================================================== */
 
-function showTab(
-  name,
-  button
-){
+function showTab(name,button){
 
   document
     .querySelectorAll(".panel")
     .forEach(panel=>{
 
-      panel.classList.remove(
-        "active"
-      );
+      panel.classList.remove("active");
 
     });
 
@@ -2449,9 +2602,7 @@ function showTab(
     .querySelectorAll(".tab")
     .forEach(tab=>{
 
-      tab.classList.remove(
-        "active"
-      );
+      tab.classList.remove("active");
 
     });
 
@@ -2463,18 +2614,14 @@ function showTab(
 
   if(panel){
 
-    panel.classList.add(
-      "active"
-    );
+    panel.classList.add("active");
 
   }
 
 
   if(button){
 
-    button.classList.add(
-      "active"
-    );
+    button.classList.add("active");
 
   }
 
@@ -2485,9 +2632,7 @@ function showTab(
    ACCOUNT MODAL
 ===================================================== */
 
-function showAccountModal(
-  account
-){
+function showAccountModal(account){
 
   const content=
     document.getElementById(
@@ -2500,70 +2645,41 @@ function showAccountModal(
 
       <div>
         🎮 Game:
-        <b>
-          ${escapeHtml(
-            account.game||""
-          )}
-        </b>
+        <b>${escapeHtml(account.game||"")}</b>
       </div>
 
       <div>
         📁 Thư mục:
-        <b>
-          ${escapeHtml(
-            account.folder||""
-          )}
-        </b>
+        <b>${escapeHtml(account.folder||"")}</b>
       </div>
 
       <div>
         💵 Giá:
-        <b>
-          ${formatPrice(
-            account.price
-          )}
-        </b>
+        <b>${formatPrice(account.price)}</b>
       </div>
 
       <div>
         📦 Gói:
-        <b>
-          ${escapeHtml(
-            account.package||""
-          )}
-        </b>
+        <b>${escapeHtml(account.package||"")}</b>
       </div>
 
       <div>
         👤 Username:
-        <b>
-          ${escapeHtml(
-            account.username||""
-          )}
-        </b>
+        <b>${escapeHtml(account.username||"")}</b>
       </div>
 
       <div>
         🔑 Password:
-        <b>
-          ${escapeHtml(
-            account.password||""
-          )}
-        </b>
+        <b>${escapeHtml(account.password||"")}</b>
       </div>
 
     </div>
 
   `;
 
-
   document
-    .getElementById(
-      "accountModal"
-    )
-    .classList.remove(
-      "hidden"
-    );
+    .getElementById("accountModal")
+    .classList.remove("hidden");
 
 }
 
@@ -2571,12 +2687,8 @@ function showAccountModal(
 function closeAccountModal(){
 
   document
-    .getElementById(
-      "accountModal"
-    )
-    .classList.add(
-      "hidden"
-    );
+    .getElementById("accountModal")
+    .classList.add("hidden");
 
 }
 
@@ -2587,20 +2699,15 @@ function closeAccountModal(){
 
 function formatMoney(value){
 
-  const n=
-    Number(value||0);
+  const n=Number(value||0);
 
   if(n>=1000){
 
-    return n.toLocaleString(
-      "vi-VN"
-    )+"đ";
+    return n.toLocaleString("vi-VN")+"đ";
 
   }
 
-  return n.toLocaleString(
-    "vi-VN"
-  )+"K";
+  return n.toLocaleString("vi-VN")+"K";
 
 }
 
@@ -2622,9 +2729,7 @@ function formatPrice(value){
   }
 
   return Number(value||0)
-    .toLocaleString(
-      "vi-VN"
-    )+"K";
+    .toLocaleString("vi-VN")+"K";
 
 }
 
@@ -2639,22 +2744,15 @@ function formatDate(value){
 
   try{
 
-    const date=
-      new Date(value);
+    const date=new Date(value);
 
-    if(
-      isNaN(
-        date.getTime()
-      )
-    ){
+    if(isNaN(date.getTime())){
 
       return String(value);
 
     }
 
-    return date.toLocaleString(
-      "vi-VN"
-    );
+    return date.toLocaleString("vi-VN");
 
   }catch(e){
 
@@ -2671,29 +2769,12 @@ function formatDate(value){
 
 function escapeHtml(value){
 
-  return String(
-    value??""
-  )
-  .replaceAll(
-    "&",
-    "&amp;"
-  )
-  .replaceAll(
-    "<",
-    "&lt;"
-  )
-  .replaceAll(
-    ">",
-    "&gt;"
-  )
-  .replaceAll(
-    '"',
-    "&quot;"
-  )
-  .replaceAll(
-    "'",
-    "&#039;"
-  );
+  return String(value??"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
@@ -2704,25 +2785,11 @@ function escapeHtml(value){
 
 function escapeJs(value){
 
-  return String(
-    value??""
-  )
-  .replaceAll(
-    "\\",
-    "\\\\"
-  )
-  .replaceAll(
-    "'",
-    "\\'"
-  )
-  .replaceAll(
-    "\n",
-    "\\n"
-  )
-  .replaceAll(
-    "\r",
-    "\\r"
-  );
+  return String(value??"")
+    .replaceAll("\\","\\\\")
+    .replaceAll("'","\\'")
+    .replaceAll("\n","\\n")
+    .replaceAll("\r","\\r");
 
 }
 
