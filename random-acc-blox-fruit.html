@@ -24,7 +24,7 @@ a{
     color:inherit;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .header{
     height:82px;
@@ -77,6 +77,8 @@ a{
     margin-top:3px;
 }
 
+/* ================= MENU ================= */
+
 .menu{
     position:relative;
 }
@@ -89,6 +91,10 @@ a{
     border-radius:10px;
     font-size:29px;
     cursor:pointer;
+}
+
+.menu-button:hover{
+    background:#f1f2f4;
 }
 
 .menu-box{
@@ -120,7 +126,7 @@ a{
     color:#e21b23;
 }
 
-/* USER */
+/* ================= USER ================= */
 
 .user{
     margin-left:auto;
@@ -132,6 +138,11 @@ a{
     border-radius:15px;
     background:white;
     cursor:pointer;
+}
+
+.user:hover{
+    background:#f7f7f7;
+    transform:translateY(-1px);
 }
 
 .user-icon{
@@ -157,7 +168,7 @@ a{
     margin-top:3px;
 }
 
-/* CONTAINER */
+/* ================= CONTAINER ================= */
 
 .container{
     width:96%;
@@ -165,12 +176,13 @@ a{
     margin:25px auto;
 }
 
-/* BREADCRUMB */
+/* ================= BREADCRUMB ================= */
 
 .breadcrumb{
     display:flex;
     gap:8px;
     align-items:center;
+    flex-wrap:wrap;
     margin-bottom:15px;
     color:#687386;
     font-size:14px;
@@ -181,7 +193,7 @@ a{
     font-weight:bold;
 }
 
-/* TITLE */
+/* ================= TITLE ================= */
 
 .page-title{
     background:
@@ -214,7 +226,7 @@ a{
     line-height:1.6;
 }
 
-/* NOTICE */
+/* ================= NOTICE ================= */
 
 .notice{
     padding:20px;
@@ -230,7 +242,7 @@ a{
     color:#a80e12;
 }
 
-/* CATEGORY */
+/* ================= CATEGORY ================= */
 
 .category-title{
     background:white;
@@ -246,7 +258,7 @@ a{
     font-size:21px;
 }
 
-/* GRID */
+/* ================= GRID ================= */
 
 .folder-grid{
     display:grid;
@@ -254,7 +266,7 @@ a{
     gap:18px;
 }
 
-/* FOLDER */
+/* ================= FOLDER ================= */
 
 .folder{
     background:white;
@@ -278,7 +290,22 @@ a{
     justify-content:center;
     color:white;
     font-size:75px;
+    position:relative;
+    overflow:hidden;
 }
+
+.folder-icon::after{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    background:rgba(255,255,255,.09);
+    right:-50px;
+    bottom:-60px;
+}
+
+/* ================= COLORS ================= */
 
 .folder-boc-tui{
     background:
@@ -297,6 +324,26 @@ a{
             #168ee8
         );
 }
+
+.folder-quoc-te{
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #2563eb
+        );
+}
+
+.folder-vn{
+    background:
+        linear-gradient(
+            135deg,
+            #8b0000,
+            #ef4444
+        );
+}
+
+/* ================= INFO ================= */
 
 .folder-info{
     padding:22px;
@@ -333,13 +380,14 @@ a{
     color:white;
     text-align:center;
     font-weight:bold;
+    transition:.2s;
 }
 
 .button:hover{
     background:#d0161d;
 }
 
-/* BACK */
+/* ================= BACK ================= */
 
 .back{
     display:inline-block;
@@ -356,7 +404,7 @@ a{
     border-color:#d01018;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
     padding:35px 20px;
@@ -364,7 +412,7 @@ footer{
     text-align:center;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:800px){
 
@@ -416,7 +464,7 @@ footer{
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
@@ -514,12 +562,12 @@ footer{
 </header>
 
 
-<!-- MAIN -->
+<!-- ================= MAIN ================= -->
 
 <main class="container">
 
 
-    <!-- BREADCRUMB -->
+    <!-- ================= BREADCRUMB ================= -->
 
     <div class="breadcrumb">
 
@@ -542,7 +590,7 @@ footer{
     </div>
 
 
-    <!-- TITLE -->
+    <!-- ================= TITLE ================= -->
 
     <section class="page-title">
 
@@ -551,14 +599,14 @@ footer{
         </h1>
 
         <p>
-            Khu vực Random Acc Blox Fruits 0K -
-            nhận acc tùy nhân phẩm.
+            Khu vực Random Acc Blox Fruits 0K 
+            nhận acc tùy nhân phẩm có roblox vn và quốc tế
         </p>
 
     </section>
 
 
-    <!-- NOTICE -->
+    <!-- ================= NOTICE ================= -->
 
     <div class="notice">
 
@@ -583,7 +631,7 @@ footer{
     </div>
 
 
-    <!-- CATEGORY -->
+    <!-- ================= CATEGORY ================= -->
 
     <div class="category-title">
 
@@ -594,7 +642,7 @@ footer{
     </div>
 
 
-    <!-- TWO FOLDERS -->
+    <!-- ================= FOLDERS ================= -->
 
     <section class="folder-grid">
 
@@ -677,10 +725,89 @@ footer{
         </a>
 
 
+        <!-- ================= ROBLOX QUỐC TẾ ================= -->
+
+        <a
+            href="random-acc-blox-fruit-quoc-te.html"
+            class="folder">
+
+            <div
+                class="folder-icon folder-quoc-te">
+
+                🌎
+
+            </div>
+
+
+            <div class="folder-info">
+
+                <h3>
+                    Acc Blox Fruits Roblox Quốc Tế
+                </h3>
+
+                <p>
+                    🌎 Random tài khoản Blox Fruits Roblox
+                    quốc tế với chất lượng nhân phẩm cao.
+                    Có thể nhận được những tài khoản tốt
+                    tùy vào may mắn.
+                </p>
+
+                <span class="status">
+                    🟢 Nhân Phẩm Cao
+                </span>
+
+                <div class="button">
+                    XEM ACC →
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- ================= ROBLOX VN ================= -->
+
+        <a
+            href="random-acc-blox-fruit-roblox-vn.html"
+            class="folder">
+
+            <div
+                class="folder-icon folder-vn">
+
+                🇻🇳
+
+            </div>
+
+
+            <div class="folder-info">
+
+                <h3>
+                    Acc Blox Fruits Roblox VN
+                </h3>
+
+                <p>
+                    🇻🇳 Random tài khoản Blox Fruits Roblox VN
+                    với nhân phẩm cao. Kho acc được phân loại
+                    riêng để bạn lựa chọn.
+                </p>
+
+                <span class="status">
+                    🟢 Nhân Phẩm Cao
+                </span>
+
+                <div class="button">
+                    XEM ACC →
+                </div>
+
+            </div>
+
+        </a>
+
+
     </section>
 
 
-    <!-- BACK HOME -->
+    <!-- ================= BACK HOME ================= -->
 
     <a
         href="index.html"
@@ -693,6 +820,8 @@ footer{
 </main>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
     © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
@@ -702,7 +831,9 @@ footer{
 
 <script>
 
-/* ================= MENU ================= */
+/* =====================================================
+   MENU
+===================================================== */
 
 function toggleMenu(){
 
@@ -735,7 +866,9 @@ document.addEventListener(
 );
 
 
-/* ================= USER ================= */
+/* =====================================================
+   USER
+===================================================== */
 
 function updateUser(){
 
@@ -796,7 +929,9 @@ function updateUser(){
 }
 
 
-/* ================= USER CLICK ================= */
+/* =====================================================
+   USER CLICK
+===================================================== */
 
 document
     .getElementById("userBox")
@@ -828,12 +963,16 @@ document
     );
 
 
-/* ================= START ================= */
+/* =====================================================
+   START
+===================================================== */
 
 updateUser();
 
 
-/* ================= STORAGE ================= */
+/* =====================================================
+   STORAGE
+===================================================== */
 
 window.addEventListener(
     "storage",
@@ -853,7 +992,9 @@ window.addEventListener(
 );
 
 
-/* ================= PAGE FOCUS ================= */
+/* =====================================================
+   PAGE FOCUS
+===================================================== */
 
 document.addEventListener(
     "visibilitychange",
