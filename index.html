@@ -8,7 +8,6 @@
 
 <style>
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -378,6 +377,71 @@ a{
     font-size:21px;
 }
 
+/* ================= THÔNG TIN SHOPKAROT ================= */
+
+.shop-info-card{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:18px;
+    padding:18px;
+    border-radius:15px;
+    background:
+        linear-gradient(135deg,#111827,#374151);
+    color:white;
+    border:1px solid #4b5563;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+    transition:.25s;
+}
+
+.shop-info-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.22);
+}
+
+.shop-info-icon{
+    width:85px;
+    min-width:85px;
+    height:85px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#111,#e21b23);
+    font-size:42px;
+}
+
+.shop-info-content{
+    flex:1;
+}
+
+.shop-info-content h3{
+    margin:0 0 8px;
+    font-size:20px;
+}
+
+.shop-info-content p{
+    margin:5px 0;
+    color:#d1d5db;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.shop-info-button{
+    display:inline-block;
+    margin-top:9px;
+    padding:9px 14px;
+    border-radius:8px;
+    background:#e21b23;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.shop-info-button:hover{
+    background:#ff3038;
+}
+
 /* ================= RANDOM ACC ================= */
 
 .random-acc{
@@ -736,8 +800,6 @@ a{
         );
 }
 
-/* BLUE BLOCK */
-
 .blue-block{
     background:
         linear-gradient(
@@ -945,6 +1007,17 @@ footer{
         width:100%;
     }
 
+    .shop-info-card{
+        align-items:flex-start;
+    }
+
+    .shop-info-icon{
+        width:65px;
+        min-width:65px;
+        height:65px;
+        font-size:30px;
+    }
+
     .random-acc{
         display:block;
     }
@@ -1022,11 +1095,19 @@ footer{
         </div>
 
         <div class="logo-text">
-            <b>SHOP<span>KAROT</span></b>
-            <small>SHOP ACC GAME UY TÍN - GIÁ RẺ</small>
+
+            <b>
+                SHOP<span>KAROT</span>
+            </b>
+
+            <small>
+                SHOP ACC GAME UY TÍN - GIÁ RẺ
+            </small>
+
         </div>
 
     </a>
+
 
     <div class="menu">
 
@@ -1035,6 +1116,7 @@ footer{
             onclick="toggleMenu()">
             ☰
         </button>
+
 
         <div
             class="menu-box"
@@ -1064,6 +1146,10 @@ footer{
                 👤 HỒ SƠ
             </a>
 
+            <a href="thong-tin.html">
+                📣 THÔNG TIN SHOPKAROT
+            </a>
+
             <a href="login.html">
                 🔐 ĐĂNG NHẬP
             </a>
@@ -1073,7 +1159,9 @@ footer{
             </a>
 
         </div>
+
     </div>
+
 
     <div
         class="user"
@@ -1139,6 +1227,7 @@ footer{
 
                     <div class="badge">
                         🛡️ <b>UY TÍN</b>
+
                         <small>
                             Đặt uy tín lên hàng đầu
                         </small>
@@ -1146,6 +1235,7 @@ footer{
 
                     <div class="badge">
                         ⚡ <b>TỰ ĐỘNG</b>
+
                         <small>
                             Giao acc nhanh chóng
                         </small>
@@ -1153,6 +1243,7 @@ footer{
 
                     <div class="badge">
                         🏅 <b>AN TOÀN</b>
+
                         <small>
                             Bảo hành đầy đủ
                         </small>
@@ -1191,6 +1282,7 @@ footer{
                 </div>
 
             </div>
+
 
             <a
                 href="nap-tien.html"
@@ -1246,7 +1338,7 @@ footer{
 
             <p>
                 Thời hoạt động shop:
-                10h sáng – 8h tối.
+                10h sáng – 8 tối.
             </p>
 
             <p>
@@ -1271,6 +1363,39 @@ footer{
 
             </div>
 
+
+            <!-- ================= THÔNG TIN SHOPKAROT ================= -->
+
+            <a
+                href="thong-tin.html"
+                class="shop-info-card">
+
+                <div class="shop-info-icon">
+                    📣
+                </div>
+
+                <div class="shop-info-content">
+
+                    <h3>
+                        📣 Thông tin ShopKarot
+                    </h3>
+
+                    <p>
+                        Xem thông tin chính thức,
+                        chính sách, thời gian hoạt động
+                        và hỗ trợ của ShopKarot.
+                    </p>
+
+                    <span class="shop-info-button">
+                        XEM THÔNG TIN SHOPKAROT →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- ================= RANDOM ACC ================= -->
 
             <a
                 href="random-acc-roblox.html"
@@ -1329,9 +1454,12 @@ footer{
             </a>
 
 
+            <!-- ================= EVENT ================= -->
+
             <div class="event-title">
                 🎉 EVENT
             </div>
+
 
             <div class="events">
 
@@ -1403,6 +1531,8 @@ footer{
             </div>
 
 
+            <!-- ================= GAME ================= -->
+
             <div class="game-title">
                 🎮 GAME
             </div>
@@ -1410,8 +1540,6 @@ footer{
 
             <div class="games">
 
-
-                <!-- BLOX FRUITS -->
 
                 <article class="game">
 
@@ -1463,8 +1591,6 @@ footer{
                 </article>
 
 
-                <!-- KING LEGACY -->
-
                 <article class="game">
 
                     <div class="game-image king">
@@ -1487,8 +1613,6 @@ footer{
 
                 </article>
 
-
-                <!-- ANIME FIGHTERS -->
 
                 <article class="game">
 
@@ -1513,8 +1637,6 @@ footer{
                 </article>
 
 
-                <!-- GROW A GARDEN 2 -->
-
                 <article class="game">
 
                     <div class="game-image grow2">
@@ -1537,8 +1659,6 @@ footer{
 
                 </article>
 
-
-                <!-- GROW A GARDEN -->
 
                 <article class="game">
 
@@ -1563,8 +1683,6 @@ footer{
                 </article>
 
 
-                <!-- CÀY THUÊ -->
-
                 <article class="game">
 
                     <div class="game-image caythue">
@@ -1588,8 +1706,6 @@ footer{
                 </article>
 
 
-                <!-- MM2 -->
-
                 <article class="game">
 
                     <div class="game-image mm2">
@@ -1612,8 +1728,6 @@ footer{
 
                 </article>
 
-
-                <!-- GREEDY GROWERS -->
 
                 <article class="game">
 
@@ -1640,8 +1754,6 @@ footer{
                 </article>
 
 
-                <!-- GAMEPASS -->
-
                 <article class="game">
 
                     <div class="game-image gamepass">
@@ -1665,8 +1777,6 @@ footer{
 
                 </article>
 
-
-                <!-- ROBUX 120H -->
 
                 <article class="game">
 
@@ -1692,8 +1802,6 @@ footer{
                 </article>
 
 
-                <!-- FISH -->
-
                 <article class="game">
 
                     <div class="game-image fish">
@@ -1717,8 +1825,6 @@ footer{
 
                 </article>
 
-
-                <!-- SPEED KEYBOARD -->
 
                 <article class="game">
 
@@ -1745,8 +1851,6 @@ footer{
                 </article>
 
 
-                <!-- 99 NIGHTS -->
-
                 <article class="game">
 
                     <div class="game-image nights99">
@@ -1771,8 +1875,6 @@ footer{
 
                 </article>
 
-
-                <!-- ESCAPE TSUNAMI BRAINROT -->
 
                 <article class="game">
 
@@ -1799,8 +1901,6 @@ footer{
                 </article>
 
 
-                <!-- TREO ACC ROBLOX -->
-
                 <article class="game">
 
                     <div class="game-image roblox-treo">
@@ -1826,8 +1926,6 @@ footer{
                 </article>
 
 
-                <!-- CHUYỂN VÙNG ACC ROBLOX -->
-
                 <article class="game">
 
                     <div class="game-image chuyen-vung">
@@ -1852,8 +1950,6 @@ footer{
 
                 </article>
 
-
-                <!-- BLUE BLOCK -->
 
                 <article class="game">
 
@@ -2082,7 +2178,10 @@ function loadTopNap(){
 
     catch(error){
 
-        console.error("TOP NẠP:",error);
+        console.error(
+            "TOP NẠP:",
+            error
+        );
 
         data = [];
 
