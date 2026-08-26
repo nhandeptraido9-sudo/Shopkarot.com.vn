@@ -612,6 +612,40 @@ a{
     background:linear-gradient(135deg,#27006e,#913bff);
 }
 
+/* ================= STEAL AN EGG ================= */
+
+.steal-egg{
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #84cc16 0%,
+            #166534 38%,
+            #052e16 72%,
+            #020617 100%
+        );
+    position:relative;
+    overflow:hidden;
+}
+
+.steal-egg::before{
+    content:"🦖";
+    position:absolute;
+    font-size:68px;
+    opacity:.22;
+    right:8px;
+    bottom:-5px;
+    transform:rotate(-8deg);
+}
+
+.steal-egg::after{
+    content:"🥚";
+    position:absolute;
+    font-size:45px;
+    opacity:.25;
+    left:10px;
+    top:8px;
+}
+
 .king{
     background:linear-gradient(135deg,#06345d,#1689df);
 }
@@ -1395,6 +1429,33 @@ footer{
 
                     <a
                         href="acc-blox-fruit.html"
+                        class="game-button">
+                        XEM NGAY
+                    </a>
+
+                </article>
+
+
+                <!-- STEAL AN EGG -->
+
+                <article class="game">
+
+                    <div class="game-image steal-egg">
+                        🦖<br>
+                        STEAL<br>
+                        AN EGG
+                    </div>
+
+                    <h3>
+                        Steal an Egg 🦖
+                    </h3>
+
+                    <small>
+                        👥 Acc game
+                    </small>
+
+                    <a
+                        href="steal-an-egg.html"
                         class="game-button">
                         XEM NGAY
                     </a>
