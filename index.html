@@ -836,6 +836,90 @@ a{
     background:#d0161d;
 }
 
+/* ================= THƯ MỤC KHÁC ================= */
+
+.other-title{
+    margin:20px 0 12px;
+    padding:11px 14px;
+    border-radius:10px;
+    background:#fff1f1;
+    border:1px solid #ffd0d0;
+    color:#d01018;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.other-folders{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.other-folder{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:16px;
+    background:#fff;
+    border:1px solid #e4e7eb;
+    border-radius:13px;
+    transition:.2s;
+}
+
+.other-folder:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 18px rgba(0,0,0,.12);
+}
+
+.other-icon{
+    width:70px;
+    min-width:70px;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    font-size:34px;
+    color:white;
+    font-weight:bold;
+}
+
+.lien-quan{
+    background:linear-gradient(135deg,#075985,#22c55e);
+}
+
+.free-fire{
+    background:linear-gradient(135deg,#7f1d1d,#f97316);
+}
+
+.other-info{
+    flex:1;
+}
+
+.other-info h3{
+    margin:0 0 6px;
+    font-size:17px;
+}
+
+.other-info small{
+    color:#687386;
+}
+
+.other-button{
+    display:inline-block;
+    margin-top:9px;
+    padding:8px 13px;
+    border-radius:7px;
+    background:#a80e12;
+    color:#fff;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.other-button:hover{
+    background:#d0161d;
+}
+
 /* ================= SHOP STATUS ================= */
 
 .shop-status{
@@ -919,7 +1003,7 @@ a{
     font-size:12px;
 }
 
-/* ================= ADMIN CUỐI TRANG ================= */
+/* ================= ADMIN ================= */
 
 .admin-contact{
     width:96%;
@@ -1093,6 +1177,10 @@ footer{
         grid-template-columns:repeat(2,1fr);
     }
 
+    .other-folders{
+        grid-template-columns:1fr;
+    }
+
     .stats{
         grid-template-columns:1fr 1fr;
     }
@@ -1147,7 +1235,6 @@ footer{
 
     </a>
 
-
     <div class="menu">
 
         <button
@@ -1155,7 +1242,6 @@ footer{
             onclick="toggleMenu()">
             ☰
         </button>
-
 
         <div
             class="menu-box"
@@ -1201,7 +1287,6 @@ footer{
 
     </div>
 
-
     <div
         class="user"
         id="userBox">
@@ -1226,7 +1311,6 @@ footer{
 
 </header>
 
-
 <div
     id="apiStatus"
     class="api-status">
@@ -1235,14 +1319,12 @@ footer{
 
 </div>
 
-
 <main class="container">
 
     <div
         id="shopStatusBox"
         class="shop-status">
     </div>
-
 
     <section class="top">
 
@@ -1302,7 +1384,6 @@ footer{
 
         </div>
 
-
         <aside class="top-nap">
 
             <div class="top-nap-title">
@@ -1322,7 +1403,6 @@ footer{
 
             </div>
 
-
             <a
                 href="nap-tien.html"
                 class="nap-button">
@@ -1335,9 +1415,7 @@ footer{
 
     </section>
 
-
     <section class="content">
-
 
         <aside class="card notice">
 
@@ -1391,7 +1469,6 @@ footer{
 
         </aside>
 
-
         <section class="card featured">
 
             <div class="title">
@@ -1401,7 +1478,6 @@ footer{
                 </h2>
 
             </div>
-
 
             <a
                 href="thong-tin.html"
@@ -1430,7 +1506,6 @@ footer{
                 </div>
 
             </a>
-
 
             <a
                 href="random-acc-roblox.html"
@@ -1488,11 +1563,9 @@ footer{
 
             </a>
 
-
             <div class="event-title">
                 🎉 EVENT
             </div>
-
 
             <div class="events">
 
@@ -1528,7 +1601,6 @@ footer{
 
                 </article>
 
-
                 <article class="event-card">
 
                     <div class="event-image event-grow2">
@@ -1563,11 +1635,9 @@ footer{
 
             </div>
 
-
             <div class="game-title">
                 🎮 GAME
             </div>
-
 
             <div class="games">
 
@@ -1577,9 +1647,10 @@ footer{
                     </div>
                     <h3>Blox Fruits</h3>
                     <small>👥 Acc game</small>
-                    <a href="acc-blox-fruit.html" class="game-button">XEM NGAY</a>
+                    <a href="acc-blox-fruit.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image steal-egg">
@@ -1587,9 +1658,10 @@ footer{
                     </div>
                     <h3>Steal an Egg 🦖</h3>
                     <small>👥 Acc game</small>
-                    <a href="steal-an-egg.html" class="game-button">XEM NGAY</a>
+                    <a href="steal-an-egg.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image king">
@@ -1597,9 +1669,10 @@ footer{
                     </div>
                     <h3>King Legacy</h3>
                     <small>👥 Acc game</small>
-                    <a href="king-legacy.html" class="game-button">XEM NGAY</a>
+                    <a href="king-legacy.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image anime">
@@ -1607,9 +1680,10 @@ footer{
                     </div>
                     <h3>Anime Fighters</h3>
                     <small>👥 Acc game</small>
-                    <a href="anime-fighters.html" class="game-button">XEM NGAY</a>
+                    <a href="anime-fighters.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image grow2">
@@ -1617,9 +1691,10 @@ footer{
                     </div>
                     <h3>Grow A Garden 2</h3>
                     <small>👥 Acc game</small>
-                    <a href="grow-a-garden-2.html" class="game-button">XEM TẤT CẢ →</a>
+                    <a href="grow-a-garden-2.html" class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image grow">
@@ -1627,9 +1702,10 @@ footer{
                     </div>
                     <h3>Grow A Garden</h3>
                     <small>👥 Acc game</small>
-                    <a href="grow-a-garden.html" class="game-button">XEM TẤT CẢ →</a>
+                    <a href="grow-a-garden.html" class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image caythue">
@@ -1637,9 +1713,10 @@ footer{
                     </div>
                     <h3>Cày Thuê</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="cay-thue.html" class="game-button">XEM TẤT CẢ →</a>
+                    <a href="cay-thue.html" class="game-button">
+                        XEM TẤT CẢ →
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image mm2">
@@ -1647,9 +1724,10 @@ footer{
                     </div>
                     <h3>Murder Mystery 2</h3>
                     <small>👥 Acc game</small>
-                    <a href="murder-mystery-2.html" class="game-button">XEM NGAY</a>
+                    <a href="murder-mystery-2.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image greedy">
@@ -1657,9 +1735,10 @@ footer{
                     </div>
                     <h3>Greedy Growers 🌱</h3>
                     <small>👥 Acc game</small>
-                    <a href="greedy-growers.html" class="game-button">XEM NGAY</a>
+                    <a href="greedy-growers.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image gamepass">
@@ -1667,9 +1746,10 @@ footer{
                     </div>
                     <h3>Gamepass Blox Fruits</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="gamepass/index.html" class="game-button">XEM NGAY</a>
+                    <a href="gamepass/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image robux120">
@@ -1677,9 +1757,10 @@ footer{
                     </div>
                     <h3>Robux 120H</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="robux-120h/index.html" class="game-button">XEM NGAY</a>
+                    <a href="robux-120h/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image fish">
@@ -1687,9 +1768,10 @@ footer{
                     </div>
                     <h3>Fish</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="fish/index.html" class="game-button">XEM NGAY</a>
+                    <a href="fish/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image speed-keyboard">
@@ -1697,9 +1779,10 @@ footer{
                     </div>
                     <h3>Speed Keyboard</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="speed-keyboard/index.html" class="game-button">XEM NGAY</a>
+                    <a href="speed-keyboard/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image nights99">
@@ -1707,9 +1790,10 @@ footer{
                     </div>
                     <h3>99 Nights</h3>
                     <small>👥 Acc game</small>
-                    <a href="99-night.html" class="game-button">XEM NGAY</a>
+                    <a href="99-night.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image tsunami">
@@ -1717,9 +1801,10 @@ footer{
                     </div>
                     <h3>Escape Tsunami Brainrot</h3>
                     <small>👥 Acc game</small>
-                    <a href="escape-tsunami-brainrot/index.html" class="game-button">XEM NGAY</a>
+                    <a href="escape-tsunami-brainrot/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image roblox-treo">
@@ -1727,9 +1812,10 @@ footer{
                     </div>
                     <h3>Treo Acc Roblox</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="treo-acc-roblox/index.html" class="game-button">XEM NGAY</a>
+                    <a href="treo-acc-roblox/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image chuyen-vung">
@@ -1737,9 +1823,10 @@ footer{
                     </div>
                     <h3>Chuyển Vùng Acc Roblox</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="chuyen-vung-acc-roblox/index.html" class="game-button">XEM NGAY</a>
+                    <a href="chuyen-vung-acc-roblox/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
                 </article>
-
 
                 <article class="game">
                     <div class="game-image blue-block">
@@ -1747,7 +1834,88 @@ footer{
                     </div>
                     <h3>Blue Block</h3>
                     <small>🛠️ Dịch vụ</small>
-                    <a href="blue-block/index.html" class="game-button">XEM NGAY</a>
+                    <a href="blue-block/index.html" class="game-button">
+                        XEM NGAY
+                    </a>
+                </article>
+
+            </div>
+
+
+            <!-- ==================================================
+                 THƯ MỤC KHÁC
+                 NẰM NGAY BÊN DƯỚI PHẦN GAME
+                 ================================================== -->
+
+            <div class="other-title">
+                🎮 THƯ MỤC KHÁC
+            </div>
+
+            <div class="other-folders">
+
+                <!-- LIÊN QUÂN -->
+
+                <article class="other-folder">
+
+                    <div class="other-icon lien-quan">
+                        ⚔️
+                    </div>
+
+                    <div class="other-info">
+
+                        <h3>
+                            Liên Quân
+                        </h3>
+
+                        <small>
+                            👥 Acc game
+                        </small>
+
+                        <br>
+
+                        <a
+                            href="lien-quan.html"
+                            class="other-button">
+
+                            XEM NGAY
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FREE FIRE -->
+
+                <article class="other-folder">
+
+                    <div class="other-icon free-fire">
+                        🔥
+                    </div>
+
+                    <div class="other-info">
+
+                        <h3>
+                            Free Fire
+                        </h3>
+
+                        <small>
+                            👥 Acc game
+                        </small>
+
+                        <br>
+
+                        <a
+                            href="https://nhandeptraido9-sudo.github.io/Shopkarot.com.vn/steal-an-egg.html"
+                            class="other-button">
+
+                            XEM NGAY
+
+                        </a>
+
+                    </div>
+
                 </article>
 
             </div>
