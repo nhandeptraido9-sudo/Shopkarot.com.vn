@@ -15,7 +15,7 @@ body{
   color:#111827;
 }
 
-button,input,select{font:inherit}
+button,input,select,textarea{font:inherit}
 
 .login-box{
   width:min(420px,92%);
@@ -26,10 +26,7 @@ button,input,select{font:inherit}
   box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-.login-box h1{
-  text-align:center;
-  margin-top:0;
-}
+.login-box h1{text-align:center;margin-top:0}
 
 .input{
   width:100%;
@@ -40,9 +37,7 @@ button,input,select{font:inherit}
   outline:none;
 }
 
-.input:focus{
-  border-color:#2563eb;
-}
+.input:focus{border-color:#2563eb}
 
 .btn{
   border:0;
@@ -52,38 +47,14 @@ button,input,select{font:inherit}
   font-weight:bold;
 }
 
-.btn-primary{
-  background:#2563eb;
-  color:#fff;
-}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-success{background:#16a34a;color:#fff}
+.btn-danger{background:#dc2626;color:#fff}
+.btn-warning{background:#f59e0b;color:#fff}
+.btn-gray{background:#6b7280;color:#fff}
 
-.btn-success{
-  background:#16a34a;
-  color:#fff;
-}
-
-.btn-danger{
-  background:#dc2626;
-  color:#fff;
-}
-
-.btn-warning{
-  background:#f59e0b;
-  color:#fff;
-}
-
-.btn-gray{
-  background:#6b7280;
-  color:#fff;
-}
-
-.btn:hover{
-  opacity:.88;
-}
-
-.hidden{
-  display:none!important;
-}
+.btn:hover{opacity:.88}
+.hidden{display:none!important}
 
 header{
   background:#111827;
@@ -96,9 +67,7 @@ header{
   flex-wrap:wrap;
 }
 
-header h2{
-  margin:0;
-}
+header h2{margin:0}
 
 .container{
   width:min(1400px,96%);
@@ -146,13 +115,8 @@ header h2{
   color:#fff;
 }
 
-.panel{
-  display:none;
-}
-
-.panel.active{
-  display:block;
-}
+.panel{display:none}
+.panel.active{display:block}
 
 .form-grid{
   display:grid;
@@ -170,9 +134,7 @@ header h2{
   margin-bottom:6px;
 }
 
-.full{
-  grid-column:1/-1;
-}
+.full{grid-column:1/-1}
 
 .actions{
   display:flex;
@@ -215,12 +177,12 @@ th{
   font-weight:bold;
 }
 
-.available{
+.available,.ready{
   background:#dcfce7;
   color:#166534;
 }
 
-.sold{
+.sold,.not-ready{
   background:#fee2e2;
   color:#991b1b;
 }
@@ -277,9 +239,7 @@ th{
   padding:25px;
 }
 
-.modal-content h2{
-  margin-top:0;
-}
+.modal-content h2{margin-top:0}
 
 .account-result{
   background:#111827;
@@ -289,9 +249,7 @@ th{
   margin-top:15px;
 }
 
-.account-result div{
-  margin:7px 0;
-}
+.account-result div{margin:7px 0}
 
 .small{
   font-size:13px;
@@ -303,9 +261,7 @@ th{
   margin-bottom:15px;
 }
 
-.product-status-card{
-  margin-bottom:12px;
-}
+.product-status-card{margin-bottom:12px}
 
 .product-status-row{
   display:flex;
@@ -329,7 +285,7 @@ th{
 
 .product-group-title{
   background:#111827;
-  color:white;
+  color:#fff;
   padding:14px 18px;
   border-radius:12px;
   margin:20px 0 12px;
@@ -345,54 +301,62 @@ th{
   border-left:5px solid #ef4444;
 }
 
-/* CÀY THUÊ */
-.service-box{
-  background:#f0fdf4;
-  border:1px solid #bbf7d0;
-  border-radius:12px;
-  padding:15px;
+.service-card{
+  margin-bottom:12px;
+  border-left:5px solid #2563eb;
 }
 
-.service-box h3{
-  margin-top:0;
-  color:#166534;
-}
-
-.service-options{
+.service-header{
   display:flex;
+  justify-content:space-between;
+  align-items:center;
   gap:10px;
   flex-wrap:wrap;
 }
 
-.service-option{
-  border:2px solid #d1d5db;
-  background:#fff;
-  border-radius:10px;
-  padding:10px 14px;
-  cursor:pointer;
+.service-title{
+  font-size:18px;
   font-weight:bold;
 }
 
-.service-option.active{
-  border-color:#16a34a;
-  background:#dcfce7;
-  color:#166534;
+.service-price{
+  font-size:20px;
+  font-weight:bold;
+  color:#16a34a;
+}
+
+.service-desc{
+  color:#6b7280;
+  margin:10px 0;
+  white-space:pre-wrap;
+}
+
+.service-meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.service-actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.cay-count{
+  background:#eff6ff;
+  color:#1d4ed8;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:bold;
 }
 
 @media(max-width:700px){
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .full{
-    grid-column:auto;
-  }
-
-  .product-status-row{
-    align-items:stretch;
-  }
-
+  .form-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .product-status-row{align-items:stretch}
   .product-status-name,
   .product-status-select{
     width:100%;
@@ -404,7 +368,9 @@ th{
 
 <body>
 
-<!-- LOGIN -->
+<!-- =====================================================
+     LOGIN
+===================================================== -->
 
 <div id="loginPage" class="login-box">
 
@@ -437,7 +403,9 @@ th{
 </div>
 
 
-<!-- ADMIN -->
+<!-- =====================================================
+     ADMIN
+===================================================== -->
 
 <div id="adminPage" class="hidden">
 
@@ -447,15 +415,12 @@ th{
     <h2>🛒 SHOPKAROT ADMIN</h2>
 
     <div class="small" style="color:#d1d5db">
-      Quản lý kho acc, khách hàng, đơn hàng,
-      nạp tiền và trạng thái sản phẩm
+      Quản lý kho acc, cày thuê, khách hàng,
+      đơn hàng, nạp tiền và trạng thái sản phẩm
     </div>
   </div>
 
-  <button
-    class="btn btn-danger"
-    onclick="logout()"
-  >
+  <button class="btn btn-danger" onclick="logout()">
     🚪 Đăng xuất
   </button>
 
@@ -464,7 +429,9 @@ th{
 
 <div class="container">
 
-<!-- DASHBOARD -->
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
 
 <div class="dashboard">
 
@@ -476,6 +443,11 @@ th{
   <div class="card">
     🎮 Kho acc
     <div id="dashAccounts" class="number">0</div>
+  </div>
+
+  <div class="card">
+    🛠️ Cày thuê
+    <div id="dashServices" class="number">0</div>
   </div>
 
   <div class="card">
@@ -496,7 +468,9 @@ th{
 </div>
 
 
-<!-- SHOP STATUS -->
+<!-- =====================================================
+     SHOP STATUS
+===================================================== -->
 
 <div class="card" style="margin-bottom:20px">
 
@@ -504,10 +478,7 @@ th{
 
   <div class="status-box">
 
-    <span
-      id="shopStatusDot"
-      class="status-dot"
-    ></span>
+    <span id="shopStatusDot" class="status-dot"></span>
 
     <b id="shopStatusText">
       Đang tải...
@@ -518,6 +489,7 @@ th{
       class="input"
       style="width:auto;margin:0"
     >
+
       <option value="Shop đang hoạt động">
         Shop đang hoạt động
       </option>
@@ -529,12 +501,10 @@ th{
       <option value="Shop tạm đóng">
         Shop tạm đóng
       </option>
+
     </select>
 
-    <button
-      class="btn btn-primary"
-      onclick="setShopStatus()"
-    >
+    <button class="btn btn-primary" onclick="setShopStatus()">
       💾 Lưu trạng thái
     </button>
 
@@ -543,7 +513,9 @@ th{
 </div>
 
 
-<!-- TABS -->
+<!-- =====================================================
+     TABS
+===================================================== -->
 
 <div class="tabs">
 
@@ -552,6 +524,13 @@ th{
     onclick="showTab('accounts',this)"
   >
     🎮 Kho Acc
+  </button>
+
+  <button
+    class="tab"
+    onclick="showTab('services',this)"
+  >
+    🛠️ Cày thuê
   </button>
 
   <button
@@ -585,112 +564,43 @@ th{
 </div>
 
 
-<!-- KHO ACC -->
+<!-- =====================================================
+     KHO ACC
+===================================================== -->
 
-<section
-  id="panel-accounts"
-  class="panel active"
->
+<section id="panel-accounts" class="panel active">
 
 <div class="card">
 
-  <h2>🎮 Thêm sản phẩm vào kho</h2>
+  <h2>🎮 Thêm tài khoản vào kho</h2>
 
   <div class="notice">
-    Chọn Game → Cày thuê/Loại sản phẩm → Thư mục → Giá → Gói
-    → nhập Username và Password nếu là sản phẩm tài khoản.
+    Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
   </div>
-
 
   <div class="form-grid">
 
-    <!-- GAME -->
-
     <div class="form-group">
-
       <label>🎮 Game</label>
 
-      <select
-        id="accountGame"
-        class="input"
-        onchange="gameChanged()"
-      >
+      <select id="accountGame" class="input" onchange="gameChanged()">
 
-        <option value="">
-          -- Chọn game --
-        </option>
+        <option value="">-- Chọn game --</option>
 
-        <option value="Blox Fruits">
-          Blox Fruits
-        </option>
-
-        <option value="King Legacy">
-          King Legacy
-        </option>
-
-        <option value="Anime Fighters">
-          Anime Fighters
-        </option>
-
-        <option value="Grow A Garden 2">
-          Grow A Garden 2
-        </option>
-
-        <option value="Grow A Garden">
-          Grow A Garden
-        </option>
-
-        <option value="Murder Mystery 2">
-          Murder Mystery 2
-        </option>
-
-        <option value="Túi Mù">
-          Túi Mù
-        </option>
-
-        <option value="Event">
-          Event
-        </option>
-
-        <option value="Greedy Growers 🌱">
-          Greedy Growers 🌱
-        </option>
-
-        <option value="Steal a Egg">
-          🥚 Steal a Egg
-        </option>
+        <option value="Blox Fruits">Blox Fruits</option>
+        <option value="King Legacy">King Legacy</option>
+        <option value="Anime Fighters">Anime Fighters</option>
+        <option value="Grow A Garden 2">Grow A Garden 2</option>
+        <option value="Grow A Garden">Grow A Garden</option>
+        <option value="Murder Mystery 2">Murder Mystery 2</option>
+        <option value="Túi Mù">Túi Mù</option>
+        <option value="Event">Event</option>
+        <option value="Greedy Growers 🌱">Greedy Growers 🌱</option>
+        <option value="Steal a Egg">🥚 Steal a Egg</option>
 
       </select>
-
     </div>
 
-
-    <!-- CÀY THUÊ NGAY CẠNH GAME -->
-
-    <div class="form-group">
-
-      <label>🛠️ Loại sản phẩm</label>
-
-      <select
-        id="serviceType"
-        class="input"
-        onchange="serviceTypeChanged()"
-      >
-
-        <option value="acc">
-          🎮 Bán Acc
-        </option>
-
-        <option value="caythue">
-          🛠️ Cày thuê
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <!-- FOLDER -->
 
     <div class="form-group">
 
@@ -702,16 +612,12 @@ th{
         onchange="folderChanged()"
       >
 
-        <option value="">
-          -- Chọn thư mục --
-        </option>
+        <option value="">-- Chọn thư mục --</option>
 
       </select>
 
     </div>
 
-
-    <!-- PRICE -->
 
     <div class="form-group">
 
@@ -723,9 +629,7 @@ th{
         onchange="priceChanged()"
       >
 
-        <option value="">
-          -- Chọn giá --
-        </option>
+        <option value="">-- Chọn giá --</option>
 
         <option value="0">0K</option>
         <option value="10">10K</option>
@@ -747,32 +651,20 @@ th{
     </div>
 
 
-    <!-- PACKAGE -->
-
     <div class="form-group">
 
       <label>📦 Gói</label>
 
-      <select
-        id="accountPackage"
-        class="input"
-      >
+      <select id="accountPackage" class="input">
 
-        <option value="">
-          -- Chọn gói --
-        </option>
+        <option value="">-- Chọn gói --</option>
 
       </select>
 
     </div>
 
 
-    <!-- USERNAME -->
-
-    <div
-      id="usernameGroup"
-      class="form-group"
-    >
+    <div class="form-group">
 
       <label>👤 Tên đăng nhập</label>
 
@@ -786,12 +678,7 @@ th{
     </div>
 
 
-    <!-- PASSWORD -->
-
-    <div
-      id="passwordGroup"
-      class="form-group"
-    >
+    <div class="form-group">
 
       <label>🔑 Mật khẩu</label>
 
@@ -804,123 +691,29 @@ th{
 
     </div>
 
-
-    <!-- CÀY THUÊ -->
-
-    <div
-      id="cayThueBox"
-      class="form-group full hidden"
-    >
-
-      <div class="service-box">
-
-        <h3>🛠️ Thông tin Cày thuê Blox Fruits</h3>
-
-        <div class="form-grid">
-
-          <div class="form-group">
-
-            <label>🎯 Nội dung cày</label>
-
-            <select
-              id="cayThueType"
-              class="input"
-            >
-
-              <option value="">
-                -- Chọn nội dung --
-              </option>
-
-              <option value="Cày Level">
-                Cày Level
-              </option>
-
-              <option value="Cày Mastery">
-                Cày Mastery
-              </option>
-
-              <option value="Cày Race V4">
-                Cày Race V4
-              </option>
-
-              <option value="Cày Item">
-                Cày Item
-              </option>
-
-              <option value="Cày Fragment">
-                Cày Fragment
-              </option>
-
-              <option value="Cày Bounty">
-                Cày Bounty
-              </option>
-
-              <option value="Cày Quest">
-                Cày Quest
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label>📝 Mô tả dịch vụ</label>
-
-            <input
-              id="cayThueNote"
-              class="input"
-              type="text"
-              placeholder="Ví dụ: Cày LV 1 → MAX"
-            >
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
   </div>
 
 
   <div class="actions">
 
-    <button
-      class="btn btn-success"
-      onclick="addAccount()"
-    >
-      ➕ Thêm sản phẩm
+    <button class="btn btn-success" onclick="addAccount()">
+      ➕ Thêm tài khoản
     </button>
 
-    <button
-      class="btn btn-gray"
-      onclick="clearAccountForm()"
-    >
+    <button class="btn btn-gray" onclick="clearAccountForm()">
       🧹 Xóa form
     </button>
 
   </div>
 
-
-  <div
-    id="accountMessage"
-    style="margin-top:15px"
-  ></div>
+  <div id="accountMessage" style="margin-top:15px"></div>
 
 </div>
 
 
-<!-- KHO -->
+<div class="card" style="margin-top:20px">
 
-<div
-  class="card"
-  style="margin-top:20px"
->
-
-  <h2>📦 Kho tài khoản / sản phẩm</h2>
+  <h2>📦 Kho tài khoản</h2>
 
   <input
     id="accountSearch"
@@ -938,7 +731,6 @@ th{
         <tr>
           <th>ID</th>
           <th>Game</th>
-          <th>Loại</th>
           <th>Thư mục</th>
           <th>Giá</th>
           <th>Gói</th>
@@ -961,12 +753,185 @@ th{
 </section>
 
 
-<!-- CUSTOMERS -->
+<!-- =====================================================
+     CÀY THUÊ
+===================================================== -->
 
-<section
-  id="panel-customers"
-  class="panel"
->
+<section id="panel-services" class="panel">
+
+<div class="card">
+
+  <h2>🛠️ Quản lý Cày thuê</h2>
+
+  <div class="notice">
+    Đây là mục riêng cho dịch vụ <b>Cày thuê</b>.
+    Không ảnh hưởng đến Kho Acc.
+  </div>
+
+  <div class="form-grid">
+
+    <div class="form-group">
+
+      <label>🎮 Game</label>
+
+      <select id="serviceGame" class="input">
+
+        <option value="">-- Chọn game --</option>
+
+        <option value="Blox Fruits">
+          Blox Fruits
+        </option>
+
+        <option value="King Legacy">
+          King Legacy
+        </option>
+
+        <option value="Grow A Garden">
+          Grow A Garden
+        </option>
+
+        <option value="Grow A Garden 2">
+          Grow A Garden 2
+        </option>
+
+        <option value="Anime Fighters">
+          Anime Fighters
+        </option>
+
+        <option value="Murder Mystery 2">
+          Murder Mystery 2
+        </option>
+
+        <option value="Steal a Egg">
+          🥚 Steal a Egg
+        </option>
+
+        <option value="Khác">
+          Khác
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>🛠️ Tên dịch vụ</label>
+
+      <input
+        id="serviceName"
+        class="input"
+        placeholder="Ví dụ: Cày Level Blox Fruits"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>💵 Giá</label>
+
+      <input
+        id="servicePrice"
+        class="input"
+        type="number"
+        min="0"
+        placeholder="Ví dụ: 50"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>📊 Trạng thái</label>
+
+      <select id="serviceStatus" class="input">
+
+        <option value="Sẵn Sàng">
+          🟢 Sẵn Sàng
+        </option>
+
+        <option value="Chưa Sẵn Sàng">
+          🔴 Chưa Sẵn Sàng
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group full">
+
+      <label>📝 Mô tả dịch vụ</label>
+
+      <textarea
+        id="serviceDescription"
+        class="input"
+        rows="4"
+        placeholder="Nhập nội dung/mô tả dịch vụ..."
+      ></textarea>
+
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button
+      class="btn btn-success"
+      onclick="addService()"
+    >
+      ➕ Thêm dịch vụ cày thuê
+    </button>
+
+    <button
+      class="btn btn-gray"
+      onclick="clearServiceForm()"
+    >
+      🧹 Xóa form
+    </button>
+
+  </div>
+
+  <div id="serviceMessage" style="margin-top:15px"></div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px">
+
+  <div class="service-header">
+
+    <h2>🛠️ Danh sách dịch vụ cày thuê</h2>
+
+    <span id="serviceCount" class="cay-count">
+      0 dịch vụ
+    </span>
+
+  </div>
+
+  <input
+    id="serviceSearch"
+    class="input search"
+    placeholder="🔎 Tìm game, tên dịch vụ..."
+    oninput="renderServices()"
+  >
+
+  <div id="servicesContainer"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CUSTOMERS
+===================================================== -->
+
+<section id="panel-customers" class="panel">
 
 <div class="card">
 
@@ -1005,12 +970,11 @@ th{
 </section>
 
 
-<!-- TOPUPS -->
+<!-- =====================================================
+     TOPUPS
+===================================================== -->
 
-<section
-  id="panel-topups"
-  class="panel"
->
+<section id="panel-topups" class="panel">
 
 <div class="card">
 
@@ -1048,12 +1012,11 @@ th{
 </section>
 
 
-<!-- ORDERS -->
+<!-- =====================================================
+     ORDERS
+===================================================== -->
 
-<section
-  id="panel-orders"
-  class="panel"
->
+<section id="panel-orders" class="panel">
 
 <div class="card">
 
@@ -1088,12 +1051,11 @@ th{
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- =====================================================
+     PRODUCT STATUS
+===================================================== -->
 
-<section
-  id="panel-products"
-  class="panel"
->
+<section id="panel-products" class="panel">
 
 <div class="card">
 
@@ -1101,8 +1063,6 @@ th{
 
   <div class="notice">
     Chọn trạng thái cho từng sản phẩm/thư mục.
-    Trạng thái được lưu trên Apps Script và có thể
-    đồng bộ cho trang Shop.
   </div>
 
   <div id="productsContainer"></div>
@@ -1112,16 +1072,14 @@ th{
 </section>
 
 </div>
-
 </div>
 
 
-<!-- MODAL -->
+<!-- =====================================================
+     MODAL
+===================================================== -->
 
-<div
-  id="accountModal"
-  class="modal hidden"
->
+<div id="accountModal" class="modal hidden">
 
 <div class="modal-content">
 
@@ -1161,6 +1119,21 @@ let customers=[];
 let topups=[];
 let orders=[];
 let productStatuses={};
+
+/* =====================================================
+   CÀY THUÊ - LOCAL DATA
+===================================================== */
+
+let services=[];
+
+try{
+  services=JSON.parse(
+    localStorage.getItem("shopkarot_cay_thue_services")||"[]"
+  );
+  if(!Array.isArray(services)) services=[];
+}catch(e){
+  services=[];
+}
 
 
 /* =====================================================
@@ -1221,7 +1194,6 @@ async function adminLogin(){
     );
 
     return;
-
   }
 
   showLoginMessage(
@@ -1233,21 +1205,17 @@ async function adminLogin(){
 
     const result=await apiPost(
       "adminLogin",
-      {
-        key:key
-      }
+      {key:key}
     );
 
     if(!result.ok){
 
       showLoginMessage(
-        result.message||
-        "Admin Key không đúng.",
+        result.message||"Admin Key không đúng.",
         "red"
       );
 
       return;
-
     }
 
     ADMIN_KEY=key;
@@ -1283,8 +1251,7 @@ async function adminLogin(){
 
 function showLoginMessage(text,color){
 
-  const el=document
-    .getElementById("loginMessage");
+  const el=document.getElementById("loginMessage");
 
   el.textContent=text;
   el.style.color=color;
@@ -1313,57 +1280,54 @@ function logout(){
    AUTO LOGIN
 ===================================================== */
 
-window.addEventListener(
-  "load",
-  async function(){
+window.addEventListener("load",async function(){
 
-    const saved=
-      localStorage.getItem(
+  renderServices();
+
+  const saved=
+    localStorage.getItem(
+      "shopkarot_admin_key"
+    );
+
+  if(!saved)return;
+
+  try{
+
+    const result=
+      await apiPost(
+        "adminLogin",
+        {key:saved}
+      );
+
+    if(result.ok){
+
+      ADMIN_KEY=saved;
+
+      document
+        .getElementById("loginPage")
+        .classList.add("hidden");
+
+      document
+        .getElementById("adminPage")
+        .classList.remove("hidden");
+
+      await loadAll();
+
+    }else{
+
+      localStorage.removeItem(
         "shopkarot_admin_key"
       );
 
-    if(!saved)return;
-
-    try{
-
-      const result=
-        await apiPost(
-          "adminLogin",
-          {
-            key:saved
-          }
-        );
-
-      if(result.ok){
-
-        ADMIN_KEY=saved;
-
-        document
-          .getElementById("loginPage")
-          .classList.add("hidden");
-
-        document
-          .getElementById("adminPage")
-          .classList.remove("hidden");
-
-        await loadAll();
-
-      }else{
-
-        localStorage.removeItem(
-          "shopkarot_admin_key"
-        );
-
-      }
-
-    }catch(err){
-
-      console.error(err);
-
     }
 
+  }catch(err){
+
+    console.error(err);
+
   }
-);
+
+});
 
 
 /* =====================================================
@@ -1373,7 +1337,6 @@ window.addEventListener(
 async function loadAll(){
 
   await Promise.all([
-
     loadDashboard(),
     loadShopStatus(),
     loadAccounts(),
@@ -1381,9 +1344,9 @@ async function loadAll(){
     loadTopups(),
     loadOrders(),
     loadProducts()
-
   ]);
 
+  renderServices();
 }
 
 
@@ -1396,26 +1359,21 @@ async function loadDashboard(){
   try{
 
     const result=
-      await apiGet(
-        "getDashboard"
-      );
+      await apiGet("getDashboard");
 
     if(!result.ok)return;
 
     document.getElementById(
       "dashCustomers"
-    ).textContent=
-      result.customers||0;
+    ).textContent=result.customers||0;
 
     document.getElementById(
       "dashAccounts"
-    ).textContent=
-      result.accounts||0;
+    ).textContent=result.accounts||0;
 
     document.getElementById(
       "dashOrders"
-    ).textContent=
-      result.orders||0;
+    ).textContent=result.orders||0;
 
     document.getElementById(
       "dashTopup"
@@ -1435,6 +1393,10 @@ async function loadDashboard(){
 
   }
 
+  document.getElementById(
+    "dashServices"
+  ).textContent=services.length;
+
 }
 
 
@@ -1447,9 +1409,7 @@ async function loadShopStatus(){
   try{
 
     const result=
-      await apiGet(
-        "getShopStatus"
-      );
+      await apiGet("getShopStatus");
 
     if(!result.ok)return;
 
@@ -1470,15 +1430,11 @@ async function loadShopStatus(){
         "shopStatusDot"
       );
 
-    if(
-      status==="Shop đang hoạt động"
-    ){
+    if(status==="Shop đang hoạt động"){
 
       dot.style.background="#22c55e";
 
-    }else if(
-      status==="Shop đang bảo trì"
-    ){
+    }else if(status==="Shop đang bảo trì"){
 
       dot.style.background="#f59e0b";
 
@@ -1523,7 +1479,6 @@ async function setShopStatus(){
       );
 
       return;
-
     }
 
     alert(
@@ -1560,8 +1515,7 @@ const folderData={
     "Acc Blox Fruits LV trên 1000",
     "Robux 120H",
     "Gamepass Blox Fruits",
-    "Fish",
-    "Cày thuê Blox Fruits"
+    "Fish"
   ],
 
   "King Legacy":[
@@ -1625,84 +1579,6 @@ const folderData={
 };
 
 
-/* =====================================================
-   SERVICE TYPE
-===================================================== */
-
-function serviceTypeChanged(){
-
-  const type=
-    document.getElementById(
-      "serviceType"
-    ).value;
-
-  const cayBox=
-    document.getElementById(
-      "cayThueBox"
-    );
-
-  const usernameGroup=
-    document.getElementById(
-      "usernameGroup"
-    );
-
-  const passwordGroup=
-    document.getElementById(
-      "passwordGroup"
-    );
-
-  if(type==="caythue"){
-
-    cayBox.classList.remove(
-      "hidden"
-    );
-
-    usernameGroup.classList.add(
-      "hidden"
-    );
-
-    passwordGroup.classList.add(
-      "hidden"
-    );
-
-    const game=
-      document.getElementById(
-        "accountGame"
-      ).value;
-
-    if(!game){
-
-      document.getElementById(
-        "accountGame"
-      ).value="Blox Fruits";
-
-      gameChanged();
-
-    }
-
-  }else{
-
-    cayBox.classList.add(
-      "hidden"
-    );
-
-    usernameGroup.classList.remove(
-      "hidden"
-    );
-
-    passwordGroup.classList.remove(
-      "hidden"
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   GAME CHANGE
-===================================================== */
-
 function gameChanged(){
 
   const game=
@@ -1721,20 +1597,15 @@ function gameChanged(){
   if(!game){
 
     updatePackages();
-
     return;
-
   }
 
-  const list=
-    folderData[game]||[];
+  const list=folderData[game]||[];
 
   list.forEach(name=>{
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
     option.value=name;
     option.textContent=name;
@@ -1748,25 +1619,13 @@ function gameChanged(){
 }
 
 
-/* =====================================================
-   FOLDER CHANGE
-===================================================== */
-
 function folderChanged(){
-
   updatePackages();
-
 }
 
 
-/* =====================================================
-   PRICE CHANGE
-===================================================== */
-
 function priceChanged(){
-
   updatePackages();
-
 }
 
 
@@ -1794,24 +1653,17 @@ function updatePackages(){
   packageSelect.innerHTML=
     '<option value="">-- Chọn gói --</option>';
 
-  if(!game || !folder)return;
+  if(!game||!folder)return;
 
   for(let i=1;i<=20;i++){
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
-    option.value=
-      "Gói "+i;
+    option.value="Gói "+i;
+    option.textContent="Gói "+i;
 
-    option.textContent=
-      "Gói "+i;
-
-    packageSelect.appendChild(
-      option
-    );
+    packageSelect.appendChild(option);
 
   }
 
@@ -1819,109 +1671,56 @@ function updatePackages(){
 
 
 /* =====================================================
-   ADD ACCOUNT / SERVICE
+   ADD ACCOUNT
 ===================================================== */
 
 async function addAccount(){
 
   const game=
-    document.getElementById(
-      "accountGame"
-    ).value.trim();
-
-  const serviceType=
-    document.getElementById(
-      "serviceType"
-    ).value;
+    document.getElementById("accountGame")
+    .value.trim();
 
   const folder=
-    document.getElementById(
-      "accountFolder"
-    ).value.trim();
+    document.getElementById("accountFolder")
+    .value.trim();
 
   const price=
-    document.getElementById(
-      "accountPrice"
-    ).value;
+    document.getElementById("accountPrice")
+    .value;
 
   const packageName=
-    document.getElementById(
-      "accountPackage"
-    ).value.trim();
+    document.getElementById("accountPackage")
+    .value.trim();
 
   const username=
-    document.getElementById(
-      "accountUsername"
-    ).value.trim();
+    document.getElementById("accountUsername")
+    .value.trim();
 
   const password=
-    document.getElementById(
-      "accountPassword"
-    ).value.trim();
-
-  const cayThueType=
-    document.getElementById(
-      "cayThueType"
-    ).value;
-
-  const cayThueNote=
-    document.getElementById(
-      "cayThueNote"
-    ).value.trim();
-
+    document.getElementById("accountPassword")
+    .value.trim();
 
   if(
     !game||
     !folder||
     price===""||
-    !packageName
+    !packageName||
+    !username||
+    !password
   ){
 
     showAccountMessage(
-      "❌ Vui lòng nhập đầy đủ Game, Thư mục, Giá và Gói.",
+      "❌ Vui lòng nhập đầy đủ thông tin.",
       "red"
     );
 
     return;
-
   }
-
-
-  if(
-    serviceType!=="caythue" &&
-    (!username||!password)
-  ){
-
-    showAccountMessage(
-      "❌ Vui lòng nhập Username và Password.",
-      "red"
-    );
-
-    return;
-
-  }
-
-
-  if(
-    serviceType==="caythue" &&
-    !cayThueType
-  ){
-
-    showAccountMessage(
-      "❌ Vui lòng chọn nội dung cày thuê.",
-      "red"
-    );
-
-    return;
-
-  }
-
 
   showAccountMessage(
-    "⏳ Đang thêm sản phẩm...",
+    "⏳ Đang thêm tài khoản...",
     "#2563eb"
   );
-
 
   try{
 
@@ -1930,36 +1729,14 @@ async function addAccount(){
         "addAccount",
         {
           key:ADMIN_KEY,
-
           game:game,
-
           folder:folder,
-
           price:Number(price),
-
           package:packageName,
-
-          username:
-            serviceType==="caythue"
-              ?cayThueType
-              :username,
-
-          password:
-            serviceType==="caythue"
-              ?cayThueNote
-              :password,
-
-          serviceType:
-            serviceType,
-
-          cayThueType:
-            cayThueType,
-
-          cayThueNote:
-            cayThueNote
+          username:username,
+          password:password
         }
       );
-
 
     if(!result.ok){
 
@@ -1967,28 +1744,23 @@ async function addAccount(){
         "❌ "+
         (
           result.message||
-          "Không thể thêm sản phẩm."
+          "Không thể thêm acc."
         ),
         "red"
       );
 
       return;
-
     }
 
-
     showAccountMessage(
-      "✅ Đã thêm sản phẩm thành công.",
+      "✅ Đã thêm tài khoản thành công.",
       "green"
     );
-
 
     clearAccountForm();
 
     await loadAccounts();
-
     await loadDashboard();
-
 
   }catch(err){
 
@@ -2004,10 +1776,7 @@ async function addAccount(){
 }
 
 
-function showAccountMessage(
-  text,
-  color
-){
+function showAccountMessage(text,color){
 
   const el=
     document.getElementById(
@@ -2020,19 +1789,11 @@ function showAccountMessage(
 }
 
 
-/* =====================================================
-   CLEAR FORM
-===================================================== */
-
 function clearAccountForm(){
 
   document.getElementById(
     "accountGame"
   ).value="";
-
-  document.getElementById(
-    "serviceType"
-  ).value="acc";
 
   document.getElementById(
     "accountFolder"
@@ -2056,16 +1817,6 @@ function clearAccountForm(){
     "accountPassword"
   ).value="";
 
-  document.getElementById(
-    "cayThueType"
-  ).value="";
-
-  document.getElementById(
-    "cayThueNote"
-  ).value="";
-
-  serviceTypeChanged();
-
 }
 
 
@@ -2078,9 +1829,7 @@ async function loadAccounts(){
   try{
 
     const result=
-      await apiGet(
-        "getAccounts"
-      );
+      await apiGet("getAccounts");
 
     if(result.ok){
 
@@ -2120,23 +1869,17 @@ function renderAccounts(){
 
   body.innerHTML="";
 
-
   accounts
     .filter(acc=>{
 
       const text=[
-
         acc.game,
         acc.folder,
         acc.price,
         acc.package,
         acc.username,
         acc.password,
-        acc.status,
-        acc.serviceType,
-        acc.cayThueType,
-        acc.cayThueNote
-
+        acc.status
       ]
       .join(" ")
       .toLowerCase();
@@ -2147,9 +1890,7 @@ function renderAccounts(){
     .forEach(acc=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       const status=
         String(
@@ -2164,63 +1905,34 @@ function renderAccounts(){
       if(status==="sold")
         badgeClass="sold";
 
-
-      const type=
-        acc.serviceType==="caythue"
-          ?"🛠️ Cày thuê"
-          :"🎮 Bán Acc";
-
-
       tr.innerHTML=`
 
-        <td>
-          ${escapeHtml(acc.id||"")}
-        </td>
+        <td>${escapeHtml(acc.id||"")}</td>
+
+        <td>${escapeHtml(acc.game||"")}</td>
+
+        <td>${escapeHtml(acc.folder||"-")}</td>
+
+        <td>${formatPrice(acc.price)}</td>
+
+        <td>${escapeHtml(acc.package||"-")}</td>
+
+        <td>${escapeHtml(
+          acc.username||
+          acc.accUsername||
+          ""
+        )}</td>
+
+        <td>${escapeHtml(
+          acc.password||
+          acc.accPassword||
+          ""
+        )}</td>
 
         <td>
-          ${escapeHtml(acc.game||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(type)}
-        </td>
-
-        <td>
-          ${escapeHtml(acc.folder||"-")}
-        </td>
-
-        <td>
-          ${formatPrice(acc.price)}
-        </td>
-
-        <td>
-          ${escapeHtml(acc.package||"-")}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            acc.username||
-            acc.accUsername||
-            ""
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            acc.password||
-            acc.accPassword||
-            ""
-          )}
-        </td>
-
-        <td>
-
           <span class="badge ${badgeClass}">
-            ${escapeHtml(
-              acc.status||""
-            )}
+            ${escapeHtml(acc.status||"")}
           </span>
-
         </td>
 
         <td>
@@ -2233,7 +1945,6 @@ function renderAccounts(){
           </button>
 
         </td>
-
       `;
 
       body.appendChild(tr);
@@ -2252,9 +1963,8 @@ async function deleteAccount(id){
   if(!id)return;
 
   if(!confirm(
-    "Bạn có chắc muốn xóa sản phẩm này?"
+    "Bạn có chắc muốn xóa tài khoản này?"
   ))return;
-
 
   try{
 
@@ -2267,7 +1977,6 @@ async function deleteAccount(id){
         }
       );
 
-
     if(!result.ok){
 
       alert(
@@ -2276,29 +1985,428 @@ async function deleteAccount(id){
       );
 
       return;
-
     }
 
-
-    alert(
-      "✅ Đã xóa sản phẩm."
-    );
-
+    alert("✅ Đã xóa tài khoản.");
 
     await loadAccounts();
-
     await loadDashboard();
-
 
   }catch(err){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi kết nối API."
-    );
+    alert("❌ Lỗi kết nối API.");
 
   }
+
+}
+
+
+/* =====================================================
+   CÀY THUÊ
+===================================================== */
+
+function saveServices(){
+
+  localStorage.setItem(
+    "shopkarot_cay_thue_services",
+    JSON.stringify(services)
+  );
+
+  document.getElementById(
+    "dashServices"
+  ).textContent=services.length;
+
+}
+
+
+function addService(){
+
+  const game=
+    document.getElementById(
+      "serviceGame"
+    ).value.trim();
+
+  const name=
+    document.getElementById(
+      "serviceName"
+    ).value.trim();
+
+  const price=
+    document.getElementById(
+      "servicePrice"
+    ).value;
+
+  const status=
+    document.getElementById(
+      "serviceStatus"
+    ).value;
+
+  const description=
+    document.getElementById(
+      "serviceDescription"
+    ).value.trim();
+
+  if(!game||!name||price===""){
+
+    showServiceMessage(
+      "❌ Vui lòng nhập Game, tên dịch vụ và giá.",
+      "red"
+    );
+
+    return;
+  }
+
+  const service={
+
+    id:
+      "CT-"+Date.now(),
+
+    game:game,
+
+    name:name,
+
+    price:Number(price)||0,
+
+    status:status,
+
+    description:description,
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+  services.unshift(service);
+
+  saveServices();
+  renderServices();
+  clearServiceForm();
+
+  showServiceMessage(
+    "✅ Đã thêm dịch vụ cày thuê.",
+    "green"
+  );
+
+}
+
+
+function showServiceMessage(text,color){
+
+  const el=
+    document.getElementById(
+      "serviceMessage"
+    );
+
+  el.textContent=text;
+  el.style.color=color;
+
+}
+
+
+function clearServiceForm(){
+
+  document.getElementById(
+    "serviceGame"
+  ).value="";
+
+  document.getElementById(
+    "serviceName"
+  ).value="";
+
+  document.getElementById(
+    "servicePrice"
+  ).value="";
+
+  document.getElementById(
+    "serviceStatus"
+  ).value="Sẵn Sàng";
+
+  document.getElementById(
+    "serviceDescription"
+  ).value="";
+
+}
+
+
+function renderServices(){
+
+  const container=
+    document.getElementById(
+      "servicesContainer"
+    );
+
+  if(!container)return;
+
+  const search=
+    (
+      document.getElementById(
+        "serviceSearch"
+      )?.value||""
+    )
+    .toLowerCase()
+    .trim();
+
+  const list=
+    services.filter(service=>{
+
+      const text=[
+        service.game,
+        service.name,
+        service.price,
+        service.status,
+        service.description
+      ]
+      .join(" ")
+      .toLowerCase();
+
+      return text.includes(search);
+
+    });
+
+  document.getElementById(
+    "serviceCount"
+  ).textContent=
+    list.length+" dịch vụ";
+
+  container.innerHTML="";
+
+  if(!list.length){
+
+    container.innerHTML=`
+
+      <div class="notice">
+        Chưa có dịch vụ cày thuê.
+      </div>
+
+    `;
+
+    return;
+  }
+
+  list.forEach(service=>{
+
+    const div=
+      document.createElement("div");
+
+    div.className=
+      "card service-card";
+
+    const statusClass=
+      service.status==="Sẵn Sàng"
+        ?"ready"
+        :"not-ready";
+
+    div.innerHTML=`
+
+      <div class="service-header">
+
+        <div class="service-title">
+          ${escapeHtml(service.name)}
+        </div>
+
+        <div class="service-price">
+          ${formatPrice(service.price)}
+        </div>
+
+      </div>
+
+      <div class="service-meta">
+
+        <span class="badge available">
+          🎮 ${escapeHtml(service.game)}
+        </span>
+
+        <span class="badge ${statusClass}">
+          ${service.status==="Sẵn Sàng"
+            ?"🟢 Sẵn Sàng"
+            :"🔴 Chưa Sẵn Sàng"}
+        </span>
+
+      </div>
+
+      <div class="service-desc">
+        ${
+          escapeHtml(
+            service.description||
+            "Không có mô tả."
+          )
+        }
+      </div>
+
+      <div class="small">
+        ID: ${escapeHtml(service.id)}
+        ${
+          service.createdAt
+            ?" • "+escapeHtml(formatDate(service.createdAt))
+            :""
+        }
+      </div>
+
+      <div class="service-actions">
+
+        <button
+          class="btn btn-primary"
+          onclick="editService('${escapeJs(service.id)}')"
+        >
+          ✏️ Sửa
+        </button>
+
+        <button
+          class="btn btn-warning"
+          onclick="toggleServiceStatus('${escapeJs(service.id)}')"
+        >
+          🔄 Đổi trạng thái
+        </button>
+
+        <button
+          class="btn btn-danger"
+          onclick="deleteService('${escapeJs(service.id)}')"
+        >
+          🗑️ Xóa
+        </button>
+
+      </div>
+
+    `;
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+function findService(id){
+
+  return services.find(
+    service=>String(service.id)===String(id)
+  );
+
+}
+
+
+function editService(id){
+
+  const service=findService(id);
+
+  if(!service)return;
+
+  document.getElementById(
+    "serviceGame"
+  ).value=service.game||"";
+
+  document.getElementById(
+    "serviceName"
+  ).value=service.name||"";
+
+  document.getElementById(
+    "servicePrice"
+  ).value=service.price??"";
+
+  document.getElementById(
+    "serviceStatus"
+  ).value=
+    service.status||"Sẵn Sàng";
+
+  document.getElementById(
+    "serviceDescription"
+  ).value=
+    service.description||"";
+
+  const index=
+    services.findIndex(
+      item=>item.id===id
+    );
+
+  if(index<0)return;
+
+  const newName=
+    prompt(
+      "Nhập tên dịch vụ mới:",
+      service.name
+    );
+
+  if(newName===null)return;
+
+  const newPrice=
+    prompt(
+      "Nhập giá mới:",
+      service.price
+    );
+
+  if(newPrice===null)return;
+
+  const newDescription=
+    prompt(
+      "Nhập mô tả mới:",
+      service.description||""
+    );
+
+  if(newDescription===null)return;
+
+  const newStatus=
+    confirm(
+      "Nhấn OK = Sẵn Sàng\nNhấn Cancel = Chưa Sẵn Sàng"
+    )
+      ?"Sẵn Sàng"
+      :"Chưa Sẵn Sàng";
+
+  services[index]={
+    ...service,
+    name:newName.trim()||service.name,
+    price:Number(newPrice)||0,
+    description:newDescription,
+    status:newStatus
+  };
+
+  saveServices();
+  renderServices();
+
+  alert("✅ Đã cập nhật dịch vụ.");
+
+}
+
+
+function toggleServiceStatus(id){
+
+  const service=findService(id);
+
+  if(!service)return;
+
+  service.status=
+    service.status==="Sẵn Sàng"
+      ?"Chưa Sẵn Sàng"
+      :"Sẵn Sàng";
+
+  saveServices();
+  renderServices();
+
+}
+
+
+function deleteService(id){
+
+  const service=findService(id);
+
+  if(!service)return;
+
+  if(!confirm(
+    "Bạn có chắc muốn xóa dịch vụ:\n\n"+
+    service.name+
+    "?"
+  ))return;
+
+  services=
+    services.filter(
+      item=>item.id!==id
+    );
+
+  saveServices();
+  renderServices();
+
+  alert("✅ Đã xóa dịch vụ.");
 
 }
 
@@ -2312,9 +2420,7 @@ async function loadCustomers(){
   try{
 
     const result=
-      await apiGet(
-        "getCustomers"
-      );
+      await apiGet("getCustomers");
 
     if(result.ok){
 
@@ -2350,7 +2456,6 @@ function renderCustomers(){
 
   body.innerHTML="";
 
-
   customers
     .filter(user=>
       String(
@@ -2362,9 +2467,7 @@ function renderCustomers(){
     .forEach(user=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       tr.innerHTML=`
 
@@ -2412,9 +2515,7 @@ async function loadTopups(){
   try{
 
     const result=
-      await apiGet(
-        "getTopups"
-      );
+      await apiGet("getTopups");
 
     if(result.ok){
 
@@ -2443,16 +2544,13 @@ function renderTopups(){
 
   body.innerHTML="";
 
-
   topups
     .slice()
     .reverse()
     .forEach(item=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
+        document.createElement("tr");
 
       const status=
         String(
@@ -2460,7 +2558,6 @@ function renderTopups(){
         ).toLowerCase();
 
       let buttons="";
-
 
       if(status==="pending"){
 
@@ -2484,52 +2581,31 @@ function renderTopups(){
 
       }
 
-
       tr.innerHTML=`
 
-        <td>
-          ${escapeHtml(item.id||"")}
-        </td>
+        <td>${escapeHtml(item.id||"")}</td>
+
+        <td>${escapeHtml(item.username||"")}</td>
+
+        <td>${formatMoney(item.amount||0)}</td>
+
+        <td>${escapeHtml(item.method||"")}</td>
+
+        <td>${escapeHtml(item.cardType||"")}</td>
+
+        <td>${escapeHtml(item.cardSerial||"")}</td>
+
+        <td>${escapeHtml(item.cardCode||"")}</td>
+
+        <td>${escapeHtml(item.bankName||"")}</td>
 
         <td>
-          ${escapeHtml(item.username||"")}
-        </td>
-
-        <td>
-          ${formatMoney(item.amount||0)}
-        </td>
-
-        <td>
-          ${escapeHtml(item.method||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.cardType||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.cardSerial||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.cardCode||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(item.bankName||"")}
-        </td>
-
-        <td>
-
           <span class="badge ${status}">
             ${escapeHtml(item.status||"")}
           </span>
-
         </td>
 
-        <td>
-          ${buttons}
-        </td>
+        <td>${buttons}</td>
 
       `;
 
@@ -2540,16 +2616,11 @@ function renderTopups(){
 }
 
 
-/* =====================================================
-   APPROVE
-===================================================== */
-
 async function approveTopup(id){
 
   if(!confirm(
     "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
   ))return;
-
 
   try{
 
@@ -2562,7 +2633,6 @@ async function approveTopup(id){
         }
       );
 
-
     alert(
       result.message||
       (
@@ -2572,7 +2642,6 @@ async function approveTopup(id){
       )
     );
 
-
     if(result.ok){
 
       await loadTopups();
@@ -2581,30 +2650,22 @@ async function approveTopup(id){
 
     }
 
-
   }catch(err){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi API."
-    );
+    alert("❌ Lỗi API.");
 
   }
 
 }
 
 
-/* =====================================================
-   REJECT
-===================================================== */
-
 async function rejectTopup(id){
 
   if(!confirm(
     "Bạn có chắc muốn từ chối yêu cầu này?"
   ))return;
-
 
   try{
 
@@ -2617,12 +2678,10 @@ async function rejectTopup(id){
         }
       );
 
-
     alert(
       result.message||
       "Đã xử lý."
     );
-
 
     if(result.ok){
 
@@ -2631,14 +2690,11 @@ async function rejectTopup(id){
 
     }
 
-
   }catch(err){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi API."
-    );
+    alert("❌ Lỗi API.");
 
   }
 
@@ -2654,9 +2710,7 @@ async function loadOrders(){
   try{
 
     const result=
-      await apiGet(
-        "getOrders"
-      );
+      await apiGet("getOrders");
 
     if(result.ok){
 
@@ -2685,17 +2739,13 @@ function renderOrders(){
 
   body.innerHTML="";
 
-
   orders
     .slice()
     .reverse()
     .forEach(order=>{
 
       const tr=
-        document.createElement(
-          "tr"
-        );
-
+        document.createElement("tr");
 
       tr.innerHTML=`
 
@@ -2704,43 +2754,31 @@ function renderOrders(){
         </td>
 
         <td>
-          ${escapeHtml(
-            order.username||""
-          )}
+          ${escapeHtml(order.username||"")}
+        </td>
+
+        <td>
+          ${escapeHtml(order.product||"")}
+        </td>
+
+        <td>
+          ${formatMoney(order.price||0)}
+        </td>
+
+        <td>
+          ${escapeHtml(order.status||"")}
         </td>
 
         <td>
           ${escapeHtml(
-            order.product||""
-          )}
-        </td>
-
-        <td>
-          ${formatMoney(
-            order.price||0
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            order.status||""
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            formatDate(
-              order.createdAt
-            )
+            formatDate(order.createdAt)
           )}
         </td>
 
         <td>
           ${
             order.accUsername
-              ?escapeHtml(
-                order.accUsername
-              )
+              ?escapeHtml(order.accUsername)
               :"-"
           }
         </td>
@@ -2761,77 +2799,46 @@ function renderOrders(){
 const products=[
 
   ["bloxFruit","🎮 Blox Fruits"],
-
   ["cayThueBloxFruit","🛠️ Cày thuê Blox Fruits"],
-
   ["tuiMuBloxFruit","🎁 Túi mù Blox Fruits"],
-
   ["accBloxFruitItem","📦 Acc Blox Fruits tùy chọn Item"],
-
   ["accBloxFruitRaceV4","🔥 Acc Blox Fruits Race V4"],
-
   ["accBloxFruitXemHinh","🖼️ Acc Blox Fruits xem hình acc tùy chọn"],
-
   ["accBloxFruitLvMax","👑 Acc Blox Fruits LV MAX"],
-
   ["accBloxFruitLv1000","⚡ Acc Blox Fruits LV trên 1000"],
-
   ["robux120h","💎 Robux 120H"],
-
   ["gamepassBloxFruit","🎟️ Gamepass Blox Fruits"],
-
   ["fish","🐟 Fish"],
-
   ["kingLegacy","👑 King Legacy"],
-
   ["animeFighters","⚔️ Anime Fighters"],
-
   ["growAGarden2","🌱 Grow A Garden 2"],
-
   ["growAGarden","🌱 Grow A Garden"],
-
   ["murderMystery2","🔪 Murder Mystery 2"],
-
   ["tuiMu","🎁 Túi Mù"],
-
   ["event","🎉 Event"],
-
   ["greedyGrowers","🌱 Greedy Growers"],
-
   ["stealAEgg","🥚 Steal a Egg"],
-
   ["stealAEggTuiMu","🎁 Steal a Egg Túi mù"],
-
   ["stealAEggAccVIP","👑 Steal a Egg Acc VIP"]
 
 ];
 
-
-/* =====================================================
-   LOAD PRODUCT STATUS
-===================================================== */
 
 async function loadProducts(){
 
   try{
 
     const result=
-      await apiGet(
-        "getProductStatuses"
-      );
+      await apiGet("getProductStatuses");
 
     if(result.ok){
 
       productStatuses=
         result.statuses||{};
 
-      renderProducts();
-
-    }else{
-
-      renderProducts();
-
     }
+
+    renderProducts();
 
   }catch(err){
 
@@ -2844,10 +2851,6 @@ async function loadProducts(){
 }
 
 
-/* =====================================================
-   RENDER PRODUCTS
-===================================================== */
-
 function renderProducts(){
 
   const container=
@@ -2856,7 +2859,6 @@ function renderProducts(){
     );
 
   container.innerHTML="";
-
 
   const bloxKeys=[
 
@@ -2874,64 +2876,25 @@ function renderProducts(){
 
   ];
 
-
   const stealKeys=[
-
     "stealAEgg",
     "stealAEggTuiMu",
     "stealAEggAccVIP"
-
   ];
 
 
-  const title=
-    document.createElement("div");
-
-  title.className=
-    "product-group-title";
-
-  title.textContent=
-    "🍎 Blox Fruits";
-
-  container.appendChild(title);
-
-
-  products
-    .filter(item=>
-      bloxKeys.includes(item[0])
-    )
-    .forEach(item=>
-      createProductStatusCard(
-        container,
-        item
-      )
-    );
-
-
-  const stealTitle=
-    document.createElement("div");
-
-  stealTitle.className=
-    "product-group-title";
-
-  stealTitle.textContent=
-    "🥚 Steal a Egg";
-
-  container.appendChild(
-    stealTitle
+  createProductGroup(
+    container,
+    "🍎 Blox Fruits",
+    bloxKeys
   );
 
 
-  products
-    .filter(item=>
-      stealKeys.includes(item[0])
-    )
-    .forEach(item=>
-      createProductStatusCard(
-        container,
-        item
-      )
-    );
+  createProductGroup(
+    container,
+    "🥚 Steal a Egg",
+    stealKeys
+  );
 
 
   const title2=
@@ -2944,7 +2907,6 @@ function renderProducts(){
     "🎮 Sản phẩm khác";
 
   container.appendChild(title2);
-
 
   products
     .filter(item=>
@@ -2961,9 +2923,35 @@ function renderProducts(){
 }
 
 
-/* =====================================================
-   CREATE PRODUCT CARD
-===================================================== */
+function createProductGroup(
+  container,
+  titleText,
+  keys
+){
+
+  const title=
+    document.createElement("div");
+
+  title.className=
+    "product-group-title";
+
+  title.textContent=titleText;
+
+  container.appendChild(title);
+
+  products
+    .filter(item=>
+      keys.includes(item[0])
+    )
+    .forEach(item=>
+      createProductStatusCard(
+        container,
+        item
+      )
+    );
+
+}
+
 
 function createProductStatusCard(
   container,
@@ -2971,17 +2959,14 @@ function createProductStatusCard(
 ){
 
   const key=item[0];
-
   const name=item[1];
 
   const status=
     productStatuses[key]||
     "Sẵn Sàng";
 
-
   const div=
     document.createElement("div");
-
 
   div.className=
     "card product-status-card "+
@@ -2990,7 +2975,6 @@ function createProductStatusCard(
         ?"ready"
         :"not-ready"
     );
-
 
   div.innerHTML=`
 
@@ -3033,15 +3017,10 @@ function createProductStatusCard(
 
   `;
 
-
   container.appendChild(div);
 
 }
 
-
-/* =====================================================
-   PRODUCT VISUAL
-===================================================== */
 
 function changeProductVisual(product){
 
@@ -3052,7 +3031,6 @@ function changeProductVisual(product){
 
   if(!select)return;
 
-
   const card=
     select.closest(
       ".product-status-card"
@@ -3060,39 +3038,25 @@ function changeProductVisual(product){
 
   if(!card)return;
 
-
   card.classList.remove(
     "ready",
     "not-ready"
   );
 
+  if(select.value==="Sẵn Sàng"){
 
-  if(
-    select.value==="Sẵn Sàng"
-  ){
-
-    card.classList.add(
-      "ready"
-    );
+    card.classList.add("ready");
 
   }else{
 
-    card.classList.add(
-      "not-ready"
-    );
+    card.classList.add("not-ready");
 
   }
 
 }
 
 
-/* =====================================================
-   SAVE PRODUCT STATUS
-===================================================== */
-
-async function saveProductStatus(
-  product
-){
+async function saveProductStatus(product){
 
   const select=
     document.getElementById(
@@ -3101,10 +3065,7 @@ async function saveProductStatus(
 
   if(!select)return;
 
-
-  const status=
-    select.value;
-
+  const status=select.value;
 
   try{
 
@@ -3118,7 +3079,6 @@ async function saveProductStatus(
         }
       );
 
-
     alert(
       result.message||
       (
@@ -3128,26 +3088,19 @@ async function saveProductStatus(
       )
     );
 
-
     if(result.ok){
 
-      productStatuses[product]=
-        status;
+      productStatuses[product]=status;
 
-      changeProductVisual(
-        product
-      );
+      changeProductVisual(product);
 
     }
-
 
   }catch(err){
 
     console.error(err);
 
-    alert(
-      "❌ Lỗi kết nối API."
-    );
+    alert("❌ Lỗi kết nối API.");
 
   }
 
@@ -3158,54 +3111,31 @@ async function saveProductStatus(
    TABS
 ===================================================== */
 
-function showTab(
-  name,
-  button
-){
+function showTab(name,button){
 
   document
     .querySelectorAll(".panel")
     .forEach(panel=>{
-
-      panel.classList.remove(
-        "active"
-      );
-
+      panel.classList.remove("active");
     });
-
 
   document
     .querySelectorAll(".tab")
     .forEach(tab=>{
-
-      tab.classList.remove(
-        "active"
-      );
-
+      tab.classList.remove("active");
     });
-
 
   const panel=
     document.getElementById(
       "panel-"+name
     );
 
-
   if(panel){
-
-    panel.classList.add(
-      "active"
-    );
-
+    panel.classList.add("active");
   }
 
-
   if(button){
-
-    button.classList.add(
-      "active"
-    );
-
+    button.classList.add("active");
   }
 
 }
@@ -3215,15 +3145,12 @@ function showTab(
    ACCOUNT MODAL
 ===================================================== */
 
-function showAccountModal(
-  account
-){
+function showAccountModal(account){
 
   const content=
     document.getElementById(
       "accountModalContent"
     );
-
 
   content.innerHTML=`
 
@@ -3231,70 +3158,41 @@ function showAccountModal(
 
       <div>
         🎮 Game:
-        <b>
-          ${escapeHtml(
-            account.game||""
-          )}
-        </b>
+        <b>${escapeHtml(account.game||"")}</b>
       </div>
 
       <div>
         📁 Thư mục:
-        <b>
-          ${escapeHtml(
-            account.folder||""
-          )}
-        </b>
+        <b>${escapeHtml(account.folder||"")}</b>
       </div>
 
       <div>
         💵 Giá:
-        <b>
-          ${formatPrice(
-            account.price
-          )}
-        </b>
+        <b>${formatPrice(account.price)}</b>
       </div>
 
       <div>
         📦 Gói:
-        <b>
-          ${escapeHtml(
-            account.package||""
-          )}
-        </b>
+        <b>${escapeHtml(account.package||"")}</b>
       </div>
 
       <div>
         👤 Username:
-        <b>
-          ${escapeHtml(
-            account.username||""
-          )}
-        </b>
+        <b>${escapeHtml(account.username||"")}</b>
       </div>
 
       <div>
         🔑 Password:
-        <b>
-          ${escapeHtml(
-            account.password||""
-          )}
-        </b>
+        <b>${escapeHtml(account.password||"")}</b>
       </div>
 
     </div>
 
   `;
 
-
   document
-    .getElementById(
-      "accountModal"
-    )
-    .classList.remove(
-      "hidden"
-    );
+    .getElementById("accountModal")
+    .classList.remove("hidden");
 
 }
 
@@ -3302,12 +3200,8 @@ function showAccountModal(
 function closeAccountModal(){
 
   document
-    .getElementById(
-      "accountModal"
-    )
-    .classList.add(
-      "hidden"
-    );
+    .getElementById("accountModal")
+    .classList.add("hidden");
 
 }
 
@@ -3318,22 +3212,15 @@ function closeAccountModal(){
 
 function formatMoney(value){
 
-  const n=
-    Number(value||0);
-
+  const n=Number(value||0);
 
   if(n>=1000){
 
-    return n.toLocaleString(
-      "vi-VN"
-    )+"đ";
+    return n.toLocaleString("vi-VN")+"đ";
 
   }
 
-
-  return n.toLocaleString(
-    "vi-VN"
-  )+"K";
+  return n.toLocaleString("vi-VN")+"K";
 
 }
 
@@ -3354,11 +3241,8 @@ function formatPrice(value){
 
   }
 
-
   return Number(value||0)
-    .toLocaleString(
-      "vi-VN"
-    )+"K";
+    .toLocaleString("vi-VN")+"K";
 
 }
 
@@ -3371,28 +3255,17 @@ function formatDate(value){
 
   if(!value)return "";
 
-
   try{
 
-    const date=
-      new Date(value);
+    const date=new Date(value);
 
-
-    if(
-      isNaN(
-        date.getTime()
-      )
-    ){
+    if(isNaN(date.getTime())){
 
       return String(value);
 
     }
 
-
-    return date.toLocaleString(
-      "vi-VN"
-    );
-
+    return date.toLocaleString("vi-VN");
 
   }catch(e){
 
@@ -3409,14 +3282,12 @@ function formatDate(value){
 
 function escapeHtml(value){
 
-  return String(
-    value??""
-  )
-  .replaceAll("&","&amp;")
-  .replaceAll("<","&lt;")
-  .replaceAll(">","&gt;")
-  .replaceAll('"',"&quot;")
-  .replaceAll("'","&#039;");
+  return String(value??"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
@@ -3427,41 +3298,43 @@ function escapeHtml(value){
 
 function escapeJs(value){
 
-  return String(
-    value??""
-  )
-  .replaceAll(
-    "\\",
-    "\\\\"
-  )
-  .replaceAll(
-    "'",
-    "\\'"
-  )
-  .replaceAll(
-    "\n",
-    "\\n"
-  )
-  .replaceAll(
-    "\r",
-    "\\r"
-  );
+  return String(value??"")
+    .replaceAll("\\","\\\\")
+    .replaceAll("'","\\'")
+    .replaceAll("\n","\\n")
+    .replaceAll("\r","\\r");
 
 }
 
 
 /* =====================================================
-   KHỞI TẠO
+   CLICK OUTSIDE MODAL
 ===================================================== */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
+document
+  .getElementById("accountModal")
+  .addEventListener("click",function(e){
 
-    serviceTypeChanged();
+    if(e.target===this){
+      closeAccountModal();
+    }
+
+  });
+
+
+/* =====================================================
+   ESC CLOSE MODAL
+===================================================== */
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key==="Escape"){
+
+    closeAccountModal();
 
   }
-);
+
+});
 
 </script>
 
