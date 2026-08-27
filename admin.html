@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ShopKarot - Admin Panel</title>
+<title>SHOPKAROT - ADMIN</title>
 
 <style>
 *{box-sizing:border-box}
@@ -15,7 +15,13 @@ body{
   color:#111827;
 }
 
-button,input,select,textarea{font:inherit}
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  -webkit-tap-highlight-color:transparent;
+}
 
 .login-box{
   width:min(420px,92%);
@@ -26,7 +32,10 @@ button,input,select,textarea{font:inherit}
   box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-.login-box h1{text-align:center;margin-top:0}
+.login-box h1{
+  text-align:center;
+  margin-top:0;
+}
 
 .input{
   width:100%;
@@ -35,9 +44,13 @@ button,input,select,textarea{font:inherit}
   border:1px solid #d1d5db;
   border-radius:10px;
   outline:none;
+  background:#fff;
+  color:#111827;
 }
 
-.input:focus{border-color:#2563eb}
+.input:focus{
+  border-color:#2563eb;
+}
 
 .btn{
   border:0;
@@ -47,14 +60,43 @@ button,input,select,textarea{font:inherit}
   font-weight:bold;
 }
 
-.btn-primary{background:#2563eb;color:#fff}
-.btn-success{background:#16a34a;color:#fff}
-.btn-danger{background:#dc2626;color:#fff}
-.btn-warning{background:#f59e0b;color:#fff}
-.btn-gray{background:#6b7280;color:#fff}
+.btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
 
-.btn:hover{opacity:.88}
-.hidden{display:none!important}
+.btn-primary{
+  background:#2563eb;
+  color:#fff;
+}
+
+.btn-success{
+  background:#16a34a;
+  color:#fff;
+}
+
+.btn-danger{
+  background:#dc2626;
+  color:#fff;
+}
+
+.btn-warning{
+  background:#f59e0b;
+  color:#fff;
+}
+
+.btn-gray{
+  background:#6b7280;
+  color:#fff;
+}
+
+.btn:hover{
+  opacity:.88;
+}
+
+.hidden{
+  display:none!important;
+}
 
 header{
   background:#111827;
@@ -67,7 +109,9 @@ header{
   flex-wrap:wrap;
 }
 
-header h2{margin:0}
+header h2{
+  margin:0;
+}
 
 .container{
   width:min(1400px,96%);
@@ -115,8 +159,13 @@ header h2{margin:0}
   color:#fff;
 }
 
-.panel{display:none}
-.panel.active{display:block}
+.panel{
+  display:none;
+}
+
+.panel.active{
+  display:block;
+}
 
 .form-grid{
   display:grid;
@@ -134,7 +183,9 @@ header h2{margin:0}
   margin-bottom:6px;
 }
 
-.full{grid-column:1/-1}
+.full{
+  grid-column:1/-1;
+}
 
 .actions{
   display:flex;
@@ -167,6 +218,7 @@ th{
   color:#fff;
   position:sticky;
   top:0;
+  z-index:2;
 }
 
 .badge{
@@ -177,12 +229,14 @@ th{
   font-weight:bold;
 }
 
-.available,.ready{
+.available,
+.ready{
   background:#dcfce7;
   color:#166534;
 }
 
-.sold,.not-ready{
+.sold,
+.not-ready{
   background:#fee2e2;
   color:#991b1b;
 }
@@ -237,7 +291,7 @@ th{
   align-items:center;
   justify-content:center;
   padding:20px;
-  z-index:999;
+  z-index:9999;
 }
 
 .modal-content{
@@ -249,7 +303,9 @@ th{
   padding:25px;
 }
 
-.modal-content h2{margin-top:0}
+.modal-content h2{
+  margin-top:0;
+}
 
 .account-result{
   background:#111827;
@@ -257,9 +313,12 @@ th{
   padding:18px;
   border-radius:12px;
   margin-top:15px;
+  word-break:break-word;
 }
 
-.account-result div{margin:7px 0}
+.account-result div{
+  margin:7px 0;
+}
 
 .small{
   font-size:13px;
@@ -271,7 +330,9 @@ th{
   margin-bottom:15px;
 }
 
-.product-status-card{margin-bottom:12px}
+.product-status-card{
+  margin-bottom:12px;
+}
 
 .product-status-row{
   display:flex;
@@ -381,26 +442,70 @@ th{
   padding:15px;
   border-radius:12px;
   margin-top:10px;
+  word-break:break-word;
 }
 
 .order-info div{
   margin:7px 0;
 }
 
+.message{
+  padding:10px 12px;
+  border-radius:9px;
+  background:#f9fafb;
+  min-height:20px;
+}
+
+.api-error{
+  background:#fef2f2;
+  color:#991b1b;
+  border:1px solid #fecaca;
+}
+
+.login-status{
+  margin-top:15px;
+  min-height:20px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.empty{
+  padding:30px;
+  text-align:center;
+  color:#6b7280;
+}
+
 @media(max-width:700px){
-  .form-grid{grid-template-columns:1fr}
-  .full{grid-column:auto}
-  .product-status-row{align-items:stretch}
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .product-status-row{
+    align-items:stretch;
+  }
+
   .product-status-name,
   .product-status-select{
     width:100%;
     min-width:0;
   }
+
+  .login-box{
+    margin:35px auto;
+  }
+
 }
 </style>
 </head>
 
 <body>
+
+<!-- ========================= LOGIN ========================= -->
 
 <div id="loginPage" class="login-box">
 
@@ -410,14 +515,16 @@ th{
     Đăng nhập Admin để quản lý ShopKarot
   </p>
 
-  <label>Admin Key</label>
+  <label for="adminKey">
+    Admin Key
+  </label>
 
   <input
     id="adminKey"
     class="input"
     type="password"
+    autocomplete="current-password"
     placeholder="Nhập Admin Key"
-    onkeydown="if(event.key==='Enter')adminLogin()"
   >
 
   <button
@@ -429,72 +536,120 @@ th{
     🔐 Đăng nhập
   </button>
 
-  <div id="loginMessage" style="margin-top:15px"></div>
+  <div
+    id="loginMessage"
+    class="login-status"
+  ></div>
 
 </div>
+
+
+<!-- ========================= ADMIN ========================= -->
 
 <div id="adminPage" class="hidden">
 
 <header>
 
   <div>
-    <h2>🛒 SHOPKAROT ADMIN</h2>
 
-    <div class="small" style="color:#d1d5db">
+    <h2>
+      🛒 SHOPKAROT ADMIN
+    </h2>
+
+    <div
+      class="small"
+      style="color:#d1d5db"
+    >
       Quản lý kho acc, cày thuê, khách hàng,
       đơn hàng, nạp tiền và trạng thái sản phẩm
     </div>
+
   </div>
 
-  <button class="btn btn-danger" onclick="logout()">
+  <button
+    class="btn btn-danger"
+    onclick="logout()"
+  >
     🚪 Đăng xuất
   </button>
 
 </header>
 
+
 <div class="container">
+
+<!-- ========================= DASHBOARD ========================= -->
 
 <div class="dashboard">
 
   <div class="card">
     👥 Khách hàng
-    <div id="dashCustomers" class="number">0</div>
+    <div
+      id="dashCustomers"
+      class="number"
+    >0</div>
   </div>
 
   <div class="card">
     🎮 Kho acc
-    <div id="dashAccounts" class="number">0</div>
+    <div
+      id="dashAccounts"
+      class="number"
+    >0</div>
   </div>
 
   <div class="card">
     🛠️ Cày thuê
-    <div id="dashServices" class="number">0</div>
+    <div
+      id="dashServices"
+      class="number"
+    >0</div>
   </div>
 
   <div class="card">
     📦 Đơn hàng
-    <div id="dashOrders" class="number">0</div>
+    <div
+      id="dashOrders"
+      class="number"
+    >0</div>
   </div>
 
   <div class="card">
     💰 Tổng nạp
-    <div id="dashTopup" class="number">0K</div>
+    <div
+      id="dashTopup"
+      class="number"
+    >0K</div>
   </div>
 
   <div class="card">
     ⏳ Chờ duyệt
-    <div id="dashPending" class="number">0</div>
+    <div
+      id="dashPending"
+      class="number"
+    >0</div>
   </div>
 
 </div>
 
-<div class="card" style="margin-bottom:20px">
 
-  <h3>⚙️ Trạng thái Shop</h3>
+<!-- ========================= SHOP STATUS ========================= -->
+
+<div
+  class="card"
+  style="margin-bottom:20px"
+>
+
+  <h3>
+    ⚙️ Trạng thái Shop
+  </h3>
 
   <div class="status-box">
 
-    <span id="shopStatusDot" class="status-dot"></span>
+    <span
+      id="shopStatusDot"
+      class="status-dot"
+    ></span>
 
     <b id="shopStatusText">
       Đang tải...
@@ -520,7 +675,10 @@ th{
 
     </select>
 
-    <button class="btn btn-primary" onclick="setShopStatus()">
+    <button
+      class="btn btn-primary"
+      onclick="setShopStatus()"
+    >
       💾 Lưu trạng thái
     </button>
 
@@ -528,84 +686,175 @@ th{
 
 </div>
 
+
+<!-- ========================= TABS ========================= -->
+
 <div class="tabs">
 
-  <button class="tab active" onclick="showTab('accounts',this)">
+  <button
+    class="tab active"
+    onclick="showTab('accounts',this)"
+  >
     🎮 Kho Acc
   </button>
 
-  <button class="tab" onclick="showTab('services',this)">
+  <button
+    class="tab"
+    onclick="showTab('services',this)"
+  >
     🛠️ Cày thuê
   </button>
 
-  <button class="tab" onclick="showTab('customers',this)">
+  <button
+    class="tab"
+    onclick="showTab('customers',this)"
+  >
     👥 Khách hàng
   </button>
 
-  <button class="tab" onclick="showTab('topups',this)">
+  <button
+    class="tab"
+    onclick="showTab('topups',this)"
+  >
     💰 Nạp tiền
   </button>
 
-  <button class="tab" onclick="showTab('orders',this)">
+  <button
+    class="tab"
+    onclick="showTab('orders',this)"
+  >
     📦 Đơn hàng
   </button>
 
-  <button class="tab" onclick="showTab('products',this)">
+  <button
+    class="tab"
+    onclick="showTab('products',this)"
+  >
     🛍️ Trạng thái sản phẩm
   </button>
 
 </div>
 
-<section id="panel-accounts" class="panel active">
+
+<!-- ========================================================= -->
+<!-- ========================= ACCOUNTS ====================== -->
+<!-- ========================================================= -->
+
+<section
+  id="panel-accounts"
+  class="panel active"
+>
 
 <div class="card">
 
-  <h2>🎮 Thêm tài khoản vào kho</h2>
+  <h2>
+    🎮 Thêm tài khoản vào kho
+  </h2>
 
   <div class="notice">
-    Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
+    Chọn Game → Thư mục → Giá → Gói →
+    nhập Username và Password.
   </div>
 
   <div class="form-grid">
 
     <div class="form-group">
-      <label>🎮 Game</label>
 
-      <select id="accountGame" class="input" onchange="gameChanged()">
+      <label>
+        🎮 Game
+      </label>
 
-        <option value="">-- Chọn game --</option>
+      <select
+        id="accountGame"
+        class="input"
+        onchange="gameChanged()"
+      >
 
-        <option value="Blox Fruits">Blox Fruits</option>
-        <option value="King Legacy">King Legacy</option>
-        <option value="Anime Fighters">Anime Fighters</option>
-        <option value="Grow A Garden 2">Grow A Garden 2</option>
-        <option value="Grow A Garden">Grow A Garden</option>
-        <option value="Murder Mystery 2">Murder Mystery 2</option>
-        <option value="Túi Mù">Túi Mù</option>
-        <option value="Event">Event</option>
-        <option value="Greedy Growers 🌱">Greedy Growers 🌱</option>
-        <option value="Steal a Egg">🥚 Steal a Egg</option>
+        <option value="">
+          -- Chọn game --
+        </option>
+
+        <option value="Blox Fruits">
+          Blox Fruits
+        </option>
+
+        <option value="King Legacy">
+          King Legacy
+        </option>
+
+        <option value="Anime Fighters">
+          Anime Fighters
+        </option>
+
+        <option value="Grow A Garden 2">
+          Grow A Garden 2
+        </option>
+
+        <option value="Grow A Garden">
+          Grow A Garden
+        </option>
+
+        <option value="Murder Mystery 2">
+          Murder Mystery 2
+        </option>
+
+        <option value="Túi Mù">
+          Túi Mù
+        </option>
+
+        <option value="Event">
+          Event
+        </option>
+
+        <option value="Greedy Growers 🌱">
+          Greedy Growers 🌱
+        </option>
+
+        <option value="Steal a Egg">
+          🥚 Steal a Egg
+        </option>
 
       </select>
+
     </div>
+
 
     <div class="form-group">
 
-      <label>📁 Thư mục</label>
+      <label>
+        📁 Thư mục
+      </label>
 
-      <select id="accountFolder" class="input" onchange="folderChanged()">
-        <option value="">-- Chọn thư mục --</option>
+      <select
+        id="accountFolder"
+        class="input"
+        onchange="folderChanged()"
+      >
+
+        <option value="">
+          -- Chọn thư mục --
+        </option>
+
       </select>
 
     </div>
 
+
     <div class="form-group">
 
-      <label>💵 Giá</label>
+      <label>
+        💵 Giá
+      </label>
 
-      <select id="accountPrice" class="input" onchange="priceChanged()">
+      <select
+        id="accountPrice"
+        class="input"
+        onchange="priceChanged()"
+      >
 
-        <option value="">-- Chọn giá --</option>
+        <option value="">
+          -- Chọn giá --
+        </option>
 
         <option value="0">0K</option>
         <option value="10">10K</option>
@@ -626,37 +875,55 @@ th{
 
     </div>
 
+
     <div class="form-group">
 
-      <label>📦 Gói</label>
+      <label>
+        📦 Gói
+      </label>
 
-      <select id="accountPackage" class="input">
-        <option value="">-- Chọn gói --</option>
+      <select
+        id="accountPackage"
+        class="input"
+      >
+
+        <option value="">
+          -- Chọn gói --
+        </option>
+
       </select>
 
     </div>
 
+
     <div class="form-group">
 
-      <label>👤 Tên đăng nhập</label>
+      <label>
+        👤 Tên đăng nhập
+      </label>
 
       <input
         id="accountUsername"
         class="input"
         type="text"
+        autocomplete="off"
         placeholder="Ví dụ: xyz456"
       >
 
     </div>
 
+
     <div class="form-group">
 
-      <label>🔑 Mật khẩu</label>
+      <label>
+        🔑 Mật khẩu
+      </label>
 
       <input
         id="accountPassword"
         class="input"
         type="text"
+        autocomplete="off"
         placeholder="Ví dụ: abcdef"
       >
 
@@ -664,25 +931,42 @@ th{
 
   </div>
 
+
   <div class="actions">
 
-    <button class="btn btn-success" onclick="addAccount()">
+    <button
+      class="btn btn-success"
+      onclick="addAccount()"
+    >
       ➕ Thêm tài khoản
     </button>
 
-    <button class="btn btn-gray" onclick="clearAccountForm()">
+    <button
+      class="btn btn-gray"
+      onclick="clearAccountForm()"
+    >
       🧹 Xóa form
     </button>
 
   </div>
 
-  <div id="accountMessage" style="margin-top:15px"></div>
+
+  <div
+    id="accountMessage"
+    style="margin-top:15px"
+  ></div>
 
 </div>
 
-<div class="card" style="margin-top:20px">
 
-  <h2>📦 Kho tài khoản</h2>
+<div
+  class="card"
+  style="margin-top:20px"
+>
+
+  <h2>
+    📦 Kho tài khoản
+  </h2>
 
   <input
     id="accountSearch"
@@ -721,14 +1005,25 @@ th{
 
 </section>
 
-<section id="panel-services" class="panel">
+
+<!-- ========================================================= -->
+<!-- ========================= SERVICES ====================== -->
+<!-- ========================================================= -->
+
+<section
+  id="panel-services"
+  class="panel"
+>
 
 <div class="card">
 
-  <h2>🛠️ Quản lý Cày thuê</h2>
+  <h2>
+    🛠️ Quản lý Cày thuê
+  </h2>
 
   <div class="notice">
-    Dữ liệu Cày thuê được lưu trực tiếp trên <b>Google Sheets</b>.
+    Dữ liệu Cày thuê được lưu trực tiếp trên
+    <b>Google Sheets</b>.
     Không lưu dữ liệu dịch vụ trên trình duyệt.
   </div>
 
@@ -736,28 +1031,61 @@ th{
 
     <div class="form-group">
 
-      <label>🎮 Game</label>
+      <label>
+        🎮 Game
+      </label>
 
-      <select id="serviceGame" class="input">
+      <select
+        id="serviceGame"
+        class="input"
+      >
 
-        <option value="">-- Chọn game --</option>
+        <option value="">
+          -- Chọn game --
+        </option>
 
-        <option value="Blox Fruits">Blox Fruits</option>
-        <option value="King Legacy">King Legacy</option>
-        <option value="Grow A Garden">Grow A Garden</option>
-        <option value="Grow A Garden 2">Grow A Garden 2</option>
-        <option value="Anime Fighters">Anime Fighters</option>
-        <option value="Murder Mystery 2">Murder Mystery 2</option>
-        <option value="Steal a Egg">🥚 Steal a Egg</option>
-        <option value="Khác">Khác</option>
+        <option value="Blox Fruits">
+          Blox Fruits
+        </option>
+
+        <option value="King Legacy">
+          King Legacy
+        </option>
+
+        <option value="Grow A Garden">
+          Grow A Garden
+        </option>
+
+        <option value="Grow A Garden 2">
+          Grow A Garden 2
+        </option>
+
+        <option value="Anime Fighters">
+          Anime Fighters
+        </option>
+
+        <option value="Murder Mystery 2">
+          Murder Mystery 2
+        </option>
+
+        <option value="Steal a Egg">
+          🥚 Steal a Egg
+        </option>
+
+        <option value="Khác">
+          Khác
+        </option>
 
       </select>
 
     </div>
 
+
     <div class="form-group">
 
-      <label>🛠️ Tên dịch vụ</label>
+      <label>
+        🛠️ Tên dịch vụ
+      </label>
 
       <input
         id="serviceName"
@@ -767,9 +1095,12 @@ th{
 
     </div>
 
+
     <div class="form-group">
 
-      <label>💵 Giá</label>
+      <label>
+        💵 Giá
+      </label>
 
       <input
         id="servicePrice"
@@ -781,11 +1112,17 @@ th{
 
     </div>
 
+
     <div class="form-group">
 
-      <label>📊 Trạng thái</label>
+      <label>
+        📊 Trạng thái
+      </label>
 
-      <select id="serviceStatus" class="input">
+      <select
+        id="serviceStatus"
+        class="input"
+      >
 
         <option value="Sẵn Sàng">
           🟢 Sẵn Sàng
@@ -799,9 +1136,12 @@ th{
 
     </div>
 
+
     <div class="form-group full">
 
-      <label>📝 Mô tả dịch vụ</label>
+      <label>
+        📝 Mô tả dịch vụ
+      </label>
 
       <textarea
         id="serviceDescription"
@@ -814,37 +1154,61 @@ th{
 
   </div>
 
+
   <div class="actions">
 
-    <button class="btn btn-success" onclick="addService()">
+    <button
+      class="btn btn-success"
+      onclick="addService()"
+    >
       ➕ Thêm dịch vụ cày thuê
     </button>
 
-    <button class="btn btn-gray" onclick="clearServiceForm()">
+    <button
+      class="btn btn-gray"
+      onclick="clearServiceForm()"
+    >
       🧹 Xóa form
     </button>
 
-    <button class="btn btn-primary" onclick="loadServices()">
+    <button
+      class="btn btn-primary"
+      onclick="loadServices()"
+    >
       🔄 Tải lại Google Sheets
     </button>
 
   </div>
 
-  <div id="serviceMessage" style="margin-top:15px"></div>
+
+  <div
+    id="serviceMessage"
+    style="margin-top:15px"
+  ></div>
 
 </div>
 
-<div class="card" style="margin-top:20px">
+
+<div
+  class="card"
+  style="margin-top:20px"
+>
 
   <div class="service-header">
 
-    <h2>🛠️ Danh sách dịch vụ cày thuê</h2>
+    <h2>
+      🛠️ Danh sách dịch vụ cày thuê
+    </h2>
 
-    <span id="serviceCount" class="cay-count">
+    <span
+      id="serviceCount"
+      class="cay-count"
+    >
       0 dịch vụ
     </span>
 
   </div>
+
 
   <input
     id="serviceSearch"
@@ -853,21 +1217,34 @@ th{
     oninput="renderServices()"
   >
 
+
   <div id="servicesContainer">
+
     <div class="loading">
       ⏳ Đang tải dữ liệu Cày thuê...
     </div>
+
   </div>
 
 </div>
 
 </section>
 
-<section id="panel-customers" class="panel">
+
+<!-- ========================================================= -->
+<!-- ========================= CUSTOMERS ==================== -->
+<!-- ========================================================= -->
+
+<section
+  id="panel-customers"
+  class="panel"
+>
 
 <div class="card">
 
-  <h2>👥 Khách hàng</h2>
+  <h2>
+    👥 Khách hàng
+  </h2>
 
   <input
     id="customerSearch"
@@ -901,11 +1278,21 @@ th{
 
 </section>
 
-<section id="panel-topups" class="panel">
+
+<!-- ========================================================= -->
+<!-- ========================= TOPUPS ======================== -->
+<!-- ========================================================= -->
+
+<section
+  id="panel-topups"
+  class="panel"
+>
 
 <div class="card">
 
-  <h2>💰 Quản lý nạp tiền</h2>
+  <h2>
+    💰 Quản lý nạp tiền
+  </h2>
 
   <div class="table-wrap">
 
@@ -938,33 +1325,54 @@ th{
 
 </section>
 
-<section id="panel-orders" class="panel">
+
+<!-- ========================================================= -->
+<!-- ========================= ORDERS ======================== -->
+<!-- ========================================================= -->
+
+<section
+  id="panel-orders"
+  class="panel"
+>
 
 <div class="card">
 
-  <h2>📦 Quản lý đơn hàng</h2>
+  <h2>
+    📦 Quản lý đơn hàng
+  </h2>
 
   <div class="notice">
-    Đơn Cày Thuê mới sẽ ở trạng thái <b>Chờ duyệt</b>.
-    Admin có thể duyệt hoặc từ chối. Trạng thái sẽ được cập nhật
-    vào Google Sheet <b>DonHang</b>.
+    Đơn Cày Thuê mới sẽ ở trạng thái
+    <b>Chờ duyệt</b>.
+    Admin có thể duyệt hoặc từ chối.
   </div>
+
 
   <div class="actions">
 
-    <button class="btn btn-primary" onclick="loadOrders()">
+    <button
+      class="btn btn-primary"
+      onclick="loadOrders()"
+    >
       🔄 Tải lại đơn hàng
     </button>
 
-    <button class="btn btn-warning" onclick="filterOrders('Chờ duyệt')">
+    <button
+      class="btn btn-warning"
+      onclick="filterOrders('Chờ duyệt')"
+    >
       ⏳ Chờ duyệt
     </button>
 
-    <button class="btn btn-gray" onclick="filterOrders('ALL')">
+    <button
+      class="btn btn-gray"
+      onclick="filterOrders('ALL')"
+    >
       📦 Tất cả
     </button>
 
   </div>
+
 
   <input
     id="orderSearch"
@@ -973,6 +1381,7 @@ th{
     placeholder="🔎 Tìm mã đơn, khách, dịch vụ..."
     oninput="renderOrders()"
   >
+
 
   <div class="table-wrap">
 
@@ -1006,11 +1415,21 @@ th{
 
 </section>
 
-<section id="panel-products" class="panel">
+
+<!-- ========================================================= -->
+<!-- ========================= PRODUCTS ====================== -->
+<!-- ========================================================= -->
+
+<section
+  id="panel-products"
+  class="panel"
+>
 
 <div class="card">
 
-  <h2>🛍️ Trạng thái sản phẩm</h2>
+  <h2>
+    🛍️ Trạng thái sản phẩm
+  </h2>
 
   <div class="notice">
     Chọn trạng thái cho từng sản phẩm/thư mục.
@@ -1025,17 +1444,28 @@ th{
 </div>
 </div>
 
-<div id="accountModal" class="modal hidden">
+
+<!-- ========================= ACCOUNT MODAL ========================= -->
+
+<div
+  id="accountModal"
+  class="modal hidden"
+>
 
 <div class="modal-content">
 
-  <h2>🎉 Thông tin tài khoản</h2>
+  <h2>
+    🎉 Thông tin tài khoản
+  </h2>
 
   <div id="accountModalContent"></div>
 
   <div class="actions">
 
-    <button class="btn btn-gray" onclick="closeAccountModal()">
+    <button
+      class="btn btn-gray"
+      onclick="closeAccountModal()"
+    >
       Đóng
     </button>
 
@@ -1045,19 +1475,36 @@ th{
 
 </div>
 
-<div id="serviceOrderModal" class="modal hidden">
+
+<!-- ========================= SERVICE ORDER MODAL ========================= -->
+
+<div
+  id="serviceOrderModal"
+  class="modal hidden"
+>
 
 <div class="modal-content">
 
-  <h2>📝 Tạo đơn Cày Thuê</h2>
+  <h2>
+    📝 Tạo đơn Cày Thuê
+  </h2>
 
-  <div id="selectedServiceInfo" class="order-info"></div>
+  <div
+    id="selectedServiceInfo"
+    class="order-info"
+  ></div>
 
-  <div class="form-grid" style="margin-top:15px">
+
+  <div
+    class="form-grid"
+    style="margin-top:15px"
+  >
 
     <div class="form-group">
 
-      <label>👤 Username khách hàng</label>
+      <label>
+        👤 Username khách hàng
+      </label>
 
       <input
         id="orderCustomer"
@@ -1067,9 +1514,12 @@ th{
 
     </div>
 
+
     <div class="form-group">
 
-      <label>🎮 Username Roblox</label>
+      <label>
+        🎮 Username Roblox
+      </label>
 
       <input
         id="orderRobloxUsername"
@@ -1079,21 +1529,27 @@ th{
 
     </div>
 
+
     <div class="form-group full">
 
-      <label>🔐 Thông tin đăng nhập</label>
+      <label>
+        🔐 Thông tin đăng nhập
+      </label>
 
       <input
         id="orderLoginInfo"
         class="input"
-        placeholder="Ví dụ: Username / Password hoặc thông tin cần thiết"
+        placeholder="Username / Password hoặc thông tin cần thiết"
       >
 
     </div>
 
+
     <div class="form-group full">
 
-      <label>📝 Ghi chú khách</label>
+      <label>
+        📝 Ghi chú khách
+      </label>
 
       <textarea
         id="orderNote"
@@ -1106,15 +1562,26 @@ th{
 
   </div>
 
-  <div id="serviceOrderMessage" style="margin-top:15px"></div>
+
+  <div
+    id="serviceOrderMessage"
+    style="margin-top:15px"
+  ></div>
+
 
   <div class="actions">
 
-    <button class="btn btn-success" onclick="createServiceOrder()">
+    <button
+      class="btn btn-success"
+      onclick="createServiceOrder()"
+    >
       📦 Tạo đơn
     </button>
 
-    <button class="btn btn-gray" onclick="closeServiceOrderModal()">
+    <button
+      class="btn btn-gray"
+      onclick="closeServiceOrderModal()"
+    >
       Đóng
     </button>
 
@@ -1124,10 +1591,16 @@ th{
 
 </div>
 
+
 <script>
+
+/* =========================================================
+   API
+========================================================= */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbwbPlxvvDbEkhzmnxlzPrNYQyL12GFH74jjM76X-pyj1nTdLFbvTs1vxNkGOdHCpvQM/exec";
+
 
 let ADMIN_KEY="";
 
@@ -1141,119 +1614,265 @@ let productStatuses={};
 let currentServiceForOrder=null;
 let currentOrderFilter="ALL";
 
+let apiBusy=false;
+
+
+/* =========================================================
+   API POST
+========================================================= */
+
 async function apiPost(action,data={}){
 
-  const response=await fetch(API_URL,{
-    method:"POST",
-    headers:{
-      "Content-Type":"text/plain;charset=utf-8"
-    },
-    body:JSON.stringify({
-      action,
-      ...data
-    })
-  });
-
-  if(!response.ok){
-    throw new Error("HTTP "+response.status);
+  if(!API_URL){
+    throw new Error("API_URL chưa được cấu hình.");
   }
 
-  return await response.json();
+  const payload={
+    action:String(action||""),
+    ...data
+  };
+
+  let response;
+
+  try{
+
+    response=await fetch(API_URL,{
+      method:"POST",
+      headers:{
+        "Content-Type":"text/plain;charset=utf-8"
+      },
+      body:JSON.stringify(payload),
+      cache:"no-store"
+    });
+
+  }catch(error){
+
+    throw new Error(
+      "Không thể kết nối Apps Script."
+    );
+
+  }
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP "+response.status
+    );
+
+  }
+
+  const text=await response.text();
+
+  if(!text){
+
+    throw new Error(
+      "API trả về dữ liệu rỗng."
+    );
+
+  }
+
+  let result;
+
+  try{
+
+    result=JSON.parse(text);
+
+  }catch(error){
+
+    console.error(
+      "API RAW RESPONSE:",
+      text
+    );
+
+    throw new Error(
+      "Apps Script không trả về JSON hợp lệ."
+    );
+
+  }
+
+  return result;
+
 }
+
+
+/* =========================================================
+   API GET
+========================================================= */
 
 async function apiGet(action){
 
-  const response=await fetch(
-    API_URL+
-    "?action="+
-    encodeURIComponent(action),
-    {
-      method:"GET",
-      cache:"no-store"
-    }
-  );
-
-  if(!response.ok){
-    throw new Error("HTTP "+response.status);
+  if(!API_URL){
+    throw new Error("API_URL chưa được cấu hình.");
   }
 
-  return await response.json();
+  let response;
+
+  try{
+
+    response=await fetch(
+      API_URL+
+      "?action="+
+      encodeURIComponent(action),
+      {
+        method:"GET",
+        cache:"no-store"
+      }
+    );
+
+  }catch(error){
+
+    throw new Error(
+      "Không thể kết nối Apps Script."
+    );
+
+  }
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP "+response.status
+    );
+
+  }
+
+  const text=await response.text();
+
+  if(!text){
+
+    throw new Error(
+      "API trả về dữ liệu rỗng."
+    );
+
+  }
+
+  try{
+
+    return JSON.parse(text);
+
+  }catch(error){
+
+    console.error(
+      "API RAW RESPONSE:",
+      text
+    );
+
+    throw new Error(
+      "Apps Script không trả về JSON hợp lệ."
+    );
+
+  }
+
 }
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
 
 async function adminLogin(){
 
-  const key=document
-    .getElementById("adminKey")
-    .value
-    .trim();
+  const input=
+    document.getElementById("adminKey");
+
+  const key=
+    input.value.trim();
 
   if(!key){
 
     showLoginMessage(
       "❌ Vui lòng nhập Admin Key.",
-      "red"
+      "#dc2626"
     );
 
+    input.focus();
+
     return;
+
   }
 
-  const button=document.getElementById("loginButton");
+  const button=
+    document.getElementById("loginButton");
 
-  if(button){
-    button.disabled=true;
-    button.style.opacity=".6";
-  }
+  button.disabled=true;
 
   showLoginMessage(
-    "⏳ Đang kiểm tra...",
+    "⏳ Đang kiểm tra Admin Key...",
     "#2563eb"
   );
 
   try{
 
-    const result=await apiPost(
-      "adminLogin",
-      {key:key}
+    const result=
+      await apiPost(
+        "adminLogin",
+        {
+          key:key
+        }
+      );
+
+    console.log(
+      "adminLogin:",
+      result
     );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      result.ok!==true
+    ){
 
       showLoginMessage(
-        result?.message||"Admin Key không đúng.",
-        "red"
+        "❌ "+
+        (
+          result?.message||
+          "Admin Key không đúng hoặc API chưa hỗ trợ adminLogin."
+        ),
+        "#dc2626"
       );
 
       return;
+
     }
 
     ADMIN_KEY=key;
 
-    localStorage.setItem(
-      "shopkarot_admin_key",
-      key
-    );
+    try{
+
+      localStorage.setItem(
+        "shopkarot_admin_key",
+        key
+      );
+
+    }catch(e){
+
+      console.warn(
+        "Không thể lưu localStorage.",
+        e
+      );
+
+    }
 
     openAdmin();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "LOGIN ERROR:",
+      error
+    );
 
     showLoginMessage(
-      "❌ Không kết nối được Apps Script.",
-      "red"
+      "❌ "+error.message,
+      "#dc2626"
     );
 
   }finally{
 
-    if(button){
-      button.disabled=false;
-      button.style.opacity="1";
-    }
+    button.disabled=false;
 
   }
 
 }
+
 
 function openAdmin(){
 
@@ -1269,81 +1888,196 @@ function openAdmin(){
 
 }
 
-function showLoginMessage(text,color){
 
-  const el=document.getElementById("loginMessage");
+function showLoginMessage(
+  text,
+  color
+){
 
-  if(!el)return;
+  const el=
+    document.getElementById(
+      "loginMessage"
+    );
 
   el.textContent=text;
   el.style.color=color;
 
 }
 
-function logout(){
 
-  localStorage.removeItem(
-    "shopkarot_admin_key"
-  );
+function logout(){
 
   ADMIN_KEY="";
 
-  location.reload();
+  try{
 
-}
-
-window.addEventListener("load",async function(){
-
-  const saved=
-    localStorage.getItem(
+    localStorage.removeItem(
       "shopkarot_admin_key"
     );
 
-  if(!saved)return;
+  }catch(e){}
 
-  try{
+  document
+    .getElementById("adminPage")
+    .classList.add("hidden");
 
-    const result=
-      await apiPost(
-        "adminLogin",
-        {key:saved}
+  document
+    .getElementById("loginPage")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("adminKey")
+    .value="";
+
+  showLoginMessage(
+    "Đã đăng xuất.",
+    "#16a34a"
+  );
+
+}
+
+
+/* =========================================================
+   AUTO LOGIN
+========================================================= */
+
+window.addEventListener(
+  "load",
+  async function(){
+
+    const input=
+      document.getElementById("adminKey");
+
+    input.addEventListener(
+      "keydown",
+      function(event){
+
+        if(event.key==="Enter"){
+
+          event.preventDefault();
+
+          adminLogin();
+
+        }
+
+      }
+    );
+
+    let saved="";
+
+    try{
+
+      saved=
+        localStorage.getItem(
+          "shopkarot_admin_key"
+        )||"";
+
+    }catch(e){
+
+      saved="";
+
+    }
+
+    if(!saved){
+
+      input.focus();
+
+      return;
+
+    }
+
+    showLoginMessage(
+      "⏳ Đang kiểm tra phiên Admin...",
+      "#2563eb"
+    );
+
+    try{
+
+      const result=
+        await apiPost(
+          "adminLogin",
+          {
+            key:saved
+          }
+        );
+
+      if(
+        result &&
+        result.ok===true
+      ){
+
+        ADMIN_KEY=saved;
+
+        openAdmin();
+
+      }else{
+
+        try{
+
+          localStorage.removeItem(
+            "shopkarot_admin_key"
+          );
+
+        }catch(e){}
+
+        showLoginMessage(
+          result?.message||
+          "Phiên Admin không còn hợp lệ.",
+          "#dc2626"
+        );
+
+      }
+
+    }catch(error){
+
+      console.error(
+        "AUTO LOGIN:",
+        error
       );
 
-    if(result && result.ok){
-
-      ADMIN_KEY=saved;
-      openAdmin();
-
-    }else{
-
-      localStorage.removeItem(
-        "shopkarot_admin_key"
+      showLoginMessage(
+        "Không thể kiểm tra phiên. Hãy đăng nhập lại.",
+        "#dc2626"
       );
 
     }
 
-  }catch(err){
-
-    console.error(err);
-
   }
+);
 
-});
+
+/* =========================================================
+   LOAD ALL
+========================================================= */
 
 async function loadAll(){
 
   await Promise.allSettled([
+
     loadDashboard(),
+
     loadShopStatus(),
+
     loadAccounts(),
+
     loadServices(),
+
     loadCustomers(),
+
     loadTopups(),
+
     loadOrders(),
+
     loadProducts()
+
   ]);
 
 }
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
 
 async function loadDashboard(){
 
@@ -1352,76 +2086,112 @@ async function loadDashboard(){
     const result=
       await apiGet("getDashboard");
 
-    if(result && result.ok){
+    if(
+      result &&
+      result.ok
+    ){
 
-      document.getElementById(
-        "dashCustomers"
-      ).textContent=result.customers||0;
+      setText(
+        "dashCustomers",
+        result.customers||0
+      );
 
-      document.getElementById(
-        "dashAccounts"
-      ).textContent=result.accounts||0;
+      setText(
+        "dashAccounts",
+        result.accounts||0
+      );
 
-      document.getElementById(
-        "dashOrders"
-      ).textContent=result.orders||0;
+      setText(
+        "dashOrders",
+        result.orders||0
+      );
 
-      document.getElementById(
-        "dashTopup"
-      ).textContent=
+      setText(
+        "dashTopup",
         formatMoney(
           result.approvedTopupMoney||0
-        );
+        )
+      );
 
-      document.getElementById(
-        "dashPending"
-      ).textContent=
-        result.pendingTopups||0;
+      setText(
+        "dashPending",
+        result.pendingTopups||0
+      );
 
     }
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "loadDashboard:",
+      error
+    );
 
   }
 
-  document.getElementById(
-    "dashServices"
-  ).textContent=services.length;
+  setText(
+    "dashServices",
+    services.length
+  );
 
 }
+
+
+/* =========================================================
+   SHOP STATUS
+========================================================= */
 
 async function loadShopStatus(){
 
   try{
 
     const result=
-      await apiGet("getShopStatus");
+      await apiGet(
+        "getShopStatus"
+      );
 
-    if(!result || !result.ok)return;
+    if(
+      !result ||
+      !result.ok
+    ){
+
+      return;
+
+    }
 
     const status=
       result.status||
       "Shop đang hoạt động";
 
-    document.getElementById(
-      "shopStatusText"
-    ).textContent=status;
+    setText(
+      "shopStatusText",
+      status
+    );
 
-    document.getElementById(
-      "shopStatusSelect"
-    ).value=status;
+    const select=
+      document.getElementById(
+        "shopStatusSelect"
+      );
+
+    if(select){
+
+      select.value=status;
+
+    }
 
     updateShopStatusDot(status);
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "loadShopStatus:",
+      error
+    );
 
   }
 
 }
+
 
 function updateShopStatusDot(status){
 
@@ -1432,36 +2202,51 @@ function updateShopStatusDot(status){
 
   if(!dot)return;
 
-  if(status==="Shop đang hoạt động"){
+  if(
+    status===
+    "Shop đang hoạt động"
+  ){
 
-    dot.style.background="#22c55e";
+    dot.style.background=
+      "#22c55e";
 
-  }else if(status==="Shop đang bảo trì"){
+  }else if(
+    status===
+    "Shop đang bảo trì"
+  ){
 
-    dot.style.background="#f59e0b";
+    dot.style.background=
+      "#f59e0b";
 
   }else{
 
-    dot.style.background="#ef4444";
+    dot.style.background=
+      "#ef4444";
 
   }
 
 }
 
-async function setShopStatus(){
 
-  const status=
-    document.getElementById(
-      "shopStatusSelect"
-    ).value;
+async function setShopStatus(){
 
   if(!ADMIN_KEY){
 
-    alert("❌ Phiên Admin đã hết. Vui lòng đăng nhập lại.");
+    alert(
+      "❌ Phiên Admin đã hết. Vui lòng đăng nhập lại."
+    );
 
     return;
 
   }
+
+  const select=
+    document.getElementById(
+      "shopStatusSelect"
+    );
+
+  const status=
+    select.value;
 
   try{
 
@@ -1474,34 +2259,55 @@ async function setShopStatus(){
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       alert(
-        result?.message||
-        "Không thể cập nhật."
+        "❌ "+
+        (
+          result?.message||
+          "Không thể cập nhật trạng thái."
+        )
       );
 
       return;
 
     }
 
+    setText(
+      "shopStatusText",
+      status
+    );
+
+    updateShopStatusDot(
+      status
+    );
+
     alert(
       "✅ Đã cập nhật trạng thái Shop."
     );
 
-    await loadShopStatus();
+  }catch(error){
 
-  }catch(err){
-
-    console.error(err);
+    console.error(
+      "setShopStatus:",
+      error
+    );
 
     alert(
-      "❌ Không kết nối được API."
+      "❌ "+error.message
     );
 
   }
 
 }
+
+
+/* =========================================================
+   FOLDER DATA
+========================================================= */
 
 const folderData={
 
@@ -1577,12 +2383,15 @@ const folderData={
 
 };
 
+
+/* =========================================================
+   ACCOUNT FORM
+========================================================= */
+
 function gameChanged(){
 
   const game=
-    document.getElementById(
-      "accountGame"
-    ).value;
+    getValue("accountGame");
 
   const folder=
     document.getElementById(
@@ -1595,47 +2404,58 @@ function gameChanged(){
   if(!game){
 
     updatePackages();
+
     return;
 
   }
 
-  const list=folderData[game]||[];
+  const list=
+    folderData[game]||[];
 
-  list.forEach(name=>{
+  list.forEach(
+    function(name){
 
-    const option=
-      document.createElement("option");
+      const option=
+        document.createElement(
+          "option"
+        );
 
-    option.value=name;
-    option.textContent=name;
+      option.value=name;
+      option.textContent=name;
 
-    folder.appendChild(option);
+      folder.appendChild(
+        option
+      );
 
-  });
+    }
+  );
 
   updatePackages();
 
 }
+
 
 function folderChanged(){
+
   updatePackages();
+
 }
 
+
 function priceChanged(){
+
   updatePackages();
+
 }
+
 
 function updatePackages(){
 
   const game=
-    document.getElementById(
-      "accountGame"
-    ).value;
+    getValue("accountGame");
 
   const folder=
-    document.getElementById(
-      "accountFolder"
-    ).value;
+    getValue("accountFolder");
 
   const packageSelect=
     document.getElementById(
@@ -1645,47 +2465,75 @@ function updatePackages(){
   packageSelect.innerHTML=
     '<option value="">-- Chọn gói --</option>';
 
-  if(!game||!folder)return;
+  if(
+    !game||
+    !folder
+  ){
 
-  for(let i=1;i<=20;i++){
+    return;
+
+  }
+
+  for(
+    let i=1;
+    i<=20;
+    i++
+  ){
 
     const option=
-      document.createElement("option");
+      document.createElement(
+        "option"
+      );
 
-    option.value="Gói "+i;
-    option.textContent="Gói "+i;
+    option.value=
+      "Gói "+i;
 
-    packageSelect.appendChild(option);
+    option.textContent=
+      "Gói "+i;
+
+    packageSelect.appendChild(
+      option
+    );
 
   }
 
 }
 
+
+/* =========================================================
+   ADD ACCOUNT
+========================================================= */
+
 async function addAccount(){
 
+  if(!ADMIN_KEY){
+
+    showAccountMessage(
+      "❌ Phiên Admin đã hết.",
+      "red"
+    );
+
+    return;
+
+  }
+
   const game=
-    document.getElementById("accountGame")
-    .value.trim();
+    getValue("accountGame");
 
   const folder=
-    document.getElementById("accountFolder")
-    .value.trim();
+    getValue("accountFolder");
 
   const price=
-    document.getElementById("accountPrice")
-    .value;
+    getValue("accountPrice");
 
   const packageName=
-    document.getElementById("accountPackage")
-    .value.trim();
+    getValue("accountPackage");
 
   const username=
-    document.getElementById("accountUsername")
-    .value.trim();
+    getValue("accountUsername");
 
   const password=
-    document.getElementById("accountPassword")
-    .value.trim();
+    getValue("accountPassword");
 
   if(
     !game||
@@ -1726,7 +2574,10 @@ async function addAccount(){
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       showAccountMessage(
         "❌ "+
@@ -1749,14 +2600,18 @@ async function addAccount(){
     clearAccountForm();
 
     await loadAccounts();
+
     await loadDashboard();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "addAccount:",
+      error
+    );
 
     showAccountMessage(
-      "❌ Lỗi kết nối API.",
+      "❌ "+error.message,
       "red"
     );
 
@@ -1764,7 +2619,11 @@ async function addAccount(){
 
 }
 
-function showAccountMessage(text,color){
+
+function showAccountMessage(
+  text,
+  color
+){
 
   const el=
     document.getElementById(
@@ -1776,69 +2635,93 @@ function showAccountMessage(text,color){
 
 }
 
+
 function clearAccountForm(){
 
-  document.getElementById(
-    "accountGame"
-  ).value="";
+  setValue(
+    "accountGame",
+    ""
+  );
 
   document.getElementById(
     "accountFolder"
   ).innerHTML=
     '<option value="">-- Chọn thư mục --</option>';
 
-  document.getElementById(
-    "accountPrice"
-  ).value="";
+  setValue(
+    "accountPrice",
+    ""
+  );
 
   document.getElementById(
     "accountPackage"
   ).innerHTML=
     '<option value="">-- Chọn gói --</option>';
 
-  document.getElementById(
-    "accountUsername"
-  ).value="";
+  setValue(
+    "accountUsername",
+    ""
+  );
 
-  document.getElementById(
-    "accountPassword"
-  ).value="";
+  setValue(
+    "accountPassword",
+    ""
+  );
 
 }
+
+
+/* =========================================================
+   LOAD ACCOUNTS
+========================================================= */
 
 async function loadAccounts(){
 
   try{
 
     const result=
-      await apiGet("getAccounts");
+      await apiGet(
+        "getAccounts"
+      );
 
-    if(result && result.ok){
+    if(
+      result &&
+      result.ok
+    ){
 
       accounts=
-        Array.isArray(result.accounts)
+        Array.isArray(
+          result.accounts
+        )
           ?result.accounts
           :[];
-
-      renderAccounts();
 
     }else{
 
       accounts=[];
-      renderAccounts();
 
     }
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "loadAccounts:",
+      error
+    );
 
     accounts=[];
-    renderAccounts();
 
   }
 
+  renderAccounts();
+
+  setText(
+    "dashAccounts",
+    accounts.length
+  );
+
 }
+
 
 function renderAccounts(){
 
@@ -1847,83 +2730,179 @@ function renderAccounts(){
       "accountsBody"
     );
 
+  if(!body)return;
+
   const search=
-    document.getElementById(
-      "accountSearch"
-    ).value
+    (
+      getValue("accountSearch")
+    )
     .toLowerCase()
     .trim();
 
   body.innerHTML="";
 
-  accounts
-    .filter(acc=>{
+  const list=
+    accounts.filter(
+      function(acc){
 
-      const text=[
-        acc.id,
-        acc.game,
-        acc.folder,
-        acc.price,
-        acc.package,
-        acc.username,
-        acc.password,
-        acc.status
-      ]
-      .join(" ")
-      .toLowerCase();
+        const text=[
 
-      return text.includes(search);
+          acc.id,
 
-    })
-    .forEach(acc=>{
+          acc.game,
+
+          acc.folder,
+
+          acc.price,
+
+          acc.package,
+
+          acc.username,
+
+          acc.accUsername,
+
+          acc.password,
+
+          acc.accPassword,
+
+          acc.status
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+        return text.includes(
+          search
+        );
+
+      }
+    );
+
+  if(!list.length){
+
+    body.innerHTML=`
+      <tr>
+        <td colspan="9">
+          <div class="empty">
+            📦 Không có tài khoản.
+          </div>
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+  list.forEach(
+    function(acc){
 
       const tr=
-        document.createElement("tr");
+        document.createElement(
+          "tr"
+        );
 
       const status=
         String(
           acc.status||""
-        ).toLowerCase();
+        )
+        .trim()
+        .toLowerCase();
 
       let badgeClass="";
 
-      if(status==="available"||status==="sẵn sàng")
+      if(
+        status==="available"||
+        status==="sẵn sàng"
+      ){
+
         badgeClass="available";
 
-      if(status==="sold"||status==="đã bán")
+      }
+
+      if(
+        status==="sold"||
+        status==="đã bán"
+      ){
+
         badgeClass="sold";
+
+      }
+
+      const username=
+        acc.username||
+        acc.accUsername||
+        "";
+
+      const password=
+        acc.password||
+        acc.accPassword||
+        "";
 
       tr.innerHTML=`
 
-        <td>${escapeHtml(acc.id||"")}</td>
-
-        <td>${escapeHtml(acc.game||"")}</td>
-
-        <td>${escapeHtml(acc.folder||"-")}</td>
-
-        <td>${formatPrice(acc.price)}</td>
-
-        <td>${escapeHtml(acc.package||"-")}</td>
-
-        <td>${escapeHtml(
-          acc.username||
-          acc.accUsername||
-          ""
-        )}</td>
-
-        <td>${escapeHtml(
-          acc.password||
-          acc.accPassword||
-          ""
-        )}</td>
-
         <td>
-          <span class="badge ${badgeClass}">
-            ${escapeHtml(acc.status||"")}
-          </span>
+          ${escapeHtml(
+            acc.id||""
+          )}
         </td>
 
         <td>
+          ${escapeHtml(
+            acc.game||""
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            acc.folder||"-"
+          )}
+        </td>
+
+        <td>
+          ${formatPrice(
+            acc.price
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            acc.package||"-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            username
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            password
+          )}
+        </td>
+
+        <td>
+
+          <span
+            class="badge ${badgeClass}"
+          >
+            ${escapeHtml(
+              acc.status||""
+            )}
+          </span>
+
+        </td>
+
+        <td>
+
+          <button
+            class="btn btn-primary"
+            onclick="showAccountModalById('${escapeJs(acc.id||"")}')"
+          >
+            👁️ Xem
+          </button>
 
           <button
             class="btn btn-danger"
@@ -1933,21 +2912,60 @@ function renderAccounts(){
           </button>
 
         </td>
+
       `;
 
-      body.appendChild(tr);
+      body.appendChild(
+        tr
+      );
 
-    });
+    }
+  );
 
 }
+
+
+function showAccountModalById(id){
+
+  const account=
+    accounts.find(
+      function(item){
+
+        return String(
+          item.id
+        )===String(id);
+
+      }
+    );
+
+  if(account){
+
+    showAccountModal(
+      account
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   DELETE ACCOUNT
+========================================================= */
 
 async function deleteAccount(id){
 
   if(!id)return;
 
-  if(!confirm(
-    "Bạn có chắc muốn xóa tài khoản này?"
-  ))return;
+  if(
+    !confirm(
+      "Bạn có chắc muốn xóa tài khoản này?"
+    )
+  ){
+
+    return;
+
+  }
 
   try{
 
@@ -1960,31 +2978,50 @@ async function deleteAccount(id){
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       alert(
-        result?.message||
-        "Không thể xóa."
+        "❌ "+
+        (
+          result?.message||
+          "Không thể xóa."
+        )
       );
 
       return;
 
     }
 
-    alert("✅ Đã xóa tài khoản.");
+    alert(
+      "✅ Đã xóa tài khoản."
+    );
 
     await loadAccounts();
+
     await loadDashboard();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "deleteAccount:",
+      error
+    );
 
-    alert("❌ Lỗi kết nối API.");
+    alert(
+      "❌ "+error.message
+    );
 
   }
 
 }
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
 
 async function loadServices(){
 
@@ -1995,21 +3032,28 @@ async function loadServices(){
 
   if(container){
 
-    container.innerHTML=
-      `<div class="loading">
+    container.innerHTML=`
+      <div class="loading">
         ⏳ Đang tải Cày thuê từ Google Sheets...
-      </div>`;
+      </div>
+    `;
 
   }
 
   try{
 
     const result=
-      await apiGet("getServices");
+      await apiGet(
+        "getServices"
+      );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       services=[];
+
       renderServices();
 
       showServiceMessage(
@@ -2026,25 +3070,32 @@ async function loadServices(){
     }
 
     services=
-      Array.isArray(result.services)
+      Array.isArray(
+        result.services
+      )
         ?result.services
         :[];
 
     renderServices();
 
-    document.getElementById(
-      "dashServices"
-    ).textContent=services.length;
+    setText(
+      "dashServices",
+      services.length
+    );
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "loadServices:",
+      error
+    );
 
     services=[];
+
     renderServices();
 
     showServiceMessage(
-      "❌ Không kết nối được Google Sheets.",
+      "❌ "+error.message,
       "red"
     );
 
@@ -2052,34 +3103,40 @@ async function loadServices(){
 
 }
 
+
 async function addService(){
 
+  if(!ADMIN_KEY){
+
+    showServiceMessage(
+      "❌ Phiên Admin đã hết.",
+      "red"
+    );
+
+    return;
+
+  }
+
   const game=
-    document.getElementById(
-      "serviceGame"
-    ).value.trim();
+    getValue("serviceGame");
 
   const name=
-    document.getElementById(
-      "serviceName"
-    ).value.trim();
+    getValue("serviceName");
 
   const price=
-    document.getElementById(
-      "servicePrice"
-    ).value;
+    getValue("servicePrice");
 
   const status=
-    document.getElementById(
-      "serviceStatus"
-    ).value;
+    getValue("serviceStatus");
 
   const description=
-    document.getElementById(
-      "serviceDescription"
-    ).value.trim();
+    getValue("serviceDescription");
 
-  if(!game||!name||price===""){
+  if(
+    !game||
+    !name||
+    price===""
+  ){
 
     showServiceMessage(
       "❌ Vui lòng nhập Game, tên dịch vụ và giá.",
@@ -2110,7 +3167,10 @@ async function addService(){
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       showServiceMessage(
         "❌ "+
@@ -2133,14 +3193,18 @@ async function addService(){
     );
 
     await loadServices();
+
     await loadDashboard();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "addService:",
+      error
+    );
 
     showServiceMessage(
-      "❌ Lỗi kết nối Google Sheets.",
+      "❌ "+error.message,
       "red"
     );
 
@@ -2148,7 +3212,11 @@ async function addService(){
 
 }
 
-function showServiceMessage(text,color){
+
+function showServiceMessage(
+  text,
+  color
+){
 
   const el=
     document.getElementById(
@@ -2160,29 +3228,36 @@ function showServiceMessage(text,color){
 
 }
 
+
 function clearServiceForm(){
 
-  document.getElementById(
-    "serviceGame"
-  ).value="";
+  setValue(
+    "serviceGame",
+    ""
+  );
 
-  document.getElementById(
-    "serviceName"
-  ).value="";
+  setValue(
+    "serviceName",
+    ""
+  );
 
-  document.getElementById(
-    "servicePrice"
-  ).value="";
+  setValue(
+    "servicePrice",
+    ""
+  );
 
-  document.getElementById(
-    "serviceStatus"
-  ).value="Sẵn Sàng";
+  setValue(
+    "serviceStatus",
+    "Sẵn Sàng"
+  );
 
-  document.getElementById(
-    "serviceDescription"
-  ).value="";
+  setValue(
+    "serviceDescription",
+    ""
+  );
 
 }
+
 
 function renderServices(){
 
@@ -2195,171 +3270,240 @@ function renderServices(){
 
   const search=
     (
-      document.getElementById(
-        "serviceSearch"
-      )?.value||""
+      getValue("serviceSearch")
     )
     .toLowerCase()
     .trim();
 
   const list=
-    services.filter(service=>{
+    services.filter(
+      function(service){
 
-      const text=[
-        service.id,
-        service.game,
-        service.name,
-        service.price,
-        service.status,
-        service.description
-      ]
-      .join(" ")
-      .toLowerCase();
+        const text=[
 
-      return text.includes(search);
+          service.id,
+          service.game,
+          service.name,
+          service.price,
+          service.status,
+          service.description
 
-    });
+        ]
+        .join(" ")
+        .toLowerCase();
 
-  document.getElementById(
-    "serviceCount"
-  ).textContent=
-    list.length+" dịch vụ";
+        return text.includes(
+          search
+        );
 
-  document.getElementById(
-    "dashServices"
-  ).textContent=
-    services.length;
+      }
+    );
+
+  setText(
+    "serviceCount",
+    list.length+
+    " dịch vụ"
+  );
+
+  setText(
+    "dashServices",
+    services.length
+  );
 
   container.innerHTML="";
 
   if(!list.length){
 
     container.innerHTML=`
-
       <div class="notice">
         Chưa có dịch vụ cày thuê.
       </div>
-
     `;
 
     return;
 
   }
 
-  list.forEach(service=>{
+  list.forEach(
+    function(service){
 
-    const div=
-      document.createElement("div");
+      const div=
+        document.createElement(
+          "div"
+        );
 
-    div.className=
-      "card service-card";
+      div.className=
+        "card service-card";
 
-    const statusClass=
-      service.status==="Sẵn Sàng"
-        ?"ready"
-        :"not-ready";
+      const ready=
+        normalizeServiceStatus(
+          service.status
+        )==="Sẵn Sàng";
 
-    div.innerHTML=`
+      const statusClass=
+        ready
+          ?"ready"
+          :"not-ready";
 
-      <div class="service-header">
+      div.innerHTML=`
 
-        <div class="service-title">
-          ${escapeHtml(service.name||"")}
+        <div class="service-header">
+
+          <div class="service-title">
+            ${escapeHtml(
+              service.name||""
+            )}
+          </div>
+
+          <div class="service-price">
+            ${formatPrice(
+              service.price
+            )}
+          </div>
+
         </div>
 
-        <div class="service-price">
-          ${formatPrice(service.price)}
+
+        <div class="service-meta">
+
+          <span class="badge available">
+            🎮 ${escapeHtml(
+              service.game||""
+            )}
+          </span>
+
+          <span class="badge ${statusClass}">
+            ${
+              ready
+                ?"🟢 Sẵn Sàng"
+                :"🔴 Chưa Sẵn Sàng"
+            }
+          </span>
+
         </div>
 
-      </div>
 
-      <div class="service-meta">
-
-        <span class="badge available">
-          🎮 ${escapeHtml(service.game||"")}
-        </span>
-
-        <span class="badge ${statusClass}">
+        <div class="service-desc">
           ${
-            service.status==="Sẵn Sàng"
-              ?"🟢 Sẵn Sàng"
-              :"🔴 Chưa Sẵn Sàng"
+            escapeHtml(
+              service.description||
+              "Không có mô tả."
+            )
           }
-        </span>
+        </div>
 
-      </div>
 
-      <div class="service-desc">
-        ${
-          escapeHtml(
-            service.description||
-            "Không có mô tả."
-          )
-        }
-      </div>
+        <div class="small">
+          ID:
+          ${escapeHtml(
+            service.id||""
+          )}
 
-      <div class="small">
-        ID: ${escapeHtml(service.id||"")}
-        ${
-          service.createdAt
-            ?" • "+escapeHtml(formatDate(service.createdAt))
-            :""
-        }
-      </div>
-
-      <div class="service-actions">
-
-        <button
-          class="btn btn-success"
-          onclick="openServiceOrderModal('${escapeJs(service.id||"")}')"
           ${
-            service.status!=="Sẵn Sàng"
-              ?"disabled style='opacity:.5;cursor:not-allowed'"
+            service.createdAt
+              ?" • "+
+               escapeHtml(
+                 formatDate(
+                   service.createdAt
+                 )
+               )
               :""
           }
-        >
-          📝 Tạo đơn
-        </button>
 
-        <button
-          class="btn btn-primary"
-          onclick="editService('${escapeJs(service.id||"")}')"
-        >
-          ✏️ Sửa
-        </button>
+        </div>
 
-        <button
-          class="btn btn-warning"
-          onclick="toggleServiceStatus('${escapeJs(service.id||"")}')"
-        >
-          🔄 Đổi trạng thái
-        </button>
 
-        <button
-          class="btn btn-danger"
-          onclick="deleteService('${escapeJs(service.id||"")}')"
-        >
-          🗑️ Xóa
-        </button>
+        <div class="service-actions">
 
-      </div>
+          <button
+            class="btn btn-success"
+            onclick="openServiceOrderModal('${escapeJs(service.id||"")}')"
+            ${
+              !ready
+                ?"disabled"
+                :""
+            }
+          >
+            📝 Tạo đơn
+          </button>
 
-    `;
+          <button
+            class="btn btn-primary"
+            onclick="editService('${escapeJs(service.id||"")}')"
+          >
+            ✏️ Sửa
+          </button>
 
-    container.appendChild(div);
+          <button
+            class="btn btn-warning"
+            onclick="toggleServiceStatus('${escapeJs(service.id||"")}')"
+          >
+            🔄 Đổi trạng thái
+          </button>
 
-  });
+          <button
+            class="btn btn-danger"
+            onclick="deleteService('${escapeJs(service.id||"")}')"
+          >
+            🗑️ Xóa
+          </button>
+
+        </div>
+
+      `;
+
+      container.appendChild(
+        div
+      );
+
+    }
+  );
 
 }
+
+
+function normalizeServiceStatus(status){
+
+  const s=
+    String(
+      status||""
+    )
+    .trim()
+    .toLowerCase();
+
+  if(
+    s==="sẵn sàng"||
+    s==="san sang"||
+    s==="ready"
+  ){
+
+    return "Sẵn Sàng";
+
+  }
+
+  return "Chưa Sẵn Sàng";
+
+}
+
 
 function findService(id){
 
   return services.find(
-    service=>
-      String(service.id)===String(id)
+    function(service){
+
+      return String(
+        service.id
+      )===String(id);
+
+    }
   );
 
 }
+
+
+/* =========================================================
+   EDIT SERVICE
+========================================================= */
 
 async function editService(id){
 
@@ -2394,7 +3538,8 @@ async function editService(id){
 
   const newStatus=
     confirm(
-      "Nhấn OK = Sẵn Sàng\nNhấn Cancel = Chưa Sẵn Sàng"
+      "Nhấn OK = Sẵn Sàng\n"+
+      "Nhấn Cancel = Chưa Sẵn Sàng"
     )
       ?"Sẵn Sàng"
       :"Chưa Sẵn Sàng";
@@ -2415,15 +3560,24 @@ async function editService(id){
         {
           key:ADMIN_KEY,
           id:id,
-          game:newGame.trim()||service.game,
-          name:newName.trim()||service.name,
-          price:Number(newPrice)||0,
+          game:
+            newGame.trim()||
+            service.game,
+          name:
+            newName.trim()||
+            service.name,
+          price:
+            Number(newPrice)||0,
           status:newStatus,
-          description:newDescription
+          description:
+            newDescription
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       alert(
         "❌ "+
@@ -2438,22 +3592,30 @@ async function editService(id){
     }
 
     alert(
-      "✅ Đã cập nhật dịch vụ trong Google Sheets."
+      "✅ Đã cập nhật dịch vụ."
     );
 
     await loadServices();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "editService:",
+      error
+    );
 
     alert(
-      "❌ Lỗi kết nối Google Sheets."
+      "❌ "+error.message
     );
 
   }
 
 }
+
+
+/* =========================================================
+   TOGGLE SERVICE
+========================================================= */
 
 async function toggleServiceStatus(id){
 
@@ -2462,8 +3624,13 @@ async function toggleServiceStatus(id){
 
   if(!service)return;
 
+  const current=
+    normalizeServiceStatus(
+      service.status
+    );
+
   const newStatus=
-    service.status==="Sẵn Sàng"
+    current==="Sẵn Sàng"
       ?"Chưa Sẵn Sàng"
       :"Sẵn Sàng";
 
@@ -2477,13 +3644,19 @@ async function toggleServiceStatus(id){
           id:id,
           game:service.game,
           name:service.name,
-          price:Number(service.price)||0,
+          price:Number(
+            service.price
+          )||0,
           status:newStatus,
-          description:service.description||""
+          description:
+            service.description||""
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       alert(
         "❌ "+
@@ -2499,17 +3672,25 @@ async function toggleServiceStatus(id){
 
     await loadServices();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "toggleServiceStatus:",
+      error
+    );
 
     alert(
-      "❌ Lỗi kết nối Google Sheets."
+      "❌ "+error.message
     );
 
   }
 
 }
+
+
+/* =========================================================
+   DELETE SERVICE
+========================================================= */
 
 async function deleteService(id){
 
@@ -2518,11 +3699,17 @@ async function deleteService(id){
 
   if(!service)return;
 
-  if(!confirm(
-    "Bạn có chắc muốn xóa dịch vụ:\n\n"+
-    service.name+
-    "?"
-  ))return;
+  if(
+    !confirm(
+      "Bạn có chắc muốn xóa dịch vụ:\n\n"+
+      service.name+
+      "?"
+    )
+  ){
+
+    return;
+
+  }
 
   try{
 
@@ -2535,7 +3722,10 @@ async function deleteService(id){
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       alert(
         "❌ "+
@@ -2554,27 +3744,41 @@ async function deleteService(id){
     );
 
     await loadServices();
+
     await loadDashboard();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "deleteService:",
+      error
+    );
 
     alert(
-      "❌ Lỗi kết nối Google Sheets."
+      "❌ "+error.message
     );
 
   }
 
 }
 
+
+/* =========================================================
+   SERVICE ORDER
+========================================================= */
+
 function openServiceOrderModal(id){
 
-  const service=findService(id);
+  const service=
+    findService(id);
 
   if(!service)return;
 
-  if(service.status!=="Sẵn Sàng"){
+  if(
+    normalizeServiceStatus(
+      service.status
+    )!=="Sẵn Sàng"
+  ){
 
     alert(
       "❌ Dịch vụ hiện chưa sẵn sàng."
@@ -2584,7 +3788,8 @@ function openServiceOrderModal(id){
 
   }
 
-  currentServiceForOrder=service;
+  currentServiceForOrder=
+    service;
 
   document.getElementById(
     "selectedServiceInfo"
@@ -2592,91 +3797,113 @@ function openServiceOrderModal(id){
 
     <div>
       🎮 Game:
-      <b>${escapeHtml(service.game||"")}</b>
+      <b>${escapeHtml(
+        service.game||""
+      )}</b>
     </div>
 
     <div>
       🛠️ Dịch vụ:
-      <b>${escapeHtml(service.name||"")}</b>
+      <b>${escapeHtml(
+        service.name||""
+      )}</b>
     </div>
 
     <div>
       💰 Giá:
-      <b>${formatPrice(service.price)}</b>
+      <b>${formatPrice(
+        service.price
+      )}</b>
     </div>
 
     <div>
       📊 Trạng thái:
-      <b>${escapeHtml(service.status||"")}</b>
+      <b>${escapeHtml(
+        service.status||""
+      )}</b>
     </div>
 
   `;
 
-  document.getElementById(
-    "orderCustomer"
-  ).value="";
+  setValue(
+    "orderCustomer",
+    ""
+  );
 
-  document.getElementById(
-    "orderRobloxUsername"
-  ).value="";
+  setValue(
+    "orderRobloxUsername",
+    ""
+  );
 
-  document.getElementById(
-    "orderLoginInfo"
-  ).value="";
+  setValue(
+    "orderLoginInfo",
+    ""
+  );
 
-  document.getElementById(
-    "orderNote"
-  ).value="";
+  setValue(
+    "orderNote",
+    ""
+  );
 
-  document.getElementById(
-    "serviceOrderMessage"
-  ).textContent="";
+  setText(
+    "serviceOrderMessage",
+    ""
+  );
 
-  document.getElementById(
-    "serviceOrderModal"
-  ).classList.remove("hidden");
+  document
+    .getElementById(
+      "serviceOrderModal"
+    )
+    .classList.remove(
+      "hidden"
+    );
 
 }
+
 
 function closeServiceOrderModal(){
 
-  currentServiceForOrder=null;
+  currentServiceForOrder=
+    null;
 
-  document.getElementById(
-    "serviceOrderModal"
-  ).classList.add("hidden");
+  document
+    .getElementById(
+      "serviceOrderModal"
+    )
+    .classList.add(
+      "hidden"
+    );
 
 }
+
+
+/* =========================================================
+   CREATE SERVICE ORDER
+========================================================= */
 
 async function createServiceOrder(){
 
   if(!currentServiceForOrder){
 
-    alert("❌ Không xác định được dịch vụ.");
+    alert(
+      "❌ Không xác định được dịch vụ."
+    );
 
     return;
 
   }
 
   const customer=
-    document.getElementById(
-      "orderCustomer"
-    ).value.trim();
+    getValue("orderCustomer");
 
   const robloxUsername=
-    document.getElementById(
-      "orderRobloxUsername"
-    ).value.trim();
+    getValue("orderRobloxUsername");
 
   const loginInfo=
-    document.getElementById(
-      "orderLoginInfo"
-    ).value.trim();
+    getValue("orderLoginInfo");
 
   const note=
-    document.getElementById(
-      "orderNote"
-    ).value.trim();
+    getValue("orderNote");
 
   if(!customer){
 
@@ -2701,52 +3928,71 @@ async function createServiceOrder(){
   }
 
   showOrderMessage(
-    "⏳ Đang tạo đơn và ghi vào Google Sheet...",
+    "⏳ Đang tạo đơn...",
     "#2563eb"
   );
 
   try{
+
+    const price=
+      Number(
+        currentServiceForOrder.price
+      )||0;
 
     const result=
       await apiPost(
         "createServiceOrder",
         {
           key:ADMIN_KEY,
+
           username:customer,
+
           customer:customer,
+
           type:"Cày Thuê",
+
           orderType:"Cày Thuê",
+
           serviceId:
             currentServiceForOrder.id,
+
           service:
             currentServiceForOrder.name,
+
           product:
             currentServiceForOrder.name,
+
           game:
             currentServiceForOrder.game,
-          price:
-            Number(
-              currentServiceForOrder.price
-            )||0,
-          amount:
-            Number(
-              currentServiceForOrder.price
-            )||0,
+
+          price:price,
+
+          amount:price,
+
           robloxUsername:
             robloxUsername,
+
           loginInfo:
             loginInfo,
+
           accountInfo:
             loginInfo,
+
           note:
             note,
+
           customerNote:
             note,
-          status:"Chờ duyệt"
+
+          status:
+            "Chờ duyệt"
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       showOrderMessage(
         "❌ "+
@@ -2775,14 +4021,18 @@ async function createServiceOrder(){
     closeServiceOrderModal();
 
     await loadOrders();
+
     await loadDashboard();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "createServiceOrder:",
+      error
+    );
 
     showOrderMessage(
-      "❌ Không kết nối được Google Sheets.",
+      "❌ "+error.message,
       "red"
     );
 
@@ -2790,7 +4040,11 @@ async function createServiceOrder(){
 
 }
 
-function showOrderMessage(text,color){
+
+function showOrderMessage(
+  text,
+  color
+){
 
   const el=
     document.getElementById(
@@ -2802,39 +4056,58 @@ function showOrderMessage(text,color){
 
 }
 
+
+/* =========================================================
+   CUSTOMERS
+========================================================= */
+
 async function loadCustomers(){
 
   try{
 
     const result=
-      await apiGet("getCustomers");
+      await apiGet(
+        "getCustomers"
+      );
 
-    if(result && result.ok){
+    if(
+      result &&
+      result.ok
+    ){
 
       customers=
-        Array.isArray(result.customers)
+        Array.isArray(
+          result.customers
+        )
           ?result.customers
           :[];
-
-      renderCustomers();
 
     }else{
 
       customers=[];
-      renderCustomers();
 
     }
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "loadCustomers:",
+      error
+    );
 
     customers=[];
-    renderCustomers();
 
   }
 
+  renderCustomers();
+
+  setText(
+    "dashCustomers",
+    customers.length
+  );
+
 }
+
 
 function renderCustomers(){
 
@@ -2843,27 +4116,53 @@ function renderCustomers(){
       "customersBody"
     );
 
+  if(!body)return;
+
   const search=
-    document.getElementById(
+    getValue(
       "customerSearch"
-    ).value
+    )
     .toLowerCase()
     .trim();
 
   body.innerHTML="";
 
-  customers
-    .filter(user=>
-      String(
-        user.username||""
-      )
-      .toLowerCase()
-      .includes(search)
-    )
-    .forEach(user=>{
+  const list=
+    customers.filter(
+      function(user){
+
+        return String(
+          user.username||""
+        )
+        .toLowerCase()
+        .includes(search);
+
+      }
+    );
+
+  if(!list.length){
+
+    body.innerHTML=`
+      <tr>
+        <td colspan="4">
+          <div class="empty">
+            👥 Không có khách hàng.
+          </div>
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+  list.forEach(
+    function(user){
 
       const tr=
-        document.createElement("tr");
+        document.createElement(
+          "tr"
+        );
 
       tr.innerHTML=`
 
@@ -2895,45 +4194,62 @@ function renderCustomers(){
 
       `;
 
-      body.appendChild(tr);
+      body.appendChild(
+        tr
+      );
 
-    });
+    }
+  );
 
 }
+
+
+/* =========================================================
+   TOPUPS
+========================================================= */
 
 async function loadTopups(){
 
   try{
 
     const result=
-      await apiGet("getTopups");
+      await apiGet(
+        "getTopups"
+      );
 
-    if(result && result.ok){
+    if(
+      result &&
+      result.ok
+    ){
 
       topups=
-        Array.isArray(result.topups)
+        Array.isArray(
+          result.topups
+        )
           ?result.topups
           :[];
-
-      renderTopups();
 
     }else{
 
       topups=[];
-      renderTopups();
 
     }
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "loadTopups:",
+      error
+    );
 
     topups=[];
-    renderTopups();
 
   }
 
+  renderTopups();
+
 }
+
 
 function renderTopups(){
 
@@ -2942,20 +4258,45 @@ function renderTopups(){
       "topupsBody"
     );
 
+  if(!body)return;
+
   body.innerHTML="";
 
-  topups
-    .slice()
-    .reverse()
-    .forEach(item=>{
+  const list=
+    topups
+      .slice()
+      .reverse();
+
+  if(!list.length){
+
+    body.innerHTML=`
+      <tr>
+        <td colspan="10">
+          <div class="empty">
+            💰 Không có yêu cầu nạp tiền.
+          </div>
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+  list.forEach(
+    function(item){
 
       const tr=
-        document.createElement("tr");
+        document.createElement(
+          "tr"
+        );
 
       const status=
         String(
           item.status||""
-        ).toLowerCase();
+        )
+        .trim()
+        .toLowerCase();
 
       let buttons="";
 
@@ -2983,6 +4324,14 @@ function renderTopups(){
 
         `;
 
+      }else{
+
+        buttons=`
+          <span class="small">
+            Đã xử lý
+          </span>
+        `;
+
       }
 
       let statusClass="";
@@ -2992,60 +4341,118 @@ function renderTopups(){
         status==="chờ duyệt"||
         status==="cho duyet"
       ){
+
         statusClass="pending";
+
       }else if(
         status==="approved"||
         status==="đã duyệt"||
         status==="da duyet"
       ){
+
         statusClass="completed";
+
       }else if(
         status==="rejected"||
         status==="từ chối"||
         status==="tu choi"
       ){
+
         statusClass="rejected";
+
       }
 
       tr.innerHTML=`
 
-        <td>${escapeHtml(item.id||"")}</td>
-
-        <td>${escapeHtml(item.username||"")}</td>
-
-        <td>${formatMoney(item.amount||0)}</td>
-
-        <td>${escapeHtml(item.method||"")}</td>
-
-        <td>${escapeHtml(item.cardType||"")}</td>
-
-        <td>${escapeHtml(item.cardSerial||"")}</td>
-
-        <td>${escapeHtml(item.cardCode||"")}</td>
-
-        <td>${escapeHtml(item.bankName||"")}</td>
+        <td>
+          ${escapeHtml(
+            item.id||""
+          )}
+        </td>
 
         <td>
-          <span class="badge ${statusClass}">
-            ${escapeHtml(item.status||"")}
+          ${escapeHtml(
+            item.username||""
+          )}
+        </td>
+
+        <td>
+          ${formatMoney(
+            item.amount||0
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            item.method||""
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            item.cardType||""
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            item.cardSerial||""
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            item.cardCode||""
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            item.bankName||""
+          )}
+        </td>
+
+        <td>
+          <span
+            class="badge ${statusClass}"
+          >
+            ${escapeHtml(
+              item.status||""
+            )}
           </span>
         </td>
 
-        <td>${buttons}</td>
+        <td>
+          ${buttons}
+        </td>
 
       `;
 
-      body.appendChild(tr);
+      body.appendChild(
+        tr
+      );
 
-    });
+    }
+  );
 
 }
 
+
+/* =========================================================
+   APPROVE TOPUP
+========================================================= */
+
 async function approveTopup(id){
 
-  if(!confirm(
-    "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
-  ))return;
+  if(
+    !confirm(
+      "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
+    )
+  ){
+
+    return;
+
+  }
 
   try{
 
@@ -3058,38 +4465,65 @@ async function approveTopup(id){
         }
       );
 
-    alert(
-      result?.message||
-      (
-        result?.ok
-          ?"Đã duyệt."
-          :"Không thể duyệt."
-      )
-    );
+    if(
+      !result ||
+      !result.ok
+    ){
 
-    if(result && result.ok){
+      alert(
+        "❌ "+
+        (
+          result?.message||
+          "Không thể duyệt."
+        )
+      );
 
-      await loadTopups();
-      await loadCustomers();
-      await loadDashboard();
+      return;
 
     }
 
-  }catch(err){
+    alert(
+      result.message||
+      "✅ Đã duyệt nạp tiền."
+    );
 
-    console.error(err);
+    await loadTopups();
 
-    alert("❌ Lỗi API.");
+    await loadCustomers();
+
+    await loadDashboard();
+
+  }catch(error){
+
+    console.error(
+      "approveTopup:",
+      error
+    );
+
+    alert(
+      "❌ "+error.message
+    );
 
   }
 
 }
 
+
+/* =========================================================
+   REJECT TOPUP
+========================================================= */
+
 async function rejectTopup(id){
 
-  if(!confirm(
-    "Bạn có chắc muốn từ chối yêu cầu này?"
-  ))return;
+  if(
+    !confirm(
+      "Bạn có chắc muốn từ chối yêu cầu này?"
+    )
+  ){
+
+    return;
+
+  }
 
   try{
 
@@ -3102,81 +4536,121 @@ async function rejectTopup(id){
         }
       );
 
-    alert(
-      result?.message||
-      "Đã xử lý."
-    );
+    if(
+      !result ||
+      !result.ok
+    ){
 
-    if(result && result.ok){
+      alert(
+        "❌ "+
+        (
+          result?.message||
+          "Không thể xử lý."
+        )
+      );
 
-      await loadTopups();
-      await loadDashboard();
+      return;
 
     }
 
-  }catch(err){
+    alert(
+      result.message||
+      "✅ Đã từ chối yêu cầu."
+    );
 
-    console.error(err);
+    await loadTopups();
 
-    alert("❌ Lỗi API.");
+    await loadDashboard();
+
+  }catch(error){
+
+    console.error(
+      "rejectTopup:",
+      error
+    );
+
+    alert(
+      "❌ "+error.message
+    );
 
   }
 
 }
+
+
+/* =========================================================
+   ORDERS
+========================================================= */
 
 async function loadOrders(){
 
   try{
 
     const result=
-      await apiGet("getOrders");
+      await apiGet(
+        "getOrders"
+      );
 
-    if(result && result.ok){
+    if(
+      result &&
+      result.ok
+    ){
 
       orders=
-        Array.isArray(result.orders)
+        Array.isArray(
+          result.orders
+        )
           ?result.orders
           :[];
-
-      renderOrders();
-
-      document.getElementById(
-        "dashOrders"
-      ).textContent=
-        orders.length;
 
     }else{
 
       orders=[];
-      renderOrders();
 
     }
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "loadOrders:",
+      error
+    );
 
     orders=[];
-    renderOrders();
 
   }
 
+  renderOrders();
+
+  setText(
+    "dashOrders",
+    orders.length
+  );
+
 }
+
 
 function filterOrders(status){
 
-  currentOrderFilter=status||"ALL";
+  currentOrderFilter=
+    status||
+    "ALL";
 
   renderOrders();
 
 }
 
-function normalizeOrderStatus(status){
+
+function normalizeOrderStatus(
+  status
+){
 
   const s=
-    String(status||"")
-      .trim()
-      .toLowerCase();
+    String(
+      status||""
+    )
+    .trim()
+    .toLowerCase();
 
   if(
     s==="pending"||
@@ -3230,33 +4704,70 @@ function normalizeOrderStatus(status){
 
   }
 
-  return String(status||"");
+  return String(
+    status||""
+  );
 
 }
 
-function getOrderBadgeClass(status){
+
+function getOrderBadgeClass(
+  status
+){
 
   const s=
-    normalizeOrderStatus(status);
+    normalizeOrderStatus(
+      status
+    );
 
-  if(s==="Chờ duyệt")
+  if(
+    s==="Chờ duyệt"
+  ){
+
     return "pending";
 
-  if(s==="Đã duyệt")
+  }
+
+  if(
+    s==="Đã duyệt"
+  ){
+
     return "completed";
 
-  if(s==="Từ chối")
+  }
+
+  if(
+    s==="Từ chối"
+  ){
+
     return "rejected";
 
-  if(s==="Đang xử lý")
+  }
+
+  if(
+    s==="Đang xử lý"
+  ){
+
     return "processing";
 
-  if(s==="Hoàn thành")
+  }
+
+  if(
+    s==="Hoàn thành"
+  ){
+
     return "completed";
+
+  }
 
   return "";
 
 }
+
+
+/* =========================================================
+   RENDER ORDERS
+========================================================= */
 
 function renderOrders(){
 
@@ -3270,10 +4781,8 @@ function renderOrders(){
   body.innerHTML="";
 
   const search=
-    (
-      document.getElementById(
-        "orderSearch"
-      )?.value||""
+    getValue(
+      "orderSearch"
     )
     .toLowerCase()
     .trim();
@@ -3283,54 +4792,67 @@ function renderOrders(){
       .slice()
       .reverse();
 
-  if(currentOrderFilter!=="ALL"){
+  if(
+    currentOrderFilter!=="ALL"
+  ){
 
-    list=list.filter(order=>
-      normalizeOrderStatus(
-        order.status
-      )===
-      currentOrderFilter
-    );
+    list=
+      list.filter(
+        function(order){
+
+          return normalizeOrderStatus(
+            order.status
+          )===
+          currentOrderFilter;
+
+        }
+      );
 
   }
 
-  list=list.filter(order=>{
+  list=
+    list.filter(
+      function(order){
 
-    const text=[
+        const text=[
 
-      order.id,
-      order.orderId,
+          order.id,
+          order.orderId,
 
-      order.username,
-      order.customer,
+          order.username,
+          order.customer,
 
-      order.type,
-      order.orderType,
+          order.type,
+          order.orderType,
 
-      order.service,
-      order.product,
-      order.game,
+          order.service,
+          order.product,
+          order.game,
 
-      order.price,
-      order.amount,
+          order.price,
+          order.amount,
 
-      order.robloxUsername,
-      order.robloxUser,
-      order.loginInfo,
-      order.accountInfo,
+          order.robloxUsername,
+          order.robloxUser,
 
-      order.note,
-      order.customerNote,
+          order.loginInfo,
+          order.accountInfo,
 
-      order.status
+          order.note,
+          order.customerNote,
 
-    ]
-    .join(" ")
-    .toLowerCase();
+          order.status
 
-    return text.includes(search);
+        ]
+        .join(" ")
+        .toLowerCase();
 
-  });
+        return text.includes(
+          search
+        );
+
+      }
+    );
 
   if(!list.length){
 
@@ -3338,9 +4860,9 @@ function renderOrders(){
 
       <tr>
 
-        <td colspan="11" style="text-align:center">
+        <td colspan="11">
 
-          <div class="loading">
+          <div class="empty">
             📦 Không có đơn hàng.
           </div>
 
@@ -3354,188 +4876,227 @@ function renderOrders(){
 
   }
 
-  list.forEach(order=>{
+  list.forEach(
+    function(order){
 
-    const id=
-      order.id||
-      order.orderId||
-      "";
+      const id=
+        order.id||
+        order.orderId||
+        "";
 
-    const customer=
-      order.username||
-      order.customer||
-      "";
+      const customer=
+        order.username||
+        order.customer||
+        "";
 
-    const type=
-      order.type||
-      order.orderType||
-      "Cày Thuê";
+      const type=
+        order.type||
+        order.orderType||
+        "Cày Thuê";
 
-    const service=
-      order.service||
-      order.product||
-      "";
+      const service=
+        order.service||
+        order.product||
+        "";
 
-    const price=
-      order.price||
-      order.amount||
-      0;
+      const price=
+        order.price||
+        order.amount||
+        0;
 
-    const robloxUsername=
-      order.robloxUsername||
-      order.robloxUser||
-      order.accountUsername||
-      "";
+      const robloxUsername=
+        order.robloxUsername||
+        order.robloxUser||
+        order.accountUsername||
+        "";
 
-    const loginInfo=
-      order.loginInfo||
-      order.accountInfo||
-      order.login||
-      "";
+      const loginInfo=
+        order.loginInfo||
+        order.accountInfo||
+        order.login||
+        "";
 
-    const note=
-      order.note||
-      order.customerNote||
-      "";
+      const note=
+        order.note||
+        order.customerNote||
+        "";
 
-    const status=
-      normalizeOrderStatus(
-        order.status
+      const status=
+        normalizeOrderStatus(
+          order.status
+        );
+
+      const badgeClass=
+        getOrderBadgeClass(
+          status
+        );
+
+      const tr=
+        document.createElement(
+          "tr"
+        );
+
+      let actions="";
+
+      if(
+        status==="Chờ duyệt"
+      ){
+
+        actions=`
+
+          <div class="order-actions">
+
+            <button
+              class="btn btn-success"
+              onclick="approveOrder('${escapeJs(id)}')"
+            >
+              ✅ Duyệt
+            </button>
+
+            <button
+              class="btn btn-danger"
+              onclick="rejectOrder('${escapeJs(id)}')"
+            >
+              ❌ Từ chối
+            </button>
+
+          </div>
+
+        `;
+
+      }else{
+
+        actions=`
+
+          <span class="small">
+            Đã xử lý
+          </span>
+
+        `;
+
+      }
+
+      tr.innerHTML=`
+
+        <td>
+          <b>
+            ${escapeHtml(id)}
+          </b>
+        </td>
+
+        <td>
+          ${escapeHtml(customer)}
+        </td>
+
+        <td>
+          <span class="badge processing">
+            ${escapeHtml(type)}
+          </span>
+        </td>
+
+        <td>
+
+          ${escapeHtml(service)}
+
+          ${
+            order.game
+              ?`
+                <div class="small">
+                  🎮 ${escapeHtml(
+                    order.game
+                  )}
+                </div>
+              `
+              :""
+          }
+
+        </td>
+
+        <td>
+          <b>
+            ${formatPrice(price)}
+          </b>
+        </td>
+
+        <td>
+          ${escapeHtml(
+            robloxUsername||"-"
+          )}
+        </td>
+
+        <td>
+          ${
+            loginInfo
+              ?escapeHtml(loginInfo)
+              :"-"
+          }
+        </td>
+
+        <td>
+          ${escapeHtml(
+            note||"-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHtml(
+            formatDate(
+              order.createdAt||
+              order.date||
+              order.createdDate
+            )
+          )}
+        </td>
+
+        <td>
+
+          <span
+            class="badge ${badgeClass}"
+          >
+            ${escapeHtml(
+              status||""
+            )}
+          </span>
+
+        </td>
+
+        <td>
+          ${actions}
+        </td>
+
+      `;
+
+      body.appendChild(
+        tr
       );
 
-    const badgeClass=
-      getOrderBadgeClass(status);
-
-    const tr=
-      document.createElement("tr");
-
-    let actions="";
-
-    if(status==="Chờ duyệt"){
-
-      actions=`
-
-        <div class="order-actions">
-
-          <button
-            class="btn btn-success"
-            onclick="approveOrder('${escapeJs(id)}')"
-          >
-            ✅ Duyệt
-          </button>
-
-          <button
-            class="btn btn-danger"
-            onclick="rejectOrder('${escapeJs(id)}')"
-          >
-            ❌ Từ chối
-          </button>
-
-        </div>
-
-      `;
-
-    }else{
-
-      actions=`
-
-        <span class="small">
-          Đã xử lý
-        </span>
-
-      `;
-
     }
-
-    tr.innerHTML=`
-
-      <td>
-        <b>${escapeHtml(id)}</b>
-      </td>
-
-      <td>
-        ${escapeHtml(customer)}
-      </td>
-
-      <td>
-        <span class="badge processing">
-          ${escapeHtml(type)}
-        </span>
-      </td>
-
-      <td>
-        ${escapeHtml(service)}
-        ${
-          order.game
-            ?`<div class="small">
-                🎮 ${escapeHtml(order.game)}
-              </div>`
-            :""
-        }
-      </td>
-
-      <td>
-        <b>${formatPrice(price)}</b>
-      </td>
-
-      <td>
-        ${escapeHtml(robloxUsername||"-")}
-      </td>
-
-      <td>
-        ${
-          loginInfo
-            ?escapeHtml(loginInfo)
-            :"-"
-        }
-      </td>
-
-      <td>
-        ${escapeHtml(note||"-")}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          formatDate(
-            order.createdAt||
-            order.date||
-            order.createdDate
-          )
-        )}
-      </td>
-
-      <td>
-
-        <span class="badge ${badgeClass}">
-          ${escapeHtml(status||"")}
-        </span>
-
-      </td>
-
-      <td>
-        ${actions}
-      </td>
-
-    `;
-
-    body.appendChild(tr);
-
-  });
-
-}
-
-function findOrder(id){
-
-  return orders.find(order=>
-    String(
-      order.id||
-      order.orderId||
-      ""
-    )===
-    String(id)
   );
 
 }
+
+
+function findOrder(id){
+
+  return orders.find(
+    function(order){
+
+      return String(
+        order.id||
+        order.orderId||
+        ""
+      )===
+      String(id);
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   APPROVE ORDER
+========================================================= */
 
 async function approveOrder(id){
 
@@ -3562,18 +5123,23 @@ async function approveOrder(id){
     order.product||
     "";
 
-  if(!confirm(
+  if(
+    !confirm(
 
-    "Bạn có chắc muốn DUYỆT đơn này?\n\n"+
+      "Bạn có chắc muốn DUYỆT đơn này?\n\n"+
+      "Mã đơn: "+
+      id+
+      "\nKhách: "+
+      customer+
+      "\nDịch vụ: "+
+      service
 
-    "Mã đơn: "+
-    id+
-    "\nKhách: "+
-    customer+
-    "\nDịch vụ: "+
-    service
+    )
+  ){
 
-  ))return;
+    return;
+
+  }
 
   try{
 
@@ -3597,7 +5163,10 @@ async function approveOrder(id){
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       alert(
         "❌ "+
@@ -3612,24 +5181,34 @@ async function approveOrder(id){
     }
 
     alert(
-      "✅ Đã duyệt đơn "+id+
+      "✅ Đã duyệt đơn "+
+      id+
       " và cập nhật Google Sheet."
     );
 
     await loadOrders();
+
     await loadDashboard();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "approveOrder:",
+      error
+    );
 
     alert(
-      "❌ Lỗi kết nối Google Sheets."
+      "❌ "+error.message
     );
 
   }
 
 }
+
+
+/* =========================================================
+   REJECT ORDER
+========================================================= */
 
 async function rejectOrder(id){
 
@@ -3654,9 +5233,17 @@ async function rejectOrder(id){
 
   if(reason===null)return;
 
-  if(!confirm(
-    "Xác nhận TỪ CHỐI đơn "+id+"?"
-  ))return;
+  if(
+    !confirm(
+      "Xác nhận TỪ CHỐI đơn "+
+      id+
+      "?"
+    )
+  ){
+
+    return;
+
+  }
 
   try{
 
@@ -3678,7 +5265,10 @@ async function rejectOrder(id){
         }
       );
 
-    if(!result || !result.ok){
+    if(
+      !result ||
+      !result.ok
+    ){
 
       alert(
         "❌ "+
@@ -3699,72 +5289,176 @@ async function rejectOrder(id){
     );
 
     await loadOrders();
+
     await loadDashboard();
 
-  }catch(err){
+  }catch(error){
 
-    console.error(err);
+    console.error(
+      "rejectOrder:",
+      error
+    );
 
     alert(
-      "❌ Lỗi kết nối Google Sheets."
+      "❌ "+error.message
     );
 
   }
 
 }
 
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
 const products=[
 
-  ["bloxFruit","🎮 Blox Fruits"],
-  ["cayThueBloxFruit","🛠️ Cày thuê Blox Fruits"],
-  ["tuiMuBloxFruit","🎁 Túi mù Blox Fruits"],
-  ["accBloxFruitItem","📦 Acc Blox Fruits tùy chọn Item"],
-  ["accBloxFruitRaceV4","🔥 Acc Blox Fruits Race V4"],
-  ["accBloxFruitXemHinh","🖼️ Acc Blox Fruits xem hình acc tùy chọn"],
-  ["accBloxFruitLvMax","👑 Acc Blox Fruits LV MAX"],
-  ["accBloxFruitLv1000","⚡ Acc Blox Fruits LV trên 1000"],
-  ["robux120h","💎 Robux 120H"],
-  ["gamepassBloxFruit","🎟️ Gamepass Blox Fruits"],
-  ["fish","🐟 Fish"],
-  ["kingLegacy","👑 King Legacy"],
-  ["animeFighters","⚔️ Anime Fighters"],
-  ["growAGarden2","🌱 Grow A Garden 2"],
-  ["growAGarden","🌱 Grow A Garden"],
-  ["murderMystery2","🔪 Murder Mystery 2"],
-  ["tuiMu","🎁 Túi Mù"],
-  ["event","🎉 Event"],
-  ["greedyGrowers","🌱 Greedy Growers"],
-  ["stealAEgg","🥚 Steal a Egg"],
-  ["stealAEggTuiMu","🎁 Steal a Egg Túi mù"],
-  ["stealAEggAccVIP","👑 Steal a Egg Acc VIP"]
+  [
+    "bloxFruit",
+    "🎮 Blox Fruits"
+  ],
+
+  [
+    "cayThueBloxFruit",
+    "🛠️ Cày thuê Blox Fruits"
+  ],
+
+  [
+    "tuiMuBloxFruit",
+    "🎁 Túi mù Blox Fruits"
+  ],
+
+  [
+    "accBloxFruitItem",
+    "📦 Acc Blox Fruits tùy chọn Item"
+  ],
+
+  [
+    "accBloxFruitRaceV4",
+    "🔥 Acc Blox Fruits Race V4"
+  ],
+
+  [
+    "accBloxFruitXemHinh",
+    "🖼️ Acc Blox Fruits xem hình acc tùy chọn"
+  ],
+
+  [
+    "accBloxFruitLvMax",
+    "👑 Acc Blox Fruits LV MAX"
+  ],
+
+  [
+    "accBloxFruitLv1000",
+    "⚡ Acc Blox Fruits LV trên 1000"
+  ],
+
+  [
+    "robux120h",
+    "💎 Robux 120H"
+  ],
+
+  [
+    "gamepassBloxFruit",
+    "🎟️ Gamepass Blox Fruits"
+  ],
+
+  [
+    "fish",
+    "🐟 Fish"
+  ],
+
+  [
+    "kingLegacy",
+    "👑 King Legacy"
+  ],
+
+  [
+    "animeFighters",
+    "⚔️ Anime Fighters"
+  ],
+
+  [
+    "growAGarden2",
+    "🌱 Grow A Garden 2"
+  ],
+
+  [
+    "growAGarden",
+    "🌱 Grow A Garden"
+  ],
+
+  [
+    "murderMystery2",
+    "🔪 Murder Mystery 2"
+  ],
+
+  [
+    "tuiMu",
+    "🎁 Túi Mù"
+  ],
+
+  [
+    "event",
+    "🎉 Event"
+  ],
+
+  [
+    "greedyGrowers",
+    "🌱 Greedy Growers"
+  ],
+
+  [
+    "stealAEgg",
+    "🥚 Steal a Egg"
+  ],
+
+  [
+    "stealAEggTuiMu",
+    "🎁 Steal a Egg Túi mù"
+  ],
+
+  [
+    "stealAEggAccVIP",
+    "👑 Steal a Egg Acc VIP"
+  ]
 
 ];
+
 
 async function loadProducts(){
 
   try{
 
     const result=
-      await apiGet("getProductStatuses");
+      await apiGet(
+        "getProductStatuses"
+      );
 
-    if(result && result.ok){
+    if(
+      result &&
+      result.ok
+    ){
 
       productStatuses=
         result.statuses||{};
 
     }
 
-    renderProducts();
+  }catch(error){
 
-  }catch(err){
-
-    console.error(err);
-
-    renderProducts();
+    console.error(
+      "loadProducts:",
+      error
+    );
 
   }
 
+  renderProducts();
+
 }
+
 
 function renderProducts(){
 
@@ -3773,20 +5467,32 @@ function renderProducts(){
       "productsContainer"
     );
 
+  if(!container)return;
+
   container.innerHTML="";
 
   const bloxKeys=[
 
     "bloxFruit",
+
     "cayThueBloxFruit",
+
     "tuiMuBloxFruit",
+
     "accBloxFruitItem",
+
     "accBloxFruitRaceV4",
+
     "accBloxFruitXemHinh",
+
     "accBloxFruitLvMax",
+
     "accBloxFruitLv1000",
+
     "robux120h",
+
     "gamepassBloxFruit",
+
     "fish"
 
   ];
@@ -3794,7 +5500,9 @@ function renderProducts(){
   const stealKeys=[
 
     "stealAEgg",
+
     "stealAEggTuiMu",
+
     "stealAEggAccVIP"
 
   ];
@@ -3812,7 +5520,9 @@ function renderProducts(){
   );
 
   const title2=
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   title2.className=
     "product-group-title";
@@ -3820,21 +5530,38 @@ function renderProducts(){
   title2.textContent=
     "🎮 Sản phẩm khác";
 
-  container.appendChild(title2);
+  container.appendChild(
+    title2
+  );
 
   products
-    .filter(item=>
-      !bloxKeys.includes(item[0]) &&
-      !stealKeys.includes(item[0])
+    .filter(
+      function(item){
+
+        return (
+          !bloxKeys.includes(
+            item[0]
+          ) &&
+          !stealKeys.includes(
+            item[0]
+          )
+        );
+
+      }
     )
-    .forEach(item=>
-      createProductStatusCard(
-        container,
-        item
-      )
+    .forEach(
+      function(item){
+
+        createProductStatusCard(
+          container,
+          item
+        );
+
+      }
     );
 
 }
+
 
 function createProductGroup(
   container,
@@ -3843,42 +5570,63 @@ function createProductGroup(
 ){
 
   const title=
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   title.className=
     "product-group-title";
 
-  title.textContent=titleText;
+  title.textContent=
+    titleText;
 
-  container.appendChild(title);
+  container.appendChild(
+    title
+  );
 
   products
-    .filter(item=>
-      keys.includes(item[0])
+    .filter(
+      function(item){
+
+        return keys.includes(
+          item[0]
+        );
+
+      }
     )
-    .forEach(item=>
-      createProductStatusCard(
-        container,
-        item
-      )
+    .forEach(
+      function(item){
+
+        createProductStatusCard(
+          container,
+          item
+        );
+
+      }
     );
 
 }
+
 
 function createProductStatusCard(
   container,
   item
 ){
 
-  const key=item[0];
-  const name=item[1];
+  const key=
+    item[0];
+
+  const name=
+    item[1];
 
   const status=
     productStatuses[key]||
     "Sẵn Sàng";
 
   const div=
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   div.className=
     "card product-status-card "+
@@ -3904,14 +5652,22 @@ function createProductStatusCard(
 
         <option
           value="Sẵn Sàng"
-          ${status==="Sẵn Sàng"?"selected":""}
+          ${
+            status==="Sẵn Sàng"
+              ?"selected"
+              :""
+          }
         >
           🟢 Sẵn Sàng
         </option>
 
         <option
           value="Chưa Sẵn Sàng"
-          ${status==="Chưa Sẵn Sàng"?"selected":""}
+          ${
+            status==="Chưa Sẵn Sàng"
+              ?"selected"
+              :""
+          }
         >
           🔴 Chưa Sẵn Sàng
         </option>
@@ -3929,11 +5685,16 @@ function createProductStatusCard(
 
   `;
 
-  container.appendChild(div);
+  container.appendChild(
+    div
+  );
 
 }
 
-function changeProductVisual(product){
+
+function changeProductVisual(
+  product
+){
 
   const select=
     document.getElementById(
@@ -3954,19 +5715,28 @@ function changeProductVisual(product){
     "not-ready"
   );
 
-  if(select.value==="Sẵn Sàng"){
+  if(
+    select.value==="Sẵn Sàng"
+  ){
 
-    card.classList.add("ready");
+    card.classList.add(
+      "ready"
+    );
 
   }else{
 
-    card.classList.add("not-ready");
+    card.classList.add(
+      "not-ready"
+    );
 
   }
 
 }
 
-async function saveProductStatus(product){
+
+async function saveProductStatus(
+  product
+){
 
   const select=
     document.getElementById(
@@ -3975,7 +5745,8 @@ async function saveProductStatus(product){
 
   if(!select)return;
 
-  const status=select.value;
+  const status=
+    select.value;
 
   try{
 
@@ -3989,46 +5760,87 @@ async function saveProductStatus(product){
         }
       );
 
-    alert(
-      result?.message||
-      (
-        result?.ok
-          ?"✅ Đã lưu trạng thái."
-          :"❌ Không thể lưu."
-      )
-    );
+    if(
+      !result ||
+      !result.ok
+    ){
 
-    if(result && result.ok){
+      alert(
+        "❌ "+
+        (
+          result?.message||
+          "Không thể lưu."
+        )
+      );
 
-      productStatuses[product]=status;
-
-      changeProductVisual(product);
+      return;
 
     }
 
-  }catch(err){
+    productStatuses[product]=
+      status;
 
-    console.error(err);
+    changeProductVisual(
+      product
+    );
 
-    alert("❌ Lỗi kết nối API.");
+    alert(
+      result.message||
+      "✅ Đã lưu trạng thái."
+    );
+
+  }catch(error){
+
+    console.error(
+      "saveProductStatus:",
+      error
+    );
+
+    alert(
+      "❌ "+error.message
+    );
 
   }
 
 }
 
-function showTab(name,button){
+
+/* =========================================================
+   TABS
+========================================================= */
+
+function showTab(
+  name,
+  button
+){
 
   document
-    .querySelectorAll(".panel")
-    .forEach(panel=>{
-      panel.classList.remove("active");
-    });
+    .querySelectorAll(
+      ".panel"
+    )
+    .forEach(
+      function(panel){
+
+        panel.classList.remove(
+          "active"
+        );
+
+      }
+    );
 
   document
-    .querySelectorAll(".tab")
-    .forEach(tab=>{
-      tab.classList.remove("active");
-    });
+    .querySelectorAll(
+      ".tab"
+    )
+    .forEach(
+      function(tab){
+
+        tab.classList.remove(
+          "active"
+        );
+
+      }
+    );
 
   const panel=
     document.getElementById(
@@ -4037,13 +5849,17 @@ function showTab(name,button){
 
   if(panel){
 
-    panel.classList.add("active");
+    panel.classList.add(
+      "active"
+    );
 
   }
 
   if(button){
 
-    button.classList.add("active");
+    button.classList.add(
+      "active"
+    );
 
   }
 
@@ -4085,7 +5901,14 @@ function showTab(name,button){
 
 }
 
-function showAccountModal(account){
+
+/* =========================================================
+   ACCOUNT MODAL
+========================================================= */
+
+function showAccountModal(
+  account
+){
 
   const content=
     document.getElementById(
@@ -4098,32 +5921,48 @@ function showAccountModal(account){
 
       <div>
         🎮 Game:
-        <b>${escapeHtml(account.game||"")}</b>
+        <b>${escapeHtml(
+          account.game||""
+        )}</b>
       </div>
 
       <div>
         📁 Thư mục:
-        <b>${escapeHtml(account.folder||"")}</b>
+        <b>${escapeHtml(
+          account.folder||""
+        )}</b>
       </div>
 
       <div>
         💵 Giá:
-        <b>${formatPrice(account.price)}</b>
+        <b>${formatPrice(
+          account.price
+        )}</b>
       </div>
 
       <div>
         📦 Gói:
-        <b>${escapeHtml(account.package||"")}</b>
+        <b>${escapeHtml(
+          account.package||""
+        )}</b>
       </div>
 
       <div>
         👤 Username:
-        <b>${escapeHtml(account.username||"")}</b>
+        <b>${escapeHtml(
+          account.username||
+          account.accUsername||
+          ""
+        )}</b>
       </div>
 
       <div>
         🔑 Password:
-        <b>${escapeHtml(account.password||"")}</b>
+        <b>${escapeHtml(
+          account.password||
+          account.accPassword||
+          ""
+        )}</b>
       </div>
 
     </div>
@@ -4131,34 +5970,118 @@ function showAccountModal(account){
   `;
 
   document
-    .getElementById("accountModal")
-    .classList.remove("hidden");
+    .getElementById(
+      "accountModal"
+    )
+    .classList.remove(
+      "hidden"
+    );
 
 }
+
 
 function closeAccountModal(){
 
   document
-    .getElementById("accountModal")
-    .classList.add("hidden");
+    .getElementById(
+      "accountModal"
+    )
+    .classList.add(
+      "hidden"
+    );
 
 }
 
-function formatMoney(value){
 
-  const n=Number(value||0);
+/* =========================================================
+   HELPERS
+========================================================= */
 
-  if(n>=1000){
+function setText(
+  id,
+  value
+){
 
-    return n.toLocaleString("vi-VN")+"đ";
+  const el=
+    document.getElementById(id);
+
+  if(el){
+
+    el.textContent=
+      String(
+        value??""
+      );
 
   }
 
-  return n.toLocaleString("vi-VN")+"K";
+}
+
+
+function getValue(id){
+
+  const el=
+    document.getElementById(id);
+
+  return el
+    ?String(
+      el.value??""
+    ).trim()
+    :"";
 
 }
 
-function formatPrice(value){
+
+function setValue(
+  id,
+  value
+){
+
+  const el=
+    document.getElementById(id);
+
+  if(el){
+
+    el.value=
+      value??"";
+
+  }
+
+}
+
+
+function formatMoney(
+  value
+){
+
+  const n=
+    Number(
+      value||0
+    );
+
+  if(n>=1000){
+
+    return (
+      n.toLocaleString(
+        "vi-VN"
+      )+
+      "đ"
+    );
+
+  }
+
+  return (
+    n.toLocaleString(
+      "vi-VN"
+    )+
+    "K"
+  );
+
+}
+
+
+function formatPrice(
+  value
+){
 
   if(
     value===""||
@@ -4170,90 +6093,185 @@ function formatPrice(value){
 
   }
 
-  return Number(value||0)
-    .toLocaleString("vi-VN")+"K";
+  const n=
+    Number(value);
+
+  if(
+    Number.isNaN(n)
+  ){
+
+    return escapeHtml(
+      value
+    );
+
+  }
+
+  return (
+    n.toLocaleString(
+      "vi-VN"
+    )+
+    "K"
+  );
 
 }
 
-function formatDate(value){
+
+function formatDate(
+  value
+){
 
   if(!value)return "";
 
   try{
 
-    const date=new Date(value);
+    const date=
+      new Date(value);
 
-    if(isNaN(date.getTime())){
+    if(
+      Number.isNaN(
+        date.getTime()
+      )
+    ){
 
-      return String(value);
+      return String(
+        value
+      );
 
     }
 
-    return date.toLocaleString("vi-VN");
+    return date.toLocaleString(
+      "vi-VN"
+    );
 
-  }catch(e){
+  }catch(error){
 
-    return String(value);
+    return String(
+      value
+    );
 
   }
 
 }
 
-function escapeHtml(value){
 
-  return String(value??"")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+function escapeHtml(
+  value
+){
+
+  return String(
+    value??""
+  )
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
 
 }
 
-function escapeJs(value){
 
-  return String(value??"")
-    .replaceAll("\\","\\\\")
-    .replaceAll("'","\\'")
-    .replaceAll("\n","\\n")
-    .replaceAll("\r","\\r");
+function escapeJs(
+  value
+){
+
+  return String(
+    value??""
+  )
+  .replaceAll(
+    "\\",
+    "\\\\"
+  )
+  .replaceAll(
+    "'",
+    "\\'"
+  )
+  .replaceAll(
+    "\n",
+    "\\n"
+  )
+  .replaceAll(
+    "\r",
+    "\\r"
+  );
 
 }
+
+
+/* =========================================================
+   MODAL EVENTS
+========================================================= */
 
 document
-  .getElementById("accountModal")
-  .addEventListener("click",function(e){
+  .getElementById(
+    "accountModal"
+  )
+  .addEventListener(
+    "click",
+    function(event){
 
-    if(e.target===this){
+      if(
+        event.target===this
+      ){
 
-      closeAccountModal();
+        closeAccountModal();
+
+      }
 
     }
+  );
 
-  });
 
 document
-  .getElementById("serviceOrderModal")
-  .addEventListener("click",function(e){
+  .getElementById(
+    "serviceOrderModal"
+  )
+  .addEventListener(
+    "click",
+    function(event){
 
-    if(e.target===this){
+      if(
+        event.target===this
+      ){
+
+        closeServiceOrderModal();
+
+      }
+
+    }
+  );
+
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key==="Escape"
+    ){
+
+      closeAccountModal();
 
       closeServiceOrderModal();
 
     }
 
-  });
-
-document.addEventListener("keydown",function(e){
-
-  if(e.key==="Escape"){
-
-    closeAccountModal();
-    closeServiceOrderModal();
-
   }
-
-});
+);
 
 </script>
 
