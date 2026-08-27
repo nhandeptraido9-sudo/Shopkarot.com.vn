@@ -1,0 +1,925 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopKarot - Dịch Vụ Cày Thuê Blox Fruits</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#0b0f19;
+    color:#fff;
+    min-height:100vh;
+}
+
+button,input,textarea{
+    font-family:inherit;
+}
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(11,15,25,.96);
+    border-bottom:1px solid #252d40;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+    color:#ffb000;
+}
+
+.back-btn{
+    border:1px solid #30394e;
+    background:#151b29;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.back-btn:hover{
+    background:#20283a;
+}
+
+.container{
+    width:min(1050px,92%);
+    margin:30px auto 60px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    color:#aeb7c8;
+}
+
+.notice{
+    background:linear-gradient(135deg,#241b0b,#151a25);
+    border:1px solid #805d18;
+    border-radius:16px;
+    padding:22px;
+    margin-bottom:25px;
+}
+
+.notice h2{
+    color:#ffbd22;
+    font-size:20px;
+    margin-bottom:14px;
+}
+
+.notice p{
+    line-height:1.7;
+    color:#e7ebf3;
+}
+
+.notice .danger{
+    color:#ff6565;
+    font-weight:bold;
+}
+
+.notice .time{
+    margin-top:13px;
+}
+
+.youtube{
+    display:inline-block;
+    margin-top:16px;
+    padding:11px 16px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+    background:#d71920;
+    font-weight:bold;
+}
+
+.section-title{
+    font-size:22px;
+    margin:28px 0 15px;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.category{
+    background:#131a29;
+    border:1px solid #293348;
+    border-radius:15px;
+    padding:22px 15px;
+    text-align:center;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.category:hover{
+    transform:translateY(-3px);
+    border-color:#ffb000;
+    background:#181f30;
+}
+
+.category .icon{
+    font-size:31px;
+    margin-bottom:10px;
+}
+
+.category h3{
+    font-size:16px;
+}
+
+.category span{
+    display:block;
+    color:#8f9bb0;
+    font-size:13px;
+    margin-top:6px;
+}
+
+.package-area{
+    display:none;
+    margin-top:28px;
+}
+
+.package-area.active{
+    display:block;
+}
+
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.package{
+    background:#131a29;
+    border:1px solid #293348;
+    border-radius:15px;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.package-info h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.package-info p{
+    color:#ffbd22;
+    font-weight:bold;
+}
+
+.require{
+    color:#8792a7!important;
+    font-size:12px;
+    font-weight:normal!important;
+    margin-top:4px;
+}
+
+.select-btn{
+    white-space:nowrap;
+    border:0;
+    background:#ffb000;
+    color:#111;
+    font-weight:800;
+    padding:11px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.select-btn:hover{
+    background:#ffc229;
+}
+
+.order-area{
+    display:none;
+    margin-top:30px;
+}
+
+.order-area.active{
+    display:block;
+}
+
+.order-box{
+    background:#111827;
+    border:1px solid #303b52;
+    border-radius:18px;
+    padding:24px;
+}
+
+.order-title{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.selected-service{
+    background:#171f30;
+    border:1px solid #2e394f;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:20px;
+}
+
+.selected-service .label{
+    color:#8995aa;
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.selected-service .name{
+    font-weight:bold;
+    font-size:17px;
+}
+
+.price{
+    color:#ffbd22;
+    font-size:20px;
+    font-weight:800;
+    margin-top:5px;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.field textarea{
+    width:100%;
+    min-height:130px;
+    resize:vertical;
+    background:#0b111d;
+    border:1px solid #303b52;
+    border-radius:11px;
+    padding:13px;
+    color:#fff;
+    outline:none;
+}
+
+.field textarea:focus{
+    border-color:#ffb000;
+}
+
+.hint{
+    color:#8792a7;
+    font-size:12px;
+    margin-top:7px;
+    line-height:1.5;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.btn{
+    flex:1;
+    padding:13px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:800;
+    border:1px solid #303b52;
+}
+
+.btn-back{
+    background:#171f2d;
+    color:#fff;
+}
+
+.btn-create{
+    background:#ffb000;
+    color:#111;
+    border-color:#ffb000;
+}
+
+.btn:hover{
+    filter:brightness(1.08);
+}
+
+.empty{
+    color:#8792a7;
+    text-align:center;
+    padding:25px;
+    background:#111827;
+    border:1px dashed #303b52;
+    border-radius:15px;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(450px,100%);
+    background:#131a29;
+    border:1px solid #344057;
+    border-radius:17px;
+    padding:25px;
+    text-align:center;
+}
+
+.modal-box h2{
+    margin-bottom:10px;
+}
+
+.modal-box p{
+    color:#aeb7c8;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+.modal-close{
+    width:100%;
+    border:0;
+    background:#ffb000;
+    color:#111;
+    font-weight:800;
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.footer{
+    text-align:center;
+    color:#69758a;
+    font-size:13px;
+    padding:25px 10px;
+    border-top:1px solid #20283a;
+}
+
+@media(max-width:750px){
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:26px;
+    }
+}
+
+@media(max-width:450px){
+    .header{
+        padding:13px 4%;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .back-btn{
+        padding:8px 11px;
+    }
+
+    .categories{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .category{
+        padding:18px 8px;
+    }
+
+    .package{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .select-btn{
+        width:100%;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">🥕 SHOPKAROT</div>
+
+    <button class="back-btn" onclick="goHome()">
+        ← Quay lại Shop
+    </button>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <h1>Dịch Vụ - Cày Thuê Blox Fruits</h1>
+        <p>Chọn dịch vụ bạn cần và tạo đơn hàng</p>
+    </section>
+
+    <section class="notice">
+        <h2>⚠️ LƯU Ý QUAN TRỌNG</h2>
+
+        <p>
+            🔑 Tài khoản phải có <b>CODE BACKUP (mã dự phòng)</b>
+            thì shop mới có thể thực hiện dịch vụ.
+        </p>
+
+        <p class="danger">
+            ❌ Không có mã dự phòng → shop không thể thực hiện đơn.
+        </p>
+
+        <p>
+            🎥 Hướng dẫn lấy mã:
+        </p>
+
+        <a
+            class="youtube"
+            href="https://youtu.be/zO7jFjIjLHE"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ▶ XEM HƯỚNG DẪN
+        </a>
+
+        <p class="time">
+            ⏳ <b>Thời gian hoàn thành:</b><br>
+            Đơn thông thường: <b>24–72h</b><br>
+            Đơn TO: Sẽ lâu hơn tùy vào đơn.
+        </p>
+
+        <p style="margin-top:12px;color:#ffbd22;">
+            ⚠️ Không gửi mật khẩu, Cookie hoặc mã 2FA vào ghi chú.
+        </p>
+    </section>
+
+    <h2 class="section-title">📦 1. Chọn Dịch Vụ</h2>
+
+    <section class="categories">
+
+        <div class="category" onclick="showPackages('level')">
+            <div class="icon">🎯</div>
+            <h3>Cày Level</h3>
+            <span>Chọn mốc level</span>
+        </div>
+
+        <div class="category" onclick="showPackages('money')">
+            <div class="icon">💰</div>
+            <h3>Điểm F - Beli</h3>
+            <span>F & Beli</span>
+        </div>
+
+        <div class="category" onclick="showPackages('item')">
+            <div class="icon">🎁</div>
+            <h3>Lấy Item</h3>
+            <span>Item / Kiếm</span>
+        </div>
+
+        <div class="category" onclick="showPackages('melee')">
+            <div class="icon">🥊</div>
+            <h3>Melee</h3>
+            <span>Melee V2 / Godhuman</span>
+        </div>
+
+    </section>
+
+    <section id="packageArea" class="package-area">
+
+        <h2 id="packageTitle" class="section-title"></h2>
+
+        <div id="packageGrid" class="package-grid"></div>
+
+    </section>
+
+    <section id="orderArea" class="order-area">
+
+        <div class="order-box">
+
+            <h2 class="order-title">
+                🛒 Tạo Đơn Hàng
+            </h2>
+
+            <div class="selected-service">
+
+                <div class="label">
+                    Dịch vụ đã chọn
+                </div>
+
+                <div id="selectedName" class="name">
+                    -
+                </div>
+
+                <div id="selectedPrice" class="price">
+                    -
+                </div>
+
+            </div>
+
+            <div class="field">
+
+                <label for="note">
+                    📝 Ghi Chú
+                </label>
+
+                <textarea
+                    id="note"
+                    placeholder="Nhập yêu cầu hoặc ghi chú cho đơn hàng..."
+                ></textarea>
+
+                <div class="hint">
+                    Ví dụ: yêu cầu cụ thể, thời gian mong muốn,
+                    thông tin cần lưu ý cho đơn hàng...
+                </div>
+
+            </div>
+
+            <div class="hint">
+                ⚠️ Không nhập mật khẩu, Cookie, mã 2FA hoặc thông tin bảo mật
+                vào phần ghi chú.
+            </div>
+
+            <div class="actions">
+
+                <button
+                    class="btn btn-back"
+                    onclick="backToPackages()"
+                >
+                    ← Chọn lại
+                </button>
+
+                <button
+                    class="btn btn-create"
+                    onclick="createOrder()"
+                >
+                    🛒 TẠO ĐƠN HÀNG
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    © 2026 SHOPKAROT — Dịch Vụ Cày Thuê Blox Fruits
+</footer>
+
+<div id="modal" class="modal">
+
+    <div class="modal-box">
+
+        <h2 id="modalTitle">
+            Thông báo
+        </h2>
+
+        <p id="modalText">
+            -
+        </p>
+
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+        >
+            Đóng
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const services = {
+
+    level: {
+        title: "🎯 Cày Level",
+        items: [
+            {
+                name: "Lv 1 → 700",
+                price: 20000
+            },
+            {
+                name: "Lv 700 → 1500",
+                price: 30000
+            },
+            {
+                name: "Lv 1500 → Max",
+                price: 40000
+            },
+            {
+                name: "Lv 1 → Max",
+                price: 50000
+            }
+        ]
+    },
+
+    money: {
+        title: "💰 Điểm F - Beli",
+        items: [
+            {
+                name: "5K F",
+                price: 20000
+            },
+            {
+                name: "2M Beli",
+                price: 10000
+            },
+            {
+                name: "5M Beli",
+                price: 20000
+            }
+        ]
+    },
+
+    item: {
+        title: "🎁 Lấy Item",
+        items: [
+            {
+                name: "Mua tất cả Item Sea 1",
+                price: 10000
+            },
+            {
+                name: "Soul Guitar",
+                price: 60000,
+                require: "Yêu cầu Lv trên 2300"
+            },
+            {
+                name: "Yama",
+                price: 50000,
+                require: "Yêu cầu Lv trên 1500"
+            },
+            {
+                name: "Tushita",
+                price: 20000,
+                require: "Yêu cầu Lv trên 2300"
+            },
+            {
+                name: "Ghép Song Kiếm",
+                price: 50000,
+                require: "Đã có Yama + Tushita + 350 Mastery"
+            },
+            {
+                name: "Song Kiếm – Tushita + Yama",
+                price: 130000
+            }
+        ]
+    },
+
+    melee: {
+        title: "🥊 Melee",
+        items: [
+            {
+                name: "1 Melee V2",
+                price: 20000
+            },
+            {
+                name: "Godhuman",
+                price: 50000
+            }
+        ]
+    }
+
+};
+
+let selectedService = null;
+let currentCategory = null;
+
+function formatMoney(number){
+
+    return number.toLocaleString("vi-VN") + "đ";
+
+}
+
+function showPackages(category){
+
+    currentCategory = category;
+
+    const data = services[category];
+
+    const area = document.getElementById("packageArea");
+    const title = document.getElementById("packageTitle");
+    const grid = document.getElementById("packageGrid");
+    const orderArea = document.getElementById("orderArea");
+
+    orderArea.classList.remove("active");
+
+    title.textContent = data.title;
+
+    grid.innerHTML = "";
+
+    data.items.forEach((item,index)=>{
+
+        const div = document.createElement("div");
+
+        div.className = "package";
+
+        div.innerHTML = `
+            <div class="package-info">
+                <h3>${item.name}</h3>
+                <p>${formatMoney(item.price)}</p>
+                ${
+                    item.require
+                    ? `<p class="require">⚠️ ${item.require}</p>`
+                    : ""
+                }
+            </div>
+
+            <button
+                class="select-btn"
+                onclick="selectPackage(${index})"
+            >
+                CHỌN GÓI
+            </button>
+        `;
+
+        grid.appendChild(div);
+
+    });
+
+    area.classList.add("active");
+
+    area.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+function selectPackage(index){
+
+    const data = services[currentCategory];
+
+    selectedService = data.items[index];
+
+    document.getElementById("selectedName").textContent =
+        selectedService.name;
+
+    document.getElementById("selectedPrice").textContent =
+        formatMoney(selectedService.price);
+
+    document.getElementById("orderArea").classList.add("active");
+
+    document.getElementById("note").value = "";
+
+    document.getElementById("orderArea").scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+function backToPackages(){
+
+    document.getElementById("orderArea").classList.remove("active");
+
+    document.getElementById("packageArea").scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+function createOrder(){
+
+    if(!selectedService){
+
+        showModal(
+            "Chưa chọn dịch vụ",
+            "Vui lòng chọn một gói dịch vụ trước khi tạo đơn."
+        );
+
+        return;
+    }
+
+    const note =
+        document.getElementById("note").value.trim();
+
+    const order = {
+
+        id:
+            "SK" +
+            Date.now().toString().slice(-8),
+
+        service:
+            selectedService.name,
+
+        price:
+            selectedService.price,
+
+        note:
+            note,
+
+        createdAt:
+            new Date().toLocaleString("vi-VN"),
+
+        status:
+            "Chờ xử lý"
+
+    };
+
+    /*
+      Lưu tạm đơn trên trình duyệt.
+
+      Khi bạn có API Google Apps Script của ShopKarot,
+      có thể thay phần này bằng fetch() gửi đơn lên API.
+    */
+
+    const oldOrders =
+        JSON.parse(
+            localStorage.getItem("shopkarot_service_orders") || "[]"
+        );
+
+    oldOrders.push(order);
+
+    localStorage.setItem(
+        "shopkarot_service_orders",
+        JSON.stringify(oldOrders)
+    );
+
+    showModal(
+        "✅ Tạo đơn thành công",
+        "Mã đơn: " +
+        order.id +
+        "\\n\\nDịch vụ: " +
+        order.service +
+        "\\nGiá: " +
+        formatMoney(order.price) +
+        "\\n\\nĐơn đã được lưu và đang chờ xử lý."
+    );
+
+}
+
+function showModal(title,text){
+
+    document.getElementById("modalTitle").textContent =
+        title;
+
+    document.getElementById("modalText").textContent =
+        text;
+
+    document.getElementById("modal").classList.add("active");
+
+}
+
+function closeModal(){
+
+    document.getElementById("modal").classList.remove("active");
+
+}
+
+function goHome(){
+
+    /*
+      Đổi index.html thành trang chủ ShopKarot
+      nếu file trang chủ của bạn có tên khác.
+    */
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>
+```
