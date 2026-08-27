@@ -402,10 +402,6 @@ th{
 
 <body>
 
-<!-- =====================================================
-LOGIN
-===================================================== -->
-
 <div id="loginPage" class="login-box">
 
   <h1>🛠️ SHOPKAROT ADMIN</h1>
@@ -425,6 +421,7 @@ LOGIN
   >
 
   <button
+    id="loginButton"
     class="btn btn-primary"
     style="width:100%"
     onclick="adminLogin()"
@@ -435,11 +432,6 @@ LOGIN
   <div id="loginMessage" style="margin-top:15px"></div>
 
 </div>
-
-
-<!-- =====================================================
-ADMIN
-===================================================== -->
 
 <div id="adminPage" class="hidden">
 
@@ -460,12 +452,7 @@ ADMIN
 
 </header>
 
-
 <div class="container">
-
-<!-- =====================================================
-DASHBOARD
-===================================================== -->
 
 <div class="dashboard">
 
@@ -500,11 +487,6 @@ DASHBOARD
   </div>
 
 </div>
-
-
-<!-- =====================================================
-SHOP STATUS
-===================================================== -->
 
 <div class="card" style="margin-bottom:20px">
 
@@ -546,11 +528,6 @@ SHOP STATUS
 
 </div>
 
-
-<!-- =====================================================
-TABS
-===================================================== -->
-
 <div class="tabs">
 
   <button class="tab active" onclick="showTab('accounts',this)">
@@ -578,11 +555,6 @@ TABS
   </button>
 
 </div>
-
-
-<!-- =====================================================
-KHO ACC
-===================================================== -->
 
 <section id="panel-accounts" class="panel active">
 
@@ -708,7 +680,6 @@ KHO ACC
 
 </div>
 
-
 <div class="card" style="margin-top:20px">
 
   <h2>📦 Kho tài khoản</h2>
@@ -749,11 +720,6 @@ KHO ACC
 </div>
 
 </section>
-
-
-<!-- =====================================================
-CÀY THUÊ
-===================================================== -->
 
 <section id="panel-services" class="panel">
 
@@ -850,24 +816,15 @@ CÀY THUÊ
 
   <div class="actions">
 
-    <button
-      class="btn btn-success"
-      onclick="addService()"
-    >
+    <button class="btn btn-success" onclick="addService()">
       ➕ Thêm dịch vụ cày thuê
     </button>
 
-    <button
-      class="btn btn-gray"
-      onclick="clearServiceForm()"
-    >
+    <button class="btn btn-gray" onclick="clearServiceForm()">
       🧹 Xóa form
     </button>
 
-    <button
-      class="btn btn-primary"
-      onclick="loadServices()"
-    >
+    <button class="btn btn-primary" onclick="loadServices()">
       🔄 Tải lại Google Sheets
     </button>
 
@@ -876,7 +833,6 @@ CÀY THUÊ
   <div id="serviceMessage" style="margin-top:15px"></div>
 
 </div>
-
 
 <div class="card" style="margin-top:20px">
 
@@ -906,11 +862,6 @@ CÀY THUÊ
 </div>
 
 </section>
-
-
-<!-- =====================================================
-CUSTOMERS
-===================================================== -->
 
 <section id="panel-customers" class="panel">
 
@@ -950,11 +901,6 @@ CUSTOMERS
 
 </section>
 
-
-<!-- =====================================================
-TOPUPS
-===================================================== -->
-
 <section id="panel-topups" class="panel">
 
 <div class="card">
@@ -992,11 +938,6 @@ TOPUPS
 
 </section>
 
-
-<!-- =====================================================
-ORDERS
-===================================================== -->
-
 <section id="panel-orders" class="panel">
 
 <div class="card">
@@ -1011,24 +952,15 @@ ORDERS
 
   <div class="actions">
 
-    <button
-      class="btn btn-primary"
-      onclick="loadOrders()"
-    >
+    <button class="btn btn-primary" onclick="loadOrders()">
       🔄 Tải lại đơn hàng
     </button>
 
-    <button
-      class="btn btn-warning"
-      onclick="filterOrders('Chờ duyệt')"
-    >
+    <button class="btn btn-warning" onclick="filterOrders('Chờ duyệt')">
       ⏳ Chờ duyệt
     </button>
 
-    <button
-      class="btn btn-gray"
-      onclick="filterOrders('ALL')"
-    >
+    <button class="btn btn-gray" onclick="filterOrders('ALL')">
       📦 Tất cả
     </button>
 
@@ -1074,11 +1006,6 @@ ORDERS
 
 </section>
 
-
-<!-- =====================================================
-PRODUCTS
-===================================================== -->
-
 <section id="panel-products" class="panel">
 
 <div class="card">
@@ -1098,11 +1025,6 @@ PRODUCTS
 </div>
 </div>
 
-
-<!-- =====================================================
-ACCOUNT MODAL
-===================================================== -->
-
 <div id="accountModal" class="modal hidden">
 
 <div class="modal-content">
@@ -1113,10 +1035,7 @@ ACCOUNT MODAL
 
   <div class="actions">
 
-    <button
-      class="btn btn-gray"
-      onclick="closeAccountModal()"
-    >
+    <button class="btn btn-gray" onclick="closeAccountModal()">
       Đóng
     </button>
 
@@ -1125,11 +1044,6 @@ ACCOUNT MODAL
 </div>
 
 </div>
-
-
-<!-- =====================================================
-CREATE SERVICE ORDER MODAL
-===================================================== -->
 
 <div id="serviceOrderModal" class="modal hidden">
 
@@ -1196,17 +1110,11 @@ CREATE SERVICE ORDER MODAL
 
   <div class="actions">
 
-    <button
-      class="btn btn-success"
-      onclick="createServiceOrder()"
-    >
+    <button class="btn btn-success" onclick="createServiceOrder()">
       📦 Tạo đơn
     </button>
 
-    <button
-      class="btn btn-gray"
-      onclick="closeServiceOrderModal()"
-    >
+    <button class="btn btn-gray" onclick="closeServiceOrderModal()">
       Đóng
     </button>
 
@@ -1216,12 +1124,7 @@ CREATE SERVICE ORDER MODAL
 
 </div>
 
-
 <script>
-
-/* =====================================================
-CONFIG
-===================================================== */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbwbPlxvvDbEkhzmnxlzPrNYQyL12GFH74jjM76X-pyj1nTdLFbvTs1vxNkGOdHCpvQM/exec";
@@ -1236,13 +1139,7 @@ let services=[];
 let productStatuses={};
 
 let currentServiceForOrder=null;
-
 let currentOrderFilter="ALL";
-
-
-/* =====================================================
-API POST
-===================================================== */
 
 async function apiPost(action,data={}){
 
@@ -1257,31 +1154,31 @@ async function apiPost(action,data={}){
     })
   });
 
+  if(!response.ok){
+    throw new Error("HTTP "+response.status);
+  }
+
   return await response.json();
-
 }
-
-
-/* =====================================================
-API GET
-===================================================== */
 
 async function apiGet(action){
 
   const response=await fetch(
     API_URL+
     "?action="+
-    encodeURIComponent(action)
+    encodeURIComponent(action),
+    {
+      method:"GET",
+      cache:"no-store"
+    }
   );
 
+  if(!response.ok){
+    throw new Error("HTTP "+response.status);
+  }
+
   return await response.json();
-
 }
-
-
-/* =====================================================
-LOGIN
-===================================================== */
 
 async function adminLogin(){
 
@@ -1300,6 +1197,13 @@ async function adminLogin(){
     return;
   }
 
+  const button=document.getElementById("loginButton");
+
+  if(button){
+    button.disabled=true;
+    button.style.opacity=".6";
+  }
+
   showLoginMessage(
     "⏳ Đang kiểm tra...",
     "#2563eb"
@@ -1312,10 +1216,10 @@ async function adminLogin(){
       {key:key}
     );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       showLoginMessage(
-        result.message||"Admin Key không đúng.",
+        result?.message||"Admin Key không đúng.",
         "red"
       );
 
@@ -1329,15 +1233,7 @@ async function adminLogin(){
       key
     );
 
-    document
-      .getElementById("loginPage")
-      .classList.add("hidden");
-
-    document
-      .getElementById("adminPage")
-      .classList.remove("hidden");
-
-    await loadAll();
+    openAdmin();
 
   }catch(err){
 
@@ -1348,24 +1244,41 @@ async function adminLogin(){
       "red"
     );
 
+  }finally{
+
+    if(button){
+      button.disabled=false;
+      button.style.opacity="1";
+    }
+
   }
 
 }
 
+function openAdmin(){
+
+  document
+    .getElementById("loginPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("adminPage")
+    .classList.remove("hidden");
+
+  loadAll();
+
+}
 
 function showLoginMessage(text,color){
 
   const el=document.getElementById("loginMessage");
 
+  if(!el)return;
+
   el.textContent=text;
   el.style.color=color;
 
 }
-
-
-/* =====================================================
-LOGOUT
-===================================================== */
 
 function logout(){
 
@@ -1378,11 +1291,6 @@ function logout(){
   location.reload();
 
 }
-
-
-/* =====================================================
-AUTO LOGIN
-===================================================== */
 
 window.addEventListener("load",async function(){
 
@@ -1401,19 +1309,10 @@ window.addEventListener("load",async function(){
         {key:saved}
       );
 
-    if(result.ok){
+    if(result && result.ok){
 
       ADMIN_KEY=saved;
-
-      document
-        .getElementById("loginPage")
-        .classList.add("hidden");
-
-      document
-        .getElementById("adminPage")
-        .classList.remove("hidden");
-
-      await loadAll();
+      openAdmin();
 
     }else{
 
@@ -1431,14 +1330,9 @@ window.addEventListener("load",async function(){
 
 });
 
-
-/* =====================================================
-LOAD ALL
-===================================================== */
-
 async function loadAll(){
 
-  await Promise.all([
+  await Promise.allSettled([
     loadDashboard(),
     loadShopStatus(),
     loadAccounts(),
@@ -1451,11 +1345,6 @@ async function loadAll(){
 
 }
 
-
-/* =====================================================
-DASHBOARD
-===================================================== */
-
 async function loadDashboard(){
 
   try{
@@ -1463,7 +1352,7 @@ async function loadDashboard(){
     const result=
       await apiGet("getDashboard");
 
-    if(result.ok){
+    if(result && result.ok){
 
       document.getElementById(
         "dashCustomers"
@@ -1503,11 +1392,6 @@ async function loadDashboard(){
 
 }
 
-
-/* =====================================================
-SHOP STATUS
-===================================================== */
-
 async function loadShopStatus(){
 
   try{
@@ -1515,7 +1399,7 @@ async function loadShopStatus(){
     const result=
       await apiGet("getShopStatus");
 
-    if(!result.ok)return;
+    if(!result || !result.ok)return;
 
     const status=
       result.status||
@@ -1529,24 +1413,7 @@ async function loadShopStatus(){
       "shopStatusSelect"
     ).value=status;
 
-    const dot=
-      document.getElementById(
-        "shopStatusDot"
-      );
-
-    if(status==="Shop đang hoạt động"){
-
-      dot.style.background="#22c55e";
-
-    }else if(status==="Shop đang bảo trì"){
-
-      dot.style.background="#f59e0b";
-
-    }else{
-
-      dot.style.background="#ef4444";
-
-    }
+    updateShopStatusDot(status);
 
   }catch(err){
 
@@ -1556,6 +1423,30 @@ async function loadShopStatus(){
 
 }
 
+function updateShopStatusDot(status){
+
+  const dot=
+    document.getElementById(
+      "shopStatusDot"
+    );
+
+  if(!dot)return;
+
+  if(status==="Shop đang hoạt động"){
+
+    dot.style.background="#22c55e";
+
+  }else if(status==="Shop đang bảo trì"){
+
+    dot.style.background="#f59e0b";
+
+  }else{
+
+    dot.style.background="#ef4444";
+
+  }
+
+}
 
 async function setShopStatus(){
 
@@ -1563,6 +1454,14 @@ async function setShopStatus(){
     document.getElementById(
       "shopStatusSelect"
     ).value;
+
+  if(!ADMIN_KEY){
+
+    alert("❌ Phiên Admin đã hết. Vui lòng đăng nhập lại.");
+
+    return;
+
+  }
 
   try{
 
@@ -1575,10 +1474,10 @@ async function setShopStatus(){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
-        result.message||
+        result?.message||
         "Không thể cập nhật."
       );
 
@@ -1603,11 +1502,6 @@ async function setShopStatus(){
   }
 
 }
-
-
-/* =====================================================
-GAME FOLDER
-===================================================== */
 
 const folderData={
 
@@ -1683,7 +1577,6 @@ const folderData={
 
 };
 
-
 function gameChanged(){
 
   const game=
@@ -1702,7 +1595,6 @@ function gameChanged(){
   if(!game){
 
     updatePackages();
-
     return;
 
   }
@@ -1725,20 +1617,13 @@ function gameChanged(){
 
 }
 
-
 function folderChanged(){
   updatePackages();
 }
 
-
 function priceChanged(){
   updatePackages();
 }
-
-
-/* =====================================================
-PACKAGE
-===================================================== */
 
 function updatePackages(){
 
@@ -1775,11 +1660,6 @@ function updatePackages(){
   }
 
 }
-
-
-/* =====================================================
-ADD ACCOUNT
-===================================================== */
 
 async function addAccount(){
 
@@ -1846,12 +1726,12 @@ async function addAccount(){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       showAccountMessage(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể thêm acc."
         ),
         "red"
@@ -1884,7 +1764,6 @@ async function addAccount(){
 
 }
 
-
 function showAccountMessage(text,color){
 
   const el=
@@ -1896,7 +1775,6 @@ function showAccountMessage(text,color){
   el.style.color=color;
 
 }
-
 
 function clearAccountForm(){
 
@@ -1928,11 +1806,6 @@ function clearAccountForm(){
 
 }
 
-
-/* =====================================================
-ACCOUNTS
-===================================================== */
-
 async function loadAccounts(){
 
   try{
@@ -1940,11 +1813,18 @@ async function loadAccounts(){
     const result=
       await apiGet("getAccounts");
 
-    if(result.ok){
+    if(result && result.ok){
 
       accounts=
-        result.accounts||[];
+        Array.isArray(result.accounts)
+          ?result.accounts
+          :[];
 
+      renderAccounts();
+
+    }else{
+
+      accounts=[];
       renderAccounts();
 
     }
@@ -1953,10 +1833,12 @@ async function loadAccounts(){
 
     console.error(err);
 
+    accounts=[];
+    renderAccounts();
+
   }
 
 }
-
 
 function renderAccounts(){
 
@@ -1978,6 +1860,7 @@ function renderAccounts(){
     .filter(acc=>{
 
       const text=[
+        acc.id,
         acc.game,
         acc.folder,
         acc.price,
@@ -2004,10 +1887,10 @@ function renderAccounts(){
 
       let badgeClass="";
 
-      if(status==="available")
+      if(status==="available"||status==="sẵn sàng")
         badgeClass="available";
 
-      if(status==="sold")
+      if(status==="sold"||status==="đã bán")
         badgeClass="sold";
 
       tr.innerHTML=`
@@ -2058,7 +1941,6 @@ function renderAccounts(){
 
 }
 
-
 async function deleteAccount(id){
 
   if(!id)return;
@@ -2078,10 +1960,10 @@ async function deleteAccount(id){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
-        result.message||
+        result?.message||
         "Không thể xóa."
       );
 
@@ -2104,11 +1986,6 @@ async function deleteAccount(id){
 
 }
 
-
-/* =====================================================
-CÀY THUÊ
-===================================================== */
-
 async function loadServices(){
 
   const container=
@@ -2130,16 +2007,15 @@ async function loadServices(){
     const result=
       await apiGet("getServices");
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       services=[];
-
       renderServices();
 
       showServiceMessage(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không tải được dữ liệu Cày thuê."
         ),
         "red"
@@ -2165,7 +2041,6 @@ async function loadServices(){
     console.error(err);
 
     services=[];
-
     renderServices();
 
     showServiceMessage(
@@ -2176,11 +2051,6 @@ async function loadServices(){
   }
 
 }
-
-
-/* =====================================================
-ADD SERVICE
-===================================================== */
 
 async function addService(){
 
@@ -2240,12 +2110,12 @@ async function addService(){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       showServiceMessage(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể thêm dịch vụ."
         ),
         "red"
@@ -2278,7 +2148,6 @@ async function addService(){
 
 }
 
-
 function showServiceMessage(text,color){
 
   const el=
@@ -2290,7 +2159,6 @@ function showServiceMessage(text,color){
   el.style.color=color;
 
 }
-
 
 function clearServiceForm(){
 
@@ -2315,11 +2183,6 @@ function clearServiceForm(){
   ).value="";
 
 }
-
-
-/* =====================================================
-RENDER SERVICES
-===================================================== */
 
 function renderServices(){
 
@@ -2489,11 +2352,6 @@ function renderServices(){
 
 }
 
-
-/* =====================================================
-FIND SERVICE
-===================================================== */
-
 function findService(id){
 
   return services.find(
@@ -2502,11 +2360,6 @@ function findService(id){
   );
 
 }
-
-
-/* =====================================================
-EDIT SERVICE
-===================================================== */
 
 async function editService(id){
 
@@ -2570,12 +2423,12 @@ async function editService(id){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể cập nhật."
         )
       );
@@ -2601,11 +2454,6 @@ async function editService(id){
   }
 
 }
-
-
-/* =====================================================
-TOGGLE SERVICE
-===================================================== */
 
 async function toggleServiceStatus(id){
 
@@ -2635,12 +2483,12 @@ async function toggleServiceStatus(id){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể đổi trạng thái."
         )
       );
@@ -2662,11 +2510,6 @@ async function toggleServiceStatus(id){
   }
 
 }
-
-
-/* =====================================================
-DELETE SERVICE
-===================================================== */
 
 async function deleteService(id){
 
@@ -2692,12 +2535,12 @@ async function deleteService(id){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể xóa."
         )
       );
@@ -2724,11 +2567,6 @@ async function deleteService(id){
   }
 
 }
-
-
-/* =====================================================
-TẠO ĐƠN CÀY THUÊ
-===================================================== */
 
 function openServiceOrderModal(id){
 
@@ -2800,7 +2638,6 @@ function openServiceOrderModal(id){
 
 }
 
-
 function closeServiceOrderModal(){
 
   currentServiceForOrder=null;
@@ -2810,11 +2647,6 @@ function closeServiceOrderModal(){
   ).classList.add("hidden");
 
 }
-
-
-/* =====================================================
-CREATE SERVICE ORDER
-===================================================== */
 
 async function createServiceOrder(){
 
@@ -2880,63 +2712,46 @@ async function createServiceOrder(){
         "createServiceOrder",
         {
           key:ADMIN_KEY,
-
           username:customer,
-
           customer:customer,
-
           type:"Cày Thuê",
-
           orderType:"Cày Thuê",
-
           serviceId:
             currentServiceForOrder.id,
-
           service:
             currentServiceForOrder.name,
-
           product:
             currentServiceForOrder.name,
-
           game:
             currentServiceForOrder.game,
-
           price:
             Number(
               currentServiceForOrder.price
             )||0,
-
           amount:
             Number(
               currentServiceForOrder.price
             )||0,
-
           robloxUsername:
             robloxUsername,
-
           loginInfo:
             loginInfo,
-
           accountInfo:
             loginInfo,
-
           note:
             note,
-
           customerNote:
             note,
-
           status:"Chờ duyệt"
-
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       showOrderMessage(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể tạo đơn."
         ),
         "red"
@@ -2945,11 +2760,6 @@ async function createServiceOrder(){
       return;
 
     }
-
-    showOrderMessage(
-      "✅ Đã tạo đơn thành công. Đơn đang Chờ duyệt.",
-      "green"
-    );
 
     alert(
       "✅ Tạo đơn Cày Thuê thành công!\n\n"+
@@ -2980,7 +2790,6 @@ async function createServiceOrder(){
 
 }
 
-
 function showOrderMessage(text,color){
 
   const el=
@@ -2993,11 +2802,6 @@ function showOrderMessage(text,color){
 
 }
 
-
-/* =====================================================
-CUSTOMERS
-===================================================== */
-
 async function loadCustomers(){
 
   try{
@@ -3005,11 +2809,18 @@ async function loadCustomers(){
     const result=
       await apiGet("getCustomers");
 
-    if(result.ok){
+    if(result && result.ok){
 
       customers=
-        result.customers||[];
+        Array.isArray(result.customers)
+          ?result.customers
+          :[];
 
+      renderCustomers();
+
+    }else{
+
+      customers=[];
       renderCustomers();
 
     }
@@ -3018,10 +2829,12 @@ async function loadCustomers(){
 
     console.error(err);
 
+    customers=[];
+    renderCustomers();
+
   }
 
 }
-
 
 function renderCustomers(){
 
@@ -3088,11 +2901,6 @@ function renderCustomers(){
 
 }
 
-
-/* =====================================================
-TOPUPS
-===================================================== */
-
 async function loadTopups(){
 
   try{
@@ -3100,11 +2908,18 @@ async function loadTopups(){
     const result=
       await apiGet("getTopups");
 
-    if(result.ok){
+    if(result && result.ok){
 
       topups=
-        result.topups||[];
+        Array.isArray(result.topups)
+          ?result.topups
+          :[];
 
+      renderTopups();
+
+    }else{
+
+      topups=[];
       renderTopups();
 
     }
@@ -3113,10 +2928,12 @@ async function loadTopups(){
 
     console.error(err);
 
+    topups=[];
+    renderTopups();
+
   }
 
 }
-
 
 function renderTopups(){
 
@@ -3168,6 +2985,28 @@ function renderTopups(){
 
       }
 
+      let statusClass="";
+
+      if(
+        status==="pending"||
+        status==="chờ duyệt"||
+        status==="cho duyet"
+      ){
+        statusClass="pending";
+      }else if(
+        status==="approved"||
+        status==="đã duyệt"||
+        status==="da duyet"
+      ){
+        statusClass="completed";
+      }else if(
+        status==="rejected"||
+        status==="từ chối"||
+        status==="tu choi"
+      ){
+        statusClass="rejected";
+      }
+
       tr.innerHTML=`
 
         <td>${escapeHtml(item.id||"")}</td>
@@ -3187,7 +3026,7 @@ function renderTopups(){
         <td>${escapeHtml(item.bankName||"")}</td>
 
         <td>
-          <span class="badge ${status}">
+          <span class="badge ${statusClass}">
             ${escapeHtml(item.status||"")}
           </span>
         </td>
@@ -3201,7 +3040,6 @@ function renderTopups(){
     });
 
 }
-
 
 async function approveTopup(id){
 
@@ -3221,15 +3059,15 @@ async function approveTopup(id){
       );
 
     alert(
-      result.message||
+      result?.message||
       (
-        result.ok
+        result?.ok
           ?"Đã duyệt."
           :"Không thể duyệt."
       )
     );
 
-    if(result.ok){
+    if(result && result.ok){
 
       await loadTopups();
       await loadCustomers();
@@ -3246,7 +3084,6 @@ async function approveTopup(id){
   }
 
 }
-
 
 async function rejectTopup(id){
 
@@ -3266,11 +3103,11 @@ async function rejectTopup(id){
       );
 
     alert(
-      result.message||
+      result?.message||
       "Đã xử lý."
     );
 
-    if(result.ok){
+    if(result && result.ok){
 
       await loadTopups();
       await loadDashboard();
@@ -3287,11 +3124,6 @@ async function rejectTopup(id){
 
 }
 
-
-/* =====================================================
-ORDERS
-===================================================== */
-
 async function loadOrders(){
 
   try{
@@ -3299,10 +3131,12 @@ async function loadOrders(){
     const result=
       await apiGet("getOrders");
 
-    if(result.ok){
+    if(result && result.ok){
 
       orders=
-        result.orders||[];
+        Array.isArray(result.orders)
+          ?result.orders
+          :[];
 
       renderOrders();
 
@@ -3314,7 +3148,6 @@ async function loadOrders(){
     }else{
 
       orders=[];
-
       renderOrders();
 
     }
@@ -3324,17 +3157,11 @@ async function loadOrders(){
     console.error(err);
 
     orders=[];
-
     renderOrders();
 
   }
 
 }
-
-
-/* =====================================================
-ORDER FILTER
-===================================================== */
 
 function filterOrders(status){
 
@@ -3343,11 +3170,6 @@ function filterOrders(status){
   renderOrders();
 
 }
-
-
-/* =====================================================
-NORMALIZE ORDER STATUS
-===================================================== */
 
 function normalizeOrderStatus(status){
 
@@ -3412,11 +3234,6 @@ function normalizeOrderStatus(status){
 
 }
 
-
-/* =====================================================
-ORDER BADGE
-===================================================== */
-
 function getOrderBadgeClass(status){
 
   const s=
@@ -3440,11 +3257,6 @@ function getOrderBadgeClass(status){
   return "";
 
 }
-
-
-/* =====================================================
-RENDER ORDERS
-===================================================== */
 
 function renderOrders(){
 
@@ -3503,6 +3315,7 @@ function renderOrders(){
       order.amount,
 
       order.robloxUsername,
+      order.robloxUser,
       order.loginInfo,
       order.accountInfo,
 
@@ -3518,7 +3331,6 @@ function renderOrders(){
     return text.includes(search);
 
   });
-
 
   if(!list.length){
 
@@ -3541,7 +3353,6 @@ function renderOrders(){
     return;
 
   }
-
 
   list.forEach(order=>{
 
@@ -3636,7 +3447,6 @@ function renderOrders(){
 
     }
 
-
     tr.innerHTML=`
 
       <td>
@@ -3714,11 +3524,6 @@ function renderOrders(){
 
 }
 
-
-/* =====================================================
-FIND ORDER
-===================================================== */
-
 function findOrder(id){
 
   return orders.find(order=>
@@ -3731,11 +3536,6 @@ function findOrder(id){
   );
 
 }
-
-
-/* =====================================================
-APPROVE ORDER
-===================================================== */
 
 async function approveOrder(id){
 
@@ -3775,7 +3575,6 @@ async function approveOrder(id){
 
   ))return;
 
-
   try{
 
     const result=
@@ -3783,20 +3582,14 @@ async function approveOrder(id){
         "updateOrderStatus",
         {
           key:ADMIN_KEY,
-
           id:id,
-
           orderId:id,
-
           status:"Đã duyệt",
-
           adminStatus:"Đã duyệt",
-
           type:
             order.type||
             order.orderType||
             "Cày Thuê",
-
           note:
             order.note||
             order.customerNote||
@@ -3804,13 +3597,12 @@ async function approveOrder(id){
         }
       );
 
-
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể duyệt đơn."
         )
       );
@@ -3819,12 +3611,10 @@ async function approveOrder(id){
 
     }
 
-
     alert(
       "✅ Đã duyệt đơn "+id+
       " và cập nhật Google Sheet."
     );
-
 
     await loadOrders();
     await loadDashboard();
@@ -3840,11 +3630,6 @@ async function approveOrder(id){
   }
 
 }
-
-
-/* =====================================================
-REJECT ORDER
-===================================================== */
 
 async function rejectOrder(id){
 
@@ -3861,7 +3646,6 @@ async function rejectOrder(id){
 
   }
 
-
   const reason=
     prompt(
       "Nhập lý do từ chối đơn:",
@@ -3870,13 +3654,9 @@ async function rejectOrder(id){
 
   if(reason===null)return;
 
-
   if(!confirm(
-
     "Xác nhận TỪ CHỐI đơn "+id+"?"
-
   ))return;
-
 
   try{
 
@@ -3885,19 +3665,12 @@ async function rejectOrder(id){
         "updateOrderStatus",
         {
           key:ADMIN_KEY,
-
           id:id,
-
           orderId:id,
-
           status:"Từ chối",
-
           adminStatus:"Từ chối",
-
           reason:reason,
-
           rejectReason:reason,
-
           type:
             order.type||
             order.orderType||
@@ -3905,13 +3678,12 @@ async function rejectOrder(id){
         }
       );
 
-
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể từ chối đơn."
         )
       );
@@ -3920,13 +3692,11 @@ async function rejectOrder(id){
 
     }
 
-
     alert(
       "✅ Đã từ chối đơn "+
       id+
       " và cập nhật Google Sheet."
     );
-
 
     await loadOrders();
     await loadDashboard();
@@ -3942,11 +3712,6 @@ async function rejectOrder(id){
   }
 
 }
-
-
-/* =====================================================
-PRODUCTS
-===================================================== */
 
 const products=[
 
@@ -3975,7 +3740,6 @@ const products=[
 
 ];
 
-
 async function loadProducts(){
 
   try{
@@ -3983,7 +3747,7 @@ async function loadProducts(){
     const result=
       await apiGet("getProductStatuses");
 
-    if(result.ok){
+    if(result && result.ok){
 
       productStatuses=
         result.statuses||{};
@@ -4001,7 +3765,6 @@ async function loadProducts(){
   }
 
 }
-
 
 function renderProducts(){
 
@@ -4036,20 +3799,17 @@ function renderProducts(){
 
   ];
 
-
   createProductGroup(
     container,
     "🍎 Blox Fruits",
     bloxKeys
   );
 
-
   createProductGroup(
     container,
     "🥚 Steal a Egg",
     stealKeys
   );
-
 
   const title2=
     document.createElement("div");
@@ -4075,7 +3835,6 @@ function renderProducts(){
     );
 
 }
-
 
 function createProductGroup(
   container,
@@ -4105,7 +3864,6 @@ function createProductGroup(
     );
 
 }
-
 
 function createProductStatusCard(
   container,
@@ -4175,7 +3933,6 @@ function createProductStatusCard(
 
 }
 
-
 function changeProductVisual(product){
 
   const select=
@@ -4209,7 +3966,6 @@ function changeProductVisual(product){
 
 }
 
-
 async function saveProductStatus(product){
 
   const select=
@@ -4234,15 +3990,15 @@ async function saveProductStatus(product){
       );
 
     alert(
-      result.message||
+      result?.message||
       (
-        result.ok
+        result?.ok
           ?"✅ Đã lưu trạng thái."
           :"❌ Không thể lưu."
       )
     );
 
-    if(result.ok){
+    if(result && result.ok){
 
       productStatuses[product]=status;
 
@@ -4259,11 +4015,6 @@ async function saveProductStatus(product){
   }
 
 }
-
-
-/* =====================================================
-TABS
-===================================================== */
 
 function showTab(name,button){
 
@@ -4308,12 +4059,31 @@ function showTab(name,button){
 
   }
 
+  if(name==="customers"){
+
+    loadCustomers();
+
+  }
+
+  if(name==="topups"){
+
+    loadTopups();
+
+  }
+
+  if(name==="products"){
+
+    loadProducts();
+
+  }
+
+  if(name==="accounts"){
+
+    loadAccounts();
+
+  }
+
 }
-
-
-/* =====================================================
-ACCOUNT MODAL
-===================================================== */
 
 function showAccountModal(account){
 
@@ -4366,7 +4136,6 @@ function showAccountModal(account){
 
 }
 
-
 function closeAccountModal(){
 
   document
@@ -4374,11 +4143,6 @@ function closeAccountModal(){
     .classList.add("hidden");
 
 }
-
-
-/* =====================================================
-FORMAT MONEY
-===================================================== */
 
 function formatMoney(value){
 
@@ -4393,11 +4157,6 @@ function formatMoney(value){
   return n.toLocaleString("vi-VN")+"K";
 
 }
-
-
-/* =====================================================
-FORMAT PRICE
-===================================================== */
 
 function formatPrice(value){
 
@@ -4415,11 +4174,6 @@ function formatPrice(value){
     .toLocaleString("vi-VN")+"K";
 
 }
-
-
-/* =====================================================
-FORMAT DATE
-===================================================== */
 
 function formatDate(value){
 
@@ -4445,11 +4199,6 @@ function formatDate(value){
 
 }
 
-
-/* =====================================================
-ESCAPE HTML
-===================================================== */
-
 function escapeHtml(value){
 
   return String(value??"")
@@ -4461,11 +4210,6 @@ function escapeHtml(value){
 
 }
 
-
-/* =====================================================
-ESCAPE JS
-===================================================== */
-
 function escapeJs(value){
 
   return String(value??"")
@@ -4475,11 +4219,6 @@ function escapeJs(value){
     .replaceAll("\r","\\r");
 
 }
-
-
-/* =====================================================
-MODAL EVENTS
-===================================================== */
 
 document
   .getElementById("accountModal")
@@ -4493,7 +4232,6 @@ document
 
   });
 
-
 document
   .getElementById("serviceOrderModal")
   .addEventListener("click",function(e){
@@ -4505,7 +4243,6 @@ document
     }
 
   });
-
 
 document.addEventListener("keydown",function(e){
 
