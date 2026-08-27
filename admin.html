@@ -151,7 +151,7 @@ header h2{margin:0}
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:1100px;
+  min-width:900px;
   background:#fff;
 }
 
@@ -195,16 +195,6 @@ th{
 .completed{
   background:#dcfce7;
   color:#166534;
-}
-
-.processing{
-  background:#dbeafe;
-  color:#1d4ed8;
-}
-
-.rejected{
-  background:#fee2e2;
-  color:#991b1b;
 }
 
 .notice{
@@ -369,24 +359,6 @@ th{
   color:#6b7280;
 }
 
-.order-actions{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-}
-
-.order-info{
-  background:#f9fafb;
-  border:1px solid #e5e7eb;
-  padding:15px;
-  border-radius:12px;
-  margin-top:10px;
-}
-
-.order-info div{
-  margin:7px 0;
-}
-
 @media(max-width:700px){
   .form-grid{grid-template-columns:1fr}
   .full{grid-column:auto}
@@ -401,6 +373,8 @@ th{
 </head>
 
 <body>
+
+<!-- LOGIN -->
 
 <div id="loginPage" class="login-box">
 
@@ -421,7 +395,6 @@ th{
   >
 
   <button
-    id="loginButton"
     class="btn btn-primary"
     style="width:100%"
     onclick="adminLogin()"
@@ -432,6 +405,9 @@ th{
   <div id="loginMessage" style="margin-top:15px"></div>
 
 </div>
+
+
+<!-- ADMIN -->
 
 <div id="adminPage" class="hidden">
 
@@ -452,7 +428,10 @@ th{
 
 </header>
 
+
 <div class="container">
+
+<!-- DASHBOARD -->
 
 <div class="dashboard">
 
@@ -487,6 +466,9 @@ th{
   </div>
 
 </div>
+
+
+<!-- SHOP STATUS -->
 
 <div class="card" style="margin-bottom:20px">
 
@@ -528,6 +510,9 @@ th{
 
 </div>
 
+
+<!-- TABS -->
+
 <div class="tabs">
 
   <button class="tab active" onclick="showTab('accounts',this)">
@@ -555,6 +540,9 @@ th{
   </button>
 
 </div>
+
+
+<!-- KHO ACC -->
 
 <section id="panel-accounts" class="panel active">
 
@@ -680,6 +668,7 @@ th{
 
 </div>
 
+
 <div class="card" style="margin-top:20px">
 
   <h2>📦 Kho tài khoản</h2>
@@ -720,6 +709,9 @@ th{
 </div>
 
 </section>
+
+
+<!-- CÀY THUÊ -->
 
 <section id="panel-services" class="panel">
 
@@ -816,15 +808,24 @@ th{
 
   <div class="actions">
 
-    <button class="btn btn-success" onclick="addService()">
+    <button
+      class="btn btn-success"
+      onclick="addService()"
+    >
       ➕ Thêm dịch vụ cày thuê
     </button>
 
-    <button class="btn btn-gray" onclick="clearServiceForm()">
+    <button
+      class="btn btn-gray"
+      onclick="clearServiceForm()"
+    >
       🧹 Xóa form
     </button>
 
-    <button class="btn btn-primary" onclick="loadServices()">
+    <button
+      class="btn btn-primary"
+      onclick="loadServices()"
+    >
       🔄 Tải lại Google Sheets
     </button>
 
@@ -833,6 +834,7 @@ th{
   <div id="serviceMessage" style="margin-top:15px"></div>
 
 </div>
+
 
 <div class="card" style="margin-top:20px">
 
@@ -862,6 +864,9 @@ th{
 </div>
 
 </section>
+
+
+<!-- CUSTOMERS -->
 
 <section id="panel-customers" class="panel">
 
@@ -901,6 +906,9 @@ th{
 
 </section>
 
+
+<!-- TOPUPS -->
+
 <section id="panel-topups" class="panel">
 
 <div class="card">
@@ -938,41 +946,14 @@ th{
 
 </section>
 
+
+<!-- ORDERS -->
+
 <section id="panel-orders" class="panel">
 
 <div class="card">
 
-  <h2>📦 Quản lý đơn hàng</h2>
-
-  <div class="notice">
-    Đơn Cày Thuê mới sẽ ở trạng thái <b>Chờ duyệt</b>.
-    Admin có thể duyệt hoặc từ chối. Trạng thái sẽ được cập nhật
-    vào Google Sheet <b>DonHang</b>.
-  </div>
-
-  <div class="actions">
-
-    <button class="btn btn-primary" onclick="loadOrders()">
-      🔄 Tải lại đơn hàng
-    </button>
-
-    <button class="btn btn-warning" onclick="filterOrders('Chờ duyệt')">
-      ⏳ Chờ duyệt
-    </button>
-
-    <button class="btn btn-gray" onclick="filterOrders('ALL')">
-      📦 Tất cả
-    </button>
-
-  </div>
-
-  <input
-    id="orderSearch"
-    class="input search"
-    style="margin-top:15px"
-    placeholder="🔎 Tìm mã đơn, khách, dịch vụ..."
-    oninput="renderOrders()"
-  >
+  <h2>📦 Đơn hàng</h2>
 
   <div class="table-wrap">
 
@@ -981,17 +962,13 @@ th{
       <thead>
 
         <tr>
-          <th>Mã đơn</th>
+          <th>ID</th>
           <th>Khách</th>
-          <th>Loại</th>
-          <th>Dịch vụ</th>
+          <th>Sản phẩm</th>
           <th>Giá</th>
-          <th>Username Roblox</th>
-          <th>Thông tin đăng nhập</th>
-          <th>Ghi chú</th>
-          <th>Ngày tạo</th>
           <th>Trạng thái</th>
-          <th>Thao tác</th>
+          <th>Thời gian</th>
+          <th>Acc</th>
         </tr>
 
       </thead>
@@ -1005,6 +982,9 @@ th{
 </div>
 
 </section>
+
+
+<!-- PRODUCTS -->
 
 <section id="panel-products" class="panel">
 
@@ -1025,6 +1005,9 @@ th{
 </div>
 </div>
 
+
+<!-- MODAL -->
+
 <div id="accountModal" class="modal hidden">
 
 <div class="modal-content">
@@ -1035,7 +1018,10 @@ th{
 
   <div class="actions">
 
-    <button class="btn btn-gray" onclick="closeAccountModal()">
+    <button
+      class="btn btn-gray"
+      onclick="closeAccountModal()"
+    >
       Đóng
     </button>
 
@@ -1045,89 +1031,15 @@ th{
 
 </div>
 
-<div id="serviceOrderModal" class="modal hidden">
-
-<div class="modal-content">
-
-  <h2>📝 Tạo đơn Cày Thuê</h2>
-
-  <div id="selectedServiceInfo" class="order-info"></div>
-
-  <div class="form-grid" style="margin-top:15px">
-
-    <div class="form-group">
-
-      <label>👤 Username khách hàng</label>
-
-      <input
-        id="orderCustomer"
-        class="input"
-        placeholder="Username khách mua"
-      >
-
-    </div>
-
-    <div class="form-group">
-
-      <label>🎮 Username Roblox</label>
-
-      <input
-        id="orderRobloxUsername"
-        class="input"
-        placeholder="Username Roblox"
-      >
-
-    </div>
-
-    <div class="form-group full">
-
-      <label>🔐 Thông tin đăng nhập</label>
-
-      <input
-        id="orderLoginInfo"
-        class="input"
-        placeholder="Ví dụ: Username / Password hoặc thông tin cần thiết"
-      >
-
-    </div>
-
-    <div class="form-group full">
-
-      <label>📝 Ghi chú khách</label>
-
-      <textarea
-        id="orderNote"
-        class="input"
-        rows="4"
-        placeholder="Nhập ghi chú của khách..."
-      ></textarea>
-
-    </div>
-
-  </div>
-
-  <div id="serviceOrderMessage" style="margin-top:15px"></div>
-
-  <div class="actions">
-
-    <button class="btn btn-success" onclick="createServiceOrder()">
-      📦 Tạo đơn
-    </button>
-
-    <button class="btn btn-gray" onclick="closeServiceOrderModal()">
-      Đóng
-    </button>
-
-  </div>
-
-</div>
-
-</div>
 
 <script>
 
+/* =====================================================
+   CONFIG
+===================================================== */
+
 const API_URL =
-"https://script.google.com/macros/s/AKfycbwbPlxvvDbEkhzmnxlzPrNYQyL12GFH74jjM76X-pyj1nTdLFbvTs1vxNkGOdHCpvQM/exec";
+"https://script.google.com/macros/s/AKfycby5lwFnDcqGDHzalQboox34g1b28iH8ZoTKKaq4j_3uvh4sqSZccJYxHapSEYk6dQAOuw/exec";
 
 let ADMIN_KEY="";
 
@@ -1138,8 +1050,10 @@ let orders=[];
 let services=[];
 let productStatuses={};
 
-let currentServiceForOrder=null;
-let currentOrderFilter="ALL";
+
+/* =====================================================
+   API POST
+===================================================== */
 
 async function apiPost(action,data={}){
 
@@ -1154,31 +1068,31 @@ async function apiPost(action,data={}){
     })
   });
 
-  if(!response.ok){
-    throw new Error("HTTP "+response.status);
-  }
-
   return await response.json();
+
 }
+
+
+/* =====================================================
+   API GET
+===================================================== */
 
 async function apiGet(action){
 
   const response=await fetch(
     API_URL+
     "?action="+
-    encodeURIComponent(action),
-    {
-      method:"GET",
-      cache:"no-store"
-    }
+    encodeURIComponent(action)
   );
 
-  if(!response.ok){
-    throw new Error("HTTP "+response.status);
-  }
-
   return await response.json();
+
 }
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
 
 async function adminLogin(){
 
@@ -1197,13 +1111,6 @@ async function adminLogin(){
     return;
   }
 
-  const button=document.getElementById("loginButton");
-
-  if(button){
-    button.disabled=true;
-    button.style.opacity=".6";
-  }
-
   showLoginMessage(
     "⏳ Đang kiểm tra...",
     "#2563eb"
@@ -1216,10 +1123,10 @@ async function adminLogin(){
       {key:key}
     );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       showLoginMessage(
-        result?.message||"Admin Key không đúng.",
+        result.message||"Admin Key không đúng.",
         "red"
       );
 
@@ -1233,7 +1140,15 @@ async function adminLogin(){
       key
     );
 
-    openAdmin();
+    document
+      .getElementById("loginPage")
+      .classList.add("hidden");
+
+    document
+      .getElementById("adminPage")
+      .classList.remove("hidden");
+
+    await loadAll();
 
   }catch(err){
 
@@ -1244,41 +1159,24 @@ async function adminLogin(){
       "red"
     );
 
-  }finally{
-
-    if(button){
-      button.disabled=false;
-      button.style.opacity="1";
-    }
-
   }
 
 }
 
-function openAdmin(){
-
-  document
-    .getElementById("loginPage")
-    .classList.add("hidden");
-
-  document
-    .getElementById("adminPage")
-    .classList.remove("hidden");
-
-  loadAll();
-
-}
 
 function showLoginMessage(text,color){
 
   const el=document.getElementById("loginMessage");
 
-  if(!el)return;
-
   el.textContent=text;
   el.style.color=color;
 
 }
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
 
 function logout(){
 
@@ -1291,6 +1189,11 @@ function logout(){
   location.reload();
 
 }
+
+
+/* =====================================================
+   AUTO LOGIN
+===================================================== */
 
 window.addEventListener("load",async function(){
 
@@ -1309,10 +1212,19 @@ window.addEventListener("load",async function(){
         {key:saved}
       );
 
-    if(result && result.ok){
+    if(result.ok){
 
       ADMIN_KEY=saved;
-      openAdmin();
+
+      document
+        .getElementById("loginPage")
+        .classList.add("hidden");
+
+      document
+        .getElementById("adminPage")
+        .classList.remove("hidden");
+
+      await loadAll();
 
     }else{
 
@@ -1330,9 +1242,14 @@ window.addEventListener("load",async function(){
 
 });
 
+
+/* =====================================================
+   LOAD ALL
+===================================================== */
+
 async function loadAll(){
 
-  await Promise.allSettled([
+  await Promise.all([
     loadDashboard(),
     loadShopStatus(),
     loadAccounts(),
@@ -1345,6 +1262,11 @@ async function loadAll(){
 
 }
 
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
 async function loadDashboard(){
 
   try{
@@ -1352,33 +1274,31 @@ async function loadDashboard(){
     const result=
       await apiGet("getDashboard");
 
-    if(result && result.ok){
+    if(!result.ok)return;
 
-      document.getElementById(
-        "dashCustomers"
-      ).textContent=result.customers||0;
+    document.getElementById(
+      "dashCustomers"
+    ).textContent=result.customers||0;
 
-      document.getElementById(
-        "dashAccounts"
-      ).textContent=result.accounts||0;
+    document.getElementById(
+      "dashAccounts"
+    ).textContent=result.accounts||0;
 
-      document.getElementById(
-        "dashOrders"
-      ).textContent=result.orders||0;
+    document.getElementById(
+      "dashOrders"
+    ).textContent=result.orders||0;
 
-      document.getElementById(
-        "dashTopup"
-      ).textContent=
-        formatMoney(
-          result.approvedTopupMoney||0
-        );
+    document.getElementById(
+      "dashTopup"
+    ).textContent=
+      formatMoney(
+        result.approvedTopupMoney||0
+      );
 
-      document.getElementById(
-        "dashPending"
-      ).textContent=
-        result.pendingTopups||0;
-
-    }
+    document.getElementById(
+      "dashPending"
+    ).textContent=
+      result.pendingTopups||0;
 
   }catch(err){
 
@@ -1392,6 +1312,11 @@ async function loadDashboard(){
 
 }
 
+
+/* =====================================================
+   SHOP STATUS
+===================================================== */
+
 async function loadShopStatus(){
 
   try{
@@ -1399,7 +1324,7 @@ async function loadShopStatus(){
     const result=
       await apiGet("getShopStatus");
 
-    if(!result || !result.ok)return;
+    if(!result.ok)return;
 
     const status=
       result.status||
@@ -1413,7 +1338,24 @@ async function loadShopStatus(){
       "shopStatusSelect"
     ).value=status;
 
-    updateShopStatusDot(status);
+    const dot=
+      document.getElementById(
+        "shopStatusDot"
+      );
+
+    if(status==="Shop đang hoạt động"){
+
+      dot.style.background="#22c55e";
+
+    }else if(status==="Shop đang bảo trì"){
+
+      dot.style.background="#f59e0b";
+
+    }else{
+
+      dot.style.background="#ef4444";
+
+    }
 
   }catch(err){
 
@@ -1423,30 +1365,6 @@ async function loadShopStatus(){
 
 }
 
-function updateShopStatusDot(status){
-
-  const dot=
-    document.getElementById(
-      "shopStatusDot"
-    );
-
-  if(!dot)return;
-
-  if(status==="Shop đang hoạt động"){
-
-    dot.style.background="#22c55e";
-
-  }else if(status==="Shop đang bảo trì"){
-
-    dot.style.background="#f59e0b";
-
-  }else{
-
-    dot.style.background="#ef4444";
-
-  }
-
-}
 
 async function setShopStatus(){
 
@@ -1454,14 +1372,6 @@ async function setShopStatus(){
     document.getElementById(
       "shopStatusSelect"
     ).value;
-
-  if(!ADMIN_KEY){
-
-    alert("❌ Phiên Admin đã hết. Vui lòng đăng nhập lại.");
-
-    return;
-
-  }
 
   try{
 
@@ -1474,15 +1384,14 @@ async function setShopStatus(){
         }
       );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       alert(
-        result?.message||
+        result.message||
         "Không thể cập nhật."
       );
 
       return;
-
     }
 
     alert(
@@ -1502,6 +1411,11 @@ async function setShopStatus(){
   }
 
 }
+
+
+/* =====================================================
+   GAME FOLDER
+===================================================== */
 
 const folderData={
 
@@ -1577,6 +1491,7 @@ const folderData={
 
 };
 
+
 function gameChanged(){
 
   const game=
@@ -1617,13 +1532,20 @@ function gameChanged(){
 
 }
 
+
 function folderChanged(){
   updatePackages();
 }
 
+
 function priceChanged(){
   updatePackages();
 }
+
+
+/* =====================================================
+   PACKAGE
+===================================================== */
 
 function updatePackages(){
 
@@ -1660,6 +1582,11 @@ function updatePackages(){
   }
 
 }
+
+
+/* =====================================================
+   ADD ACCOUNT
+===================================================== */
 
 async function addAccount(){
 
@@ -1726,12 +1653,12 @@ async function addAccount(){
         }
       );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       showAccountMessage(
         "❌ "+
         (
-          result?.message||
+          result.message||
           "Không thể thêm acc."
         ),
         "red"
@@ -1764,6 +1691,7 @@ async function addAccount(){
 
 }
 
+
 function showAccountMessage(text,color){
 
   const el=
@@ -1775,6 +1703,7 @@ function showAccountMessage(text,color){
   el.style.color=color;
 
 }
+
 
 function clearAccountForm(){
 
@@ -1806,6 +1735,11 @@ function clearAccountForm(){
 
 }
 
+
+/* =====================================================
+   ACCOUNTS
+===================================================== */
+
 async function loadAccounts(){
 
   try{
@@ -1813,18 +1747,11 @@ async function loadAccounts(){
     const result=
       await apiGet("getAccounts");
 
-    if(result && result.ok){
+    if(result.ok){
 
       accounts=
-        Array.isArray(result.accounts)
-          ?result.accounts
-          :[];
+        result.accounts||[];
 
-      renderAccounts();
-
-    }else{
-
-      accounts=[];
       renderAccounts();
 
     }
@@ -1833,12 +1760,10 @@ async function loadAccounts(){
 
     console.error(err);
 
-    accounts=[];
-    renderAccounts();
-
   }
 
 }
+
 
 function renderAccounts(){
 
@@ -1860,7 +1785,6 @@ function renderAccounts(){
     .filter(acc=>{
 
       const text=[
-        acc.id,
         acc.game,
         acc.folder,
         acc.price,
@@ -1887,10 +1811,10 @@ function renderAccounts(){
 
       let badgeClass="";
 
-      if(status==="available"||status==="sẵn sàng")
+      if(status==="available")
         badgeClass="available";
 
-      if(status==="sold"||status==="đã bán")
+      if(status==="sold")
         badgeClass="sold";
 
       tr.innerHTML=`
@@ -1941,6 +1865,7 @@ function renderAccounts(){
 
 }
 
+
 async function deleteAccount(id){
 
   if(!id)return;
@@ -1960,10 +1885,10 @@ async function deleteAccount(id){
         }
       );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       alert(
-        result?.message||
+        result.message||
         "Không thể xóa."
       );
 
@@ -1986,6 +1911,11 @@ async function deleteAccount(id){
 
 }
 
+
+/* =====================================================
+   CÀY THUÊ - GOOGLE SHEETS
+===================================================== */
+
 async function loadServices(){
 
   const container=
@@ -2007,15 +1937,16 @@ async function loadServices(){
     const result=
       await apiGet("getServices");
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       services=[];
+
       renderServices();
 
       showServiceMessage(
         "❌ "+
         (
-          result?.message||
+          result.message||
           "Không tải được dữ liệu Cày thuê."
         ),
         "red"
@@ -2041,6 +1972,7 @@ async function loadServices(){
     console.error(err);
 
     services=[];
+
     renderServices();
 
     showServiceMessage(
@@ -2051,6 +1983,11 @@ async function loadServices(){
   }
 
 }
+
+
+/* =====================================================
+   ADD SERVICE - GOOGLE SHEETS
+===================================================== */
 
 async function addService(){
 
@@ -2102,20 +2039,25 @@ async function addService(){
         "addService",
         {
           key:ADMIN_KEY,
+
           game:game,
+
           name:name,
+
           price:Number(price)||0,
+
           status:status,
+
           description:description
         }
       );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       showServiceMessage(
         "❌ "+
         (
-          result?.message||
+          result.message||
           "Không thể thêm dịch vụ."
         ),
         "red"
@@ -2133,6 +2075,7 @@ async function addService(){
     );
 
     await loadServices();
+
     await loadDashboard();
 
   }catch(err){
@@ -2148,6 +2091,7 @@ async function addService(){
 
 }
 
+
 function showServiceMessage(text,color){
 
   const el=
@@ -2159,6 +2103,7 @@ function showServiceMessage(text,color){
   el.style.color=color;
 
 }
+
 
 function clearServiceForm(){
 
@@ -2183,6 +2128,11 @@ function clearServiceForm(){
   ).value="";
 
 }
+
+
+/* =====================================================
+   RENDER SERVICES
+===================================================== */
 
 function renderServices(){
 
@@ -2310,18 +2260,6 @@ function renderServices(){
       <div class="service-actions">
 
         <button
-          class="btn btn-success"
-          onclick="openServiceOrderModal('${escapeJs(service.id||"")}')"
-          ${
-            service.status!=="Sẵn Sàng"
-              ?"disabled style='opacity:.5;cursor:not-allowed'"
-              :""
-          }
-        >
-          📝 Tạo đơn
-        </button>
-
-        <button
           class="btn btn-primary"
           onclick="editService('${escapeJs(service.id||"")}')"
         >
@@ -2352,6 +2290,11 @@ function renderServices(){
 
 }
 
+
+/* =====================================================
+   FIND SERVICE
+===================================================== */
+
 function findService(id){
 
   return services.find(
@@ -2360,6 +2303,11 @@ function findService(id){
   );
 
 }
+
+
+/* =====================================================
+   EDIT SERVICE - GOOGLE SHEETS
+===================================================== */
 
 async function editService(id){
 
@@ -2414,21 +2362,27 @@ async function editService(id){
         "updateService",
         {
           key:ADMIN_KEY,
+
           id:id,
+
           game:newGame.trim()||service.game,
+
           name:newName.trim()||service.name,
+
           price:Number(newPrice)||0,
+
           status:newStatus,
+
           description:newDescription
         }
       );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       alert(
         "❌ "+
         (
-          result?.message||
+          result.message||
           "Không thể cập nhật."
         )
       );
@@ -2455,6 +2409,11 @@ async function editService(id){
 
 }
 
+
+/* =====================================================
+   TOGGLE SERVICE STATUS
+===================================================== */
+
 async function toggleServiceStatus(id){
 
   const service=
@@ -2474,21 +2433,27 @@ async function toggleServiceStatus(id){
         "updateService",
         {
           key:ADMIN_KEY,
+
           id:id,
+
           game:service.game,
+
           name:service.name,
+
           price:Number(service.price)||0,
+
           status:newStatus,
+
           description:service.description||""
         }
       );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       alert(
         "❌ "+
         (
-          result?.message||
+          result.message||
           "Không thể đổi trạng thái."
         )
       );
@@ -2510,6 +2475,11 @@ async function toggleServiceStatus(id){
   }
 
 }
+
+
+/* =====================================================
+   DELETE SERVICE
+===================================================== */
 
 async function deleteService(id){
 
@@ -2535,13 +2505,13 @@ async function deleteService(id){
         }
       );
 
-    if(!result || !result.ok){
+    if(!result.ok){
 
       alert(
         "❌ "+
         (
-          result?.message||
-          "Không thể xóa."
+          result.message||
+          "Không thể xóa dịch vụ."
         )
       );
 
@@ -2554,6 +2524,7 @@ async function deleteService(id){
     );
 
     await loadServices();
+
     await loadDashboard();
 
   }catch(err){
@@ -2568,239 +2539,10 @@ async function deleteService(id){
 
 }
 
-function openServiceOrderModal(id){
 
-  const service=findService(id);
-
-  if(!service)return;
-
-  if(service.status!=="Sẵn Sàng"){
-
-    alert(
-      "❌ Dịch vụ hiện chưa sẵn sàng."
-    );
-
-    return;
-
-  }
-
-  currentServiceForOrder=service;
-
-  document.getElementById(
-    "selectedServiceInfo"
-  ).innerHTML=`
-
-    <div>
-      🎮 Game:
-      <b>${escapeHtml(service.game||"")}</b>
-    </div>
-
-    <div>
-      🛠️ Dịch vụ:
-      <b>${escapeHtml(service.name||"")}</b>
-    </div>
-
-    <div>
-      💰 Giá:
-      <b>${formatPrice(service.price)}</b>
-    </div>
-
-    <div>
-      📊 Trạng thái:
-      <b>${escapeHtml(service.status||"")}</b>
-    </div>
-
-  `;
-
-  document.getElementById(
-    "orderCustomer"
-  ).value="";
-
-  document.getElementById(
-    "orderRobloxUsername"
-  ).value="";
-
-  document.getElementById(
-    "orderLoginInfo"
-  ).value="";
-
-  document.getElementById(
-    "orderNote"
-  ).value="";
-
-  document.getElementById(
-    "serviceOrderMessage"
-  ).textContent="";
-
-  document.getElementById(
-    "serviceOrderModal"
-  ).classList.remove("hidden");
-
-}
-
-function closeServiceOrderModal(){
-
-  currentServiceForOrder=null;
-
-  document.getElementById(
-    "serviceOrderModal"
-  ).classList.add("hidden");
-
-}
-
-async function createServiceOrder(){
-
-  if(!currentServiceForOrder){
-
-    alert("❌ Không xác định được dịch vụ.");
-
-    return;
-
-  }
-
-  const customer=
-    document.getElementById(
-      "orderCustomer"
-    ).value.trim();
-
-  const robloxUsername=
-    document.getElementById(
-      "orderRobloxUsername"
-    ).value.trim();
-
-  const loginInfo=
-    document.getElementById(
-      "orderLoginInfo"
-    ).value.trim();
-
-  const note=
-    document.getElementById(
-      "orderNote"
-    ).value.trim();
-
-  if(!customer){
-
-    showOrderMessage(
-      "❌ Vui lòng nhập Username khách hàng.",
-      "red"
-    );
-
-    return;
-
-  }
-
-  if(!robloxUsername){
-
-    showOrderMessage(
-      "❌ Vui lòng nhập Username Roblox.",
-      "red"
-    );
-
-    return;
-
-  }
-
-  showOrderMessage(
-    "⏳ Đang tạo đơn và ghi vào Google Sheet...",
-    "#2563eb"
-  );
-
-  try{
-
-    const result=
-      await apiPost(
-        "createServiceOrder",
-        {
-          key:ADMIN_KEY,
-          username:customer,
-          customer:customer,
-          type:"Cày Thuê",
-          orderType:"Cày Thuê",
-          serviceId:
-            currentServiceForOrder.id,
-          service:
-            currentServiceForOrder.name,
-          product:
-            currentServiceForOrder.name,
-          game:
-            currentServiceForOrder.game,
-          price:
-            Number(
-              currentServiceForOrder.price
-            )||0,
-          amount:
-            Number(
-              currentServiceForOrder.price
-            )||0,
-          robloxUsername:
-            robloxUsername,
-          loginInfo:
-            loginInfo,
-          accountInfo:
-            loginInfo,
-          note:
-            note,
-          customerNote:
-            note,
-          status:"Chờ duyệt"
-        }
-      );
-
-    if(!result || !result.ok){
-
-      showOrderMessage(
-        "❌ "+
-        (
-          result?.message||
-          "Không thể tạo đơn."
-        ),
-        "red"
-      );
-
-      return;
-
-    }
-
-    alert(
-      "✅ Tạo đơn Cày Thuê thành công!\n\n"+
-      "Mã đơn: "+
-      (
-        result.orderId||
-        result.id||
-        "Đã tạo"
-      )+
-      "\n\nĐơn đang ở trạng thái Chờ duyệt."
-    );
-
-    closeServiceOrderModal();
-
-    await loadOrders();
-    await loadDashboard();
-
-  }catch(err){
-
-    console.error(err);
-
-    showOrderMessage(
-      "❌ Không kết nối được Google Sheets.",
-      "red"
-    );
-
-  }
-
-}
-
-function showOrderMessage(text,color){
-
-  const el=
-    document.getElementById(
-      "serviceOrderMessage"
-    );
-
-  el.textContent=text;
-  el.style.color=color;
-
-}
+/* =====================================================
+   CUSTOMERS
+===================================================== */
 
 async function loadCustomers(){
 
@@ -2809,18 +2551,11 @@ async function loadCustomers(){
     const result=
       await apiGet("getCustomers");
 
-    if(result && result.ok){
+    if(result.ok){
 
       customers=
-        Array.isArray(result.customers)
-          ?result.customers
-          :[];
+        result.customers||[];
 
-      renderCustomers();
-
-    }else{
-
-      customers=[];
       renderCustomers();
 
     }
@@ -2829,12 +2564,10 @@ async function loadCustomers(){
 
     console.error(err);
 
-    customers=[];
-    renderCustomers();
-
   }
 
 }
+
 
 function renderCustomers(){
 
@@ -2901,6 +2634,11 @@ function renderCustomers(){
 
 }
 
+
+/* =====================================================
+   TOPUPS
+===================================================== */
+
 async function loadTopups(){
 
   try{
@@ -2908,18 +2646,11 @@ async function loadTopups(){
     const result=
       await apiGet("getTopups");
 
-    if(result && result.ok){
+    if(result.ok){
 
       topups=
-        Array.isArray(result.topups)
-          ?result.topups
-          :[];
+        result.topups||[];
 
-      renderTopups();
-
-    }else{
-
-      topups=[];
       renderTopups();
 
     }
@@ -2928,12 +2659,10 @@ async function loadTopups(){
 
     console.error(err);
 
-    topups=[];
-    renderTopups();
-
   }
 
 }
+
 
 function renderTopups(){
 
@@ -2959,11 +2688,7 @@ function renderTopups(){
 
       let buttons="";
 
-      if(
-        status==="pending"||
-        status==="chờ duyệt"||
-        status==="cho duyet"
-      ){
+      if(status==="pending"){
 
         buttons=`
 
@@ -2985,28 +2710,6 @@ function renderTopups(){
 
       }
 
-      let statusClass="";
-
-      if(
-        status==="pending"||
-        status==="chờ duyệt"||
-        status==="cho duyet"
-      ){
-        statusClass="pending";
-      }else if(
-        status==="approved"||
-        status==="đã duyệt"||
-        status==="da duyet"
-      ){
-        statusClass="completed";
-      }else if(
-        status==="rejected"||
-        status==="từ chối"||
-        status==="tu choi"
-      ){
-        statusClass="rejected";
-      }
-
       tr.innerHTML=`
 
         <td>${escapeHtml(item.id||"")}</td>
@@ -3026,7 +2729,7 @@ function renderTopups(){
         <td>${escapeHtml(item.bankName||"")}</td>
 
         <td>
-          <span class="badge ${statusClass}">
+          <span class="badge ${status}">
             ${escapeHtml(item.status||"")}
           </span>
         </td>
@@ -3040,6 +2743,7 @@ function renderTopups(){
     });
 
 }
+
 
 async function approveTopup(id){
 
@@ -3059,15 +2763,15 @@ async function approveTopup(id){
       );
 
     alert(
-      result?.message||
+      result.message||
       (
-        result?.ok
+        result.ok
           ?"Đã duyệt."
           :"Không thể duyệt."
       )
     );
 
-    if(result && result.ok){
+    if(result.ok){
 
       await loadTopups();
       await loadCustomers();
@@ -3084,6 +2788,7 @@ async function approveTopup(id){
   }
 
 }
+
 
 async function rejectTopup(id){
 
@@ -3103,11 +2808,11 @@ async function rejectTopup(id){
       );
 
     alert(
-      result?.message||
+      result.message||
       "Đã xử lý."
     );
 
-    if(result && result.ok){
+    if(result.ok){
 
       await loadTopups();
       await loadDashboard();
@@ -3124,6 +2829,11 @@ async function rejectTopup(id){
 
 }
 
+
+/* =====================================================
+   ORDERS
+===================================================== */
+
 async function loadOrders(){
 
   try{
@@ -3131,23 +2841,11 @@ async function loadOrders(){
     const result=
       await apiGet("getOrders");
 
-    if(result && result.ok){
+    if(result.ok){
 
       orders=
-        Array.isArray(result.orders)
-          ?result.orders
-          :[];
+        result.orders||[];
 
-      renderOrders();
-
-      document.getElementById(
-        "dashOrders"
-      ).textContent=
-        orders.length;
-
-    }else{
-
-      orders=[];
       renderOrders();
 
     }
@@ -3156,107 +2854,10 @@ async function loadOrders(){
 
     console.error(err);
 
-    orders=[];
-    renderOrders();
-
   }
 
 }
 
-function filterOrders(status){
-
-  currentOrderFilter=status||"ALL";
-
-  renderOrders();
-
-}
-
-function normalizeOrderStatus(status){
-
-  const s=
-    String(status||"")
-      .trim()
-      .toLowerCase();
-
-  if(
-    s==="pending"||
-    s==="chờ duyệt"||
-    s==="cho duyet"
-  ){
-
-    return "Chờ duyệt";
-
-  }
-
-  if(
-    s==="approved"||
-    s==="đã duyệt"||
-    s==="da duyet"
-  ){
-
-    return "Đã duyệt";
-
-  }
-
-  if(
-    s==="rejected"||
-    s==="đã từ chối"||
-    s==="da tu choi"||
-    s==="từ chối"||
-    s==="tu choi"
-  ){
-
-    return "Từ chối";
-
-  }
-
-  if(
-    s==="processing"||
-    s==="đang xử lý"||
-    s==="dang xu ly"
-  ){
-
-    return "Đang xử lý";
-
-  }
-
-  if(
-    s==="completed"||
-    s==="hoàn thành"||
-    s==="hoan thanh"
-  ){
-
-    return "Hoàn thành";
-
-  }
-
-  return String(status||"");
-
-}
-
-function getOrderBadgeClass(status){
-
-  const s=
-    normalizeOrderStatus(status);
-
-  if(s==="Chờ duyệt")
-    return "pending";
-
-  if(s==="Đã duyệt")
-    return "completed";
-
-  if(s==="Từ chối")
-    return "rejected";
-
-  if(s==="Đang xử lý")
-    return "processing";
-
-  if(s==="Hoàn thành")
-    return "completed";
-
-  return "";
-
-}
 
 function renderOrders(){
 
@@ -3265,453 +2866,64 @@ function renderOrders(){
       "ordersBody"
     );
 
-  if(!body)return;
-
   body.innerHTML="";
 
-  const search=
-    (
-      document.getElementById(
-        "orderSearch"
-      )?.value||""
-    )
-    .toLowerCase()
-    .trim();
+  orders
+    .slice()
+    .reverse()
+    .forEach(order=>{
 
-  let list=
-    orders
-      .slice()
-      .reverse();
+      const tr=
+        document.createElement("tr");
 
-  if(currentOrderFilter!=="ALL"){
+      tr.innerHTML=`
 
-    list=list.filter(order=>
-      normalizeOrderStatus(
-        order.status
-      )===
-      currentOrderFilter
-    );
-
-  }
-
-  list=list.filter(order=>{
-
-    const text=[
-
-      order.id,
-      order.orderId,
-
-      order.username,
-      order.customer,
-
-      order.type,
-      order.orderType,
-
-      order.service,
-      order.product,
-      order.game,
-
-      order.price,
-      order.amount,
-
-      order.robloxUsername,
-      order.robloxUser,
-      order.loginInfo,
-      order.accountInfo,
-
-      order.note,
-      order.customerNote,
-
-      order.status
-
-    ]
-    .join(" ")
-    .toLowerCase();
-
-    return text.includes(search);
-
-  });
-
-  if(!list.length){
-
-    body.innerHTML=`
-
-      <tr>
-
-        <td colspan="11" style="text-align:center">
-
-          <div class="loading">
-            📦 Không có đơn hàng.
-          </div>
-
+        <td>
+          ${escapeHtml(order.id||"")}
         </td>
 
-      </tr>
+        <td>
+          ${escapeHtml(order.username||"")}
+        </td>
 
-    `;
+        <td>
+          ${escapeHtml(order.product||"")}
+        </td>
 
-    return;
+        <td>
+          ${formatMoney(order.price||0)}
+        </td>
 
-  }
+        <td>
+          ${escapeHtml(order.status||"")}
+        </td>
 
-  list.forEach(order=>{
+        <td>
+          ${escapeHtml(
+            formatDate(order.createdAt)
+          )}
+        </td>
 
-    const id=
-      order.id||
-      order.orderId||
-      "";
-
-    const customer=
-      order.username||
-      order.customer||
-      "";
-
-    const type=
-      order.type||
-      order.orderType||
-      "Cày Thuê";
-
-    const service=
-      order.service||
-      order.product||
-      "";
-
-    const price=
-      order.price||
-      order.amount||
-      0;
-
-    const robloxUsername=
-      order.robloxUsername||
-      order.robloxUser||
-      order.accountUsername||
-      "";
-
-    const loginInfo=
-      order.loginInfo||
-      order.accountInfo||
-      order.login||
-      "";
-
-    const note=
-      order.note||
-      order.customerNote||
-      "";
-
-    const status=
-      normalizeOrderStatus(
-        order.status
-      );
-
-    const badgeClass=
-      getOrderBadgeClass(status);
-
-    const tr=
-      document.createElement("tr");
-
-    let actions="";
-
-    if(status==="Chờ duyệt"){
-
-      actions=`
-
-        <div class="order-actions">
-
-          <button
-            class="btn btn-success"
-            onclick="approveOrder('${escapeJs(id)}')"
-          >
-            ✅ Duyệt
-          </button>
-
-          <button
-            class="btn btn-danger"
-            onclick="rejectOrder('${escapeJs(id)}')"
-          >
-            ❌ Từ chối
-          </button>
-
-        </div>
+        <td>
+          ${
+            order.accUsername
+              ?escapeHtml(order.accUsername)
+              :"-"
+          }
+        </td>
 
       `;
 
-    }else{
+      body.appendChild(tr);
 
-      actions=`
-
-        <span class="small">
-          Đã xử lý
-        </span>
-
-      `;
-
-    }
-
-    tr.innerHTML=`
-
-      <td>
-        <b>${escapeHtml(id)}</b>
-      </td>
-
-      <td>
-        ${escapeHtml(customer)}
-      </td>
-
-      <td>
-        <span class="badge processing">
-          ${escapeHtml(type)}
-        </span>
-      </td>
-
-      <td>
-        ${escapeHtml(service)}
-        ${
-          order.game
-            ?`<div class="small">
-                🎮 ${escapeHtml(order.game)}
-              </div>`
-            :""
-        }
-      </td>
-
-      <td>
-        <b>${formatPrice(price)}</b>
-      </td>
-
-      <td>
-        ${escapeHtml(robloxUsername||"-")}
-      </td>
-
-      <td>
-        ${
-          loginInfo
-            ?escapeHtml(loginInfo)
-            :"-"
-        }
-      </td>
-
-      <td>
-        ${escapeHtml(note||"-")}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          formatDate(
-            order.createdAt||
-            order.date||
-            order.createdDate
-          )
-        )}
-      </td>
-
-      <td>
-
-        <span class="badge ${badgeClass}">
-          ${escapeHtml(status||"")}
-        </span>
-
-      </td>
-
-      <td>
-        ${actions}
-      </td>
-
-    `;
-
-    body.appendChild(tr);
-
-  });
+    });
 
 }
 
-function findOrder(id){
 
-  return orders.find(order=>
-    String(
-      order.id||
-      order.orderId||
-      ""
-    )===
-    String(id)
-  );
-
-}
-
-async function approveOrder(id){
-
-  const order=
-    findOrder(id);
-
-  if(!order){
-
-    alert(
-      "❌ Không tìm thấy đơn hàng."
-    );
-
-    return;
-
-  }
-
-  const customer=
-    order.username||
-    order.customer||
-    "";
-
-  const service=
-    order.service||
-    order.product||
-    "";
-
-  if(!confirm(
-
-    "Bạn có chắc muốn DUYỆT đơn này?\n\n"+
-
-    "Mã đơn: "+
-    id+
-    "\nKhách: "+
-    customer+
-    "\nDịch vụ: "+
-    service
-
-  ))return;
-
-  try{
-
-    const result=
-      await apiPost(
-        "updateOrderStatus",
-        {
-          key:ADMIN_KEY,
-          id:id,
-          orderId:id,
-          status:"Đã duyệt",
-          adminStatus:"Đã duyệt",
-          type:
-            order.type||
-            order.orderType||
-            "Cày Thuê",
-          note:
-            order.note||
-            order.customerNote||
-            ""
-        }
-      );
-
-    if(!result || !result.ok){
-
-      alert(
-        "❌ "+
-        (
-          result?.message||
-          "Không thể duyệt đơn."
-        )
-      );
-
-      return;
-
-    }
-
-    alert(
-      "✅ Đã duyệt đơn "+id+
-      " và cập nhật Google Sheet."
-    );
-
-    await loadOrders();
-    await loadDashboard();
-
-  }catch(err){
-
-    console.error(err);
-
-    alert(
-      "❌ Lỗi kết nối Google Sheets."
-    );
-
-  }
-
-}
-
-async function rejectOrder(id){
-
-  const order=
-    findOrder(id);
-
-  if(!order){
-
-    alert(
-      "❌ Không tìm thấy đơn hàng."
-    );
-
-    return;
-
-  }
-
-  const reason=
-    prompt(
-      "Nhập lý do từ chối đơn:",
-      ""
-    );
-
-  if(reason===null)return;
-
-  if(!confirm(
-    "Xác nhận TỪ CHỐI đơn "+id+"?"
-  ))return;
-
-  try{
-
-    const result=
-      await apiPost(
-        "updateOrderStatus",
-        {
-          key:ADMIN_KEY,
-          id:id,
-          orderId:id,
-          status:"Từ chối",
-          adminStatus:"Từ chối",
-          reason:reason,
-          rejectReason:reason,
-          type:
-            order.type||
-            order.orderType||
-            "Cày Thuê"
-        }
-      );
-
-    if(!result || !result.ok){
-
-      alert(
-        "❌ "+
-        (
-          result?.message||
-          "Không thể từ chối đơn."
-        )
-      );
-
-      return;
-
-    }
-
-    alert(
-      "✅ Đã từ chối đơn "+
-      id+
-      " và cập nhật Google Sheet."
-    );
-
-    await loadOrders();
-    await loadDashboard();
-
-  }catch(err){
-
-    console.error(err);
-
-    alert(
-      "❌ Lỗi kết nối Google Sheets."
-    );
-
-  }
-
-}
+/* =====================================================
+   PRODUCTS
+===================================================== */
 
 const products=[
 
@@ -3740,6 +2952,7 @@ const products=[
 
 ];
 
+
 async function loadProducts(){
 
   try{
@@ -3747,7 +2960,7 @@ async function loadProducts(){
     const result=
       await apiGet("getProductStatuses");
 
-    if(result && result.ok){
+    if(result.ok){
 
       productStatuses=
         result.statuses||{};
@@ -3765,6 +2978,7 @@ async function loadProducts(){
   }
 
 }
+
 
 function renderProducts(){
 
@@ -3792,12 +3006,11 @@ function renderProducts(){
   ];
 
   const stealKeys=[
-
     "stealAEgg",
     "stealAEggTuiMu",
     "stealAEggAccVIP"
-
   ];
+
 
   createProductGroup(
     container,
@@ -3805,11 +3018,13 @@ function renderProducts(){
     bloxKeys
   );
 
+
   createProductGroup(
     container,
     "🥚 Steal a Egg",
     stealKeys
   );
+
 
   const title2=
     document.createElement("div");
@@ -3835,6 +3050,7 @@ function renderProducts(){
     );
 
 }
+
 
 function createProductGroup(
   container,
@@ -3864,6 +3080,7 @@ function createProductGroup(
     );
 
 }
+
 
 function createProductStatusCard(
   container,
@@ -3933,6 +3150,7 @@ function createProductStatusCard(
 
 }
 
+
 function changeProductVisual(product){
 
   const select=
@@ -3966,6 +3184,7 @@ function changeProductVisual(product){
 
 }
 
+
 async function saveProductStatus(product){
 
   const select=
@@ -3990,15 +3209,15 @@ async function saveProductStatus(product){
       );
 
     alert(
-      result?.message||
+      result.message||
       (
-        result?.ok
+        result.ok
           ?"✅ Đã lưu trạng thái."
           :"❌ Không thể lưu."
       )
     );
 
-    if(result && result.ok){
+    if(result.ok){
 
       productStatuses[product]=status;
 
@@ -4015,6 +3234,11 @@ async function saveProductStatus(product){
   }
 
 }
+
+
+/* =====================================================
+   TABS
+===================================================== */
 
 function showTab(name,button){
 
@@ -4053,37 +3277,12 @@ function showTab(name,button){
 
   }
 
-  if(name==="orders"){
-
-    loadOrders();
-
-  }
-
-  if(name==="customers"){
-
-    loadCustomers();
-
-  }
-
-  if(name==="topups"){
-
-    loadTopups();
-
-  }
-
-  if(name==="products"){
-
-    loadProducts();
-
-  }
-
-  if(name==="accounts"){
-
-    loadAccounts();
-
-  }
-
 }
+
+
+/* =====================================================
+   ACCOUNT MODAL
+===================================================== */
 
 function showAccountModal(account){
 
@@ -4136,6 +3335,7 @@ function showAccountModal(account){
 
 }
 
+
 function closeAccountModal(){
 
   document
@@ -4143,6 +3343,11 @@ function closeAccountModal(){
     .classList.add("hidden");
 
 }
+
+
+/* =====================================================
+   FORMAT MONEY
+===================================================== */
 
 function formatMoney(value){
 
@@ -4157,6 +3362,11 @@ function formatMoney(value){
   return n.toLocaleString("vi-VN")+"K";
 
 }
+
+
+/* =====================================================
+   FORMAT PRICE
+===================================================== */
 
 function formatPrice(value){
 
@@ -4174,6 +3384,11 @@ function formatPrice(value){
     .toLocaleString("vi-VN")+"K";
 
 }
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
 
 function formatDate(value){
 
@@ -4199,6 +3414,11 @@ function formatDate(value){
 
 }
 
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
 function escapeHtml(value){
 
   return String(value??"")
@@ -4210,6 +3430,11 @@ function escapeHtml(value){
 
 }
 
+
+/* =====================================================
+   ESCAPE JS
+===================================================== */
+
 function escapeJs(value){
 
   return String(value??"")
@@ -4220,36 +3445,27 @@ function escapeJs(value){
 
 }
 
+
+/* =====================================================
+   MODAL
+===================================================== */
+
 document
   .getElementById("accountModal")
   .addEventListener("click",function(e){
 
     if(e.target===this){
-
       closeAccountModal();
-
     }
 
   });
 
-document
-  .getElementById("serviceOrderModal")
-  .addEventListener("click",function(e){
-
-    if(e.target===this){
-
-      closeServiceOrderModal();
-
-    }
-
-  });
 
 document.addEventListener("keydown",function(e){
 
   if(e.key==="Escape"){
 
     closeAccountModal();
-    closeServiceOrderModal();
 
   }
 
