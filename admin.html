@@ -15,7 +15,7 @@ body{
   color:#111827;
 }
 
-button,input,select{font:inherit}
+button,input,select,textarea{font:inherit}
 
 .login-box{
   width:min(420px,92%);
@@ -189,7 +189,7 @@ header h2{
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:900px;
+  min-width:1000px;
   background:#fff;
 }
 
@@ -205,6 +205,7 @@ th{
   color:#fff;
   position:sticky;
   top:0;
+  z-index:2;
 }
 
 .badge{
@@ -233,6 +234,16 @@ th{
 .completed{
   background:#dcfce7;
   color:#166534;
+}
+
+.processing{
+  background:#dbeafe;
+  color:#1e40af;
+}
+
+.cancelled{
+  background:#fee2e2;
+  color:#991b1b;
 }
 
 .notice{
@@ -269,7 +280,7 @@ th{
 }
 
 .modal-content{
-  width:min(700px,100%);
+  width:min(800px,100%);
   max-height:90vh;
   overflow:auto;
   background:#fff;
@@ -343,6 +354,30 @@ th{
 
 .product-status-card.not-ready{
   border-left:5px solid #ef4444;
+}
+
+.order-type{
+  font-weight:bold;
+}
+
+.caythue-row{
+  background:#fffbeb;
+}
+
+.acc-row{
+  background:#fff;
+}
+
+.info-box{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+}
+
+.info-box div{
+  margin:7px 0;
 }
 
 @media(max-width:700px){
@@ -535,7 +570,15 @@ th{
     class="tab active"
     onclick="showTab('accounts',this)"
   >
-    🎮 Kho Acc
+    🎮 Acc Game
+  </button>
+
+  <!-- CÀY THUÊ ĐẶT KẾ BÊN ACC GAME -->
+  <button
+    class="tab"
+    onclick="showTab('caythue',this)"
+  >
+    🛠️ Cày thuê
   </button>
 
   <button
@@ -638,7 +681,6 @@ th{
           Greedy Growers 🌱
         </option>
 
-        <!-- ⭐ THÊM GAME MỚI -->
         <option value="Steal a Egg">
           🥚 Steal a Egg
         </option>
@@ -821,6 +863,81 @@ th{
 
 
 <!-- =====================================================
+     CÀY THUÊ
+===================================================== -->
+
+<section
+  id="panel-caythue"
+  class="panel"
+>
+
+<div class="card">
+
+  <h2>🛠️ Quản lý Cày thuê Blox Fruits</h2>
+
+  <div class="notice">
+    Các đơn có <b>Loại đơn = Cày thuê</b> hoặc dịch vụ chứa
+    <b>Cày thuê</b> sẽ được hiển thị tại đây.
+    Dữ liệu lấy trực tiếp từ Google Sheets <b>DonHang</b>.
+  </div>
+
+  <input
+    id="cayThueSearch"
+    class="input search"
+    placeholder="🔎 Tìm mã đơn, khách, Roblox, dịch vụ..."
+    oninput="renderCayThue()"
+  >
+
+  <div class="actions">
+
+    <button
+      class="btn btn-primary"
+      onclick="loadOrders();"
+    >
+      🔄 Làm mới đơn cày thuê
+    </button>
+
+  </div>
+
+  <div
+    id="cayThueMessage"
+    style="margin-top:15px"
+  ></div>
+
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Mã đơn</th>
+          <th>Khách</th>
+          <th>Username Roblox</th>
+          <th>Thông tin đăng nhập</th>
+          <th>Quyền truy cập</th>
+          <th>Loại đơn</th>
+          <th>Dịch vụ</th>
+          <th>Giá</th>
+          <th>Ghi chú khách</th>
+          <th>Ghi chú Admin</th>
+          <th>Ngày tạo</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="cayThueBody"></tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
      CUSTOMERS
 ===================================================== -->
 
@@ -922,7 +1039,19 @@ th{
 
 <div class="card">
 
-  <h2>📦 Đơn hàng</h2>
+  <h2>📦 Tất cả đơn hàng - DonHang</h2>
+
+  <input
+    id="orderSearch"
+    class="input search"
+    placeholder="🔎 Tìm mã đơn, khách, Roblox, loại đơn, dịch vụ..."
+    oninput="renderOrders()"
+  >
+
+  <div class="notice">
+    Bao gồm cả <b>đơn mua acc</b> và <b>đơn cày thuê</b>.
+    Đơn cày thuê được đánh dấu riêng.
+  </div>
 
   <div class="table-wrap">
 
@@ -931,13 +1060,17 @@ th{
       <thead>
 
         <tr>
-          <th>ID</th>
-          <th>Khách</th>
-          <th>Sản phẩm</th>
+          <th>Mã đơn</th>
+          <th>Tên khách</th>
+          <th>Username Roblox</th>
+          <th>Thông tin đăng nhập</th>
+          <th>Quyền truy cập</th>
+          <th>Loại đơn</th>
+          <th>Dịch vụ</th>
           <th>Giá</th>
-          <th>Trạng thái</th>
-          <th>Thời gian</th>
-          <th>Acc</th>
+          <th>Ghi chú khách</th>
+          <th>Ghi chú Admin</th>
+          <th>Ngày tạo</th>
         </tr>
 
       </thead>
@@ -984,7 +1117,7 @@ th{
 
 
 <!-- =====================================================
-     MODAL
+     ACCOUNT MODAL
 ===================================================== -->
 
 <div
@@ -1049,7 +1182,15 @@ async function apiPost(action,data={}){
     })
   });
 
-  return await response.json();
+  const text=await response.text();
+
+  try{
+    return JSON.parse(text);
+  }catch(e){
+    throw new Error(
+      "API không trả về JSON: "+text
+    );
+  }
 
 }
 
@@ -1066,7 +1207,15 @@ async function apiGet(action){
     encodeURIComponent(action)
   );
 
-  return await response.json();
+  const text=await response.text();
+
+  try{
+    return JSON.parse(text);
+  }catch(e){
+    throw new Error(
+      "API không trả về JSON: "+text
+    );
+  }
 
 }
 
@@ -1430,127 +1579,73 @@ async function setShopStatus(){
 const folderData={
 
   "Blox Fruits":[
-
     "Túi mù Blox Fruits",
-
     "Acc Blox Fruits tùy chọn Item",
-
     "Acc Blox Fruits Race V4",
-
     "Acc Blox Fruits xem hình acc tùy chọn",
-
     "Acc Blox Fruits LV MAX",
-
     "Acc Blox Fruits LV trên 1000",
-
     "Robux 120H",
-
     "Gamepass Blox Fruits",
-
     "Fish"
-
   ],
 
   "King Legacy":[
-
     "King Legacy",
-
     "King Legacy Túi Mù",
-
     "King Legacy Acc Thường",
-
     "King Legacy Acc VIP"
-
   ],
 
   "Anime Fighters":[
-
     "Anime Fighters",
-
     "Anime Fighters Túi Mù",
-
     "Anime Fighters Acc Random"
-
   ],
 
   "Grow A Garden 2":[
-
     "Grow A Garden 2",
-
     "Grow A Garden 2 Túi Mù",
-
     "Grow A Garden 2 Acc"
-
   ],
 
   "Grow A Garden":[
-
     "Grow A Garden",
-
     "Grow A Garden Túi Mù",
-
     "Grow A Garden Acc"
-
   ],
 
   "Murder Mystery 2":[
-
     "Murder Mystery 2",
-
     "Murder Mystery 2 Túi Mù",
-
     "Murder Mystery 2 Acc"
-
   ],
 
   "Túi Mù":[
-
     "Túi Mù",
-
     "Túi Mù 0K",
-
     "Túi Mù 10K",
-
     "Túi Mù 20K",
-
     "Túi Mù 50K",
-
     "Túi Mù 80K",
-
     "Túi Mù 100K"
-
   ],
 
   "Event":[
-
     "Event",
-
     "Event Túi Mù",
-
     "Event Random"
-
   ],
 
   "Greedy Growers 🌱":[
-
     "Greedy Growers 🌱",
-
     "Greedy Growers Túi Mù",
-
     "Greedy Growers Acc"
-
   ],
 
-  /* =================================================
-     ⭐ STEAL A EGG - GAME MỚI
-  ================================================= */
-
   "Steal a Egg":[
-
     "🎁 Steal a Egg Túi mù",
-
     "👑 Steal a Egg Acc VIP"
-
   ]
 
 };
@@ -1622,7 +1717,6 @@ function priceChanged(){
 
 /* =====================================================
    PACKAGE
-   GÓI 1 → 20
 ===================================================== */
 
 function updatePackages(){
@@ -1723,6 +1817,17 @@ async function addAccount(){
 
   }
 
+  if(!ADMIN_KEY){
+
+    showAccountMessage(
+      "❌ Phiên Admin đã hết. Vui lòng đăng nhập lại.",
+      "red"
+    );
+
+    return;
+
+  }
+
   showAccountMessage(
     "⏳ Đang thêm tài khoản...",
     "#2563eb"
@@ -1802,7 +1907,7 @@ function showAccountMessage(
 
 
 /* =====================================================
-   CLEAR FORM
+   CLEAR ACCOUNT FORM
 ===================================================== */
 
 function clearAccountForm(){
@@ -1892,12 +1997,15 @@ function renderAccounts(){
 
       const text=[
 
+        acc.id,
         acc.game,
         acc.folder,
         acc.price,
         acc.package,
         acc.username,
+        acc.accUsername,
         acc.password,
+        acc.accPassword,
         acc.status
 
       ]
@@ -1921,10 +2029,16 @@ function renderAccounts(){
 
       let badgeClass="";
 
-      if(status==="available")
+      if(
+        status==="available"||
+        status==="còn hàng"
+      )
         badgeClass="available";
 
-      if(status==="sold")
+      if(
+        status==="sold"||
+        status==="đã bán"
+      )
         badgeClass="sold";
 
       tr.innerHTML=`
@@ -1976,6 +2090,13 @@ function renderAccounts(){
         </td>
 
         <td>
+
+          <button
+            class="btn btn-primary"
+            onclick='showAccountModal(${safeJson(acc)})'
+          >
+            👁️ Xem
+          </button>
 
           <button
             class="btn btn-danger"
@@ -2100,7 +2221,9 @@ function renderCustomers(){
   customers
     .filter(user=>
       String(
-        user.username||""
+        user.username||
+        user.name||
+        ""
       )
       .toLowerCase()
       .includes(search)
@@ -2116,7 +2239,9 @@ function renderCustomers(){
 
         <td>
           ${escapeHtml(
-            user.username||""
+            user.username||
+            user.name||
+            ""
           )}
         </td>
 
@@ -2129,7 +2254,8 @@ function renderCustomers(){
         <td>
           ${escapeHtml(
             formatDate(
-              user.createdAt
+              user.createdAt||
+              user.created
             )
           )}
         </td>
@@ -2206,7 +2332,11 @@ function renderTopups(){
 
       let buttons="";
 
-      if(status==="pending"){
+      if(
+        status==="pending"||
+        status==="chờ duyệt"||
+        status==="cho duyet"
+      ){
 
         buttons=`
 
@@ -2381,7 +2511,7 @@ async function rejectTopup(id){
 
 
 /* =====================================================
-   ORDERS
+   LOAD ORDERS
 ===================================================== */
 
 async function loadOrders(){
@@ -2399,6 +2529,16 @@ async function loadOrders(){
         result.orders||[];
 
       renderOrders();
+      renderCayThue();
+
+      updateCayThueCount();
+
+    }else{
+
+      console.error(
+        result.message||
+        "Không lấy được đơn hàng"
+      );
 
     }
 
@@ -2406,10 +2546,244 @@ async function loadOrders(){
 
     console.error(err);
 
+    const msg=
+      document.getElementById(
+        "cayThueMessage"
+      );
+
+    if(msg){
+
+      msg.textContent=
+        "❌ Không tải được DonHang.";
+
+      msg.style.color="red";
+
+    }
+
   }
 
 }
 
+
+/* =====================================================
+   HÀM LẤY DỮ LIỆU ĐƠN HÀNG
+   HỖ TRỢ NHIỀU TÊN FIELD
+===================================================== */
+
+function getOrderId(order){
+
+  return firstValue(
+    order.id,
+    order.orderId,
+    order.maDon,
+    order.ma_don,
+    order["Mã đơn"]
+  );
+
+}
+
+
+function getOrderCustomer(order){
+
+  return firstValue(
+    order.username,
+    order.customer,
+    order.customerName,
+    order.name,
+    order.tenKhach,
+    order.ten_khach,
+    order["Tên khách"]
+  );
+
+}
+
+
+function getOrderRoblox(order){
+
+  return firstValue(
+    order.robloxUsername,
+    order.roblox,
+    order.robloxUser,
+    order.usernameRoblox,
+    order.userRoblox,
+    order["Username Roblox"]
+  );
+
+}
+
+
+function getOrderLogin(order){
+
+  return firstValue(
+    order.loginInfo,
+    order.login,
+    order.accountInfo,
+    order.thongTinDangNhap,
+    order.thong_tin_dang_nhap,
+    order["Thông tin đăng nhập"]
+  );
+
+}
+
+
+function getOrderAccess(order){
+
+  return firstValue(
+    order.access,
+    order.permission,
+    order.quyenTruyCap,
+    order.quyen,
+    order["Quyền truy cập"]
+  );
+
+}
+
+
+function getOrderType(order){
+
+  return firstValue(
+    order.orderType,
+    order.type,
+    order.loaiDon,
+    order.loai_don,
+    order["Loại đơn"]
+  );
+
+}
+
+
+function getOrderService(order){
+
+  return firstValue(
+    order.service,
+    order.product,
+    order.dichVu,
+    order.dich_vu,
+    order["Dịch vụ"]
+  );
+
+}
+
+
+function getOrderPrice(order){
+
+  return firstValue(
+    order.price,
+    order.amount,
+    order.money,
+    order.gia,
+    order["Giá"],
+    0
+  );
+
+}
+
+
+function getOrderCustomerNote(order){
+
+  return firstValue(
+    order.customerNote,
+    order.noteCustomer,
+    order.ghiChuKhach,
+    order.ghi_chu_khach,
+    order["Ghi chú khách"]
+  );
+
+}
+
+
+function getOrderAdminNote(order){
+
+  return firstValue(
+    order.adminNote,
+    order.noteAdmin,
+    order.ghiChuAdmin,
+    order.ghi_chu_admin,
+    order["Ghi chú Admin"]
+  );
+
+}
+
+
+function getOrderDate(order){
+
+  return firstValue(
+    order.createdAt,
+    order.created,
+    order.date,
+    order.createdDate,
+    order.ngayTao,
+    order.ngay_tao,
+    order["Ngày tạo"]
+  );
+
+}
+
+
+function firstValue(...values){
+
+  for(const value of values){
+
+    if(
+      value!==undefined &&
+      value!==null &&
+      String(value).trim()!==""
+    ){
+
+      return value;
+
+    }
+
+  }
+
+  return "";
+
+}
+
+
+/* =====================================================
+   KIỂM TRA ĐƠN CÀY THUÊ
+===================================================== */
+
+function isCayThueOrder(order){
+
+  const type=
+    String(
+      getOrderType(order)
+    )
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"");
+
+  const service=
+    String(
+      getOrderService(order)
+    )
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"");
+
+  const product=
+    String(
+      order.product||
+      ""
+    )
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,");
+
+  return (
+    type.includes("cay thue")||
+    service.includes("cay thue")||
+    product.includes("cay thue")
+  );
+
+}
+
+
+/* =====================================================
+   RENDER TẤT CẢ ĐƠN
+===================================================== */
 
 function renderOrders(){
 
@@ -2418,71 +2792,412 @@ function renderOrders(){
       "ordersBody"
     );
 
+  const searchEl=
+    document.getElementById(
+      "orderSearch"
+    );
+
+  const search=
+    searchEl
+      ?searchEl.value
+        .toLowerCase()
+        .trim()
+      :"";
+
   body.innerHTML="";
 
-  orders
-    .slice()
-    .reverse()
-    .forEach(order=>{
+  const list=
+    orders
+      .slice()
+      .reverse()
+      .filter(order=>{
 
-      const tr=
-        document.createElement(
-          "tr"
-        );
+        if(!search)return true;
 
-      tr.innerHTML=`
+        const text=[
 
-        <td>
-          ${escapeHtml(order.id||"")}
+          getOrderId(order),
+          getOrderCustomer(order),
+          getOrderRoblox(order),
+          getOrderLogin(order),
+          getOrderAccess(order),
+          getOrderType(order),
+          getOrderService(order),
+          getOrderPrice(order),
+          getOrderCustomerNote(order),
+          getOrderAdminNote(order),
+          getOrderDate(order)
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+        return text.includes(search);
+
+      });
+
+  if(!list.length){
+
+    body.innerHTML=`
+
+      <tr>
+        <td colspan="11" style="text-align:center">
+          📭 Không có đơn hàng.
         </td>
+      </tr>
 
-        <td>
+    `;
+
+    return;
+
+  }
+
+  list.forEach(order=>{
+
+    const tr=
+      document.createElement(
+        "tr"
+      );
+
+    const cayThue=
+      isCayThueOrder(order);
+
+    if(cayThue){
+
+      tr.className=
+        "caythue-row";
+
+    }else{
+
+      tr.className=
+        "acc-row";
+
+    }
+
+    const type=
+      getOrderType(order);
+
+    tr.innerHTML=`
+
+      <td>
+        <b>
           ${escapeHtml(
-            order.username||""
+            getOrderId(order)
           )}
-        </td>
+        </b>
+      </td>
 
-        <td>
+      <td>
+        ${escapeHtml(
+          getOrderCustomer(order)
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderRoblox(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderLogin(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderAccess(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+
+        <span class="badge ${
+          cayThue
+            ?"pending"
+            :"processing"
+        }">
+
           ${escapeHtml(
-            order.product||""
+            type||
+            (cayThue
+              ?"Cày thuê"
+              :"Mua acc")
           )}
+
+        </span>
+
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderService(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${formatPrice(
+          getOrderPrice(order)
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderCustomerNote(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderAdminNote(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          formatDate(
+            getOrderDate(order)
+          )
+        )}
+      </td>
+
+    `;
+
+    body.appendChild(tr);
+
+  });
+
+}
+
+
+/* =====================================================
+   RENDER RIÊNG CÀY THUÊ
+===================================================== */
+
+function renderCayThue(){
+
+  const body=
+    document.getElementById(
+      "cayThueBody"
+    );
+
+  if(!body)return;
+
+  const search=
+    document.getElementById(
+      "cayThueSearch"
+    ).value
+    .toLowerCase()
+    .trim();
+
+  body.innerHTML="";
+
+  const cayOrders=
+    orders
+      .slice()
+      .reverse()
+      .filter(order=>{
+
+        if(!isCayThueOrder(order))
+          return false;
+
+        if(!search)
+          return true;
+
+        const text=[
+
+          getOrderId(order),
+          getOrderCustomer(order),
+          getOrderRoblox(order),
+          getOrderLogin(order),
+          getOrderAccess(order),
+          getOrderType(order),
+          getOrderService(order),
+          getOrderPrice(order),
+          getOrderCustomerNote(order),
+          getOrderAdminNote(order),
+          getOrderDate(order)
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+        return text.includes(search);
+
+      });
+
+  if(!cayOrders.length){
+
+    body.innerHTML=`
+
+      <tr>
+
+        <td
+          colspan="11"
+          style="text-align:center"
+        >
+
+          📭 Chưa có đơn cày thuê.
+
         </td>
 
-        <td>
-          ${formatMoney(
-            order.price||0
-          )}
-        </td>
+      </tr>
 
-        <td>
+    `;
+
+    return;
+
+  }
+
+  cayOrders.forEach(order=>{
+
+    const tr=
+      document.createElement(
+        "tr"
+      );
+
+    tr.className=
+      "caythue-row";
+
+    tr.innerHTML=`
+
+      <td>
+        <b>
           ${escapeHtml(
-            order.status||""
+            getOrderId(order)
           )}
-        </td>
+        </b>
+      </td>
 
-        <td>
-          ${escapeHtml(
-            formatDate(
-              order.createdAt
-            )
+      <td>
+        ${escapeHtml(
+          getOrderCustomer(order)
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderRoblox(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderLogin(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderAccess(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+
+        <span class="badge pending">
+          🛠️ Cày thuê
+        </span>
+
+      </td>
+
+      <td>
+        ${escapeHtml(
+          getOrderService(order)||
+          "-"
+        )}
+      </td>
+
+      <td>
+        <b>
+          ${formatPrice(
+            getOrderPrice(order)
           )}
-        </td>
+        </b>
+      </td>
 
-        <td>
-          ${
-            order.accUsername
-              ?escapeHtml(
-                order.accUsername
-              )
-              :"-"
-          }
-        </td>
+      <td>
+        ${escapeHtml(
+          getOrderCustomerNote(order)||
+          "-"
+        )}
+      </td>
 
-      `;
+      <td>
+        ${escapeHtml(
+          getOrderAdminNote(order)||
+          "-"
+        )}
+      </td>
 
-      body.appendChild(tr);
+      <td>
+        ${escapeHtml(
+          formatDate(
+            getOrderDate(order)
+          )
+        )}
+      </td>
 
-    });
+    `;
+
+    body.appendChild(tr);
+
+  });
+
+  const message=
+    document.getElementById(
+      "cayThueMessage"
+    );
+
+  if(message){
+
+    message.textContent=
+      `🛠️ Có ${cayOrders.length} đơn cày thuê.`;
+
+    message.style.color=
+      "#2563eb";
+
+  }
+
+}
+
+
+/* =====================================================
+   ĐẾM ĐƠN CÀY THUÊ
+===================================================== */
+
+function updateCayThueCount(){
+
+  const count=
+    orders.filter(
+      isCayThueOrder
+    ).length;
+
+  const button=
+    document.querySelector(
+      '.tab[onclick*="caythue"]'
+    );
+
+  if(button){
+
+    button.innerHTML=
+      `🛠️ Cày thuê${
+        count
+          ?` (${count})`
+          :""
+      }`;
+
+  }
 
 }
 
@@ -2531,7 +3246,6 @@ const products=[
 
   ["greedyGrowers","🌱 Greedy Growers"],
 
-  /* ⭐ STEAL A EGG */
   ["stealAEgg","🥚 Steal a Egg"],
 
   ["stealAEggTuiMu","🎁 Steal a Egg Túi mù"],
@@ -2638,10 +3352,6 @@ function renderProducts(){
       )
     );
 
-
-  /* =================================================
-     ⭐ STEAL A EGG
-  ================================================= */
 
   const stealTitle=
     document.createElement("div");
@@ -2985,7 +3695,9 @@ function showAccountModal(
         👤 Username:
         <b>
           ${escapeHtml(
-            account.username||""
+            account.username||
+            account.accUsername||
+            ""
           )}
         </b>
       </div>
@@ -2994,7 +3706,19 @@ function showAccountModal(
         🔑 Password:
         <b>
           ${escapeHtml(
-            account.password||""
+            account.password||
+            account.accPassword||
+            ""
+          )}
+        </b>
+      </div>
+
+      <div>
+        📌 Status:
+        <b>
+          ${escapeHtml(
+            account.status||
+            ""
           )}
         </b>
       </div>
@@ -3034,7 +3758,10 @@ function closeAccountModal(){
 function formatMoney(value){
 
   const n=
-    Number(value||0);
+    Number(
+      String(value||0)
+      .replace(/[^\d.-]/g,"")
+    )||0;
 
   if(n>=1000){
 
@@ -3067,10 +3794,23 @@ function formatPrice(value){
 
   }
 
-  return Number(value||0)
-    .toLocaleString(
-      "vi-VN"
-    )+"K";
+  const n=
+    Number(
+      String(value)
+      .replace(/[^\d.-]/g,"")
+    );
+
+  if(isNaN(n)){
+
+    return escapeHtml(
+      String(value)
+    );
+
+  }
+
+  return n.toLocaleString(
+    "vi-VN"
+  )+"K";
 
 }
 
@@ -3156,6 +3896,43 @@ function escapeJs(value){
   );
 
 }
+
+
+/* =====================================================
+   JSON AN TOÀN CHO ONCLICK
+===================================================== */
+
+function safeJson(obj){
+
+  return JSON.stringify(obj)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/"/g,"&quot;");
+
+}
+
+
+/* =====================================================
+   ĐÓNG MODAL KHI CLICK NGOÀI
+===================================================== */
+
+document
+  .getElementById("accountModal")
+  .addEventListener(
+    "click",
+    function(e){
+
+      if(
+        e.target===this
+      ){
+
+        closeAccountModal();
+
+      }
+
+    }
+  );
+
 
 </script>
 
