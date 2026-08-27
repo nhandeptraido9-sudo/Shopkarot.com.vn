@@ -353,6 +353,12 @@ th{
   font-weight:bold;
 }
 
+.loading{
+  padding:20px;
+  text-align:center;
+  color:#6b7280;
+}
+
 @media(max-width:700px){
   .form-grid{grid-template-columns:1fr}
   .full{grid-column:auto}
@@ -368,9 +374,7 @@ th{
 
 <body>
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<!-- LOGIN -->
 
 <div id="loginPage" class="login-box">
 
@@ -403,9 +407,7 @@ th{
 </div>
 
 
-<!-- =====================================================
-     ADMIN
-===================================================== -->
+<!-- ADMIN -->
 
 <div id="adminPage" class="hidden">
 
@@ -429,9 +431,7 @@ th{
 
 <div class="container">
 
-<!-- =====================================================
-     DASHBOARD
-===================================================== -->
+<!-- DASHBOARD -->
 
 <div class="dashboard">
 
@@ -468,9 +468,7 @@ th{
 </div>
 
 
-<!-- =====================================================
-     SHOP STATUS
-===================================================== -->
+<!-- SHOP STATUS -->
 
 <div class="card" style="margin-bottom:20px">
 
@@ -513,60 +511,38 @@ th{
 </div>
 
 
-<!-- =====================================================
-     TABS
-===================================================== -->
+<!-- TABS -->
 
 <div class="tabs">
 
-  <button
-    class="tab active"
-    onclick="showTab('accounts',this)"
-  >
+  <button class="tab active" onclick="showTab('accounts',this)">
     🎮 Kho Acc
   </button>
 
-  <button
-    class="tab"
-    onclick="showTab('services',this)"
-  >
+  <button class="tab" onclick="showTab('services',this)">
     🛠️ Cày thuê
   </button>
 
-  <button
-    class="tab"
-    onclick="showTab('customers',this)"
-  >
+  <button class="tab" onclick="showTab('customers',this)">
     👥 Khách hàng
   </button>
 
-  <button
-    class="tab"
-    onclick="showTab('topups',this)"
-  >
+  <button class="tab" onclick="showTab('topups',this)">
     💰 Nạp tiền
   </button>
 
-  <button
-    class="tab"
-    onclick="showTab('orders',this)"
-  >
+  <button class="tab" onclick="showTab('orders',this)">
     📦 Đơn hàng
   </button>
 
-  <button
-    class="tab"
-    onclick="showTab('products',this)"
-  >
+  <button class="tab" onclick="showTab('products',this)">
     🛍️ Trạng thái sản phẩm
   </button>
 
 </div>
 
 
-<!-- =====================================================
-     KHO ACC
-===================================================== -->
+<!-- KHO ACC -->
 
 <section id="panel-accounts" class="panel active">
 
@@ -601,33 +577,21 @@ th{
       </select>
     </div>
 
-
     <div class="form-group">
 
       <label>📁 Thư mục</label>
 
-      <select
-        id="accountFolder"
-        class="input"
-        onchange="folderChanged()"
-      >
-
+      <select id="accountFolder" class="input" onchange="folderChanged()">
         <option value="">-- Chọn thư mục --</option>
-
       </select>
 
     </div>
-
 
     <div class="form-group">
 
       <label>💵 Giá</label>
 
-      <select
-        id="accountPrice"
-        class="input"
-        onchange="priceChanged()"
-      >
+      <select id="accountPrice" class="input" onchange="priceChanged()">
 
         <option value="">-- Chọn giá --</option>
 
@@ -650,19 +614,15 @@ th{
 
     </div>
 
-
     <div class="form-group">
 
       <label>📦 Gói</label>
 
       <select id="accountPackage" class="input">
-
         <option value="">-- Chọn gói --</option>
-
       </select>
 
     </div>
-
 
     <div class="form-group">
 
@@ -676,7 +636,6 @@ th{
       >
 
     </div>
-
 
     <div class="form-group">
 
@@ -692,7 +651,6 @@ th{
     </div>
 
   </div>
-
 
   <div class="actions">
 
@@ -753,9 +711,7 @@ th{
 </section>
 
 
-<!-- =====================================================
-     CÀY THUÊ
-===================================================== -->
+<!-- CÀY THUÊ -->
 
 <section id="panel-services" class="panel">
 
@@ -764,8 +720,8 @@ th{
   <h2>🛠️ Quản lý Cày thuê</h2>
 
   <div class="notice">
-    Đây là mục riêng cho dịch vụ <b>Cày thuê</b>.
-    Không ảnh hưởng đến Kho Acc.
+    Dữ liệu Cày thuê được lưu trực tiếp trên <b>Google Sheets</b>.
+    Không lưu dữ liệu dịch vụ trên trình duyệt.
   </div>
 
   <div class="form-grid">
@@ -778,42 +734,18 @@ th{
 
         <option value="">-- Chọn game --</option>
 
-        <option value="Blox Fruits">
-          Blox Fruits
-        </option>
-
-        <option value="King Legacy">
-          King Legacy
-        </option>
-
-        <option value="Grow A Garden">
-          Grow A Garden
-        </option>
-
-        <option value="Grow A Garden 2">
-          Grow A Garden 2
-        </option>
-
-        <option value="Anime Fighters">
-          Anime Fighters
-        </option>
-
-        <option value="Murder Mystery 2">
-          Murder Mystery 2
-        </option>
-
-        <option value="Steal a Egg">
-          🥚 Steal a Egg
-        </option>
-
-        <option value="Khác">
-          Khác
-        </option>
+        <option value="Blox Fruits">Blox Fruits</option>
+        <option value="King Legacy">King Legacy</option>
+        <option value="Grow A Garden">Grow A Garden</option>
+        <option value="Grow A Garden 2">Grow A Garden 2</option>
+        <option value="Anime Fighters">Anime Fighters</option>
+        <option value="Murder Mystery 2">Murder Mystery 2</option>
+        <option value="Steal a Egg">🥚 Steal a Egg</option>
+        <option value="Khác">Khác</option>
 
       </select>
 
     </div>
-
 
     <div class="form-group">
 
@@ -826,7 +758,6 @@ th{
       >
 
     </div>
-
 
     <div class="form-group">
 
@@ -841,7 +772,6 @@ th{
       >
 
     </div>
-
 
     <div class="form-group">
 
@@ -861,7 +791,6 @@ th{
 
     </div>
 
-
     <div class="form-group full">
 
       <label>📝 Mô tả dịch vụ</label>
@@ -877,7 +806,6 @@ th{
 
   </div>
 
-
   <div class="actions">
 
     <button
@@ -892,6 +820,13 @@ th{
       onclick="clearServiceForm()"
     >
       🧹 Xóa form
+    </button>
+
+    <button
+      class="btn btn-primary"
+      onclick="loadServices()"
+    >
+      🔄 Tải lại Google Sheets
     </button>
 
   </div>
@@ -920,16 +855,18 @@ th{
     oninput="renderServices()"
   >
 
-  <div id="servicesContainer"></div>
+  <div id="servicesContainer">
+    <div class="loading">
+      ⏳ Đang tải dữ liệu Cày thuê...
+    </div>
+  </div>
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     CUSTOMERS
-===================================================== -->
+<!-- CUSTOMERS -->
 
 <section id="panel-customers" class="panel">
 
@@ -970,9 +907,7 @@ th{
 </section>
 
 
-<!-- =====================================================
-     TOPUPS
-===================================================== -->
+<!-- TOPUPS -->
 
 <section id="panel-topups" class="panel">
 
@@ -1012,9 +947,7 @@ th{
 </section>
 
 
-<!-- =====================================================
-     ORDERS
-===================================================== -->
+<!-- ORDERS -->
 
 <section id="panel-orders" class="panel">
 
@@ -1051,9 +984,7 @@ th{
 </section>
 
 
-<!-- =====================================================
-     PRODUCT STATUS
-===================================================== -->
+<!-- PRODUCTS -->
 
 <section id="panel-products" class="panel">
 
@@ -1075,9 +1006,7 @@ th{
 </div>
 
 
-<!-- =====================================================
-     MODAL
-===================================================== -->
+<!-- MODAL -->
 
 <div id="accountModal" class="modal hidden">
 
@@ -1118,22 +1047,8 @@ let accounts=[];
 let customers=[];
 let topups=[];
 let orders=[];
-let productStatuses={};
-
-/* =====================================================
-   CÀY THUÊ - LOCAL DATA
-===================================================== */
-
 let services=[];
-
-try{
-  services=JSON.parse(
-    localStorage.getItem("shopkarot_cay_thue_services")||"[]"
-  );
-  if(!Array.isArray(services)) services=[];
-}catch(e){
-  services=[];
-}
+let productStatuses={};
 
 
 /* =====================================================
@@ -1282,8 +1197,6 @@ function logout(){
 
 window.addEventListener("load",async function(){
 
-  renderServices();
-
   const saved=
     localStorage.getItem(
       "shopkarot_admin_key"
@@ -1340,13 +1253,13 @@ async function loadAll(){
     loadDashboard(),
     loadShopStatus(),
     loadAccounts(),
+    loadServices(),
     loadCustomers(),
     loadTopups(),
     loadOrders(),
     loadProducts()
   ]);
 
-  renderServices();
 }
 
 
@@ -1501,7 +1414,7 @@ async function setShopStatus(){
 
 
 /* =====================================================
-   GAME → FOLDER
+   GAME FOLDER
 ===================================================== */
 
 const folderData={
@@ -1598,6 +1511,7 @@ function gameChanged(){
 
     updatePackages();
     return;
+
   }
 
   const list=folderData[game]||[];
@@ -1715,6 +1629,7 @@ async function addAccount(){
     );
 
     return;
+
   }
 
   showAccountMessage(
@@ -1750,6 +1665,7 @@ async function addAccount(){
       );
 
       return;
+
     }
 
     showAccountMessage(
@@ -1821,7 +1737,7 @@ function clearAccountForm(){
 
 
 /* =====================================================
-   LOAD ACCOUNTS
+   ACCOUNTS
 ===================================================== */
 
 async function loadAccounts(){
@@ -1848,10 +1764,6 @@ async function loadAccounts(){
 
 }
 
-
-/* =====================================================
-   RENDER ACCOUNTS
-===================================================== */
 
 function renderAccounts(){
 
@@ -1954,10 +1866,6 @@ function renderAccounts(){
 }
 
 
-/* =====================================================
-   DELETE ACCOUNT
-===================================================== */
-
 async function deleteAccount(id){
 
   if(!id)return;
@@ -1985,6 +1893,7 @@ async function deleteAccount(id){
       );
 
       return;
+
     }
 
     alert("✅ Đã xóa tài khoản.");
@@ -2004,24 +1913,83 @@ async function deleteAccount(id){
 
 
 /* =====================================================
-   CÀY THUÊ
+   CÀY THUÊ - GOOGLE SHEETS
 ===================================================== */
 
-function saveServices(){
+async function loadServices(){
 
-  localStorage.setItem(
-    "shopkarot_cay_thue_services",
-    JSON.stringify(services)
-  );
+  const container=
+    document.getElementById(
+      "servicesContainer"
+    );
 
-  document.getElementById(
-    "dashServices"
-  ).textContent=services.length;
+  if(container){
+
+    container.innerHTML=
+      `<div class="loading">
+        ⏳ Đang tải Cày thuê từ Google Sheets...
+      </div>`;
+
+  }
+
+  try{
+
+    const result=
+      await apiGet("getServices");
+
+    if(!result.ok){
+
+      services=[];
+
+      renderServices();
+
+      showServiceMessage(
+        "❌ "+
+        (
+          result.message||
+          "Không tải được dữ liệu Cày thuê."
+        ),
+        "red"
+      );
+
+      return;
+
+    }
+
+    services=
+      Array.isArray(result.services)
+        ?result.services
+        :[];
+
+    renderServices();
+
+    document.getElementById(
+      "dashServices"
+    ).textContent=services.length;
+
+  }catch(err){
+
+    console.error(err);
+
+    services=[];
+
+    renderServices();
+
+    showServiceMessage(
+      "❌ Không kết nối được Google Sheets.",
+      "red"
+    );
+
+  }
 
 }
 
 
-function addService(){
+/* =====================================================
+   ADD SERVICE - GOOGLE SHEETS
+===================================================== */
+
+async function addService(){
 
   const game=
     document.getElementById(
@@ -2056,38 +2024,70 @@ function addService(){
     );
 
     return;
+
   }
 
-  const service={
-
-    id:
-      "CT-"+Date.now(),
-
-    game:game,
-
-    name:name,
-
-    price:Number(price)||0,
-
-    status:status,
-
-    description:description,
-
-    createdAt:
-      new Date().toISOString()
-
-  };
-
-  services.unshift(service);
-
-  saveServices();
-  renderServices();
-  clearServiceForm();
-
   showServiceMessage(
-    "✅ Đã thêm dịch vụ cày thuê.",
-    "green"
+    "⏳ Đang lưu dịch vụ vào Google Sheets...",
+    "#2563eb"
   );
+
+  try{
+
+    const result=
+      await apiPost(
+        "addService",
+        {
+          key:ADMIN_KEY,
+
+          game:game,
+
+          name:name,
+
+          price:Number(price)||0,
+
+          status:status,
+
+          description:description
+        }
+      );
+
+    if(!result.ok){
+
+      showServiceMessage(
+        "❌ "+
+        (
+          result.message||
+          "Không thể thêm dịch vụ."
+        ),
+        "red"
+      );
+
+      return;
+
+    }
+
+    clearServiceForm();
+
+    showServiceMessage(
+      "✅ Đã thêm dịch vụ vào Google Sheets.",
+      "green"
+    );
+
+    await loadServices();
+
+    await loadDashboard();
+
+  }catch(err){
+
+    console.error(err);
+
+    showServiceMessage(
+      "❌ Lỗi kết nối Google Sheets.",
+      "red"
+    );
+
+  }
 
 }
 
@@ -2130,6 +2130,10 @@ function clearServiceForm(){
 }
 
 
+/* =====================================================
+   RENDER SERVICES
+===================================================== */
+
 function renderServices(){
 
   const container=
@@ -2152,6 +2156,7 @@ function renderServices(){
     services.filter(service=>{
 
       const text=[
+        service.id,
         service.game,
         service.name,
         service.price,
@@ -2170,6 +2175,11 @@ function renderServices(){
   ).textContent=
     list.length+" dịch vụ";
 
+  document.getElementById(
+    "dashServices"
+  ).textContent=
+    services.length;
+
   container.innerHTML="";
 
   if(!list.length){
@@ -2183,6 +2193,7 @@ function renderServices(){
     `;
 
     return;
+
   }
 
   list.forEach(service=>{
@@ -2203,7 +2214,7 @@ function renderServices(){
       <div class="service-header">
 
         <div class="service-title">
-          ${escapeHtml(service.name)}
+          ${escapeHtml(service.name||"")}
         </div>
 
         <div class="service-price">
@@ -2215,13 +2226,15 @@ function renderServices(){
       <div class="service-meta">
 
         <span class="badge available">
-          🎮 ${escapeHtml(service.game)}
+          🎮 ${escapeHtml(service.game||"")}
         </span>
 
         <span class="badge ${statusClass}">
-          ${service.status==="Sẵn Sàng"
-            ?"🟢 Sẵn Sàng"
-            :"🔴 Chưa Sẵn Sàng"}
+          ${
+            service.status==="Sẵn Sàng"
+              ?"🟢 Sẵn Sàng"
+              :"🔴 Chưa Sẵn Sàng"
+          }
         </span>
 
       </div>
@@ -2236,7 +2249,7 @@ function renderServices(){
       </div>
 
       <div class="small">
-        ID: ${escapeHtml(service.id)}
+        ID: ${escapeHtml(service.id||"")}
         ${
           service.createdAt
             ?" • "+escapeHtml(formatDate(service.createdAt))
@@ -2248,21 +2261,21 @@ function renderServices(){
 
         <button
           class="btn btn-primary"
-          onclick="editService('${escapeJs(service.id)}')"
+          onclick="editService('${escapeJs(service.id||"")}')"
         >
           ✏️ Sửa
         </button>
 
         <button
           class="btn btn-warning"
-          onclick="toggleServiceStatus('${escapeJs(service.id)}')"
+          onclick="toggleServiceStatus('${escapeJs(service.id||"")}')"
         >
           🔄 Đổi trạng thái
         </button>
 
         <button
           class="btn btn-danger"
-          onclick="deleteService('${escapeJs(service.id)}')"
+          onclick="deleteService('${escapeJs(service.id||"")}')"
         >
           🗑️ Xóa
         </button>
@@ -2278,54 +2291,35 @@ function renderServices(){
 }
 
 
+/* =====================================================
+   FIND SERVICE
+===================================================== */
+
 function findService(id){
 
   return services.find(
-    service=>String(service.id)===String(id)
+    service=>
+      String(service.id)===String(id)
   );
 
 }
 
 
-function editService(id){
+/* =====================================================
+   EDIT SERVICE - GOOGLE SHEETS
+===================================================== */
 
-  const service=findService(id);
+async function editService(id){
+
+  const service=
+    findService(id);
 
   if(!service)return;
 
-  document.getElementById(
-    "serviceGame"
-  ).value=service.game||"";
-
-  document.getElementById(
-    "serviceName"
-  ).value=service.name||"";
-
-  document.getElementById(
-    "servicePrice"
-  ).value=service.price??"";
-
-  document.getElementById(
-    "serviceStatus"
-  ).value=
-    service.status||"Sẵn Sàng";
-
-  document.getElementById(
-    "serviceDescription"
-  ).value=
-    service.description||"";
-
-  const index=
-    services.findIndex(
-      item=>item.id===id
-    );
-
-  if(index<0)return;
-
   const newName=
     prompt(
-      "Nhập tên dịch vụ mới:",
-      service.name
+      "Nhập tên dịch vụ:",
+      service.name||""
     );
 
   if(newName===null)return;
@@ -2333,7 +2327,7 @@ function editService(id){
   const newPrice=
     prompt(
       "Nhập giá mới:",
-      service.price
+      service.price||0
     );
 
   if(newPrice===null)return;
@@ -2353,42 +2347,144 @@ function editService(id){
       ?"Sẵn Sàng"
       :"Chưa Sẵn Sàng";
 
-  services[index]={
-    ...service,
-    name:newName.trim()||service.name,
-    price:Number(newPrice)||0,
-    description:newDescription,
-    status:newStatus
-  };
+  const newGame=
+    prompt(
+      "Nhập Game:",
+      service.game||""
+    );
 
-  saveServices();
-  renderServices();
+  if(newGame===null)return;
 
-  alert("✅ Đã cập nhật dịch vụ.");
+  try{
+
+    const result=
+      await apiPost(
+        "updateService",
+        {
+          key:ADMIN_KEY,
+
+          id:id,
+
+          game:newGame.trim()||service.game,
+
+          name:newName.trim()||service.name,
+
+          price:Number(newPrice)||0,
+
+          status:newStatus,
+
+          description:newDescription
+        }
+      );
+
+    if(!result.ok){
+
+      alert(
+        "❌ "+
+        (
+          result.message||
+          "Không thể cập nhật."
+        )
+      );
+
+      return;
+
+    }
+
+    alert(
+      "✅ Đã cập nhật dịch vụ trong Google Sheets."
+    );
+
+    await loadServices();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "❌ Lỗi kết nối Google Sheets."
+    );
+
+  }
 
 }
 
 
-function toggleServiceStatus(id){
+/* =====================================================
+   TOGGLE SERVICE STATUS
+===================================================== */
 
-  const service=findService(id);
+async function toggleServiceStatus(id){
+
+  const service=
+    findService(id);
 
   if(!service)return;
 
-  service.status=
+  const newStatus=
     service.status==="Sẵn Sàng"
       ?"Chưa Sẵn Sàng"
       :"Sẵn Sàng";
 
-  saveServices();
-  renderServices();
+  try{
+
+    const result=
+      await apiPost(
+        "updateService",
+        {
+          key:ADMIN_KEY,
+
+          id:id,
+
+          game:service.game,
+
+          name:service.name,
+
+          price:Number(service.price)||0,
+
+          status:newStatus,
+
+          description:service.description||""
+        }
+      );
+
+    if(!result.ok){
+
+      alert(
+        "❌ "+
+        (
+          result.message||
+          "Không thể đổi trạng thái."
+        )
+      );
+
+      return;
+
+    }
+
+    await loadServices();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "❌ Lỗi kết nối Google Sheets."
+    );
+
+  }
 
 }
 
 
-function deleteService(id){
+/* =====================================================
+   DELETE SERVICE
+===================================================== */
 
-  const service=findService(id);
+async function deleteService(id){
+
+  const service=
+    findService(id);
 
   if(!service)return;
 
@@ -2398,15 +2494,48 @@ function deleteService(id){
     "?"
   ))return;
 
-  services=
-    services.filter(
-      item=>item.id!==id
+  try{
+
+    const result=
+      await apiPost(
+        "deleteService",
+        {
+          key:ADMIN_KEY,
+          id:id
+        }
+      );
+
+    if(!result.ok){
+
+      alert(
+        "❌ "+
+        (
+          result.message||
+          "Không thể xóa dịch vụ."
+        )
+      );
+
+      return;
+
+    }
+
+    alert(
+      "✅ Đã xóa dịch vụ khỏi Google Sheets."
     );
 
-  saveServices();
-  renderServices();
+    await loadServices();
 
-  alert("✅ Đã xóa dịch vụ.");
+    await loadDashboard();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "❌ Lỗi kết nối Google Sheets."
+    );
+
+  }
 
 }
 
@@ -3131,11 +3260,21 @@ function showTab(name,button){
     );
 
   if(panel){
+
     panel.classList.add("active");
+
   }
 
   if(button){
+
     button.classList.add("active");
+
+  }
+
+  if(name==="services"){
+
+    loadServices();
+
   }
 
 }
@@ -3308,7 +3447,7 @@ function escapeJs(value){
 
 
 /* =====================================================
-   CLICK OUTSIDE MODAL
+   MODAL
 ===================================================== */
 
 document
@@ -3321,10 +3460,6 @@ document
 
   });
 
-
-/* =====================================================
-   ESC CLOSE MODAL
-===================================================== */
 
 document.addEventListener("keydown",function(e){
 
