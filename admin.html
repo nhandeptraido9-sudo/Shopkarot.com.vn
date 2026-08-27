@@ -15,7 +15,7 @@ body{
   color:#111827;
 }
 
-button,input,select,textarea{font:inherit}
+button,input,select{font:inherit}
 
 .login-box{
   width:min(420px,92%);
@@ -189,7 +189,7 @@ header h2{
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:1000px;
+  min-width:900px;
   background:#fff;
 }
 
@@ -205,7 +205,6 @@ th{
   color:#fff;
   position:sticky;
   top:0;
-  z-index:2;
 }
 
 .badge{
@@ -216,12 +215,15 @@ th{
   font-weight:bold;
 }
 
-.available{
+.available,
+.completed,
+.approved{
   background:#dcfce7;
   color:#166534;
 }
 
-.sold{
+.sold,
+.rejected{
   background:#fee2e2;
   color:#991b1b;
 }
@@ -229,21 +231,6 @@ th{
 .pending{
   background:#fef3c7;
   color:#92400e;
-}
-
-.completed{
-  background:#dcfce7;
-  color:#166534;
-}
-
-.processing{
-  background:#dbeafe;
-  color:#1e40af;
-}
-
-.cancelled{
-  background:#fee2e2;
-  color:#991b1b;
 }
 
 .notice{
@@ -280,7 +267,7 @@ th{
 }
 
 .modal-content{
-  width:min(800px,100%);
+  width:min(700px,100%);
   max-height:90vh;
   overflow:auto;
   background:#fff;
@@ -356,28 +343,16 @@ th{
   border-left:5px solid #ef4444;
 }
 
-.order-type{
-  font-weight:bold;
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#6b7280;
 }
 
-.caythue-row{
-  background:#fffbeb;
-}
-
-.acc-row{
-  background:#fff;
-}
-
-.info-box{
-  background:#f9fafb;
-  border:1px solid #e5e7eb;
-  padding:14px;
-  border-radius:12px;
-  margin-top:12px;
-}
-
-.info-box div{
-  margin:7px 0;
+.loading{
+  text-align:center;
+  padding:25px;
+  color:#2563eb;
 }
 
 @media(max-width:700px){
@@ -424,10 +399,12 @@ th{
     class="input"
     type="password"
     placeholder="Nhập Admin Key"
+    autocomplete="off"
     onkeydown="if(event.key==='Enter')adminLogin()"
   >
 
   <button
+    id="loginButton"
     class="btn btn-primary"
     style="width:100%"
     onclick="adminLogin()"
@@ -510,10 +487,7 @@ th{
      SHOP STATUS
 ===================================================== -->
 
-<div
-  class="card"
-  style="margin-bottom:20px"
->
+<div class="card" style="margin-bottom:20px">
 
   <h3>⚙️ Trạng thái Shop</h3>
 
@@ -570,15 +544,7 @@ th{
     class="tab active"
     onclick="showTab('accounts',this)"
   >
-    🎮 Acc Game
-  </button>
-
-  <!-- CÀY THUÊ ĐẶT KẾ BÊN ACC GAME -->
-  <button
-    class="tab"
-    onclick="showTab('caythue',this)"
-  >
-    🛠️ Cày thuê
+    🎮 Kho Acc
   </button>
 
   <button
@@ -616,10 +582,7 @@ th{
      KHO ACC
 ===================================================== -->
 
-<section
-  id="panel-accounts"
-  class="panel active"
->
+<section id="panel-accounts" class="panel active">
 
 <div class="card">
 
@@ -794,6 +757,7 @@ th{
   <div class="actions">
 
     <button
+      id="addAccountButton"
       class="btn btn-success"
       onclick="addAccount()"
     >
@@ -809,18 +773,12 @@ th{
 
   </div>
 
-  <div
-    id="accountMessage"
-    style="margin-top:15px"
-  ></div>
+  <div id="accountMessage" style="margin-top:15px"></div>
 
 </div>
 
 
-<div
-  class="card"
-  style="margin-top:20px"
->
+<div class="card" style="margin-top:20px">
 
   <h2>📦 Kho tài khoản</h2>
 
@@ -863,88 +821,10 @@ th{
 
 
 <!-- =====================================================
-     CÀY THUÊ
-===================================================== -->
-
-<section
-  id="panel-caythue"
-  class="panel"
->
-
-<div class="card">
-
-  <h2>🛠️ Quản lý Cày thuê Blox Fruits</h2>
-
-  <div class="notice">
-    Các đơn có <b>Loại đơn = Cày thuê</b> hoặc dịch vụ chứa
-    <b>Cày thuê</b> sẽ được hiển thị tại đây.
-    Dữ liệu lấy trực tiếp từ Google Sheets <b>DonHang</b>.
-  </div>
-
-  <input
-    id="cayThueSearch"
-    class="input search"
-    placeholder="🔎 Tìm mã đơn, khách, Roblox, dịch vụ..."
-    oninput="renderCayThue()"
-  >
-
-  <div class="actions">
-
-    <button
-      class="btn btn-primary"
-      onclick="loadOrders();"
-    >
-      🔄 Làm mới đơn cày thuê
-    </button>
-
-  </div>
-
-  <div
-    id="cayThueMessage"
-    style="margin-top:15px"
-  ></div>
-
-  <div class="table-wrap">
-
-    <table>
-
-      <thead>
-
-        <tr>
-          <th>Mã đơn</th>
-          <th>Khách</th>
-          <th>Username Roblox</th>
-          <th>Thông tin đăng nhập</th>
-          <th>Quyền truy cập</th>
-          <th>Loại đơn</th>
-          <th>Dịch vụ</th>
-          <th>Giá</th>
-          <th>Ghi chú khách</th>
-          <th>Ghi chú Admin</th>
-          <th>Ngày tạo</th>
-        </tr>
-
-      </thead>
-
-      <tbody id="cayThueBody"></tbody>
-
-    </table>
-
-  </div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
      CUSTOMERS
 ===================================================== -->
 
-<section
-  id="panel-customers"
-  class="panel"
->
+<section id="panel-customers" class="panel">
 
 <div class="card">
 
@@ -987,10 +867,7 @@ th{
      TOPUPS
 ===================================================== -->
 
-<section
-  id="panel-topups"
-  class="panel"
->
+<section id="panel-topups" class="panel">
 
 <div class="card">
 
@@ -1032,26 +909,11 @@ th{
      ORDERS
 ===================================================== -->
 
-<section
-  id="panel-orders"
-  class="panel"
->
+<section id="panel-orders" class="panel">
 
 <div class="card">
 
-  <h2>📦 Tất cả đơn hàng - DonHang</h2>
-
-  <input
-    id="orderSearch"
-    class="input search"
-    placeholder="🔎 Tìm mã đơn, khách, Roblox, loại đơn, dịch vụ..."
-    oninput="renderOrders()"
-  >
-
-  <div class="notice">
-    Bao gồm cả <b>đơn mua acc</b> và <b>đơn cày thuê</b>.
-    Đơn cày thuê được đánh dấu riêng.
-  </div>
+  <h2>📦 Đơn hàng</h2>
 
   <div class="table-wrap">
 
@@ -1060,17 +922,13 @@ th{
       <thead>
 
         <tr>
-          <th>Mã đơn</th>
-          <th>Tên khách</th>
-          <th>Username Roblox</th>
-          <th>Thông tin đăng nhập</th>
-          <th>Quyền truy cập</th>
-          <th>Loại đơn</th>
-          <th>Dịch vụ</th>
+          <th>ID</th>
+          <th>Khách</th>
+          <th>Sản phẩm</th>
           <th>Giá</th>
-          <th>Ghi chú khách</th>
-          <th>Ghi chú Admin</th>
-          <th>Ngày tạo</th>
+          <th>Trạng thái</th>
+          <th>Thời gian</th>
+          <th>Acc</th>
         </tr>
 
       </thead>
@@ -1090,10 +948,7 @@ th{
      PRODUCT STATUS
 ===================================================== -->
 
-<section
-  id="panel-products"
-  class="panel"
->
+<section id="panel-products" class="panel">
 
 <div class="card">
 
@@ -1117,13 +972,10 @@ th{
 
 
 <!-- =====================================================
-     ACCOUNT MODAL
+     MODAL
 ===================================================== -->
 
-<div
-  id="accountModal"
-  class="modal hidden"
->
+<div id="accountModal" class="modal hidden">
 
 <div class="modal-content">
 
@@ -1182,15 +1034,11 @@ async function apiPost(action,data={}){
     })
   });
 
-  const text=await response.text();
-
-  try{
-    return JSON.parse(text);
-  }catch(e){
-    throw new Error(
-      "API không trả về JSON: "+text
-    );
+  if(!response.ok){
+    throw new Error("HTTP "+response.status);
   }
+
+  return await response.json();
 
 }
 
@@ -1207,15 +1055,11 @@ async function apiGet(action){
     encodeURIComponent(action)
   );
 
-  const text=await response.text();
-
-  try{
-    return JSON.parse(text);
-  }catch(e){
-    throw new Error(
-      "API không trả về JSON: "+text
-    );
+  if(!response.ok){
+    throw new Error("HTTP "+response.status);
   }
+
+  return await response.json();
 
 }
 
@@ -1226,10 +1070,10 @@ async function apiGet(action){
 
 async function adminLogin(){
 
-  const key=document
-    .getElementById("adminKey")
-    .value
-    .trim();
+  const input=document.getElementById("adminKey");
+  const button=document.getElementById("loginButton");
+
+  const key=input.value.trim();
 
   if(!key){
 
@@ -1241,6 +1085,8 @@ async function adminLogin(){
     return;
 
   }
+
+  button.disabled=true;
 
   showLoginMessage(
     "⏳ Đang kiểm tra...",
@@ -1256,14 +1102,15 @@ async function adminLogin(){
       }
     );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       showLoginMessage(
-        result.message||
+        result?.message ||
         "Admin Key không đúng.",
         "red"
       );
 
+      button.disabled=false;
       return;
 
     }
@@ -1294,6 +1141,10 @@ async function adminLogin(){
       "red"
     );
 
+  }finally{
+
+    button.disabled=false;
+
   }
 
 }
@@ -1301,8 +1152,9 @@ async function adminLogin(){
 
 function showLoginMessage(text,color){
 
-  const el=document
-    .getElementById("loginMessage");
+  const el=document.getElementById(
+    "loginMessage"
+  );
 
   el.textContent=text;
   el.style.color=color;
@@ -1352,7 +1204,7 @@ window.addEventListener(
           }
         );
 
-      if(result.ok){
+      if(result && result.ok){
 
         ADMIN_KEY=saved;
 
@@ -1376,7 +1228,10 @@ window.addEventListener(
 
     }catch(err){
 
-      console.error(err);
+      console.error(
+        "Auto login error:",
+        err
+      );
 
     }
 
@@ -1390,7 +1245,7 @@ window.addEventListener(
 
 async function loadAll(){
 
-  await Promise.all([
+  await Promise.allSettled([
 
     loadDashboard(),
 
@@ -1424,7 +1279,7 @@ async function loadDashboard(){
         "getDashboard"
       );
 
-    if(!result.ok)return;
+    if(!result || !result.ok)return;
 
     document.getElementById(
       "dashCustomers"
@@ -1455,7 +1310,10 @@ async function loadDashboard(){
 
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Dashboard:",
+      err
+    );
 
   }
 
@@ -1475,7 +1333,7 @@ async function loadShopStatus(){
         "getShopStatus"
       );
 
-    if(!result.ok)return;
+    if(!result || !result.ok)return;
 
     const status=
       result.status||
@@ -1489,35 +1347,42 @@ async function loadShopStatus(){
       "shopStatusSelect"
     ).value=status;
 
-    const dot=
-      document.getElementById(
-        "shopStatusDot"
-      );
-
-    if(
-      status==="Shop đang hoạt động"
-    ){
-
-      dot.style.background=
-        "#22c55e";
-
-    }else if(
-      status==="Shop đang bảo trì"
-    ){
-
-      dot.style.background=
-        "#f59e0b";
-
-    }else{
-
-      dot.style.background=
-        "#ef4444";
-
-    }
+    updateShopStatusVisual(status);
 
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Shop status:",
+      err
+    );
+
+  }
+
+}
+
+
+function updateShopStatusVisual(status){
+
+  const dot=
+    document.getElementById(
+      "shopStatusDot"
+    );
+
+  if(
+    status==="Shop đang hoạt động"
+  ){
+
+    dot.style.background="#22c55e";
+
+  }else if(
+    status==="Shop đang bảo trì"
+  ){
+
+    dot.style.background="#f59e0b";
+
+  }else{
+
+    dot.style.background="#ef4444";
 
   }
 
@@ -1542,10 +1407,10 @@ async function setShopStatus(){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
-        result.message||
+        result?.message||
         "Không thể cập nhật."
       );
 
@@ -1553,11 +1418,15 @@ async function setShopStatus(){
 
     }
 
+    document.getElementById(
+      "shopStatusText"
+    ).textContent=status;
+
+    updateShopStatusVisual(status);
+
     alert(
       "✅ Đã cập nhật trạng thái Shop."
     );
-
-    await loadShopStatus();
 
   }catch(err){
 
@@ -1689,7 +1558,6 @@ function gameChanged(){
       );
 
     option.value=name;
-
     option.textContent=name;
 
     folder.appendChild(option);
@@ -1748,11 +1616,8 @@ function updatePackages(){
         "option"
       );
 
-    option.value=
-      "Gói "+i;
-
-    option.textContent=
-      "Gói "+i;
+    option.value="Gói "+i;
+    option.textContent="Gói "+i;
 
     packageSelect.appendChild(
       option
@@ -1817,16 +1682,12 @@ async function addAccount(){
 
   }
 
-  if(!ADMIN_KEY){
-
-    showAccountMessage(
-      "❌ Phiên Admin đã hết. Vui lòng đăng nhập lại.",
-      "red"
+  const button=
+    document.getElementById(
+      "addAccountButton"
     );
 
-    return;
-
-  }
+  button.disabled=true;
 
   showAccountMessage(
     "⏳ Đang thêm tài khoản...",
@@ -1849,12 +1710,12 @@ async function addAccount(){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       showAccountMessage(
         "❌ "+
         (
-          result.message||
+          result?.message||
           "Không thể thêm acc."
         ),
         "red"
@@ -1871,9 +1732,10 @@ async function addAccount(){
 
     clearAccountForm();
 
-    await loadAccounts();
-
-    await loadDashboard();
+    await Promise.all([
+      loadAccounts(),
+      loadDashboard()
+    ]);
 
   }catch(err){
 
@@ -1884,15 +1746,16 @@ async function addAccount(){
       "red"
     );
 
+  }finally{
+
+    button.disabled=false;
+
   }
 
 }
 
 
-function showAccountMessage(
-  text,
-  color
-){
+function showAccountMessage(text,color){
 
   const el=
     document.getElementById(
@@ -1900,14 +1763,13 @@ function showAccountMessage(
     );
 
   el.textContent=text;
-
   el.style.color=color;
 
 }
 
 
 /* =====================================================
-   CLEAR ACCOUNT FORM
+   CLEAR FORM
 ===================================================== */
 
 function clearAccountForm(){
@@ -1954,18 +1816,31 @@ async function loadAccounts(){
         "getAccounts"
       );
 
-    if(result.ok){
+    if(result && result.ok){
 
       accounts=
-        result.accounts||[];
+        Array.isArray(result.accounts)
+          ?result.accounts
+          :[];
 
+      renderAccounts();
+
+    }else{
+
+      accounts=[];
       renderAccounts();
 
     }
 
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Accounts:",
+      err
+    );
+
+    accounts=[];
+    renderAccounts();
 
   }
 
@@ -1992,8 +1867,8 @@ function renderAccounts(){
 
   body.innerHTML="";
 
-  accounts
-    .filter(acc=>{
+  const filtered=
+    accounts.filter(acc=>{
 
       const text=[
 
@@ -2014,104 +1889,137 @@ function renderAccounts(){
 
       return text.includes(search);
 
-    })
-    .forEach(acc=>{
-
-      const tr=
-        document.createElement(
-          "tr"
-        );
-
-      const status=
-        String(
-          acc.status||""
-        ).toLowerCase();
-
-      let badgeClass="";
-
-      if(
-        status==="available"||
-        status==="còn hàng"
-      )
-        badgeClass="available";
-
-      if(
-        status==="sold"||
-        status==="đã bán"
-      )
-        badgeClass="sold";
-
-      tr.innerHTML=`
-
-        <td>
-          ${escapeHtml(acc.id||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(acc.game||"")}
-        </td>
-
-        <td>
-          ${escapeHtml(acc.folder||"-")}
-        </td>
-
-        <td>
-          ${formatPrice(acc.price)}
-        </td>
-
-        <td>
-          ${escapeHtml(acc.package||"-")}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            acc.username||
-            acc.accUsername||
-            ""
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            acc.password||
-            acc.accPassword||
-            ""
-          )}
-        </td>
-
-        <td>
-
-          <span class="badge ${badgeClass}">
-            ${escapeHtml(
-              acc.status||""
-            )}
-          </span>
-
-        </td>
-
-        <td>
-
-          <button
-            class="btn btn-primary"
-            onclick='showAccountModal(${safeJson(acc)})'
-          >
-            👁️ Xem
-          </button>
-
-          <button
-            class="btn btn-danger"
-            onclick="deleteAccount('${escapeJs(acc.id||"")}')"
-          >
-            🗑️ Xóa
-          </button>
-
-        </td>
-
-      `;
-
-      body.appendChild(tr);
-
     });
+
+  if(!filtered.length){
+
+    body.innerHTML=`
+      <tr>
+        <td colspan="9" class="empty">
+          📦 Không có tài khoản nào.
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+  filtered.forEach(acc=>{
+
+    const tr=
+      document.createElement("tr");
+
+    const status=
+      String(
+        acc.status||""
+      ).toLowerCase();
+
+    let badgeClass="";
+
+    if(status==="available")
+      badgeClass="available";
+
+    else if(status==="sold")
+      badgeClass="sold";
+
+    tr.innerHTML=`
+
+      <td>
+        ${escapeHtml(acc.id||"")}
+      </td>
+
+      <td>
+        ${escapeHtml(acc.game||"")}
+      </td>
+
+      <td>
+        ${escapeHtml(acc.folder||"-")}
+      </td>
+
+      <td>
+        ${formatPrice(acc.price)}
+      </td>
+
+      <td>
+        ${escapeHtml(acc.package||"-")}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          acc.username||
+          acc.accUsername||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          acc.password||
+          acc.accPassword||
+          ""
+        )}
+      </td>
+
+      <td>
+
+        <span class="badge ${badgeClass}">
+          ${escapeHtml(
+            acc.status||""
+          )}
+        </span>
+
+      </td>
+
+      <td>
+
+        <button
+          class="btn btn-primary"
+          onclick="showAccountById('${escapeJs(acc.id||"")}')"
+        >
+          👁️ Xem
+        </button>
+
+        <button
+          class="btn btn-danger"
+          onclick="deleteAccount('${escapeJs(acc.id||"")}')"
+        >
+          🗑️ Xóa
+        </button>
+
+      </td>
+
+    `;
+
+    body.appendChild(tr);
+
+  });
+
+}
+
+
+/* =====================================================
+   SHOW ACCOUNT BY ID
+===================================================== */
+
+function showAccountById(id){
+
+  const account=
+    accounts.find(
+      acc=>String(acc.id||"")===String(id)
+    );
+
+  if(!account){
+
+    alert(
+      "❌ Không tìm thấy tài khoản."
+    );
+
+    return;
+
+  }
+
+  showAccountModal(account);
 
 }
 
@@ -2139,10 +2047,10 @@ async function deleteAccount(id){
         }
       );
 
-    if(!result.ok){
+    if(!result || !result.ok){
 
       alert(
-        result.message||
+        result?.message||
         "Không thể xóa."
       );
 
@@ -2154,9 +2062,10 @@ async function deleteAccount(id){
       "✅ Đã xóa tài khoản."
     );
 
-    await loadAccounts();
-
-    await loadDashboard();
+    await Promise.all([
+      loadAccounts(),
+      loadDashboard()
+    ]);
 
   }catch(err){
 
@@ -2184,18 +2093,31 @@ async function loadCustomers(){
         "getCustomers"
       );
 
-    if(result.ok){
+    if(result && result.ok){
 
       customers=
-        result.customers||[];
+        Array.isArray(result.customers)
+          ?result.customers
+          :[];
 
+      renderCustomers();
+
+    }else{
+
+      customers=[];
       renderCustomers();
 
     }
 
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Customers:",
+      err
+    );
+
+    customers=[];
+    renderCustomers();
 
   }
 
@@ -2218,59 +2140,76 @@ function renderCustomers(){
 
   body.innerHTML="";
 
-  customers
-    .filter(user=>
-      String(
+  const filtered=
+    customers.filter(user=>{
+
+      return String(
         user.username||
         user.name||
         ""
       )
       .toLowerCase()
-      .includes(search)
-    )
-    .forEach(user=>{
-
-      const tr=
-        document.createElement(
-          "tr"
-        );
-
-      tr.innerHTML=`
-
-        <td>
-          ${escapeHtml(
-            user.username||
-            user.name||
-            ""
-          )}
-        </td>
-
-        <td>
-          ${formatMoney(
-            user.balance||0
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            formatDate(
-              user.createdAt||
-              user.created
-            )
-          )}
-        </td>
-
-        <td>
-          ${escapeHtml(
-            user.status||""
-          )}
-        </td>
-
-      `;
-
-      body.appendChild(tr);
+      .includes(search);
 
     });
+
+  if(!filtered.length){
+
+    body.innerHTML=`
+      <tr>
+        <td colspan="4" class="empty">
+          👥 Không có khách hàng.
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+  filtered.forEach(user=>{
+
+    const tr=
+      document.createElement("tr");
+
+    tr.innerHTML=`
+
+      <td>
+        ${escapeHtml(
+          user.username||
+          user.name||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${formatMoney(
+          user.balance||0
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          formatDate(
+            user.createdAt||
+            user.created||
+            user.date
+          )
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          user.status||
+          "Hoạt động"
+        )}
+      </td>
+
+    `;
+
+    body.appendChild(tr);
+
+  });
 
 }
 
@@ -2288,18 +2227,31 @@ async function loadTopups(){
         "getTopups"
       );
 
-    if(result.ok){
+    if(result && result.ok){
 
       topups=
-        result.topups||[];
+        Array.isArray(result.topups)
+          ?result.topups
+          :[];
 
+      renderTopups();
+
+    }else{
+
+      topups=[];
       renderTopups();
 
     }
 
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Topups:",
+      err
+    );
+
+    topups=[];
+    renderTopups();
 
   }
 
@@ -2315,100 +2267,161 @@ function renderTopups(){
 
   body.innerHTML="";
 
-  topups
-    .slice()
-    .reverse()
-    .forEach(item=>{
+  const list=
+    topups
+      .slice()
+      .reverse();
 
-      const tr=
-        document.createElement(
-          "tr"
-        );
+  if(!list.length){
 
-      const status=
-        String(
-          item.status||""
-        ).toLowerCase();
-
-      let buttons="";
-
-      if(
-        status==="pending"||
-        status==="chờ duyệt"||
-        status==="cho duyet"
-      ){
-
-        buttons=`
-
-          <button
-            class="btn btn-success"
-            onclick="approveTopup('${escapeJs(item.id||"")}')"
-          >
-            ✅ Duyệt
-          </button>
-
-          <button
-            class="btn btn-danger"
-            onclick="rejectTopup('${escapeJs(item.id||"")}')"
-          >
-            ❌ Từ chối
-          </button>
-
-        `;
-
-      }
-
-      tr.innerHTML=`
-
-        <td>
-          ${escapeHtml(item.id||"")}
+    body.innerHTML=`
+      <tr>
+        <td colspan="10" class="empty">
+          💰 Chưa có yêu cầu nạp tiền.
         </td>
+      </tr>
+    `;
 
-        <td>
-          ${escapeHtml(item.username||"")}
-        </td>
+    return;
 
-        <td>
-          ${formatMoney(item.amount||0)}
-        </td>
+  }
 
-        <td>
-          ${escapeHtml(item.method||"")}
-        </td>
+  list.forEach(item=>{
 
-        <td>
-          ${escapeHtml(item.cardType||"")}
-        </td>
+    const tr=
+      document.createElement("tr");
 
-        <td>
-          ${escapeHtml(item.cardSerial||"")}
-        </td>
+    const status=
+      String(
+        item.status||""
+      ).toLowerCase();
 
-        <td>
-          ${escapeHtml(item.cardCode||"")}
-        </td>
+    let badgeClass=status;
 
-        <td>
-          ${escapeHtml(item.bankName||"")}
-        </td>
+    if(status==="approved")
+      badgeClass="approved";
 
-        <td>
+    if(status==="completed")
+      badgeClass="completed";
 
-          <span class="badge ${status}">
-            ${escapeHtml(item.status||"")}
-          </span>
+    if(status==="pending")
+      badgeClass="pending";
 
-        </td>
+    if(status==="rejected")
+      badgeClass="rejected";
 
-        <td>
-          ${buttons}
-        </td>
+    let buttons="";
+
+    if(
+      status==="pending"||
+      status==="chờ duyệt"
+    ){
+
+      buttons=`
+
+        <button
+          class="btn btn-success"
+          onclick="approveTopup('${escapeJs(item.id||item.code||"")}')"
+        >
+          ✅ Duyệt
+        </button>
+
+        <button
+          class="btn btn-danger"
+          onclick="rejectTopup('${escapeJs(item.id||item.code||"")}')"
+        >
+          ❌ Từ chối
+        </button>
 
       `;
 
-      body.appendChild(tr);
+    }
 
-    });
+    tr.innerHTML=`
+
+      <td>
+        ${escapeHtml(
+          item.id||
+          item.code||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          item.username||
+          item.name||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${formatMoney(
+          item.amount||
+          item.money||
+          0
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          item.method||
+          item.type||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          item.cardType||
+          item.network||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          item.cardSerial||
+          item.serial||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          item.cardCode||
+          item.codeCard||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${escapeHtml(
+          item.bankName||
+          item.bank||
+          ""
+        )}
+      </td>
+
+      <td>
+
+        <span class="badge ${badgeClass}">
+          ${escapeHtml(
+            item.status||""
+          )}
+        </span>
+
+      </td>
+
+      <td>
+        ${buttons}
+      </td>
+
+    `;
+
+    body.appendChild(tr);
+
+  });
 
 }
 
@@ -2418,6 +2431,8 @@ function renderTopups(){
 ===================================================== */
 
 async function approveTopup(id){
+
+  if(!id)return;
 
   if(!confirm(
     "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
@@ -2435,19 +2450,21 @@ async function approveTopup(id){
       );
 
     alert(
-      result.message||
+      result?.message||
       (
-        result.ok
+        result?.ok
           ?"Đã duyệt."
           :"Không thể duyệt."
       )
     );
 
-    if(result.ok){
+    if(result && result.ok){
 
-      await loadTopups();
-      await loadCustomers();
-      await loadDashboard();
+      await Promise.all([
+        loadTopups(),
+        loadCustomers(),
+        loadDashboard()
+      ]);
 
     }
 
@@ -2470,6 +2487,8 @@ async function approveTopup(id){
 
 async function rejectTopup(id){
 
+  if(!id)return;
+
   if(!confirm(
     "Bạn có chắc muốn từ chối yêu cầu này?"
   ))return;
@@ -2486,14 +2505,16 @@ async function rejectTopup(id){
       );
 
     alert(
-      result.message||
+      result?.message||
       "Đã xử lý."
     );
 
-    if(result.ok){
+    if(result && result.ok){
 
-      await loadTopups();
-      await loadDashboard();
+      await Promise.all([
+        loadTopups(),
+        loadDashboard()
+      ]);
 
     }
 
@@ -2511,7 +2532,7 @@ async function rejectTopup(id){
 
 
 /* =====================================================
-   LOAD ORDERS
+   ORDERS
 ===================================================== */
 
 async function loadOrders(){
@@ -2523,267 +2544,36 @@ async function loadOrders(){
         "getOrders"
       );
 
-    if(result.ok){
+    if(result && result.ok){
 
       orders=
-        result.orders||[];
+        Array.isArray(result.orders)
+          ?result.orders
+          :[];
 
       renderOrders();
-      renderCayThue();
-
-      updateCayThueCount();
 
     }else{
 
-      console.error(
-        result.message||
-        "Không lấy được đơn hàng"
-      );
+      orders=[];
+      renderOrders();
 
     }
 
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Orders:",
+      err
+    );
 
-    const msg=
-      document.getElementById(
-        "cayThueMessage"
-      );
-
-    if(msg){
-
-      msg.textContent=
-        "❌ Không tải được DonHang.";
-
-      msg.style.color="red";
-
-    }
+    orders=[];
+    renderOrders();
 
   }
 
 }
 
-
-/* =====================================================
-   HÀM LẤY DỮ LIỆU ĐƠN HÀNG
-   HỖ TRỢ NHIỀU TÊN FIELD
-===================================================== */
-
-function getOrderId(order){
-
-  return firstValue(
-    order.id,
-    order.orderId,
-    order.maDon,
-    order.ma_don,
-    order["Mã đơn"]
-  );
-
-}
-
-
-function getOrderCustomer(order){
-
-  return firstValue(
-    order.username,
-    order.customer,
-    order.customerName,
-    order.name,
-    order.tenKhach,
-    order.ten_khach,
-    order["Tên khách"]
-  );
-
-}
-
-
-function getOrderRoblox(order){
-
-  return firstValue(
-    order.robloxUsername,
-    order.roblox,
-    order.robloxUser,
-    order.usernameRoblox,
-    order.userRoblox,
-    order["Username Roblox"]
-  );
-
-}
-
-
-function getOrderLogin(order){
-
-  return firstValue(
-    order.loginInfo,
-    order.login,
-    order.accountInfo,
-    order.thongTinDangNhap,
-    order.thong_tin_dang_nhap,
-    order["Thông tin đăng nhập"]
-  );
-
-}
-
-
-function getOrderAccess(order){
-
-  return firstValue(
-    order.access,
-    order.permission,
-    order.quyenTruyCap,
-    order.quyen,
-    order["Quyền truy cập"]
-  );
-
-}
-
-
-function getOrderType(order){
-
-  return firstValue(
-    order.orderType,
-    order.type,
-    order.loaiDon,
-    order.loai_don,
-    order["Loại đơn"]
-  );
-
-}
-
-
-function getOrderService(order){
-
-  return firstValue(
-    order.service,
-    order.product,
-    order.dichVu,
-    order.dich_vu,
-    order["Dịch vụ"]
-  );
-
-}
-
-
-function getOrderPrice(order){
-
-  return firstValue(
-    order.price,
-    order.amount,
-    order.money,
-    order.gia,
-    order["Giá"],
-    0
-  );
-
-}
-
-
-function getOrderCustomerNote(order){
-
-  return firstValue(
-    order.customerNote,
-    order.noteCustomer,
-    order.ghiChuKhach,
-    order.ghi_chu_khach,
-    order["Ghi chú khách"]
-  );
-
-}
-
-
-function getOrderAdminNote(order){
-
-  return firstValue(
-    order.adminNote,
-    order.noteAdmin,
-    order.ghiChuAdmin,
-    order.ghi_chu_admin,
-    order["Ghi chú Admin"]
-  );
-
-}
-
-
-function getOrderDate(order){
-
-  return firstValue(
-    order.createdAt,
-    order.created,
-    order.date,
-    order.createdDate,
-    order.ngayTao,
-    order.ngay_tao,
-    order["Ngày tạo"]
-  );
-
-}
-
-
-function firstValue(...values){
-
-  for(const value of values){
-
-    if(
-      value!==undefined &&
-      value!==null &&
-      String(value).trim()!==""
-    ){
-
-      return value;
-
-    }
-
-  }
-
-  return "";
-
-}
-
-
-/* =====================================================
-   KIỂM TRA ĐƠN CÀY THUÊ
-===================================================== */
-
-function isCayThueOrder(order){
-
-  const type=
-    String(
-      getOrderType(order)
-    )
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"");
-
-  const service=
-    String(
-      getOrderService(order)
-    )
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"");
-
-  const product=
-    String(
-      order.product||
-      ""
-    )
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,");
-
-  return (
-    type.includes("cay thue")||
-    service.includes("cay thue")||
-    product.includes("cay thue")
-  );
-
-}
-
-
-/* =====================================================
-   RENDER TẤT CẢ ĐƠN
-===================================================== */
 
 function renderOrders(){
 
@@ -2792,60 +2582,21 @@ function renderOrders(){
       "ordersBody"
     );
 
-  const searchEl=
-    document.getElementById(
-      "orderSearch"
-    );
-
-  const search=
-    searchEl
-      ?searchEl.value
-        .toLowerCase()
-        .trim()
-      :"";
-
   body.innerHTML="";
 
   const list=
     orders
       .slice()
-      .reverse()
-      .filter(order=>{
-
-        if(!search)return true;
-
-        const text=[
-
-          getOrderId(order),
-          getOrderCustomer(order),
-          getOrderRoblox(order),
-          getOrderLogin(order),
-          getOrderAccess(order),
-          getOrderType(order),
-          getOrderService(order),
-          getOrderPrice(order),
-          getOrderCustomerNote(order),
-          getOrderAdminNote(order),
-          getOrderDate(order)
-
-        ]
-        .join(" ")
-        .toLowerCase();
-
-        return text.includes(search);
-
-      });
+      .reverse();
 
   if(!list.length){
 
     body.innerHTML=`
-
       <tr>
-        <td colspan="11" style="text-align:center">
-          📭 Không có đơn hàng.
+        <td colspan="7" class="empty">
+          📦 Chưa có đơn hàng.
         </td>
       </tr>
-
     `;
 
     return;
@@ -2855,117 +2606,68 @@ function renderOrders(){
   list.forEach(order=>{
 
     const tr=
-      document.createElement(
-        "tr"
-      );
-
-    const cayThue=
-      isCayThueOrder(order);
-
-    if(cayThue){
-
-      tr.className=
-        "caythue-row";
-
-    }else{
-
-      tr.className=
-        "acc-row";
-
-    }
-
-    const type=
-      getOrderType(order);
+      document.createElement("tr");
 
     tr.innerHTML=`
 
       <td>
-        <b>
-          ${escapeHtml(
-            getOrderId(order)
-          )}
-        </b>
-      </td>
-
-      <td>
         ${escapeHtml(
-          getOrderCustomer(order)
+          order.id||
+          order.orderId||
+          ""
         )}
       </td>
 
       <td>
         ${escapeHtml(
-          getOrderRoblox(order)||
-          "-"
+          order.username||
+          order.customer||
+          order.name||
+          ""
         )}
       </td>
 
       <td>
         ${escapeHtml(
-          getOrderLogin(order)||
-          "-"
+          order.product||
+          order.service||
+          ""
+        )}
+      </td>
+
+      <td>
+        ${formatMoney(
+          order.price||
+          order.amount||
+          0
         )}
       </td>
 
       <td>
         ${escapeHtml(
-          getOrderAccess(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-
-        <span class="badge ${
-          cayThue
-            ?"pending"
-            :"processing"
-        }">
-
-          ${escapeHtml(
-            type||
-            (cayThue
-              ?"Cày thuê"
-              :"Mua acc")
-          )}
-
-        </span>
-
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderService(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${formatPrice(
-          getOrderPrice(order)
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderCustomerNote(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderAdminNote(order)||
-          "-"
+          order.status||
+          ""
         )}
       </td>
 
       <td>
         ${escapeHtml(
           formatDate(
-            getOrderDate(order)
+            order.createdAt||
+            order.created||
+            order.date
           )
         )}
+      </td>
+
+      <td>
+        ${
+          order.accUsername
+            ?escapeHtml(
+              order.accUsername
+            )
+            :"-"
+        }
       </td>
 
     `;
@@ -2973,231 +2675,6 @@ function renderOrders(){
     body.appendChild(tr);
 
   });
-
-}
-
-
-/* =====================================================
-   RENDER RIÊNG CÀY THUÊ
-===================================================== */
-
-function renderCayThue(){
-
-  const body=
-    document.getElementById(
-      "cayThueBody"
-    );
-
-  if(!body)return;
-
-  const search=
-    document.getElementById(
-      "cayThueSearch"
-    ).value
-    .toLowerCase()
-    .trim();
-
-  body.innerHTML="";
-
-  const cayOrders=
-    orders
-      .slice()
-      .reverse()
-      .filter(order=>{
-
-        if(!isCayThueOrder(order))
-          return false;
-
-        if(!search)
-          return true;
-
-        const text=[
-
-          getOrderId(order),
-          getOrderCustomer(order),
-          getOrderRoblox(order),
-          getOrderLogin(order),
-          getOrderAccess(order),
-          getOrderType(order),
-          getOrderService(order),
-          getOrderPrice(order),
-          getOrderCustomerNote(order),
-          getOrderAdminNote(order),
-          getOrderDate(order)
-
-        ]
-        .join(" ")
-        .toLowerCase();
-
-        return text.includes(search);
-
-      });
-
-  if(!cayOrders.length){
-
-    body.innerHTML=`
-
-      <tr>
-
-        <td
-          colspan="11"
-          style="text-align:center"
-        >
-
-          📭 Chưa có đơn cày thuê.
-
-        </td>
-
-      </tr>
-
-    `;
-
-    return;
-
-  }
-
-  cayOrders.forEach(order=>{
-
-    const tr=
-      document.createElement(
-        "tr"
-      );
-
-    tr.className=
-      "caythue-row";
-
-    tr.innerHTML=`
-
-      <td>
-        <b>
-          ${escapeHtml(
-            getOrderId(order)
-          )}
-        </b>
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderCustomer(order)
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderRoblox(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderLogin(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderAccess(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-
-        <span class="badge pending">
-          🛠️ Cày thuê
-        </span>
-
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderService(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-        <b>
-          ${formatPrice(
-            getOrderPrice(order)
-          )}
-        </b>
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderCustomerNote(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          getOrderAdminNote(order)||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHtml(
-          formatDate(
-            getOrderDate(order)
-          )
-        )}
-      </td>
-
-    `;
-
-    body.appendChild(tr);
-
-  });
-
-  const message=
-    document.getElementById(
-      "cayThueMessage"
-    );
-
-  if(message){
-
-    message.textContent=
-      `🛠️ Có ${cayOrders.length} đơn cày thuê.`;
-
-    message.style.color=
-      "#2563eb";
-
-  }
-
-}
-
-
-/* =====================================================
-   ĐẾM ĐƠN CÀY THUÊ
-===================================================== */
-
-function updateCayThueCount(){
-
-  const count=
-    orders.filter(
-      isCayThueOrder
-    ).length;
-
-  const button=
-    document.querySelector(
-      '.tab[onclick*="caythue"]'
-    );
-
-  if(button){
-
-    button.innerHTML=
-      `🛠️ Cày thuê${
-        count
-          ?` (${count})`
-          :""
-      }`;
-
-  }
 
 }
 
@@ -3268,22 +2745,25 @@ async function loadProducts(){
         "getProductStatuses"
       );
 
-    if(result.ok){
+    if(result && result.ok){
 
       productStatuses=
         result.statuses||{};
 
-      renderProducts();
-
     }else{
 
-      renderProducts();
+      productStatuses={};
 
     }
 
+    renderProducts();
+
   }catch(err){
 
-    console.error(err);
+    console.error(
+      "Products:",
+      err
+    );
 
     renderProducts();
 
@@ -3330,76 +2810,62 @@ function renderProducts(){
   ];
 
 
+  createProductGroup(
+    container,
+    "🍎 Blox Fruits",
+    products.filter(item=>
+      bloxKeys.includes(item[0])
+    )
+  );
+
+
+  createProductGroup(
+    container,
+    "🥚 Steal a Egg",
+    products.filter(item=>
+      stealKeys.includes(item[0])
+    )
+  );
+
+
+  createProductGroup(
+    container,
+    "🎮 Sản phẩm khác",
+    products.filter(item=>
+      !bloxKeys.includes(item[0]) &&
+      !stealKeys.includes(item[0])
+    )
+  );
+
+}
+
+
+function createProductGroup(
+  container,
+  titleText,
+  items
+){
+
+  if(!items.length)return;
+
   const title=
     document.createElement("div");
 
   title.className=
     "product-group-title";
 
-  title.textContent=
-    "🍎 Blox Fruits";
+  title.textContent=titleText;
 
   container.appendChild(title);
 
-  products
-    .filter(item=>
-      bloxKeys.includes(item[0])
-    )
-    .forEach(item=>
-      createProductStatusCard(
-        container,
-        item
-      )
+  items.forEach(item=>{
+
+    createProductStatusCard(
+      container,
+      item
     );
 
-
-  const stealTitle=
-    document.createElement("div");
-
-  stealTitle.className=
-    "product-group-title";
-
-  stealTitle.textContent=
-    "🥚 Steal a Egg";
-
-  container.appendChild(
-    stealTitle
-  );
-
-  products
-    .filter(item=>
-      stealKeys.includes(item[0])
-    )
-    .forEach(item=>
-      createProductStatusCard(
-        container,
-        item
-      )
-    );
-
-
-  const title2=
-    document.createElement("div");
-
-  title2.className=
-    "product-group-title";
-
-  title2.textContent=
-    "🎮 Sản phẩm khác";
-
-  container.appendChild(title2);
-
-  products
-    .filter(item=>
-      !bloxKeys.includes(item[0]) &&
-      !stealKeys.includes(item[0])
-    )
-    .forEach(item=>
-      createProductStatusCard(
-        container,
-        item
-      )
-    );
+  });
 
 }
 
@@ -3414,7 +2880,6 @@ function createProductStatusCard(
 ){
 
   const key=item[0];
-
   const name=item[1];
 
   const status=
@@ -3552,25 +3017,25 @@ async function saveProductStatus(
         }
       );
 
-    alert(
-      result.message||
-      (
-        result.ok
-          ?"✅ Đã lưu trạng thái."
-          :"❌ Không thể lưu."
-      )
-    );
+    if(!result || !result.ok){
 
-    if(result.ok){
-
-      productStatuses[product]=
-        status;
-
-      changeProductVisual(
-        product
+      alert(
+        result?.message||
+        "❌ Không thể lưu."
       );
 
+      return;
+
     }
+
+    productStatuses[product]=status;
+
+    changeProductVisual(product);
+
+    alert(
+      result.message||
+      "✅ Đã lưu trạng thái."
+    );
 
   }catch(err){
 
@@ -3714,11 +3179,10 @@ function showAccountModal(
       </div>
 
       <div>
-        📌 Status:
+        📌 Trạng thái:
         <b>
           ${escapeHtml(
-            account.status||
-            ""
+            account.status||""
           )}
         </b>
       </div>
@@ -3752,16 +3216,60 @@ function closeAccountModal(){
 
 
 /* =====================================================
+   CLOSE MODAL CLICK OUTSIDE
+===================================================== */
+
+document.addEventListener(
+  "click",
+  function(event){
+
+    const modal=
+      document.getElementById(
+        "accountModal"
+      );
+
+    if(
+      event.target===modal
+    ){
+
+      closeAccountModal();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   ESC CLOSE MODAL
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key==="Escape"){
+
+      closeAccountModal();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
    FORMAT MONEY
 ===================================================== */
 
 function formatMoney(value){
 
   const n=
-    Number(
-      String(value||0)
-      .replace(/[^\d.-]/g,"")
-    )||0;
+    Number(value||0);
+
+  if(!Number.isFinite(n)){
+    return "0K";
+  }
 
   if(n>=1000){
 
@@ -3794,18 +3302,10 @@ function formatPrice(value){
 
   }
 
-  const n=
-    Number(
-      String(value)
-      .replace(/[^\d.-]/g,"")
-    );
+  const n=Number(value||0);
 
-  if(isNaN(n)){
-
-    return escapeHtml(
-      String(value)
-    );
-
+  if(!Number.isFinite(n)){
+    return "-";
   }
 
   return n.toLocaleString(
@@ -3896,43 +3396,6 @@ function escapeJs(value){
   );
 
 }
-
-
-/* =====================================================
-   JSON AN TOÀN CHO ONCLICK
-===================================================== */
-
-function safeJson(obj){
-
-  return JSON.stringify(obj)
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'")
-    .replace(/"/g,"&quot;");
-
-}
-
-
-/* =====================================================
-   ĐÓNG MODAL KHI CLICK NGOÀI
-===================================================== */
-
-document
-  .getElementById("accountModal")
-  .addEventListener(
-    "click",
-    function(e){
-
-      if(
-        e.target===this
-      ){
-
-        closeAccountModal();
-
-      }
-
-    }
-  );
-
 
 </script>
 
