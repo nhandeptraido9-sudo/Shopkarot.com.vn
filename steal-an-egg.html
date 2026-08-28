@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -11,6 +12,10 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
@@ -18,19 +23,22 @@ body{
     color:#111827;
 }
 
+/* ================= HEADER ================= */
+
 header{
-    background:linear-gradient(135deg,#111827,#1f2937);
-    color:#fff;
-    padding:16px 20px;
     position:sticky;
     top:0;
-    z-index:100;
-    box-shadow:0 3px 12px rgba(0,0,0,.15);
+    z-index:1000;
+    background:linear-gradient(135deg,#111827,#1f2937);
+    color:#fff;
+    box-shadow:0 3px 15px rgba(0,0,0,.18);
 }
 
 .header-inner{
     max-width:1200px;
     margin:auto;
+    min-height:68px;
+    padding:12px 18px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -38,8 +46,8 @@ header{
 }
 
 .logo{
-    font-size:23px;
-    font-weight:800;
+    font-size:22px;
+    font-weight:900;
 }
 
 .logo span{
@@ -49,62 +57,88 @@ header{
 .back-btn{
     border:0;
     background:#374151;
-    color:white;
+    color:#fff;
     padding:10px 16px;
     border-radius:10px;
-    cursor:pointer;
     font-weight:700;
+    cursor:pointer;
 }
 
 .back-btn:hover{
     background:#4b5563;
 }
 
+/* ================= MAIN ================= */
+
 .container{
+    width:100%;
     max-width:1200px;
     margin:auto;
-    padding:25px 16px 50px;
+    padding:22px 16px 50px;
 }
 
+/* ================= HERO ================= */
+
 .hero{
+    position:relative;
+    overflow:hidden;
     background:linear-gradient(135deg,#facc15,#f59e0b);
-    border-radius:18px;
+    border-radius:20px;
     padding:30px 25px;
-    margin-bottom:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,.1);
+    margin-bottom:22px;
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
+}
+
+.hero:after{
+    content:"🥚";
+    position:absolute;
+    right:35px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:90px;
+    opacity:.18;
 }
 
 .hero h1{
+    position:relative;
+    z-index:1;
     margin:0 0 8px;
     font-size:32px;
 }
 
 .hero p{
+    position:relative;
+    z-index:1;
     margin:0;
-    font-size:16px;
+    line-height:1.6;
 }
 
-.tabs{
+/* ================= TABS ================= */
+
+.main-tabs{
     display:flex;
     gap:10px;
-    margin-bottom:25px;
     flex-wrap:wrap;
+    margin-bottom:22px;
 }
 
-.tab{
+.main-tab{
     border:0;
+    background:#fff;
+    color:#111827;
     padding:13px 20px;
     border-radius:12px;
-    background:white;
+    font-weight:800;
     cursor:pointer;
-    font-weight:700;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    box-shadow:0 2px 9px rgba(0,0,0,.08);
 }
 
-.tab.active{
+.main-tab.active{
     background:#111827;
     color:#fff;
 }
+
+/* ================= SECTION ================= */
 
 .section{
     display:none;
@@ -114,7 +148,7 @@ header{
     display:block;
 }
 
-.section-title{
+.section-head{
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -122,41 +156,49 @@ header{
     margin-bottom:18px;
 }
 
-.section-title h2{
+.section-head h2{
     margin:0;
 }
 
 .search{
-    width:100%;
-    max-width:320px;
+    width:320px;
+    max-width:100%;
     padding:12px 14px;
     border:1px solid #d1d5db;
     border-radius:10px;
-    outline:none;
     background:#fff;
+    outline:none;
 }
 
-.price-tabs{
+.search:focus{
+    border-color:#6b7280;
+}
+
+/* ================= PRICE FILTER ================= */
+
+.price-filter{
     display:flex;
-    gap:10px;
+    gap:9px;
     flex-wrap:wrap;
     margin-bottom:20px;
 }
 
-.price-tab{
+.price-btn{
     border:1px solid #d1d5db;
     background:#fff;
     padding:10px 16px;
     border-radius:10px;
+    font-weight:800;
     cursor:pointer;
-    font-weight:700;
 }
 
-.price-tab.active{
+.price-btn.active{
     background:#111827;
     color:#fff;
     border-color:#111827;
 }
+
+/* ================= GRID ================= */
 
 .grid{
     display:grid;
@@ -164,32 +206,36 @@ header{
     gap:18px;
 }
 
+/* ================= CARD ================= */
+
 .card{
     background:#fff;
     border-radius:16px;
     padding:18px;
     box-shadow:0 4px 15px rgba(0,0,0,.08);
     transition:.2s;
+    border:1px solid #e5e7eb;
 }
 
 .card:hover{
     transform:translateY(-3px);
-    box-shadow:0 8px 22px rgba(0,0,0,.12);
+    box-shadow:0 9px 25px rgba(0,0,0,.12);
 }
 
-.card h3{
+.card-title{
+    font-size:18px;
+    font-weight:800;
     margin:0 0 10px;
-    font-size:19px;
 }
 
 .badge{
     display:inline-block;
     padding:5px 9px;
     border-radius:8px;
+    font-size:12px;
+    font-weight:800;
     background:#dcfce7;
     color:#166534;
-    font-size:12px;
-    font-weight:700;
     margin-bottom:12px;
 }
 
@@ -204,10 +250,10 @@ header{
 }
 
 .price{
-    font-size:22px;
-    font-weight:800;
-    color:#dc2626;
     margin:12px 0;
+    font-size:23px;
+    font-weight:900;
+    color:#dc2626;
 }
 
 .price.free{
@@ -215,20 +261,20 @@ header{
 }
 
 .info{
-    font-size:14px;
     color:#6b7280;
+    font-size:14px;
     line-height:1.7;
 }
 
 .buy-btn{
     width:100%;
-    margin-top:15px;
     border:0;
-    padding:12px;
-    border-radius:10px;
     background:#111827;
     color:#fff;
-    font-weight:700;
+    padding:12px;
+    border-radius:10px;
+    margin-top:15px;
+    font-weight:800;
     cursor:pointer;
 }
 
@@ -241,41 +287,41 @@ header{
     cursor:not-allowed;
 }
 
-.service-card{
-    background:#fff;
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
+/* ================= SERVICE ================= */
 
-.service-card h3{
-    margin:0 0 12px;
+.service-icon{
+    font-size:35px;
+    margin-bottom:8px;
 }
 
 .service-description{
+    min-height:75px;
     color:#4b5563;
-    line-height:1.7;
-    min-height:70px;
+    line-height:1.65;
 }
+
+/* ================= EMPTY ================= */
 
 .empty{
+    grid-column:1/-1;
+    padding:40px 20px;
     background:#fff;
-    border-radius:15px;
-    padding:35px;
+    border-radius:16px;
     text-align:center;
     color:#6b7280;
-    grid-column:1/-1;
 }
 
+/* ================= MODAL ================= */
+
 .modal{
+    display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.55);
-    display:none;
+    z-index:3000;
+    background:rgba(0,0,0,.60);
+    padding:15px;
     align-items:center;
     justify-content:center;
-    z-index:999;
-    padding:15px;
 }
 
 .modal.show{
@@ -283,34 +329,37 @@ header{
 }
 
 .modal-box{
-    background:#fff;
+    position:relative;
     width:100%;
     max-width:480px;
+    max-height:90vh;
+    overflow:auto;
+    background:#fff;
     border-radius:18px;
     padding:24px;
-    position:relative;
 }
 
 .close{
     position:absolute;
-    right:15px;
-    top:12px;
+    right:14px;
+    top:10px;
     border:0;
     background:none;
-    font-size:25px;
+    font-size:28px;
     cursor:pointer;
+    color:#374151;
 }
 
 .modal-box h2{
-    margin-top:0;
+    margin:0 35px 18px 0;
 }
 
-.selected-product{
+.selected{
     background:#f3f4f6;
-    border-radius:10px;
-    padding:12px;
+    border-radius:11px;
+    padding:13px;
     margin-bottom:18px;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .form-group{
@@ -320,7 +369,7 @@ header{
 .form-group label{
     display:block;
     margin-bottom:6px;
-    font-weight:700;
+    font-weight:800;
 }
 
 .form-group input,
@@ -328,8 +377,9 @@ header{
     width:100%;
     padding:12px;
     border:1px solid #d1d5db;
-    border-radius:9px;
+    border-radius:10px;
     outline:none;
+    font-family:inherit;
 }
 
 .form-group textarea{
@@ -339,112 +389,145 @@ header{
 
 .confirm-btn{
     width:100%;
-    padding:13px;
     border:0;
-    border-radius:10px;
     background:#16a34a;
     color:#fff;
-    font-weight:800;
+    padding:13px;
+    border-radius:10px;
+    font-weight:900;
     cursor:pointer;
 }
 
+.confirm-btn:hover{
+    background:#15803d;
+}
+
 .notice{
-    margin-top:15px;
-    padding:12px;
+    margin-top:14px;
+    padding:11px;
     background:#fff7ed;
     border:1px solid #fed7aa;
     border-radius:10px;
-    font-size:13px;
     color:#9a3412;
+    font-size:13px;
     line-height:1.6;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
     text-align:center;
-    padding:25px;
     color:#6b7280;
+    padding:25px 15px;
 }
 
+/* ================= RESPONSIVE ================= */
+
 @media(max-width:1000px){
+
     .grid{
         grid-template-columns:repeat(3,1fr);
     }
+
 }
 
-@media(max-width:700px){
+@media(max-width:750px){
+
     .grid{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    .section-head{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .grid{
+        grid-template-columns:1fr;
     }
 
     .header-inner{
         flex-direction:column;
     }
 
-    .section-title{
-        flex-direction:column;
-        align-items:stretch;
+    .hero{
+        padding:24px 18px;
     }
 
-    .search{
-        max-width:none;
-    }
-}
-
-@media(max-width:480px){
-    .grid{
-        grid-template-columns:1fr;
+    .hero:after{
+        font-size:60px;
+        right:15px;
     }
 
-    .hero h1{
-        font-size:25px;
-    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+
     <div class="header-inner">
 
         <div class="logo">
             SHOP<span>KAROT</span> - STEAL AN EGG
         </div>
 
-        <button class="back-btn" onclick="goBack()">
+        <button
+            class="back-btn"
+            onclick="goBack()"
+        >
             ← Về Shop
         </button>
 
     </div>
+
 </header>
 
 
-<div class="container">
+<main class="container">
+
+    <!-- ================= HERO ================= -->
 
     <div class="hero">
 
         <h1>🥚 Steal an Egg</h1>
 
         <p>
-            Acc Steal an Egg và dịch vụ Steal an Egg tại SHOPKAROT.
+            Acc Steal an Egg và dịch vụ Steal an Egg.
+            Chọn danh mục bên dưới để xem sản phẩm.
         </p>
 
     </div>
 
 
-    <!-- ================= TAB ================= -->
+    <!-- ================= MAIN TABS ================= -->
 
-    <div class="tabs">
+    <div class="main-tabs">
 
         <button
-            class="tab active"
+            class="main-tab active"
             onclick="showTab('accounts',this)"
         >
             👤 Acc Steal an Egg
         </button>
 
         <button
-            class="tab"
+            class="main-tab"
             onclick="showTab('services',this)"
         >
             🛠️ Dịch vụ Steal an Egg
@@ -453,15 +536,20 @@ footer{
     </div>
 
 
-    <!-- =====================================================
-         ACC STEAL AN EGG
-         ===================================================== -->
+    <!-- ==================================================
+         ACC
+         ================================================== -->
 
-    <section id="accounts" class="section active">
+    <section
+        id="accounts"
+        class="section active"
+    >
 
-        <div class="section-title">
+        <div class="section-head">
 
-            <h2>👤 Acc Steal an Egg</h2>
+            <h2>
+                👤 Acc Steal an Egg
+            </h2>
 
             <input
                 id="accountSearch"
@@ -476,31 +564,31 @@ footer{
 
         <!-- GIÁ -->
 
-        <div class="price-tabs">
+        <div class="price-filter">
 
             <button
-                class="price-tab active"
+                class="price-btn active"
                 onclick="selectPrice('ALL',this)"
             >
                 Tất cả
             </button>
 
             <button
-                class="price-tab"
+                class="price-btn"
                 onclick="selectPrice('0K',this)"
             >
                 🟢 0K
             </button>
 
             <button
-                class="price-tab"
+                class="price-btn"
                 onclick="selectPrice('20K',this)"
             >
                 🔵 20K
             </button>
 
             <button
-                class="price-tab"
+                class="price-btn"
                 onclick="selectPrice('50K',this)"
             >
                 🟠 50K
@@ -509,20 +597,28 @@ footer{
         </div>
 
 
-        <div id="accountGrid" class="grid"></div>
+        <div
+            id="accountGrid"
+            class="grid"
+        ></div>
 
     </section>
 
 
-    <!-- =====================================================
+    <!-- ==================================================
          DỊCH VỤ
-         ===================================================== -->
+         ================================================== -->
 
-    <section id="services" class="section">
+    <section
+        id="services"
+        class="section"
+    >
 
-        <div class="section-title">
+        <div class="section-head">
 
-            <h2>🛠️ Dịch vụ Steal an Egg</h2>
+            <h2>
+                🛠️ Dịch vụ Steal an Egg
+            </h2>
 
             <input
                 id="serviceSearch"
@@ -535,11 +631,14 @@ footer{
         </div>
 
 
-        <div id="serviceGrid" class="grid"></div>
+        <div
+            id="serviceGrid"
+            class="grid"
+        ></div>
 
     </section>
 
-</div>
+</main>
 
 
 <footer>
@@ -547,11 +646,14 @@ footer{
 </footer>
 
 
-<!-- =====================================================
-     MODAL ĐẶT HÀNG
-     ===================================================== -->
+<!-- ==================================================
+     ORDER MODAL
+     ================================================== -->
 
-<div id="orderModal" class="modal">
+<div
+    id="orderModal"
+    class="modal"
+>
 
     <div class="modal-box">
 
@@ -562,7 +664,6 @@ footer{
             ×
         </button>
 
-
         <h2 id="modalTitle">
             Đặt hàng
         </h2>
@@ -570,7 +671,7 @@ footer{
 
         <div
             id="selectedProduct"
-            class="selected-product"
+            class="selected"
         ></div>
 
 
@@ -598,7 +699,7 @@ footer{
             <input
                 id="robloxUsername"
                 type="text"
-                placeholder="Nhập username Roblox"
+                placeholder="Nhập Username Roblox"
             >
 
         </div>
@@ -612,7 +713,7 @@ footer{
 
             <textarea
                 id="customerNote"
-                placeholder="Nhập ghi chú..."
+                placeholder="Nhập ghi chú nếu cần..."
             ></textarea>
 
         </div>
@@ -627,7 +728,7 @@ footer{
 
 
         <div class="notice">
-            Sau khi đặt đơn, hãy giữ lại mã đơn để Admin kiểm tra và xử lý.
+            Sau khi đặt đơn, hãy lưu lại mã đơn để Admin kiểm tra.
         </div>
 
     </div>
@@ -637,21 +738,26 @@ footer{
 
 <script>
 
-/* =====================================================
+/* ==================================================
    CẤU HÌNH
-   ===================================================== */
+   ================================================== */
 
-const SHOP_BACK_URL = "index.html";
+const BACK_URL = "index.html";
+
+let currentPrice = "ALL";
+
+let currentOrder = null;
 
 
-/* =====================================================
+/* ==================================================
    ACC STEAL AN EGG
 
-   CHỈ CÓ:
+   CHỈ 3 MỨC:
+
    0K
    20K
    50K
-   ===================================================== */
+   ================================================== */
 
 const accounts = [
 
@@ -661,7 +767,7 @@ const accounts = [
         package:"0K",
         price:0,
         status:"Còn hàng",
-        description:"Tài khoản Steal an Egg gói 0K."
+        description:"Acc Steal an Egg gói 0K."
     },
 
     {
@@ -670,7 +776,7 @@ const accounts = [
         package:"0K",
         price:0,
         status:"Còn hàng",
-        description:"Tài khoản Steal an Egg gói 0K."
+        description:"Acc Steal an Egg gói 0K."
     },
 
     {
@@ -679,7 +785,7 @@ const accounts = [
         package:"20K",
         price:20000,
         status:"Còn hàng",
-        description:"Tài khoản Steal an Egg gói 20K."
+        description:"Acc Steal an Egg gói 20K."
     },
 
     {
@@ -688,7 +794,7 @@ const accounts = [
         package:"20K",
         price:20000,
         status:"Còn hàng",
-        description:"Tài khoản Steal an Egg gói 20K."
+        description:"Acc Steal an Egg gói 20K."
     },
 
     {
@@ -697,7 +803,7 @@ const accounts = [
         package:"50K",
         price:50000,
         status:"Còn hàng",
-        description:"Tài khoản Steal an Egg gói 50K."
+        description:"Acc Steal an Egg gói 50K."
     },
 
     {
@@ -706,15 +812,15 @@ const accounts = [
         package:"50K",
         price:50000,
         status:"Còn hàng",
-        description:"Tài khoản Steal an Egg gói 50K."
+        description:"Acc Steal an Egg gói 50K."
     }
 
 ];
 
 
-/* =====================================================
+/* ==================================================
    DỊCH VỤ STEAL AN EGG
-   ===================================================== */
+   ================================================== */
 
 const services = [
 
@@ -724,7 +830,7 @@ const services = [
         price:50000,
         status:"Đang nhận",
         description:
-            "Dịch vụ cày Steal an Egg theo yêu cầu của khách."
+            "Cày Steal an Egg theo yêu cầu của khách."
     },
 
     {
@@ -742,43 +848,59 @@ const services = [
         price:200000,
         status:"Đang nhận",
         description:
-            "Dịch vụ farm nâng cao dành cho khách hàng."
+            "Dịch vụ farm nâng cao cho khách hàng."
     }
 
 ];
 
 
-/* =====================================================
-   BIẾN
-   ===================================================== */
-
-let currentPrice = "ALL";
-
-let currentOrder = null;
-
-
-/* =====================================================
+/* ==================================================
    FORMAT TIỀN
-   ===================================================== */
+   ================================================== */
 
-function formatMoney(number){
+function formatMoney(value){
 
-    if(Number(number) === 0){
-
-        return "0đ";
-
-    }
-
-    return Number(number).toLocaleString("vi-VN") + "đ";
+    return Number(value).toLocaleString("vi-VN") + "đ";
 
 }
 
 
-/* =====================================================
-   HIỂN THỊ ACC
-   ===================================================== */
+/* ==================================================
+   ESCAPE HTML
+   ================================================== */
 
-function renderAccounts(data = accounts){
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* ==================================================
+   ESCAPE JS
+   ================================================== */
+
+function escapeJS(value){
+
+    return String(value)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/\r/g,"\\r")
+        .replace(/\n/g,"\\n");
+
+}
+
+
+/* ==================================================
+   RENDER ACC
+   ================================================== */
+
+function renderAccounts(data){
 
     const grid =
         document.getElementById("accountGrid");
@@ -793,72 +915,84 @@ function renderAccounts(data = accounts){
         `;
 
         return;
-
     }
 
 
     grid.innerHTML = data.map(acc => {
 
-        const isFree =
+        const free =
             Number(acc.price) === 0;
 
-        const isSold =
+        const sold =
             acc.status !== "Còn hàng";
 
 
         return `
 
-        <div class="card">
+            <div class="card">
 
-            <span class="badge ${isFree ? "free" : ""} ${isSold ? "sold" : ""}">
-                ${escapeHTML(acc.status)}
-            </span>
+                <span class="badge
+                    ${free ? "free" : ""}
+                    ${sold ? "sold" : ""}
+                ">
+                    ${escapeHTML(acc.status)}
+                </span>
 
-            <h3>
-                ${escapeHTML(acc.name)}
-            </h3>
 
-            <div class="info">
+                <div class="card-title">
+                    ${escapeHTML(acc.name)}
+                </div>
 
-                Mã acc:
-                ${escapeHTML(acc.id)}
 
-                <br>
+                <div class="info">
 
-                Gói:
-                <b>${escapeHTML(acc.package)}</b>
+                    Mã:
+                    ${escapeHTML(acc.id)}
+
+                    <br>
+
+                    Gói:
+                    <b>${escapeHTML(acc.package)}</b>
+
+                </div>
+
+
+                <div class="price
+                    ${free ? "free" : ""}
+                ">
+
+                    ${formatMoney(acc.price)}
+
+                </div>
+
+
+                <div class="info">
+
+                    ${escapeHTML(acc.description)}
+
+                </div>
+
+
+                <button
+                    class="buy-btn"
+                    ${sold ? "disabled" : ""}
+                    onclick="openOrder(
+                        'ACC',
+                        '${escapeJS(acc.id)}',
+                        '${escapeJS(acc.name)}',
+                        '${escapeJS(acc.package)}',
+                        ${Number(acc.price)}
+                    )"
+                >
+
+                    ${sold
+                        ? "❌ Hết hàng"
+                        : "🛒 Mua acc"
+                    }
+
+                </button>
 
             </div>
-
-            <div class="price ${isFree ? "free" : ""}">
-
-                ${formatMoney(acc.price)}
-
-            </div>
-
-            <div class="info">
-
-                ${escapeHTML(acc.description)}
-
-            </div>
-
-            <button
-                class="buy-btn"
-                ${isSold ? "disabled" : ""}
-                onclick="openOrder(
-                    'ACC',
-                    '${escapeJS(acc.id)}',
-                    '${escapeJS(acc.name)}',
-                    '${escapeJS(acc.package)}',
-                    ${acc.price}
-                )"
-            >
-
-                ${isSold ? "❌ Hết hàng" : "🛒 Mua acc"}
-
-            </button>
-
-        </div>
 
         `;
 
@@ -867,11 +1001,11 @@ function renderAccounts(data = accounts){
 }
 
 
-/* =====================================================
-   HIỂN THỊ DỊCH VỤ
-   ===================================================== */
+/* ==================================================
+   RENDER DỊCH VỤ
+   ================================================== */
 
-function renderServices(data = services){
+function renderServices(data){
 
     const grid =
         document.getElementById("serviceGrid");
@@ -886,34 +1020,49 @@ function renderServices(data = services){
         `;
 
         return;
-
     }
 
 
     grid.innerHTML = data.map(service => `
 
-        <div class="service-card">
+        <div class="card">
+
+            <div class="service-icon">
+                🛠️
+            </div>
+
 
             <span class="badge">
                 ${escapeHTML(service.status)}
             </span>
 
-            <h3>
+
+            <div class="card-title">
                 ${escapeHTML(service.name)}
-            </h3>
+            </div>
+
 
             <div class="service-description">
+
                 ${escapeHTML(service.description)}
+
             </div>
+
 
             <div class="price">
+
                 ${formatMoney(service.price)}
+
             </div>
 
+
             <div class="info">
+
                 Mã dịch vụ:
                 ${escapeHTML(service.id)}
+
             </div>
+
 
             <button
                 class="buy-btn"
@@ -922,10 +1071,12 @@ function renderServices(data = services){
                     '${escapeJS(service.id)}',
                     '${escapeJS(service.name)}',
                     '',
-                    ${service.price}
+                    ${Number(service.price)}
                 )"
             >
+
                 🛒 Đặt dịch vụ
+
             </button>
 
         </div>
@@ -935,9 +1086,9 @@ function renderServices(data = services){
 }
 
 
-/* =====================================================
+/* ==================================================
    TAB
-   ===================================================== */
+   ================================================== */
 
 function showTab(tabName,button){
 
@@ -951,7 +1102,7 @@ function showTab(tabName,button){
 
 
     document
-        .querySelectorAll(".tab")
+        .querySelectorAll(".main-tab")
         .forEach(tab => {
 
             tab.classList.remove("active");
@@ -969,9 +1120,9 @@ function showTab(tabName,button){
 }
 
 
-/* =====================================================
-   CHỌN GIÁ ACC
-   ===================================================== */
+/* ==================================================
+   LỌC GIÁ
+   ================================================== */
 
 function selectPrice(price,button){
 
@@ -979,10 +1130,10 @@ function selectPrice(price,button){
 
 
     document
-        .querySelectorAll(".price-tab")
-        .forEach(tab => {
+        .querySelectorAll(".price-btn")
+        .forEach(btn => {
 
-            tab.classList.remove("active");
+            btn.classList.remove("active");
 
         });
 
@@ -995,9 +1146,9 @@ function selectPrice(price,button){
 }
 
 
-/* =====================================================
-   TÌM ACC
-   ===================================================== */
+/* ==================================================
+   SEARCH ACC
+   ================================================== */
 
 function filterAccounts(){
 
@@ -1009,39 +1160,40 @@ function filterAccounts(){
             .trim();
 
 
-    let result = accounts.filter(acc => {
+    const result =
+        accounts.filter(acc => {
 
-        const matchKeyword =
+            const keywordMatch =
 
-            acc.id
-                .toLowerCase()
-                .includes(keyword)
+                acc.id
+                    .toLowerCase()
+                    .includes(keyword)
 
-            ||
+                ||
 
-            acc.name
-                .toLowerCase()
-                .includes(keyword)
+                acc.name
+                    .toLowerCase()
+                    .includes(keyword)
 
-            ||
+                ||
 
-            acc.package
-                .toLowerCase()
-                .includes(keyword);
-
-
-        const matchPrice =
-
-            currentPrice === "ALL"
-
-            ||
-
-            acc.package === currentPrice;
+                acc.package
+                    .toLowerCase()
+                    .includes(keyword);
 
 
-        return matchKeyword && matchPrice;
+            const priceMatch =
 
-    });
+                currentPrice === "ALL"
+
+                ||
+
+                acc.package === currentPrice;
+
+
+            return keywordMatch && priceMatch;
+
+        });
 
 
     renderAccounts(result);
@@ -1049,9 +1201,9 @@ function filterAccounts(){
 }
 
 
-/* =====================================================
-   TÌM DỊCH VỤ
-   ===================================================== */
+/* ==================================================
+   SEARCH DỊCH VỤ
+   ================================================== */
 
 function filterServices(){
 
@@ -1090,9 +1242,9 @@ function filterServices(){
 }
 
 
-/* =====================================================
-   MỞ FORM ĐẶT HÀNG
-   ===================================================== */
+/* ==================================================
+   MỞ MODAL
+   ================================================== */
 
 function openOrder(
     type,
@@ -1121,8 +1273,8 @@ function openOrder(
         .getElementById("modalTitle")
         .textContent =
             type === "ACC"
-            ? "🛒 Mua Acc Steal an Egg"
-            : "🛠️ Đặt dịch vụ";
+                ? "🛒 Mua Acc Steal an Egg"
+                : "🛠️ Đặt dịch vụ Steal an Egg";
 
 
     document
@@ -1131,12 +1283,13 @@ function openOrder(
 
             <b>${escapeHTML(name)}</b>
 
-            <br>
-
-            ${packageName
-                ? "Gói: " + escapeHTML(packageName) + "<br>"
-                : ""
+            ${
+                packageName
+                    ? `<br>Gói: <b>${escapeHTML(packageName)}</b>`
+                    : ""
             }
+
+            <br>
 
             Giá:
             <b>${formatMoney(price)}</b>
@@ -1166,9 +1319,9 @@ function openOrder(
 }
 
 
-/* =====================================================
-   ĐÓNG FORM
-   ===================================================== */
+/* ==================================================
+   ĐÓNG MODAL
+   ================================================== */
 
 function closeModal(){
 
@@ -1181,9 +1334,9 @@ function closeModal(){
 }
 
 
-/* =====================================================
-   ĐẶT HÀNG
-   ===================================================== */
+/* ==================================================
+   GỬI ĐƠN
+   ================================================== */
 
 function submitOrder(){
 
@@ -1262,23 +1415,20 @@ function submitOrder(){
 
         trangThai:"Chờ xử lý",
 
-        ngayTao:new Date().toLocaleString("vi-VN")
+        ngayTao:
+            new Date().toLocaleString("vi-VN")
 
     };
 
 
-    /*
-       Lưu tạm ở trình duyệt.
+    const storageKey =
+        "shopkarot_steal_an_egg_orders";
 
-       Sau này có thể thay bằng API
-       Google Apps Script của ShopKarot.
-    */
 
     const orders =
         JSON.parse(
-            localStorage.getItem(
-                "shopkarot_steal_an_egg_orders"
-            ) || "[]"
+            localStorage.getItem(storageKey)
+            || "[]"
         );
 
 
@@ -1286,7 +1436,7 @@ function submitOrder(){
 
 
     localStorage.setItem(
-        "shopkarot_steal_an_egg_orders",
+        storageKey,
         JSON.stringify(orders)
     );
 
@@ -1312,9 +1462,9 @@ function submitOrder(){
 }
 
 
-/* =====================================================
+/* ==================================================
    QUAY VỀ SHOP
-   ===================================================== */
+   ================================================== */
 
 function goBack(){
 
@@ -1322,80 +1472,62 @@ function goBack(){
 
         history.back();
 
-    }else{
-
-        window.location.href =
-            SHOP_BACK_URL;
+        return;
 
     }
 
-}
 
-
-/* =====================================================
-   ESCAPE HTML
-   ===================================================== */
-
-function escapeHTML(value){
-
-    return String(value)
-
-        .replace(/&/g,"&amp;")
-
-        .replace(/</g,"&lt;")
-
-        .replace(/>/g,"&gt;")
-
-        .replace(/"/g,"&quot;")
-
-        .replace(/'/g,"&#039;");
+    window.location.href =
+        BACK_URL;
 
 }
 
 
-/* =====================================================
-   ESCAPE JAVASCRIPT
-   ===================================================== */
-
-function escapeJS(value){
-
-    return String(value)
-
-        .replace(/\\/g,"\\\\")
-
-        .replace(/'/g,"\\'")
-
-        .replace(/\n/g,"\\n")
-
-        .replace(/\r/g,"\\r");
-
-}
-
-
-/* =====================================================
-   CLICK RA NGOÀI MODAL
-   ===================================================== */
+/* ==================================================
+   CLICK NGOÀI MODAL
+   ================================================== */
 
 document
     .getElementById("orderModal")
-    .addEventListener("click",function(event){
+    .addEventListener(
+        "click",
+        function(event){
 
-        if(event.target === this){
+            if(event.target === this){
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+/* ==================================================
+   ESC ĐỂ ĐÓNG
+   ================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
 
             closeModal();
 
         }
 
-    });
+    }
+);
 
 
-/* =====================================================
+/* ==================================================
    KHỞI ĐỘNG
-   ===================================================== */
+   ================================================== */
 
-renderAccounts();
+renderAccounts(accounts);
 
-renderServices();
+renderServices(services);
 
 </script>
 
