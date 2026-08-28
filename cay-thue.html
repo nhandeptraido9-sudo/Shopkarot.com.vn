@@ -271,10 +271,9 @@ button,input,textarea{
     font-weight:bold;
 }
 
+.field input,
 .field textarea{
     width:100%;
-    min-height:130px;
-    resize:vertical;
     background:#0b111d;
     border:1px solid #303b52;
     border-radius:11px;
@@ -283,6 +282,16 @@ button,input,textarea{
     outline:none;
 }
 
+.field input{
+    height:46px;
+}
+
+.field textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.field input:focus,
 .field textarea:focus{
     border-color:#ffb000;
 }
@@ -292,6 +301,14 @@ button,input,textarea{
     font-size:12px;
     margin-top:7px;
     line-height:1.5;
+}
+
+.security-warning{
+    color:#ffbd22;
+    font-size:12px;
+    line-height:1.5;
+    margin-top:-5px;
+    margin-bottom:10px;
 }
 
 .actions{
@@ -365,6 +382,7 @@ button,input,textarea{
     color:#aeb7c8;
     line-height:1.6;
     margin-bottom:20px;
+    white-space:pre-line;
 }
 
 .modal-close{
@@ -441,25 +459,43 @@ button,input,textarea{
 <body>
 
 <header class="header">
-    <div class="logo">🥕 SHOPKAROT</div>
+
+    <div class="logo">
+        🥕 SHOPKAROT
+    </div>
 
     <button class="back-btn" onclick="goHome()">
         ← Quay lại Shop
     </button>
+
 </header>
 
 <main class="container">
 
     <section class="hero">
-        <h1>Dịch Vụ - Cày Thuê Blox Fruits</h1>
-        <p>Chọn dịch vụ bạn cần và tạo đơn hàng</p>
-    </section>
 
-    <section class="notice">
-        <h2>⚠️ LƯU Ý QUAN TRỌNG</h2>
+        <h1>
+            Dịch Vụ - Cày Thuê Blox Fruits
+        </h1>
 
         <p>
-            🔑 Tài khoản phải có <b>CODE BACKUP (mã dự phòng)</b>
+            Chọn dịch vụ bạn cần và tạo đơn hàng
+        </p>
+
+    </section>
+
+
+    <!-- LƯU Ý -->
+
+    <section class="notice">
+
+        <h2>
+            ⚠️ LƯU Ý QUAN TRỌNG
+        </h2>
+
+        <p>
+            🔑 Tài khoản phải có
+            <b>CODE BACKUP (mã dự phòng)</b>
             thì shop mới có thể thực hiện dịch vụ.
         </p>
 
@@ -487,49 +523,160 @@ button,input,textarea{
         </p>
 
         <p style="margin-top:12px;color:#ffbd22;">
-            ⚠️ Không gửi mật khẩu, Cookie hoặc mã 2FA vào ghi chú.
+            ⚠️ Không gửi Cookie hoặc mã 2FA vào ghi chú.
         </p>
+
     </section>
 
-    <h2 class="section-title">📦 1. Chọn Dịch Vụ</h2>
+
+    <!-- CHỌN DỊCH VỤ -->
+
+    <h2 class="section-title">
+        📦 1. Chọn Dịch Vụ
+    </h2>
 
     <section class="categories">
 
-        <div class="category" onclick="showPackages('level')">
-            <div class="icon">🎯</div>
-            <h3>Cày Level</h3>
-            <span>Chọn mốc level</span>
+        <div
+            class="category"
+            onclick="showPackages('level')"
+        >
+            <div class="icon">
+                🎯
+            </div>
+
+            <h3>
+                Cày Level
+            </h3>
+
+            <span>
+                Chọn mốc level
+            </span>
         </div>
 
-        <div class="category" onclick="showPackages('money')">
-            <div class="icon">💰</div>
-            <h3>Điểm F - Beli</h3>
-            <span>F & Beli</span>
+
+        <div
+            class="category"
+            onclick="showPackages('money')"
+        >
+            <div class="icon">
+                💰
+            </div>
+
+            <h3>
+                Điểm F - Beli
+            </h3>
+
+            <span>
+                F & Beli
+            </span>
         </div>
 
-        <div class="category" onclick="showPackages('item')">
-            <div class="icon">🎁</div>
-            <h3>Lấy Item</h3>
-            <span>Item / Kiếm</span>
+
+        <div
+            class="category"
+            onclick="showPackages('item')"
+        >
+            <div class="icon">
+                🎁
+            </div>
+
+            <h3>
+                Lấy Item
+            </h3>
+
+            <span>
+                Item / Kiếm
+            </span>
         </div>
 
-        <div class="category" onclick="showPackages('melee')">
-            <div class="icon">🥊</div>
-            <h3>Melee</h3>
-            <span>Melee V2 / Godhuman</span>
+
+        <div
+            class="category"
+            onclick="showPackages('melee')"
+        >
+            <div class="icon">
+                🥊
+            </div>
+
+            <h3>
+                Melee
+            </h3>
+
+            <span>
+                Melee V2 / Godhuman
+            </span>
+        </div>
+
+
+        <!-- LẤY TỘC -->
+
+        <div
+            class="category"
+            onclick="showPackages('race')"
+        >
+            <div class="icon">
+                🧬
+            </div>
+
+            <h3>
+                Lấy tộc - Nâng tộc
+            </h3>
+
+            <span>
+                Nâng tộc V1 → V3
+            </span>
+        </div>
+
+
+        <!-- MASTERY -->
+
+        <div
+            class="category"
+            onclick="showPackages('mastery')"
+        >
+            <div class="icon">
+                ⚔️
+            </div>
+
+            <h3>
+                Mastery
+            </h3>
+
+            <span>
+                Trái / Kiếm / Súng
+            </span>
         </div>
 
     </section>
 
-    <section id="packageArea" class="package-area">
 
-        <h2 id="packageTitle" class="section-title"></h2>
+    <!-- DANH SÁCH GÓI -->
 
-        <div id="packageGrid" class="package-grid"></div>
+    <section
+        id="packageArea"
+        class="package-area"
+    >
+
+        <h2
+            id="packageTitle"
+            class="section-title"
+        ></h2>
+
+        <div
+            id="packageGrid"
+            class="package-grid"
+        ></div>
 
     </section>
 
-    <section id="orderArea" class="order-area">
+
+    <!-- TẠO ĐƠN -->
+
+    <section
+        id="orderArea"
+        class="order-area"
+    >
 
         <div class="order-box">
 
@@ -537,21 +684,67 @@ button,input,textarea{
                 🛒 Tạo Đơn Hàng
             </h2>
 
+
             <div class="selected-service">
 
                 <div class="label">
                     Dịch vụ đã chọn
                 </div>
 
-                <div id="selectedName" class="name">
+                <div
+                    id="selectedName"
+                    class="name"
+                >
                     -
                 </div>
 
-                <div id="selectedPrice" class="price">
+                <div
+                    id="selectedPrice"
+                    class="price"
+                >
                     -
                 </div>
 
             </div>
+
+
+            <!-- TÀI KHOẢN -->
+
+            <div class="field">
+
+                <label for="username">
+                    👤 Tài khoản Roblox
+                </label>
+
+                <input
+                    id="username"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Nhập tên tài khoản Roblox..."
+                >
+
+            </div>
+
+
+            <!-- MẬT KHẨU -->
+
+            <div class="field">
+
+                <label for="password">
+                    🔐 Mật khẩu
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="off"
+                    placeholder="Nhập mật khẩu tài khoản..."
+                >
+
+            </div>
+
+
+            <!-- GHI CHÚ -->
 
             <div class="field">
 
@@ -571,10 +764,11 @@ button,input,textarea{
 
             </div>
 
-            <div class="hint">
-                ⚠️ Không nhập mật khẩu, Cookie, mã 2FA hoặc thông tin bảo mật
-                vào phần ghi chú.
+
+            <div class="security-warning">
+                ⚠️ Không nhập Cookie hoặc mã 2FA vào phần ghi chú.
             </div>
+
 
             <div class="actions">
 
@@ -600,11 +794,18 @@ button,input,textarea{
 
 </main>
 
+
 <footer class="footer">
     © 2026 SHOPKAROT — Dịch Vụ Cày Thuê Blox Fruits
 </footer>
 
-<div id="modal" class="modal">
+
+<!-- MODAL -->
+
+<div
+    id="modal"
+    class="modal"
+>
 
     <div class="modal-box">
 
@@ -627,102 +828,189 @@ button,input,textarea{
 
 </div>
 
+
 <script>
 
 const services = {
 
     level: {
+
         title: "🎯 Cày Level",
+
         items: [
+
             {
                 name: "Lv 1 → 700",
                 price: 20000
             },
+
             {
                 name: "Lv 700 → 1500",
                 price: 30000
             },
+
             {
                 name: "Lv 1500 → Max",
                 price: 40000
             },
+
             {
                 name: "Lv 1 → Max",
                 price: 50000
             }
+
         ]
+
     },
 
+
     money: {
+
         title: "💰 Điểm F - Beli",
+
         items: [
+
             {
                 name: "5K F",
                 price: 20000
             },
+
             {
                 name: "2M Beli",
                 price: 10000
             },
+
             {
                 name: "5M Beli",
                 price: 20000
             }
+
         ]
+
     },
 
+
     item: {
+
         title: "🎁 Lấy Item",
+
         items: [
+
             {
                 name: "Mua tất cả Item Sea 1",
                 price: 10000
             },
+
             {
                 name: "Soul Guitar",
                 price: 60000,
                 require: "Yêu cầu Lv trên 2300"
             },
+
             {
                 name: "Yama",
                 price: 50000,
                 require: "Yêu cầu Lv trên 1500"
             },
+
             {
                 name: "Tushita",
                 price: 20000,
                 require: "Yêu cầu Lv trên 2300"
             },
+
             {
                 name: "Ghép Song Kiếm",
                 price: 50000,
                 require: "Đã có Yama + Tushita + 350 Mastery"
             },
+
             {
                 name: "Song Kiếm – Tushita + Yama",
                 price: 130000
             }
+
         ]
+
     },
 
+
     melee: {
+
         title: "🥊 Melee",
+
         items: [
+
             {
                 name: "1 Melee V2",
                 price: 20000
             },
+
             {
                 name: "Godhuman",
                 price: 50000
             }
+
         ]
+
+    },
+
+
+    /* =========================
+       LẤY TỘC - NÂNG TỘC
+       ========================= */
+
+    race: {
+
+        title: "🧬 Lấy tộc - Nâng tộc",
+
+        items: [
+
+            {
+                name: "Nâng tộc V1 → V3",
+                price: 20000
+            }
+
+        ]
+
+    },
+
+
+    /* =========================
+       MASTERY
+       ========================= */
+
+    mastery: {
+
+        title: "⚔️ Mastery",
+
+        items: [
+
+            {
+                name: "Max Mastery trái",
+                price: 40000
+            },
+
+            {
+                name: "Max Mastery kiếm",
+                price: 20000
+            },
+
+            {
+                name: "Max Mastery súng",
+                price: 20000
+            }
+
+        ]
+
     }
 
 };
 
+
 let selectedService = null;
 let currentCategory = null;
+
 
 function formatMoney(number){
 
@@ -730,39 +1018,69 @@ function formatMoney(number){
 
 }
 
+
 function showPackages(category){
 
     currentCategory = category;
 
     const data = services[category];
 
-    const area = document.getElementById("packageArea");
-    const title = document.getElementById("packageTitle");
-    const grid = document.getElementById("packageGrid");
-    const orderArea = document.getElementById("orderArea");
+    const area =
+        document.getElementById("packageArea");
+
+    const title =
+        document.getElementById("packageTitle");
+
+    const grid =
+        document.getElementById("packageGrid");
+
+    const orderArea =
+        document.getElementById("orderArea");
+
 
     orderArea.classList.remove("active");
 
-    title.textContent = data.title;
+
+    title.textContent =
+        data.title;
+
 
     grid.innerHTML = "";
 
+
     data.items.forEach((item,index)=>{
 
-        const div = document.createElement("div");
+        const div =
+            document.createElement("div");
 
-        div.className = "package";
+        div.className =
+            "package";
+
 
         div.innerHTML = `
+
             <div class="package-info">
-                <h3>${item.name}</h3>
-                <p>${formatMoney(item.price)}</p>
+
+                <h3>
+                    ${item.name}
+                </h3>
+
+                <p>
+                    ${formatMoney(item.price)}
+                </p>
+
                 ${
                     item.require
-                    ? `<p class="require">⚠️ ${item.require}</p>`
-                    : ""
+                    ?
+                    `<p class="require">
+                        ⚠️ ${item.require}
+                    </p>`
+                    :
+                    ""
                 }
+
             </div>
+
 
             <button
                 class="select-btn"
@@ -770,75 +1088,166 @@ function showPackages(category){
             >
                 CHỌN GÓI
             </button>
+
         `;
+
 
         grid.appendChild(div);
 
     });
 
+
     area.classList.add("active");
 
+
     area.scrollIntoView({
+
         behavior:"smooth",
+
         block:"start"
+
     });
 
 }
 
+
 function selectPackage(index){
 
-    const data = services[currentCategory];
+    const data =
+        services[currentCategory];
 
-    selectedService = data.items[index];
+
+    selectedService =
+        data.items[index];
+
 
     document.getElementById("selectedName").textContent =
         selectedService.name;
 
+
     document.getElementById("selectedPrice").textContent =
         formatMoney(selectedService.price);
 
-    document.getElementById("orderArea").classList.add("active");
 
-    document.getElementById("note").value = "";
+    document.getElementById("orderArea")
+        .classList.add("active");
 
-    document.getElementById("orderArea").scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
+
+    document.getElementById("username").value =
+        "";
+
+    document.getElementById("password").value =
+        "";
+
+    document.getElementById("note").value =
+        "";
+
+
+    document.getElementById("orderArea")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
 
 }
+
 
 function backToPackages(){
 
-    document.getElementById("orderArea").classList.remove("active");
+    document.getElementById("orderArea")
+        .classList.remove("active");
 
-    document.getElementById("packageArea").scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
+
+    document.getElementById("packageArea")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
 
 }
+
 
 function createOrder(){
 
     if(!selectedService){
 
         showModal(
+
             "Chưa chọn dịch vụ",
+
             "Vui lòng chọn một gói dịch vụ trước khi tạo đơn."
+
         );
 
         return;
+
     }
 
+
+    const username =
+        document.getElementById("username")
+            .value.trim();
+
+
+    const password =
+        document.getElementById("password")
+            .value.trim();
+
+
     const note =
-        document.getElementById("note").value.trim();
+        document.getElementById("note")
+            .value.trim();
+
+
+    if(!username){
+
+        showModal(
+
+            "Thiếu tài khoản",
+
+            "Vui lòng nhập tài khoản Roblox."
+
+        );
+
+        document.getElementById("username")
+            .focus();
+
+        return;
+
+    }
+
+
+    if(!password){
+
+        showModal(
+
+            "Thiếu mật khẩu",
+
+            "Vui lòng nhập mật khẩu tài khoản Roblox."
+
+        );
+
+        document.getElementById("password")
+            .focus();
+
+        return;
+
+    }
+
 
     const order = {
 
         id:
             "SK" +
-            Date.now().toString().slice(-8),
+            Date.now()
+                .toString()
+                .slice(-8),
 
         service:
             selectedService.name,
@@ -846,66 +1255,102 @@ function createOrder(){
         price:
             selectedService.price,
 
+        username:
+            username,
+
+        password:
+            password,
+
         note:
             note,
 
         createdAt:
-            new Date().toLocaleString("vi-VN"),
+            new Date()
+                .toLocaleString("vi-VN"),
 
         status:
             "Chờ xử lý"
 
     };
 
+
     /*
       Lưu tạm đơn trên trình duyệt.
 
-      Khi bạn có API Google Apps Script của ShopKarot,
-      có thể thay phần này bằng fetch() gửi đơn lên API.
+      Khi kết nối Google Apps Script,
+      có thể thay phần này bằng fetch()
+      gửi đơn lên API ShopKarot.
     */
 
+
     const oldOrders =
+
         JSON.parse(
-            localStorage.getItem("shopkarot_service_orders") || "[]"
+
+            localStorage.getItem(
+                "shopkarot_service_orders"
+            )
+            ||
+            "[]"
+
         );
+
 
     oldOrders.push(order);
 
+
     localStorage.setItem(
+
         "shopkarot_service_orders",
+
         JSON.stringify(oldOrders)
+
     );
 
+
     showModal(
+
         "✅ Tạo đơn thành công",
+
         "Mã đơn: " +
         order.id +
-        "\\n\\nDịch vụ: " +
+
+        "\n\nDịch vụ: " +
         order.service +
-        "\\nGiá: " +
+
+        "\nGiá: " +
         formatMoney(order.price) +
-        "\\n\\nĐơn đã được lưu và đang chờ xử lý."
+
+        "\n\nĐơn đã được lưu và đang chờ xử lý."
+
     );
 
 }
+
 
 function showModal(title,text){
 
-    document.getElementById("modalTitle").textContent =
-        title;
+    document.getElementById("modalTitle")
+        .textContent = title;
 
-    document.getElementById("modalText").textContent =
-        text;
 
-    document.getElementById("modal").classList.add("active");
+    document.getElementById("modalText")
+        .textContent = text;
+
+
+    document.getElementById("modal")
+        .classList.add("active");
 
 }
+
 
 function closeModal(){
 
-    document.getElementById("modal").classList.remove("active");
+    document.getElementById("modal")
+        .classList.remove("active");
 
 }
+
 
 function goHome(){
 
@@ -914,7 +1359,8 @@ function goHome(){
       nếu file trang chủ của bạn có tên khác.
     */
 
-    window.location.href = "index.html";
+    window.location.href =
+        "index.html";
 
 }
 
