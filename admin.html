@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -54,6 +55,7 @@ button,input,select,textarea{font:inherit}
 .btn-gray{background:#6b7280;color:#fff}
 
 .btn:hover{opacity:.88}
+
 .hidden{display:none!important}
 
 header{
@@ -151,7 +153,7 @@ header h2{margin:0}
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:900px;
+  min-width:1100px;
   background:#fff;
 }
 
@@ -231,7 +233,7 @@ th{
 }
 
 .modal-content{
-  width:min(700px,100%);
+  width:min(800px,100%);
   max-height:90vh;
   overflow:auto;
   background:#fff;
@@ -249,7 +251,38 @@ th{
   margin-top:15px;
 }
 
-.account-result div{margin:7px 0}
+.account-result div{
+  margin:8px 0;
+}
+
+.order-detail{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:18px;
+}
+
+.order-detail-row{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.order-detail-row:last-child{
+  border-bottom:0;
+}
+
+.order-detail-label{
+  font-weight:bold;
+  color:#374151;
+}
+
+.order-detail-value{
+  white-space:pre-wrap;
+  word-break:break-word;
+}
 
 .small{
   font-size:13px;
@@ -261,7 +294,9 @@ th{
   margin-bottom:15px;
 }
 
-.product-status-card{margin-bottom:12px}
+.product-status-card{
+  margin-bottom:12px;
+}
 
 .product-status-row{
   display:flex;
@@ -360,19 +395,35 @@ th{
 }
 
 @media(max-width:700px){
-  .form-grid{grid-template-columns:1fr}
-  .full{grid-column:auto}
-  .product-status-row{align-items:stretch}
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .product-status-row{
+    align-items:stretch;
+  }
+
   .product-status-name,
   .product-status-select{
     width:100%;
     min-width:0;
+  }
+
+  .order-detail-row{
+    grid-template-columns:1fr;
   }
 }
 </style>
 </head>
 
 <body>
+
+<!-- ================= LOGIN ================= -->
 
 <div id="loginPage" class="login-box">
 
@@ -405,6 +456,8 @@ onclick="adminLogin()"
 </div>
 
 
+<!-- ================= ADMIN ================= -->
+
 <div id="adminPage" class="hidden">
 
 <header>
@@ -426,6 +479,8 @@ Quản lý kho acc, cày thuê, khách hàng,
 
 
 <div class="container">
+
+<!-- DASHBOARD -->
 
 <div class="dashboard">
 
@@ -462,6 +517,8 @@ Quản lý kho acc, cày thuê, khách hàng,
 </div>
 
 
+<!-- SHOP STATUS -->
+
 <div class="card" style="margin-bottom:20px">
 
 <h3>⚙️ Trạng thái Shop</h3>
@@ -494,7 +551,10 @@ Shop tạm đóng
 
 </select>
 
-<button class="btn btn-primary" onclick="setShopStatus()">
+<button
+class="btn btn-primary"
+onclick="setShopStatus()"
+>
 💾 Lưu trạng thái
 </button>
 
@@ -503,34 +563,56 @@ Shop tạm đóng
 </div>
 
 
+<!-- TABS -->
+
 <div class="tabs">
 
-<button class="tab active" onclick="showTab('accounts',this)">
+<button
+class="tab active"
+onclick="showTab('accounts',this)"
+>
 🎮 Kho Acc
 </button>
 
-<button class="tab" onclick="showTab('services',this)">
+<button
+class="tab"
+onclick="showTab('services',this)"
+>
 🛠️ Cày thuê
 </button>
 
-<button class="tab" onclick="showTab('customers',this)">
+<button
+class="tab"
+onclick="showTab('customers',this)"
+>
 👥 Khách hàng
 </button>
 
-<button class="tab" onclick="showTab('topups',this)">
+<button
+class="tab"
+onclick="showTab('topups',this)"
+>
 💰 Nạp tiền
 </button>
 
-<button class="tab" onclick="showTab('orders',this)">
+<button
+class="tab"
+onclick="showTab('orders',this)"
+>
 📦 Đơn hàng
 </button>
 
-<button class="tab" onclick="showTab('products',this)">
+<button
+class="tab"
+onclick="showTab('products',this)"
+>
 🛍️ Trạng thái sản phẩm
 </button>
 
 </div>
 
+
+<!-- ================= ACCOUNTS ================= -->
 
 <section id="panel-accounts" class="panel active">
 
@@ -545,32 +627,46 @@ Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
 <div class="form-grid">
 
 <div class="form-group">
+
 <label>🎮 Game</label>
 
-<select id="accountGame" class="input" onchange="gameChanged()">
+<select
+id="accountGame"
+class="input"
+onchange="gameChanged()"
+>
 
 <option value="">-- Chọn game --</option>
 
-<option value="Blox Fruits">Blox Fruits</option>
-<option value="King Legacy">King Legacy</option>
-<option value="Anime Fighters">Anime Fighters</option>
-<option value="Grow A Garden 2">Grow A Garden 2</option>
-<option value="Grow A Garden">Grow A Garden</option>
-<option value="Murder Mystery 2">Murder Mystery 2</option>
-<option value="Túi Mù">Túi Mù</option>
-<option value="Event">Event</option>
-<option value="Greedy Growers 🌱">Greedy Growers 🌱</option>
-<option value="Steal a Egg">🥚 Steal a Egg</option>
+<option>Blox Fruits</option>
+<option>King Legacy</option>
+<option>Anime Fighters</option>
+<option>Grow A Garden 2</option>
+<option>Grow A Garden</option>
+<option>Murder Mystery 2</option>
+<option>Túi Mù</option>
+<option>Event</option>
+<option>Greedy Growers 🌱</option>
+<option>Steal a Egg</option>
 
 </select>
+
 </div>
 
 <div class="form-group">
 
 <label>📁 Thư mục</label>
 
-<select id="accountFolder" class="input" onchange="folderChanged()">
-<option value="">-- Chọn thư mục --</option>
+<select
+id="accountFolder"
+class="input"
+onchange="folderChanged()"
+>
+
+<option value="">
+-- Chọn thư mục --
+</option>
+
 </select>
 
 </div>
@@ -579,7 +675,11 @@ Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
 
 <label>💵 Giá</label>
 
-<select id="accountPrice" class="input" onchange="priceChanged()">
+<select
+id="accountPrice"
+class="input"
+onchange="priceChanged()"
+>
 
 <option value="">-- Chọn giá --</option>
 
@@ -606,8 +706,15 @@ Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
 
 <label>📦 Gói</label>
 
-<select id="accountPackage" class="input">
-<option value="">-- Chọn gói --</option>
+<select
+id="accountPackage"
+class="input"
+>
+
+<option value="">
+-- Chọn gói --
+</option>
+
 </select>
 
 </div>
@@ -619,7 +726,6 @@ Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
 <input
 id="accountUsername"
 class="input"
-type="text"
 placeholder="Ví dụ: xyz456"
 >
 
@@ -632,7 +738,6 @@ placeholder="Ví dụ: xyz456"
 <input
 id="accountPassword"
 class="input"
-type="text"
 placeholder="Ví dụ: abcdef"
 >
 
@@ -642,11 +747,17 @@ placeholder="Ví dụ: abcdef"
 
 <div class="actions">
 
-<button class="btn btn-success" onclick="addAccount()">
+<button
+class="btn btn-success"
+onclick="addAccount()"
+>
 ➕ Thêm tài khoản
 </button>
 
-<button class="btn btn-gray" onclick="clearAccountForm()">
+<button
+class="btn btn-gray"
+onclick="clearAccountForm()"
+>
 🧹 Xóa form
 </button>
 
@@ -673,7 +784,6 @@ oninput="renderAccounts()"
 <table>
 
 <thead>
-
 <tr>
 <th>ID</th>
 <th>Game</th>
@@ -685,7 +795,6 @@ oninput="renderAccounts()"
 <th>Status</th>
 <th>Thao tác</th>
 </tr>
-
 </thead>
 
 <tbody id="accountsBody"></tbody>
@@ -699,6 +808,8 @@ oninput="renderAccounts()"
 </section>
 
 
+<!-- ================= SERVICES ================= -->
+
 <section id="panel-services" class="panel">
 
 <div class="card">
@@ -706,8 +817,8 @@ oninput="renderAccounts()"
 <h2>🛠️ Quản lý Cày thuê</h2>
 
 <div class="notice">
-Dữ liệu Cày thuê được lưu trực tiếp trên <b>Google Sheets</b>.
-Không lưu dữ liệu dịch vụ trên trình duyệt.
+Dữ liệu Cày thuê được lưu trực tiếp trên
+<b>Google Sheets</b>.
 </div>
 
 <div class="form-grid">
@@ -720,14 +831,14 @@ Không lưu dữ liệu dịch vụ trên trình duyệt.
 
 <option value="">-- Chọn game --</option>
 
-<option value="Blox Fruits">Blox Fruits</option>
-<option value="King Legacy">King Legacy</option>
-<option value="Grow A Garden">Grow A Garden</option>
-<option value="Grow A Garden 2">Grow A Garden 2</option>
-<option value="Anime Fighters">Anime Fighters</option>
-<option value="Murder Mystery 2">Murder Mystery 2</option>
-<option value="Steal a Egg">🥚 Steal a Egg</option>
-<option value="Khác">Khác</option>
+<option>Blox Fruits</option>
+<option>King Legacy</option>
+<option>Grow A Garden</option>
+<option>Grow A Garden 2</option>
+<option>Anime Fighters</option>
+<option>Murder Mystery 2</option>
+<option>Steal a Egg</option>
+<option>Khác</option>
 
 </select>
 
@@ -763,15 +874,13 @@ placeholder="Ví dụ: 50"
 
 <label>📊 Trạng thái</label>
 
-<select id="serviceStatus" class="input">
+<select
+id="serviceStatus"
+class="input"
+>
 
-<option value="Sẵn Sàng">
-🟢 Sẵn Sàng
-</option>
-
-<option value="Chưa Sẵn Sàng">
-🔴 Chưa Sẵn Sàng
-</option>
+<option>Sẵn Sàng</option>
+<option>Chưa Sẵn Sàng</option>
 
 </select>
 
@@ -794,15 +903,24 @@ placeholder="Nhập nội dung/mô tả dịch vụ..."
 
 <div class="actions">
 
-<button class="btn btn-success" onclick="addService()">
+<button
+class="btn btn-success"
+onclick="addService()"
+>
 ➕ Thêm dịch vụ cày thuê
 </button>
 
-<button class="btn btn-gray" onclick="clearServiceForm()">
+<button
+class="btn btn-gray"
+onclick="clearServiceForm()"
+>
 🧹 Xóa form
 </button>
 
-<button class="btn btn-primary" onclick="loadServices()">
+<button
+class="btn btn-primary"
+onclick="loadServices()"
+>
 🔄 Tải lại Google Sheets
 </button>
 
@@ -843,6 +961,8 @@ oninput="renderServices()"
 </section>
 
 
+<!-- ================= CUSTOMERS ================= -->
+
 <section id="panel-customers" class="panel">
 
 <div class="card">
@@ -861,14 +981,12 @@ oninput="renderCustomers()"
 <table>
 
 <thead>
-
 <tr>
 <th>Username</th>
 <th>Số dư</th>
 <th>Ngày tạo</th>
 <th>Trạng thái</th>
 </tr>
-
 </thead>
 
 <tbody id="customersBody"></tbody>
@@ -882,6 +1000,8 @@ oninput="renderCustomers()"
 </section>
 
 
+<!-- ================= TOPUPS ================= -->
+
 <section id="panel-topups" class="panel">
 
 <div class="card">
@@ -893,7 +1013,6 @@ oninput="renderCustomers()"
 <table>
 
 <thead>
-
 <tr>
 <th>ID</th>
 <th>Username</th>
@@ -906,7 +1025,6 @@ oninput="renderCustomers()"
 <th>Trạng thái</th>
 <th>Thao tác</th>
 </tr>
-
 </thead>
 
 <tbody id="topupsBody"></tbody>
@@ -920,11 +1038,37 @@ oninput="renderCustomers()"
 </section>
 
 
+<!-- ================= ORDERS ================= -->
+
 <section id="panel-orders" class="panel">
 
 <div class="card">
 
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+">
+
 <h2>📦 Đơn hàng</h2>
+
+<button
+class="btn btn-primary"
+onclick="loadOrders()"
+>
+🔄 Tải lại đơn hàng
+</button>
+
+</div>
+
+<input
+id="orderSearch"
+class="input search"
+placeholder="🔎 Tìm mã đơn, tên khách, TK Roblox, dịch vụ..."
+oninput="renderOrders()"
+>
 
 <div class="table-wrap">
 
@@ -933,13 +1077,19 @@ oninput="renderCustomers()"
 <thead>
 
 <tr>
-<th>ID</th>
-<th>Khách</th>
-<th>Sản phẩm</th>
+<th>Mã đơn</th>
+<th>Tên khách</th>
+<th>TK Roblox</th>
+<th>Mk Roblox</th>
+<th>Quyền truy cập</th>
+<th>Loại đơn</th>
+<th>Dịch vụ</th>
 <th>Giá</th>
+<th>Ghi chú khách</th>
+<th>Ghi chú Admin</th>
+<th>Ngày tạo</th>
 <th>Trạng thái</th>
-<th>Thời gian</th>
-<th>Acc</th>
+<th>Xem</th>
 </tr>
 
 </thead>
@@ -954,6 +1104,8 @@ oninput="renderCustomers()"
 
 </section>
 
+
+<!-- ================= PRODUCTS ================= -->
 
 <section id="panel-products" class="panel">
 
@@ -975,7 +1127,12 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 </div>
 
 
-<div id="accountModal" class="modal hidden">
+<!-- ================= ACCOUNT MODAL ================= -->
+
+<div
+id="accountModal"
+class="modal hidden"
+>
 
 <div class="modal-content">
 
@@ -985,7 +1142,39 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 
 <div class="actions">
 
-<button class="btn btn-gray" onclick="closeAccountModal()">
+<button
+class="btn btn-gray"
+onclick="closeAccountModal()"
+>
+Đóng
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= ORDER MODAL ================= -->
+
+<div
+id="orderModal"
+class="modal hidden"
+>
+
+<div class="modal-content">
+
+<h2>📦 Chi tiết đơn hàng</h2>
+
+<div id="orderModalContent"></div>
+
+<div class="actions">
+
+<button
+class="btn btn-gray"
+onclick="closeOrderModal()"
+>
 Đóng
 </button>
 
@@ -1003,7 +1192,7 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 ===================================================== */
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycby5lwFnDcqGDHzalQboox34g1b28iH8ZoTKKaq4j_3uvh4sqSZccJYxHapSEYk6dQAOuw/exec";
+"https://script.google.com/macros/s/AKfycby5lwFnDcqGDHzalQboox34g1b28iH8ZoTKKaa4j_3uvh4sqSZccJYxHapSEYk6dQAOuw/exec";
 
 let ADMIN_KEY="";
 
@@ -1016,7 +1205,7 @@ let productStatuses={};
 
 
 /* =====================================================
-   API CORE
+   API
 ===================================================== */
 
 async function apiPost(action,data={}){
@@ -1039,16 +1228,19 @@ async function apiPost(action,data={}){
     try{
       return JSON.parse(text);
     }catch(e){
-      console.error("API RESPONSE:",text);
+
+      console.error(text);
+
       return {
         ok:false,
         message:"API trả về dữ liệu không hợp lệ."
       };
+
     }
 
   }catch(error){
 
-    console.error("POST ERROR:",error);
+    console.error(error);
 
     return {
       ok:false,
@@ -1065,8 +1257,7 @@ async function apiGet(action){
   try{
 
     const response=await fetch(
-      API_URL+
-      "?action="+
+      API_URL+"?action="+
       encodeURIComponent(action)
     );
 
@@ -1075,16 +1266,17 @@ async function apiGet(action){
     try{
       return JSON.parse(text);
     }catch(e){
-      console.error("API RESPONSE:",text);
+
+      console.error(text);
+
       return {
         ok:false,
         message:"API trả về dữ liệu không hợp lệ."
       };
+
     }
 
   }catch(error){
-
-    console.error("GET ERROR:",error);
 
     return {
       ok:false,
@@ -1102,9 +1294,9 @@ async function apiGet(action){
 
 async function adminLogin(){
 
-  const input=document.getElementById("adminKey");
-
-  const key=input.value.trim();
+  const key=
+    document.getElementById("adminKey")
+    .value.trim();
 
   if(!key){
 
@@ -1121,17 +1313,16 @@ async function adminLogin(){
     "#2563eb"
   );
 
-  const result=await apiPost(
-    "adminLogin",
-    {
-      key:key
-    }
-  );
+  const result=
+    await apiPost(
+      "adminLogin",
+      {key:key}
+    );
 
   if(!result || !result.ok){
 
     showLoginMessage(
-      result?.message ||
+      result?.message||
       "❌ Admin Key không đúng.",
       "red"
     );
@@ -1151,6 +1342,19 @@ async function adminLogin(){
 }
 
 
+function showLoginMessage(text,color){
+
+  const el=
+    document.getElementById(
+      "loginMessage"
+    );
+
+  el.textContent=text;
+  el.style.color=color;
+
+}
+
+
 function openAdmin(){
 
   document
@@ -1166,22 +1370,6 @@ function openAdmin(){
 }
 
 
-function showLoginMessage(text,color){
-
-  const el=document.getElementById(
-    "loginMessage"
-  );
-
-  el.textContent=text;
-  el.style.color=color;
-
-}
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
 function logout(){
 
   localStorage.removeItem(
@@ -1194,10 +1382,6 @@ function logout(){
 
 }
 
-
-/* =====================================================
-   AUTO LOGIN
-===================================================== */
 
 window.addEventListener(
   "load",
@@ -1213,15 +1397,12 @@ window.addEventListener(
     const result=
       await apiPost(
         "adminLogin",
-        {
-          key:saved
-        }
+        {key:saved}
       );
 
     if(result && result.ok){
 
       ADMIN_KEY=saved;
-
       openAdmin();
 
     }else{
@@ -1245,19 +1426,12 @@ async function loadAll(){
   await Promise.allSettled([
 
     loadDashboard(),
-
     loadShopStatus(),
-
     loadAccounts(),
-
     loadServices(),
-
     loadCustomers(),
-
     loadTopups(),
-
     loadOrders(),
-
     loadProducts()
 
   ]);
@@ -1272,9 +1446,7 @@ async function loadAll(){
 async function loadDashboard(){
 
   const result=
-    await apiGet(
-      "getDashboard"
-    );
+    await apiGet("getDashboard");
 
   if(result.ok){
 
@@ -1309,8 +1481,7 @@ async function loadDashboard(){
 
   document.getElementById(
     "dashServices"
-  ).textContent=
-    services.length;
+  ).textContent=services.length;
 
 }
 
@@ -1322,9 +1493,7 @@ async function loadDashboard(){
 async function loadShopStatus(){
 
   const result=
-    await apiGet(
-      "getShopStatus"
-    );
+    await apiGet("getShopStatus");
 
   if(!result.ok)return;
 
@@ -1346,17 +1515,11 @@ async function loadShopStatus(){
     );
 
   if(status==="Shop đang hoạt động"){
-
     dot.style.background="#22c55e";
-
   }else if(status==="Shop đang bảo trì"){
-
     dot.style.background="#f59e0b";
-
   }else{
-
     dot.style.background="#ef4444";
-
   }
 
 }
@@ -1386,12 +1549,9 @@ async function setShopStatus(){
     );
 
     return;
-
   }
 
-  alert(
-    "✅ Đã cập nhật trạng thái Shop."
-  );
+  alert("✅ Đã cập nhật trạng thái Shop.");
 
   await loadShopStatus();
 
@@ -1399,7 +1559,7 @@ async function setShopStatus(){
 
 
 /* =====================================================
-   GAME FOLDER
+   FOLDER
 ===================================================== */
 
 const folderData={
@@ -1492,21 +1652,17 @@ function gameChanged(){
   folder.innerHTML=
     '<option value="">-- Chọn thư mục --</option>';
 
-  (folderData[game]||[]).forEach(
-    name=>{
+  (folderData[game]||[]).forEach(name=>{
 
-      const option=
-        document.createElement(
-          "option"
-        );
+    const option=
+      document.createElement("option");
 
-      option.value=name;
-      option.textContent=name;
+    option.value=name;
+    option.textContent=name;
 
-      folder.appendChild(option);
+    folder.appendChild(option);
 
-    }
-  );
+  });
 
   updatePackages();
 
@@ -1517,14 +1673,11 @@ function folderChanged(){
   updatePackages();
 }
 
+
 function priceChanged(){
   updatePackages();
 }
 
-
-/* =====================================================
-   PACKAGE
-===================================================== */
 
 function updatePackages(){
 
@@ -1546,14 +1699,12 @@ function updatePackages(){
   select.innerHTML=
     '<option value="">-- Chọn gói --</option>';
 
-  if(!game || !folder)return;
+  if(!game||!folder)return;
 
   for(let i=1;i<=20;i++){
 
     const option=
-      document.createElement(
-        "option"
-      );
+      document.createElement("option");
 
     option.value="Gói "+i;
     option.textContent="Gói "+i;
@@ -1566,7 +1717,7 @@ function updatePackages(){
 
 
 /* =====================================================
-   ADD ACCOUNT
+   ACCOUNTS
 ===================================================== */
 
 async function addAccount(){
@@ -1616,7 +1767,6 @@ async function addAccount(){
     );
 
     return;
-
   }
 
   showAccountMessage(
@@ -1649,7 +1799,6 @@ async function addAccount(){
     );
 
     return;
-
   }
 
   showAccountMessage(
@@ -1709,16 +1858,10 @@ function clearAccountForm(){
 }
 
 
-/* =====================================================
-   ACCOUNTS
-===================================================== */
-
 async function loadAccounts(){
 
   const result=
-    await apiGet(
-      "getAccounts"
-    );
+    await apiGet("getAccounts");
 
   if(!result.ok)return;
 
@@ -1739,13 +1882,14 @@ function renderAccounts(){
       "accountsBody"
     );
 
-  const input=
-    document.getElementById(
-      "accountSearch"
-    );
-
   const search=
-    input.value.toLowerCase().trim();
+    (
+      document.getElementById(
+        "accountSearch"
+      ).value||""
+    )
+    .toLowerCase()
+    .trim();
 
   body.innerHTML="";
 
@@ -1772,24 +1916,22 @@ function renderAccounts(){
         document.createElement("tr");
 
       const status=
-        String(
-          acc.status||""
-        ).toLowerCase();
+        String(acc.status||"").toLowerCase();
 
-      let badgeClass="";
+      let badge="";
 
       if(
         status==="available"||
         status==="sẵn sàng"
       ){
-        badgeClass="available";
+        badge="available";
       }
 
       if(
         status==="sold"||
         status==="đã bán"
       ){
-        badgeClass="sold";
+        badge="sold";
       }
 
       tr.innerHTML=`
@@ -1817,12 +1959,19 @@ acc.accPassword||
 )}</td>
 
 <td>
-<span class="badge ${badgeClass}">
+<span class="badge ${badge}">
 ${escapeHtml(acc.status||"")}
 </span>
 </td>
 
 <td>
+
+<button
+class="btn btn-primary"
+onclick='showAccountModal(${JSON.stringify(acc)})'
+>
+👁️ Xem
+</button>
 
 <button
 class="btn btn-danger"
@@ -1866,12 +2015,9 @@ async function deleteAccount(id){
     );
 
     return;
-
   }
 
-  alert(
-    "✅ Đã xóa tài khoản."
-  );
+  alert("✅ Đã xóa tài khoản.");
 
   await loadAccounts();
   await loadDashboard();
@@ -1892,30 +2038,26 @@ async function loadServices(){
 
   container.innerHTML=
     `<div class="loading">
-      ⏳ Đang tải Cày thuê từ Google Sheets...
+      ⏳ Đang tải dữ liệu Cày thuê...
     </div>`;
 
   const result=
-    await apiGet(
-      "getServices"
-    );
+    await apiGet("getServices");
 
   if(!result.ok){
 
     services=[];
-
     renderServices();
 
     showServiceMessage(
       "❌ "+(
         result.message||
-        "Không tải được dữ liệu Cày thuê."
+        "Không tải được dữ liệu."
       ),
       "red"
     );
 
     return;
-
   }
 
   services=
@@ -1924,11 +2066,6 @@ async function loadServices(){
       :[];
 
   renderServices();
-
-  document.getElementById(
-    "dashServices"
-  ).textContent=
-    services.length;
 
 }
 
@@ -1968,11 +2105,10 @@ async function addService(){
     );
 
     return;
-
   }
 
   showServiceMessage(
-    "⏳ Đang lưu dịch vụ vào Google Sheets...",
+    "⏳ Đang lưu vào Google Sheets...",
     "#2563eb"
   );
 
@@ -2000,7 +2136,6 @@ async function addService(){
     );
 
     return;
-
   }
 
   clearServiceForm();
@@ -2103,15 +2238,12 @@ function renderServices(){
   if(!list.length){
 
     container.innerHTML=`
-
 <div class="notice">
 Chưa có dịch vụ cày thuê.
 </div>
-
 `;
 
     return;
-
   }
 
   list.forEach(service=>{
@@ -2197,7 +2329,6 @@ onclick="deleteService('${escapeJs(service.id||"")}')"
 </button>
 
 </div>
-
 `;
 
     container.appendChild(div);
@@ -2210,8 +2341,7 @@ onclick="deleteService('${escapeJs(service.id||"")}')"
 function findService(id){
 
   return services.find(
-    service=>
-      String(service.id)===String(id)
+    s=>String(s.id)===String(id)
   );
 
 }
@@ -2219,49 +2349,44 @@ function findService(id){
 
 async function editService(id){
 
-  const service=
-    findService(id);
+  const service=findService(id);
 
   if(!service)return;
 
-  const newName=
-    prompt(
-      "Nhập tên dịch vụ:",
-      service.name||""
-    );
+  const name=prompt(
+    "Nhập tên dịch vụ:",
+    service.name||""
+  );
 
-  if(newName===null)return;
+  if(name===null)return;
 
-  const newPrice=
-    prompt(
-      "Nhập giá mới:",
-      service.price||0
-    );
+  const price=prompt(
+    "Nhập giá:",
+    service.price||0
+  );
 
-  if(newPrice===null)return;
+  if(price===null)return;
 
-  const newDescription=
-    prompt(
-      "Nhập mô tả mới:",
-      service.description||""
-    );
+  const description=prompt(
+    "Nhập mô tả:",
+    service.description||""
+  );
 
-  if(newDescription===null)return;
+  if(description===null)return;
 
-  const newStatus=
+  const game=prompt(
+    "Nhập Game:",
+    service.game||""
+  );
+
+  if(game===null)return;
+
+  const status=
     confirm(
-      "Nhấn OK = Sẵn Sàng\nNhấn Cancel = Chưa Sẵn Sàng"
+      "OK = Sẵn Sàng\nCancel = Chưa Sẵn Sàng"
     )
-      ?"Sẵn Sàng"
-      :"Chưa Sẵn Sàng";
-
-  const newGame=
-    prompt(
-      "Nhập Game:",
-      service.game||""
-    );
-
-  if(newGame===null)return;
+    ?"Sẵn Sàng"
+    :"Chưa Sẵn Sàng";
 
   const result=
     await apiPost(
@@ -2269,30 +2394,28 @@ async function editService(id){
       {
         key:ADMIN_KEY,
         id:id,
-        game:newGame.trim()||service.game,
-        name:newName.trim()||service.name,
-        price:Number(newPrice)||0,
-        status:newStatus,
-        description:newDescription
+        game:game.trim()||service.game,
+        name:name.trim()||service.name,
+        price:Number(price)||0,
+        status:status,
+        description:description
       }
     );
 
   if(!result.ok){
 
     alert(
-      "❌ "+(
+      "❌ "+
+      (
         result.message||
         "Không thể cập nhật."
       )
     );
 
     return;
-
   }
 
-  alert(
-    "✅ Đã cập nhật dịch vụ trong Google Sheets."
-  );
+  alert("✅ Đã cập nhật dịch vụ.");
 
   await loadServices();
 
@@ -2301,12 +2424,11 @@ async function editService(id){
 
 async function toggleServiceStatus(id){
 
-  const service=
-    findService(id);
+  const service=findService(id);
 
   if(!service)return;
 
-  const newStatus=
+  const status=
     service.status==="Sẵn Sàng"
       ?"Chưa Sẵn Sàng"
       :"Sẵn Sàng";
@@ -2320,7 +2442,7 @@ async function toggleServiceStatus(id){
         game:service.game,
         name:service.name,
         price:Number(service.price)||0,
-        status:newStatus,
+        status:status,
         description:service.description||""
       }
     );
@@ -2328,14 +2450,11 @@ async function toggleServiceStatus(id){
   if(!result.ok){
 
     alert(
-      "❌ "+(
-        result.message||
-        "Không thể đổi trạng thái."
-      )
+      result.message||
+      "Không thể đổi trạng thái."
     );
 
     return;
-
   }
 
   await loadServices();
@@ -2345,8 +2464,7 @@ async function toggleServiceStatus(id){
 
 async function deleteService(id){
 
-  const service=
-    findService(id);
+  const service=findService(id);
 
   if(!service)return;
 
@@ -2368,19 +2486,14 @@ async function deleteService(id){
   if(!result.ok){
 
     alert(
-      "❌ "+(
-        result.message||
-        "Không thể xóa dịch vụ."
-      )
+      result.message||
+      "Không thể xóa."
     );
 
     return;
-
   }
 
-  alert(
-    "✅ Đã xóa dịch vụ khỏi Google Sheets."
-  );
+  alert("✅ Đã xóa dịch vụ.");
 
   await loadServices();
   await loadDashboard();
@@ -2395,9 +2508,7 @@ async function deleteService(id){
 async function loadCustomers(){
 
   const result=
-    await apiGet(
-      "getCustomers"
-    );
+    await apiGet("getCustomers");
 
   if(!result.ok)return;
 
@@ -2429,9 +2540,7 @@ function renderCustomers(){
 
   customers
     .filter(user=>
-      String(
-        user.username||""
-      )
+      String(user.username||"")
       .toLowerCase()
       .includes(search)
     )
@@ -2442,31 +2551,13 @@ function renderCustomers(){
 
       tr.innerHTML=`
 
-<td>
-${escapeHtml(
-user.username||""
-)}
-</td>
+<td>${escapeHtml(user.username||"")}</td>
 
-<td>
-${formatMoney(
-user.balance||0
-)}
-</td>
+<td>${formatMoney(user.balance||0)}</td>
 
-<td>
-${escapeHtml(
-formatDate(
-user.createdAt
-)
-)}
-</td>
+<td>${escapeHtml(formatDate(user.createdAt))}</td>
 
-<td>
-${escapeHtml(
-user.status||""
-)}
-</td>
+<td>${escapeHtml(user.status||"")}</td>
 
 `;
 
@@ -2484,9 +2575,7 @@ user.status||""
 async function loadTopups(){
 
   const result=
-    await apiGet(
-      "getTopups"
-    );
+    await apiGet("getTopups");
 
   if(!result.ok)return;
 
@@ -2518,9 +2607,8 @@ function renderTopups(){
         document.createElement("tr");
 
       const status=
-        String(
-          item.status||""
-        ).toLowerCase();
+        String(item.status||"")
+        .toLowerCase();
 
       let buttons="";
 
@@ -2545,7 +2633,6 @@ onclick="rejectTopup('${escapeJs(item.id||"")}')"
 >
 ❌ Từ chối
 </button>
-
 `;
 
       }
@@ -2588,7 +2675,7 @@ ${escapeHtml(item.status||"")}
 async function approveTopup(id){
 
   if(!confirm(
-    "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
+    "Bạn có chắc muốn duyệt yêu cầu này?"
   ))return;
 
   const result=
@@ -2652,16 +2739,35 @@ async function rejectTopup(id){
 
 /* =====================================================
    ORDERS
+   ĐÚNG 12 TRƯỜNG:
+   Mã đơn
+   Tên khách
+   TK roblox
+   Mk roblox
+   Quyền truy cập
+   Loại đơn
+   Dịch vụ
+   Giá
+   Ghi chú khách
+   Ghi chú Admin
+   Ngày tạo
+   Trạng thái
 ===================================================== */
 
 async function loadOrders(){
 
   const result=
-    await apiGet(
-      "getOrders"
+    await apiGet("getOrders");
+
+  if(!result.ok){
+
+    console.error(
+      result.message||
+      "Không tải được đơn hàng."
     );
 
-  if(!result.ok)return;
+    return;
+  }
 
   orders=
     Array.isArray(result.orders)
@@ -2673,6 +2779,28 @@ async function loadOrders(){
 }
 
 
+function orderValue(order,...keys){
+
+  for(const key of keys){
+
+    if(
+      order &&
+      order[key]!==undefined &&
+      order[key]!==null &&
+      String(order[key])!==""
+    ){
+
+      return order[key];
+
+    }
+
+  }
+
+  return "";
+
+}
+
+
 function renderOrders(){
 
   const body=
@@ -2680,57 +2808,550 @@ function renderOrders(){
       "ordersBody"
     );
 
+  const search=
+    (
+      document.getElementById(
+        "orderSearch"
+      )?.value||""
+    )
+    .toLowerCase()
+    .trim();
+
   body.innerHTML="";
 
-  orders
-    .slice()
-    .reverse()
-    .forEach(order=>{
+  const list=
+    orders
+      .slice()
+      .reverse()
+      .filter(order=>{
 
-      const tr=
-        document.createElement("tr");
+        const text=[
 
-      tr.innerHTML=`
+          orderValue(
+            order,
+            "id",
+            "maDon",
+            "Mã đơn"
+          ),
+
+          orderValue(
+            order,
+            "username",
+            "customer",
+            "tenKhach",
+            "Tên khách"
+          ),
+
+          orderValue(
+            order,
+            "robloxUsername",
+            "tkRoblox",
+            "account",
+            "accUsername"
+          ),
+
+          orderValue(
+            order,
+            "robloxPassword",
+            "mkRoblox",
+            "password",
+            "accPassword"
+          ),
+
+          orderValue(
+            order,
+            "access",
+            "quyenTruyCap"
+          ),
+
+          orderValue(
+            order,
+            "orderType",
+            "loaiDon"
+          ),
+
+          orderValue(
+            order,
+            "service",
+            "dichVu",
+            "product"
+          ),
+
+          orderValue(
+            order,
+            "price",
+            "gia"
+          ),
+
+          orderValue(
+            order,
+            "customerNote",
+            "ghiChuKhach"
+          ),
+
+          orderValue(
+            order,
+            "adminNote",
+            "ghiChuAdmin"
+          ),
+
+          orderValue(
+            order,
+            "createdAt",
+            "ngayTao"
+          ),
+
+          orderValue(
+            order,
+            "status",
+            "trangThai"
+          )
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+        return text.includes(search);
+
+      });
+
+  list.forEach(order=>{
+
+    const id=
+      orderValue(
+        order,
+        "id",
+        "maDon",
+        "Mã đơn"
+      );
+
+    const customer=
+      orderValue(
+        order,
+        "username",
+        "customer",
+        "tenKhach",
+        "Tên khách"
+      );
+
+    const robloxUsername=
+      orderValue(
+        order,
+        "robloxUsername",
+        "tkRoblox",
+        "account",
+        "accUsername"
+      );
+
+    const robloxPassword=
+      orderValue(
+        order,
+        "robloxPassword",
+        "mkRoblox",
+        "password",
+        "accPassword"
+      );
+
+    const access=
+      orderValue(
+        order,
+        "access",
+        "quyenTruyCap"
+      );
+
+    const orderType=
+      orderValue(
+        order,
+        "orderType",
+        "loaiDon"
+      );
+
+    const service=
+      orderValue(
+        order,
+        "service",
+        "dichVu",
+        "product"
+      );
+
+    const price=
+      orderValue(
+        order,
+        "price",
+        "gia"
+      );
+
+    const customerNote=
+      orderValue(
+        order,
+        "customerNote",
+        "ghiChuKhach"
+      );
+
+    const adminNote=
+      orderValue(
+        order,
+        "adminNote",
+        "ghiChuAdmin"
+      );
+
+    const createdAt=
+      orderValue(
+        order,
+        "createdAt",
+        "ngayTao"
+      );
+
+    const status=
+      orderValue(
+        order,
+        "status",
+        "trangThai"
+      );
+
+    const tr=
+      document.createElement("tr");
+
+    tr.innerHTML=`
 
 <td>
-${escapeHtml(order.id||"")}
+${escapeHtml(id)}
 </td>
 
 <td>
-${escapeHtml(order.username||"")}
+${escapeHtml(customer)}
 </td>
 
 <td>
-${escapeHtml(order.product||"")}
+${escapeHtml(robloxUsername||"-")}
 </td>
 
 <td>
-${formatMoney(order.price||0)}
+${escapeHtml(robloxPassword||"-")}
 </td>
 
 <td>
-${escapeHtml(order.status||"")}
+${escapeHtml(access||"-")}
 </td>
 
 <td>
-${escapeHtml(
-formatDate(order.createdAt)
-)}
+${escapeHtml(orderType||"-")}
 </td>
 
 <td>
-${
-order.accUsername
-?escapeHtml(order.accUsername)
-:"-"
-}
+${escapeHtml(service||"-")}
+</td>
+
+<td>
+${formatOrderPrice(price)}
+</td>
+
+<td>
+${escapeHtml(customerNote||"-")}
+</td>
+
+<td>
+${escapeHtml(adminNote||"-")}
+</td>
+
+<td>
+${escapeHtml(formatDate(createdAt))}
+</td>
+
+<td>
+<span class="badge ${getOrderBadge(status)}">
+${escapeHtml(status||"")}
+</span>
+</td>
+
+<td>
+
+<button
+class="btn btn-primary"
+onclick='showOrderModal(${JSON.stringify(order)})'
+>
+👁️ Xem đơn
+</button>
+
 </td>
 
 `;
 
-      body.appendChild(tr);
+    body.appendChild(tr);
 
-    });
+  });
+
+}
+
+
+function getOrderBadge(status){
+
+  const s=
+    String(status||"")
+    .toLowerCase();
+
+  if(
+    s.includes("hoàn")||
+    s.includes("xong")||
+    s.includes("complete")||
+    s.includes("done")
+  ){
+
+    return "completed";
+
+  }
+
+  if(
+    s.includes("chờ")||
+    s.includes("pending")||
+    s.includes("đang")
+  ){
+
+    return "pending";
+
+  }
+
+  if(
+    s.includes("hủy")||
+    s.includes("cancel")||
+    s.includes("từ chối")
+  ){
+
+    return "sold";
+
+  }
+
+  return "";
+
+}
+
+
+function formatOrderPrice(value){
+
+  if(
+    value===null||
+    value===undefined||
+    value===""
+  ){
+
+    return "-";
+
+  }
+
+  const n=Number(value);
+
+  if(isNaN(n)){
+
+    return escapeHtml(value);
+
+  }
+
+  return n.toLocaleString("vi-VN")+"K";
+
+}
+
+
+function showOrderModal(order){
+
+  const id=
+    orderValue(
+      order,
+      "id",
+      "maDon",
+      "Mã đơn"
+    );
+
+  const customer=
+    orderValue(
+      order,
+      "username",
+      "customer",
+      "tenKhach",
+      "Tên khách"
+    );
+
+  const robloxUsername=
+    orderValue(
+      order,
+      "robloxUsername",
+      "tkRoblox",
+      "account",
+      "accUsername"
+    );
+
+  const robloxPassword=
+    orderValue(
+      order,
+      "robloxPassword",
+      "mkRoblox",
+      "password",
+      "accPassword"
+    );
+
+  const access=
+    orderValue(
+      order,
+      "access",
+      "quyenTruyCap"
+    );
+
+  const orderType=
+    orderValue(
+      order,
+      "orderType",
+      "loaiDon"
+    );
+
+  const service=
+    orderValue(
+      order,
+      "service",
+      "dichVu",
+      "product"
+    );
+
+  const price=
+    orderValue(
+      order,
+      "price",
+      "gia"
+    );
+
+  const customerNote=
+    orderValue(
+      order,
+      "customerNote",
+      "ghiChuKhach"
+    );
+
+  const adminNote=
+    orderValue(
+      order,
+      "adminNote",
+      "ghiChuAdmin"
+    );
+
+  const createdAt=
+    orderValue(
+      order,
+      "createdAt",
+      "ngayTao"
+    );
+
+  const status=
+    orderValue(
+      order,
+      "status",
+      "trangThai"
+    );
+
+  document.getElementById(
+    "orderModalContent"
+  ).innerHTML=`
+
+<div class="order-detail">
+
+<div class="order-detail-row">
+<div class="order-detail-label">Mã đơn</div>
+<div class="order-detail-value">
+${escapeHtml(id||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Tên khách</div>
+<div class="order-detail-value">
+${escapeHtml(customer||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">TK Roblox</div>
+<div class="order-detail-value">
+${escapeHtml(robloxUsername||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Mk Roblox</div>
+<div class="order-detail-value">
+${escapeHtml(robloxPassword||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Quyền truy cập</div>
+<div class="order-detail-value">
+${escapeHtml(access||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Loại đơn</div>
+<div class="order-detail-value">
+${escapeHtml(orderType||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Dịch vụ</div>
+<div class="order-detail-value">
+${escapeHtml(service||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Giá</div>
+<div class="order-detail-value">
+${formatOrderPrice(price)}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Ghi chú khách</div>
+<div class="order-detail-value">
+${escapeHtml(customerNote||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Ghi chú Admin</div>
+<div class="order-detail-value">
+${escapeHtml(adminNote||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Ngày tạo</div>
+<div class="order-detail-value">
+${escapeHtml(formatDate(createdAt)||"-")}
+</div>
+</div>
+
+<div class="order-detail-row">
+<div class="order-detail-label">Trạng thái</div>
+<div class="order-detail-value">
+<span class="badge ${getOrderBadge(status)}">
+${escapeHtml(status||"-")}
+</span>
+</div>
+</div>
+
+</div>
+`;
+
+  document
+    .getElementById("orderModal")
+    .classList.remove("hidden");
+
+}
+
+
+function closeOrderModal(){
+
+  document
+    .getElementById("orderModal")
+    .classList.add("hidden");
 
 }
 
@@ -2796,7 +3417,6 @@ function renderProducts(){
   container.innerHTML="";
 
   const bloxKeys=[
-
     "bloxFruit",
     "cayThueBloxFruit",
     "tuiMuBloxFruit",
@@ -2808,7 +3428,6 @@ function renderProducts(){
     "robux120h",
     "gamepassBloxFruit",
     "fish"
-
   ];
 
   const stealKeys=[
@@ -2829,20 +3448,20 @@ function renderProducts(){
     stealKeys
   );
 
-  const title2=
+  const title=
     document.createElement("div");
 
-  title2.className=
+  title.className=
     "product-group-title";
 
-  title2.textContent=
+  title.textContent=
     "🎮 Sản phẩm khác";
 
-  container.appendChild(title2);
+  container.appendChild(title);
 
   products
     .filter(item=>
-      !bloxKeys.includes(item[0]) &&
+      !bloxKeys.includes(item[0])&&
       !stealKeys.includes(item[0])
     )
     .forEach(item=>
@@ -2947,7 +3566,6 @@ onclick="saveProductStatus('${escapeJs(key)}')"
 </button>
 
 </div>
-
 `;
 
   container.appendChild(div);
@@ -2994,8 +3612,7 @@ async function saveProductStatus(product){
 
   if(!select)return;
 
-  const status=
-    select.value;
+  const status=select.value;
 
   const result=
     await apiPost(
@@ -3062,6 +3679,14 @@ function showTab(name,button){
     loadServices();
   }
 
+  if(name==="orders"){
+    loadOrders();
+  }
+
+  if(name==="accounts"){
+    loadAccounts();
+  }
+
 }
 
 
@@ -3071,12 +3696,9 @@ function showTab(name,button){
 
 function showAccountModal(account){
 
-  const content=
-    document.getElementById(
-      "accountModalContent"
-    );
-
-  content.innerHTML=`
+  document.getElementById(
+    "accountModalContent"
+  ).innerHTML=`
 
 <div class="account-result">
 
@@ -3102,16 +3724,23 @@ function showAccountModal(account){
 
 <div>
 👤 Username:
-<b>${escapeHtml(account.username||"")}</b>
+<b>${escapeHtml(
+account.username||
+account.accUsername||
+""
+)}</b>
 </div>
 
 <div>
 🔑 Password:
-<b>${escapeHtml(account.password||"")}</b>
+<b>${escapeHtml(
+account.password||
+account.accPassword||
+""
+)}</b>
 </div>
 
 </div>
-
 `;
 
   document
@@ -3161,8 +3790,11 @@ function formatPrice(value){
 
   }
 
-  return Number(value||0)
-    .toLocaleString("vi-VN")+"K";
+  const n=Number(value||0);
+
+  if(isNaN(n))return String(value);
+
+  return n.toLocaleString("vi-VN")+"K";
 
 }
 
@@ -3220,7 +3852,7 @@ function escapeJs(value){
 
 
 /* =====================================================
-   MODAL EVENTS
+   MODALS
 ===================================================== */
 
 document
@@ -3237,12 +3869,29 @@ document
   );
 
 
+document
+  .getElementById("orderModal")
+  .addEventListener(
+    "click",
+    function(e){
+
+      if(e.target===this){
+        closeOrderModal();
+      }
+
+    }
+  );
+
+
 document.addEventListener(
   "keydown",
   function(e){
 
     if(e.key==="Escape"){
+
       closeAccountModal();
+      closeOrderModal();
+
     }
 
   }
@@ -3252,3 +3901,4 @@ document.addEventListener(
 
 </body>
 </html>
+```
