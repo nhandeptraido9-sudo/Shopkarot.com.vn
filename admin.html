@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -54,7 +55,6 @@ button,input,select,textarea{font:inherit}
 .btn-gray{background:#6b7280;color:#fff}
 
 .btn:hover{opacity:.88}
-
 .hidden{display:none!important}
 
 header{
@@ -250,38 +250,7 @@ th{
   margin-top:15px;
 }
 
-.account-result div{
-  margin:8px 0;
-}
-
-.order-detail{
-  background:#f9fafb;
-  border:1px solid #e5e7eb;
-  border-radius:14px;
-  padding:18px;
-}
-
-.order-detail-row{
-  display:grid;
-  grid-template-columns:180px 1fr;
-  gap:10px;
-  padding:10px 0;
-  border-bottom:1px solid #e5e7eb;
-}
-
-.order-detail-row:last-child{
-  border-bottom:0;
-}
-
-.order-detail-label{
-  font-weight:bold;
-  color:#374151;
-}
-
-.order-detail-value{
-  white-space:pre-wrap;
-  word-break:break-word;
-}
+.account-result div{margin:7px 0}
 
 .small{
   font-size:13px;
@@ -293,9 +262,7 @@ th{
   margin-bottom:15px;
 }
 
-.product-status-card{
-  margin-bottom:12px;
-}
+.product-status-card{margin-bottom:12px}
 
 .product-status-row{
   display:flex;
@@ -387,6 +354,35 @@ th{
   font-weight:bold;
 }
 
+.order-detail-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.order-detail-item{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:12px;
+}
+
+.order-detail-item.full{
+  grid-column:1/-1;
+}
+
+.order-detail-label{
+  font-size:12px;
+  color:#6b7280;
+  margin-bottom:5px;
+  font-weight:bold;
+}
+
+.order-detail-value{
+  word-break:break-word;
+  white-space:pre-wrap;
+}
+
 .loading{
   padding:20px;
   text-align:center;
@@ -394,35 +390,21 @@ th{
 }
 
 @media(max-width:700px){
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .full{
-    grid-column:auto;
-  }
-
-  .product-status-row{
-    align-items:stretch;
-  }
-
+  .form-grid{grid-template-columns:1fr}
+  .order-detail-grid{grid-template-columns:1fr}
+  .order-detail-item.full{grid-column:auto}
+  .product-status-row{align-items:stretch}
   .product-status-name,
   .product-status-select{
     width:100%;
     min-width:0;
   }
-
-  .order-detail-row{
-    grid-template-columns:1fr;
-  }
 }
 </style>
+
 </head>
 
 <body>
-
-<!-- ================= LOGIN ================= -->
 
 <div id="loginPage" class="login-box">
 
@@ -440,22 +422,21 @@ class="input"
 type="password"
 placeholder="Nhập Admin Key"
 onkeydown="if(event.key==='Enter')adminLogin()"
+
 >
 
 <button
 class="btn btn-primary"
 style="width:100%"
 onclick="adminLogin()"
+
 >
-🔐 Đăng nhập
-</button>
+
+🔐 Đăng nhập </button>
 
 <div id="loginMessage" style="margin-top:15px"></div>
 
 </div>
-
-
-<!-- ================= ADMIN ================= -->
 
 <div id="adminPage" class="hidden">
 
@@ -476,10 +457,7 @@ Quản lý kho acc, cày thuê, khách hàng,
 
 </header>
 
-
 <div class="container">
-
-<!-- DASHBOARD -->
 
 <div class="dashboard">
 
@@ -515,9 +493,6 @@ Quản lý kho acc, cày thuê, khách hàng,
 
 </div>
 
-
-<!-- SHOP STATUS -->
-
 <div class="card" style="margin-bottom:20px">
 
 <h3>⚙️ Trạng thái Shop</h3>
@@ -534,6 +509,7 @@ Quản lý kho acc, cày thuê, khách hàng,
 id="shopStatusSelect"
 class="input"
 style="width:auto;margin:0"
+
 >
 
 <option value="Shop đang hoạt động">
@@ -550,10 +526,7 @@ Shop tạm đóng
 
 </select>
 
-<button
-class="btn btn-primary"
-onclick="setShopStatus()"
->
+<button class="btn btn-primary" onclick="setShopStatus()">
 💾 Lưu trạng thái
 </button>
 
@@ -561,57 +534,37 @@ onclick="setShopStatus()"
 
 </div>
 
-
-<!-- TABS -->
-
 <div class="tabs">
 
-<button
-class="tab active"
-onclick="showTab('accounts',this)"
->
+<button class="tab active" onclick="showTab('accounts',this)">
 🎮 Kho Acc
 </button>
 
-<button
-class="tab"
-onclick="showTab('services',this)"
->
+<button class="tab" onclick="showTab('services',this)">
 🛠️ Cày thuê
 </button>
 
-<button
-class="tab"
-onclick="showTab('customers',this)"
->
+<button class="tab" onclick="showTab('customers',this)">
 👥 Khách hàng
 </button>
 
-<button
-class="tab"
-onclick="showTab('topups',this)"
->
+<button class="tab" onclick="showTab('topups',this)">
 💰 Nạp tiền
 </button>
 
-<button
-class="tab"
-onclick="showTab('orders',this)"
->
+<button class="tab" onclick="showTab('orders',this)">
 📦 Đơn hàng
 </button>
 
-<button
-class="tab"
-onclick="showTab('products',this)"
->
+<button class="tab" onclick="showTab('products',this)">
 🛍️ Trạng thái sản phẩm
 </button>
 
 </div>
 
-
-<!-- ================= ACCOUNTS ================= -->
+<!-- =====================================================
+     KHO ACC
+===================================================== -->
 
 <section id="panel-accounts" class="panel active">
 
@@ -626,46 +579,32 @@ Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
 <div class="form-grid">
 
 <div class="form-group">
-
 <label>🎮 Game</label>
 
-<select
-id="accountGame"
-class="input"
-onchange="gameChanged()"
->
+<select id="accountGame" class="input" onchange="gameChanged()">
 
 <option value="">-- Chọn game --</option>
 
-<option>Blox Fruits</option>
-<option>King Legacy</option>
-<option>Anime Fighters</option>
-<option>Grow A Garden 2</option>
-<option>Grow A Garden</option>
-<option>Murder Mystery 2</option>
-<option>Túi Mù</option>
-<option>Event</option>
-<option>Greedy Growers 🌱</option>
-<option>Steal a Egg</option>
+<option value="Blox Fruits">Blox Fruits</option>
+<option value="King Legacy">King Legacy</option>
+<option value="Anime Fighters">Anime Fighters</option>
+<option value="Grow A Garden 2">Grow A Garden 2</option>
+<option value="Grow A Garden">Grow A Garden</option>
+<option value="Murder Mystery 2">Murder Mystery 2</option>
+<option value="Túi Mù">Túi Mù</option>
+<option value="Event">Event</option>
+<option value="Greedy Growers 🌱">Greedy Growers 🌱</option>
+<option value="Steal a Egg">🥚 Steal a Egg</option>
 
 </select>
-
 </div>
 
 <div class="form-group">
 
 <label>📁 Thư mục</label>
 
-<select
-id="accountFolder"
-class="input"
-onchange="folderChanged()"
->
-
-<option value="">
--- Chọn thư mục --
-</option>
-
+<select id="accountFolder" class="input" onchange="folderChanged()">
+<option value="">-- Chọn thư mục --</option>
 </select>
 
 </div>
@@ -674,11 +613,7 @@ onchange="folderChanged()"
 
 <label>💵 Giá</label>
 
-<select
-id="accountPrice"
-class="input"
-onchange="priceChanged()"
->
+<select id="accountPrice" class="input" onchange="priceChanged()">
 
 <option value="">-- Chọn giá --</option>
 
@@ -705,15 +640,8 @@ onchange="priceChanged()"
 
 <label>📦 Gói</label>
 
-<select
-id="accountPackage"
-class="input"
->
-
-<option value="">
--- Chọn gói --
-</option>
-
+<select id="accountPackage" class="input">
+<option value="">-- Chọn gói --</option>
 </select>
 
 </div>
@@ -725,7 +653,9 @@ class="input"
 <input
 id="accountUsername"
 class="input"
+type="text"
 placeholder="Ví dụ: xyz456"
+
 >
 
 </div>
@@ -737,7 +667,9 @@ placeholder="Ví dụ: xyz456"
 <input
 id="accountPassword"
 class="input"
+type="text"
 placeholder="Ví dụ: abcdef"
+
 >
 
 </div>
@@ -746,17 +678,11 @@ placeholder="Ví dụ: abcdef"
 
 <div class="actions">
 
-<button
-class="btn btn-success"
-onclick="addAccount()"
->
+<button class="btn btn-success" onclick="addAccount()">
 ➕ Thêm tài khoản
 </button>
 
-<button
-class="btn btn-gray"
-onclick="clearAccountForm()"
->
+<button class="btn btn-gray" onclick="clearAccountForm()">
 🧹 Xóa form
 </button>
 
@@ -765,7 +691,6 @@ onclick="clearAccountForm()"
 <div id="accountMessage" style="margin-top:15px"></div>
 
 </div>
-
 
 <div class="card" style="margin-top:20px">
 
@@ -776,6 +701,7 @@ id="accountSearch"
 class="input search"
 placeholder="🔎 Tìm game, thư mục, username..."
 oninput="renderAccounts()"
+
 >
 
 <div class="table-wrap">
@@ -783,6 +709,7 @@ oninput="renderAccounts()"
 <table>
 
 <thead>
+
 <tr>
 <th>ID</th>
 <th>Game</th>
@@ -794,6 +721,7 @@ oninput="renderAccounts()"
 <th>Status</th>
 <th>Thao tác</th>
 </tr>
+
 </thead>
 
 <tbody id="accountsBody"></tbody>
@@ -806,268 +734,42 @@ oninput="renderAccounts()"
 
 </section>
 
-
-<!-- ================= SERVICES ================= -->
+<!-- =====================================================
+     CÀY THUÊ - 12 CỘT
+===================================================== -->
 
 <section id="panel-services" class="panel">
 
 <div class="card">
 
-<h2>🛠️ Quản lý Cày thuê</h2>
+<h2>🛠️ Quản lý đơn Cày thuê</h2>
 
 <div class="notice">
-Dữ liệu Cày thuê được lưu trực tiếp trên
-<b>Google Sheets</b>.
-</div>
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label>🎮 Game</label>
-
-<select id="serviceGame" class="input">
-
-<option value="">-- Chọn game --</option>
-
-<option>Blox Fruits</option>
-<option>King Legacy</option>
-<option>Grow A Garden</option>
-<option>Grow A Garden 2</option>
-<option>Anime Fighters</option>
-<option>Murder Mystery 2</option>
-<option>Steal a Egg</option>
-<option>Khác</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>🛠️ Tên dịch vụ</label>
-
-<input
-id="serviceName"
-class="input"
-placeholder="Ví dụ: Cày Level Blox Fruits"
->
-
-</div>
-
-<div class="form-group">
-
-<label>💵 Giá</label>
-
-<input
-id="servicePrice"
-class="input"
-type="number"
-min="0"
-placeholder="Ví dụ: 50"
->
-
-</div>
-
-<div class="form-group">
-
-<label>📊 Trạng thái</label>
-
-<select
-id="serviceStatus"
-class="input"
->
-
-<option>Sẵn Sàng</option>
-<option>Chưa Sẵn Sàng</option>
-
-</select>
-
-</div>
-
-<div class="form-group full">
-
-<label>📝 Mô tả dịch vụ</label>
-
-<textarea
-id="serviceDescription"
-class="input"
-rows="4"
-placeholder="Nhập nội dung/mô tả dịch vụ..."
-></textarea>
-
-</div>
-
-</div>
-
-<div class="actions">
-
-<button
-class="btn btn-success"
-onclick="addService()"
->
-➕ Thêm dịch vụ cày thuê
-</button>
-
-<button
-class="btn btn-gray"
-onclick="clearServiceForm()"
->
-🧹 Xóa form
-</button>
-
-<button
-class="btn btn-primary"
-onclick="loadServices()"
->
-🔄 Tải lại Google Sheets
-</button>
-
-</div>
-
-<div id="serviceMessage" style="margin-top:15px"></div>
-
-</div>
-
-
-<div class="card" style="margin-top:20px">
-
-<div class="service-header">
-
-<h2>🛠️ Danh sách dịch vụ cày thuê</h2>
-
-<span id="serviceCount" class="cay-count">
-0 dịch vụ
-</span>
-
+Quản lý đơn Cày thuê theo đúng 12 cột trên Google Sheets.
+Có thể xem đầy đủ thông tin đơn bằng nút <b>👁️ Xem đơn hàng</b>.
 </div>
 
 <input
 id="serviceSearch"
 class="input search"
-placeholder="🔎 Tìm game, tên dịch vụ..."
+placeholder="🔎 Tìm mã đơn, khách, TK Roblox, dịch vụ..."
 oninput="renderServices()"
+
 >
 
-<div id="servicesContainer">
-<div class="loading">
-⏳ Đang tải dữ liệu Cày thuê...
-</div>
-</div>
+<div class="actions">
 
-</div>
-
-</section>
-
-
-<!-- ================= CUSTOMERS ================= -->
-
-<section id="panel-customers" class="panel">
-
-<div class="card">
-
-<h2>👥 Khách hàng</h2>
-
-<input
-id="customerSearch"
-class="input search"
-placeholder="🔎 Tìm khách hàng..."
-oninput="renderCustomers()"
->
-
-<div class="table-wrap">
-
-<table>
-
-<thead>
-<tr>
-<th>Username</th>
-<th>Số dư</th>
-<th>Ngày tạo</th>
-<th>Trạng thái</th>
-</tr>
-</thead>
-
-<tbody id="customersBody"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= TOPUPS ================= -->
-
-<section id="panel-topups" class="panel">
-
-<div class="card">
-
-<h2>💰 Quản lý nạp tiền</h2>
-
-<div class="table-wrap">
-
-<table>
-
-<thead>
-<tr>
-<th>ID</th>
-<th>Username</th>
-<th>Số tiền</th>
-<th>Phương thức</th>
-<th>Loại thẻ</th>
-<th>Seri</th>
-<th>Mã</th>
-<th>Ngân hàng</th>
-<th>Trạng thái</th>
-<th>Thao tác</th>
-</tr>
-</thead>
-
-<tbody id="topupsBody"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ORDERS ================= -->
-
-<section id="panel-orders" class="panel">
-
-<div class="card">
-
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
-">
-
-<h2>📦 Đơn hàng</h2>
-
-<button
-class="btn btn-primary"
-onclick="loadOrders()"
->
-🔄 Tải lại đơn hàng
+<button class="btn btn-primary" onclick="loadServices()">
+🔄 Tải lại đơn Cày thuê
 </button>
 
 </div>
 
-<input
-id="orderSearch"
-class="input search"
-placeholder="🔎 Tìm mã đơn, tên khách, TK Roblox, dịch vụ..."
-oninput="renderOrders()"
->
+<div style="margin-top:15px">
+<span id="serviceCount" class="cay-count">
+0 đơn
+</span>
+</div>
 
 <div class="table-wrap">
 
@@ -1088,7 +790,130 @@ oninput="renderOrders()"
 <th>Ghi chú Admin</th>
 <th>Ngày tạo</th>
 <th>Trạng thái</th>
-<th>Xem</th>
+<th>Thao tác</th>
+</tr>
+
+</thead>
+
+<tbody id="servicesBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     KHÁCH HÀNG
+===================================================== -->
+
+<section id="panel-customers" class="panel">
+
+<div class="card">
+
+<h2>👥 Khách hàng</h2>
+
+<input
+id="customerSearch"
+class="input search"
+placeholder="🔎 Tìm khách hàng..."
+oninput="renderCustomers()"
+
+>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Username</th>
+<th>Số dư</th>
+<th>Ngày tạo</th>
+<th>Trạng thái</th>
+</tr>
+
+</thead>
+
+<tbody id="customersBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     NẠP TIỀN
+===================================================== -->
+
+<section id="panel-topups" class="panel">
+
+<div class="card">
+
+<h2>💰 Quản lý nạp tiền</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Username</th>
+<th>Số tiền</th>
+<th>Phương thức</th>
+<th>Loại thẻ</th>
+<th>Seri</th>
+<th>Mã</th>
+<th>Ngân hàng</th>
+<th>Trạng thái</th>
+<th>Thao tác</th>
+</tr>
+
+</thead>
+
+<tbody id="topupsBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     ĐƠN HÀNG
+===================================================== -->
+
+<section id="panel-orders" class="panel">
+
+<div class="card">
+
+<h2>📦 Đơn hàng</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Khách</th>
+<th>Sản phẩm</th>
+<th>Giá</th>
+<th>Trạng thái</th>
+<th>Thời gian</th>
+<th>Acc</th>
+<th>Thao tác</th>
 </tr>
 
 </thead>
@@ -1103,8 +928,9 @@ oninput="renderOrders()"
 
 </section>
 
-
-<!-- ================= PRODUCTS ================= -->
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
 
 <section id="panel-products" class="panel">
 
@@ -1125,13 +951,11 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 </div>
 </div>
 
+<!-- =====================================================
+     MODAL XEM ACC
+===================================================== -->
 
-<!-- ================= ACCOUNT MODAL ================= -->
-
-<div
-id="accountModal"
-class="modal hidden"
->
+<div id="accountModal" class="modal hidden">
 
 <div class="modal-content">
 
@@ -1141,10 +965,7 @@ class="modal hidden"
 
 <div class="actions">
 
-<button
-class="btn btn-gray"
-onclick="closeAccountModal()"
->
+<button class="btn btn-gray" onclick="closeAccountModal()">
 Đóng
 </button>
 
@@ -1154,26 +975,21 @@ onclick="closeAccountModal()"
 
 </div>
 
+<!-- =====================================================
+     MODAL XEM ĐƠN CÀY THUÊ
+===================================================== -->
 
-<!-- ================= ORDER MODAL ================= -->
-
-<div
-id="orderModal"
-class="modal hidden"
->
+<div id="serviceOrderModal" class="modal hidden">
 
 <div class="modal-content">
 
-<h2>📦 Chi tiết đơn hàng</h2>
+<h2>👁️ Chi tiết đơn Cày thuê</h2>
 
-<div id="orderModalContent"></div>
+<div id="serviceOrderModalContent"></div>
 
 <div class="actions">
 
-<button
-class="btn btn-gray"
-onclick="closeOrderModal()"
->
+<button class="btn btn-gray" onclick="closeServiceOrderModal()">
 Đóng
 </button>
 
@@ -1182,7 +998,6 @@ onclick="closeOrderModal()"
 </div>
 
 </div>
-
 
 <script>
 
@@ -1191,7 +1006,7 @@ onclick="closeOrderModal()"
 ===================================================== */
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbz6Yw2NKlqUAwJIigYSFmMhWZnvhWyirhVapDo2jfIGIugkTTIvN4tlBGHeTMWf1h7uOg/exec";
+"https://script.google.com/macros/s/AKfycby5lwFnDcqGDHzalQboox34g1b28iH8ZoTKKaa4j_3uvh4sqSZccJYxHapSEYk6dQAOuw/exec";
 
 let ADMIN_KEY="";
 
@@ -1227,14 +1042,11 @@ async function apiPost(action,data={}){
     try{
       return JSON.parse(text);
     }catch(e){
-
       console.error(text);
-
       return {
         ok:false,
         message:"API trả về dữ liệu không hợp lệ."
       };
-
     }
 
   }catch(error){
@@ -1256,7 +1068,8 @@ async function apiGet(action){
   try{
 
     const response=await fetch(
-      API_URL+"?action="+
+      API_URL+
+      "?action="+
       encodeURIComponent(action)
     );
 
@@ -1265,17 +1078,16 @@ async function apiGet(action){
     try{
       return JSON.parse(text);
     }catch(e){
-
       console.error(text);
-
       return {
         ok:false,
         message:"API trả về dữ liệu không hợp lệ."
       };
-
     }
 
   }catch(error){
+
+    console.error(error);
 
     return {
       ok:false,
@@ -1305,6 +1117,7 @@ async function adminLogin(){
     );
 
     return;
+
   }
 
   showLoginMessage(
@@ -1321,12 +1134,13 @@ async function adminLogin(){
   if(!result || !result.ok){
 
     showLoginMessage(
-      result?.message||
+      result?.message ||
       "❌ Admin Key không đúng.",
       "red"
     );
 
     return;
+
   }
 
   ADMIN_KEY=key;
@@ -1337,19 +1151,6 @@ async function adminLogin(){
   );
 
   openAdmin();
-
-}
-
-
-function showLoginMessage(text,color){
-
-  const el=
-    document.getElementById(
-      "loginMessage"
-    );
-
-  el.textContent=text;
-  el.style.color=color;
 
 }
 
@@ -1369,6 +1170,17 @@ function openAdmin(){
 }
 
 
+function showLoginMessage(text,color){
+
+  const el=
+    document.getElementById("loginMessage");
+
+  el.textContent=text;
+  el.style.color=color;
+
+}
+
+
 function logout(){
 
   localStorage.removeItem(
@@ -1381,6 +1193,10 @@ function logout(){
 
 }
 
+
+/* =====================================================
+   AUTO LOGIN
+===================================================== */
 
 window.addEventListener(
   "load",
@@ -1480,7 +1296,8 @@ async function loadDashboard(){
 
   document.getElementById(
     "dashServices"
-  ).textContent=services.length;
+  ).textContent=
+    services.length;
 
 }
 
@@ -1548,6 +1365,7 @@ async function setShopStatus(){
     );
 
     return;
+
   }
 
   alert("✅ Đã cập nhật trạng thái Shop.");
@@ -1558,7 +1376,7 @@ async function setShopStatus(){
 
 
 /* =====================================================
-   FOLDER
+   ACCOUNT FOLDER
 ===================================================== */
 
 const folderData={
@@ -1698,7 +1516,7 @@ function updatePackages(){
   select.innerHTML=
     '<option value="">-- Chọn gói --</option>';
 
-  if(!game||!folder)return;
+  if(!game || !folder)return;
 
   for(let i=1;i<=20;i++){
 
@@ -1716,40 +1534,34 @@ function updatePackages(){
 
 
 /* =====================================================
-   ACCOUNTS
+   ADD ACCOUNT
 ===================================================== */
 
 async function addAccount(){
 
   const game=
-    document.getElementById(
-      "accountGame"
-    ).value.trim();
+    document.getElementById("accountGame")
+    .value.trim();
 
   const folder=
-    document.getElementById(
-      "accountFolder"
-    ).value.trim();
+    document.getElementById("accountFolder")
+    .value.trim();
 
   const price=
-    document.getElementById(
-      "accountPrice"
-    ).value;
+    document.getElementById("accountPrice")
+    .value;
 
   const packageName=
-    document.getElementById(
-      "accountPackage"
-    ).value.trim();
+    document.getElementById("accountPackage")
+    .value.trim();
 
   const username=
-    document.getElementById(
-      "accountUsername"
-    ).value.trim();
+    document.getElementById("accountUsername")
+    .value.trim();
 
   const password=
-    document.getElementById(
-      "accountPassword"
-    ).value.trim();
+    document.getElementById("accountPassword")
+    .value.trim();
 
   if(
     !game||
@@ -1766,6 +1578,7 @@ async function addAccount(){
     );
 
     return;
+
   }
 
   showAccountMessage(
@@ -1798,6 +1611,7 @@ async function addAccount(){
     );
 
     return;
+
   }
 
   showAccountMessage(
@@ -1877,16 +1691,11 @@ async function loadAccounts(){
 function renderAccounts(){
 
   const body=
-    document.getElementById(
-      "accountsBody"
-    );
+    document.getElementById("accountsBody");
 
   const search=
-    (
-      document.getElementById(
-        "accountSearch"
-      ).value||""
-    )
+    document.getElementById("accountSearch")
+    .value
     .toLowerCase()
     .trim();
 
@@ -1915,62 +1724,42 @@ function renderAccounts(){
         document.createElement("tr");
 
       const status=
-        String(acc.status||"").toLowerCase();
+        String(acc.status||"")
+        .toLowerCase();
 
-      let badge="";
+      let badgeClass="";
 
       if(
         status==="available"||
         status==="sẵn sàng"
       ){
-        badge="available";
+        badgeClass="available";
       }
 
       if(
         status==="sold"||
         status==="đã bán"
       ){
-        badge="sold";
+        badgeClass="sold";
       }
 
       tr.innerHTML=`
 
 <td>${escapeHtml(acc.id||"")}</td>
-
 <td>${escapeHtml(acc.game||"")}</td>
-
 <td>${escapeHtml(acc.folder||"-")}</td>
-
 <td>${formatPrice(acc.price)}</td>
-
 <td>${escapeHtml(acc.package||"-")}</td>
-
-<td>${escapeHtml(
-acc.username||
-acc.accUsername||
-""
-)}</td>
-
-<td>${escapeHtml(
-acc.password||
-acc.accPassword||
-""
-)}</td>
+<td>${escapeHtml(acc.username||acc.accUsername||"")}</td>
+<td>${escapeHtml(acc.password||acc.accPassword||"")}</td>
 
 <td>
-<span class="badge ${badge}">
+<span class="badge ${badgeClass}">
 ${escapeHtml(acc.status||"")}
 </span>
 </td>
 
 <td>
-
-<button
-class="btn btn-primary"
-onclick='showAccountModal(${JSON.stringify(acc)})'
->
-👁️ Xem
-</button>
 
 <button
 class="btn btn-danger"
@@ -1980,6 +1769,7 @@ onclick="deleteAccount('${escapeJs(acc.id||"")}')"
 </button>
 
 </td>
+
 `;
 
       body.appendChild(tr);
@@ -2014,6 +1804,7 @@ async function deleteAccount(id){
     );
 
     return;
+
   }
 
   alert("✅ Đã xóa tài khoản.");
@@ -2025,20 +1816,21 @@ async function deleteAccount(id){
 
 
 /* =====================================================
-   SERVICES
+   CÀY THUÊ - LOAD 12 CỘT
 ===================================================== */
 
 async function loadServices(){
 
-  const container=
-    document.getElementById(
-      "servicesContainer"
-    );
+  const body=
+    document.getElementById("servicesBody");
 
-  container.innerHTML=
-    `<div class="loading">
-      ⏳ Đang tải dữ liệu Cày thuê...
-    </div>`;
+  body.innerHTML=`
+<tr>
+<td colspan="13" class="loading">
+⏳ Đang tải đơn Cày thuê từ Google Sheets...
+</td>
+</tr>
+`;
 
   const result=
     await apiGet("getServices");
@@ -2046,17 +1838,26 @@ async function loadServices(){
   if(!result.ok){
 
     services=[];
-    renderServices();
 
-    showServiceMessage(
-      "❌ "+(
-        result.message||
-        "Không tải được dữ liệu."
-      ),
-      "red"
-    );
+    body.innerHTML=`
+<tr>
+<td colspan="13">
+<div class="notice">
+❌ ${
+escapeHtml(
+result.message||
+"Không tải được đơn Cày thuê."
+)
+}
+</div>
+</td>
+</tr>
+`;
+
+    updateServiceCount();
 
     return;
+
   }
 
   services=
@@ -2069,131 +1870,10 @@ async function loadServices(){
 }
 
 
-async function addService(){
-
-  const game=
-    document.getElementById(
-      "serviceGame"
-    ).value.trim();
-
-  const name=
-    document.getElementById(
-      "serviceName"
-    ).value.trim();
-
-  const price=
-    document.getElementById(
-      "servicePrice"
-    ).value;
-
-  const status=
-    document.getElementById(
-      "serviceStatus"
-    ).value;
-
-  const description=
-    document.getElementById(
-      "serviceDescription"
-    ).value.trim();
-
-  if(!game||!name||price===""){
-
-    showServiceMessage(
-      "❌ Vui lòng nhập Game, tên dịch vụ và giá.",
-      "red"
-    );
-
-    return;
-  }
-
-  showServiceMessage(
-    "⏳ Đang lưu vào Google Sheets...",
-    "#2563eb"
-  );
-
-  const result=
-    await apiPost(
-      "addService",
-      {
-        key:ADMIN_KEY,
-        game:game,
-        name:name,
-        price:Number(price)||0,
-        status:status,
-        description:description
-      }
-    );
-
-  if(!result.ok){
-
-    showServiceMessage(
-      "❌ "+(
-        result.message||
-        "Không thể thêm dịch vụ."
-      ),
-      "red"
-    );
-
-    return;
-  }
-
-  clearServiceForm();
-
-  showServiceMessage(
-    "✅ Đã thêm dịch vụ vào Google Sheets.",
-    "green"
-  );
-
-  await loadServices();
-  await loadDashboard();
-
-}
-
-
-function showServiceMessage(text,color){
-
-  const el=
-    document.getElementById(
-      "serviceMessage"
-    );
-
-  el.textContent=text;
-  el.style.color=color;
-
-}
-
-
-function clearServiceForm(){
-
-  document.getElementById(
-    "serviceGame"
-  ).value="";
-
-  document.getElementById(
-    "serviceName"
-  ).value="";
-
-  document.getElementById(
-    "servicePrice"
-  ).value="";
-
-  document.getElementById(
-    "serviceStatus"
-  ).value="Sẵn Sàng";
-
-  document.getElementById(
-    "serviceDescription"
-  ).value="";
-
-}
-
-
 function renderServices(){
 
-  const container=
-    document.getElementById(
-      "servicesContainer"
-    );
+  const body=
+    document.getElementById("servicesBody");
 
   const search=
     (
@@ -2205,18 +1885,28 @@ function renderServices(){
     .trim();
 
   const list=
-    services.filter(service=>{
+    services.filter(order=>{
 
       const text=[
-        service.id,
-        service.game,
-        service.name,
-        service.price,
-        service.status,
-        service.description
-      ]
-      .join(" ")
-      .toLowerCase();
+        order.id,
+        order.username,
+        order.customerName,
+        order.robloxUsername,
+        order.robloxPassword,
+        order.access,
+        order.accessPermission,
+        order.orderType,
+        order.type,
+        order.service,
+        order.serviceName,
+        order.price,
+        order.customerNote,
+        order.noteCustomer,
+        order.adminNote,
+        order.noteAdmin,
+        order.createdAt,
+        order.status
+      ].join(" ").toLowerCase();
 
       return text.includes(search);
 
@@ -2225,277 +1915,384 @@ function renderServices(){
   document.getElementById(
     "serviceCount"
   ).textContent=
-    list.length+" dịch vụ";
+    list.length+" đơn";
 
   document.getElementById(
     "dashServices"
   ).textContent=
     services.length;
 
-  container.innerHTML="";
+  body.innerHTML="";
 
   if(!list.length){
 
-    container.innerHTML=`
+    body.innerHTML=`
+<tr>
+<td colspan="13">
 <div class="notice">
-Chưa có dịch vụ cày thuê.
+Chưa có đơn Cày thuê.
 </div>
+</td>
+</tr>
 `;
 
     return;
+
   }
 
-  list.forEach(service=>{
+  list
+    .slice()
+    .reverse()
+    .forEach(order=>{
 
-    const div=
-      document.createElement("div");
+      const tr=
+        document.createElement("tr");
 
-    div.className=
-      "card service-card";
+      const status=
+        String(
+          order.status||""
+        );
 
-    const statusClass=
-      service.status==="Sẵn Sàng"
-        ?"ready"
-        :"not-ready";
+      const statusLower=
+        status.toLowerCase();
 
-    div.innerHTML=`
+      let badgeClass="pending";
 
-<div class="service-header">
+      if(
+        statusLower.includes("hoàn")||
+        statusLower.includes("xong")||
+        statusLower.includes("completed")||
+        statusLower.includes("đã giao")
+      ){
+        badgeClass="completed";
+      }
 
-<div class="service-title">
-${escapeHtml(service.name||"")}
-</div>
+      if(
+        statusLower.includes("hủy")||
+        statusLower.includes("cancel")
+      ){
+        badgeClass="sold";
+      }
 
-<div class="service-price">
-${formatPrice(service.price)}
-</div>
+      tr.innerHTML=`
 
-</div>
+<td>
+${escapeHtml(order.id||"")}
+</td>
 
-<div class="service-meta">
-
-<span class="badge available">
-🎮 ${escapeHtml(service.game||"")}
-</span>
-
-<span class="badge ${statusClass}">
-${
-service.status==="Sẵn Sàng"
-?"🟢 Sẵn Sàng"
-:"🔴 Chưa Sẵn Sàng"
-}
-</span>
-
-</div>
-
-<div class="service-desc">
+<td>
 ${escapeHtml(
-service.description||
-"Không có mô tả."
+order.username||
+order.customerName||
+""
 )}
-</div>
+</td>
 
-<div class="small">
-ID: ${escapeHtml(service.id||"")}
-${
-service.createdAt
-?" • "+escapeHtml(formatDate(service.createdAt))
-:""
-}
-</div>
+<td>
+${escapeHtml(
+order.robloxUsername||
+order.tkRoblox||
+order.accountUsername||
+""
+)}
+</td>
 
-<div class="service-actions">
+<td>
+${escapeHtml(
+order.robloxPassword||
+order.mkRoblox||
+order.accountPassword||
+""
+)}
+</td>
+
+<td>
+${escapeHtml(
+order.access||
+order.accessPermission||
+order.permission||
+""
+)}
+</td>
+
+<td>
+${escapeHtml(
+order.orderType||
+order.type||
+""
+)}
+</td>
+
+<td>
+${escapeHtml(
+order.service||
+order.serviceName||
+""
+)}
+</td>
+
+<td>
+${formatPrice(
+order.price||
+0
+)}
+</td>
+
+<td>
+${escapeHtml(
+order.customerNote||
+order.noteCustomer||
+""
+)}
+</td>
+
+<td>
+${escapeHtml(
+order.adminNote||
+order.noteAdmin||
+""
+)}
+</td>
+
+<td>
+${escapeHtml(
+formatDate(order.createdAt)
+)}
+</td>
+
+<td>
+<span class="badge ${badgeClass}">
+${escapeHtml(status)}
+</span>
+</td>
+
+<td>
 
 <button
 class="btn btn-primary"
-onclick="editService('${escapeJs(service.id||"")}')"
+onclick="viewServiceOrder('${escapeJs(order.id||"")}')"
 >
-✏️ Sửa
+👁️ Xem đơn hàng
 </button>
 
-<button
-class="btn btn-warning"
-onclick="toggleServiceStatus('${escapeJs(service.id||"")}')"
->
-🔄 Đổi trạng thái
-</button>
+</td>
 
-<button
-class="btn btn-danger"
-onclick="deleteService('${escapeJs(service.id||"")}')"
->
-🗑️ Xóa
-</button>
-
-</div>
 `;
 
-    container.appendChild(div);
+      body.appendChild(tr);
 
-  });
-
-}
-
-
-function findService(id){
-
-  return services.find(
-    s=>String(s.id)===String(id)
-  );
+    });
 
 }
 
 
-async function editService(id){
+function updateServiceCount(){
 
-  const service=findService(id);
+  document.getElementById(
+    "serviceCount"
+  ).textContent=
+    services.length+" đơn";
 
-  if(!service)return;
+  document.getElementById(
+    "dashServices"
+  ).textContent=
+    services.length;
 
-  const name=prompt(
-    "Nhập tên dịch vụ:",
-    service.name||""
+}
+
+
+/* =====================================================
+   XEM ĐƠN CÀY THUÊ
+===================================================== */
+
+function findServiceOrder(id){
+
+  return services.find(order=>
+    String(order.id||"")===
+    String(id||"")
   );
 
-  if(name===null)return;
+}
 
-  const price=prompt(
-    "Nhập giá:",
-    service.price||0
-  );
 
-  if(price===null)return;
+function viewServiceOrder(id){
 
-  const description=prompt(
-    "Nhập mô tả:",
-    service.description||""
-  );
+  const order=
+    findServiceOrder(id);
 
-  if(description===null)return;
+  if(!order){
 
-  const game=prompt(
-    "Nhập Game:",
-    service.game||""
-  );
+    alert("❌ Không tìm thấy đơn hàng.");
 
-  if(game===null)return;
+    return;
+
+  }
+
+  const customer=
+    order.username||
+    order.customerName||
+    "";
+
+  const robloxUsername=
+    order.robloxUsername||
+    order.tkRoblox||
+    order.accountUsername||
+    "";
+
+  const robloxPassword=
+    order.robloxPassword||
+    order.mkRoblox||
+    order.accountPassword||
+    "";
+
+  const access=
+    order.access||
+    order.accessPermission||
+    order.permission||
+    "";
+
+  const orderType=
+    order.orderType||
+    order.type||
+    "";
+
+  const service=
+    order.service||
+    order.serviceName||
+    "";
+
+  const price=
+    order.price||
+    0;
+
+  const customerNote=
+    order.customerNote||
+    order.noteCustomer||
+    "";
+
+  const adminNote=
+    order.adminNote||
+    order.noteAdmin||
+    "";
+
+  const createdAt=
+    order.createdAt||
+    "";
 
   const status=
-    confirm(
-      "OK = Sẵn Sàng\nCancel = Chưa Sẵn Sàng"
+    order.status||
+    "";
+
+  document.getElementById(
+    "serviceOrderModalContent"
+  ).innerHTML=`
+
+<div class="order-detail-grid">
+
+<div class="order-detail-item">
+<div class="order-detail-label">Mã đơn</div>
+<div class="order-detail-value">
+${escapeHtml(order.id||"")}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Tên khách</div>
+<div class="order-detail-value">
+${escapeHtml(customer)}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">TK Roblox</div>
+<div class="order-detail-value">
+${escapeHtml(robloxUsername)}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">MK Roblox</div>
+<div class="order-detail-value">
+${escapeHtml(robloxPassword)}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Quyền truy cập</div>
+<div class="order-detail-value">
+${escapeHtml(access)}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Loại đơn</div>
+<div class="order-detail-value">
+${escapeHtml(orderType)}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Dịch vụ</div>
+<div class="order-detail-value">
+${escapeHtml(service)}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Giá</div>
+<div class="order-detail-value">
+<b>${formatPrice(price)}</b>
+</div>
+</div>
+
+<div class="order-detail-item full">
+<div class="order-detail-label">Ghi chú khách</div>
+<div class="order-detail-value">
+${escapeHtml(customerNote||"Không có")}
+</div>
+</div>
+
+<div class="order-detail-item full">
+<div class="order-detail-label">Ghi chú Admin</div>
+<div class="order-detail-value">
+${escapeHtml(adminNote||"Không có")}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Ngày tạo</div>
+<div class="order-detail-value">
+${escapeHtml(formatDate(createdAt))}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Trạng thái</div>
+<div class="order-detail-value">
+<b>${escapeHtml(status)}</b>
+</div>
+</div>
+
+</div>
+
+`;
+
+  document
+    .getElementById(
+      "serviceOrderModal"
     )
-    ?"Sẵn Sàng"
-    :"Chưa Sẵn Sàng";
-
-  const result=
-    await apiPost(
-      "updateService",
-      {
-        key:ADMIN_KEY,
-        id:id,
-        game:game.trim()||service.game,
-        name:name.trim()||service.name,
-        price:Number(price)||0,
-        status:status,
-        description:description
-      }
-    );
-
-  if(!result.ok){
-
-    alert(
-      "❌ "+
-      (
-        result.message||
-        "Không thể cập nhật."
-      )
-    );
-
-    return;
-  }
-
-  alert("✅ Đã cập nhật dịch vụ.");
-
-  await loadServices();
+    .classList.remove("hidden");
 
 }
 
 
-async function toggleServiceStatus(id){
+function closeServiceOrderModal(){
 
-  const service=findService(id);
-
-  if(!service)return;
-
-  const status=
-    service.status==="Sẵn Sàng"
-      ?"Chưa Sẵn Sàng"
-      :"Sẵn Sàng";
-
-  const result=
-    await apiPost(
-      "updateService",
-      {
-        key:ADMIN_KEY,
-        id:id,
-        game:service.game,
-        name:service.name,
-        price:Number(service.price)||0,
-        status:status,
-        description:service.description||""
-      }
-    );
-
-  if(!result.ok){
-
-    alert(
-      result.message||
-      "Không thể đổi trạng thái."
-    );
-
-    return;
-  }
-
-  await loadServices();
-
-}
-
-
-async function deleteService(id){
-
-  const service=findService(id);
-
-  if(!service)return;
-
-  if(!confirm(
-    "Bạn có chắc muốn xóa dịch vụ:\n\n"+
-    service.name+
-    "?"
-  ))return;
-
-  const result=
-    await apiPost(
-      "deleteService",
-      {
-        key:ADMIN_KEY,
-        id:id
-      }
-    );
-
-  if(!result.ok){
-
-    alert(
-      result.message||
-      "Không thể xóa."
-    );
-
-    return;
-  }
-
-  alert("✅ Đã xóa dịch vụ.");
-
-  await loadServices();
-  await loadDashboard();
+  document
+    .getElementById(
+      "serviceOrderModal"
+    )
+    .classList.add("hidden");
 
 }
 
@@ -2539,7 +2336,9 @@ function renderCustomers(){
 
   customers
     .filter(user=>
-      String(user.username||"")
+      String(
+        user.username||""
+      )
       .toLowerCase()
       .includes(search)
     )
@@ -2550,13 +2349,23 @@ function renderCustomers(){
 
       tr.innerHTML=`
 
-<td>${escapeHtml(user.username||"")}</td>
+<td>
+${escapeHtml(user.username||"")}
+</td>
 
-<td>${formatMoney(user.balance||0)}</td>
+<td>
+${formatMoney(user.balance||0)}
+</td>
 
-<td>${escapeHtml(formatDate(user.createdAt))}</td>
+<td>
+${escapeHtml(
+formatDate(user.createdAt)
+)}
+</td>
 
-<td>${escapeHtml(user.status||"")}</td>
+<td>
+${escapeHtml(user.status||"")}
+</td>
 
 `;
 
@@ -2606,8 +2415,9 @@ function renderTopups(){
         document.createElement("tr");
 
       const status=
-        String(item.status||"")
-        .toLowerCase();
+        String(
+          item.status||""
+        ).toLowerCase();
 
       let buttons="";
 
@@ -2632,6 +2442,7 @@ onclick="rejectTopup('${escapeJs(item.id||"")}')"
 >
 ❌ Từ chối
 </button>
+
 `;
 
       }
@@ -2639,19 +2450,12 @@ onclick="rejectTopup('${escapeJs(item.id||"")}')"
       tr.innerHTML=`
 
 <td>${escapeHtml(item.id||"")}</td>
-
 <td>${escapeHtml(item.username||"")}</td>
-
 <td>${formatMoney(item.amount||0)}</td>
-
 <td>${escapeHtml(item.method||"")}</td>
-
 <td>${escapeHtml(item.cardType||"")}</td>
-
 <td>${escapeHtml(item.cardSerial||"")}</td>
-
 <td>${escapeHtml(item.cardCode||"")}</td>
-
 <td>${escapeHtml(item.bankName||"")}</td>
 
 <td>
@@ -2674,7 +2478,7 @@ ${escapeHtml(item.status||"")}
 async function approveTopup(id){
 
   if(!confirm(
-    "Bạn có chắc muốn duyệt yêu cầu này?"
+    "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
   ))return;
 
   const result=
@@ -2738,19 +2542,6 @@ async function rejectTopup(id){
 
 /* =====================================================
    ORDERS
-   ĐÚNG 12 TRƯỜNG:
-   Mã đơn
-   Tên khách
-   TK roblox
-   Mk roblox
-   Quyền truy cập
-   Loại đơn
-   Dịch vụ
-   Giá
-   Ghi chú khách
-   Ghi chú Admin
-   Ngày tạo
-   Trạng thái
 ===================================================== */
 
 async function loadOrders(){
@@ -2758,15 +2549,7 @@ async function loadOrders(){
   const result=
     await apiGet("getOrders");
 
-  if(!result.ok){
-
-    console.error(
-      result.message||
-      "Không tải được đơn hàng."
-    );
-
-    return;
-  }
+  if(!result.ok)return;
 
   orders=
     Array.isArray(result.orders)
@@ -2778,28 +2561,6 @@ async function loadOrders(){
 }
 
 
-function orderValue(order,...keys){
-
-  for(const key of keys){
-
-    if(
-      order &&
-      order[key]!==undefined &&
-      order[key]!==null &&
-      String(order[key])!==""
-    ){
-
-      return order[key];
-
-    }
-
-  }
-
-  return "";
-
-}
-
-
 function renderOrders(){
 
   const body=
@@ -2807,550 +2568,152 @@ function renderOrders(){
       "ordersBody"
     );
 
-  const search=
-    (
-      document.getElementById(
-        "orderSearch"
-      )?.value||""
-    )
-    .toLowerCase()
-    .trim();
-
   body.innerHTML="";
 
-  const list=
-    orders
-      .slice()
-      .reverse()
-      .filter(order=>{
+  orders
+    .slice()
+    .reverse()
+    .forEach(order=>{
 
-        const text=[
+      const tr=
+        document.createElement("tr");
 
-          orderValue(
-            order,
-            "id",
-            "maDon",
-            "Mã đơn"
-          ),
-
-          orderValue(
-            order,
-            "username",
-            "customer",
-            "tenKhach",
-            "Tên khách"
-          ),
-
-          orderValue(
-            order,
-            "robloxUsername",
-            "tkRoblox",
-            "account",
-            "accUsername"
-          ),
-
-          orderValue(
-            order,
-            "robloxPassword",
-            "mkRoblox",
-            "password",
-            "accPassword"
-          ),
-
-          orderValue(
-            order,
-            "access",
-            "quyenTruyCap"
-          ),
-
-          orderValue(
-            order,
-            "orderType",
-            "loaiDon"
-          ),
-
-          orderValue(
-            order,
-            "service",
-            "dichVu",
-            "product"
-          ),
-
-          orderValue(
-            order,
-            "price",
-            "gia"
-          ),
-
-          orderValue(
-            order,
-            "customerNote",
-            "ghiChuKhach"
-          ),
-
-          orderValue(
-            order,
-            "adminNote",
-            "ghiChuAdmin"
-          ),
-
-          orderValue(
-            order,
-            "createdAt",
-            "ngayTao"
-          ),
-
-          orderValue(
-            order,
-            "status",
-            "trangThai"
-          )
-
-        ]
-        .join(" ")
-        .toLowerCase();
-
-        return text.includes(search);
-
-      });
-
-  list.forEach(order=>{
-
-    const id=
-      orderValue(
-        order,
-        "id",
-        "maDon",
-        "Mã đơn"
-      );
-
-    const customer=
-      orderValue(
-        order,
-        "username",
-        "customer",
-        "tenKhach",
-        "Tên khách"
-      );
-
-    const robloxUsername=
-      orderValue(
-        order,
-        "robloxUsername",
-        "tkRoblox",
-        "account",
-        "accUsername"
-      );
-
-    const robloxPassword=
-      orderValue(
-        order,
-        "robloxPassword",
-        "mkRoblox",
-        "password",
-        "accPassword"
-      );
-
-    const access=
-      orderValue(
-        order,
-        "access",
-        "quyenTruyCap"
-      );
-
-    const orderType=
-      orderValue(
-        order,
-        "orderType",
-        "loaiDon"
-      );
-
-    const service=
-      orderValue(
-        order,
-        "service",
-        "dichVu",
-        "product"
-      );
-
-    const price=
-      orderValue(
-        order,
-        "price",
-        "gia"
-      );
-
-    const customerNote=
-      orderValue(
-        order,
-        "customerNote",
-        "ghiChuKhach"
-      );
-
-    const adminNote=
-      orderValue(
-        order,
-        "adminNote",
-        "ghiChuAdmin"
-      );
-
-    const createdAt=
-      orderValue(
-        order,
-        "createdAt",
-        "ngayTao"
-      );
-
-    const status=
-      orderValue(
-        order,
-        "status",
-        "trangThai"
-      );
-
-    const tr=
-      document.createElement("tr");
-
-    tr.innerHTML=`
+      tr.innerHTML=`
 
 <td>
-${escapeHtml(id)}
+${escapeHtml(order.id||"")}
 </td>
 
 <td>
-${escapeHtml(customer)}
+${escapeHtml(order.username||"")}
 </td>
 
 <td>
-${escapeHtml(robloxUsername||"-")}
+${escapeHtml(order.product||"")}
 </td>
 
 <td>
-${escapeHtml(robloxPassword||"-")}
+${formatMoney(order.price||0)}
 </td>
 
 <td>
-${escapeHtml(access||"-")}
+${escapeHtml(order.status||"")}
 </td>
 
 <td>
-${escapeHtml(orderType||"-")}
+${escapeHtml(
+formatDate(order.createdAt)
+)}
 </td>
 
 <td>
-${escapeHtml(service||"-")}
-</td>
-
-<td>
-${formatOrderPrice(price)}
-</td>
-
-<td>
-${escapeHtml(customerNote||"-")}
-</td>
-
-<td>
-${escapeHtml(adminNote||"-")}
-</td>
-
-<td>
-${escapeHtml(formatDate(createdAt))}
-</td>
-
-<td>
-<span class="badge ${getOrderBadge(status)}">
-${escapeHtml(status||"")}
-</span>
+${
+order.accUsername
+?escapeHtml(order.accUsername)
+:"-"
+}
 </td>
 
 <td>
 
 <button
 class="btn btn-primary"
-onclick='showOrderModal(${JSON.stringify(order)})'
+onclick="viewNormalOrder('${escapeJs(order.id||"")}')"
 >
-👁️ Xem đơn
+👁️ Xem
 </button>
 
 </td>
 
 `;
 
-    body.appendChild(tr);
+      body.appendChild(tr);
 
-  });
-
-}
-
-
-function getOrderBadge(status){
-
-  const s=
-    String(status||"")
-    .toLowerCase();
-
-  if(
-    s.includes("hoàn")||
-    s.includes("xong")||
-    s.includes("complete")||
-    s.includes("done")
-  ){
-
-    return "completed";
-
-  }
-
-  if(
-    s.includes("chờ")||
-    s.includes("pending")||
-    s.includes("đang")
-  ){
-
-    return "pending";
-
-  }
-
-  if(
-    s.includes("hủy")||
-    s.includes("cancel")||
-    s.includes("từ chối")
-  ){
-
-    return "sold";
-
-  }
-
-  return "";
+    });
 
 }
 
 
-function formatOrderPrice(value){
+function viewNormalOrder(id){
 
-  if(
-    value===null||
-    value===undefined||
-    value===""
-  ){
+  const order=
+    orders.find(item=>
+      String(item.id||"")===
+      String(id||"")
+    );
 
-    return "-";
+  if(!order){
+
+    alert("❌ Không tìm thấy đơn hàng.");
+
+    return;
 
   }
-
-  const n=Number(value);
-
-  if(isNaN(n)){
-
-    return escapeHtml(value);
-
-  }
-
-  return n.toLocaleString("vi-VN")+"K";
-
-}
-
-
-function showOrderModal(order){
-
-  const id=
-    orderValue(
-      order,
-      "id",
-      "maDon",
-      "Mã đơn"
-    );
-
-  const customer=
-    orderValue(
-      order,
-      "username",
-      "customer",
-      "tenKhach",
-      "Tên khách"
-    );
-
-  const robloxUsername=
-    orderValue(
-      order,
-      "robloxUsername",
-      "tkRoblox",
-      "account",
-      "accUsername"
-    );
-
-  const robloxPassword=
-    orderValue(
-      order,
-      "robloxPassword",
-      "mkRoblox",
-      "password",
-      "accPassword"
-    );
-
-  const access=
-    orderValue(
-      order,
-      "access",
-      "quyenTruyCap"
-    );
-
-  const orderType=
-    orderValue(
-      order,
-      "orderType",
-      "loaiDon"
-    );
-
-  const service=
-    orderValue(
-      order,
-      "service",
-      "dichVu",
-      "product"
-    );
-
-  const price=
-    orderValue(
-      order,
-      "price",
-      "gia"
-    );
-
-  const customerNote=
-    orderValue(
-      order,
-      "customerNote",
-      "ghiChuKhach"
-    );
-
-  const adminNote=
-    orderValue(
-      order,
-      "adminNote",
-      "ghiChuAdmin"
-    );
-
-  const createdAt=
-    orderValue(
-      order,
-      "createdAt",
-      "ngayTao"
-    );
-
-  const status=
-    orderValue(
-      order,
-      "status",
-      "trangThai"
-    );
 
   document.getElementById(
-    "orderModalContent"
+    "serviceOrderModalContent"
   ).innerHTML=`
 
-<div class="order-detail">
+<div class="order-detail-grid">
 
-<div class="order-detail-row">
+<div class="order-detail-item">
 <div class="order-detail-label">Mã đơn</div>
 <div class="order-detail-value">
-${escapeHtml(id||"-")}
+${escapeHtml(order.id||"")}
 </div>
 </div>
 
-<div class="order-detail-row">
-<div class="order-detail-label">Tên khách</div>
+<div class="order-detail-item">
+<div class="order-detail-label">Khách</div>
 <div class="order-detail-value">
-${escapeHtml(customer||"-")}
+${escapeHtml(order.username||"")}
 </div>
 </div>
 
-<div class="order-detail-row">
-<div class="order-detail-label">TK Roblox</div>
+<div class="order-detail-item">
+<div class="order-detail-label">Sản phẩm</div>
 <div class="order-detail-value">
-${escapeHtml(robloxUsername||"-")}
+${escapeHtml(order.product||"")}
 </div>
 </div>
 
-<div class="order-detail-row">
-<div class="order-detail-label">Mk Roblox</div>
-<div class="order-detail-value">
-${escapeHtml(robloxPassword||"-")}
-</div>
-</div>
-
-<div class="order-detail-row">
-<div class="order-detail-label">Quyền truy cập</div>
-<div class="order-detail-value">
-${escapeHtml(access||"-")}
-</div>
-</div>
-
-<div class="order-detail-row">
-<div class="order-detail-label">Loại đơn</div>
-<div class="order-detail-value">
-${escapeHtml(orderType||"-")}
-</div>
-</div>
-
-<div class="order-detail-row">
-<div class="order-detail-label">Dịch vụ</div>
-<div class="order-detail-value">
-${escapeHtml(service||"-")}
-</div>
-</div>
-
-<div class="order-detail-row">
+<div class="order-detail-item">
 <div class="order-detail-label">Giá</div>
 <div class="order-detail-value">
-${formatOrderPrice(price)}
+${formatMoney(order.price||0)}
 </div>
 </div>
 
-<div class="order-detail-row">
-<div class="order-detail-label">Ghi chú khách</div>
-<div class="order-detail-value">
-${escapeHtml(customerNote||"-")}
-</div>
-</div>
-
-<div class="order-detail-row">
-<div class="order-detail-label">Ghi chú Admin</div>
-<div class="order-detail-value">
-${escapeHtml(adminNote||"-")}
-</div>
-</div>
-
-<div class="order-detail-row">
-<div class="order-detail-label">Ngày tạo</div>
-<div class="order-detail-value">
-${escapeHtml(formatDate(createdAt)||"-")}
-</div>
-</div>
-
-<div class="order-detail-row">
+<div class="order-detail-item">
 <div class="order-detail-label">Trạng thái</div>
 <div class="order-detail-value">
-<span class="badge ${getOrderBadge(status)}">
-${escapeHtml(status||"-")}
-</span>
+${escapeHtml(order.status||"")}
+</div>
+</div>
+
+<div class="order-detail-item">
+<div class="order-detail-label">Thời gian</div>
+<div class="order-detail-value">
+${escapeHtml(formatDate(order.createdAt))}
+</div>
+</div>
+
+<div class="order-detail-item full">
+<div class="order-detail-label">Tài khoản</div>
+<div class="order-detail-value">
+${escapeHtml(order.accUsername||"-")}
 </div>
 </div>
 
 </div>
+
 `;
 
   document
-    .getElementById("orderModal")
+    .getElementById(
+      "serviceOrderModal"
+    )
     .classList.remove("hidden");
-
-}
-
-
-function closeOrderModal(){
-
-  document
-    .getElementById("orderModal")
-    .classList.add("hidden");
 
 }
 
@@ -3416,6 +2779,7 @@ function renderProducts(){
   container.innerHTML="";
 
   const bloxKeys=[
+
     "bloxFruit",
     "cayThueBloxFruit",
     "tuiMuBloxFruit",
@@ -3427,6 +2791,7 @@ function renderProducts(){
     "robux120h",
     "gamepassBloxFruit",
     "fish"
+
   ];
 
   const stealKeys=[
@@ -3447,20 +2812,20 @@ function renderProducts(){
     stealKeys
   );
 
-  const title=
+  const title2=
     document.createElement("div");
 
-  title.className=
+  title2.className=
     "product-group-title";
 
-  title.textContent=
+  title2.textContent=
     "🎮 Sản phẩm khác";
 
-  container.appendChild(title);
+  container.appendChild(title2);
 
   products
     .filter(item=>
-      !bloxKeys.includes(item[0])&&
+      !bloxKeys.includes(item[0]) &&
       !stealKeys.includes(item[0])
     )
     .forEach(item=>
@@ -3565,6 +2930,7 @@ onclick="saveProductStatus('${escapeJs(key)}')"
 </button>
 
 </div>
+
 `;
 
   container.appendChild(div);
@@ -3611,7 +2977,8 @@ async function saveProductStatus(product){
 
   if(!select)return;
 
-  const status=select.value;
+  const status=
+    select.value;
 
   const result=
     await apiPost(
@@ -3678,14 +3045,6 @@ function showTab(name,button){
     loadServices();
   }
 
-  if(name==="orders"){
-    loadOrders();
-  }
-
-  if(name==="accounts"){
-    loadAccounts();
-  }
-
 }
 
 
@@ -3695,9 +3054,12 @@ function showTab(name,button){
 
 function showAccountModal(account){
 
-  document.getElementById(
-    "accountModalContent"
-  ).innerHTML=`
+  const content=
+    document.getElementById(
+      "accountModalContent"
+    );
+
+  content.innerHTML=`
 
 <div class="account-result">
 
@@ -3723,23 +3085,16 @@ function showAccountModal(account){
 
 <div>
 👤 Username:
-<b>${escapeHtml(
-account.username||
-account.accUsername||
-""
-)}</b>
+<b>${escapeHtml(account.username||"")}</b>
 </div>
 
 <div>
 🔑 Password:
-<b>${escapeHtml(
-account.password||
-account.accPassword||
-""
-)}</b>
+<b>${escapeHtml(account.password||"")}</b>
 </div>
 
 </div>
+
 `;
 
   document
@@ -3767,9 +3122,7 @@ function formatMoney(value){
   const n=Number(value||0);
 
   if(n>=1000){
-
     return n.toLocaleString("vi-VN")+"đ";
-
   }
 
   return n.toLocaleString("vi-VN")+"K";
@@ -3784,16 +3137,11 @@ function formatPrice(value){
     value===null||
     typeof value==="undefined"
   ){
-
     return "-";
-
   }
 
-  const n=Number(value||0);
-
-  if(isNaN(n))return String(value);
-
-  return n.toLocaleString("vi-VN")+"K";
+  return Number(value||0)
+    .toLocaleString("vi-VN")+"K";
 
 }
 
@@ -3807,9 +3155,7 @@ function formatDate(value){
     const date=new Date(value);
 
     if(isNaN(date.getTime())){
-
       return String(value);
-
     }
 
     return date.toLocaleString("vi-VN");
@@ -3851,7 +3197,7 @@ function escapeJs(value){
 
 
 /* =====================================================
-   MODALS
+   MODAL EVENTS
 ===================================================== */
 
 document
@@ -3869,13 +3215,13 @@ document
 
 
 document
-  .getElementById("orderModal")
+  .getElementById("serviceOrderModal")
   .addEventListener(
     "click",
     function(e){
 
       if(e.target===this){
-        closeOrderModal();
+        closeServiceOrderModal();
       }
 
     }
@@ -3889,7 +3235,7 @@ document.addEventListener(
     if(e.key==="Escape"){
 
       closeAccountModal();
-      closeOrderModal();
+      closeServiceOrderModal();
 
     }
 
@@ -3900,4 +3246,3 @@ document.addEventListener(
 
 </body>
 </html>
-```
