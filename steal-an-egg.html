@@ -1,1 +1,947 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<title>SHOPKAROT - Steal an Egg</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f4f6;
+    color:#111827;
+}
+
+header{
+    background:linear-gradient(135deg,#111827,#1f2937);
+    color:white;
+    padding:18px 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#facc15;
+}
+
+.back-btn{
+    border:0;
+    background:#374151;
+    color:white;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.back-btn:hover{
+    background:#4b5563;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:25px 16px 50px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#facc15,#f59e0b);
+    border-radius:18px;
+    padding:30px 25px;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.hero h1{
+    margin:0 0 8px;
+    font-size:32px;
+}
+
+.hero p{
+    margin:0;
+    font-size:16px;
+}
+
+.tabs{
+    display:flex;
+    gap:10px;
+    margin-bottom:22px;
+    flex-wrap:wrap;
+}
+
+.tab{
+    border:0;
+    padding:13px 20px;
+    border-radius:12px;
+    background:white;
+    cursor:pointer;
+    font-weight:700;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.tab.active{
+    background:#111827;
+    color:white;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+    gap:10px;
+}
+
+.section-title h2{
+    margin:0;
+}
+
+.search{
+    width:100%;
+    max-width:320px;
+    padding:12px 14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    padding:18px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(0,0,0,.12);
+}
+
+.card h3{
+    margin:0 0 10px;
+    font-size:19px;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:8px;
+    background:#dcfce7;
+    color:#166534;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.price{
+    font-size:22px;
+    font-weight:800;
+    color:#dc2626;
+    margin:12px 0;
+}
+
+.info{
+    font-size:14px;
+    color:#6b7280;
+    line-height:1.6;
+}
+
+.buy-btn{
+    width:100%;
+    margin-top:15px;
+    border:0;
+    padding:12px;
+    border-radius:10px;
+    background:#111827;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.buy-btn:hover{
+    background:#374151;
+}
+
+.service-card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.service-card h3{
+    margin-top:0;
+}
+
+.service-description{
+    color:#4b5563;
+    line-height:1.7;
+    min-height:70px;
+}
+
+.empty{
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    text-align:center;
+    color:#6b7280;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    padding:15px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:100%;
+    max-width:480px;
+    border-radius:18px;
+    padding:24px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:12px;
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.modal-box h2{
+    margin-top:0;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:9px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.confirm-btn{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:#16a34a;
+    color:white;
+    font-weight:800;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#6b7280;
+}
+
+@media(max-width:1000px){
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:700px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .header-inner{
+        flex-direction:column;
+    }
+
+    .section-title{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .search{
+        max-width:none;
+    }
+}
+
+@media(max-width:480px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            SHOP<span>KAROT</span> - STEAL AN EGG
+        </div>
+
+        <button class="back-btn" onclick="goBack()">
+            ← Về Shop
+        </button>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>🥚 Steal an Egg</h1>
+        <p>
+            Kho tài khoản và dịch vụ Steal an Egg tại SHOPKAROT.
+        </p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('accounts',this)">
+            👤 Acc Steal an Egg
+        </button>
+
+        <button class="tab" onclick="showTab('services',this)">
+            🛠️ Dịch vụ Steal an Egg
+        </button>
+    </div>
+
+    <!-- ================= ACC ================= -->
+
+    <section id="accounts" class="section active">
+
+        <div class="section-title">
+            <h2>👤 Acc Steal an Egg</h2>
+
+            <input
+                id="accountSearch"
+                class="search"
+                type="text"
+                placeholder="🔎 Tìm tài khoản..."
+                oninput="filterAccounts()"
+            >
+        </div>
+
+        <div id="accountGrid" class="grid"></div>
+
+    </section>
+
+    <!-- ================= SERVICE ================= -->
+
+    <section id="services" class="section">
+
+        <div class="section-title">
+            <h2>🛠️ Dịch vụ Steal an Egg</h2>
+
+            <input
+                id="serviceSearch"
+                class="search"
+                type="text"
+                placeholder="🔎 Tìm dịch vụ..."
+                oninput="filterServices()"
+            >
+        </div>
+
+        <div id="serviceGrid" class="grid"></div>
+
+    </section>
+
+</div>
+
+<footer>
+    SHOPKAROT © 2026 - Steal an Egg
+</footer>
+
+
+<!-- ================= MODAL ================= -->
+
+<div id="orderModal" class="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <h2 id="modalTitle">Đặt hàng</h2>
+
+        <div class="form-group">
+            <label>Tên khách</label>
+            <input id="customerName" type="text" placeholder="Nhập tên khách">
+        </div>
+
+        <div class="form-group">
+            <label>Username Roblox</label>
+            <input id="robloxUsername" type="text" placeholder="Nhập username Roblox">
+        </div>
+
+        <div class="form-group">
+            <label>Ghi chú</label>
+            <textarea id="customerNote" placeholder="Ghi chú thêm..."></textarea>
+        </div>
+
+        <button class="confirm-btn" onclick="submitOrder()">
+            ✅ Xác nhận đặt hàng
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   DỮ LIỆU MẪU
+   Sau này có thể nối trực tiếp Google Apps Script
+   ===================================================== */
+
+const accounts = [
+    {
+        id:"SAE001",
+        name:"Acc Steal an Egg #001",
+        package:"Gói Cơ Bản",
+        price:50000,
+        status:"Còn hàng",
+        description:"Tài khoản Steal an Egg."
+    },
+    {
+        id:"SAE002",
+        name:"Acc Steal an Egg #002",
+        package:"Gói VIP",
+        price:100000,
+        status:"Còn hàng",
+        description:"Tài khoản Steal an Egg VIP."
+    },
+    {
+        id:"SAE003",
+        name:"Acc Steal an Egg #003",
+        package:"Gói Premium",
+        price:150000,
+        status:"Còn hàng",
+        description:"Tài khoản Steal an Egg Premium."
+    }
+];
+
+
+const services = [
+    {
+        id:"DVSAE001",
+        name:"Cày Steal an Egg",
+        price:50000,
+        status:"Đang nhận",
+        description:"Dịch vụ cày Steal an Egg theo yêu cầu của khách."
+    },
+    {
+        id:"DVSAE002",
+        name:"Farm Egg",
+        price:100000,
+        status:"Đang nhận",
+        description:"Farm Egg theo thời gian hoặc mục tiêu khách yêu cầu."
+    },
+    {
+        id:"DVSAE003",
+        name:"Farm VIP",
+        price:200000,
+        status:"Đang nhận",
+        description:"Dịch vụ farm nâng cao dành cho khách hàng."
+    }
+];
+
+
+/* =====================================================
+   FORMAT TIỀN
+   ===================================================== */
+
+function formatMoney(number){
+
+    return Number(number).toLocaleString("vi-VN") + "đ";
+
+}
+
+
+/* =====================================================
+   HIỂN THỊ ACC
+   ===================================================== */
+
+function renderAccounts(data = accounts){
+
+    const grid = document.getElementById("accountGrid");
+
+    if(!data.length){
+
+        grid.innerHTML = `
+            <div class="empty">
+                Không tìm thấy tài khoản.
+            </div>
+        `;
+
+        return;
+    }
+
+    grid.innerHTML = data.map(acc => `
+
+        <div class="card">
+
+            <span class="badge">
+                ${acc.status}
+            </span>
+
+            <h3>
+                ${escapeHTML(acc.name)}
+            </h3>
+
+            <div class="info">
+                Mã: ${escapeHTML(acc.id)}<br>
+                Gói: ${escapeHTML(acc.package)}
+            </div>
+
+            <div class="price">
+                ${formatMoney(acc.price)}
+            </div>
+
+            <div class="info">
+                ${escapeHTML(acc.description)}
+            </div>
+
+            <button
+                class="buy-btn"
+                onclick="openOrder(
+                    'ACC',
+                    '${escapeJS(acc.id)}',
+                    '${escapeJS(acc.name)}',
+                    ${acc.price}
+                )"
+            >
+                🛒 Mua tài khoản
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   HIỂN THỊ DỊCH VỤ
+   ===================================================== */
+
+function renderServices(data = services){
+
+    const grid = document.getElementById("serviceGrid");
+
+    if(!data.length){
+
+        grid.innerHTML = `
+            <div class="empty">
+                Không tìm thấy dịch vụ.
+            </div>
+        `;
+
+        return;
+    }
+
+    grid.innerHTML = data.map(service => `
+
+        <div class="service-card">
+
+            <span class="badge">
+                ${escapeHTML(service.status)}
+            </span>
+
+            <h3>
+                ${escapeHTML(service.name)}
+            </h3>
+
+            <div class="service-description">
+                ${escapeHTML(service.description)}
+            </div>
+
+            <div class="price">
+                ${formatMoney(service.price)}
+            </div>
+
+            <div class="info">
+                Mã dịch vụ: ${escapeHTML(service.id)}
+            </div>
+
+            <button
+                class="buy-btn"
+                onclick="openOrder(
+                    'SERVICE',
+                    '${escapeJS(service.id)}',
+                    '${escapeJS(service.name)}',
+                    ${service.price}
+                )"
+            >
+                🛒 Đặt dịch vụ
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   TAB
+   ===================================================== */
+
+function showTab(tabName, button){
+
+    document.querySelectorAll(".section").forEach(section => {
+        section.classList.remove("active");
+    });
+
+    document.querySelectorAll(".tab").forEach(tab => {
+        tab.classList.remove("active");
+    });
+
+    document.getElementById(tabName).classList.add("active");
+
+    button.classList.add("active");
+
+}
+
+
+/* =====================================================
+   SEARCH ACC
+   ===================================================== */
+
+function filterAccounts(){
+
+    const keyword =
+        document.getElementById("accountSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const result = accounts.filter(acc =>
+
+        acc.id.toLowerCase().includes(keyword) ||
+        acc.name.toLowerCase().includes(keyword) ||
+        acc.package.toLowerCase().includes(keyword)
+
+    );
+
+    renderAccounts(result);
+
+}
+
+
+/* =====================================================
+   SEARCH SERVICE
+   ===================================================== */
+
+function filterServices(){
+
+    const keyword =
+        document.getElementById("serviceSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const result = services.filter(service =>
+
+        service.id.toLowerCase().includes(keyword) ||
+        service.name.toLowerCase().includes(keyword) ||
+        service.description.toLowerCase().includes(keyword)
+
+    );
+
+    renderServices(result);
+
+}
+
+
+/* =====================================================
+   ORDER
+   ===================================================== */
+
+let currentOrder = null;
+
+
+function openOrder(type,id,name,price){
+
+    currentOrder = {
+        type:type,
+        id:id,
+        name:name,
+        price:price
+    };
+
+    document.getElementById("modalTitle").textContent =
+        type === "ACC"
+        ? "🛒 Mua " + name
+        : "🛠️ Đặt " + name;
+
+    document.getElementById("customerName").value = "";
+    document.getElementById("robloxUsername").value = "";
+    document.getElementById("customerNote").value = "";
+
+    document.getElementById("orderModal").classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document.getElementById("orderModal")
+        .classList.remove("show");
+
+    currentOrder = null;
+
+}
+
+
+/* =====================================================
+   GỬI ĐƠN
+   ===================================================== */
+
+function submitOrder(){
+
+    if(!currentOrder){
+
+        alert("Không có sản phẩm được chọn.");
+
+        return;
+    }
+
+    const customerName =
+        document.getElementById("customerName")
+        .value.trim();
+
+    const robloxUsername =
+        document.getElementById("robloxUsername")
+        .value.trim();
+
+    const note =
+        document.getElementById("customerNote")
+        .value.trim();
+
+
+    if(!customerName){
+
+        alert("Vui lòng nhập tên khách.");
+
+        return;
+    }
+
+
+    if(!robloxUsername){
+
+        alert("Vui lòng nhập Username Roblox.");
+
+        return;
+    }
+
+
+    const orderCode =
+        "SAE" +
+        Date.now().toString().slice(-8);
+
+
+    const order = {
+
+        maDon:orderCode,
+
+        loai:currentOrder.type,
+
+        maSanPham:currentOrder.id,
+
+        sanPham:currentOrder.name,
+
+        gia:currentOrder.price,
+
+        tenKhach:customerName,
+
+        usernameRoblox:robloxUsername,
+
+        ghiChu:note,
+
+        ngayTao:new Date().toLocaleString("vi-VN")
+
+    };
+
+
+    /*
+       Lưu tạm đơn hàng trên trình duyệt.
+
+       Khi nối Google Apps Script,
+       thay phần này bằng API createOrder().
+    */
+
+    const oldOrders =
+        JSON.parse(
+            localStorage.getItem("shopkarot_sae_orders") || "[]"
+        );
+
+    oldOrders.push(order);
+
+    localStorage.setItem(
+        "shopkarot_sae_orders",
+        JSON.stringify(oldOrders)
+    );
+
+
+    alert(
+        "Đặt hàng thành công!\n\n" +
+        "Mã đơn: " + orderCode + "\n" +
+        "Sản phẩm: " + currentOrder.name + "\n" +
+        "Giá: " + formatMoney(currentOrder.price)
+    );
+
+
+    closeModal();
+
+}
+
+
+/* =====================================================
+   QUAY VỀ SHOP
+   ===================================================== */
+
+function goBack(){
+
+    /*
+       Có thể đổi thành link ShopKarot chính thức
+       của bạn sau này.
+    */
+
+    if(document.referrer){
+
+        history.back();
+
+    }else{
+
+        window.location.href = "index.html";
+
+    }
+
+}
+
+
+/* =====================================================
+   CHỐNG HTML INJECTION
+   ===================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJS(value){
+
+    return String(value)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/\n/g,"\\n")
+        .replace(/\r/g,"\\r");
+
+}
+
+
+/* =====================================================
+   ĐÓNG MODAL KHI CLICK RA NGOÀI
+   ===================================================== */
+
+document.getElementById("orderModal")
+    .addEventListener("click",function(event){
+
+        if(event.target === this){
+
+            closeModal();
+
+        }
+
+    });
+
+
+/* =====================================================
+   KHỞI ĐỘNG
+   ===================================================== */
+
+renderAccounts();
+renderServices();
+
+</script>
+
+</body>
+</html>
+```
