@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -55,6 +54,7 @@ button,input,select,textarea{font:inherit}
 .btn-gray{background:#6b7280;color:#fff}
 
 .btn:hover{opacity:.88}
+
 .hidden{display:none!important}
 
 header{
@@ -302,58 +302,6 @@ th{
   border-left:5px solid #ef4444;
 }
 
-.service-card{
-  margin-bottom:12px;
-  border-left:5px solid #2563eb;
-}
-
-.service-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.service-title{
-  font-size:18px;
-  font-weight:bold;
-}
-
-.service-price{
-  font-size:20px;
-  font-weight:bold;
-  color:#16a34a;
-}
-
-.service-desc{
-  color:#6b7280;
-  margin:10px 0;
-  white-space:pre-wrap;
-}
-
-.service-meta{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.service-actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:14px;
-}
-
-.cay-count{
-  background:#eff6ff;
-  color:#1d4ed8;
-  padding:8px 12px;
-  border-radius:10px;
-  font-weight:bold;
-}
-
 .order-detail-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -401,10 +349,13 @@ th{
   }
 }
 </style>
-
 </head>
 
 <body>
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
 
 <div id="loginPage" class="login-box">
 
@@ -422,42 +373,56 @@ class="input"
 type="password"
 placeholder="Nhập Admin Key"
 onkeydown="if(event.key==='Enter')adminLogin()"
-
 >
 
 <button
 class="btn btn-primary"
 style="width:100%"
 onclick="adminLogin()"
-
 >
-
-🔐 Đăng nhập </button>
+🔐 Đăng nhập
+</button>
 
 <div id="loginMessage" style="margin-top:15px"></div>
 
 </div>
+
+
+<!-- =====================================================
+     ADMIN PAGE
+===================================================== -->
 
 <div id="adminPage" class="hidden">
 
 <header>
 
 <div>
+
 <h2>🛒 SHOPKAROT ADMIN</h2>
 
 <div class="small" style="color:#d1d5db">
 Quản lý kho acc, cày thuê, khách hàng,
 đơn hàng, nạp tiền và trạng thái sản phẩm
 </div>
+
 </div>
 
-<button class="btn btn-danger" onclick="logout()">
+<button
+class="btn btn-danger"
+onclick="logout()"
+>
 🚪 Đăng xuất
 </button>
 
 </header>
 
+
 <div class="container">
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
 
 <div class="dashboard">
 
@@ -493,6 +458,11 @@ Quản lý kho acc, cày thuê, khách hàng,
 
 </div>
 
+
+<!-- =====================================================
+     SHOP STATUS
+===================================================== -->
+
 <div class="card" style="margin-bottom:20px">
 
 <h3>⚙️ Trạng thái Shop</h3>
@@ -509,7 +479,6 @@ Quản lý kho acc, cày thuê, khách hàng,
 id="shopStatusSelect"
 class="input"
 style="width:auto;margin:0"
-
 >
 
 <option value="Shop đang hoạt động">
@@ -526,7 +495,10 @@ Shop tạm đóng
 
 </select>
 
-<button class="btn btn-primary" onclick="setShopStatus()">
+<button
+class="btn btn-primary"
+onclick="setShopStatus()"
+>
 💾 Lưu trạng thái
 </button>
 
@@ -534,39 +506,66 @@ Shop tạm đóng
 
 </div>
 
+
+<!-- =====================================================
+     TABS
+===================================================== -->
+
 <div class="tabs">
 
-<button class="tab active" onclick="showTab('accounts',this)">
+<button
+class="tab active"
+onclick="showTab('accounts',this)"
+>
 🎮 Kho Acc
 </button>
 
-<button class="tab" onclick="showTab('services',this)">
+<button
+class="tab"
+onclick="showTab('services',this)"
+>
 🛠️ Cày thuê
 </button>
 
-<button class="tab" onclick="showTab('customers',this)">
+<button
+class="tab"
+onclick="showTab('customers',this)"
+>
 👥 Khách hàng
 </button>
 
-<button class="tab" onclick="showTab('topups',this)">
+<button
+class="tab"
+onclick="showTab('topups',this)"
+>
 💰 Nạp tiền
 </button>
 
-<button class="tab" onclick="showTab('orders',this)">
+<button
+class="tab"
+onclick="showTab('orders',this)"
+>
 📦 Đơn hàng
 </button>
 
-<button class="tab" onclick="showTab('products',this)">
+<button
+class="tab"
+onclick="showTab('products',this)"
+>
 🛍️ Trạng thái sản phẩm
 </button>
 
 </div>
 
+
 <!-- =====================================================
      KHO ACC
 ===================================================== -->
 
-<section id="panel-accounts" class="panel active">
+<section
+id="panel-accounts"
+class="panel active"
+>
 
 <div class="card">
 
@@ -578,44 +577,98 @@ Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
 
 <div class="form-grid">
 
+
 <div class="form-group">
+
 <label>🎮 Game</label>
 
-<select id="accountGame" class="input" onchange="gameChanged()">
+<select
+id="accountGame"
+class="input"
+onchange="gameChanged()"
+>
 
-<option value="">-- Chọn game --</option>
+<option value="">
+-- Chọn game --
+</option>
 
-<option value="Blox Fruits">Blox Fruits</option>
-<option value="King Legacy">King Legacy</option>
-<option value="Anime Fighters">Anime Fighters</option>
-<option value="Grow A Garden 2">Grow A Garden 2</option>
-<option value="Grow A Garden">Grow A Garden</option>
-<option value="Murder Mystery 2">Murder Mystery 2</option>
-<option value="Túi Mù">Túi Mù</option>
-<option value="Event">Event</option>
-<option value="Greedy Growers 🌱">Greedy Growers 🌱</option>
-<option value="Steal a Egg">🥚 Steal a Egg</option>
+<option value="Blox Fruits">
+Blox Fruits
+</option>
+
+<option value="King Legacy">
+King Legacy
+</option>
+
+<option value="Anime Fighters">
+Anime Fighters
+</option>
+
+<option value="Grow A Garden 2">
+Grow A Garden 2
+</option>
+
+<option value="Grow A Garden">
+Grow A Garden
+</option>
+
+<option value="Murder Mystery 2">
+Murder Mystery 2
+</option>
+
+<option value="Túi Mù">
+Túi Mù
+</option>
+
+<option value="Event">
+Event
+</option>
+
+<option value="Greedy Growers 🌱">
+Greedy Growers 🌱
+</option>
+
+<option value="Steal a Egg">
+🥚 Steal a Egg
+</option>
 
 </select>
+
 </div>
+
 
 <div class="form-group">
 
 <label>📁 Thư mục</label>
 
-<select id="accountFolder" class="input" onchange="folderChanged()">
-<option value="">-- Chọn thư mục --</option>
+<select
+id="accountFolder"
+class="input"
+onchange="folderChanged()"
+>
+
+<option value="">
+-- Chọn thư mục --
+</option>
+
 </select>
 
 </div>
+
 
 <div class="form-group">
 
 <label>💵 Giá</label>
 
-<select id="accountPrice" class="input" onchange="priceChanged()">
+<select
+id="accountPrice"
+class="input"
+onchange="priceChanged()"
+>
 
-<option value="">-- Chọn giá --</option>
+<option value="">
+-- Chọn giá --
+</option>
 
 <option value="0">0K</option>
 <option value="10">10K</option>
@@ -636,15 +689,24 @@ Chọn Game → Thư mục → Giá → Gói → nhập Username và Password.
 
 </div>
 
+
 <div class="form-group">
 
 <label>📦 Gói</label>
 
-<select id="accountPackage" class="input">
-<option value="">-- Chọn gói --</option>
+<select
+id="accountPackage"
+class="input"
+>
+
+<option value="">
+-- Chọn gói --
+</option>
+
 </select>
 
 </div>
+
 
 <div class="form-group">
 
@@ -655,10 +717,10 @@ id="accountUsername"
 class="input"
 type="text"
 placeholder="Ví dụ: xyz456"
-
 >
 
 </div>
+
 
 <div class="form-group">
 
@@ -669,28 +731,38 @@ id="accountPassword"
 class="input"
 type="text"
 placeholder="Ví dụ: abcdef"
-
 >
 
 </div>
 
 </div>
 
+
 <div class="actions">
 
-<button class="btn btn-success" onclick="addAccount()">
+<button
+class="btn btn-success"
+onclick="addAccount()"
+>
 ➕ Thêm tài khoản
 </button>
 
-<button class="btn btn-gray" onclick="clearAccountForm()">
+<button
+class="btn btn-gray"
+onclick="clearAccountForm()"
+>
 🧹 Xóa form
 </button>
 
 </div>
 
-<div id="accountMessage" style="margin-top:15px"></div>
+<div
+id="accountMessage"
+style="margin-top:15px"
+></div>
 
 </div>
+
 
 <div class="card" style="margin-top:20px">
 
@@ -701,7 +773,6 @@ id="accountSearch"
 class="input search"
 placeholder="🔎 Tìm game, thư mục, username..."
 oninput="renderAccounts()"
-
 >
 
 <div class="table-wrap">
@@ -734,19 +805,22 @@ oninput="renderAccounts()"
 
 </section>
 
+
 <!-- =====================================================
-     CÀY THUÊ - 12 CỘT
+     CÀY THUÊ
 ===================================================== -->
 
-<section id="panel-services" class="panel">
+<section
+id="panel-services"
+class="panel"
+>
 
 <div class="card">
 
 <h2>🛠️ Quản lý đơn Cày thuê</h2>
 
 <div class="notice">
-Quản lý đơn Cày thuê theo đúng 12 cột trên Google Sheets.
-Có thể xem đầy đủ thông tin đơn bằng nút <b>👁️ Xem đơn hàng</b>.
+Quản lý đơn Cày thuê theo đúng dữ liệu trên Google Sheets.
 </div>
 
 <input
@@ -754,21 +828,28 @@ id="serviceSearch"
 class="input search"
 placeholder="🔎 Tìm mã đơn, khách, TK Roblox, dịch vụ..."
 oninput="renderServices()"
-
 >
 
 <div class="actions">
 
-<button class="btn btn-primary" onclick="loadServices()">
+<button
+class="btn btn-primary"
+onclick="loadServices()"
+>
 🔄 Tải lại đơn Cày thuê
 </button>
 
 </div>
 
 <div style="margin-top:15px">
-<span id="serviceCount" class="cay-count">
+
+<span
+id="serviceCount"
+class="badge pending"
+>
 0 đơn
 </span>
+
 </div>
 
 <div class="table-wrap">
@@ -805,11 +886,15 @@ oninput="renderServices()"
 
 </section>
 
+
 <!-- =====================================================
      KHÁCH HÀNG
 ===================================================== -->
 
-<section id="panel-customers" class="panel">
+<section
+id="panel-customers"
+class="panel"
+>
 
 <div class="card">
 
@@ -820,7 +905,6 @@ id="customerSearch"
 class="input search"
 placeholder="🔎 Tìm khách hàng..."
 oninput="renderCustomers()"
-
 >
 
 <div class="table-wrap">
@@ -848,11 +932,15 @@ oninput="renderCustomers()"
 
 </section>
 
+
 <!-- =====================================================
      NẠP TIỀN
 ===================================================== -->
 
-<section id="panel-topups" class="panel">
+<section
+id="panel-topups"
+class="panel"
+>
 
 <div class="card">
 
@@ -889,11 +977,15 @@ oninput="renderCustomers()"
 
 </section>
 
+
 <!-- =====================================================
      ĐƠN HÀNG
 ===================================================== -->
 
-<section id="panel-orders" class="panel">
+<section
+id="panel-orders"
+class="panel"
+>
 
 <div class="card">
 
@@ -928,11 +1020,15 @@ oninput="renderCustomers()"
 
 </section>
 
+
 <!-- =====================================================
      PRODUCTS
 ===================================================== -->
 
-<section id="panel-products" class="panel">
+<section
+id="panel-products"
+class="panel"
+>
 
 <div class="card">
 
@@ -948,14 +1044,19 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 
 </section>
 
+
 </div>
 </div>
+
 
 <!-- =====================================================
-     MODAL XEM ACC
+     MODAL ACCOUNT
 ===================================================== -->
 
-<div id="accountModal" class="modal hidden">
+<div
+id="accountModal"
+class="modal hidden"
+>
 
 <div class="modal-content">
 
@@ -965,7 +1066,10 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 
 <div class="actions">
 
-<button class="btn btn-gray" onclick="closeAccountModal()">
+<button
+class="btn btn-gray"
+onclick="closeAccountModal()"
+>
 Đóng
 </button>
 
@@ -975,11 +1079,15 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 
 </div>
 
+
 <!-- =====================================================
-     MODAL XEM ĐƠN CÀY THUÊ
+     MODAL SERVICE ORDER
 ===================================================== -->
 
-<div id="serviceOrderModal" class="modal hidden">
+<div
+id="serviceOrderModal"
+class="modal hidden"
+>
 
 <div class="modal-content">
 
@@ -989,7 +1097,10 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 
 <div class="actions">
 
-<button class="btn btn-gray" onclick="closeServiceOrderModal()">
+<button
+class="btn btn-gray"
+onclick="closeServiceOrderModal()"
+>
 Đóng
 </button>
 
@@ -998,6 +1109,7 @@ Chọn trạng thái cho từng sản phẩm/thư mục.
 </div>
 
 </div>
+
 
 <script>
 
@@ -1019,7 +1131,7 @@ let productStatuses={};
 
 
 /* =====================================================
-   API
+   API POST
 ===================================================== */
 
 async function apiPost(action,data={}){
@@ -1040,13 +1152,18 @@ async function apiPost(action,data={}){
     const text=await response.text();
 
     try{
+
       return JSON.parse(text);
+
     }catch(e){
+
       console.error(text);
+
       return {
         ok:false,
         message:"API trả về dữ liệu không hợp lệ."
       };
+
     }
 
   }catch(error){
@@ -1063,6 +1180,10 @@ async function apiPost(action,data={}){
 }
 
 
+/* =====================================================
+   API GET
+===================================================== */
+
 async function apiGet(action){
 
   try{
@@ -1076,13 +1197,18 @@ async function apiGet(action){
     const text=await response.text();
 
     try{
+
       return JSON.parse(text);
+
     }catch(e){
+
       console.error(text);
+
       return {
         ok:false,
         message:"API trả về dữ liệu không hợp lệ."
       };
+
     }
 
   }catch(error){
@@ -1107,7 +1233,8 @@ async function adminLogin(){
 
   const key=
     document.getElementById("adminKey")
-    .value.trim();
+    .value
+    .trim();
 
   if(!key){
 
@@ -1128,7 +1255,9 @@ async function adminLogin(){
   const result=
     await apiPost(
       "adminLogin",
-      {key:key}
+      {
+        key:key
+      }
     );
 
   if(!result || !result.ok){
@@ -1212,12 +1341,15 @@ window.addEventListener(
     const result=
       await apiPost(
         "adminLogin",
-        {key:saved}
+        {
+          key:saved
+        }
       );
 
     if(result && result.ok){
 
       ADMIN_KEY=saved;
+
       openAdmin();
 
     }else{
@@ -1331,11 +1463,17 @@ async function loadShopStatus(){
     );
 
   if(status==="Shop đang hoạt động"){
+
     dot.style.background="#22c55e";
+
   }else if(status==="Shop đang bảo trì"){
+
     dot.style.background="#f59e0b";
+
   }else{
+
     dot.style.background="#ef4444";
+
   }
 
 }
@@ -1368,7 +1506,9 @@ async function setShopStatus(){
 
   }
 
-  alert("✅ Đã cập nhật trạng thái Shop.");
+  alert(
+    "✅ Đã cập nhật trạng thái Shop."
+  );
 
   await loadShopStatus();
 
@@ -1376,83 +1516,138 @@ async function setShopStatus(){
 
 
 /* =====================================================
-   ACCOUNT FOLDER
+   FOLDER DATA
+   KHÔNG TỰ KIỂM TRA LẠI GAME Ở ADMIN
 ===================================================== */
 
 const folderData={
 
-"Blox Fruits":[
-"Túi mù Blox Fruits",
-"Acc Blox Fruits tùy chọn Item",
-"Acc Blox Fruits Race V4",
-"Acc Blox Fruits xem hình acc tùy chọn",
-"Acc Blox Fruits LV MAX",
-"Acc Blox Fruits LV trên 1000",
-"Robux 120H",
-"Gamepass Blox Fruits",
-"Fish"
-],
+  "Blox Fruits":[
 
-"King Legacy":[
-"King Legacy",
-"King Legacy Túi Mù",
-"King Legacy Acc Thường",
-"King Legacy Acc VIP"
-],
+    "Túi mù Blox Fruits",
 
-"Anime Fighters":[
-"Anime Fighters",
-"Anime Fighters Túi Mù",
-"Anime Fighters Acc Random"
-],
+    "Acc Blox Fruits tùy chọn Item",
 
-"Grow A Garden 2":[
-"Grow A Garden 2",
-"Grow A Garden 2 Túi Mù",
-"Grow A Garden 2 Acc"
-],
+    "Acc Blox Fruits Race V4",
 
-"Grow A Garden":[
-"Grow A Garden",
-"Grow A Garden Túi Mù",
-"Grow A Garden Acc"
-],
+    "Acc Blox Fruits xem hình acc tùy chọn",
 
-"Murder Mystery 2":[
-"Murder Mystery 2",
-"Murder Mystery 2 Túi Mù",
-"Murder Mystery 2 Acc"
-],
+    "Acc Blox Fruits LV MAX",
 
-"Túi Mù":[
-"Túi Mù",
-"Túi Mù 0K",
-"Túi Mù 10K",
-"Túi Mù 20K",
-"Túi Mù 50K",
-"Túi Mù 80K",
-"Túi Mù 100K"
-],
+    "Acc Blox Fruits LV trên 1000",
 
-"Event":[
-"Event",
-"Event Túi Mù",
-"Event Random"
-],
+    "Robux 120H",
 
-"Greedy Growers 🌱":[
-"Greedy Growers 🌱",
-"Greedy Growers Túi Mù",
-"Greedy Growers Acc"
-],
+    "Gamepass Blox Fruits",
 
-"Steal a Egg":[
-"🎁 Steal a Egg Túi mù",
-"👑 Steal a Egg Acc VIP"
-]
+    "Fish"
+
+  ],
+
+  "King Legacy":[
+
+    "King Legacy",
+
+    "King Legacy Túi Mù",
+
+    "King Legacy Acc Thường",
+
+    "King Legacy Acc VIP"
+
+  ],
+
+  "Anime Fighters":[
+
+    "Anime Fighters",
+
+    "Anime Fighters Túi Mù",
+
+    "Anime Fighters Acc Random"
+
+  ],
+
+  "Grow A Garden 2":[
+
+    "Grow A Garden 2",
+
+    "Grow A Garden 2 Túi Mù",
+
+    "Grow A Garden 2 Acc"
+
+  ],
+
+  "Grow A Garden":[
+
+    "Grow A Garden",
+
+    "Grow A Garden Túi Mù",
+
+    "Grow A Garden Acc"
+
+  ],
+
+  "Murder Mystery 2":[
+
+    "Murder Mystery 2",
+
+    "Murder Mystery 2 Túi Mù",
+
+    "Murder Mystery 2 Acc"
+
+  ],
+
+  "Túi Mù":[
+
+    "Túi Mù",
+
+    "Túi Mù 0K",
+
+    "Túi Mù 10K",
+
+    "Túi Mù 20K",
+
+    "Túi Mù 50K",
+
+    "Túi Mù 80K",
+
+    "Túi Mù 100K"
+
+  ],
+
+  "Event":[
+
+    "Event",
+
+    "Event Túi Mù",
+
+    "Event Random"
+
+  ],
+
+  "Greedy Growers 🌱":[
+
+    "Greedy Growers 🌱",
+
+    "Greedy Growers Túi Mù",
+
+    "Greedy Growers Acc"
+
+  ],
+
+  "Steal a Egg":[
+
+    "🎁 Steal a Egg Túi mù",
+
+    "👑 Steal a Egg Acc VIP"
+
+  ]
 
 };
 
+
+/* =====================================================
+   GAME CHANGED
+===================================================== */
 
 function gameChanged(){
 
@@ -1469,7 +1664,10 @@ function gameChanged(){
   folder.innerHTML=
     '<option value="">-- Chọn thư mục --</option>';
 
-  (folderData[game]||[]).forEach(name=>{
+  const folders=
+    folderData[game]||[];
+
+  folders.forEach(function(name){
 
     const option=
       document.createElement("option");
@@ -1486,15 +1684,31 @@ function gameChanged(){
 }
 
 
+/* =====================================================
+   FOLDER CHANGED
+===================================================== */
+
 function folderChanged(){
+
   updatePackages();
+
 }
 
+
+/* =====================================================
+   PRICE CHANGED
+===================================================== */
 
 function priceChanged(){
+
   updatePackages();
+
 }
 
+
+/* =====================================================
+   PACKAGES
+===================================================== */
 
 function updatePackages(){
 
@@ -1518,13 +1732,24 @@ function updatePackages(){
 
   if(!game || !folder)return;
 
+  /*
+    Không kiểm tra kiểu:
+    "Thư mục không thuộc Game Blox Fruits"
+
+    vì Admin đã lấy thư mục trực tiếp
+    từ folderData[game].
+  */
+
   for(let i=1;i<=20;i++){
 
     const option=
       document.createElement("option");
 
-    option.value="Gói "+i;
-    option.textContent="Gói "+i;
+    option.value=
+      "Gói "+i;
+
+    option.textContent=
+      "Gói "+i;
 
     select.appendChild(option);
 
@@ -1540,28 +1765,40 @@ function updatePackages(){
 async function addAccount(){
 
   const game=
-    document.getElementById("accountGame")
-    .value.trim();
+    document.getElementById(
+      "accountGame"
+    ).value
+    .trim();
 
   const folder=
-    document.getElementById("accountFolder")
-    .value.trim();
+    document.getElementById(
+      "accountFolder"
+    ).value
+    .trim();
 
   const price=
-    document.getElementById("accountPrice")
-    .value;
+    document.getElementById(
+      "accountPrice"
+    ).value;
 
   const packageName=
-    document.getElementById("accountPackage")
-    .value.trim();
+    document.getElementById(
+      "accountPackage"
+    ).value
+    .trim();
 
   const username=
-    document.getElementById("accountUsername")
-    .value.trim();
+    document.getElementById(
+      "accountUsername"
+    ).value
+    .trim();
 
   const password=
-    document.getElementById("accountPassword")
-    .value.trim();
+    document.getElementById(
+      "accountPassword"
+    ).value
+    .trim();
+
 
   if(
     !game||
@@ -1581,29 +1818,39 @@ async function addAccount(){
 
   }
 
+
   showAccountMessage(
     "⏳ Đang thêm tài khoản...",
     "#2563eb"
   );
+
 
   const result=
     await apiPost(
       "addAccount",
       {
         key:ADMIN_KEY,
+
         game:game,
+
         folder:folder,
+
         price:Number(price),
+
         package:packageName,
+
         username:username,
+
         password:password
       }
     );
 
+
   if(!result.ok){
 
     showAccountMessage(
-      "❌ "+(
+      "❌ "+
+      (
         result.message||
         "Không thể thêm acc."
       ),
@@ -1614,20 +1861,31 @@ async function addAccount(){
 
   }
 
+
   showAccountMessage(
     "✅ Đã thêm tài khoản thành công.",
     "green"
   );
 
+
   clearAccountForm();
 
+
   await loadAccounts();
+
   await loadDashboard();
 
 }
 
 
-function showAccountMessage(text,color){
+/* =====================================================
+   ACCOUNT MESSAGE
+===================================================== */
+
+function showAccountMessage(
+  text,
+  color
+){
 
   const el=
     document.getElementById(
@@ -1635,10 +1893,15 @@ function showAccountMessage(text,color){
     );
 
   el.textContent=text;
+
   el.style.color=color;
 
 }
 
+
+/* =====================================================
+   CLEAR ACCOUNT FORM
+===================================================== */
 
 function clearAccountForm(){
 
@@ -1646,23 +1909,28 @@ function clearAccountForm(){
     "accountGame"
   ).value="";
 
+
   document.getElementById(
     "accountFolder"
   ).innerHTML=
     '<option value="">-- Chọn thư mục --</option>';
 
+
   document.getElementById(
     "accountPrice"
   ).value="";
+
 
   document.getElementById(
     "accountPackage"
   ).innerHTML=
     '<option value="">-- Chọn gói --</option>';
 
+
   document.getElementById(
     "accountUsername"
   ).value="";
+
 
   document.getElementById(
     "accountPassword"
@@ -1671,95 +1939,230 @@ function clearAccountForm(){
 }
 
 
+/* =====================================================
+   LOAD ACCOUNTS
+===================================================== */
+
 async function loadAccounts(){
 
   const result=
     await apiGet("getAccounts");
 
-  if(!result.ok)return;
+  if(!result.ok){
+
+    document.getElementById(
+      "accountsBody"
+    ).innerHTML=`
+
+<tr>
+
+<td colspan="9">
+
+<div class="notice">
+
+❌ ${
+escapeHtml(
+result.message||
+"Không tải được kho acc."
+)
+}
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+    return;
+
+  }
+
 
   accounts=
     Array.isArray(result.accounts)
       ?result.accounts
       :[];
 
+
   renderAccounts();
 
 }
 
 
+/* =====================================================
+   RENDER ACCOUNTS
+===================================================== */
+
 function renderAccounts(){
 
   const body=
-    document.getElementById("accountsBody");
+    document.getElementById(
+      "accountsBody"
+    );
 
   const search=
-    document.getElementById("accountSearch")
-    .value
+    (
+      document.getElementById(
+        "accountSearch"
+      ).value||
+      ""
+    )
     .toLowerCase()
     .trim();
 
+
   body.innerHTML="";
 
-  accounts
-    .filter(acc=>{
+
+  const list=
+    accounts.filter(function(acc){
 
       const text=[
+
         acc.id,
+
         acc.game,
+
         acc.folder,
+
         acc.price,
+
         acc.package,
+
         acc.username,
+
         acc.password,
+
         acc.status
-      ].join(" ").toLowerCase();
+
+      ]
+      .join(" ")
+      .toLowerCase();
+
 
       return text.includes(search);
 
-    })
-    .forEach(acc=>{
+    });
 
-      const tr=
-        document.createElement("tr");
 
-      const status=
-        String(acc.status||"")
-        .toLowerCase();
+  if(!list.length){
 
-      let badgeClass="";
+    body.innerHTML=`
 
-      if(
-        status==="available"||
-        status==="sẵn sàng"
-      ){
-        badgeClass="available";
-      }
+<tr>
 
-      if(
-        status==="sold"||
-        status==="đã bán"
-      ){
-        badgeClass="sold";
-      }
+<td colspan="9">
 
-      tr.innerHTML=`
+<div class="empty">
+Không có tài khoản.
+</div>
 
-<td>${escapeHtml(acc.id||"")}</td>
-<td>${escapeHtml(acc.game||"")}</td>
-<td>${escapeHtml(acc.folder||"-")}</td>
-<td>${formatPrice(acc.price)}</td>
-<td>${escapeHtml(acc.package||"-")}</td>
-<td>${escapeHtml(acc.username||acc.accUsername||"")}</td>
-<td>${escapeHtml(acc.password||acc.accPassword||"")}</td>
+</td>
+
+</tr>
+
+`;
+
+    return;
+
+  }
+
+
+  list.forEach(function(acc){
+
+    const tr=
+      document.createElement("tr");
+
+
+    const status=
+      String(
+        acc.status||""
+      )
+      .toLowerCase();
+
+
+    let badgeClass="";
+
+
+    if(
+      status==="available"||
+      status==="sẵn sàng"||
+      status==="con hang"||
+      status==="còn hàng"
+    ){
+
+      badgeClass="available";
+
+    }
+
+
+    if(
+      status==="sold"||
+      status==="đã bán"||
+      status==="da ban"
+    ){
+
+      badgeClass="sold";
+
+    }
+
+
+    tr.innerHTML=`
 
 <td>
-<span class="badge ${badgeClass}">
-${escapeHtml(acc.status||"")}
-</span>
+${escapeHtml(acc.id||"")}
 </td>
 
 <td>
+${escapeHtml(acc.game||"")}
+</td>
+
+<td>
+${escapeHtml(acc.folder||"-")}
+</td>
+
+<td>
+${formatPrice(acc.price)}
+</td>
+
+<td>
+${escapeHtml(acc.package||"-")}
+</td>
+
+<td>
+${escapeHtml(
+acc.username||
+acc.accUsername||
+""
+)}
+</td>
+
+<td>
+${escapeHtml(
+acc.password||
+acc.accPassword||
+""
+)}
+</td>
+
+<td>
+
+<span class="badge ${badgeClass}">
+${escapeHtml(acc.status||"")}
+</span>
+
+</td>
+
+<td>
+
+<button
+class="btn btn-primary"
+onclick="showAccountModalById('${escapeJs(acc.id||"")}')"
+>
+👁️ Xem
+</button>
 
 <button
 class="btn btn-danger"
@@ -1772,20 +2175,58 @@ onclick="deleteAccount('${escapeJs(acc.id||"")}')"
 
 `;
 
-      body.appendChild(tr);
 
-    });
+    body.appendChild(tr);
+
+  });
 
 }
 
+
+/* =====================================================
+   SHOW ACCOUNT
+===================================================== */
+
+function showAccountModalById(id){
+
+  const account=
+    accounts.find(function(acc){
+
+      return String(acc.id||"")===
+             String(id||"");
+
+    });
+
+
+  if(!account){
+
+    alert(
+      "❌ Không tìm thấy tài khoản."
+    );
+
+    return;
+
+  }
+
+
+  showAccountModal(account);
+
+}
+
+
+/* =====================================================
+   DELETE ACCOUNT
+===================================================== */
 
 async function deleteAccount(id){
 
   if(!id)return;
 
+
   if(!confirm(
     "Bạn có chắc muốn xóa tài khoản này?"
   ))return;
+
 
   const result=
     await apiPost(
@@ -1795,6 +2236,7 @@ async function deleteAccount(id){
         id:id
       }
     );
+
 
   if(!result.ok){
 
@@ -1807,52 +2249,78 @@ async function deleteAccount(id){
 
   }
 
-  alert("✅ Đã xóa tài khoản.");
+
+  alert(
+    "✅ Đã xóa tài khoản."
+  );
+
 
   await loadAccounts();
+
   await loadDashboard();
 
 }
 
 
 /* =====================================================
-   CÀY THUÊ - LOAD 12 CỘT
+   SERVICES
 ===================================================== */
 
 async function loadServices(){
 
   const body=
-    document.getElementById("servicesBody");
+    document.getElementById(
+      "servicesBody"
+    );
+
 
   body.innerHTML=`
+
 <tr>
+
 <td colspan="13" class="loading">
-⏳ Đang tải đơn Cày thuê từ Google Sheets...
+
+⏳ Đang tải đơn Cày thuê...
+
 </td>
+
 </tr>
+
 `;
+
 
   const result=
     await apiGet("getServices");
+
 
   if(!result.ok){
 
     services=[];
 
+
     body.innerHTML=`
+
 <tr>
+
 <td colspan="13">
+
 <div class="notice">
+
 ❌ ${
 escapeHtml(
 result.message||
 "Không tải được đơn Cày thuê."
 )
 }
+
 </div>
+
 </td>
+
 </tr>
+
 `;
+
 
     updateServiceCount();
 
@@ -1860,34 +2328,46 @@ result.message||
 
   }
 
+
   services=
     Array.isArray(result.services)
       ?result.services
       :[];
+
 
   renderServices();
 
 }
 
 
+/* =====================================================
+   RENDER SERVICES
+===================================================== */
+
 function renderServices(){
 
   const body=
-    document.getElementById("servicesBody");
+    document.getElementById(
+      "servicesBody"
+    );
+
 
   const search=
     (
       document.getElementById(
         "serviceSearch"
-      )?.value||""
+      )?.value||
+      ""
     )
     .toLowerCase()
     .trim();
 
+
   const list=
-    services.filter(order=>{
+    services.filter(function(order){
 
       const text=[
+
         order.id,
         order.username,
         order.customerName,
@@ -1906,73 +2386,96 @@ function renderServices(){
         order.noteAdmin,
         order.createdAt,
         order.status
-      ].join(" ").toLowerCase();
+
+      ]
+      .join(" ")
+      .toLowerCase();
+
 
       return text.includes(search);
 
     });
+
 
   document.getElementById(
     "serviceCount"
   ).textContent=
     list.length+" đơn";
 
+
   document.getElementById(
     "dashServices"
   ).textContent=
     services.length;
 
+
   body.innerHTML="";
+
 
   if(!list.length){
 
     body.innerHTML=`
+
 <tr>
+
 <td colspan="13">
+
 <div class="notice">
 Chưa có đơn Cày thuê.
 </div>
+
 </td>
+
 </tr>
+
 `;
 
     return;
 
   }
 
+
   list
     .slice()
     .reverse()
-    .forEach(order=>{
+    .forEach(function(order){
 
       const tr=
         document.createElement("tr");
 
-      const status=
-        String(
-          order.status||""
-        );
 
-      const statusLower=
+      const status=
+        String(order.status||"");
+
+
+      const lower=
         status.toLowerCase();
+
 
       let badgeClass="pending";
 
-      if(
-        statusLower.includes("hoàn")||
-        statusLower.includes("xong")||
-        statusLower.includes("completed")||
-        statusLower.includes("đã giao")
-      ){
-        badgeClass="completed";
-      }
 
       if(
-        statusLower.includes("hủy")||
-        statusLower.includes("cancel")
+        lower.includes("hoàn")||
+        lower.includes("xong")||
+        lower.includes("completed")||
+        lower.includes("đã giao")
       ){
-        badgeClass="sold";
+
+        badgeClass="completed";
+
       }
+
+
+      if(
+        lower.includes("hủy")||
+        lower.includes("cancel")
+      ){
+
+        badgeClass="sold";
+
+      }
+
 
       tr.innerHTML=`
 
@@ -2032,10 +2535,7 @@ order.serviceName||
 </td>
 
 <td>
-${formatPrice(
-order.price||
-0
-)}
+${formatPrice(order.price||0)}
 </td>
 
 <td>
@@ -2061,9 +2561,11 @@ formatDate(order.createdAt)
 </td>
 
 <td>
+
 <span class="badge ${badgeClass}">
 ${escapeHtml(status)}
 </span>
+
 </td>
 
 <td>
@@ -2086,12 +2588,18 @@ onclick="viewServiceOrder('${escapeJs(order.id||"")}')"
 }
 
 
+/* =====================================================
+   SERVICE COUNT
+===================================================== */
+
 function updateServiceCount(){
 
   document.getElementById(
     "serviceCount"
   ).textContent=
-    services.length+" đơn";
+    services.length+
+    " đơn";
+
 
   document.getElementById(
     "dashServices"
@@ -2102,36 +2610,47 @@ function updateServiceCount(){
 
 
 /* =====================================================
-   XEM ĐƠN CÀY THUÊ
+   FIND SERVICE
 ===================================================== */
 
 function findServiceOrder(id){
 
-  return services.find(order=>
-    String(order.id||"")===
-    String(id||"")
-  );
+  return services.find(function(order){
+
+    return String(order.id||"")===
+           String(id||"");
+
+  });
 
 }
 
+
+/* =====================================================
+   VIEW SERVICE
+===================================================== */
 
 function viewServiceOrder(id){
 
   const order=
     findServiceOrder(id);
 
+
   if(!order){
 
-    alert("❌ Không tìm thấy đơn hàng.");
+    alert(
+      "❌ Không tìm thấy đơn hàng."
+    );
 
     return;
 
   }
 
+
   const customer=
     order.username||
     order.customerName||
     "";
+
 
   const robloxUsername=
     order.robloxUsername||
@@ -2139,11 +2658,13 @@ function viewServiceOrder(id){
     order.accountUsername||
     "";
 
+
   const robloxPassword=
     order.robloxPassword||
     order.mkRoblox||
     order.accountPassword||
     "";
+
 
   const access=
     order.access||
@@ -2151,37 +2672,45 @@ function viewServiceOrder(id){
     order.permission||
     "";
 
+
   const orderType=
     order.orderType||
     order.type||
     "";
+
 
   const service=
     order.service||
     order.serviceName||
     "";
 
+
   const price=
     order.price||
     0;
+
 
   const customerNote=
     order.customerNote||
     order.noteCustomer||
     "";
 
+
   const adminNote=
     order.adminNote||
     order.noteAdmin||
     "";
 
+
   const createdAt=
     order.createdAt||
     "";
 
+
   const status=
     order.status||
     "";
+
 
   document.getElementById(
     "serviceOrderModalContent"
@@ -2274,8 +2803,8 @@ ${escapeHtml(formatDate(createdAt))}
 </div>
 
 </div>
-
 `;
+
 
   document
     .getElementById(
@@ -2306,12 +2835,44 @@ async function loadCustomers(){
   const result=
     await apiGet("getCustomers");
 
-  if(!result.ok)return;
+
+  if(!result.ok){
+
+    document.getElementById(
+      "customersBody"
+    ).innerHTML=`
+
+<tr>
+
+<td colspan="4">
+
+<div class="notice">
+
+❌ ${
+escapeHtml(
+result.message||
+"Không tải được khách hàng."
+)
+}
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+    return;
+
+  }
+
 
   customers=
     Array.isArray(result.customers)
       ?result.customers
       :[];
+
 
   renderCustomers();
 
@@ -2325,29 +2886,64 @@ function renderCustomers(){
       "customersBody"
     );
 
+
   const search=
-    document.getElementById(
-      "customerSearch"
-    ).value
+    (
+      document.getElementById(
+        "customerSearch"
+      ).value||
+      ""
+    )
     .toLowerCase()
     .trim();
 
+
   body.innerHTML="";
 
-  customers
-    .filter(user=>
-      String(
-        user.username||""
+
+  const list=
+    customers.filter(function(user){
+
+      return String(
+        user.username||
+        ""
       )
       .toLowerCase()
-      .includes(search)
-    )
-    .forEach(user=>{
+      .includes(search);
 
-      const tr=
-        document.createElement("tr");
+    });
 
-      tr.innerHTML=`
+
+  if(!list.length){
+
+    body.innerHTML=`
+
+<tr>
+
+<td colspan="4">
+
+<div class="empty">
+Chưa có khách hàng.
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+    return;
+
+  }
+
+
+  list.forEach(function(user){
+
+    const tr=
+      document.createElement("tr");
+
+
+    tr.innerHTML=`
 
 <td>
 ${escapeHtml(user.username||"")}
@@ -2369,9 +2965,10 @@ ${escapeHtml(user.status||"")}
 
 `;
 
-      body.appendChild(tr);
 
-    });
+    body.appendChild(tr);
+
+  });
 
 }
 
@@ -2385,12 +2982,15 @@ async function loadTopups(){
   const result=
     await apiGet("getTopups");
 
+
   if(!result.ok)return;
+
 
   topups=
     Array.isArray(result.topups)
       ?result.topups
       :[];
+
 
   renderTopups();
 
@@ -2404,22 +3004,51 @@ function renderTopups(){
       "topupsBody"
     );
 
+
   body.innerHTML="";
+
+
+  if(!topups.length){
+
+    body.innerHTML=`
+
+<tr>
+
+<td colspan="10">
+
+<div class="empty">
+Chưa có yêu cầu nạp tiền.
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+    return;
+
+  }
+
 
   topups
     .slice()
     .reverse()
-    .forEach(item=>{
+    .forEach(function(item){
 
       const tr=
         document.createElement("tr");
 
+
       const status=
         String(
           item.status||""
-        ).toLowerCase();
+        )
+        .toLowerCase();
+
 
       let buttons="";
+
 
       if(
         status==="pending"||
@@ -2447,26 +3076,55 @@ onclick="rejectTopup('${escapeJs(item.id||"")}')"
 
       }
 
+
       tr.innerHTML=`
 
-<td>${escapeHtml(item.id||"")}</td>
-<td>${escapeHtml(item.username||"")}</td>
-<td>${formatMoney(item.amount||0)}</td>
-<td>${escapeHtml(item.method||"")}</td>
-<td>${escapeHtml(item.cardType||"")}</td>
-<td>${escapeHtml(item.cardSerial||"")}</td>
-<td>${escapeHtml(item.cardCode||"")}</td>
-<td>${escapeHtml(item.bankName||"")}</td>
+<td>
+${escapeHtml(item.id||"")}
+</td>
 
 <td>
+${escapeHtml(item.username||"")}
+</td>
+
+<td>
+${formatMoney(item.amount||0)}
+</td>
+
+<td>
+${escapeHtml(item.method||"")}
+</td>
+
+<td>
+${escapeHtml(item.cardType||"")}
+</td>
+
+<td>
+${escapeHtml(item.cardSerial||"")}
+</td>
+
+<td>
+${escapeHtml(item.cardCode||"")}
+</td>
+
+<td>
+${escapeHtml(item.bankName||"")}
+</td>
+
+<td>
+
 <span class="badge ${status}">
 ${escapeHtml(item.status||"")}
 </span>
+
 </td>
 
-<td>${buttons}</td>
+<td>
+${buttons}
+</td>
 
 `;
+
 
       body.appendChild(tr);
 
@@ -2475,11 +3133,16 @@ ${escapeHtml(item.status||"")}
 }
 
 
+/* =====================================================
+   APPROVE TOPUP
+===================================================== */
+
 async function approveTopup(id){
 
   if(!confirm(
     "Bạn có chắc muốn duyệt yêu cầu nạp tiền này?"
   ))return;
+
 
   const result=
     await apiPost(
@@ -2490,6 +3153,7 @@ async function approveTopup(id){
       }
     );
 
+
   alert(
     result.message||
     (
@@ -2499,10 +3163,13 @@ async function approveTopup(id){
     )
   );
 
+
   if(result.ok){
 
     await loadTopups();
+
     await loadCustomers();
+
     await loadDashboard();
 
   }
@@ -2510,11 +3177,16 @@ async function approveTopup(id){
 }
 
 
+/* =====================================================
+   REJECT TOPUP
+===================================================== */
+
 async function rejectTopup(id){
 
   if(!confirm(
     "Bạn có chắc muốn từ chối yêu cầu này?"
   ))return;
+
 
   const result=
     await apiPost(
@@ -2525,14 +3197,17 @@ async function rejectTopup(id){
       }
     );
 
+
   alert(
     result.message||
     "Đã xử lý."
   );
 
+
   if(result.ok){
 
     await loadTopups();
+
     await loadDashboard();
 
   }
@@ -2549,12 +3224,15 @@ async function loadOrders(){
   const result=
     await apiGet("getOrders");
 
+
   if(!result.ok)return;
+
 
   orders=
     Array.isArray(result.orders)
       ?result.orders
       :[];
+
 
   renderOrders();
 
@@ -2568,15 +3246,41 @@ function renderOrders(){
       "ordersBody"
     );
 
+
   body.innerHTML="";
+
+
+  if(!orders.length){
+
+    body.innerHTML=`
+
+<tr>
+
+<td colspan="8">
+
+<div class="empty">
+Chưa có đơn hàng.
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+    return;
+
+  }
+
 
   orders
     .slice()
     .reverse()
-    .forEach(order=>{
+    .forEach(function(order){
 
       const tr=
         document.createElement("tr");
+
 
       tr.innerHTML=`
 
@@ -2627,6 +3331,7 @@ onclick="viewNormalOrder('${escapeJs(order.id||"")}')"
 
 `;
 
+
       body.appendChild(tr);
 
     });
@@ -2634,21 +3339,31 @@ onclick="viewNormalOrder('${escapeJs(order.id||"")}')"
 }
 
 
+/* =====================================================
+   VIEW NORMAL ORDER
+===================================================== */
+
 function viewNormalOrder(id){
 
   const order=
-    orders.find(item=>
-      String(item.id||"")===
-      String(id||"")
-    );
+    orders.find(function(item){
+
+      return String(item.id||"")===
+             String(id||"");
+
+    });
+
 
   if(!order){
 
-    alert("❌ Không tìm thấy đơn hàng.");
+    alert(
+      "❌ Không tìm thấy đơn hàng."
+    );
 
     return;
 
   }
+
 
   document.getElementById(
     "serviceOrderModalContent"
@@ -2694,7 +3409,9 @@ ${escapeHtml(order.status||"")}
 <div class="order-detail-item">
 <div class="order-detail-label">Thời gian</div>
 <div class="order-detail-value">
-${escapeHtml(formatDate(order.createdAt))}
+${escapeHtml(
+formatDate(order.createdAt)
+)}
 </div>
 </div>
 
@@ -2708,6 +3425,7 @@ ${escapeHtml(order.accUsername||"-")}
 </div>
 
 `;
+
 
   document
     .getElementById(
@@ -2725,30 +3443,55 @@ ${escapeHtml(order.accUsername||"-")}
 const products=[
 
 ["bloxFruit","🎮 Blox Fruits"],
+
 ["cayThueBloxFruit","🛠️ Cày thuê Blox Fruits"],
+
 ["tuiMuBloxFruit","🎁 Túi mù Blox Fruits"],
+
 ["accBloxFruitItem","📦 Acc Blox Fruits tùy chọn Item"],
+
 ["accBloxFruitRaceV4","🔥 Acc Blox Fruits Race V4"],
+
 ["accBloxFruitXemHinh","🖼️ Acc Blox Fruits xem hình acc tùy chọn"],
+
 ["accBloxFruitLvMax","👑 Acc Blox Fruits LV MAX"],
+
 ["accBloxFruitLv1000","⚡ Acc Blox Fruits LV trên 1000"],
+
 ["robux120h","💎 Robux 120H"],
+
 ["gamepassBloxFruit","🎟️ Gamepass Blox Fruits"],
+
 ["fish","🐟 Fish"],
+
 ["kingLegacy","👑 King Legacy"],
+
 ["animeFighters","⚔️ Anime Fighters"],
+
 ["growAGarden2","🌱 Grow A Garden 2"],
+
 ["growAGarden","🌱 Grow A Garden"],
+
 ["murderMystery2","🔪 Murder Mystery 2"],
+
 ["tuiMu","🎁 Túi Mù"],
+
 ["event","🎉 Event"],
+
 ["greedyGrowers","🌱 Greedy Growers"],
+
 ["stealAEgg","🥚 Steal a Egg"],
+
 ["stealAEggTuiMu","🎁 Steal a Egg Túi mù"],
+
 ["stealAEggAccVIP","👑 Steal a Egg Acc VIP"]
 
 ];
 
+
+/* =====================================================
+   LOAD PRODUCTS
+===================================================== */
 
 async function loadProducts(){
 
@@ -2757,6 +3500,7 @@ async function loadProducts(){
       "getProductStatuses"
     );
 
+
   if(result.ok){
 
     productStatuses=
@@ -2764,10 +3508,15 @@ async function loadProducts(){
 
   }
 
+
   renderProducts();
 
 }
 
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
 
 function renderProducts(){
 
@@ -2776,29 +3525,47 @@ function renderProducts(){
       "productsContainer"
     );
 
+
   container.innerHTML="";
+
 
   const bloxKeys=[
 
     "bloxFruit",
+
     "cayThueBloxFruit",
+
     "tuiMuBloxFruit",
+
     "accBloxFruitItem",
+
     "accBloxFruitRaceV4",
+
     "accBloxFruitXemHinh",
+
     "accBloxFruitLvMax",
+
     "accBloxFruitLv1000",
+
     "robux120h",
+
     "gamepassBloxFruit",
+
     "fish"
 
   ];
 
+
   const stealKeys=[
+
     "stealAEgg",
+
     "stealAEggTuiMu",
+
     "stealAEggAccVIP"
+
   ];
+
 
   createProductGroup(
     container,
@@ -2806,37 +3573,51 @@ function renderProducts(){
     bloxKeys
   );
 
+
   createProductGroup(
     container,
     "🥚 Steal a Egg",
     stealKeys
   );
 
+
   const title2=
     document.createElement("div");
+
 
   title2.className=
     "product-group-title";
 
+
   title2.textContent=
     "🎮 Sản phẩm khác";
 
+
   container.appendChild(title2);
 
+
   products
-    .filter(item=>
-      !bloxKeys.includes(item[0]) &&
-      !stealKeys.includes(item[0])
-    )
-    .forEach(item=>
+    .filter(function(item){
+
+      return !bloxKeys.includes(item[0]) &&
+             !stealKeys.includes(item[0]);
+
+    })
+    .forEach(function(item){
+
       createProductStatusCard(
         container,
         item
-      )
-    );
+      );
+
+    });
 
 }
 
+
+/* =====================================================
+   PRODUCT GROUP
+===================================================== */
 
 function createProductGroup(
   container,
@@ -2847,27 +3628,39 @@ function createProductGroup(
   const title=
     document.createElement("div");
 
+
   title.className=
     "product-group-title";
+
 
   title.textContent=
     titleText;
 
+
   container.appendChild(title);
 
+
   products
-    .filter(item=>
-      keys.includes(item[0])
-    )
-    .forEach(item=>
+    .filter(function(item){
+
+      return keys.includes(item[0]);
+
+    })
+    .forEach(function(item){
+
       createProductStatusCard(
         container,
         item
-      )
-    );
+      );
+
+    });
 
 }
 
+
+/* =====================================================
+   PRODUCT STATUS CARD
+===================================================== */
 
 function createProductStatusCard(
   container,
@@ -2875,14 +3668,18 @@ function createProductStatusCard(
 ){
 
   const key=item[0];
+
   const name=item[1];
+
 
   const status=
     productStatuses[key]||
     "Sẵn Sàng";
 
+
   const div=
     document.createElement("div");
+
 
   div.className=
     "card product-status-card "+
@@ -2891,6 +3688,7 @@ function createProductStatusCard(
         ?"ready"
         :"not-ready"
     );
+
 
   div.innerHTML=`
 
@@ -2933,10 +3731,15 @@ onclick="saveProductStatus('${escapeJs(key)}')"
 
 `;
 
+
   container.appendChild(div);
 
 }
 
+
+/* =====================================================
+   PRODUCT VISUAL
+===================================================== */
 
 function changeProductVisual(product){
 
@@ -2945,19 +3748,24 @@ function changeProductVisual(product){
       "status_"+product
     );
 
+
   if(!select)return;
+
 
   const card=
     select.closest(
       ".product-status-card"
     );
 
+
   if(!card)return;
+
 
   card.classList.remove(
     "ready",
     "not-ready"
   );
+
 
   card.classList.add(
     select.value==="Sẵn Sàng"
@@ -2968,6 +3776,10 @@ function changeProductVisual(product){
 }
 
 
+/* =====================================================
+   SAVE PRODUCT
+===================================================== */
+
 async function saveProductStatus(product){
 
   const select=
@@ -2975,20 +3787,26 @@ async function saveProductStatus(product){
       "status_"+product
     );
 
+
   if(!select)return;
+
 
   const status=
     select.value;
+
 
   const result=
     await apiPost(
       "setProductStatus",
       {
         key:ADMIN_KEY,
+
         product:product,
+
         status:status
       }
     );
+
 
   alert(
     result.message||
@@ -2998,6 +3816,7 @@ async function saveProductStatus(product){
         :"❌ Không thể lưu."
     )
   );
+
 
   if(result.ok){
 
@@ -3018,31 +3837,81 @@ function showTab(name,button){
 
   document
     .querySelectorAll(".panel")
-    .forEach(panel=>{
+    .forEach(function(panel){
+
       panel.classList.remove("active");
+
     });
+
 
   document
     .querySelectorAll(".tab")
-    .forEach(tab=>{
+    .forEach(function(tab){
+
       tab.classList.remove("active");
+
     });
+
 
   const panel=
     document.getElementById(
       "panel-"+name
     );
 
+
   if(panel){
+
     panel.classList.add("active");
+
   }
+
 
   if(button){
+
     button.classList.add("active");
+
   }
 
+
   if(name==="services"){
+
     loadServices();
+
+  }
+
+
+  if(name==="customers"){
+
+    loadCustomers();
+
+  }
+
+
+  if(name==="topups"){
+
+    loadTopups();
+
+  }
+
+
+  if(name==="orders"){
+
+    loadOrders();
+
+  }
+
+
+  if(name==="products"){
+
+    loadProducts();
+
+  }
+
+
+  if(name==="accounts"){
+
+    loadAccounts();
+
   }
 
 }
@@ -3058,6 +3927,7 @@ function showAccountModal(account){
     document.getElementById(
       "accountModalContent"
     );
+
 
   content.innerHTML=`
 
@@ -3085,50 +3955,81 @@ function showAccountModal(account){
 
 <div>
 👤 Username:
-<b>${escapeHtml(account.username||"")}</b>
+<b>${escapeHtml(
+account.username||
+account.accUsername||
+""
+)}</b>
 </div>
 
 <div>
 🔑 Password:
-<b>${escapeHtml(account.password||"")}</b>
+<b>${escapeHtml(
+account.password||
+account.accPassword||
+""
+)}</b>
+</div>
+
+<div>
+📌 Trạng thái:
+<b>${escapeHtml(account.status||"")}</b>
 </div>
 
 </div>
 
 `;
 
+
   document
-    .getElementById("accountModal")
+    .getElementById(
+      "accountModal"
+    )
     .classList.remove("hidden");
 
 }
 
 
+/* =====================================================
+   CLOSE ACCOUNT MODAL
+===================================================== */
+
 function closeAccountModal(){
 
   document
-    .getElementById("accountModal")
+    .getElementById(
+      "accountModal"
+    )
     .classList.add("hidden");
 
 }
 
 
 /* =====================================================
-   FORMAT
+   FORMAT MONEY
 ===================================================== */
 
 function formatMoney(value){
 
-  const n=Number(value||0);
+  const n=
+    Number(value||0);
+
 
   if(n>=1000){
+
     return n.toLocaleString("vi-VN")+"đ";
+
   }
+
 
   return n.toLocaleString("vi-VN")+"K";
 
 }
 
+
+/* =====================================================
+   FORMAT PRICE
+===================================================== */
 
 function formatPrice(value){
 
@@ -3137,8 +4038,11 @@ function formatPrice(value){
     value===null||
     typeof value==="undefined"
   ){
+
     return "-";
+
   }
+
 
   return Number(value||0)
     .toLocaleString("vi-VN")+"K";
@@ -3146,19 +4050,31 @@ function formatPrice(value){
 }
 
 
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
 function formatDate(value){
 
   if(!value)return "";
 
+
   try{
 
-    const date=new Date(value);
+    const date=
+      new Date(value);
+
 
     if(isNaN(date.getTime())){
+
       return String(value);
+
     }
 
-    return date.toLocaleString("vi-VN");
+
+    return date.toLocaleString(
+      "vi-VN"
+    );
 
   }catch(e){
 
@@ -3176,11 +4092,26 @@ function formatDate(value){
 function escapeHtml(value){
 
   return String(value??"")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 
 }
 
@@ -3188,10 +4119,22 @@ function escapeHtml(value){
 function escapeJs(value){
 
   return String(value??"")
-    .replaceAll("\\","\\\\")
-    .replaceAll("'","\\'")
-    .replaceAll("\n","\\n")
-    .replaceAll("\r","\\r");
+    .replaceAll(
+      "\\",
+      "\\\\"
+    )
+    .replaceAll(
+      "'",
+      "\\'"
+    )
+    .replaceAll(
+      "\n",
+      "\\n"
+    )
+    .replaceAll(
+      "\r",
+      "\\r"
+    );
 
 }
 
@@ -3201,13 +4144,17 @@ function escapeJs(value){
 ===================================================== */
 
 document
-  .getElementById("accountModal")
+  .getElementById(
+    "accountModal"
+  )
   .addEventListener(
     "click",
     function(e){
 
       if(e.target===this){
+
         closeAccountModal();
+
       }
 
     }
@@ -3215,13 +4162,17 @@ document
 
 
 document
-  .getElementById("serviceOrderModal")
+  .getElementById(
+    "serviceOrderModal"
+  )
   .addEventListener(
     "click",
     function(e){
 
       if(e.target===this){
+
         closeServiceOrderModal();
+
       }
 
     }
@@ -3235,6 +4186,7 @@ document.addEventListener(
     if(e.key==="Escape"){
 
       closeAccountModal();
+
       closeServiceOrderModal();
 
     }
