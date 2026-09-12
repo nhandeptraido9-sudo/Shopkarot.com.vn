@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -1052,6 +1053,211 @@ footer{
     text-align:center;
 }
 
+
+/* =========================================================
+   ================= SHOPKAROT POPUP THÔNG BÁO =============
+   ========================================================= */
+
+.shop-notice-overlay{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    background:rgba(0,0,0,.68);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+}
+
+.shop-notice-box{
+    position:relative;
+    width:100%;
+    max-width:560px;
+    max-height:90vh;
+    overflow-y:auto;
+    padding:30px 28px 25px;
+    border-radius:20px;
+    background:#fff;
+    color:#172033;
+    border:2px solid #e21b23;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        0 0 30px rgba(226,27,35,.15);
+    animation:shopNoticeShow .28s ease;
+}
+
+@keyframes shopNoticeShow{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.shop-notice-close{
+    position:absolute;
+    top:10px;
+    right:12px;
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:50%;
+    background:#f1f2f4;
+    color:#333;
+    font-size:25px;
+    line-height:38px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.shop-notice-close:hover{
+    background:#e21b23;
+    color:#fff;
+    transform:rotate(90deg);
+}
+
+.shop-notice-icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#111827,#e21b23);
+    color:#fff;
+    font-size:34px;
+    box-shadow:0 8px 22px rgba(226,27,35,.25);
+}
+
+.shop-notice-box h2{
+    margin:0 0 15px;
+    text-align:center;
+    color:#d01018;
+    font-size:24px;
+    font-weight:900;
+}
+
+.shop-notice-box p{
+    margin:11px 0;
+    font-size:15px;
+    line-height:1.65;
+    color:#374151;
+}
+
+.shop-notice-box p strong,
+.shop-notice-box p b{
+    color:#d01018;
+}
+
+.shop-notice-list{
+    margin:15px 0;
+    padding:15px 17px;
+    border-radius:12px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+}
+
+.shop-notice-list div{
+    margin:8px 0;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.shop-notice-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:20px;
+}
+
+.shop-notice-buttons button,
+.shop-notice-buttons a{
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 14px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    text-align:center;
+    transition:.2s;
+}
+
+.shop-stay{
+    border:1px solid #d1d5db;
+    background:#f3f4f6;
+    color:#172033;
+}
+
+.shop-stay:hover{
+    background:#e5e7eb;
+    transform:translateY(-2px);
+}
+
+.shop-new{
+    border:0;
+    background:linear-gradient(135deg,#e21b23,#a80e12);
+    color:#fff !important;
+    box-shadow:0 5px 15px rgba(226,27,35,.25);
+}
+
+.shop-new:hover{
+    background:linear-gradient(135deg,#ff3038,#c20f16);
+    transform:translateY(-2px);
+}
+
+@media(max-width:600px){
+
+    .shop-notice-overlay{
+        padding:12px;
+    }
+
+    .shop-notice-box{
+        max-width:100%;
+        max-height:92vh;
+        padding:27px 18px 18px;
+        border-radius:17px;
+    }
+
+    .shop-notice-icon{
+        width:60px;
+        height:60px;
+        font-size:29px;
+    }
+
+    .shop-notice-box h2{
+        font-size:20px;
+        padding-right:15px;
+    }
+
+    .shop-notice-box p{
+        font-size:14px;
+    }
+
+    .shop-notice-list div{
+        font-size:13px;
+    }
+
+    .shop-notice-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .shop-notice-buttons button,
+    .shop-notice-buttons a{
+        width:100%;
+    }
+
+}
+
+
 /* ================= MOBILE ================= */
 
 @media(max-width:1200px){
@@ -1983,6 +2189,106 @@ footer{
 </section>
 
 
+<!-- ==================================================
+     SHOPKAROT THÔNG BÁO
+     HIỆN TRÊN PC + ĐIỆN THOẠI
+     HIỆN LẠI MỖI LẦN F5
+     ================================================== -->
+
+<div
+    id="shopNotice"
+    class="shop-notice-overlay"
+    role="dialog"
+    aria-modal="true">
+
+    <div class="shop-notice-box">
+
+        <button
+            type="button"
+            class="shop-notice-close"
+            onclick="closeShopNotice()"
+            aria-label="Tắt thông báo">
+
+            ×
+
+        </button>
+
+        <div class="shop-notice-icon">
+            🎮
+        </div>
+
+        <h2>
+            🎉 SHOPKAROT
+        </h2>
+
+        <p style="text-align:center;">
+            Chào mừng bạn đến với
+            <b>ShopKarot</b> –
+            website chuyên cung cấp
+            <b>acc game Roblox</b>
+            uy tín, giá hợp lý và hỗ trợ nhanh chóng.
+        </p>
+
+        <p style="text-align:center;">
+            ⭐ Với chúng tôi,
+            <b>UY TÍN LÀ SỐ 1</b>.
+        </p>
+
+        <div class="shop-notice-list">
+
+            <div>
+                🎮 Chuyên bán <b>acc Roblox</b> đa dạng
+            </div>
+
+            <div>
+                🎁 Các sản phẩm và <b>túi mù Roblox</b> hấp dẫn
+            </div>
+
+            <div>
+                ⚡ Mua hàng <b>nhanh chóng – tự động</b>
+            </div>
+
+            <div>
+                🔒 Ưu tiên <b>an toàn và uy tín</b> cho khách hàng
+            </div>
+
+            <div>
+                💬 Hỗ trợ khách hàng khi gặp vấn đề
+            </div>
+
+        </div>
+
+        <p style="text-align:center;">
+            ❤️ Cảm ơn quý khách đã tin tưởng và ủng hộ
+            <b>ShopKarot</b>
+        </p>
+
+        <div class="shop-notice-buttons">
+
+            <button
+                type="button"
+                class="shop-stay"
+                onclick="closeShopNotice()">
+
+                👉 Ở lại Shop mới
+
+            </button>
+
+            <a
+                href="https://nhandeptraido9-sudo.github.io/Shopkarot.com.vn/index.html"
+                class="shop-new">
+
+                ➡️ Qua Shop mới
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 <footer>
     © 2026 SHOPKAROT - SHOP ACC GAME UY TÍN
 </footer>
@@ -2430,6 +2736,100 @@ async function loadGameStatuses(){
     }
 
 }
+
+
+/* ==================================================
+   ================= POPUP THÔNG BÁO =================
+   ================================================== */
+
+function openShopNotice(){
+
+    const popup =
+        document.getElementById("shopNotice");
+
+    if(!popup){
+        return;
+    }
+
+    popup.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeShopNotice(){
+
+    const popup =
+        document.getElementById("shopNotice");
+
+    if(!popup){
+        return;
+    }
+
+    popup.style.display = "none";
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* ================= HIỆN POPUP KHI LOAD / F5 ================= */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        setTimeout(
+            function(){
+
+                openShopNotice();
+
+            },
+            500
+        );
+
+    }
+);
+
+
+/* ================= CLICK RA NGOÀI POPUP ================= */
+
+const shopNotice =
+    document.getElementById("shopNotice");
+
+if(shopNotice){
+
+    shopNotice.addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === shopNotice){
+
+                closeShopNotice();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ================= PHÍM ESC ĐỂ TẮT ================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeShopNotice();
+
+        }
+
+    }
+);
 
 
 /* ================= START ================= */
