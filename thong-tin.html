@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -524,6 +525,30 @@ a{
     background:#e5e7eb;
 }
 
+/* ================= HOME BUTTON ================= */
+
+.home-button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    width:100%;
+    margin-top:18px;
+    padding:14px 20px;
+    border-radius:11px;
+    background:linear-gradient(135deg,#d01018,#a80e12);
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(208,16,24,.20);
+    transition:.2s;
+}
+
+.home-button:hover{
+    background:linear-gradient(135deg,#e21b23,#b80d14);
+    transform:translateY(-2px);
+}
+
 /* ================= FOOTER ================= */
 
 footer{
@@ -815,88 +840,6 @@ footer{
                 🛡️ Các sản phẩm được áp dụng chính sách bảo hành
                 tùy theo từng sản phẩm.
             </p>
-
-        </div>
-
-
-        <!-- THỜI GIAN -->
-
-        <div class="card">
-
-            <h2>
-                🕐 Thời gian hoạt động
-            </h2>
-
-            <p>
-                Shop hoạt động và hỗ trợ khách hàng trong khung giờ:
-            </p>
-
-            <div class="policy">
-
-                <div class="policy-item">
-
-                    <div class="policy-icon">
-                        🌅
-                    </div>
-
-                    <div class="policy-text">
-
-                        <b>
-                            Buổi sáng
-                        </b>
-
-                        <span>
-                            Từ 10:00 sáng
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="policy-item">
-
-                    <div class="policy-icon">
-                        🌙
-                    </div>
-
-                    <div class="policy-text">
-
-                        <b>
-                            Buổi tối
-                        </b>
-
-                        <span>
-                            Đến 20:00 tối
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="policy-item">
-
-                    <div class="policy-icon">
-                        ⚠️
-                    </div>
-
-                    <div class="policy-text">
-
-                        <b>
-                            Lưu ý
-                        </b>
-
-                        <span>
-                            Nên nạp tiền khi Admin đang online
-                            để được hỗ trợ nhanh nhất.
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
 
         </div>
 
@@ -1228,6 +1171,21 @@ footer{
         </div>
 
 
+        <!-- QUAY LẠI TRANG CHỦ -->
+
+        <div class="card full">
+
+            <a
+                href="index.html"
+                class="home-button">
+
+                🏠 QUAY LẠI TRANG CHỦ
+
+            </a>
+
+        </div>
+
+
         <!-- LIÊN HỆ ADMIN -->
 
         <div class="card full admin">
@@ -1419,3 +1377,4 @@ window.addEventListener(
 
 </body>
 </html>
+```
