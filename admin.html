@@ -1118,7 +1118,7 @@ onclick="closeServiceOrderModal()"
 ===================================================== */
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbxjr5RSU5g4TQBqI7lRCevi4gZlxwdnpMXC_dlQIKPACrtRANe_svyVIvXLIuIpejiORg/exec";
+"https://script.google.com/macros/s/AKfycbyZVuieNC3NFLGqeWPsb4Scli7RswdK0tk4kDEMrZlKz9OPsKFRQNJqE99efi8el3qhtA/exec";
 
 let ADMIN_KEY="";
 
@@ -1188,10 +1188,18 @@ async function apiGet(action){
 
   try{
 
+    const separator =
+      API_URL.includes("?")
+        ? "&"
+        : "?";
+
     const response=await fetch(
       API_URL+
-      "?action="+
-      encodeURIComponent(action)
+      separator+
+      "action="+
+      encodeURIComponent(action)+
+      "&key="+
+      encodeURIComponent(ADMIN_KEY||"")
     );
 
     const text=await response.text();
@@ -3146,7 +3154,7 @@ async function approveTopup(id){
 
   const result=
     await apiPost(
-      "approveTopup",
+      "duyetNap",
       {
         key:ADMIN_KEY,
         id:id
@@ -3190,7 +3198,7 @@ async function rejectTopup(id){
 
   const result=
     await apiPost(
-      "rejectTopup",
+      "tuChoiNap",
       {
         key:ADMIN_KEY,
         id:id
