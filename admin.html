@@ -907,6 +907,15 @@ placeholder="🔎 Tìm khách hàng..."
 oninput="renderCustomers()"
 >
 
+<div class="actions" style="margin-top:0">
+<button
+class="btn btn-primary"
+onclick="loadCustomers()"
+>
+🔄 Tải lại khách hàng
+</button>
+</div>
+
 <div class="table-wrap">
 
 <table>
@@ -922,7 +931,9 @@ oninput="renderCustomers()"
 
 </thead>
 
-<tbody id="customersBody"></tbody>
+<tbody id="customersBody">
+<tr><td colspan="4"><div class="loading">⏳ Đang tải khách hàng...</div></td></tr>
+</tbody>
 
 </table>
 
@@ -1184,50 +1195,43 @@ async function apiPost(action,data={}){
    API GET
 ===================================================== */
 
-async function apiGet(action){
+async function apiGet(action,params={}){
 
   try{
 
-    const separator =
-      API_URL.includes("?")
-        ? "&"
-        : "?";
+    const query=new URLSearchParams({
+      action:String(action||""),
+      key:String(ADMIN_KEY||""),
+      _t:String(Date.now()),
+      ...params
+    });
 
     const response=await fetch(
-      API_URL+
-      separator+
-      "action="+
-      encodeURIComponent(action)+
-      "&key="+
-      encodeURIComponent(ADMIN_KEY||"")
+      API_URL+"?"+query.toString(),
+      {
+        method:"GET",
+        cache:"no-store",
+        headers:{"Accept":"application/json"}
+      }
     );
 
     const text=await response.text();
 
+    if(!response.ok){
+      console.error("API GET HTTP",response.status,text);
+      return {ok:false,message:"API GET lỗi HTTP "+response.status};
+    }
+
     try{
-
       return JSON.parse(text);
-
     }catch(e){
-
-      console.error(text);
-
-      return {
-        ok:false,
-        message:"API trả về dữ liệu không hợp lệ."
-      };
-
+      console.error("API GET không phải JSON:",text);
+      return {ok:false,message:"API trả về dữ liệu không hợp lệ."};
     }
 
   }catch(error){
-
-    console.error(error);
-
-    return {
-      ok:false,
-      message:"Không kết nối được Apps Script."
-    };
-
+    console.error("API GET error:",error);
+    return {ok:false,message:"Không kết nối được Apps Script."};
   }
 
 }
@@ -1379,7 +1383,6 @@ window.addEventListener(
 async function loadAll(){
 
   await Promise.allSettled([
-
     loadDashboard(),
     loadShopStatus(),
     loadAccounts(),
@@ -1388,9 +1391,12 @@ async function loadAll(){
     loadTopups(),
     loadOrders(),
     loadProducts()
-
   ]);
 
+  document.getElementById("dashCustomers").textContent=String(customers.length);
+  document.getElementById("dashServices").textContent=String(services.length);
+  document.getElementById("dashAccounts").textContent=String(accounts.length);
+  document.getElementById("dashOrders").textContent=String(orders.length);
 }
 
 
@@ -2840,144 +2846,52 @@ function closeServiceOrderModal(){
 
 async function loadCustomers(){
 
-  const result=
-    await apiGet("getCustomers");
+  let result=await apiGet("getCustomers");
 
+  if(!result || !result.ok){
+    const fallback=await apiPost("getCustomers",{key:ADMIN_KEY});
+    if(fallback && fallback.ok){
+      result=fallback;
+    }
+  }
 
-  if(!result.ok){
+  if(!result || !result.ok){
 
-    document.getElementById(
-      "customersBody"
-    ).innerHTML=`
+    customers=[];
 
+    document.getElementById("customersBody").innerHTML=`
 <tr>
-
 <td colspan="4">
-
 <div class="notice">
-
-❌ ${
-escapeHtml(
-result.message||
-"Không tải được khách hàng."
-)
-}
-
+❌ ${escapeHtml((result&&result.message)||"Không tải được khách hàng.")}
 </div>
-
 </td>
+</tr>`;
 
-</tr>
-
-`;
-
+    document.getElementById("dashCustomers").textContent="0";
     return;
-
   }
 
+  const raw=
+    Array.isArray(result.customers) ? result.customers :
+    Array.isArray(result.users) ? result.users :
+    Array.isArray(result.data) ? result.data : [];
 
-  customers=
-    Array.isArray(result.customers)
-      ?result.customers
-      :[];
-
-
-  renderCustomers();
-
-}
-
-
-function renderCustomers(){
-
-  const body=
-    document.getElementById(
-      "customersBody"
-    );
-
-
-  const search=
-    (
-      document.getElementById(
-        "customerSearch"
-      ).value||
-      ""
-    )
-    .toLowerCase()
-    .trim();
-
-
-  body.innerHTML="";
-
-
-  const list=
-    customers.filter(function(user){
-
-      return String(
-        user.username||
-        ""
-      )
-      .toLowerCase()
-      .includes(search);
-
-    });
-
-
-  if(!list.length){
-
-    body.innerHTML=`
-
-<tr>
-
-<td colspan="4">
-
-<div class="empty">
-Chưa có khách hàng.
-</div>
-
-</td>
-
-</tr>
-
-`;
-
-    return;
-
-  }
-
-
-  list.forEach(function(user){
-
-    const tr=
-      document.createElement("tr");
-
-
-    tr.innerHTML=`
-
-<td>
-${escapeHtml(user.username||"")}
-</td>
-
-<td>
-${formatMoney(user.balance||0)}
-</td>
-
-<td>
-${escapeHtml(
-formatDate(user.createdAt)
-)}
-</td>
-
-<td>
-${escapeHtml(user.status||"")}
-</td>
-
-`;
-
-
-    body.appendChild(tr);
-
+  customers=raw.map(function(user){
+    user=user||{};
+    return {
+      username:user.username ?? user.userName ?? user.user ?? user.taiKhoan ?? user["Tài khoản"] ?? user["Tên đăng nhập"] ?? "",
+      balance:user.balance ?? user.soDu ?? user.sodu ?? user["Số dư"] ?? 0,
+      createdAt:user.createdAt ?? user.created_at ?? user.ngayTao ?? user["Ngày tạo"] ?? "",
+      status:user.status ?? user.trangThai ?? user["Trạng thái"] ?? "active",
+      lastLoginAt:user.lastLoginAt ?? user.last_login_at ?? ""
+    };
+  }).filter(function(user){
+    return String(user.username||"").trim()!=="";
   });
 
+  document.getElementById("dashCustomers").textContent=String(customers.length);
+  renderCustomers();
 }
 
 
@@ -3154,7 +3068,7 @@ async function approveTopup(id){
 
   const result=
     await apiPost(
-      "duyetNap",
+      "approveTopup",
       {
         key:ADMIN_KEY,
         id:id
@@ -3198,7 +3112,7 @@ async function rejectTopup(id){
 
   const result=
     await apiPost(
-      "tuChoiNap",
+      "rejectTopup",
       {
         key:ADMIN_KEY,
         id:id
