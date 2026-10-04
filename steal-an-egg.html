@@ -2,11 +2,13 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SHOPKAROT - Steal an Egg</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopKarot - Steal an Egg</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
@@ -16,18 +18,15 @@ body{
 }
 
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
     background:linear-gradient(135deg,#111827,#1f2937);
-    color:#fff;
-    box-shadow:0 3px 15px rgba(0,0,0,.18);
+    color:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
 .header-inner{
     max-width:1200px;
-    min-height:68px;
     margin:auto;
+    min-height:68px;
     padding:12px 18px;
     display:flex;
     align-items:center;
@@ -47,21 +46,17 @@ header{
 .back-btn{
     border:0;
     background:#374151;
-    color:#fff;
+    color:white;
     padding:10px 16px;
     border-radius:10px;
     font-weight:700;
     cursor:pointer;
 }
 
-.back-btn:hover{
-    background:#4b5563;
-}
-
 .container{
     max-width:1200px;
     margin:auto;
-    padding:22px 16px 50px;
+    padding:25px 16px 50px;
 }
 
 .hero{
@@ -71,11 +66,20 @@ header{
     border-radius:20px;
     padding:30px 25px;
     margin-bottom:22px;
-    box-shadow:0 8px 25px rgba(0,0,0,.10);
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
 }
 
-.hero:after{
-    content:"🥚";
+.hero h1{
+    margin:0 0 8px;
+    font-size:32px;
+}
+
+.hero p{
+    margin:0;
+    line-height:1.6;
+}
+
+.hero-egg{
     position:absolute;
     right:35px;
     top:50%;
@@ -84,30 +88,16 @@ header{
     opacity:.18;
 }
 
-.hero h1{
-    position:relative;
-    z-index:1;
-    margin:0 0 8px;
-    font-size:32px;
-}
-
-.hero p{
-    position:relative;
-    z-index:1;
-    margin:0;
-    line-height:1.6;
-}
-
-.main-tabs{
+.tabs{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
     margin-bottom:22px;
 }
 
-.main-tab{
+.tab{
     border:0;
-    background:#fff;
+    background:white;
     color:#111827;
     padding:13px 20px;
     border-radius:12px;
@@ -116,9 +106,9 @@ header{
     box-shadow:0 2px 9px rgba(0,0,0,.08);
 }
 
-.main-tab.active{
+.tab.active{
     background:#111827;
-    color:#fff;
+    color:white;
 }
 
 .section{
@@ -147,29 +137,29 @@ header{
     padding:12px 14px;
     border:1px solid #d1d5db;
     border-radius:10px;
-    background:#fff;
     outline:none;
+    background:white;
 }
 
-.price-filter{
+.filters{
     display:flex;
     gap:9px;
     flex-wrap:wrap;
     margin-bottom:20px;
 }
 
-.price-btn{
+.filter{
     border:1px solid #d1d5db;
-    background:#fff;
+    background:white;
     padding:10px 16px;
     border-radius:10px;
     font-weight:800;
     cursor:pointer;
 }
 
-.price-btn.active{
+.filter.active{
     background:#111827;
-    color:#fff;
+    color:white;
     border-color:#111827;
 }
 
@@ -180,11 +170,11 @@ header{
 }
 
 .card{
-    background:#fff;
+    background:white;
     border-radius:16px;
     padding:18px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
     border:1px solid #e5e7eb;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
     transition:.2s;
 }
 
@@ -196,7 +186,7 @@ header{
 .card-title{
     font-size:18px;
     font-weight:800;
-    margin:0 0 10px;
+    margin-bottom:10px;
 }
 
 .badge{
@@ -213,11 +203,6 @@ header{
 .badge.free{
     background:#dbeafe;
     color:#1d4ed8;
-}
-
-.badge.sold{
-    background:#fee2e2;
-    color:#991b1b;
 }
 
 .price{
@@ -241,7 +226,7 @@ header{
     width:100%;
     border:0;
     background:#111827;
-    color:#fff;
+    color:white;
     padding:12px;
     border-radius:10px;
     margin-top:15px;
@@ -253,311 +238,24 @@ header{
     background:#374151;
 }
 
-.buy-btn:disabled{
-    background:#9ca3af;
-    cursor:not-allowed;
-}
-
 .service-icon{
-    font-size:35px;
+    font-size:38px;
     margin-bottom:8px;
 }
 
 .service-description{
-    min-height:75px;
     color:#4b5563;
     line-height:1.65;
+    min-height:70px;
 }
 
 .empty{
     grid-column:1/-1;
+    background:white;
     padding:40px 20px;
-    background:#fff;
     border-radius:16px;
     text-align:center;
     color:#6b7280;
-}
-
-/* ================= TRANG MUA RIÊNG ================= */
-
-.purchase-page{
-    display:none;
-    min-height:calc(100vh - 68px);
-    padding:35px 16px 60px;
-}
-
-.purchase-page.show{
-    display:block;
-}
-
-.purchase-wrap{
-    max-width:650px;
-    margin:0 auto;
-}
-
-.purchase-card{
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:20px;
-    padding:28px;
-    box-shadow:0 8px 28px rgba(0,0,0,.10);
-}
-
-.purchase-top{
-    text-align:center;
-    margin-bottom:22px;
-}
-
-.purchase-icon{
-    font-size:58px;
-    margin-bottom:8px;
-}
-
-.purchase-top h1{
-    margin:0 0 8px;
-    font-size:28px;
-}
-
-.purchase-top p{
-    margin:0;
-    color:#6b7280;
-}
-
-.purchase-product{
-    background:#f9fafb;
-    border:1px solid #e5e7eb;
-    border-radius:14px;
-    padding:18px;
-    line-height:1.8;
-    margin-bottom:18px;
-}
-
-.purchase-row{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    border-bottom:1px solid #e5e7eb;
-    padding:8px 0;
-}
-
-.purchase-row:last-child{
-    border-bottom:0;
-}
-
-.purchase-price{
-    font-size:28px;
-    font-weight:900;
-    color:#dc2626;
-}
-
-.purchase-price.free{
-    color:#16a34a;
-}
-
-/* ================= THÔNG TIN CHỈ HIỆN TRÊN TRANG MUA 0K ================= */
-
-.free-purchase-info{
-    margin-top:18px;
-    padding:16px;
-    background:#eff6ff;
-    border:1px solid #93c5fd;
-    border-radius:14px;
-    color:#1e3a8a;
-    font-size:14px;
-    line-height:1.7;
-}
-
-.free-purchase-title{
-    font-size:16px;
-    font-weight:900;
-    color:#1d4ed8;
-    margin-bottom:10px;
-}
-
-.free-purchase-warning{
-    background:#fee2e2;
-    border:1px solid #fecaca;
-    color:#991b1b;
-    border-radius:10px;
-    padding:10px 12px;
-    font-weight:900;
-    margin-bottom:10px;
-}
-
-.free-purchase-info ul{
-    margin:8px 0 0;
-    padding-left:20px;
-}
-
-.free-purchase-info li{
-    margin:5px 0;
-}
-
-.purchase-form{
-    display:grid;
-    gap:14px;
-}
-
-.purchase-form label{
-    font-weight:800;
-}
-
-.purchase-form input,
-.purchase-form textarea{
-    width:100%;
-    padding:13px;
-    margin-top:6px;
-    border:1px solid #d1d5db;
-    border-radius:10px;
-    outline:none;
-    font-family:inherit;
-}
-
-.purchase-form textarea{
-    min-height:95px;
-    resize:vertical;
-}
-
-.purchase-confirm{
-    width:100%;
-    border:0;
-    background:#16a34a;
-    color:#fff;
-    padding:14px;
-    border-radius:11px;
-    font-weight:900;
-    font-size:16px;
-    cursor:pointer;
-    margin-top:4px;
-}
-
-.purchase-confirm:hover{
-    background:#15803d;
-}
-
-.purchase-back{
-    width:100%;
-    border:0;
-    background:#111827;
-    color:#fff;
-    padding:13px;
-    border-radius:11px;
-    font-weight:800;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-.purchase-back:hover{
-    background:#374151;
-}
-
-.purchase-notice{
-    margin-top:16px;
-    padding:12px;
-    border-radius:10px;
-    background:#fff7ed;
-    border:1px solid #fed7aa;
-    color:#9a3412;
-    font-size:13px;
-    line-height:1.6;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:3000;
-    background:rgba(0,0,0,.60);
-    padding:15px;
-    align-items:center;
-    justify-content:center;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    position:relative;
-    width:100%;
-    max-width:480px;
-    max-height:90vh;
-    overflow:auto;
-    background:#fff;
-    border-radius:18px;
-    padding:24px;
-}
-
-.close{
-    position:absolute;
-    right:14px;
-    top:10px;
-    border:0;
-    background:none;
-    font-size:28px;
-    cursor:pointer;
-    color:#374151;
-}
-
-.modal-box h2{
-    margin:0 35px 18px 0;
-}
-
-.selected{
-    background:#f3f4f6;
-    border-radius:11px;
-    padding:13px;
-    margin-bottom:18px;
-    line-height:1.7;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:6px;
-    font-weight:800;
-}
-
-.form-group input,
-.form-group textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #d1d5db;
-    border-radius:10px;
-    outline:none;
-    font-family:inherit;
-}
-
-.form-group textarea{
-    min-height:90px;
-    resize:vertical;
-}
-
-.confirm-btn{
-    width:100%;
-    border:0;
-    background:#16a34a;
-    color:#fff;
-    padding:13px;
-    border-radius:10px;
-    font-weight:900;
-    cursor:pointer;
-}
-
-.notice{
-    margin-top:14px;
-    padding:11px;
-    background:#fff7ed;
-    border:1px solid #fed7aa;
-    border-radius:10px;
-    color:#9a3412;
-    font-size:13px;
-    line-height:1.6;
 }
 
 footer{
@@ -565,8 +263,6 @@ footer{
     color:#6b7280;
     padding:25px 15px;
 }
-
-/* ================= RESPONSIVE ================= */
 
 @media(max-width:1000px){
     .grid{
@@ -602,13 +298,9 @@ footer{
         font-size:27px;
     }
 
-    .hero:after{
+    .hero-egg{
         font-size:60px;
         right:15px;
-    }
-
-    .purchase-card{
-        padding:20px;
     }
 }
 </style>
@@ -623,235 +315,113 @@ footer{
             SHOP<span>KAROT</span> - STEAL AN EGG
         </div>
 
-        <button class="back-btn" onclick="goBack()">
+        <button class="back-btn" onclick="location.href='index.html'">
             ← Về Shop
         </button>
 
     </div>
 </header>
 
-
 <main class="container">
 
-<!-- ================= TRANG MUA RIÊNG ================= -->
+    <div class="hero">
+        <div class="hero-egg">🥚</div>
 
-<section id="purchasePage" class="purchase-page">
+        <h1>🥚 Steal an Egg</h1>
 
-    <div class="purchase-wrap">
-
-        <div class="purchase-card">
-
-            <div class="purchase-top">
-
-                <div class="purchase-icon">
-                    🥚
-                </div>
-
-                <h1 id="purchaseTitle">
-                    Mua Acc Steal an Egg
-                </h1>
-
-                <p>
-                    SHOPKAROT - Trang mua sản phẩm
-                </p>
-
-            </div>
+        <p>
+            Acc Steal an Egg và dịch vụ Steal an Egg tại SHOPKAROT.
+        </p>
+    </div>
 
 
-            <div id="purchaseProduct" class="purchase-product"></div>
+    <div class="tabs">
+
+        <button
+            class="tab active"
+            onclick="showTab('accounts',this)">
+            👤 Acc Steal an Egg
+        </button>
+
+        <button
+            class="tab"
+            onclick="showTab('services',this)">
+            🛠️ Dịch vụ Steal an Egg
+        </button>
+
+    </div>
 
 
-            <div class="purchase-form">
+    <!-- ACC -->
+    <section id="accounts" class="section active">
 
-                <div>
-                    <label for="purchaseCustomerName">
-                        Tên khách
-                    </label>
+        <div class="section-head">
 
-                    <input
-                        id="purchaseCustomerName"
-                        type="text"
-                        placeholder="Nhập tên khách"
-                    >
-                </div>
+            <h2>👤 Acc Steal an Egg</h2>
 
-
-                <div>
-                    <label for="purchaseRobloxUsername">
-                        Username Roblox
-                    </label>
-
-                    <input
-                        id="purchaseRobloxUsername"
-                        type="text"
-                        placeholder="Nhập Username Roblox"
-                    >
-                </div>
-
-
-                <div>
-                    <label for="purchaseNote">
-                        Ghi chú
-                    </label>
-
-                    <textarea
-                        id="purchaseNote"
-                        placeholder="Nhập ghi chú nếu cần..."
-                    ></textarea>
-                </div>
-
-
-                <button
-                    class="purchase-confirm"
-                    onclick="confirmPurchase()"
-                >
-                    ✅ Xác nhận mua acc
-                </button>
-
-
-                <button
-                    class="purchase-back"
-                    onclick="backToAccounts()"
-                >
-                    ← Quay lại danh sách acc
-                </button>
-
-            </div>
-
-
-            <div class="purchase-notice">
-                Sau khi đặt đơn, hệ thống sẽ tạo mã đơn.
-                Hãy lưu lại mã đơn để Admin kiểm tra.
-            </div>
+            <input
+                id="accountSearch"
+                class="search"
+                type="text"
+                placeholder="🔎 Tìm acc..."
+                oninput="filterAccounts()">
 
         </div>
 
-    </div>
 
-</section>
+        <div class="filters">
 
+            <button
+                class="filter active"
+                onclick="selectPrice('ALL',this)">
+                Tất cả
+            </button>
 
-<!-- ================= TRANG DANH SÁCH ================= -->
+            <button
+                class="filter"
+                onclick="selectPrice('0K',this)">
+                🟢 0K
+            </button>
 
-<div class="hero">
+            <button
+                class="filter"
+                onclick="selectPrice('20K',this)">
+                🔵 20K
+            </button>
 
-    <h1>
-        🥚 Steal an Egg
-    </h1>
+            <button
+                class="filter"
+                onclick="selectPrice('50K',this)">
+                🟠 50K
+            </button>
 
-    <p>
-        Acc Steal an Egg và dịch vụ Steal an Egg tại SHOPKAROT.
-    </p>
-
-</div>
-
-
-<div class="main-tabs">
-
-    <button
-        class="main-tab active"
-        onclick="showTab('accounts',this)"
-    >
-        👤 Acc Steal an Egg
-    </button>
-
-
-    <button
-        class="main-tab"
-        onclick="showTab('services',this)"
-    >
-        🛠️ Dịch vụ Steal an Egg
-    </button>
-
-</div>
+        </div>
 
 
-<!-- ================= ACC ================= -->
+        <div id="accountGrid" class="grid"></div>
 
-<section id="accounts" class="section active">
-
-    <div class="section-head">
-
-        <h2>
-            👤 Acc Steal an Egg
-        </h2>
-
-        <input
-            id="accountSearch"
-            class="search"
-            type="text"
-            placeholder="🔎 Tìm acc..."
-            oninput="filterAccounts()"
-        >
-
-    </div>
+    </section>
 
 
-    <div class="price-filter">
+    <!-- DỊCH VỤ -->
+    <section id="services" class="section">
 
-        <button
-            class="price-btn active"
-            onclick="selectPrice('ALL',this)"
-        >
-            Tất cả
-        </button>
+        <div class="section-head">
 
+            <h2>🛠️ Dịch vụ Steal an Egg</h2>
 
-        <button
-            class="price-btn"
-            onclick="selectPrice('0K',this)"
-        >
-            🟢 0K
-        </button>
+            <input
+                id="serviceSearch"
+                class="search"
+                type="text"
+                placeholder="🔎 Tìm dịch vụ..."
+                oninput="filterServices()">
 
+        </div>
 
-        <button
-            class="price-btn"
-            onclick="selectPrice('20K',this)"
-        >
-            🔵 20K
-        </button>
+        <div id="serviceGrid" class="grid"></div>
 
-
-        <button
-            class="price-btn"
-            onclick="selectPrice('50K',this)"
-        >
-            🟠 50K
-        </button>
-
-    </div>
-
-
-    <div id="accountGrid" class="grid"></div>
-
-</section>
-
-
-<!-- ================= DỊCH VỤ ================= -->
-
-<section id="services" class="section">
-
-    <div class="section-head">
-
-        <h2>
-            🛠️ Dịch vụ Steal an Egg
-        </h2>
-
-        <input
-            id="serviceSearch"
-            class="search"
-            type="text"
-            placeholder="🔎 Tìm dịch vụ..."
-            oninput="filterServices()"
-        >
-
-    </div>
-
-
-    <div id="serviceGrid" class="grid"></div>
-
-</section>
+    </section>
 
 </main>
 
@@ -861,108 +431,7 @@ footer{
 </footer>
 
 
-<!-- ================= MODAL ================= -->
-
-<div id="orderModal" class="modal">
-
-    <div class="modal-box">
-
-        <button
-            class="close"
-            onclick="closeModal()"
-        >
-            ×
-        </button>
-
-
-        <h2 id="modalTitle">
-            Đặt hàng
-        </h2>
-
-
-        <div
-            id="selectedProduct"
-            class="selected"
-        ></div>
-
-
-        <div class="form-group">
-
-            <label>
-                Tên khách
-            </label>
-
-            <input
-                id="customerName"
-                type="text"
-                placeholder="Nhập tên khách"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>
-                Username Roblox
-            </label>
-
-            <input
-                id="robloxUsername"
-                type="text"
-                placeholder="Nhập Username Roblox"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>
-                Ghi chú
-            </label>
-
-            <textarea
-                id="customerNote"
-                placeholder="Nhập ghi chú nếu cần..."
-            ></textarea>
-
-        </div>
-
-
-        <button
-            class="confirm-btn"
-            onclick="submitOrder()"
-        >
-            ✅ Xác nhận đặt hàng
-        </button>
-
-
-        <div class="notice">
-            Sau khi đặt đơn, hãy lưu lại mã đơn để Admin kiểm tra.
-        </div>
-
-    </div>
-
-</div>
-
-
 <script>
-
-/* =====================================================
-   CẤU HÌNH
-   ===================================================== */
-
-const BACK_URL = "index.html";
-
-let currentPrice = "ALL";
-
-let currentOrder = null;
-
-
-/* =====================================================
-   ACC STEAL AN EGG
-   ===================================================== */
 
 const accounts = [
 
@@ -972,7 +441,8 @@ const accounts = [
         package:"0K",
         price:0,
         status:"Còn hàng",
-        description:"Acc Steal an Egg gói 0K."
+        description:"Acc Steal an Egg gói 0K.",
+        page:"steal-an-egg-0k-001.html"
     },
 
     {
@@ -981,7 +451,8 @@ const accounts = [
         package:"20K",
         price:20000,
         status:"Còn hàng",
-        description:"Acc Steal an Egg gói 20K."
+        description:"Acc Steal an Egg gói 20K.",
+        page:"steal-an-egg-20k-001.html"
     },
 
     {
@@ -990,15 +461,12 @@ const accounts = [
         package:"50K",
         price:50000,
         status:"Còn hàng",
-        description:"Acc Steal an Egg gói 50K."
+        description:"Acc Steal an Egg gói 50K.",
+        page:"steal-an-egg-50k-001.html"
     }
 
 ];
 
-
-/* =====================================================
-   DỊCH VỤ
-   ===================================================== */
 
 const services = [
 
@@ -1007,8 +475,7 @@ const services = [
         name:"Cày Steal an Egg",
         price:50000,
         status:"Đang nhận",
-        description:
-            "Dịch vụ cày Steal an Egg theo yêu cầu của khách."
+        description:"Dịch vụ cày Steal an Egg theo yêu cầu của khách."
     },
 
     {
@@ -1016,8 +483,7 @@ const services = [
         name:"Farm Egg",
         price:100000,
         status:"Đang nhận",
-        description:
-            "Farm Egg theo mục tiêu hoặc thời gian khách yêu cầu."
+        description:"Farm Egg theo mục tiêu hoặc thời gian khách yêu cầu."
     },
 
     {
@@ -1025,130 +491,32 @@ const services = [
         name:"Farm VIP",
         price:200000,
         status:"Đang nhận",
-        description:
-            "Dịch vụ farm nâng cao dành cho khách hàng."
+        description:"Dịch vụ farm nâng cao dành cho khách hàng."
     }
 
 ];
 
 
-/* =====================================================
-   FORMAT TIỀN
-   ===================================================== */
-
-function formatMoney(value){
-
-    return Number(value).toLocaleString("vi-VN") + "đ";
-
-}
+let currentPrice = "ALL";
 
 
-/* =====================================================
-   ESCAPE HTML
-   ===================================================== */
+function money(number){
 
-function escapeHTML(value){
-
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return Number(number).toLocaleString("vi-VN") + "đ";
 
 }
 
-
-/* =====================================================
-   ESCAPE JAVASCRIPT
-   ===================================================== */
-
-function escapeJS(value){
-
-    return String(value)
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'")
-        .replace(/\r/g,"\\r")
-        .replace(/\n/g,"\\n");
-
-}
-
-
-/* =====================================================
-   THÔNG TIN CHỈ DÀNH CHO TRANG MUA 0K
-   ===================================================== */
-
-function getFreePurchaseInfo(account){
-
-    if(account.package !== "0K"){
-        return "";
-    }
-
-    return `
-
-        <div class="free-purchase-info">
-
-            <div class="free-purchase-title">
-                ⚠️ THÔNG TIN QUAN TRỌNG - ACC 0K
-            </div>
-
-
-            <div class="free-purchase-warning">
-                ACC 0K = KHÔNG CÓ BẢO HÀNH.
-            </div>
-
-
-            <ul>
-
-                <li>
-                    Vui lòng kiểm tra và đăng nhập ngay sau khi mua.
-                </li>
-
-                <li>
-                    Shop không bảo hành ACC 0K kể cả trường hợp không đăng nhập được.
-                </li>
-
-                <li>
-                    Có 10 Pet trở lên, số lượng và Pet ngẫu nhiên.
-                </li>
-
-                <li>
-                    Có 1–2 Pet Secret.
-                </li>
-
-                <li>
-                    Các Item còn lại ngẫu nhiên.
-                </li>
-
-                <li>
-                    Mỗi ACC có thể khác nhau tùy theo kho.
-                </li>
-
-            </ul>
-
-        </div>
-
-    `;
-}
-
-
-/* =====================================================
-   RENDER ACC
-   ===================================================== */
 
 function renderAccounts(data){
 
-    const grid =
-        document.getElementById("accountGrid");
+    const grid = document.getElementById("accountGrid");
 
+    if(data.length === 0){
 
-    if(!data.length){
-
-        grid.innerHTML = `
-            <div class="empty">
-                Không có acc trong mục này.
-            </div>
-        `;
+        grid.innerHTML =
+        `<div class="empty">
+            Không có acc trong mục này.
+        </div>`;
 
         return;
     }
@@ -1156,74 +524,45 @@ function renderAccounts(data){
 
     grid.innerHTML = data.map(acc => {
 
-        const free =
-            Number(acc.price) === 0;
-
-        const sold =
-            acc.status !== "Còn hàng";
-
+        const free = acc.price === 0;
 
         return `
 
-            <div class="card">
+        <div class="card">
 
-                <span class="badge
-                    ${free ? "free" : ""}
-                    ${sold ? "sold" : ""}
-                ">
-                    ${escapeHTML(acc.status)}
-                </span>
+            <span class="badge ${free ? "free" : ""}">
+                ${acc.status}
+            </span>
 
+            <div class="card-title">
+                ${acc.name}
+            </div>
 
-                <div class="card-title">
-                    ${escapeHTML(acc.name)}
-                </div>
+            <div class="info">
 
+                Mã: <b>${acc.id}</b><br>
 
-                <div class="info">
-
-                    Mã:
-                    ${escapeHTML(acc.id)}
-
-                    <br>
-
-                    Gói:
-                    <b>${escapeHTML(acc.package)}</b>
-
-                </div>
-
-
-                <div class="price
-                    ${free ? "free" : ""}
-                ">
-
-                    ${formatMoney(acc.price)}
-
-                </div>
-
-
-                <div class="info">
-
-                    ${escapeHTML(acc.description)}
-
-                </div>
-
-
-                <button
-                    class="buy-btn"
-                    ${sold ? "disabled" : ""}
-                    onclick="goToPurchase('${escapeJS(acc.id)}')"
-                >
-
-                    ${
-                        sold
-                            ? "❌ Hết hàng"
-                            : "🛒 Mua acc"
-                    }
-
-                </button>
+                Gói: <b>${acc.package}</b>
 
             </div>
+
+            <div class="price ${free ? "free" : ""}">
+                ${money(acc.price)}
+            </div>
+
+            <div class="info">
+                ${acc.description}
+            </div>
+
+            <button
+                class="buy-btn"
+                onclick="location.href='${acc.page}'">
+
+                🛒 Xem / Mua acc
+
+            </button>
+
+        </div>
 
         `;
 
@@ -1232,29 +571,24 @@ function renderAccounts(data){
 }
 
 
-/* =====================================================
-   RENDER DỊCH VỤ
-   ===================================================== */
-
 function renderServices(data){
 
-    const grid =
-        document.getElementById("serviceGrid");
+    const grid = document.getElementById("serviceGrid");
 
+    if(data.length === 0){
 
-    if(!data.length){
-
-        grid.innerHTML = `
-            <div class="empty">
-                Không tìm thấy dịch vụ.
-            </div>
-        `;
+        grid.innerHTML =
+        `<div class="empty">
+            Không tìm thấy dịch vụ.
+        </div>`;
 
         return;
     }
 
 
-    grid.innerHTML = data.map(service => `
+    grid.innerHTML = data.map(service => {
+
+        return `
 
         <div class="card">
 
@@ -1263,103 +597,81 @@ function renderServices(data){
             </div>
 
             <span class="badge">
-                ${escapeHTML(service.status)}
+                ${service.status}
             </span>
 
             <div class="card-title">
-                ${escapeHTML(service.name)}
+                ${service.name}
             </div>
 
             <div class="service-description">
-                ${escapeHTML(service.description)}
+                ${service.description}
             </div>
 
             <div class="price">
-                ${formatMoney(service.price)}
+                ${money(service.price)}
             </div>
 
             <div class="info">
-                Mã dịch vụ:
-                ${escapeHTML(service.id)}
+                Mã dịch vụ: ${service.id}
             </div>
 
             <button
                 class="buy-btn"
-                onclick="openOrder(
-                    'SERVICE',
-                    '${escapeJS(service.id)}',
-                    '${escapeJS(service.name)}',
-                    '',
-                    ${Number(service.price)}
-                )"
-            >
+                onclick="alert('Vui lòng liên hệ Admin để đặt dịch vụ.')">
+
                 🛒 Đặt dịch vụ
+
             </button>
 
         </div>
 
-    `).join("");
+        `;
+
+    }).join("");
 
 }
 
 
-/* =====================================================
-   CHUYỂN TAB
-   ===================================================== */
-
-function showTab(tabName,button){
+function showTab(name,button){
 
     document
         .querySelectorAll(".section")
-        .forEach(section => {
-            section.classList.remove("active");
-        });
-
-
-    document
-        .querySelectorAll(".main-tab")
-        .forEach(tab => {
-            tab.classList.remove("active");
-        });
-
+        .forEach(section =>
+            section.classList.remove("active")
+        );
 
     document
-        .getElementById(tabName)
+        .querySelectorAll(".tab")
+        .forEach(tab =>
+            tab.classList.remove("active")
+        );
+
+    document
+        .getElementById(name)
         .classList.add("active");
-
 
     button.classList.add("active");
 
 }
 
-
-/* =====================================================
-   LỌC GIÁ
-   ===================================================== */
 
 function selectPrice(price,button){
 
     currentPrice = price;
 
-
     document
-        .querySelectorAll(".price-btn")
-        .forEach(btn => {
-            btn.classList.remove("active");
-        });
-
+        .querySelectorAll(".filter")
+        .forEach(item =>
+            item.classList.remove("active")
+        );
 
     button.classList.add("active");
-
 
     filterAccounts();
 
 }
 
-
-/* =====================================================
-   LỌC ACC
-   ===================================================== */
 
 function filterAccounts(){
 
@@ -1371,50 +683,36 @@ function filterAccounts(){
             .trim();
 
 
-    const result =
-        accounts.filter(acc => {
+    const result = accounts.filter(acc => {
 
-            const keywordMatch =
-
-                acc.id
-                    .toLowerCase()
-                    .includes(keyword)
-
-                ||
-
-                acc.name
-                    .toLowerCase()
-                    .includes(keyword)
-
-                ||
-
+        const text =
+            (
+                acc.id +
+                " " +
+                acc.name +
+                " " +
                 acc.package
-                    .toLowerCase()
-                    .includes(keyword);
+            ).toLowerCase();
 
 
-            const priceMatch =
-
-                currentPrice === "ALL"
-
-                ||
-
-                acc.package === currentPrice;
+        const searchOK =
+            text.includes(keyword);
 
 
-            return keywordMatch && priceMatch;
+        const priceOK =
+            currentPrice === "ALL" ||
+            acc.package === currentPrice;
 
-        });
+
+        return searchOK && priceOK;
+
+    });
 
 
     renderAccounts(result);
 
 }
 
-
-/* =====================================================
-   LỌC DỊCH VỤ
-   ===================================================== */
 
 function filterServices(){
 
@@ -1426,26 +724,20 @@ function filterServices(){
             .trim();
 
 
-    const result =
-        services.filter(service =>
+    const result = services.filter(service => {
 
-            service.id
-                .toLowerCase()
-                .includes(keyword)
+        const text =
+            service.id +
+            " " +
+            service.name +
+            " " +
+            service.description;
 
-            ||
+        return text
+            .toLowerCase()
+            .includes(keyword);
 
-            service.name
-                .toLowerCase()
-                .includes(keyword)
-
-            ||
-
-            service.description
-                .toLowerCase()
-                .includes(keyword)
-
-        );
+    });
 
 
     renderServices(result);
@@ -1453,654 +745,8 @@ function filterServices(){
 }
 
 
-/* =====================================================
-   CHUYỂN SANG TRANG MUA
-   ===================================================== */
-
-function goToPurchase(productId){
-
-    window.location.href =
-        window.location.pathname +
-        "?buy=" +
-        encodeURIComponent(productId);
-
-}
-
-
-/* =====================================================
-   LẤY ACC ĐANG MUA
-   ===================================================== */
-
-function getPurchaseAccount(){
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const productId =
-        params.get("buy");
-
-
-    if(!productId){
-        return null;
-    }
-
-
-    return accounts.find(
-        acc => acc.id === productId
-    ) || null;
-
-}
-
-
-/* =====================================================
-   HIỂN THỊ TRANG MUA
-   ===================================================== */
-
-function showPurchasePage(){
-
-    const account =
-        getPurchaseAccount();
-
-
-    if(!account){
-        return;
-    }
-
-
-    document
-        .querySelector("main.container")
-        .style.display = "none";
-
-
-    document
-        .querySelector("footer")
-        .style.display = "none";
-
-
-    document
-        .getElementById("orderModal")
-        .classList.remove("show");
-
-
-    const page =
-        document.getElementById("purchasePage");
-
-
-    page.classList.add("show");
-
-
-    document
-        .getElementById("purchaseTitle")
-        .textContent =
-            "🛒 Mua " + account.name;
-
-
-    const free =
-        Number(account.price) === 0;
-
-
-    /* ============================
-       THÔNG TIN SẢN PHẨM
-       ============================ */
-
-    document
-        .getElementById("purchaseProduct")
-        .innerHTML = `
-
-        <div class="purchase-row">
-
-            <span>
-                Sản phẩm
-            </span>
-
-            <b>
-                ${escapeHTML(account.name)}
-            </b>
-
-        </div>
-
-
-        <div class="purchase-row">
-
-            <span>
-                Mã sản phẩm
-            </span>
-
-            <b>
-                ${escapeHTML(account.id)}
-            </b>
-
-        </div>
-
-
-        <div class="purchase-row">
-
-            <span>
-                Gói
-            </span>
-
-            <b>
-                ${escapeHTML(account.package)}
-            </b>
-
-        </div>
-
-
-        <div class="purchase-row">
-
-            <span>
-                Tình trạng
-            </span>
-
-            <b>
-                ${escapeHTML(account.status)}
-            </b>
-
-        </div>
-
-
-        <div class="purchase-row">
-
-            <span>
-                Giá
-            </span>
-
-            <strong class="purchase-price ${free ? "free" : ""}">
-                ${formatMoney(account.price)}
-            </strong>
-
-        </div>
-
-
-        <div style="margin-top:10px;color:#4b5563">
-            ${escapeHTML(account.description)}
-        </div>
-
-
-        ${
-            account.package === "0K"
-                ? getFreePurchaseInfo(account)
-                : ""
-        }
-
-    `;
-
-
-    /* ============================
-       XÓA FORM CŨ
-       ============================ */
-
-    document
-        .getElementById("purchaseCustomerName")
-        .value = "";
-
-
-    document
-        .getElementById("purchaseRobloxUsername")
-        .value = "";
-
-
-    document
-        .getElementById("purchaseNote")
-        .value = "";
-
-}
-
-
-/* =====================================================
-   QUAY LẠI DANH SÁCH
-   ===================================================== */
-
-function backToAccounts(){
-
-    window.location.href =
-        window.location.pathname;
-
-}
-
-
-/* =====================================================
-   XÁC NHẬN MUA
-   ===================================================== */
-
-function confirmPurchase(){
-
-    const account =
-        getPurchaseAccount();
-
-
-    if(!account){
-
-        alert("Không tìm thấy sản phẩm.");
-
-        return;
-    }
-
-
-    if(account.status !== "Còn hàng"){
-
-        alert("Sản phẩm đã hết hàng.");
-
-        return;
-    }
-
-
-    const customerName =
-        document
-            .getElementById("purchaseCustomerName")
-            .value
-            .trim();
-
-
-    const robloxUsername =
-        document
-            .getElementById("purchaseRobloxUsername")
-            .value
-            .trim();
-
-
-    const note =
-        document
-            .getElementById("purchaseNote")
-            .value
-            .trim();
-
-
-    if(!customerName){
-
-        alert("Vui lòng nhập tên khách.");
-
-        return;
-    }
-
-
-    if(!robloxUsername){
-
-        alert("Vui lòng nhập Username Roblox.");
-
-        return;
-    }
-
-
-    const orderCode =
-        "SAE-" +
-        Date.now()
-            .toString()
-            .slice(-8);
-
-
-    const order = {
-
-        maDon:orderCode,
-
-        loaiDon:"ACC",
-
-        maSanPham:account.id,
-
-        sanPham:account.name,
-
-        goi:account.package,
-
-        gia:Number(account.price),
-
-        tenKhach:customerName,
-
-        usernameRoblox:robloxUsername,
-
-        ghiChu:note,
-
-        trangThai:"Chờ xử lý",
-
-        ngayTao:
-            new Date()
-                .toLocaleString("vi-VN")
-
-    };
-
-
-    const storageKey =
-        "shopkarot_steal_an_egg_orders";
-
-
-    const orders =
-        JSON.parse(
-            localStorage.getItem(storageKey)
-            || "[]"
-        );
-
-
-    orders.push(order);
-
-
-    localStorage.setItem(
-        storageKey,
-        JSON.stringify(orders)
-    );
-
-
-    alert(
-
-        "✅ Đặt hàng thành công!\n\n" +
-
-        "Mã đơn: " +
-        orderCode +
-
-        "\nSản phẩm: " +
-        account.name +
-
-        "\nGói: " +
-        account.package +
-
-        "\nGiá: " +
-        formatMoney(account.price)
-
-    );
-
-
-    backToAccounts();
-
-}
-
-
-/* =====================================================
-   MỞ MODAL DỊCH VỤ
-   ===================================================== */
-
-function openOrder(
-    type,
-    id,
-    name,
-    packageName,
-    price
-){
-
-    currentOrder = {
-
-        type:type,
-
-        id:id,
-
-        name:name,
-
-        package:packageName,
-
-        price:Number(price)
-
-    };
-
-
-    document
-        .getElementById("modalTitle")
-        .textContent =
-
-            type === "ACC"
-
-                ? "🛒 Mua Acc Steal an Egg"
-
-                : "🛠️ Đặt dịch vụ Steal an Egg";
-
-
-    document
-        .getElementById("selectedProduct")
-        .innerHTML = `
-
-            <b>
-                ${escapeHTML(name)}
-            </b>
-
-            ${
-                packageName
-                    ? `<br>Gói:
-                       <b>${escapeHTML(packageName)}</b>`
-                    : ""
-            }
-
-            <br>
-
-            Giá:
-            <b>
-                ${formatMoney(price)}
-            </b>
-
-        `;
-
-
-    document
-        .getElementById("customerName")
-        .value = "";
-
-
-    document
-        .getElementById("robloxUsername")
-        .value = "";
-
-
-    document
-        .getElementById("customerNote")
-        .value = "";
-
-
-    document
-        .getElementById("orderModal")
-        .classList.add("show");
-
-}
-
-
-/* =====================================================
-   ĐÓNG MODAL
-   ===================================================== */
-
-function closeModal(){
-
-    document
-        .getElementById("orderModal")
-        .classList.remove("show");
-
-
-    currentOrder = null;
-
-}
-
-
-/* =====================================================
-   GỬI ĐƠN DỊCH VỤ
-   ===================================================== */
-
-function submitOrder(){
-
-    if(!currentOrder){
-
-        alert("Chưa chọn sản phẩm.");
-
-        return;
-    }
-
-
-    const customerName =
-        document
-            .getElementById("customerName")
-            .value
-            .trim();
-
-
-    const robloxUsername =
-        document
-            .getElementById("robloxUsername")
-            .value
-            .trim();
-
-
-    const note =
-        document
-            .getElementById("customerNote")
-            .value
-            .trim();
-
-
-    if(!customerName){
-
-        alert("Vui lòng nhập tên khách.");
-
-        return;
-    }
-
-
-    if(!robloxUsername){
-
-        alert("Vui lòng nhập Username Roblox.");
-
-        return;
-    }
-
-
-    const orderCode =
-        "SAE-" +
-        Date.now()
-            .toString()
-            .slice(-8);
-
-
-    const order = {
-
-        maDon:orderCode,
-
-        loaiDon:currentOrder.type,
-
-        maSanPham:currentOrder.id,
-
-        sanPham:currentOrder.name,
-
-        goi:currentOrder.package,
-
-        gia:currentOrder.price,
-
-        tenKhach:customerName,
-
-        usernameRoblox:robloxUsername,
-
-        ghiChu:note,
-
-        trangThai:"Chờ xử lý",
-
-        ngayTao:
-            new Date()
-                .toLocaleString("vi-VN")
-
-    };
-
-
-    const storageKey =
-        "shopkarot_steal_an_egg_orders";
-
-
-    const orders =
-        JSON.parse(
-            localStorage.getItem(storageKey)
-            || "[]"
-        );
-
-
-    orders.push(order);
-
-
-    localStorage.setItem(
-        storageKey,
-        JSON.stringify(orders)
-    );
-
-
-    alert(
-
-        "✅ Đặt hàng thành công!\n\n" +
-
-        "Mã đơn: " +
-        orderCode +
-
-        "\nSản phẩm: " +
-        currentOrder.name +
-
-        "\nGiá: " +
-        formatMoney(currentOrder.price)
-
-    );
-
-
-    closeModal();
-
-}
-
-
-/* =====================================================
-   QUAY VỀ SHOP
-   ===================================================== */
-
-function goBack(){
-
-    if(document.referrer){
-
-        history.back();
-
-        return;
-    }
-
-
-    window.location.href =
-        BACK_URL;
-
-}
-
-
-/* =====================================================
-   CLICK NGOÀI MODAL
-   ===================================================== */
-
-document
-    .getElementById("orderModal")
-    .addEventListener(
-        "click",
-        function(event){
-
-            if(event.target === this){
-
-                closeModal();
-
-            }
-
-        }
-    );
-
-
-/* =====================================================
-   PHÍM ESC
-   ===================================================== */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Escape"){
-
-            closeModal();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   KHỞI ĐỘNG
-   ===================================================== */
-
 renderAccounts(accounts);
-
 renderServices(services);
-
-showPurchasePage();
 
 </script>
 
