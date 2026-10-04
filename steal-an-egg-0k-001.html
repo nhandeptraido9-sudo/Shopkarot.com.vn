@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+>
+
+<title>SHOPKAROT - Acc Steal an Egg 0K</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+   ===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+
+/* =====================================================
+   BODY
+   ===================================================== */
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f4f6;
+    color:#111827;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #1f2937
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.18);
+}
+
+
+.header-inner{
+    max-width:900px;
+    min-height:68px;
+
+    margin:auto;
+    padding:12px 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+}
+
+
+.logo span{
+    color:#facc15;
+}
+
+
+.back-btn{
+    border:0;
+
+    background:#374151;
+    color:#fff;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+.back-btn:hover{
+    background:#4b5563;
+}
+
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.container{
+    max-width:900px;
+
+    margin:auto;
+
+    padding:
+        22px 16px 50px;
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #f59e0b
+        );
+
+    border-radius:20px;
+
+    padding:
+        30px 25px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.10);
+}
+
+
+.hero:after{
+    content:"🥚";
+
+    position:absolute;
+
+    right:35px;
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    font-size:90px;
+
+    opacity:.18;
+}
+
+
+.hero h1{
+    position:relative;
+
+    z-index:1;
+
+    margin:
+        0 0 8px;
+
+    font-size:32px;
+}
+
+
+.hero p{
+    position:relative;
+
+    z-index:1;
+
+    margin:0;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   THÔNG BÁO
+   ===================================================== */
+
+.notice-card{
+
+    background:#fff;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.08);
+}
+
+
+.notice-main-title{
+
+    margin:
+        0 0 20px;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    color:#111827;
+}
+
+
+/* =====================================================
+   NOTICE SECTION
+   ===================================================== */
+
+.notice-section{
+
+    margin-bottom:22px;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:#f9fafb;
+
+    border:
+        1px solid #e5e7eb;
+}
+
+
+.notice-section:last-child{
+    margin-bottom:0;
+}
+
+
+.notice-section h2{
+
+    margin:
+        0 0 12px;
+
+    font-size:19px;
+
+    line-height:1.4;
+}
+
+
+.notice-section p{
+
+    margin:
+        7px 0;
+
+    line-height:1.7;
+
+    color:#374151;
+}
+
+
+.notice-section ul{
+
+    margin:
+        10px 0 0;
+
+    padding-left:23px;
+}
+
+
+.notice-section li{
+
+    margin:
+        8px 0;
+
+    line-height:1.65;
+
+    color:#374151;
+}
+
+
+/* =====================================================
+   CẢNH BÁO ĐỎ
+   ===================================================== */
+
+.warning{
+
+    background:#fee2e2;
+
+    border:
+        1px solid #fecaca;
+
+    color:#991b1b;
+
+    border-radius:11px;
+
+    padding:13px;
+
+    margin-top:12px;
+
+    font-weight:800;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
+.global-box{
+
+    background:#eff6ff;
+
+    border:
+        1px solid #bfdbfe;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    color:#1e3a8a;
+
+    font-weight:800;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   0K
+   ===================================================== */
+
+.free-box{
+
+    background:#ecfdf5;
+
+    border:
+        1px solid #bbf7d0;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    color:#166534;
+
+    line-height:1.7;
+}
+
+
+.free-title{
+
+    font-weight:900;
+
+    margin-bottom:7px;
+}
+
+
+/* =====================================================
+   UPDATE
+   ===================================================== */
+
+.update-box{
+
+    background:#fff7ed;
+
+    border:
+        1px solid #fed7aa;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    color:#9a3412;
+
+    line-height:1.7;
+}
+
+
+.update-box strong{
+    color:#c2410c;
+}
+
+
+/* =====================================================
+   CONTACT
+   ===================================================== */
+
+.contact-box{
+
+    margin-top:12px;
+
+    background:#fff;
+
+    border:
+        1px dashed #f97316;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    font-weight:800;
+
+}
+
+
+/* =====================================================
+   PRODUCT
+   ===================================================== */
+
+.product-card{
+
+    background:#fff;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.08);
+
+    margin-bottom:22px;
+}
+
+
+.product-title{
+
+    margin:
+        0 0 17px;
+
+    font-size:22px;
+
+    font-weight:900;
+}
+
+
+.product-info{
+
+    background:#f9fafb;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    padding:15px;
+}
+
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:10px 0;
+
+    border-bottom:
+        1px solid #e5e7eb;
+}
+
+
+.info-row:last-child{
+    border-bottom:0;
+}
+
+
+.info-label{
+    color:#6b7280;
+}
+
+
+.price{
+
+    color:#16a34a;
+
+    font-size:26px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.form-card{
+
+    background:#fff;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.08);
+}
+
+
+.form-title{
+
+    margin:
+        0 0 18px;
+
+    font-size:21px;
+
+    font-weight:900;
+}
+
+
+.form-group{
+    margin-bottom:15px;
+}
+
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-weight:800;
+}
+
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-family:inherit;
+}
+
+
+.form-group textarea{
+
+    min-height:95px;
+
+    resize:vertical;
+}
+
+
+.confirm-btn{
+
+    width:100%;
+
+    border:0;
+
+    background:#16a34a;
+
+    color:#fff;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+
+.confirm-btn:hover{
+    background:#15803d;
+}
+
+
+.back-list{
+
+    width:100%;
+
+    border:0;
+
+    background:#111827;
+
+    color:#fff;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    margin-top:10px;
+}
+
+
+.back-list:hover{
+    background:#374151;
+}
+
+
+/* =====================================================
+   NOTICE BOTTOM
+   ===================================================== */
+
+.bottom-notice{
+
+    margin-top:14px;
+
+    padding:11px;
+
+    background:#fff7ed;
+
+    border:
+        1px solid #fed7aa;
+
+    border-radius:10px;
+
+    color:#9a3412;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer{
+
+    text-align:center;
+
+    color:#6b7280;
+
+    padding:
+        25px 15px;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media(max-width:600px){
+
+    .header-inner{
+
+        flex-direction:column;
+    }
+
+
+    .logo{
+
+        text-align:center;
+
+        font-size:20px;
+    }
+
+
+    .hero h1{
+
+        font-size:27px;
+    }
+
+
+    .hero:after{
+
+        font-size:60px;
+
+        right:15px;
+    }
+
+
+    .info-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:4px;
+    }
+
+
+    .notice-card,
+    .product-card,
+    .form-card{
+
+        padding:17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="logo">
+
+            SHOP<span>KAROT</span>
+            - STEAL AN EGG
+
+        </div>
+
+
+        <button
+            class="back-btn"
+            onclick="location.href='steal-an-egg.html'"
+        >
+
+            ← Về Shop
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero">
+
+    <h1>
+        🥚 Acc Steal an Egg #001
+    </h1>
+
+    <p>
+        Thông tin chi tiết ACC gói 0K
+        tại SHOPKAROT.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     THÔNG BÁO MỚI
+     ===================================================== -->
+
+<section class="notice-card">
+
+
+    <h2 class="notice-main-title">
+
+        📢 THÔNG BÁO MỚI
+
+    </h2>
+
+
+    <!-- GLOBAL -->
+
+    <div class="notice-section">
+
+        <h2>
+            🌍 90% ACC TRÊN SHOP ĐỀU LÀ ACC QUỐC TẾ (GLOBAL)
+        </h2>
+
+
+        <div class="global-box">
+
+            🌍 90% ACC trên Shop đều là
+            <strong>ACC QUỐC TẾ (GLOBAL)</strong>.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUAY CLIP -->
+
+    <div class="notice-section">
+
+        <h2>
+            🎥 YÊU CẦU QUAY CLIP
+        </h2>
+
+
+        <p>
+            <strong>
+                BẮT BUỘC quay video liên tục từ lúc mua ACC
+                → đến khi LOGIN thành công vào ACC.
+            </strong>
+        </p>
+
+
+        <div class="warning">
+
+            ⚠️ Không được tách video thành nhiều đoạn.
+
+        </div>
+
+
+        <div class="warning">
+
+            ⚠️ Phải quay liền mạch từ lúc mua
+            → LOGIN ACC.
+
+        </div>
+
+
+        <div class="warning">
+
+            ❌ Sai yêu cầu = KHÔNG ĐƯỢC BẢO HÀNH.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ACC 0K -->
+
+    <div class="notice-section">
+
+        <h2>
+            🟢 ĐỐI VỚI ACC 0K
+        </h2>
+
+
+        <div class="free-box">
+
+            <div class="free-title">
+
+                🟢 ACC 0K = KHÔNG CÓ BẢO HÀNH.
+
+            </div>
+
+
+            <div>
+
+                Sau khi nhận ACC 0K,
+                khách hàng cần kiểm tra
+                và đăng nhập ngay.
+
+            </div>
+
+        </div>
+
+
+        <div class="warning">
+
+            ⚠️ Shop không chịu trách nhiệm bảo hành
+            đối với <strong>ACC 0K</strong>,
+            kể cả trường hợp không đăng nhập được
+            sau khi nhận ACC.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STEAL AN EGG -->
+
+    <div class="notice-section">
+
+        <h2>
+            🥚 THÔNG TIN ACC STEAL AN EGG
+        </h2>
+
+
+        <ul>
+
+            <li>
+                🐾 Có <strong>10 Pet trở lên</strong>,
+                số lượng và Pet <strong>ngẫu nhiên</strong>.
+            </li>
+
+
+            <li>
+                🔮 Có <strong>1–2 Pet Secret</strong>.
+            </li>
+
+
+            <li>
+                🎁 Các <strong>Item còn lại ngẫu nhiên</strong>.
+            </li>
+
+
+            <li>
+                📦 Mỗi ACC có thể có nội dung khác nhau
+                tùy theo kho ACC.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- UPDATE -->
+
+    <div class="notice-section">
+
+        <h2>
+            🔄 THÔNG BÁO CẬP NHẬT SẢN PHẨM
+        </h2>
+
+
+        <div class="update-box">
+
+            <p>
+
+                ⚠️
+                <strong>
+                    SẢN PHẨM HIỆN TẠI ĐANG ĐƯỢC CẬP NHẬT.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Trong thời gian cập nhật,
+                <strong>
+                    một số ACC có thể chưa được hiển thị đầy đủ
+                    trên Shop.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                👉 Nếu bạn muốn mua ACC Steal an Egg
+                trong thời gian này,
+                <strong>
+                    vui lòng liên hệ Admin trước khi mua
+                </strong>
+                để kiểm tra kho và được hỗ trợ.
+
+            </p>
+
+
+            <div class="contact-box">
+
+                📩 <strong>
+                    Liên hệ Admin để mua ACC trước.
+                </strong>
+
+            </div>
+
+
+            <div class="warning">
+
+                ⚠️
+                <strong>
+                    Không tự ý mua khi chưa xác nhận với Admin.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     THÔNG TIN ACC
+     ===================================================== -->
+
+<section class="product-card">
+
+    <h2 class="product-title">
+
+        📦 Thông tin ACC
+
+    </h2>
+
+
+    <div class="product-info">
+
+
+        <div class="info-row">
+
+            <span class="info-label">
+                Tên acc
+            </span>
+
+            <b>
+                Acc Steal an Egg #001
+            </b>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <span class="info-label">
+                Mã acc
+            </span>
+
+            <b>
+                SAE-0K-001
+            </b>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <span class="info-label">
+                Gói
+            </span>
+
+            <b>
+                0K
+            </b>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <span class="info-label">
+                Tình trạng
+            </span>
+
+            <b style="color:#16a34a">
+
+                🟢 Còn hàng
+
+            </b>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <span class="info-label">
+                Giá
+            </span>
+
+            <strong class="price">
+
+                0đ
+
+            </strong>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FORM MUA
+     ===================================================== -->
+
+<section class="form-card">
+
+
+    <h2 class="form-title">
+
+        🛒 Đặt mua ACC 0K
+
+    </h2>
+
+
+    <div class="form-group">
+
+        <label for="customerName">
+
+            Tên khách
+
+        </label>
+
+
+        <input
+            id="customerName"
+            type="text"
+            placeholder="Nhập tên khách"
+        >
+
+    </div>
+
+
+
+    <div class="form-group">
+
+        <label for="robloxUsername">
+
+            Username Roblox
+
+        </label>
+
+
+        <input
+            id="robloxUsername"
+            type="text"
+            placeholder="Nhập Username Roblox"
+        >
+
+    </div>
+
+
+
+    <div class="form-group">
+
+        <label for="customerNote">
+
+            Ghi chú
+
+        </label>
+
+
+        <textarea
+            id="customerNote"
+            placeholder="Nhập ghi chú nếu cần..."
+        ></textarea>
+
+    </div>
+
+
+
+    <button
+        class="confirm-btn"
+        onclick="submitOrder()"
+    >
+
+        ✅ Xác nhận mua ACC 0K
+
+    </button>
+
+
+
+    <button
+        class="back-list"
+        onclick="location.href='steal-an-egg.html'"
+    >
+
+        ← Quay lại danh sách ACC
+
+    </button>
+
+
+
+    <div class="bottom-notice">
+
+        Sau khi đặt đơn,
+        hệ thống sẽ tạo mã đơn.
+        Hãy lưu lại mã đơn để Admin kiểm tra.
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    SHOPKAROT © 2026 - Steal an Egg
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   GỬI ĐƠN
+   ===================================================== */
+
+function submitOrder(){
+
+
+    const customerName =
+        document
+            .getElementById("customerName")
+            .value
+            .trim();
+
+
+    const robloxUsername =
+        document
+            .getElementById("robloxUsername")
+            .value
+            .trim();
+
+
+    const note =
+        document
+            .getElementById("customerNote")
+            .value
+            .trim();
+
+
+
+    if(!customerName){
+
+        alert(
+            "Vui lòng nhập tên khách."
+        );
+
+        return;
+
+    }
+
+
+
+    if(!robloxUsername){
+
+        alert(
+            "Vui lòng nhập Username Roblox."
+        );
+
+        return;
+
+    }
+
+
+
+    const orderCode =
+        "SAE-" +
+        Date.now()
+            .toString()
+            .slice(-8);
+
+
+
+    const order = {
+
+        maDon:
+            orderCode,
+
+        loaiDon:
+            "ACC",
+
+        maSanPham:
+            "SAE-0K-001",
+
+        sanPham:
+            "Acc Steal an Egg #001",
+
+        goi:
+            "0K",
+
+        gia:
+            0,
+
+        tenKhach:
+            customerName,
+
+        usernameRoblox:
+            robloxUsername,
+
+        ghiChu:
+            note,
+
+        trangThai:
+            "Chờ xử lý",
+
+        ngayTao:
+            new Date()
+                .toLocaleString("vi-VN")
+
+    };
+
+
+
+    const storageKey =
+        "shopkarot_steal_an_egg_orders";
+
+
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem(storageKey)
+            || "[]"
+        );
+
+
+
+    orders.push(order);
+
+
+
+    localStorage.setItem(
+
+        storageKey,
+
+        JSON.stringify(orders)
+
+    );
+
+
+
+    alert(
+
+        "✅ ĐẶT ACC THÀNH CÔNG!\n\n" +
+
+        "Mã đơn: " +
+        orderCode +
+
+        "\nSản phẩm: " +
+        "Acc Steal an Egg #001" +
+
+        "\nGói: 0K" +
+
+        "\nGiá: 0đ"
+
+    );
+
+
+
+    location.href =
+        "steal-an-egg.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
