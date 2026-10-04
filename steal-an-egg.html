@@ -419,6 +419,120 @@ footer{
         right:15px;
     }
 }
+
+/* ================= TRANG MUA RIÊNG ================= */
+.purchase-page{
+    display:none;
+    min-height:calc(100vh - 68px);
+    padding:35px 16px 60px;
+}
+.purchase-page.show{display:block}
+.purchase-wrap{
+    max-width:650px;
+    margin:0 auto;
+}
+.purchase-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 8px 28px rgba(0,0,0,.10);
+}
+.purchase-top{
+    text-align:center;
+    margin-bottom:22px;
+}
+.purchase-icon{
+    font-size:58px;
+    margin-bottom:8px;
+}
+.purchase-top h1{
+    margin:0 0 8px;
+    font-size:28px;
+}
+.purchase-top p{
+    margin:0;
+    color:#6b7280;
+}
+.purchase-product{
+    background:#f9fafb;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:18px;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+.purchase-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    border-bottom:1px solid #e5e7eb;
+    padding:8px 0;
+}
+.purchase-row:last-child{border-bottom:0}
+.purchase-price{
+    font-size:28px;
+    font-weight:900;
+    color:#dc2626;
+}
+.purchase-price.free{color:#16a34a}
+.purchase-form{
+    display:grid;
+    gap:14px;
+}
+.purchase-form label{
+    font-weight:800;
+}
+.purchase-form input,
+.purchase-form textarea{
+    width:100%;
+    padding:13px;
+    margin-top:6px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+    font-family:inherit;
+}
+.purchase-form textarea{
+    min-height:95px;
+    resize:vertical;
+}
+.purchase-confirm{
+    width:100%;
+    border:0;
+    background:#16a34a;
+    color:#fff;
+    padding:14px;
+    border-radius:11px;
+    font-weight:900;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:4px;
+}
+.purchase-confirm:hover{background:#15803d}
+.purchase-back{
+    width:100%;
+    border:0;
+    background:#111827;
+    color:#fff;
+    padding:13px;
+    border-radius:11px;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:10px;
+}
+.purchase-back:hover{background:#374151}
+.purchase-notice{
+    margin-top:16px;
+    padding:12px;
+    border-radius:10px;
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    color:#9a3412;
+    font-size:13px;
+    line-height:1.6;
+}
+
 </style>
 </head>
 
@@ -440,6 +554,51 @@ footer{
 
 
 <main class="container">
+
+<!-- ================= TRANG MUA ACC RIÊNG ================= -->
+<section id="purchasePage" class="purchase-page">
+    <div class="purchase-wrap">
+        <div class="purchase-card">
+            <div class="purchase-top">
+                <div class="purchase-icon">🥚</div>
+                <h1 id="purchaseTitle">Mua Acc Steal an Egg</h1>
+                <p>SHOPKAROT - Trang mua sản phẩm</p>
+            </div>
+
+            <div id="purchaseProduct" class="purchase-product"></div>
+
+            <div class="purchase-form">
+                <div>
+                    <label for="purchaseCustomerName">Tên khách</label>
+                    <input id="purchaseCustomerName" type="text" placeholder="Nhập tên khách">
+                </div>
+
+                <div>
+                    <label for="purchaseRobloxUsername">Username Roblox</label>
+                    <input id="purchaseRobloxUsername" type="text" placeholder="Nhập Username Roblox">
+                </div>
+
+                <div>
+                    <label for="purchaseNote">Ghi chú</label>
+                    <textarea id="purchaseNote" placeholder="Nhập ghi chú nếu cần..."></textarea>
+                </div>
+
+                <button class="purchase-confirm" onclick="confirmPurchase()">
+                    ✅ Xác nhận mua acc
+                </button>
+
+                <button class="purchase-back" onclick="backToAccounts()">
+                    ← Quay lại danh sách acc
+                </button>
+            </div>
+
+            <div class="purchase-notice">
+                Sau khi đặt đơn, hệ thống sẽ tạo mã đơn. Hãy lưu lại mã đơn để Admin kiểm tra.
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <div class="hero">
         <h1>🥚 Steal an Egg</h1>
@@ -858,13 +1017,7 @@ function renderAccounts(data){
                 <button
                     class="buy-btn"
                     ${sold ? "disabled" : ""}
-                    onclick="openOrder(
-                        'ACC',
-                        '${escapeJS(acc.id)}',
-                        '${escapeJS(acc.name)}',
-                        '${escapeJS(acc.package)}',
-                        ${Number(acc.price)}
-                    )"
+                    onclick="goToPurchase('${escapeJS(acc.id)}')"
                 >
 
                     ${sold
@@ -1113,6 +1266,172 @@ function filterServices(){
 /* =====================================================
    MỞ FORM ĐẶT HÀNG
    ===================================================== */
+
+
+/* =====================================================
+   TRANG MUA RIÊNG THEO TỪNG GÓI
+   URL ví dụ:
+   ?buy=SAE-0K-001
+   ?buy=SAE-20K-001
+   ?buy=SAE-50K-001
+   ===================================================== */
+
+function goToPurchase(productId){
+    window.location.href =
+        window.location.pathname + "?buy=" +
+        encodeURIComponent(productId);
+}
+
+function getPurchaseAccount(){
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("buy");
+
+    if(!productId){
+        return null;
+    }
+
+    return accounts.find(acc => acc.id === productId) || null;
+}
+
+function showPurchasePage(){
+    const account = getPurchaseAccount();
+
+    if(!account){
+        return;
+    }
+
+    document.querySelector("main.container").style.display = "none";
+    document.querySelector("footer").style.display = "none";
+    document.getElementById("orderModal").classList.remove("show");
+
+    const page = document.getElementById("purchasePage");
+    page.classList.add("show");
+
+    document.getElementById("purchaseTitle").textContent =
+        "🛒 Mua " + account.name;
+
+    const free = Number(account.price) === 0;
+
+    document.getElementById("purchaseProduct").innerHTML = `
+        <div class="purchase-row">
+            <span>Sản phẩm</span>
+            <b>${escapeHTML(account.name)}</b>
+        </div>
+
+        <div class="purchase-row">
+            <span>Mã sản phẩm</span>
+            <b>${escapeHTML(account.id)}</b>
+        </div>
+
+        <div class="purchase-row">
+            <span>Gói</span>
+            <b>${escapeHTML(account.package)}</b>
+        </div>
+
+        <div class="purchase-row">
+            <span>Tình trạng</span>
+            <b>${escapeHTML(account.status)}</b>
+        </div>
+
+        <div class="purchase-row">
+            <span>Giá</span>
+            <strong class="purchase-price ${free ? "free" : ""}">
+                ${formatMoney(account.price)}
+            </strong>
+        </div>
+
+        <div style="margin-top:10px;color:#4b5563">
+            ${escapeHTML(account.description)}
+        </div>
+    `;
+
+    document.getElementById("purchaseCustomerName").value = "";
+    document.getElementById("purchaseRobloxUsername").value = "";
+    document.getElementById("purchaseNote").value = "";
+}
+
+function backToAccounts(){
+    window.location.href = window.location.pathname;
+}
+
+function confirmPurchase(){
+    const account = getPurchaseAccount();
+
+    if(!account){
+        alert("Không tìm thấy sản phẩm.");
+        return;
+    }
+
+    if(account.status !== "Còn hàng"){
+        alert("Sản phẩm đã hết hàng.");
+        return;
+    }
+
+    const customerName =
+        document.getElementById("purchaseCustomerName")
+            .value.trim();
+
+    const robloxUsername =
+        document.getElementById("purchaseRobloxUsername")
+            .value.trim();
+
+    const note =
+        document.getElementById("purchaseNote")
+            .value.trim();
+
+    if(!customerName){
+        alert("Vui lòng nhập tên khách.");
+        return;
+    }
+
+    if(!robloxUsername){
+        alert("Vui lòng nhập Username Roblox.");
+        return;
+    }
+
+    const orderCode =
+        "SAE-" +
+        Date.now().toString().slice(-8);
+
+    const order = {
+        maDon: orderCode,
+        loaiDon: "ACC",
+        maSanPham: account.id,
+        sanPham: account.name,
+        goi: account.package,
+        gia: Number(account.price),
+        tenKhach: customerName,
+        usernameRoblox: robloxUsername,
+        ghiChu: note,
+        trangThai: "Chờ xử lý",
+        ngayTao: new Date().toLocaleString("vi-VN")
+    };
+
+    const storageKey =
+        "shopkarot_steal_an_egg_orders";
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem(storageKey) || "[]"
+        );
+
+    orders.push(order);
+
+    localStorage.setItem(
+        storageKey,
+        JSON.stringify(orders)
+    );
+
+    alert(
+        "✅ Đặt hàng thành công!\n\n" +
+        "Mã đơn: " + orderCode + "\n" +
+        "Sản phẩm: " + account.name + "\n" +
+        "Gói: " + account.package + "\n" +
+        "Giá: " + formatMoney(account.price)
+    );
+
+    backToAccounts();
+}
 
 function openOrder(
     type,
@@ -1395,11 +1714,10 @@ document.addEventListener(
    ===================================================== */
 
 renderAccounts(accounts);
-
 renderServices(services);
+showPurchasePage();
 
 </script>
 
 </body>
 </html>
-```
